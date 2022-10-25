@@ -1,170 +1,116 @@
 <!DOCTYPE html>
-<html lang="@@{website_lang}" dir="@@{website_dirLTR}">
+<html lang='@@{website_lang}' dir='@@{website_dirLTR}'>
 <head>
-	<meta charset="@@{website_charset}" />
-	<title>Video - @@{website_title}</title>	
-	@@include('./src/components/_global/include-header.html')
-</head>  
-
-     
-  <body class="page">
-  
-  
-          
-    @@include('./src/components/_global/include-loader.html')
-    @@include('./src/components/_global/include-toggle-trigger.html')
-    
-    
-
-  
-    <div class="uix-wrapper">
-    
-        <!-- Header Area
-        ============================================= -->      
-        <header class="uix-header__container">
-            
-             <div class="uix-header">
-                 <div class="container">
-                 
-                        @@include('./src/components/_global/include-brand.html')
-                        
-                        @@include('./src/components/_global/include-menu.html')
-                        
-                        
-                        
-                        
-                  </div>
-                  <!-- .container end -->
-                  
-                  <div class="uix-clearfix"></div>
-             </div>
-        
-        </header>
-        <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-      
-		
-		<main id="uix-maincontent">
-			
-			<!-- Content   
-			====================================================== -->
-			<section class="uix-spacing--s uix-spacing--no-bottom">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<h3>Video Embed</h3>
-							<hr>
-							
-							
-						</div>
-					</div>
-					<!-- .row end -->
-
-				</div>
-				<!-- .container end -->
-
-			</section>
-			
-			
-
-
-		   <!-- Content  
-			====================================================== -->
-			<section class="uix-spacing--s">
-				<div class="container">
-						<div class="row">
-							<div class="col-12">
-
-								  <div class="uix-relative" data-embed-video-wrapper="true">
-									  <div class="uix-video" data-embed-video-width="auto" data-embed-video-height="auto" data-embed-video-controls="true" data-embed-video-autoplay="false" data-embed-video-loop="false">
-										  <video id="video-demo-1" class="video-js vjs-default-skin" controls poster="assets/videos/480x270/demo.jpg">
-											  <source src="assets/videos/480x270/demo.mp4" type="video/mp4">
-											  <source src="assets/videos/480x270/demo.webm" type="video/webm">
-										  </video>
-									  </div> 
-								  </div>
-
-
-							</div>
-						</div>
-						<!-- .row end -->
-
-
-				</div>
-				<!-- .container end -->
-
-			</section>   
-
-
-		   <!-- Content   
-			====================================================== -->
-			<section>
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<h3>Video PopUp</h3>
-							<p>Set <code>data-video-win</code>, <code>data-video-poster</code>, <code>data-video-mp4</code>, <code>data-video-webm</code>, <code>data-video-ogv</code> and <code>data-modal-id</code> properties to create video interactions. </p>
-							<hr>
-							
-							
-						</div>
-					</div>
-					<!-- .row end -->
-
-				</div>
-				<!-- .container end -->
-
-			</section>
-			
-			
-
-
-		   <!-- Content  
-			====================================================== -->
-			<section class="uix-spacing--s">
-				<div class="container">
-						<div class="row">
-							<div class="col-12">
-
-
-								<a href="javascript:void(0)" data-video-win="true" data-video-poster="https://www.videvo.net/videvo_files/images/preview_hd0933.jpg" data-video-mp4="https://www.videvo.net//videvo_files/converted/2013_08/videos/hd0933.mov68938.mp4" data-video-webm="" data-video-ogv="" data-modal-id="web-modal-1" data-modal-close-onlybtn="false"><i class="fa fa-play-circle" aria-hidden="true"></i> Click Here to Open Third-party Video</a>
-								<br>
-
-								<a href="javascript:void(0)" data-video-win="true" data-video-poster="assets/videos/480x270/demo.jpg" data-video-mp4="assets/videos/480x270/demo.mp4" data-video-webm="" data-video-ogv="" data-modal-id="web-modal-44" data-modal-close-onlybtn="false"><i class="fa fa-play-circle" aria-hidden="true"></i> Click Here to Open Local video</a>
-								<br>
-
-
-
-								<a href="javascript:void(0)" data-video-win="true" data-video-poster="assets/videos/1920x1080/demo.jpg" data-video-mp4="" data-video-webm="" data-video-ogv="" data-modal-id="web-modal-2" data-modal-close-onlybtn="false"><span data-video-iframe="true"><iframe width="560" height="315" src="https://www.youtube.com/embed/ckYJBMfPtBs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></span><i class="fa fa-play-circle" aria-hidden="true"></i> Click Here to Open Youtube Video</a>
-								<br> 
-
-
-
-							</div>
-						</div>
-						<!-- .row end -->
-
-
-				</div>
-				<!-- .container end -->
-
-			</section>   
-
-			
-		</main>
-		
-    
-		   
-      
-    
-		
-        
-        
-        @@include('./src/components/_global/include-copyright.html')
-        
-        
-    </div>
-    <!-- .uix-wrapper end -->
-       
-       
-    @@include('./src/components/_global/include-footer.html')
+    <meta charset='@@{website_charset}' />
+    <title>视频 - @@{website_title}</title>
+    @@include('./src/components/_global/include-header.html')
+</head>
+<body class='page'>
+@@include('./src/components/_global/include-loader.html')
+@@include('./src/components/_global/include-toggle-trigger.html')
+<div class='uix-wrapper'>
+    <!-- Header Area
+    ============================================= -->
+    <header class='uix-header__container'>
+        <div class='uix-header'>
+            <div class='container'>
+                @@include('./src/components/_global/include-brand.html')
+                @@include('./src/components/_global/include-menu.html')
+            </div>
+            <!-- .container end -->
+            <div class='uix-clearfix'></div>
+        </div>
+    </header>
+    <div class='uix-header__placeholder js-uix-header__placeholder-autoheight'></div>
+    <main id='uix-maincontent'>
+        <!-- Content
+        ====================================================== -->
+        <section class='uix-spacing--s uix-spacing--no-bottom'>
+            <div class='container'>
+                <div class='row'>
+                    <div class='col-12'>
+                        <h3>嵌入视频</h3>
+                        <hr>
+                    </div>
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+        <!-- Content
+         ====================================================== -->
+        <section class='uix-spacing--s'>
+            <div class='container'>
+                <div class='row'>
+                    <div class='col-12'>
+                        <div class='uix-relative' data-embed-video-wrapper='true'>
+                            <div class='uix-video' data-embed-video-width='auto' data-embed-video-height='auto' data-embed-video-controls='true' data-embed-video-autoplay='false' data-embed-video-loop='false'>
+                                <video id='video-demo-1' class='video-js vjs-default-skin' controls poster='assets/videos/480x270/demo.jpg'>
+                                    <source src='assets/videos/480x270/demo.mp4' type='video/mp4'>
+                                    <source src='assets/videos/480x270/demo.webm' type='video/webm'>
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+        <!-- Content
+         ====================================================== -->
+        <section>
+            <div class='container'>
+                <div class='row'>
+                    <div class='col-12'>
+                        <h3>弹出视频</h3>
+                        <p>设置<code>data-video-win</code>、<code>data-video-poster</code>、<code>data-video-mp4</code>,
+                            <code>data-video-webm</code>, <code>data-video-ogv</code> 和
+                            <code>data-modal-id</code> 属性来创建视频互动。</p>
+                        <hr>
+                    </div>
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+        <!-- Content
+         ====================================================== -->
+        <section class='uix-spacing--s'>
+            <div class='container'>
+                <div class='row'>
+                    <div class='col-12'>
+                        <a href='javascript:void(0)' data-video-win='true' data-video-poster='https://www.videvo.net/videvo_files/images/preview_hd0933.jpg' data-video-mp4='https://www.videvo.net//videvo_files/converted/2013_08/videos/hd0933.mov68938.mp4' data-video-webm='' data-video-ogv='' data-modal-id='web-modal-1' data-modal-close-onlybtn='false'><i class='fa fa-play-circle' aria-hidden='true'></i> 单击此处打开第三方视频（需要科学上网）</a>
+                        <br>
+                        <a href='javascript:void(0)' data-video-win='true' data-video-poster='assets/videos/480x270/demo.jpg' data-video-mp4='assets/videos/480x270/demo.mp4' data-video-webm='' data-video-ogv='' data-modal-id='web-modal-44' data-modal-close-onlybtn='false'><i class='fa fa-play-circle' aria-hidden='true'></i> 单击此处打开本地视频</a>
+                        <br>
+                        <a href='javascript:void(0)' data-video-win='true' data-video-poster='assets/videos/1920x1080/demo.jpg' data-video-mp4='' data-video-webm='' data-video-ogv='' data-modal-id='web-modal-2' data-modal-close-onlybtn='false'>
+                            <span data-video-iframe='true'>
+                            <iframe width='560' height='315' src='https://www.youtube.com/embed/ckYJBMfPtBs' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>
+                        </span>
+                            <i class='fa fa-play-circle' aria-hidden='true'></i>
+                            单击此处打开 Youtube 视频（需要科学上网）</a>
+                        <br>
+                        <a href='javascript:void(0)' data-video-win='true' data-video-poster='assets/videos/1920x1080/demo.jpg' data-video-mp4='' data-video-webm='' data-video-ogv='' data-modal-id='web-modal-3' data-modal-close-onlybtn='false'><span data-video-iframe='true'>
+                        <iframe src="//player.bilibili.com/player.html?aid=689222438&bvid=BV1cm4y1w7gN&cid=865691909&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+                        </span><i class='fa fa-play-circle' aria-hidden='true'></i> 单击此处打开 哔哩哔哩 视频</a>
+                        <br>
+                        <a href='javascript:void(0)' data-video-win='true' data-video-poster='assets/videos/1920x1080/demo.jpg' data-video-mp4='' data-video-webm='' data-video-ogv='' data-modal-id='web-modal-4' data-modal-close-onlybtn='false'><span data-video-iframe='true'>
+                        <iframe height=498 width=510 src='https://player.youku.com/embed/XNTkxMTkyOTUzMg==' frameborder=0 allowfullscreen="true"></iframe>
+                        </span><i class='fa fa-play-circle' aria-hidden='true'></i> 单击此处打开 优酷 视频</a>
+                        <br>
+                        <a href='javascript:void(0)' data-video-win='true' data-video-poster='assets/videos/1920x1080/demo.jpg' data-video-mp4='' data-video-webm='' data-video-ogv='' data-modal-id='web-modal-5' data-modal-close-onlybtn='false'><span data-video-iframe='true'>
+                      <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=m3360od48n5" allowFullScreen="true"></iframe>
+                        </span><i class='fa fa-play-circle' aria-hidden='true'></i> 单击此处打开 腾讯视频 视频</a>
+                    </div>
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+    </main>
+    @@include('./src/components/_global/include-copyright.html')
+</div>
+<!-- .uix-wrapper end -->
+@@include('./src/components/_global/include-footer.html')
 
