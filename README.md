@@ -143,13 +143,13 @@ $ cd /{your_directory}/uix-kit
 **Step 3.** 安装开发环境
 
 ```sh
-$ sudo npm install
+$ yarn
 ```
 
 or
 
 ```sh
-$ sudo npm install --only=dev --unsafe-perm --production
+$ yarn --only=dev --unsafe-perm --production
 ```
 
 **Step 4.** 运行下面的代码来实时开发项目，修改模块功能
