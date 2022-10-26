@@ -1,18 +1,3 @@
-<p align="center">
-  <a href="https://github.com/xizon/uix-kit">
-	  <img src="misc/screenshots/logo-colorful.png"  alt="Uix Kit"  width="180" >
-  </a>
-</p>
-
-  <p align="center">超过<strong>120+</strong>基础模块，快速搭建你的响应式网站!</p>
-  <p align="center">
-     <a href="https://app.travis-ci.com/github/xizon/uix-kit" title="Travis CI"><img src="https://img.shields.io/travis/com/xizon/uix-kit?style=for-the-badge"/></a>
-      <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fxizon.github.io%2Fuix-kit%2Fexamples%2F" title="w3c"><img src="https://img.shields.io/w3c-validation/html?style=for-the-badge&targetUrl=https%3A%2F%2Fxizon.github.io%2Fuix-kit%2Fexamples%2F"/></a>
-	  <a href="https://www.npmjs.com/package/uix-kit" title="npm version"><img src="https://img.shields.io/npm/v/uix-kit?style=for-the-badge"/></a>
-	  <a href="https://github.com/xizon/uix-kit/blob/master/LICENSE" title="license"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=for-the-badge"/></a>
-
-  </p>
-
 Uix Kit是一个偏视觉交互的开发工具包，帮助开发者快速完成一套完整的交互型网站。**它不是一个框架**，所有的模块脚本和样式，全部由你掌控！
 
 这是一个不依赖任何框架的Web开发构建工具/脚手架。 您可以导入任何外部库、框架或本机ES模块进行生产。
@@ -34,17 +19,17 @@ GitHub pages只提供静态内容访问，AJAX和PHP请求无法预览效果，�
 
 ## 目录
 
-* [为何使用它?](#为何使用它)
+* [为何使用它](#为何使用它)
 * [目录结构](#目录结构)
 * [开发者基本操作](#开发者基本操作)
 * [入门指引](#入门指引)
-* [HTML模版](#html模版)
-* [如何创建一个新的自定义模块? &#128293;](#如何创建一个新的自定义模块)
+* [HTML模版](#HTML模版)
+* [如何创建一个新的自定义模块? &#128293;](#如何创建一个新的自定义模块? &#128293;)
 * [兼容性](#兼容性)
 * [支持的开发环境](#支持的开发环境)
 * [许可证](#许可证)
 
-## 为何使用它?
+## 为何使用它
 
 * 它不是可重用的组件结构
 * 它不是一个JavaScript框架
@@ -218,8 +203,8 @@ $ npm run check
   "projectName": "Uix Kit",
   "createdInfo": "UIUX Lab (https://uiux.cc)",
   "projectURL": "https://uiux.cc",
-  "description": "A free web kits for fast web design and development, compatible with Bootstrap v5.",
-  ...
+  "desc;ription": "A free web kits for fast web design and development, compatible with Bootstrap v5.",
+  "...":"" 
 }
 ```
 
@@ -254,35 +239,35 @@ $ sudo npm rebuild node-sass
 <!DOCTYPE html>
 <html dir='ltr' lang='en-US'>
 <head>
-    <meta charset='utf-8' />
-    <title>Web Site Title</title>
-    <!-- Compatibility Settings
-    ============================================= -->
-    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1' />
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <!-- Compatibility Settings end -->
-    <!-- Core & Theme CSS
-    ============================================= -->
-    <!-- Basic  -->
-    <link rel='stylesheet' href='assets/css/bootstrap.min.css?ver=5.0.2' media='all' />
-    <link rel='stylesheet' href='assets/css/video.min.css?ver=7.4.1' media='all' />
-    <!-- Icons  -->
-    <link rel='stylesheet' href='assets/fonts/fontawesome/css/all.min.css?ver=5.7.0'>
-    <link rel='stylesheet' href='assets/fonts/fontawesome/css/v4-shims.min.css?ver=5.7.0'>
-    <!-- Theme  -->
-    <link rel='stylesheet' href='../dist/css/uix-kit.min.css?ver=1.0.0' />
-    <!--[if lt IE 10]>
-    <link rel="stylesheet" href="assets/css/IE.css?ver=1.0.0" />
-    <![endif]-->
-    <!-- Core & Theme CSS  end -->
-    <!-- Vendor
-    ============================================= -->
-    <script src='assets/js/wp-jquery/jquery.min.js?ver=3.6.1'></script>
-    <script src='assets/js/min/modernizr.min.js?ver=3.5.0'></script>
-    <!-- Vendor  end -->
-    <!-- Break free from CSS prefix hell!
-    ============================================= -->
-    <script src='assets/js/min/prefixfree.min.js?ver=1.0.7'></script>
+   <meta charset='utf-8' />
+   <title>Web Site Title</title>
+   <!-- Compatibility Settings
+   ============================================= -->
+   <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1' />
+   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+   <!-- Compatibility Settings end -->
+   <!-- Core & Theme CSS
+   ============================================= -->
+   <!-- Basic  -->
+   <link rel='stylesheet' href='assets/css/bootstrap.min.css?ver=5.0.2' media='all' />
+   <link rel='stylesheet' href='assets/css/video.min.css?ver=7.4.1' media='all' />
+   <!-- Icons  -->
+   <link rel='stylesheet' href='assets/fonts/fontawesome/css/all.min.css?ver=5.7.0'>
+   <link rel='stylesheet' href='assets/fonts/fontawesome/css/v4-shims.min.css?ver=5.7.0'>
+   <!-- Theme  -->
+   <link rel='stylesheet' href='../dist/css/uix-kit.min.css?ver=1.0.0' />
+   <!--[if lt IE 10]>
+   <link rel="stylesheet" href="assets/css/IE.css?ver=1.0.0" />
+   <![endif]-->
+   <!-- Core & Theme CSS  end -->
+   <!-- Vendor
+   ============================================= -->
+   <script src='assets/js/wp-jquery/jquery.min.js?ver=3.6.1'></script>
+   <script src='assets/js/min/modernizr.min.js?ver=3.5.0'></script>
+   <!-- Vendor  end -->
+   <!-- Break free from CSS prefix hell!
+   ============================================= -->
+   <script src='assets/js/min/prefixfree.min.js?ver=1.0.7'></script>
 </head>
 <body>
 {your_html_codes_here}
@@ -300,22 +285,22 @@ $ sudo npm rebuild node-sass
 <!-- Your Plugins & Theme Scripts
 ============================================= -->
 <script>
-    /*
-    * Some global vars. DO NOT change these variables names. 
-    * These variables are being used in `uix-kit.min.js`.
-    *    
-    */
-    var REVISION = "1.0.0",
-        APP_ROOTPATH = {
-            "templateUrl": "", //If the file is in the root directory, you can leave it empty. If in another directory, you can write: "/blog"
-            "homeUrl": "",  //Eg. https://uiux.cc
-            "ajaxUrl": ""   //Eg. https://uiux.cc/wp-admin/admin-ajax.php
-        };
-    /*
-    * Fixed a bug that Cannot read property 'fn' of undefined for jQuery 1.xx.x.
-    *    
-    */
-    window.$ = window.jQuery;
+   /*
+   * Some global vars. DO NOT change these variables names. 
+   * These variables are being used in `uix-kit.min.js`.
+   *    
+   */
+   const REVISION = "1.0.0",
+           APP_ROOTPATH = {
+              "templateUrl": "", //If the file is in the root directory, you can leave it empty. If in another directory, you can write: "/blog"
+              "homeUrl": "",  //Eg. https://uiux.cc
+              "ajaxUrl": ""   //Eg. https://uiux.cc/wp-admin/admin-ajax.php
+           };
+   /*
+   * Fixed a bug that Cannot read property 'fn' of undefined for jQuery 1.xx.x.
+   *    
+   */
+   window.$ = window.jQuery;
 </script>
 <script src='../dist/js/uix-kit.min.js?ver=1.0.0'></script>
 </body>
@@ -553,9 +538,9 @@ if ( UixModuleInstance.DEMO_MODULE ) UixModuleInstance.DEMO_MODULE.documentReady
 
 ## 兼容性
 
-| Chrome | Firefox | Edge | IE| Safari |Opera | iOS  | Android
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| >= 49 | >= 45 | >=14 | >=11 | >= 9 | >= 30 | >=10 | >=4.4 |
+| Chrome | Firefox | Edge | IE   | Safari | Opera | iOS  | Android |
+|--------|---------|------|------|--------|-------|------|---------|
+| >= 49  | >= 45   | >=14 | >=11 | >= 9   | >= 30 | >=10 | >=4.4   |
 
 ## 支持的开发环境
 
