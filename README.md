@@ -221,11 +221,11 @@ $ npm run check
   "name": "uix-kit",
   "email": "uiuxlab@gmail.com",
   "version": "1.0.0",
-  "projectName": "Uix Kit",
+  "projectName": "Uix Kit 中文",
   "createdInfo": "UIUX Lab (https://uiux.cc)",
   "projectURL": "https://uiux.cc",
   "description": "A free web kits for fast web design and development, compatible with Bootstrap v5.",
-  ...
+  "..."
 }
 ```
 
