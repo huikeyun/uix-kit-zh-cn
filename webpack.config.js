@@ -71,7 +71,7 @@ const customWebsiteVersion     = json.version,
     customWebsiteAuthor      = ( Object.prototype.toString.call( json.author ) == '[object Object]' ) ? json.author.name : json.author,
     customWebsiteTitle       = json.projectName,
     customWebsiteDesc        = json.description,
-    customWebsiteGenerator   = 'Uix Kit',
+    customWebsiteGenerator   = 'Uix Kit 中文',
     customWebsiteHash        = randomString({length: 20}),
     customWebsiteComment     = `
 DO NOT OVERRIDE THIS FILE.
