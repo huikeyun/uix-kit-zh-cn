@@ -7,6 +7,7 @@
   <p align="center">超过<strong>120+</strong>基础模块，快速搭建你的响应式网站!</p>
   <p align="center">
      <a href="https://app.travis-ci.com/github/xizon/uix-kit" title="Travis CI"><img src="https://img.shields.io/travis/com/xizon/uix-kit?style=for-the-badge"/></a>
+      [![GitHub Pages](https://github.com/GeekMakerSun/uix-kit/actions/workflows/jekyll-gh-pages.yml/badge.svg?branch=zh-cn)](https://github.com/GeekMakerSun/uix-kit/actions/workflows/jekyll-gh-pages.yml)
       <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fxizon.github.io%2Fuix-kit%2Fexamples%2F" title="w3c"><img src="https://img.shields.io/w3c-validation/html?style=for-the-badge&targetUrl=https%3A%2F%2Fxizon.github.io%2Fuix-kit%2Fexamples%2F"/></a>
 	  <a href="https://www.npmjs.com/package/uix-kit" title="npm version"><img src="https://img.shields.io/npm/v/uix-kit?style=for-the-badge"/></a>
 	  <a href="https://github.com/xizon/uix-kit/blob/master/LICENSE" title="license"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=for-the-badge"/></a>
