@@ -4,11 +4,11 @@
  * Generated with "npm run build"
  *
  * ## Project Name        :  Uix Kit
- * ## Project Description :  A free web kits for fast web design and development, compatible with Bootstrap v5.
+ * ## Project Description :  一个快速网页设计和开发的偏视觉交互的免费开发工具包，与 Bootstrap v5 兼容。
  * ## Project URL         :  https://uiux.cc
  * ## Version             :  4.7.0
  * ## Based on            :  Uix Kit (https://github.com/xizon/uix-kit)
- * ## Last Update         :  October 22, 2022
+ * ## Last Update         :  October 26, 2022
  * ## Created by          :  UIUX Lab (https://uiux.cc) (uiuxlab@gmail.com)
  * ## Released under the MIT license.
  *
