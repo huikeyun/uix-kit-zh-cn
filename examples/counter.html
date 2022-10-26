@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-cn" dir="ltr">
+<html lang='@@{website_lang}' dir='@@{website_dirLTR}'>
 <head>
-	<meta charset="utf-8" />
-	<title>Counter - Uix Kit</title>	
-		<!-- Compatibility Settings
+    <meta charset='@@{website_charset}' />
+    <title>计数器 - @@{website_title}</title>
+    	<!-- Compatibility Settings
 	============================================= -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,11 +30,11 @@
 
 
 	<!-- Theme  -->
-	<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=9UiAQAgDFe7JT2FKwmre"/>
+	<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=@@{website_hash}"/>
 
 
 	<!--[if lt IE 10]>
-	<link rel="stylesheet" href="assets/css/IE.css?ver=9UiAQAgDFe7JT2FKwmre" />
+	<link rel="stylesheet" href="assets/css/IE.css?ver=@@{website_hash}" />
 	<![endif]-->
 
 
@@ -57,9 +57,9 @@
 
 	<!-- SEO
 	============================================= -->
-	<meta name="description" content="A free web kits for fast web design and development, compatible with Bootstrap v5.">
-	<meta name="generator" content="Uix Kit" />  
-	<meta name="author" content="UIUX Lab"> 
+	<meta name="description" content="@@{website_desc}">
+	<meta name="generator" content="@@{website_generator}" />  
+	<meta name="author" content="@@{website_author}"> 
 	<!-- SEO  end -->
 
 
@@ -72,14 +72,9 @@
 	<link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-touch-icon-114x114.png">
 	<!-- Favicons  end -->
 
-</head>  
-
-     
-  <body class="page">
-  
-  
-          
-    <!-- Loader
+</head>
+<body class='page'>
+<!-- Loader
 ============================================= -->
 <div class='uix-loader'>
     <!--[if lt IE 10]>
@@ -94,7 +89,7 @@
 <!-- .uix-loader end -->
     
 
-    
+
     <!-- Mobile Menu Toggle Trigger
     ============================================= -->    
 	<div class="uix-menu-mobile__toggle">
@@ -106,28 +101,20 @@
 	<!-- .uix-menu-mobile__toggle end -->
 
 			
-    
-    
-
-  
-    <div class="uix-wrapper">
-    
-        <!-- Header Area
-        ============================================= -->      
-        <header class="uix-header__container">
-            
-             <div class="uix-header">
-                 <div class="container">
-                 
-                                                <div class="uix-brand">
-                            <a href="index.html"><img src="assets/images/logo.png" alt="Uix Kit"></a>                       
+<div class='uix-wrapper'>
+    <!-- Header Area
+    ============================================= -->
+    <header class='uix-header__container'>
+        <div class='uix-header'>
+            <div class='container'>
+                                        <div class="uix-brand">
+                            <a href="index.html"><img src="assets/images/logo.png" alt="@@{website_title}"></a>                       
                         </div>
                         <!-- .uix-brand end -->
-                        
-                        <!-- Navigation Start-->
+                <!-- Navigation Start-->
 <nav class='uix-menu__container'>
     <div class='uix-menu__inner'>
-        <span class='uix-brand--mobile'><img src='assets/images/logo-colorful.png' alt='Uix Kit'></span>
+        <span class='uix-brand--mobile'><img src='assets/images/logo-colorful.png' alt='@@{website_title}'></span>
         <ul class='uix-menu'>
             <li class='multi-column current-menu-item is-active'><a href='index.html'>组件</a>
                 <ul class='sub-menu'>
@@ -377,170 +364,142 @@
                         
                  
                    
-                        
-                        
-                        
-                        
-                  </div>
-                  <!-- .container end -->
-                  
-                  <div class="uix-clearfix"></div>
-             </div>
-        
-        </header>
-        <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-      
-		<main id="uix-maincontent">
-			
-			<!-- Content 
-			====================================================== -->
-			<section class="uix-spacing--s uix-spacing--no-bottom">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<h3>Counter</span></h3>
-							<p>Scroll the page down to preview</p>
-							<hr>
-							
-							
-						</div>
-					</div>
-					<!-- .row end -->
-
-				</div>
-				<!-- .container end -->
-
-			</section>
-			
-			
-
-
-
-		   <!-- Content 
-			====================================================== -->
-			<section class="uix-spacing--s">
-				<div class="container uix-t-c">
-						<div class="row">
-							<div class="col-12 uix-trans">
-
-								<div class="row">
-									<div class="col-lg-3 col-md-3">
-										<h3 class="uix-spacing--no uix-outer-shadow--regular"><span data-counter-fixed="1" data-counter-number="23" data-counter-double-digits="false" data-counter-dilimiter="false" data-counter-duration="200">00</span></h3>
-									</div>
-									<div class="col-lg-3 col-md-3">
-										<h3 class="uix-spacing--no uix-outer-shadow--regular"><span data-counter-fixed="1" data-counter-number="30" data-counter-double-digits="false" data-counter-dilimiter="false" data-counter-duration="200">00</span></h3>
-									</div>
-									<div class="col-lg-3 col-md-3">
-										<h3 class="uix-spacing--no uix-outer-shadow--regular"><span data-counter-fixed="1" data-counter-number="06" data-counter-double-digits="false" data-counter-dilimiter="false" data-counter-duration="200">00</span></h3>
-									</div>
-									<div class="col-lg-3 col-md-3">
-										<h3 class="uix-spacing--no uix-outer-shadow--regular"><span data-counter-fixed="1" data-counter-number="3454" data-counter-double-digits="false" data-counter-dilimiter="false" data-counter-duration="200">00</span></h3>
-									</div>                 
-								</div>
-								<!-- .row end -->
-
-
-							</div>
-							<!-- .col-12 end -->
-						</div>
-						<!-- .row end -->
-
-
-				</div>
-				<!-- .container end -->
-
-
-
-			</section>
-
-
-
-
-		   <!-- Content 
-			====================================================== -->
-			<section class="uix-spacing--s">
-				<div class="container uix-t-c">
-						<div class="row">
-							<div class="col-12 uix-trans">
-
-								<div class="row">
-									<div class="col-lg-3 col-md-3">
-										<h3 class="uix-spacing--no uix-outer-shadow--regular"><span data-counter-number="1023" data-counter-double-digits="true" data-counter-dilimiter="true" data-counter-duration="200">00</span></h3>
-									</div>
-									<div class="col-lg-3 col-md-3">
-										<h3 class="uix-spacing--no uix-outer-shadow--regular"><span data-counter-number="2230" data-counter-double-digits="true" data-counter-dilimiter="true" data-counter-duration="200">00</span></h3>
-									</div>
-									<div class="col-lg-3 col-md-3">
-										<h3 class="uix-spacing--no uix-outer-shadow--regular"><span data-counter-number="156" data-counter-double-digits="true" data-counter-dilimiter="true" data-counter-duration="200">00</span></h3>
-									</div>
-									<div class="col-lg-3 col-md-3">
-										<h3 class="uix-spacing--no uix-outer-shadow--regular"><span data-counter-number="1344" data-counter-double-digits="true" data-counter-dilimiter="true" data-counter-duration="200">00</span></h3>
-									</div>                 
-								</div>
-								<!-- .row end -->
-
-							</div>
-							<!-- .col-12 end -->
-						</div>
-						<!-- .row end -->
-
-
-				</div>
-				<!-- .container end -->
-
-
-
-			</section>
-
-
-
-
-			  <!-- Content 
-			====================================================== -->
-			<div style="height: 300px"><span style="display: block; margin: 0 auto; height: 100%; width: 1px; background: #000;"></span></div>
-
-		   <!-- Content 
-			====================================================== -->
-			<section class="uix-spacing--s">
-				<div class="container uix-t-c">
-						<div class="row">
-							<div class="col-12 uix-trans">
-
-								<div class="row">
-									<div class="col-lg-3 col-md-3">
-										<h3 class="uix-spacing--no uix-outer-shadow--regular"><span data-counter-number="55" data-counter-double-digits="true" data-counter-dilimiter="true" data-counter-duration="200">00</span></h3>
-									</div>
-									<div class="col-lg-3 col-md-3">
-										<h3 class="uix-spacing--no uix-outer-shadow--regular"><span data-counter-number="1245" data-counter-double-digits="true" data-counter-dilimiter="true" data-counter-duration="200">00</span></h3>
-									</div>
-									<div class="col-lg-3 col-md-3">
-										<h3 class="uix-spacing--no uix-outer-shadow--regular"><span data-counter-number="556" data-counter-double-digits="true" data-counter-dilimiter="true" data-counter-duration="200">00</span></h3>
-									</div>
-									<div class="col-lg-3 col-md-3">
-										<h3 class="uix-spacing--no uix-outer-shadow--regular"><span data-counter-number="8" data-counter-double-digits="true" data-counter-dilimiter="true" data-counter-duration="200">00</span></h3>
-									</div>                 
-								</div>
-								<!-- .row end -->
-
-							</div>
-							<!-- .col-12 end -->
-						</div>
-						<!-- .row end -->
-
-
-				</div>
-				<!-- .container end -->
-
-
-
-			</section>
-
-			
-		</main>
-     
-			
-        
-        <!-- 版权部分
+            </div>
+            <!-- .container end -->
+            <div class='uix-clearfix'></div>
+        </div>
+    </header>
+    <div class='uix-header__placeholder js-uix-header__placeholder-autoheight'></div>
+    <main id='uix-maincontent'>
+        <!-- Content
+        ====================================================== -->
+        <section class='uix-spacing--s uix-spacing--no-bottom'>
+            <div class='container'>
+                <div class='row'>
+                    <div class='col-12'>
+                        <h3>计数器</span></h3>
+                        <p>向下滚动页面进行预览</p>
+                        <hr>
+                    </div>
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+        <!-- Content
+         ====================================================== -->
+        <section class='uix-spacing--s'>
+            <div class='container uix-t-c'>
+                <div class='row'>
+                    <div class='col-12 uix-trans'>
+                        <div class='row'>
+                            <div class='col-lg-3 col-md-3'>
+                                <h3 class='uix-spacing--no uix-outer-shadow--regular'>
+                                    <span data-counter-fixed='1' data-counter-number='23' data-counter-double-digits='false' data-counter-dilimiter='false' data-counter-duration='200'>00</span>
+                                </h3>
+                            </div>
+                            <div class='col-lg-3 col-md-3'>
+                                <h3 class='uix-spacing--no uix-outer-shadow--regular'>
+                                    <span data-counter-fixed='1' data-counter-number='30' data-counter-double-digits='false' data-counter-dilimiter='false' data-counter-duration='200'>00</span>
+                                </h3>
+                            </div>
+                            <div class='col-lg-3 col-md-3'>
+                                <h3 class='uix-spacing--no uix-outer-shadow--regular'>
+                                    <span data-counter-fixed='1' data-counter-number='06' data-counter-double-digits='false' data-counter-dilimiter='false' data-counter-duration='200'>00</span>
+                                </h3>
+                            </div>
+                            <div class='col-lg-3 col-md-3'>
+                                <h3 class='uix-spacing--no uix-outer-shadow--regular'>
+                                    <span data-counter-fixed='1' data-counter-number='3454' data-counter-double-digits='false' data-counter-dilimiter='false' data-counter-duration='200'>00</span>
+                                </h3>
+                            </div>
+                        </div>
+                        <!-- .row end -->
+                    </div>
+                    <!-- .col-12 end -->
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+        <!-- Content
+         ====================================================== -->
+        <section class='uix-spacing--s'>
+            <div class='container uix-t-c'>
+                <div class='row'>
+                    <div class='col-12 uix-trans'>
+                        <div class='row'>
+                            <div class='col-lg-3 col-md-3'>
+                                <h3 class='uix-spacing--no uix-outer-shadow--regular'>
+                                    <span data-counter-number='1023' data-counter-double-digits='true' data-counter-dilimiter='true' data-counter-duration='200'>00</span>
+                                </h3>
+                            </div>
+                            <div class='col-lg-3 col-md-3'>
+                                <h3 class='uix-spacing--no uix-outer-shadow--regular'>
+                                    <span data-counter-number='2230' data-counter-double-digits='true' data-counter-dilimiter='true' data-counter-duration='200'>00</span>
+                                </h3>
+                            </div>
+                            <div class='col-lg-3 col-md-3'>
+                                <h3 class='uix-spacing--no uix-outer-shadow--regular'>
+                                    <span data-counter-number='156' data-counter-double-digits='true' data-counter-dilimiter='true' data-counter-duration='200'>00</span>
+                                </h3>
+                            </div>
+                            <div class='col-lg-3 col-md-3'>
+                                <h3 class='uix-spacing--no uix-outer-shadow--regular'>
+                                    <span data-counter-number='1344' data-counter-double-digits='true' data-counter-dilimiter='true' data-counter-duration='200'>00</span>
+                                </h3>
+                            </div>
+                        </div>
+                        <!-- .row end -->
+                    </div>
+                    <!-- .col-12 end -->
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+        <!-- Content
+      ====================================================== -->
+        <div style='height: 300px'>
+            <span style='display: block; margin: 0 auto; height: 100%; width: 1px; background: #000000;'></span></div>
+        <!-- Content
+         ====================================================== -->
+        <section class='uix-spacing--s'>
+            <div class='container uix-t-c'>
+                <div class='row'>
+                    <div class='col-12 uix-trans'>
+                        <div class='row'>
+                            <div class='col-lg-3 col-md-3'>
+                                <h3 class='uix-spacing--no uix-outer-shadow--regular'>
+                                    <span data-counter-number='55' data-counter-double-digits='true' data-counter-dilimiter='true' data-counter-duration='200'>00</span>
+                                </h3>
+                            </div>
+                            <div class='col-lg-3 col-md-3'>
+                                <h3 class='uix-spacing--no uix-outer-shadow--regular'>
+                                    <span data-counter-number='1245' data-counter-double-digits='true' data-counter-dilimiter='true' data-counter-duration='200'>00</span>
+                                </h3>
+                            </div>
+                            <div class='col-lg-3 col-md-3'>
+                                <h3 class='uix-spacing--no uix-outer-shadow--regular'>
+                                    <span data-counter-number='556' data-counter-double-digits='true' data-counter-dilimiter='true' data-counter-duration='200'>00</span>
+                                </h3>
+                            </div>
+                            <div class='col-lg-3 col-md-3'>
+                                <h3 class='uix-spacing--no uix-outer-shadow--regular'>
+                                    <span data-counter-number='8' data-counter-double-digits='true' data-counter-dilimiter='true' data-counter-duration='200'>00</span>
+                                </h3>
+                            </div>
+                        </div>
+                        <!-- .row end -->
+                    </div>
+                    <!-- .col-12 end -->
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+    </main>
+    <!-- 版权部分
 ============================================= -->
 <footer class='uix-footer__container'>
     <div class='uix-footer'>
@@ -576,13 +535,9 @@
 </footer>
 
 
-        
-        
-    </div>
-    <!-- .uix-wrapper end -->
-       
-       
-    <!-- Vendor -->
+</div>
+<!-- .uix-wrapper end -->
+<!-- Vendor -->
 <script defer src='assets/js/min/axios.min.js?ver=0.19.2'></script>
 <script defer src='assets/js/min/jquery.waitforimages.min.js?ver=1.0'></script>
 <script defer src='assets/js/min/video.min.js?ver=7.5.3'></script>
@@ -601,7 +556,7 @@
     * These variables are being used in `uix-kit.min.js`.
     *
     */
-    var REVISION = '4.7.0',
+    var REVISION = '@@{website_version}',
         APP_ROOTPATH = {
             'templateUrl': '', //If the file is in the root directory, you can leave it empty. If in another directory, you can write: "/blog"
             'homeUrl': '',  //Eg. https://uiux.cc
@@ -615,7 +570,7 @@
     */
     window.$ = window.jQuery;
 </script>
-<script defer src='../dist/js/uix-kit.min.js?ver=9UiAQAgDFe7JT2FKwmre'></script>
+<script defer src='../dist/js/uix-kit.min.js?ver=@@{website_hash}'></script>
 <!-- Your Plugins & Theme Scripts  end -->
 </body>
 </html>
