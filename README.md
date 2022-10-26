@@ -58,7 +58,7 @@ uix-kit/
 ├── webpack.config.js  -------------------- # webpack脚手架配置
 ├── server.js  ---------------------------- # 本地服务端配置
 ├── package.json  ------------------------- # 项目配置文件【网站编译生成的注释信息可以在此修改】
-├── package-lock.json
+├── yarn.lock
 ├── dist/
 │   ├── css/
 │   │   ├── uix-kit.css  ------------------ # 网站核心样式（已编译）
@@ -106,7 +106,7 @@ uix-kit/
 
 1. 配置你电脑的Node.js环境
 
-2. 下载完资源后，进入到 `uix-kit` 目录下，运行 `npm run build`, 进入开发模式
+2. 下载完资源后，进入到 `uix-kit` 目录下，运行 `yarn build`, 进入开发模式
 
 3. 当你需要配置脚手架和网站基础信息和结构的时候，请直接编辑 `package.json` 文件。
 
@@ -125,13 +125,13 @@ uix-kit/
 **Step 1.** 使用 NPM（找到您当前的项目目录，然后输入以下命令）, 或从 [Github]（https://github.com/xizon/uix-kit）下载最新版本。
 
 ```sh
-$ sudo npm install uix-kit
+$ yarn uix-kit
 ```
 
 Or clone the repo to get all source files including build scripts:
 
 ```sh
-$ git clone git://github.com/xizon/uix-kit.git
+$ git clone git@gitee.com:huikeyun/uix-kit.git
 ```
 
 **Step 2.** 使用命令进入 `uix-kit/` 目录, {your_directory}换成你的目录路径
@@ -155,7 +155,7 @@ $ sudo npm install --only=dev --unsafe-perm --production
 **Step 4.** 运行下面的代码来实时开发项目，修改模块功能
 
 ```sh
-$ npm run build
+$ yarn build
 ```
 
 使用 `Ctrl + C` 停止打包。
@@ -165,7 +165,7 @@ $ npm run build
 **Step 5.** 预览页面而不编译打包，请运行下面命令:
 
 ```sh
-$ npm run preview
+$ yarn preview
 ```
 
 通过 `http://localhost:3000` 可以预览所有页面。
@@ -179,7 +179,7 @@ $ npm run preview
 **(Optional)** 调试应用程序, 它可以用来单独检查TypeScript类型的文件而不进行编译和打包操作，便于提高开发效率，专注整体代码的编写。
 
 ```sh
-$ npm run check
+$ yarn check
 ```
 
 ### 常见问题:
