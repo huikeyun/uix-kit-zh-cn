@@ -1,12 +1,12 @@
 {
   "author": "UIUX Lab",
-  "name": "uix-kit",
+  "name": "Uix Kit 中文",
   "email": "uiuxlab@gmail.com",
   "version": "4.7.0",
   "projectName": "Uix Kit",
   "createdInfo": "UIUX Lab (https://uiux.cc)",
   "projectURL": "https://uiux.cc",
-  "description": "A free web kits for fast web design and development, compatible with Bootstrap v5.",
+  "description": "一个快速网页设计和开发的偏视觉交互的免费开发工具包，与 Bootstrap v5 兼容。",
   "main": "dist/js/uix-kit.js",
   "directories": {
     "example": "examples"
