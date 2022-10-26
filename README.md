@@ -6,7 +6,7 @@
 
   <p align="center">超过<strong>120+</strong>基础模块，快速搭建你的响应式网站!</p>
   <p align="center">
-     <a href="https://uix-kit.13aq.com/" title="Deploy Jekyll with GitHub Pages dependencies preinstalled"><img src="https://github.com/GeekMakerSun/uix-kit/actions/workflows/jekyll-gh-pages.yml/badge.svg?branch=zh-cn"/></a>
+     <a href="https://app.travis-ci.com/github/xizon/uix-kit" title="Travis CI"><img src="https://img.shields.io/travis/com/xizon/uix-kit?style=for-the-badge"/></a>
       <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fxizon.github.io%2Fuix-kit%2Fexamples%2F" title="w3c"><img src="https://img.shields.io/w3c-validation/html?style=for-the-badge&targetUrl=https%3A%2F%2Fxizon.github.io%2Fuix-kit%2Fexamples%2F"/></a>
 	  <a href="https://www.npmjs.com/package/uix-kit" title="npm version"><img src="https://img.shields.io/npm/v/uix-kit?style=for-the-badge"/></a>
 	  <a href="https://github.com/xizon/uix-kit/blob/master/LICENSE" title="license"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=for-the-badge"/></a>
@@ -18,21 +18,15 @@ Uix Kit是一个偏视觉交互的开发工具包，帮助开发者快速完成�
 这是一个不依赖任何框架的Web开发构建工具/脚手架。 您可以导入任何外部库、框架或本机ES模块进行生产。
 dist目录中生成的核心文件可以在任何网站中单独使用。
 
-
 ---
 
 - [React版](https://github.com/xizon/poemkit)
 
 ---
 
-- [English Documentation](README.md)
-- [中文版说明文档](README_CN.md)
-
----
-
 ## 演示
 
-[https://xizon.github.io/uix-kit/examples/](https://xizon.github.io/uix-kit/examples/)
+[https://uix-kit.13aq.com/examples/](https://uix-kit.13aq.com/examples/)
 
 GitHub pages只提供静态内容访问，AJAX和PHP请求无法预览效果，你可以通过线上服务器进行完整预览。
 
@@ -221,11 +215,11 @@ $ npm run check
   "name": "uix-kit",
   "email": "uiuxlab@gmail.com",
   "version": "1.0.0",
-  "projectName": "Uix Kit 中文",
+  "projectName": "Uix Kit",
   "createdInfo": "UIUX Lab (https://uiux.cc)",
   "projectURL": "https://uiux.cc",
   "description": "A free web kits for fast web design and development, compatible with Bootstrap v5.",
-  "..."
+  ...
 }
 ```
 
