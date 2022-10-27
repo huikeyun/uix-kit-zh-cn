@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang='zh-cn' dir='ltr'>
+<html lang='@@{website_lang}' dir='@@{website_dirLTR}'>
 <head>
-    <meta charset='utf-8' />
-    <title>进度条 - Uix Kit</title>
+    <meta charset='@@{website_charset}' />
+    <title>进度条 - @@{website_title}</title>
     	<!-- Compatibility Settings
 	============================================= -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -30,11 +30,11 @@
 
 
 	<!-- Theme  -->
-	<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=rVyVYmggS1OC5v8w0h8T"/>
+	<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=@@{website_hash}"/>
 
 
 	<!--[if lt IE 10]>
-	<link rel="stylesheet" href="assets/css/IE.css?ver=rVyVYmggS1OC5v8w0h8T" />
+	<link rel="stylesheet" href="assets/css/IE.css?ver=@@{website_hash}" />
 	<![endif]-->
 
 
@@ -57,9 +57,9 @@
 
 	<!-- SEO
 	============================================= -->
-	<meta name="description" content="一个快速网页设计和开发的偏视觉交互的免费开发工具包，与 Bootstrap v5 兼容。">
-	<meta name="generator" content="Uix Kit 中文" />  
-	<meta name="author" content="GeekMakerSun"> 
+	<meta name="description" content="@@{website_desc}">
+	<meta name="generator" content="@@{website_generator}" />  
+	<meta name="author" content="@@{website_author}"> 
 	<!-- SEO  end -->
 
 
@@ -108,13 +108,13 @@
         <div class='uix-header'>
             <div class='container'>
                                         <div class="uix-brand">
-                            <a href="index.html"><img src="assets/images/logo.png" alt="Uix Kit"></a>                       
+                            <a href="index.html"><img src="assets/images/logo.png" alt="@@{website_title}"></a>                       
                         </div>
                         <!-- .uix-brand end -->
                 <!-- Navigation Start-->
 <nav class='uix-menu__container'>
     <div class='uix-menu__inner'>
-        <span class='uix-brand--mobile'><img src='assets/images/logo-colorful.png' alt='Uix Kit'></span>
+        <span class='uix-brand--mobile'><img src='assets/images/logo-colorful.png' alt='@@{website_title}'></span>
         <ul class='uix-menu'>
             <li class='multi-column current-menu-item is-active'><a href='index.html'>组件</a>
                 <ul class='sub-menu'>
@@ -400,7 +400,7 @@
                                 <div class='uix-progressbar__pie--left-side uix-progressbar__pie--half-circle'></div>
                                 <div class='uix-progressbar__pie--right-side uix-progressbar__pie--half-circle'></div>
                             </div>
-                            <div class='uix-progressbar__title'>Title 1</div>
+                            <div class='uix-progressbar__title'>标题 1</div>
                         </div>
                         <div class='uix-progressbar--circle uix-progressbar--progress-0' data-progressbar-percent='45' data-progressbar-unit='%'>
 										<span class='uix-progressbar__track'>
@@ -410,7 +410,7 @@
                                 <div class='uix-progressbar__pie--left-side uix-progressbar__pie--half-circle'></div>
                                 <div class='uix-progressbar__pie--right-side uix-progressbar__pie--half-circle'></div>
                             </div>
-                            <div class='uix-progressbar__title'>Title 2</div>
+                            <div class='uix-progressbar__title'>标题 2</div>
                         </div>
                         <div class='uix-progressbar--circle uix-progressbar--progress-0' data-progressbar-percent='66' data-progressbar-unit='%'>
 										<span class='uix-progressbar__track'>
@@ -420,7 +420,7 @@
                                 <div class='uix-progressbar__pie--left-side uix-progressbar__pie--half-circle'></div>
                                 <div class='uix-progressbar__pie--right-side uix-progressbar__pie--half-circle'></div>
                             </div>
-                            <div class='uix-progressbar__title'>Title 3</div>
+                            <div class='uix-progressbar__title'>标题 3</div>
                         </div>
                         <div class='uix-progressbar--circle uix-progressbar--progress-0 is-transparent' data-progressbar-percent='100' data-progressbar-unit='%'>
 										<span class='uix-progressbar__track'>
@@ -430,7 +430,7 @@
                                 <div class='uix-progressbar__pie--left-side uix-progressbar__pie--half-circle'></div>
                                 <div class='uix-progressbar__pie--right-side uix-progressbar__pie--half-circle'></div>
                             </div>
-                            <div class='uix-progressbar__title'>Title 4</div>
+                            <div class='uix-progressbar__title'>标题 4</div>
                         </div>
                         <div class='uix-progressbar--circle uix-progressbar--progress-0 is-transparent' data-progressbar-percent='55' data-progressbar-unit='%'>
 										<span class='uix-progressbar__track'>
@@ -440,7 +440,7 @@
                                 <div class='uix-progressbar__pie--left-side uix-progressbar__pie--half-circle'></div>
                                 <div class='uix-progressbar__pie--right-side uix-progressbar__pie--half-circle'></div>
                             </div>
-                            <div class='uix-progressbar__title'>Title 5</div>
+                            <div class='uix-progressbar__title'>标题 5</div>
                         </div>
                         <div class='uix-progressbar--circle uix-progressbar--progress-0 is-transparent' data-progressbar-percent='18' data-progressbar-unit='%'>
 										<span class='uix-progressbar__track'>
@@ -450,7 +450,7 @@
                                 <div class='uix-progressbar__pie--left-side uix-progressbar__pie--half-circle'></div>
                                 <div class='uix-progressbar__pie--right-side uix-progressbar__pie--half-circle'></div>
                             </div>
-                            <div class='uix-progressbar__title'>Title 6</div>
+                            <div class='uix-progressbar__title'>标题 6</div>
                         </div>
                     </div>
                     <!-- .col-12 end -->
@@ -465,8 +465,8 @@
             <div class='container'>
                 <div class='row'>
                     <div class='col-12'>
-                        <h3>Horizontal Rectangle Progress Bar</h3>
-                        <p>Scroll the page down to preview</p>
+                        <h3>水平矩形进度条</h3>
+                        <p>向下滚动页面进行预览</p>
                         <hr>
                     </div>
                 </div>
@@ -481,21 +481,21 @@
                 <div class='row'>
                     <div class='col-12 uix-trans'>
                         <div class='uix-progressbar--rectangle uix-progressbar--progress-0' data-progressbar-percent='30' data-progressbar-unit='%'>
-                            <div class='uix-progressbar__title'>Title 1</div>
+                            <div class='uix-progressbar__title'>标题 1</div>
                             <div class='uix-progressbar__bar'>
                                 <div class='uix-progressbar__track'></div>
                                 <span>0<em class='uix-progressbar__unit'>%</em></span>
                             </div>
                         </div>
                         <div class='uix-progressbar--rectangle uix-progressbar--progress-0' data-progressbar-percent='57' data-progressbar-unit='%'>
-                            <div class='uix-progressbar__title'>Title 2</div>
+                            <div class='uix-progressbar__title'>标题 2</div>
                             <div class='uix-progressbar__bar'>
                                 <div class='uix-progressbar__track'></div>
                                 <span>0<em class='uix-progressbar__unit'>%</em></span>
                             </div>
                         </div>
                         <div class='uix-progressbar--rectangle uix-progressbar--progress-0' data-progressbar-percent='100' data-progressbar-unit='%'>
-                            <div class='uix-progressbar__title'>Title 3</div>
+                            <div class='uix-progressbar__title'>标题 3</div>
                             <div class='uix-progressbar__bar'>
                                 <div class='uix-progressbar__track'></div>
                                 <span>0<em class='uix-progressbar__unit'>%</em></span>
@@ -566,7 +566,7 @@
     * These variables are being used in `uix-kit.min.js`.
     *
     */
-    var REVISION = '4.7.0',
+    var REVISION = '@@{website_version}',
         APP_ROOTPATH = {
             'templateUrl': '', //If the file is in the root directory, you can leave it empty. If in another directory, you can write: "/blog"
             'homeUrl': '',  //Eg. https://uiux.cc
@@ -580,7 +580,7 @@
     */
     window.$ = window.jQuery;
 </script>
-<script defer src='../dist/js/uix-kit.min.js?ver=rVyVYmggS1OC5v8w0h8T'></script>
+<script defer src='../dist/js/uix-kit.min.js?ver=@@{website_hash}'></script>
 <!-- Your Plugins & Theme Scripts  end -->
 </body>
 </html>
