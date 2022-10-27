@@ -101,7 +101,7 @@
     80.Button
     81.Cards
     82.Badges
-    83.Coach Mark
+    83.辅助标记
     84.Content Placeholder Animated
     85.Dividing Line
     86.Dotted Line
@@ -19544,8 +19544,9 @@ ul.edd_purchase_receipt_files li {
   fill: currentColor;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Coach Mark -->
+   <!-- 辅助标记 -->
 /* ====================================================== */
 /*
  * 1. Ripple effect 1
