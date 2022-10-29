@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang='@@{website_lang}' dir='@@{website_dirLTR}'>
+<html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-    <meta charset='@@{website_charset}' />
+    <meta charset="@@{website_charset}" />
     <title>遮罩层 - @@{website_title}</title>
     @@include('./src/components/_global/include-header.html')
 </head>
-<body class='page'>
+<body class="page">
 @@include('./src/components/_global/include-loader.html')
 @@include('./src/components/_global/include-toggle-trigger.html')
-<div class='uix-wrapper'>
+<div class="uix-wrapper">
     <!-- Header Area
     ============================================= -->
-    <header class='uix-header__container'>
-        <div class='uix-header'>
-            <div class='container'>
+    <header class="uix-header__container">
+        <div class="uix-header">
+            <div class="container">
                 @@include('./src/components/_global/include-brand.html')
                 @@include('./src/components/_global/include-menu.html')
             </div>
             <!-- .container end -->
-            <div class='uix-clearfix'></div>
+            <div class="uix-clearfix"></div>
         </div>
     </header>
-    <div class='uix-header__placeholder js-uix-header__placeholder-autoheight'></div>
-    <main id='uix-maincontent'>
+    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+    <main id="uix-maincontent">
         <!-- Content
         ====================================================== -->
-        <section class='uix-spacing--s uix-spacing--no-bottom'>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-12'>
+        <section class="uix-spacing--s uix-spacing--no-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
                         <h3>遮罩层</h3>
                         <p>创建一个图像叠加效果。</p>
                         <hr>
@@ -40,64 +40,103 @@
         </section>
         <!-- Content
          ====================================================== -->
-        <section class='uix-spacing--s'>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-12'>
-                        <div class='row'>
-                            <div class='col-md-6 offset-md-3'>
-                                <div class='uix-relative--inline uix-relative--inline-clip'>
-                                    <img src='assets/images/demo/test-img-big-1.jpg' alt='' />
-                                    <div class='uix-overlay uix-overlay--white'>
-                                        <p><code>uix-overlay uix-overlay--white</code></p>
+        <section class="uix-spacing--s">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-relative--inline uix-relative--inline-clip&quot;&gt;
+    &lt;img src=&quot;assets/images/demo/test-img-big-1.jpg&quot; alt=&quot;&quot; /&gt;
+    &lt;div class=&quot;uix-overlay uix-overlay--white&quot;&gt;
+        &lt;p&gt;遮罩层内容&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="uix-relative--inline uix-relative--inline-clip">
+                                    <img src="assets/images/demo/test-img-big-1.jpg" alt="" />
+                                    <div class="uix-overlay uix-overlay--white">
+                                        <p>遮罩层内容</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- .row end -->
-                        <p>&nbsp;</p>
-                        <div class='row'>
-                            <div class='col-md-6 offset-md-3'>
-                                <div class='uix-relative--inline uix-relative--inline-clip'>
-                                    <img src='assets/images/demo/test-img-big-2.jpg' alt='' />
-                                    <div class='uix-overlay uix-overlay--black'>
-                                        <p><code>uix-overlay uix-overlay--black</code></p>
+                        <hr>
+                        <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-relative--inline uix-relative--inline-clip&quot;&gt;
+    &lt;img src=&quot;assets/images/demo/test-img-big-2.jpg&quot; alt=&quot;&quot; /&gt;
+    &lt;div class=&quot;uix-overlay uix-overlay--black&quot;&gt;
+        &lt;p&gt;遮罩层内容&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="uix-relative--inline uix-relative--inline-clip">
+                                    <img src="assets/images/demo/test-img-big-2.jpg" alt="" />
+                                    <div class="uix-overlay uix-overlay--black">
+                                        <p>遮罩层内容</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <p>&nbsp;</p>
-                        <div class='row'>
-                            <div class='col-md-6 offset-md-3'>
-                                <div class='uix-relative--inline uix-relative--inline-clip'>
-                                    <img src='assets/images/demo/test-img-big-3.jpg' alt='' />
-                                    <div class='uix-overlay uix-overlay--white uix-dir--top'>
-                                        <p><code>uix-overlay uix-overlay--white uix-dir--top</code></p>
+                        <hr>
+                        <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-relative--inline uix-relative--inline-clip&quot;&gt;
+    &lt;img src=&quot;assets/images/demo/test-img-big-3.jpg&quot; alt=&quot;&quot; /&gt;
+    &lt;div class=&quot;uix-overlay uix-overlay--white uix-dir--top&quot;&gt;
+        &lt;p&gt;遮罩层内容&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="uix-relative--inline uix-relative--inline-clip">
+                                    <img src="assets/images/demo/test-img-big-3.jpg" alt="" />
+                                    <div class="uix-overlay uix-overlay--white uix-dir--top">
+                                        <p>遮罩层内容</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- .row end -->
-                        <p>&nbsp;</p>
-                        <div class='row'>
-                            <div class='col-md-6 offset-md-3'>
-                                <div class='uix-relative--inline uix-relative--inline-clip'>
-                                    <img src='assets/images/demo/test-img-big-4.jpg' alt='' />
-                                    <div class='uix-overlay uix-overlay--black uix-dir--top'>
-                                        <p><code>uix-overlay uix-overlay--black uix-dir--top</code></p>
+                        <hr>
+                        <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-relative--inline uix-relative--inline-clip&quot;&gt;
+    &lt;img src=&quot;assets/images/demo/test-img-big-4.jpg&quot; alt=&quot;&quot; /&gt;
+    &lt;div class=&quot;uix-overlay uix-overlay--black uix-dir--top&quot;&gt;
+        &lt;p&gt;遮罩层内容&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="uix-relative--inline uix-relative--inline-clip">
+                                    <img src="assets/images/demo/test-img-big-4.jpg" alt="" />
+                                    <div class="uix-overlay uix-overlay--black uix-dir--top">
+                                        <p>遮罩层内容</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <p>&nbsp;</p>
-                        <div class='row'>
-                            <div class='col-md-6 offset-md-3'>
-                                <div class='uix-relative--inline uix-relative--inline-clip'>
-                                    <img src='assets/images/demo/test-img-big-3.jpg' alt='' />
-                                    <div class='uix-overlay uix-overlay--black uix-overlay--cover'>
-                                        <div class='uix-v-align--table'>
+                        <hr>
+                        <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-relative--inline uix-relative--inline-clip&quot;&gt;
+    &lt;img src=&quot;assets/images/demo/test-img-big-3.jpg&quot; alt=&quot;&quot; /&gt;
+    &lt;div class=&quot;uix-overlay uix-overlay--black uix-overlay--cover&quot;&gt;
+        &lt;div class=&quot;uix-v-align--table&quot;&gt;
+            &lt;div&gt;
+                &lt;p&gt;遮罩层内容&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="uix-relative--inline uix-relative--inline-clip">
+                                    <img src="assets/images/demo/test-img-big-3.jpg" alt="" />
+                                    <div class="uix-overlay uix-overlay--black uix-overlay--cover">
+                                        <div class="uix-v-align--table">
                                             <div>
-                                                <p><code>uix-overlay uix-overlay--black uix-overlay--cover</code></p>
+                                                <p>遮罩层内容</p>
                                             </div>
                                         </div>
                                     </div>
@@ -105,13 +144,20 @@
                             </div>
                         </div>
                         <!-- .row end -->
-                        <p>&nbsp;</p>
-                        <div class='row'>
-                            <div class='col-md-6 offset-md-3'>
-                                <div class='uix-relative--inline uix-relative--inline-clip'>
-                                    <img src='assets/images/demo/test-img-big-3.jpg' alt='' />
-                                    <div class='uix-overlay uix-overlay--black uix-overlay--cover'>
-                                        <p><code>uix-overlay uix-overlay--black uix-overlay--cover</code></p>
+                        <hr>
+                        <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-relative--inline uix-relative--inline-clip&quot;&gt;
+    &lt;img src=&quot;assets/images/demo/test-img-big-3.jpg&quot; alt=&quot;&quot; /&gt;
+    &lt;div class=&quot;uix-overlay uix-overlay--black uix-overlay--cover&quot;&gt;
+        &lt;p&gt;遮罩层内容&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="uix-relative--inline uix-relative--inline-clip">
+                                    <img src="assets/images/demo/test-img-big-3.jpg" alt="" />
+                                    <div class="uix-overlay uix-overlay--black uix-overlay--cover">
+                                        <p>遮罩层内容</p>
                                     </div>
                                 </div>
                             </div>
@@ -127,4 +173,4 @@
 </div>
 <!-- .uix-wrapper end -->
 @@include('./src/components/_global/include-footer.html')
-
+</body>
