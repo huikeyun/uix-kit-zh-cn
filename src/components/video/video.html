@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang='@@{website_lang}' dir='@@{website_dirLTR}'>
+<html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-    <meta charset='@@{website_charset}' />
+    <meta charset="@@{website_charset}" />
     <title>视频 - @@{website_title}</title>
     @@include('./src/components/_global/include-header.html')
 </head>
-<body class='page'>
+<body class="page">
 @@include('./src/components/_global/include-loader.html')
 @@include('./src/components/_global/include-toggle-trigger.html')
-<div class='uix-wrapper'>
+<div class="uix-wrapper">
     <!-- Header Area
     ============================================= -->
-    <header class='uix-header__container'>
-        <div class='uix-header'>
-            <div class='container'>
+    <header class="uix-header__container">
+        <div class="uix-header">
+            <div class="container">
                 @@include('./src/components/_global/include-brand.html')
                 @@include('./src/components/_global/include-menu.html')
             </div>
             <!-- .container end -->
-            <div class='uix-clearfix'></div>
+            <div class="uix-clearfix"></div>
         </div>
     </header>
-    <div class='uix-header__placeholder js-uix-header__placeholder-autoheight'></div>
-    <main id='uix-maincontent'>
+    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+    <main id="uix-maincontent">
         <!-- Content
         ====================================================== -->
-        <section class='uix-spacing--s uix-spacing--no-bottom'>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-12'>
+        <section class="uix-spacing--s uix-spacing--no-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
                         <h3>嵌入视频</h3>
                         <hr>
                     </div>
@@ -39,15 +39,23 @@
         </section>
         <!-- Content
          ====================================================== -->
-        <section class='uix-spacing--s'>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-12'>
-                        <div class='uix-relative' data-embed-video-wrapper='true'>
-                            <div class='uix-video' data-embed-video-width='auto' data-embed-video-height='auto' data-embed-video-controls='true' data-embed-video-autoplay='false' data-embed-video-loop='false'>
-                                <video id='video-demo-1' class='video-js vjs-default-skin' controls poster='assets/videos/480x270/demo.jpg'>
-                                    <source src='assets/videos/480x270/demo.mp4' type='video/mp4'>
-                                    <source src='assets/videos/480x270/demo.webm' type='video/webm'>
+        <section class="uix-spacing--s">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;div class=&#x27;uix-relative&#x27; data-embed-video-wrapper=&#x27;true&#x27;&gt;
+    &lt;div class=&#x27;uix-video&#x27; data-embed-video-width=&#x27;auto&#x27; data-embed-video-height=&#x27;auto&#x27; data-embed-video-controls=&#x27;true&#x27; data-embed-video-autoplay=&#x27;false&#x27; data-embed-video-loop=&#x27;false&#x27;&gt;
+        &lt;video id=&#x27;video-demo-1&#x27; class=&#x27;video-js vjs-default-skin&#x27; controls poster=&#x27;assets/videos/480x270/demo.jpg&#x27;&gt;
+            &lt;source src=&#x27;assets/videos/480x270/demo.mp4&#x27; type=&#x27;video/mp4&#x27;&gt;
+            &lt;source src=&#x27;assets/videos/480x270/demo.webm&#x27; type=&#x27;video/webm&#x27;&gt;
+        &lt;/video&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        <div class="uix-relative" data-embed-video-wrapper="true">
+                            <div class="uix-video" data-embed-video-width="auto" data-embed-video-height="auto" data-embed-video-controls="true" data-embed-video-autoplay="false" data-embed-video-loop="false">
+                                <video id="video-demo-1" class="video-js vjs-default-skin" controls poster="assets/videos/480x270/demo.jpg">
+                                    <source src="assets/videos/480x270/demo.mp4" type="video/mp4">
+                                    <source src="assets/videos/480x270/demo.webm" type="video/webm">
                                 </video>
                             </div>
                         </div>
@@ -60,9 +68,9 @@
         <!-- Content
          ====================================================== -->
         <section>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-12'>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
                         <h3>弹出视频</h3>
                         <p>设置<code>data-video-win</code>、<code>data-video-poster</code>、<code>data-video-mp4</code>,
                             <code>data-video-webm</code>, <code>data-video-ogv</code> 和
@@ -76,24 +84,28 @@
         </section>
         <!-- Content
          ====================================================== -->
-        <section class='uix-spacing--s'>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-12'>
-                        <br>
-                        <a href='javascript:void(0)' data-video-win='true' data-video-poster='assets/videos/480x270/demo.jpg' data-video-mp4='assets/videos/480x270/demo.mp4' data-video-webm='' data-video-ogv='' data-modal-id='web-modal-44' data-modal-close-onlybtn='false'><i class='fa fa-play-circle' aria-hidden='true'></i> 单击此处打开本地视频</a>
-                        <br>
-                        <a href='javascript:void(0)' data-video-win='true' data-video-poster='assets/videos/1920x1080/demo.jpg' data-video-mp4='' data-video-webm='' data-video-ogv='' data-modal-id='web-modal-3' data-modal-close-onlybtn='false'><span data-video-iframe='true'>
+        <section class="uix-spacing--s">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;a href=&quot;javascript:void(0)&quot; data-video-win=&quot;true&quot; data-video-poster=&quot;assets/videos/480x270/demo.jpg&quot; data-video-mp4=&quot;assets/videos/480x270/demo.mp4&quot; data-video-webm=&quot;&quot; data-video-ogv=&quot;&quot; data-modal-id=&quot;web-modal-44&quot; data-modal-close-onlybtn=&quot;false&quot;&gt;&lt;i class=&quot;fa fa-play-circle&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 单击此处打开本地视频&lt;/a&gt;</code></pre>
+                        <a href="javascript:void(0)" data-video-win="true" data-video-poster="assets/videos/480x270/demo.jpg" data-video-mp4="assets/videos/480x270/demo.mp4" data-video-webm="" data-video-ogv="" data-modal-id="web-modal-44" data-modal-close-onlybtn="false"><i class="fa fa-play-circle" aria-hidden="true"></i> 单击此处打开本地视频</a>
+                        <hr>
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;a href=&quot;javascript:void(0)&quot; data-video-win=&quot;true&quot; data-video-poster=&quot;assets/videos/1920x1080/demo.jpg&quot; data-video-mp4=&quot;&quot; data-video-webm=&quot;&quot; data-video-ogv=&quot;&quot; data-modal-id=&quot;web-modal-3&quot; data-modal-close-onlybtn=&quot;false&quot;&gt;&lt;span data-video-iframe=&quot;true&quot;&gt;
+    &lt;iframe src=&quot;//player.bilibili.com/player.html?aid=689222438&amp;bvid=BV1cm4y1w7gN&amp;cid=865691909&amp;page=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;
+    &lt;/span&gt;&lt;i class=&quot;fa fa-play-circle&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 单击此处打开 哔哩哔哩 视频
+&lt;/a&gt;</code></pre>
+                        <a href="javascript:void(0)" data-video-win="true" data-video-poster="assets/videos/1920x1080/demo.jpg" data-video-mp4="" data-video-webm="" data-video-ogv="" data-modal-id="web-modal-3" data-modal-close-onlybtn="false"><span data-video-iframe="true">
                         <iframe src="//player.bilibili.com/player.html?aid=689222438&bvid=BV1cm4y1w7gN&cid=865691909&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-                        </span><i class='fa fa-play-circle' aria-hidden='true'></i> 单击此处打开 哔哩哔哩 视频</a>
+                        </span><i class="fa fa-play-circle" aria-hidden="true"></i> 单击此处打开 哔哩哔哩 视频</a>
+                        <hr>
+                        <a href="javascript:void(0)" data-video-win="true" data-video-poster="assets/videos/1920x1080/demo.jpg" data-video-mp4="" data-video-webm="" data-video-ogv="" data-modal-id="web-modal-4" data-modal-close-onlybtn="false"><span data-video-iframe="true">
+                        <iframe height="498" width="510" src="https://player.youku.com/embed/XNTkxMTkyOTUzMg==" frameborder="0" allowfullscreen="true"></iframe>
+                        </span><i class="fa fa-play-circle" aria-hidden="true"></i> 单击此处打开 优酷 视频</a>
                         <br>
-                        <a href='javascript:void(0)' data-video-win='true' data-video-poster='assets/videos/1920x1080/demo.jpg' data-video-mp4='' data-video-webm='' data-video-ogv='' data-modal-id='web-modal-4' data-modal-close-onlybtn='false'><span data-video-iframe='true'>
-                        <iframe height=498 width=510 src='https://player.youku.com/embed/XNTkxMTkyOTUzMg==' frameborder=0 allowfullscreen="true"></iframe>
-                        </span><i class='fa fa-play-circle' aria-hidden='true'></i> 单击此处打开 优酷 视频</a>
-                        <br>
-                        <a href='javascript:void(0)' data-video-win='true' data-video-poster='assets/videos/1920x1080/demo.jpg' data-video-mp4='' data-video-webm='' data-video-ogv='' data-modal-id='web-modal-5' data-modal-close-onlybtn='false'><span data-video-iframe='true'>
+                        <a href="javascript:void(0)" data-video-win="true" data-video-poster="assets/videos/1920x1080/demo.jpg" data-video-mp4="" data-video-webm="" data-video-ogv="" data-modal-id="web-modal-5" data-modal-close-onlybtn="false"><span data-video-iframe="true">
                       <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=m3360od48n5" allowFullScreen="true"></iframe>
-                        </span><i class='fa fa-play-circle' aria-hidden='true'></i> 单击此处打开 腾讯视频 视频</a>
+                        </span><i class="fa fa-play-circle" aria-hidden="true"></i> 单击此处打开 腾讯视频 视频</a>
                     </div>
                 </div>
                 <!-- .row end -->
