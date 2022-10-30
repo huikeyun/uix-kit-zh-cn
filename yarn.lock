@@ -3425,12 +3425,7 @@ icss-utils@^4.1.0:
   dependencies:
     postcss "^7.0.14"
 
-ignore@^3.3.7:
-  version "3.3.10"
-  resolved "https://registry.npmmirror.com/ignore/-/ignore-3.3.10.tgz#0a97fb876986e8081c631160f8f9f389157f0043"
-  integrity sha512-Pgs951kaMm5GXP7MOvxERINe3gsaVjUWFm+UZPSq9xYriQAksyhg0csnS0KXSNRD5NmNdapXEpjxG49+AKh/ug==
-
-ignore@^5.1.1:
+ignore@^5.1.1, ignore@^5.1.4:
   version "5.2.0"
   resolved "https://registry.npmmirror.com/ignore/-/ignore-5.2.0.tgz#6d3bac8fa7fe0d45d9f9be7bac2fc279577e345a"
   integrity sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==
@@ -4997,13 +4992,13 @@ postcss@^8.3.5, postcss@^8.3.6:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-prettier-loader@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.npmmirror.com/prettier-loader/-/prettier-loader-2.1.1.tgz#fc4a211cb0850a815c4903b79fd52d37ff792d1d"
-  integrity sha512-/i+LZT4hjp7wj/eLw72qIuMd/JIstljwzuXkz7HgkKBxOtjKtsCo2YEA5688dgcflD1MAsDBgEgmxxgJ0WQqWQ==
+prettier-loader@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/prettier-loader/-/prettier-loader-3.3.0.tgz#c1a91564a92f099c8210fd291fb7efc6180fd465"
+  integrity sha512-OhGQnvcAiiJ3i5StsgFCRnJ3tb4s5PGCAb/lVga9tMkBRTCK51oTZ1aCrYN7n4YrVbQRxs6/cgaQx5mgESafNg==
   dependencies:
-    ignore "^3.3.7"
-    loader-utils "^1.1.0"
+    ignore "^5.1.4"
+    loader-utils "^1.2.3"
 
 prettier@^1.15.3:
   version "1.19.1"
