@@ -4,11 +4,11 @@
  * Generated with "npm run build"
  *
  * ## Project Name        :  Uix Kit
- * ## Project Description :  A free web kits for fast web design and development, compatible with Bootstrap v5.
+ * ## Project Description :  一个快速网页设计和开发的偏视觉交互的免费开发工具包，与 Bootstrap v5 兼容。
  * ## Project URL         :  https://uiux.cc
  * ## Version             :  4.7.0
  * ## Based on            :  Uix Kit (https://github.com/xizon/uix-kit)
- * ## Last Update         :  August 31, 2022
+ * ## Last Update         :  October 30, 2022
  * ## Created by          :  UIUX Lab (https://uiux.cc) (uiuxlab@gmail.com)
  * ## Released under the MIT license.
  *
@@ -9377,7 +9377,6 @@ var AJAX_PUSH_CONTENT = function (module, $, window, document) {
               ///////////   
               promises.push(new Promise(function (resolve, reject) {
                 var img = document.createElement("img");
-                img.crossOrigin = "anonymous";
                 img.src = sources[i].url;
 
                 img.onload = function (image) {
@@ -9907,7 +9906,6 @@ var AJAX_PAGE_LOADER = function (module, $, window, document) {
                 ///////////   
                 promises.push(new Promise(function (resolve, reject) {
                   var img = document.createElement("img");
-                  img.crossOrigin = "anonymous";
                   img.src = sources[i].url;
 
                   img.onload = function (image) {
@@ -44207,7 +44205,6 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
             ///////////   
             promises.push(new Promise(function (resolve, reject) {
               var img = document.createElement("img");
-              img.crossOrigin = "anonymous";
               img.src = sources[i].url;
 
               img.onload = function (image) {
@@ -45839,7 +45836,6 @@ var THREE_SIMULATE_HTML_LAYOUT = function (module, $, window, document) {
           ///////////   
           promises.push(new Promise(function (resolve, reject) {
             var img = new Image();
-            img.crossOrigin = "anonymous";
             img.src = sources[i].url;
 
             img.onload = function (image) {

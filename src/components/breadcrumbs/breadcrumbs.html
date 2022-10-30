@@ -1,127 +1,72 @@
 <!DOCTYPE html>
-<html lang="@@{website_lang}" dir="@@{website_dirLTR}">
+<html lang='@@{website_lang}' dir='@@{website_dirLTR}'>
 <head>
-	<meta charset="@@{website_charset}" />
-	<title>Breadcrumbs - @@{website_title}</title>	
-	@@include('./src/components/_global/include-header.html')
-</head>  
-
-     
-  <body class="page">
-  
-  
-          
-    @@include('./src/components/_global/include-loader.html')
-    @@include('./src/components/_global/include-toggle-trigger.html')
-    
-    
-
-  
-  
-    <div class="uix-wrapper">
-    
-        <!-- Header Area
-        ============================================= -->      
-        <header class="uix-header__container">
-            
-             <div class="uix-header">
-                 <div class="container">
-                 
-                        @@include('./src/components/_global/include-brand.html')
-                        
-                        @@include('./src/components/_global/include-menu.html')
-                        
-                        
-                        
-                        
-                  </div>
-                  <!-- .container end -->
-                  
-                  <div class="uix-clearfix"></div>
-             </div>
-        
-        </header>
-        <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-      
-      
-		<main id="uix-maincontent">
-			
-			<!-- Content 
-			====================================================== -->
-			<section class="uix-spacing--s uix-spacing--no-bottom">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<h3>Breadcrumbs</h3>
-							<p>A breadcrumb navigation provide links back to each previous page the user navigated through.</p>
-							<hr>
-							
-							
-						</div>
-					</div>
-					<!-- .row end -->
-
-				</div>
-				<!-- .container end -->
-
-			</section>
-			
-		
-
-
-		   <!-- Content 
-			====================================================== -->
-			<section class="uix-spacing--s">
-				<div class="container">
-
-
-						<div class="uix-breadcrumbs uix-t-c">
-							<ul>
-								<li class="is-active"><a href="#">Web Design</a></li>
-								<li><a href="#">UI</a></li>
-								<li><a href="#">SEO</a></li>  
-								<li><a href="#">Interaction</a></li>  
-							</ul>
-						</div>
-						<!-- .uix-breadcrumbs  end -->
-
-
-						<br>
-
-
-						<div class="uix-breadcrumbs is-fullwidth uix-t-c">
-							<ul>
-								<li class="is-active"><a href="#">Web Design</a></li>
-								<li><a href="#">UI</a></li>
-								<li><a href="#">SEO</a></li>  
-								<li><a href="#">Interaction</a></li>  
-							</ul>
-						</div>
-						<!-- .uix-breadcrumbs  end -->
-
-
-
-
-
-
-				</div>
-				<!-- .container end -->
-
-
-			</section>
-			
-		</main>
-		
-     
-			
-     
-        
-        @@include('./src/components/_global/include-copyright.html')
-        
-        
-    </div>
-    <!-- .uix-wrapper end -->
-       
-       
-    @@include('./src/components/_global/include-footer.html')
+    <meta charset='@@{website_charset}' />
+    <title>面包屑 - @@{website_title}</title>
+    @@include('./src/components/_global/include-header.html')
+</head>
+<body class='page'>
+@@include('./src/components/_global/include-loader.html')
+@@include('./src/components/_global/include-toggle-trigger.html')
+<div class='uix-wrapper'>
+    <!-- Header Area
+    ============================================= -->
+    <header class='uix-header__container'>
+        <div class='uix-header'>
+            <div class='container'>
+                @@include('./src/components/_global/include-brand.html')
+                @@include('./src/components/_global/include-menu.html')
+            </div>
+            <!-- .container end -->
+            <div class='uix-clearfix'></div>
+        </div>
+    </header>
+    <div class='uix-header__placeholder js-uix-header__placeholder-autoheight'></div>
+    <main id='uix-maincontent'>
+        <!-- Content
+        ====================================================== -->
+        <section class='uix-spacing--s uix-spacing--no-bottom'>
+            <div class='container'>
+                <div class='row'>
+                    <div class='col-12'>
+                        <h3>面包屑</h3>
+                        <p>面包屑导航提供指向用户浏览过的每个前一页的链接</p>
+                        <hr>
+                    </div>
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+        <!-- Content
+         ====================================================== -->
+        <section class='uix-spacing--s'>
+            <div class='container'>
+                <div class='uix-breadcrumbs uix-t-c'>
+                    <ul>
+                        <li class='is-active'><a href='#'>网页设计</a></li>
+                        <li><a href='#'>用户界面</a></li>
+                        <li><a href='#'>搜索引擎优化</a></li>
+                        <li><a href='#'>互动</a></li>
+                    </ul>
+                </div>
+                <!-- uix-breadcrumbs 结束 -->
+                <br>
+                <div class='uix-breadcrumbs is-fullwidth uix-t-c'>
+                    <ul>
+                        <li class='is-active'><a href='#'>网页设计</a></li>
+                        <li><a href='#'>用户界面</a></li>
+                        <li><a href='#'>搜索引擎优化</a></li>
+                        <li><a href='#'>互动</a></li>
+                    </ul>
+                </div>
+                <!-- uix-breadcrumbs 结束 -->
+            </div>
+            <!-- .container end -->
+        </section>
+    </main>
+    @@include('./src/components/_global/include-copyright.html')
+</div>
+<!-- uix-wrapper end -->
+@@include('./src/components/_global/include-footer.html')
 
