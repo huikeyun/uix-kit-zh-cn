@@ -6,7 +6,7 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const glob = require('glob');
 const randomString = require('random-string');
 const IncludeFileWebpackPlugin = require('include-file-webpack-plugin');
@@ -439,10 +439,7 @@ const webpackConfig = {
 };
 // Remove include files and extra CSS files
 webpackConfig.plugins.push(
-    new CleanWebpackPlugin([
-        globs.build + '/**/*.css',
-        globs.examples + '/*.html'
-    ])
+    new CleanWebpackPlugin()
 );
 // Adds a banner to the top of each generated chunk.
 webpackConfig.plugins.push(
@@ -516,9 +513,7 @@ targetAllWatchFilesName.map((event) => {
         console.log(colors.fg.Yellow, `${curFile} file Changed`, colors.Reset);
         // After a short delay the configuration is changed and a banner plugin is added
         // to the config
-        new CleanWebpackPlugin([
-            globs.build + '/**/*.css'
-        ]).apply(compiler);
+        new CleanWebpackPlugin().apply(compiler);
         targetTempFilesName.map((event) => {
             new IncludeFileWebpackPlugin({
                 directory: '',
