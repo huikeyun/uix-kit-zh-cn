@@ -7,8 +7,8 @@
  * ## Project Description :  一个快速网页设计和开发的偏视觉交互的免费开发工具包，与 Bootstrap v5 兼容。
  * ## Project URL         :  https://uiux.cc
  * ## Version             :  4.7.0
- * ## Based on            :  Uix Kit (https://github.com/xizon/uix-kit)
- * ## Last Update         :  October 29, 2022
+ * ## Based on            :  Uix Kit (https://github.com/geekmakersun/uix-kit)
+ * ## Last Update         :  October 30, 2022
  * ## Created by          :  UIUX Lab (https://uiux.cc) (uiuxlab@gmail.com)
  * ## Released under the MIT license.
  *
