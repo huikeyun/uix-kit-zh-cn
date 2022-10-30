@@ -1,5 +1,5 @@
 {
-  "author": "GeekMakerSun",
+  "author": "huikeyun",
   "name": "uix-kit-zh-cn",
   "email": "uiuxlab@gmail.com",
   "version": "4.7.0",
@@ -37,9 +37,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/geekmakersun/uix-kit/issues"
+    "url": "https://github.com/huikeyun/uix-kit/issues"
   },
-  "homepage": "https://github.com/geekmakersun/uix-kit",
+  "homepage": "https://github.com/huikeyun/uix-kit",
   "devDependencies": {
     "@babel/core": "^7.2.0",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
