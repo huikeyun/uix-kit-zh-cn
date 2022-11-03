@@ -34,7 +34,7 @@ Uix Kit是一个偏视觉交互的开发工具包，帮助开发者快速完成�
 
 ## 演示
 
-[https://uix-kit.13aq.com/](https://uix-kit.13aq.com/)
+[https://uix-kit.13aq.com/examples/](https://uix-kit.13aq.com/)
 
 GitHub pages只提供静态内容访问，AJAX和PHP请求无法预览效果，你可以通过线上服务器进行完整预览。
 
