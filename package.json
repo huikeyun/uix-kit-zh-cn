@@ -3,9 +3,9 @@
   "name": "uix-kit-zh-cn",
   "email": "uiuxlab@gmail.com",
   "version": "4.7.0",
-  "projectName": "Uix Kit",
+  "projectName": "Uix Kit 中文",
   "createdInfo": "UIUX Lab (https://uiux.cc)",
-  "projectURL": "https://uiux.cc",
+  "projectURL": "https://uix-kit.13aq.com/",
   "description": "一个快速网页设计和开发的偏视觉交互的免费开发工具包，与 Bootstrap v5 兼容。",
   "main": "dist/js/uix-kit.js",
   "directories": {
