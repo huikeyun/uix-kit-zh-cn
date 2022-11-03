@@ -3,9 +3,9 @@
  * DO NOT OVERRIDE THIS FILE.
  * Generated with "npm run build"
  *
- * ## Project Name        :  Uix Kit
+ * ## Project Name        :  Uix Kit 中文
  * ## Project Description :  一个快速网页设计和开发的偏视觉交互的免费开发工具包，与 Bootstrap v5 兼容。
- * ## Project URL         :  https://uiux.cc
+ * ## Project URL         :  https://uix-kit.13aq.com/
  * ## Version             :  4.7.0
  * ## Based on            :  Uix Kit (https://github.com/huikeyun/uix-kit)
  * ## Last Update         :  November 3, 2022
