@@ -1,68 +1,63 @@
 <!DOCTYPE html>
-<html lang='@@{website_lang}' dir='@@{website_dirLTR}'>
+<html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-    <meta charset='@@{website_charset}' />
+    <meta charset="@@{website_charset}" />
     <title>模态对话框自动打开 - @@{website_title}</title>
     @@include('./src/components/_global/include-header.html')
 </head>
-<body class='page'>
+<body class="page">
 @@include('./src/components/_global/include-loader.html')
 @@include('./src/components/_global/include-toggle-trigger.html')
-<div class='uix-wrapper'>
+<div class="uix-wrapper">
     <!-- Header Area
     ============================================= -->
-    <header class='uix-header__container'>
-        <div class='uix-header'>
-            <div class='container'>
+    <header class="uix-header__container">
+        <div class="uix-header">
+            <div class="container">
                 @@include('./src/components/_global/include-brand.html')
                 @@include('./src/components/_global/include-menu.html')
             </div>
             <!-- .container end -->
-            <div class='uix-clearfix'></div>
+            <div class="uix-clearfix"></div>
         </div>
     </header>
-    <div class='uix-header__placeholder js-uix-header__placeholder-autoheight'></div>
-    <main id='uix-maincontent'>
+    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+    <main id="uix-maincontent">
         <!-- Content
         ====================================================== -->
-        <section class='uix-spacing--s uix-spacing--no-bottom'>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-12'>
+        <section class="uix-spacing--s uix-spacing--no-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
                         <h3>模态对话框自动打开</h3>
                         <p>使用简单的 JavaScript 触发</p>
-                        <pre class='uix-precode uix-t-l'><label>HTML</label><code>&lt;template id=&#x27;modal-open-1&#x27;&gt;
-    &lt;div class=&#x27;uix-modal-box&#x27; role=&#x27;dialog&#x27; tabindex=&#x27;-1&#x27; aria-hidden=&#x27;true&#x27;&gt;
-        &lt;button type=&#x27;button&#x27; class=&#x27;uix-modal-box__close&#x27; data-modal-close-trigger=&#x27;true&#x27;&gt;&lt;/button&gt;
-        &lt;div class=&#x27;uix-modal-box__content&#x27; role=&#x27;document&#x27;&gt;
-            &lt;div class=&#x27;uix-modal-box__head&#x27;&gt;
+                        <hr>
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;template id=&quot;modal-open-1&quot;&gt;
+    &lt;div class=&quot;uix-modal-box&quot; role=&quot;dialog&quot; tabindex=&quot;-1&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;uix-modal-box__close&quot; data-modal-close-trigger=&quot;true&quot;&gt;&lt;/button&gt;
+        &lt;div class=&quot;uix-modal-box__content&quot; role=&quot;document&quot;&gt;
+            &lt;div class=&quot;uix-modal-box__head&quot;&gt;
                 &lt;!-- code here --&gt;
             &lt;/div&gt;
-            &lt;div class=&#x27;uix-modal-box__body&#x27;&gt;
-                &lt;div role=&#x27;note&#x27;&gt;
+            &lt;div class=&quot;uix-modal-box__body&quot;&gt;
+                &lt;div role=&quot;note&quot;&gt;
                     &lt;!-- ////////  content  begin //////// --&gt;
-                    &lt;h2&gt;Holy Crap!!!&lt;/h2&gt;
-                    &lt;p&gt;p.s. Sorry for calling you a dingus earlier.&lt;/p&gt;
-                    &lt;p&gt;p.s. Sorry for calling you a dingus earlier.&lt;/p&gt;
-                    &lt;p&gt;p.s. Sorry for calling you a dingus earlier.&lt;/p&gt;
                     &lt;!-- ////////  content  end //////// --&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/template&gt;</code></pre>
-                        <pre class='uix-precode uix-t-l'><label>JS</label><code>$(document).ready(function() {
-        $(document).UixFireModalDialog({
-            id: &#x27;modal-open-1&#x27;,
-            height: false,
-            width: false,
-            speed: 500,
-            lightbox: true,
-            autoClose: false //如果值为2000，则2秒后自动关闭。
-        });
-    });</code>
-</pre>
-                        <hr>
+                        <pre class="uix-precode"><label>JavaScript</label><code>$(document).ready(function() {
+    $(document).UixFireModalDialog({
+        id: &#x27;modal-open-1&#x27;,
+        height: false,
+        width: false,
+        speed: 500,
+        lightbox: true,
+        autoClose: false
+    });
+});</code></pre>
                     </div>
                 </div>
                 <!-- .row end -->
@@ -71,15 +66,15 @@
         </section>
         <!-- Modals
         ============================================= -->
-        <template id='modal-open-1'>
-            <div class='uix-modal-box' role='dialog' tabindex='-1' aria-hidden='true'>
-                <button type='button' class='uix-modal-box__close' data-modal-close-trigger='true'></button>
-                <div class='uix-modal-box__content' role='document'>
-                    <div class='uix-modal-box__head'>
+        <template id="modal-open-1">
+            <div class="uix-modal-box" role="dialog" tabindex="-1" aria-hidden="true">
+                <button type="button" class="uix-modal-box__close" data-modal-close-trigger="true"></button>
+                <div class="uix-modal-box__content" role="document">
+                    <div class="uix-modal-box__head">
                         <!-- code here -->
                     </div>
-                    <div class='uix-modal-box__body'>
-                        <div role='note'>
+                    <div class="uix-modal-box__body">
+                        <div role="note">
                             <!-- ////////  content  begin //////// -->
                             <h2>Holy Crap!!!</h2>
                             <p>p.s. Sorry for calling you a dingus earlier.</p>
@@ -104,9 +99,7 @@
 <script>
     (function($) {
         'use strict';
-
         $(document).ready(function() {
-
             $(document).UixFireModalDialog({
                 id: 'modal-open-1',
                 height: false,
@@ -115,9 +108,7 @@
                 lightbox: true,
                 autoClose: false
             });
-
         });
-
     })(jQuery);
 </script>
 @@include('./src/components/_global/include-footer.html')
