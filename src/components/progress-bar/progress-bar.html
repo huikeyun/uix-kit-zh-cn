@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang='@@{website_lang}' dir='@@{website_dirLTR}'>
+<html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-    <meta charset='@@{website_charset}' />
+    <meta charset="@@{website_charset}" />
     <title>进度条 - @@{website_title}</title>
     @@include('./src/components/_global/include-header.html')
 </head>
-<body class='page'>
+<body class="page">
 @@include('./src/components/_global/include-loader.html')
 @@include('./src/components/_global/include-toggle-trigger.html')
-<div class='uix-wrapper'>
+<div class="uix-wrapper">
     <!-- Header Area
     ============================================= -->
-    <header class='uix-header__container'>
-        <div class='uix-header'>
-            <div class='container'>
+    <header class="uix-header__container">
+        <div class="uix-header">
+            <div class="container">
                 @@include('./src/components/_global/include-brand.html')
                 @@include('./src/components/_global/include-menu.html')
             </div>
             <!-- .container end -->
-            <div class='uix-clearfix'></div>
+            <div class="uix-clearfix"></div>
         </div>
     </header>
-    <div class='uix-header__placeholder js-uix-header__placeholder-autoheight'></div>
-    <main id='uix-maincontent'>
+    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+    <main id="uix-maincontent">
         <!-- Content
         ====================================================== -->
-        <section class='uix-spacing--s uix-spacing--no-bottom'>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-12'>
+        <section class="uix-spacing--s uix-spacing--no-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
                         <h3>径向进度条</h3>
                         <p>向下滚动页面进行预览</p>
                         <hr>
@@ -40,69 +40,79 @@
         </section>
         <!-- Content
          ====================================================== -->
-        <section class='uix-spacing--s'>
-            <div class='container uix-t-c'>
-                <div class='row'>
-                    <div class='col-12'>
-                        <div class='uix-progressbar--circle uix-progressbar--progress-0' data-progressbar-percent='30' data-progressbar-unit='%'>
-										<span class='uix-progressbar__track'>
-											<span>0<em class='uix-progressbar__unit'>%</em></span>
+        <section class="uix-spacing--s">
+            <div class="container">
+                <pre class="uix-precode"><label>HTML</label><code>&lt;div class=&quot;uix-progressbar--circle uix-progressbar--progress-0&quot; data-progressbar-percent=&quot;30&quot; data-progressbar-unit=&quot;%&quot;&gt;
+    &lt;span class=&quot;uix-progressbar__track&quot;&gt;
+        &lt;span&gt;0&lt;em class=&quot;uix-progressbar__unit&quot;&gt;%&lt;/em&gt;&lt;/span&gt;
+    &lt;/span&gt;
+    &lt;div class=&quot;uix-progressbar__pie&quot;&gt;
+        &lt;div class=&quot;uix-progressbar__pie--left-side uix-progressbar__pie--half-circle&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;uix-progressbar__pie--right-side uix-progressbar__pie--half-circle&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;uix-progressbar__title&quot;&gt;标题 1&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <div class="row uix-t-c">
+                    <div class="col-12">
+                        <div class="uix-progressbar--circle uix-progressbar--progress-0" data-progressbar-percent="30" data-progressbar-unit="%">
+										<span class="uix-progressbar__track">
+											<span>0<em class="uix-progressbar__unit">%</em></span>
 										</span>
-                            <div class='uix-progressbar__pie'>
-                                <div class='uix-progressbar__pie--left-side uix-progressbar__pie--half-circle'></div>
-                                <div class='uix-progressbar__pie--right-side uix-progressbar__pie--half-circle'></div>
+                            <div class="uix-progressbar__pie">
+                                <div class="uix-progressbar__pie--left-side uix-progressbar__pie--half-circle"></div>
+                                <div class="uix-progressbar__pie--right-side uix-progressbar__pie--half-circle"></div>
                             </div>
-                            <div class='uix-progressbar__title'>标题 1</div>
+                            <div class="uix-progressbar__title">标题 1</div>
                         </div>
-                        <div class='uix-progressbar--circle uix-progressbar--progress-0' data-progressbar-percent='45' data-progressbar-unit='%'>
-										<span class='uix-progressbar__track'>
-											<span>0<em class='uix-progressbar__unit'>%</em></span>
+                        <div class="uix-progressbar--circle uix-progressbar--progress-0" data-progressbar-percent="45" data-progressbar-unit="%">
+										<span class="uix-progressbar__track">
+											<span>0<em class="uix-progressbar__unit">%</em></span>
 										</span>
-                            <div class='uix-progressbar__pie'>
-                                <div class='uix-progressbar__pie--left-side uix-progressbar__pie--half-circle'></div>
-                                <div class='uix-progressbar__pie--right-side uix-progressbar__pie--half-circle'></div>
+                            <div class="uix-progressbar__pie">
+                                <div class="uix-progressbar__pie--left-side uix-progressbar__pie--half-circle"></div>
+                                <div class="uix-progressbar__pie--right-side uix-progressbar__pie--half-circle"></div>
                             </div>
-                            <div class='uix-progressbar__title'>标题 2</div>
+                            <div class="uix-progressbar__title">标题 2</div>
                         </div>
-                        <div class='uix-progressbar--circle uix-progressbar--progress-0' data-progressbar-percent='66' data-progressbar-unit='%'>
-										<span class='uix-progressbar__track'>
-											<span>0<em class='uix-progressbar__unit'>%</em></span>
+                        <div class="uix-progressbar--circle uix-progressbar--progress-0" data-progressbar-percent="66" data-progressbar-unit="%">
+										<span class="uix-progressbar__track">
+											<span>0<em class="uix-progressbar__unit">%</em></span>
 										</span>
-                            <div class='uix-progressbar__pie'>
-                                <div class='uix-progressbar__pie--left-side uix-progressbar__pie--half-circle'></div>
-                                <div class='uix-progressbar__pie--right-side uix-progressbar__pie--half-circle'></div>
+                            <div class="uix-progressbar__pie">
+                                <div class="uix-progressbar__pie--left-side uix-progressbar__pie--half-circle"></div>
+                                <div class="uix-progressbar__pie--right-side uix-progressbar__pie--half-circle"></div>
                             </div>
-                            <div class='uix-progressbar__title'>标题 3</div>
+                            <div class="uix-progressbar__title">标题 3</div>
                         </div>
-                        <div class='uix-progressbar--circle uix-progressbar--progress-0 is-transparent' data-progressbar-percent='100' data-progressbar-unit='%'>
-										<span class='uix-progressbar__track'>
-											<span>0<em class='uix-progressbar__unit'>%</em></span>
+                        <div class="uix-progressbar--circle uix-progressbar--progress-0 is-transparent" data-progressbar-percent="100" data-progressbar-unit="%">
+										<span class="uix-progressbar__track">
+											<span>0<em class="uix-progressbar__unit">%</em></span>
 										</span>
-                            <div class='uix-progressbar__pie'>
-                                <div class='uix-progressbar__pie--left-side uix-progressbar__pie--half-circle'></div>
-                                <div class='uix-progressbar__pie--right-side uix-progressbar__pie--half-circle'></div>
+                            <div class="uix-progressbar__pie">
+                                <div class="uix-progressbar__pie--left-side uix-progressbar__pie--half-circle"></div>
+                                <div class="uix-progressbar__pie--right-side uix-progressbar__pie--half-circle"></div>
                             </div>
-                            <div class='uix-progressbar__title'>标题 4</div>
+                            <div class="uix-progressbar__title">标题 4</div>
                         </div>
-                        <div class='uix-progressbar--circle uix-progressbar--progress-0 is-transparent' data-progressbar-percent='55' data-progressbar-unit='%'>
-										<span class='uix-progressbar__track'>
-											<span>0<em class='uix-progressbar__unit'>%</em></span>
+                        <div class="uix-progressbar--circle uix-progressbar--progress-0 is-transparent" data-progressbar-percent="55" data-progressbar-unit="%">
+										<span class="uix-progressbar__track">
+											<span>0<em class="uix-progressbar__unit">%</em></span>
 										</span>
-                            <div class='uix-progressbar__pie'>
-                                <div class='uix-progressbar__pie--left-side uix-progressbar__pie--half-circle'></div>
-                                <div class='uix-progressbar__pie--right-side uix-progressbar__pie--half-circle'></div>
+                            <div class="uix-progressbar__pie">
+                                <div class="uix-progressbar__pie--left-side uix-progressbar__pie--half-circle"></div>
+                                <div class="uix-progressbar__pie--right-side uix-progressbar__pie--half-circle"></div>
                             </div>
-                            <div class='uix-progressbar__title'>标题 5</div>
+                            <div class="uix-progressbar__title">标题 5</div>
                         </div>
-                        <div class='uix-progressbar--circle uix-progressbar--progress-0 is-transparent' data-progressbar-percent='18' data-progressbar-unit='%'>
-										<span class='uix-progressbar__track'>
-											<span>0<em class='uix-progressbar__unit'>%</em></span>
+                        <div class="uix-progressbar--circle uix-progressbar--progress-0 is-transparent" data-progressbar-percent="18" data-progressbar-unit="%">
+										<span class="uix-progressbar__track">
+											<span>0<em class="uix-progressbar__unit">%</em></span>
 										</span>
-                            <div class='uix-progressbar__pie'>
-                                <div class='uix-progressbar__pie--left-side uix-progressbar__pie--half-circle'></div>
-                                <div class='uix-progressbar__pie--right-side uix-progressbar__pie--half-circle'></div>
+                            <div class="uix-progressbar__pie">
+                                <div class="uix-progressbar__pie--left-side uix-progressbar__pie--half-circle"></div>
+                                <div class="uix-progressbar__pie--right-side uix-progressbar__pie--half-circle"></div>
                             </div>
-                            <div class='uix-progressbar__title'>标题 6</div>
+                            <div class="uix-progressbar__title">标题 6</div>
                         </div>
                     </div>
                     <!-- .col-12 end -->
@@ -113,10 +123,10 @@
         </section>
         <!-- Content
         ====================================================== -->
-        <section class='uix-spacing--s uix-spacing--no-bottom'>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-12'>
+        <section class="uix-spacing--s uix-spacing--no-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
                         <h3>水平矩形进度条</h3>
                         <p>向下滚动页面进行预览</p>
                         <hr>
@@ -128,29 +138,36 @@
         </section>
         <!-- Content
          ====================================================== -->
-        <section class='uix-spacing--s'>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-12 uix-trans'>
-                        <div class='uix-progressbar--rectangle uix-progressbar--progress-0' data-progressbar-percent='30' data-progressbar-unit='%'>
-                            <div class='uix-progressbar__title'>标题 1</div>
-                            <div class='uix-progressbar__bar'>
-                                <div class='uix-progressbar__track'></div>
-                                <span>0<em class='uix-progressbar__unit'>%</em></span>
+        <section class="uix-spacing--s">
+            <div class="container">
+                <pre class="uix-precode"><label>HTML</label><code>&lt;div class=&quot;uix-progressbar--rectangle uix-progressbar--progress-0&quot; data-progressbar-percent=&quot;30&quot; data-progressbar-unit=&quot;%&quot;&gt;
+    &lt;div class=&quot;uix-progressbar__title&quot;&gt;标题 1&lt;/div&gt;
+    &lt;div class=&quot;uix-progressbar__bar&quot;&gt;
+        &lt;div class=&quot;uix-progressbar__track&quot;&gt;&lt;/div&gt;
+        &lt;span&gt;0&lt;em class=&quot;uix-progressbar__unit&quot;&gt;%&lt;/em&gt;&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <div class="row">
+                    <div class="col-12 uix-trans">
+                        <div class="uix-progressbar--rectangle uix-progressbar--progress-0" data-progressbar-percent="30" data-progressbar-unit="%">
+                            <div class="uix-progressbar__title">标题 1</div>
+                            <div class="uix-progressbar__bar">
+                                <div class="uix-progressbar__track"></div>
+                                <span>0<em class="uix-progressbar__unit">%</em></span>
                             </div>
                         </div>
-                        <div class='uix-progressbar--rectangle uix-progressbar--progress-0' data-progressbar-percent='57' data-progressbar-unit='%'>
-                            <div class='uix-progressbar__title'>标题 2</div>
-                            <div class='uix-progressbar__bar'>
-                                <div class='uix-progressbar__track'></div>
-                                <span>0<em class='uix-progressbar__unit'>%</em></span>
+                        <div class="uix-progressbar--rectangle uix-progressbar--progress-0" data-progressbar-percent="57" data-progressbar-unit="%">
+                            <div class="uix-progressbar__title">标题 2</div>
+                            <div class="uix-progressbar__bar">
+                                <div class="uix-progressbar__track"></div>
+                                <span>0<em class="uix-progressbar__unit">%</em></span>
                             </div>
                         </div>
-                        <div class='uix-progressbar--rectangle uix-progressbar--progress-0' data-progressbar-percent='100' data-progressbar-unit='%'>
-                            <div class='uix-progressbar__title'>标题 3</div>
-                            <div class='uix-progressbar__bar'>
-                                <div class='uix-progressbar__track'></div>
-                                <span>0<em class='uix-progressbar__unit'>%</em></span>
+                        <div class="uix-progressbar--rectangle uix-progressbar--progress-0" data-progressbar-percent="100" data-progressbar-unit="%">
+                            <div class="uix-progressbar__title">标题 3</div>
+                            <div class="uix-progressbar__bar">
+                                <div class="uix-progressbar__track"></div>
+                                <span>0<em class="uix-progressbar__unit">%</em></span>
                             </div>
                         </div>
                     </div>
