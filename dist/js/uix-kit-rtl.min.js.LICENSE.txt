@@ -8,7 +8,7 @@
  * ## Project URL         :  https://uix-kit.13aq.com/
  * ## Version             :  4.7.0
  * ## Based on            :  Uix Kit (https://github.com/huikeyun/uix-kit)
- * ## Last Update         :  November 5, 2022
+ * ## Last Update         :  November 8, 2022
  * ## Created by          :  UIUX Lab (https://uiux.cc) (uiuxlab@gmail.com)
  * ## Released under the MIT license.
  *
