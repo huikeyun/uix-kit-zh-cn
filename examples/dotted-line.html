@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-cn" dir="ltr">
+<html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-	<meta charset="utf-8" />
-	<title>Dotted Line - Uix Kit 中文</title>	
+	<meta charset="@@{website_charset}" />
+	<title>Dotted Line - @@{website_title}</title>	
 	<!-- Compatibility Settings
 ============================================= -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -21,9 +21,9 @@
 <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css?ver=5.7.0">
 <link rel="stylesheet" href="assets/fonts/fontawesome/css/v4-shims.min.css?ver=5.7.0">
 <!-- Theme  -->
-<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=F4gcmGQ6XPFUx4q05VbM" />
+<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=@@{website_hash}" />
 <!--[if lt IE 10]>
-<link rel="stylesheet" href="assets/css/IE.css?ver=F4gcmGQ6XPFUx4q05VbM" />
+<link rel="stylesheet" href="assets/css/IE.css?ver=@@{website_hash}" />
 <![endif]-->
 <!-- Core & Theme CSS  end -->
 <!-- Vendor
@@ -36,9 +36,9 @@
 <script src="assets/js/min/prefixfree.min.js?ver=1.0.7"></script>
 <!-- SEO
 ============================================= -->
-<meta name="description" content="一个快速网页设计和开发的偏视觉交互的免费开发工具包，与 Bootstrap v5 兼容。">
-<meta name="generator" content="Uix Kit" />
-<meta name="author" content="huikeyun">
+<meta name="description" content="@@{website_desc}">
+<meta name="generator" content="@@{website_generator}" />
+<meta name="author" content="@@{website_author}">
 <!-- SEO  end -->
 <!-- Favicons
 ============================================= -->
@@ -98,14 +98,14 @@
                  <div class="container">
                  
                                                 <div class="uix-brand">
-                            <a href="index.html"><img src="assets/images/logo.png" alt="Uix Kit 中文"></a>                       
+                            <a href="index.html"><img src="assets/images/logo.png" alt="@@{website_title}"></a>                       
                         </div>
                         <!-- .uix-brand end -->
                         
                         <!-- Navigation Start-->
 <nav class='uix-menu__container'>
     <div class='uix-menu__inner'>
-        <span class='uix-brand--mobile'><img src='assets/images/logo-colorful.png' alt='Uix Kit 中文'></span>
+        <span class='uix-brand--mobile'><img src='assets/images/logo-colorful.png' alt='@@{website_title}'></span>
         <ul class='uix-menu'>
             <li class='multi-column current-menu-item is-active'><a href='index.html'>组件</a>
                 <ul class='sub-menu'>
@@ -496,7 +496,7 @@
     * These variables are being used in `uix-kit.min.js`.
     *
     */
-    var REVISION = '4.7.0',
+    var REVISION = '@@{website_version}',
         APP_ROOTPATH = {
             'templateUrl': '', //If the file is in the root directory, you can leave it empty. If in another directory, you can write: "/blog"
             'homeUrl': '',  //Eg. https://uiux.cc
@@ -510,7 +510,7 @@
     */
     window.$ = window.jQuery;
 </script>
-<script defer src='../dist/js/uix-kit.min.js?ver=F4gcmGQ6XPFUx4q05VbM'></script>
+<script defer src='../dist/js/uix-kit.min.js?ver=@@{website_hash}'></script>
 <!-- Your Plugins & Theme Scripts  end -->
 </body>
 </html>
