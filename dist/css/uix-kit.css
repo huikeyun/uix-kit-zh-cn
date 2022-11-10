@@ -8,7 +8,7 @@
  * ## 项目网址           :  https://uix-kit.13aq.com/
  * ## 版本              :  4.7.0
  * ## 汉化              :  慧科云 (https://github.com/huikeyun/uix-kit)
- * ## 最后更新日期        :  November 10, 2022
+ * ## 最后更新日期        :  November 11, 2022
  * ## 基于 UIUX Lab (https://uiux.cc) (uiuxlab@gmail.com) 汉化
  * ## 在 MIT 许可下发布。
  *
@@ -26,17 +26,17 @@
     7.辅助类
     8.基本布局样式
     9.加载器
-    10.Mobile Menu
-    11.Navigation
-    12.Navs
-    13.Onepage Menu
-    14.Pagination
-    15.Ratios
-    16.Sidebar
-    17.Social Media Icons
-    18.Spacing
-    19.Tags
-    20.Typography
+    10.移动菜单
+    11.导航
+    12.导航
+    13.单页菜单
+    14.分页
+    15.单选框
+    16.侧边栏
+    17.社交媒体图标
+    18.间距
+    19.标签
+    20.排版
     21.Video
     22.Custom Core Scripts & Stylesheets
     23.Accordion Background Images
@@ -2263,10 +2263,10 @@ details.uix-details-reset > summary::-webkit-details-marker {
   }
 }
 
-/* ====================================================== 
-   <!-- Mobile Menu --> 
-/* ====================================================== */
-/* Mobile Menu Toggle */
+/* ================================================= ======
+    <!-- 移动菜单 -->
+/* ================================================= ====== */
+/* 移动菜单切换 */
 .uix-menu-mobile__toggle {
   transition: all 0.3s ease;
   position: absolute;
@@ -2300,7 +2300,7 @@ details.uix-details-reset > summary::-webkit-details-marker {
   background: rgba(0, 0, 0, 0.7);
 }
 
-/* Show Toolbar when viewing site with WordPress */
+/* 使用 WordPress 查看网站时显示工具栏 */
 .admin-bar .uix-menu-mobile__toggle {
   top: 66px;
 }
@@ -2309,7 +2309,7 @@ details.uix-details-reset > summary::-webkit-details-marker {
   top: 20px;
 }
 
-/* Admin bar becomes taller on smaller devices with WordPress */
+/* 管理栏在使用 WordPress 的小型设备上变得更高 */
 @media all and (max-width: 782px) {
   .admin-bar .uix-menu-mobile__toggle.is-fixed {
     top: 66px;
@@ -2363,7 +2363,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   transform: rotate(-45deg) translate(0, -7px);
 }
 
-/* Mobile Menu Container */
+/* 移动菜单容器 */
 .uix-menu__container.is-mobile {
   transition: all 0.3s ease;
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
@@ -2380,7 +2380,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   color: #212121;
   background: #f8f8f8;
   box-shadow: 0px 0px 37px 0px rgba(0, 0, 0, 0.1);
-  /* Mega & Dropdown */
+  /* 超级和下拉菜单 */
   /* Form Elements */
 }
 
@@ -2395,7 +2395,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 
 .uix-menu__container.is-mobile > .uix-menu__inner > .uix-menu__right-box {
   padding-left: .5rem;
-  /* Social button for white color */
+  /* 白色的社交按钮 */
 }
 
 .uix-menu__container.is-mobile > .uix-menu__inner > .uix-menu__right-box a {
@@ -2605,36 +2605,35 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   left: 0;
 }
 
-/* ====================================================== 
-   <!-- Navigation -->                                    
-/* ====================================================== */
+/* ================================================= ======
+    <!-- 导航 -->
+/* ================================================= ====== */
 /*
- * 1. Primary Menu
- * 2. Sub Menu (Using WordPress default class name )
- * 3. Mega/Dropdown Menu 
- * 4. Dropdown Arrow
+  * 1. 主菜单
+  * 2.子菜单（使用WordPress默认类名）
+  * 3. 超级/下拉菜单
+  * 4. 下拉箭头
 */
 .uix-menu__container:not(.is-mobile) {
   float: right;
   padding-top: 1.25rem;
   /*
-    Do not use `position:relative`, it may cause the width calculation script
-    matching problem of the mega menu
+      不要使用`position:relative`，可能会导致mega菜单的宽度计算脚本匹配问题
     */
   /*
      ---------------------------
-     1. Primary Menu
+     1. 主菜单
      ---------------------------
      */
   /*
-     ---------------------------
-     3. Mega/Dropdown Menu
-     ---------------------------
-     */
-  /* Multi-column */
+      --------------------------
+      3. 超级/下拉菜单
+      --------------------------
+      */
+  /* 多列 */
   /*
      ---------------------------
-     4. Dropdown Arrow
+     4. 下拉箭头
      ---------------------------
      */
 }
@@ -2646,14 +2645,14 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 .uix-menu__container:not(.is-mobile) ul.uix-menu {
   font-size: 0.75rem;
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   line-height: 2.34375;
   float: left;
   margin: 0;
-  /* Required*/
+  /* 必需的 */
   /*
          ---------------------------
-         2. Sub Menu (Using WordPress default class name )
+         2. 子菜单（使用 WordPress 默认类名）
          ---------------------------
          */
 }
@@ -2671,13 +2670,13 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 
 .uix-menu__container:not(.is-mobile) ul.uix-menu > li {
   font-size: 0.75rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: inline-block;
   margin-right: 1.6875rem;
   padding-bottom: 1.421875rem;
   white-space: nowrap;
-  /* Required*/
-  /* Sync to WordPress activation class name ".current-menu-item" */
+  /* 必需的 */
+  /* 同步到 WordPress 激活类名 ".current-menu-item" */
 }
 
 .uix-menu__container:not(.is-mobile) ul.uix-menu > li .uix-bubble {
@@ -2737,7 +2736,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 .uix-menu__container:not(.is-mobile) ul.uix-menu ul.sub-menu a {
   line-height: 1.4;
   padding: 0.35rem 0;
-  /* Required*/
+  /* 必需的*/
   white-space: normal;
   word-wrap: break-word;
 }
@@ -2749,7 +2748,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 
 .uix-menu__container:not(.is-mobile) ul.uix-menu > li:not(.multi-column) > ul {
   left: 1.784375rem;
-  /* arrow of sub menu, not mega menu */
+  /* 子菜单的箭头，不是超级菜单 */
 }
 
 .uix-menu__container:not(.is-mobile) ul.uix-menu > li:not(.multi-column) > ul::after {
@@ -2794,7 +2793,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   width: auto;
   max-height: calc(100vh - 50px);
   padding: 0;
-  /* add scrollbar to per column */
+  /* 每列添加滚动条 */
   white-space: nowrap;
 }
 
@@ -2803,15 +2802,15 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   overflow: hidden;
   overflow-y: auto;
   width: 270px;
-  /* Required, JS script needs to listen on it for calculation */
+  /* 必需，JS 脚本需要监听它进行计算 */
   max-height: calc(100vh - 50px - 100px);
-  /* add scrollbar to per column */
+  /* 每列添加滚动条 */
   padding-left: 0.75rem;
   vertical-align: top;
 }
 
 .uix-menu__container:not(.is-mobile) li.multi-column > ul li::-webkit-scrollbar-track {
-  border-radius: 0px;
+  border-radius: 0;
   background-color: #ffffff;
 }
 
@@ -2822,7 +2821,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 }
 
 .uix-menu__container:not(.is-mobile) li.multi-column > ul li::-webkit-scrollbar-thumb {
-  border-radius: 0px;
+  border-radius: 0;
   background-color: #fafafa;
 }
 
@@ -2838,7 +2837,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 .uix-menu__container:not(.is-mobile) li.multi-column > ul li ul {
   position: relative;
   margin-top: 0 !important;
-  /* Prevent JS script from disturbing */
+  /* 防止 JS 脚本干扰 */
   box-shadow: none;
 }
 
@@ -2901,41 +2900,40 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   }
 }
 
-/* ====================================================== 
-   <!-- Navs --> 
-/* ====================================================== */
+/* ================================================= ======
+    <!-- 导航 -->
+/* ================================================= ====== */
 /*
- * 1. Base Nav
- * 2. Line Nav
- * 3. Separation Line Nav
- * 4. Dropdown
- * 5. Responsive Dropdown Nav
-
+  * 1. 基地导航
+  * 2.线路导航
+  * 3. 分隔线导航
+  * 4. 下拉菜单
+  * 5. 响应式下拉导航
 */
 .uix-nav {
   /*
      ---------------------------
-     1. Base Nav
+     1. 基础导航
      ---------------------------
      */
   /*
      ---------------------------
-     2. Line Nav
+     2. 路线导航
      ---------------------------
      */
   /*
      ---------------------------
-     3. Separation Line Nav
+     3. 分隔线导航
      ---------------------------
      */
   /*
      ---------------------------
-     4. Dropdown
+     4. 下拉菜单
      ---------------------------
      */
   /*
      ---------------------------
-     5. Responsive Dropdown Nav
+     5. 响应式下拉导航
      ---------------------------
      */
 }
@@ -2955,13 +2953,13 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 
 .uix-nav ul {
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   margin: 0;
 }
 
 .uix-nav ul li {
   font-size: 0.875rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   position: relative;
   display: inline-block;
   margin: 0 1rem 0 0;
@@ -2990,7 +2988,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 
 .uix-nav.uix-nav--line ul li {
   font-size: 1.25rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   margin: 0;
   padding: 1rem 2.5rem;
 }
@@ -3001,7 +2999,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 }
 
 .uix-nav.uix-nav--line ul li.is-active, .uix-nav.uix-nav--line ul li.current-cat {
-  box-shadow: 0px 3px 0px 0px #ce3a3e;
+  box-shadow: 0 3px 0 0 #ce3a3e;
 }
 
 .uix-nav.uix-nav--separation ul li {
@@ -3028,7 +3026,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 }
 
 .uix-nav ul li {
-  /*-- Fold Out --*/
+  /*-- 展开 --*/
 }
 
 .uix-nav ul li ul {
@@ -3089,12 +3087,12 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   .uix-nav {
     /*
          ---------------------------
-         5. Responsive Dropdown Nav
+         5. 响应式下拉导航
          ---------------------------
          */
   }
   .uix-nav.uix-nav--dropdown-mobile {
-    /* wrapping this in media querry to prevent fails while change screen size and checked inputs */
+    /* 将其包装在媒体查询中以防止在更改屏幕大小和检查输入时失败 */
   }
   .uix-nav.uix-nav--dropdown-mobile .uix-nav--dropdown-mobile__togglelabel {
     display: block;
@@ -3144,9 +3142,9 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   }
 }
 
-/* ====================================================== 
-    <!-- Onepage Menu -->  
-/* ====================================================== */
+/* ================================================= ======
+     <!-- 单页菜单 -->
+/* ================================================= ====== */
 .uix-menu-sidefixed {
   position: absolute;
   z-index: 13;
@@ -3206,18 +3204,18 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   font-weight: bold;
 }
 
-/* ====================================================== 
-   <!-- Pagination -->                         
-/* ====================================================== */
+/* ================================================= ======
+    <!-- 分页 -->
+/* ================================================= ====== */
 /*
- * 1. Default
- * 2. Paginate WordPress Posts
+  * 1. 默认
+  * 2. 为 WordPress 帖子分页
 */
 /*
- ---------------------------
- 1. Default
- ---------------------------
- */
+  --------------------------
+  1. 默认
+  --------------------------
+  */
 .uix-pagination__container {
   margin-top: 2.84375rem;
 }
@@ -3237,12 +3235,12 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 
 .uix-pagination__container ul {
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
 }
 
 .uix-pagination__container ul li {
   font-size: 1rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: inline-block;
 }
 
@@ -3258,7 +3256,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   margin-bottom: 2.06818181818rem;
   padding-top: 0.25rem;
   text-align: center;
-  /*Ligatures and contextual forms are ways of combining glyphs to produce more harmonized forms.*/
+  /* 连字和上下文形式是组合字形以产生更协调的形式的方式 */
   color: #212121;
   border: none;
   border-radius: 4px;
@@ -3291,10 +3289,10 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 }
 
 /*
- ---------------------------
- 2. Paginate WordPress Posts
- ---------------------------
- */
+  --------------------------
+  2. 为 WordPress 帖子分页
+  --------------------------
+  */
 .uix-page-links {
   font-weight: 600;
   line-height: 1.25;
@@ -3328,8 +3326,8 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   background: #f9f9f9;
 }
 
-/* ====================================================== 
-   <!-- Ratios -->      
+/* ======================================================
+   <!-- 单选框 -->
 /* ====================================================== */
 .uix-ratio {
   position: relative;
@@ -3374,22 +3372,22 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   padding-top: 100%;
 }
 
-/* ====================================================== 
-   <!-- Sidebar  -->            
-/* ====================================================== */
+/* ================================================= ======
+    <!-- 侧边栏 -->
+/* ================================================= ====== */
 /*
- * 1. Basic                             - Synchronize to WordPress's class name
- * 2. Calendar Widget                   - Synchronize to WordPress's class name
- * 3. Link List                         - Synchronize to WordPress's class name
- * 4. Tag cloud from sidebar            - Synchronize to WordPress's class name
- * 5. Post List
- * 6. Post List with Featured Image
+  * 1. Basic - 同步到 WordPress 的类名
+  * 2. 日历小部件 - 同步到 WordPress 的类名
+  * 3. 链接列表 - 同步到 WordPress 的类名
+  * 4. 侧边栏标签云 - 同步到 WordPress 的类名
+  * 5. 帖子列表
+  * 6. 带有特色图片的帖子列表
 */
 /*
- ---------------------------
- 1. Basic
- ---------------------------
- */
+  --------------------------
+  1. 基本
+  --------------------------
+  */
 .uix-sidebar__container {
   line-height: 1.825;
   position: relative;
@@ -3419,7 +3417,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 
 /*
  ---------------------------
- 2. Calendar Widget
+ 2. 日历小部件
  ---------------------------
  */
 .calendar_wrap > table {
@@ -3466,7 +3464,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 
 /*
  ---------------------------
- 3. Link List
+ 3. 链接列表
  ---------------------------
  */
 .widget_categories ul,
@@ -3536,7 +3534,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 
 /*
  ---------------------------
- 4. Tag cloud from sidebar
+ 4. 侧边栏标签云
  ---------------------------
  */
 .tagcloud {
@@ -3567,7 +3565,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 
 /*
  ---------------------------
- 5. Post List
+ 5. 帖子列表
  ---------------------------
  */
 .uix-sidebar__posts li {
@@ -3577,7 +3575,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 
 /*
  ---------------------------
- 6. Post List with Featured Image
+ 6. 带有特色图片的帖子列表
  ---------------------------
  */
 .uix-sidebar__posts-img {
@@ -3591,10 +3589,8 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   line-height: 1.3;
   position: relative;
   display: block;
-  display: block;
   height: auto;
-  margin: 0;
-  margin-bottom: 0.875rem;
+  margin: 0 0 0.875rem;
   padding: 0;
   list-style: none;
   border: none;
@@ -3667,18 +3663,18 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   }
 }
 
-/* ====================================================== 
-   <!-- Social Media Icons -->
-/* ====================================================== */
+/* ================================================= ======
+    <!-- 社交媒体图标 -->
+/* ================================================= ====== */
 /*
- * 1. Social Button
- * 2. Social Background
+  * 1. 社交媒体按钮
+  * 2. 社交媒体背景
 */
 /*
- ---------------------------
- 1. Social Button
- ---------------------------
- */
+  --------------------------
+  1. 社交按钮
+  --------------------------
+  */
 .uix-social-btn {
   position: relative;
   z-index: 1;
@@ -3795,7 +3791,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 
 /*
  ---------------------------
- 2. Social Background
+ 2. 社交媒体背景
  ---------------------------
  */
 .uix-social-bg {
@@ -4065,7 +4061,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 }
 
 /* ====================================================== 
-   <!-- Spacing -->                                
+   <!-- 间距 -->
 /* ====================================================== */
 .uix-spacing--s {
   position: relative;
@@ -4094,7 +4090,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   padding-top: 0 !important;
 }
 
-/* Without spacing */
+/* 没有间距 */
 .uix-spacing--no {
   margin: 0 !important;
   /* compatible with <p>, <h1>, <h2>, <h3>... */
@@ -4126,7 +4122,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 }
 
 /* ====================================================== 
-   <!-- Tags -->      
+   <!-- 标签 -->
 /* ====================================================== */
 .uix-tags-box::before {
   display: block;
@@ -4156,22 +4152,22 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   border: 1px solid #e6e6e6;
 }
 
-/* ====================================================== 
-   <!-- Typography -->            
-/* ====================================================== */
+/* ================================================= ======
+    <!-- 排版 -->
+/* ================================================= ====== */
 /*
- * 1. General                    
- * 2. Hyperlink                        
- * 3. Heading (h1,h2,h3,h4,h5,h6) 
- * 4. Text Effect
- * 5. Drop Cap
- * 6. Vertical Text
+  * 1. 一般
+  * 2. 超链接
+  * 3. 标题 (h1,h2,h3,h4,h5,h6)
+  * 4.文字效果
+  * 5. 首字下沉
+  * 6. 竖排文字
 */
 /*
- ---------------------------
- 1. General
- ---------------------------
- */
+  --------------------------
+  1. 通用
+  --------------------------
+  */
 a,
 h1,
 h2,
@@ -4190,7 +4186,7 @@ h6,
 
 /*
  ---------------------------
- 2. Hyperlink
+ 2. 超链接
  ---------------------------
  */
 a {
@@ -4205,7 +4201,7 @@ a:hover {
 
 /*
  ---------------------------
- 3. Heading (h1,h2,h3,h4,h5,h6)
+ 3. 标题 (h1,h2,h3,h4,h5,h6)
  ---------------------------
  */
 h1,
@@ -4223,7 +4219,7 @@ h6,
   font-weight: 700;
   margin-top: 0;
   margin-bottom: 0.625rem;
-  /*Ligatures and contextual forms are ways of combining glyphs to produce more harmonized forms.*/
+  /* 连字和上下文形式是组合字形以产生更协调的形式的方式 */
   padding: 0 0 0.546875rem;
   word-wrap: break-word;
   color: #212121;
@@ -4350,7 +4346,7 @@ h6 {
 
 /* 
  ---------------------------
- 4. Text Effect
+ 4. 文字效果
  ---------------------------
  */
 .uix-typo--style-normal {
@@ -4470,7 +4466,7 @@ h6 {
 
 /*
  ---------------------------
- 5. Drop Cap
+ 5. 首字下沉
  ---------------------------
  */
 .uix-typo--dropcap::first-letter,
@@ -4485,16 +4481,16 @@ h6 {
 
 /*
  ---------------------------
- 6. Vertical Text
+ 6. 竖排文字
  ---------------------------
  */
 .uix-typo--vertical {
-  /* Defines the orientation of the text characters in a line.  */
+  /* 定义一行中文本字符的方向 */
 }
 
 .uix-typo--vertical:not(.uix-typo--vertical-characters-line) {
   line-height: 0;
-  /* Fix the problem of left-leaning text after rotation */
+  /* 修复旋转后文字左倾的问题 */
   transform: translateX(0.5rem);
   writing-mode: vertical-rl;
 }
@@ -4503,7 +4499,7 @@ h6 {
   line-height: 1;
   width: 1px;
   white-space: pre-wrap;
-  /* this is for displaying whitespaces including Firefox */
+  /* 这是用于显示包括 Firefox 在内的空格 */
   word-wrap: break-word;
 }
 

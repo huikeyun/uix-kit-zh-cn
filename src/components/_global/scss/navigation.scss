@@ -1,11 +1,11 @@
-/* ====================================================== 
-   <!-- Navigation -->                                    
-/* ====================================================== */
+/* ================================================= ======
+    <!-- 导航 -->
+/* ================================================= ====== */
 /*
- * 1. Primary Menu
- * 2. Sub Menu (Using WordPress default class name )
- * 3. Mega/Dropdown Menu 
- * 4. Dropdown Arrow
+  * 1. 主菜单
+  * 2.子菜单（使用WordPress默认类名）
+  * 3. 超级/下拉菜单
+  * 4. 下拉箭头
 */
 $nav-font-size: 0.75rem;
 $nav-sub-w: 220px;
@@ -14,23 +14,22 @@ $nav-mega-li-w: 270px;
     float: right;
     padding-top: 1.25rem;
     /*
-    Do not use `position:relative`, it may cause the width calculation script
-    matching problem of the mega menu
+      不要使用`position:relative`，可能会导致mega菜单的宽度计算脚本匹配问题
     */
     &.is-fixed {
         padding-bottom: 0;
     }
     /*
      ---------------------------
-     1. Primary Menu
+     1. 主菜单
      ---------------------------
      */
     ul.uix-menu {
         font-size: $nav-font-size;
-        font-size: 0; /*Fighting the Space Between Inline Block Elements*/
+        font-size: 0; /* 争夺内联块元素之间的空间 */
         line-height: 2.34375;
         float: left;
-        margin: 0; /* Required*/
+        margin: 0; /* 必需的 */
         li {
             position: relative;
             margin-bottom: 0;
@@ -41,15 +40,15 @@ $nav-mega-li-w: 270px;
             }
         }
         > li {
-            font-size: $nav-font-size; /*Fighting the Space Between Inline Block Elements*/
+            font-size: $nav-font-size; /* 争夺内联块元素之间的空间 */
             display: inline-block;
             margin-right: 1.6875rem;
             padding-bottom: 1.421875rem;
-            white-space: nowrap; /* Required*/
+            white-space: nowrap; /* 必需的 */
             .uix-bubble {
                 right: 1rem;
             }
-            /* Sync to WordPress activation class name ".current-menu-item" */
+            /* 同步到 WordPress 激活类名 ".current-menu-item" */
             &.is-active,
             &.current-menu-item {
                 box-shadow: 0 2.15px 0 rgba(255, 255, 255, 1);
@@ -92,7 +91,7 @@ $nav-mega-li-w: 270px;
         }
         /*
          ---------------------------
-         2. Sub Menu (Using WordPress default class name )
+         2. 子菜单（使用 WordPress 默认类名）
          ---------------------------
          */
         ul.sub-menu {
@@ -101,7 +100,7 @@ $nav-mega-li-w: 270px;
             a {
                 line-height: 1.4;
                 padding: 0.35rem 0;
-                /* Required*/
+                /* 必需的*/
                 white-space: normal;
                 word-wrap: break-word;
                 &:hover {
@@ -112,7 +111,7 @@ $nav-mega-li-w: 270px;
         }
         > li:not(.multi-column) > ul {
             left: 1.784375rem;
-            /* arrow of sub menu, not mega menu */
+            /* 子菜单的箭头，不是超级菜单 */
             &::after {
                 position: absolute;
                 top: 5px;
@@ -141,11 +140,11 @@ $nav-mega-li-w: 270px;
         }
     }
     /*
-     ---------------------------
-     3. Mega/Dropdown Menu
-     ---------------------------
-     */
-    /* Multi-column */
+      --------------------------
+      3. 超级/下拉菜单
+      --------------------------
+      */
+    /* 多列 */
     li.multi-column {
         span.multi-column-title {
             font-weight: 700;
@@ -160,19 +159,19 @@ $nav-mega-li-w: 270px;
             width: auto;
             max-height: calc(100vh - 50px);
             padding: 0;
-            /* add scrollbar to per column */
+            /* 每列添加滚动条 */
             white-space: nowrap;
             li {
                 display: inline-block;
                 overflow: hidden;
                 overflow-y: auto;
-                width: $nav-mega-li-w; /* Required, JS script needs to listen on it for calculation */
+                width: $nav-mega-li-w; /* 必需，JS 脚本需要监听它进行计算 */
                 max-height: calc(100vh - 50px - 100px);
-                /* add scrollbar to per column */
+                /* 每列添加滚动条 */
                 padding-left: 0.75rem;
                 vertical-align: top;
                 &::-webkit-scrollbar-track {
-                    border-radius: 0px;
+                    border-radius: 0;
                     background-color: #ffffff;
                 }
                 &::-webkit-scrollbar {
@@ -181,7 +180,7 @@ $nav-mega-li-w: 270px;
                     background-color: #fafafa;
                 }
                 &::-webkit-scrollbar-thumb {
-                    border-radius: 0px;
+                    border-radius: 0;
                     background-color: #fafafa;
                 }
                 .uix-bubble {
@@ -196,7 +195,7 @@ $nav-mega-li-w: 270px;
                 ul {
                     position: relative;
                     margin-top: 0 !important;
-                    /* Prevent JS script from disturbing */
+                    /* 防止 JS 脚本干扰 */
                     box-shadow: none;
                 }
             }
@@ -233,7 +232,7 @@ $nav-mega-li-w: 270px;
     }
     /*
      ---------------------------
-     4. Dropdown Arrow
+     4. 下拉箭头
      ---------------------------
      */
     .uix-menu__arrow {

@@ -1,13 +1,12 @@
-/* ====================================================== 
-   <!-- Navs --> 
-/* ====================================================== */
+/* ================================================= ======
+    <!-- 导航 -->
+/* ================================================= ====== */
 /*
- * 1. Base Nav
- * 2. Line Nav
- * 3. Separation Line Nav
- * 4. Dropdown
- * 5. Responsive Dropdown Nav
-
+  * 1. 基地导航
+  * 2.线路导航
+  * 3. 分隔线导航
+  * 4. 下拉菜单
+  * 5. 响应式下拉导航
 */
 .uix-nav {
     &::before {
@@ -23,14 +22,14 @@
     }
     /*
      ---------------------------
-     1. Base Nav
+     1. 基础导航
      ---------------------------
      */
     ul {
-        font-size: 0; /*Fighting the Space Between Inline Block Elements*/
+        font-size: 0; /* 争夺内联块元素之间的空间 */
         margin: 0;
         li {
-            font-size: 0.875rem; /*Fighting the Space Between Inline Block Elements*/
+            font-size: 0.875rem; /* 争夺内联块元素之间的空间 */
             position: relative;
             display: inline-block;
             margin: 0 1rem 0 0;
@@ -45,7 +44,7 @@
                 }
             }
             &.is-active,
-                /* compatible with WordPress */
+                /* 与 WordPress 兼容 */
             &.current-cat {
                 a {
                     color: $highlight-color1;
@@ -63,13 +62,13 @@
     }
     /*
      ---------------------------
-     2. Line Nav
+     2. 路线导航
      ---------------------------
      */
     &.uix-nav--line {
         ul {
             li {
-                font-size: 1.25rem; /*Fighting the Space Between Inline Block Elements*/
+                font-size: 1.25rem; /* 争夺内联块元素之间的空间 */
                 margin: 0;
                 padding: 1rem 2.5rem;
                 a {
@@ -77,16 +76,16 @@
                     border: none;
                 }
                 &.is-active,
-                    /* compatible with WordPress */
+                    /* 与 WordPress 兼容 */
                 &.current-cat {
-                    box-shadow: 0px 3px 0px 0px $highlight-color1;
+                    box-shadow: 0 3px 0 0 $highlight-color1;
                 }
             }
         }
     }
     /*
      ---------------------------
-     3. Separation Line Nav
+     3. 分隔线导航
      ---------------------------
      */
     &.uix-nav--separation {
@@ -112,7 +111,7 @@
                     border: none;
                 }
                 &.is-active,
-                    /* compatible with WordPress */
+                    /* 与 WordPress 兼容 */
                 &.current-cat {
                 }
             }
@@ -120,12 +119,12 @@
     }
     /*
      ---------------------------
-     4. Dropdown
+     4. 下拉菜单
      ---------------------------
      */
     ul {
         li {
-            /*-- Fold Out --*/
+            /*-- 展开 --*/
             ul {
                 position: absolute;
                 z-index: 1;
@@ -169,7 +168,7 @@
     }
     /*
      ---------------------------
-     5. Responsive Dropdown Nav
+     5. 响应式下拉导航
      ---------------------------
      */
     &.uix-nav--dropdown-mobile {
@@ -185,7 +184,7 @@
     .uix-nav {
         /*
          ---------------------------
-         5. Responsive Dropdown Nav
+         5. 响应式下拉导航
          ---------------------------
          */
         &.uix-nav--dropdown-mobile {
@@ -198,7 +197,7 @@
                 @include outer-shadow('thick');
                 margin-top: -0.203125rem;
             }
-            /* wrapping this in media querry to prevent fails while change screen size and checked inputs */
+            /* 将其包装在媒体查询中以防止在更改屏幕大小和检查输入时失败 */
             > :checked ~ ul {
                 display: none;
             }

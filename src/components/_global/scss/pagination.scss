@@ -1,15 +1,15 @@
-/* ====================================================== 
-   <!-- Pagination -->                         
-/* ====================================================== */
+/* ================================================= ======
+    <!-- 分页 -->
+/* ================================================= ====== */
 /*
- * 1. Default
- * 2. Paginate WordPress Posts
+  * 1. 默认
+  * 2. 为 WordPress 帖子分页
 */
 /*
- ---------------------------
- 1. Default
- ---------------------------
- */
+  --------------------------
+  1. 默认
+  --------------------------
+  */
 .uix-pagination__container {
     margin-top: 2.84375rem;
     &::before {
@@ -24,9 +24,9 @@
         content: "";
     }
     ul {
-        font-size: 0; /*Fighting the Space Between Inline Block Elements*/
+        font-size: 0; /* 争夺内联块元素之间的空间 */
         li {
-            font-size: 1rem; /*Fighting the Space Between Inline Block Elements*/
+            font-size: 1rem; /* 争夺内联块元素之间的空间 */
             display: inline-block;
             a,
             > span {
@@ -40,7 +40,7 @@
                 margin-bottom: 2.06818181818rem;
                 padding-top: 0.25rem;
                 text-align: center;
-                /*Ligatures and contextual forms are ways of combining glyphs to produce more harmonized forms.*/
+                /* 连字和上下文形式是组合字形以产生更协调的形式的方式 */
                 color: $primary-text-color;
                 border: none;
                 border-radius: 4px;
@@ -73,10 +73,10 @@
     }
 }
 /*
- ---------------------------
- 2. Paginate WordPress Posts
- ---------------------------
- */
+  --------------------------
+  2. 为 WordPress 帖子分页
+  --------------------------
+  */
 .uix-page-links {
     font-weight: 600;
     line-height: 1.25;

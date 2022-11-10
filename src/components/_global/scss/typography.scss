@@ -1,19 +1,19 @@
-/* ====================================================== 
-   <!-- Typography -->            
-/* ====================================================== */
+/* ================================================= ======
+    <!-- 排版 -->
+/* ================================================= ====== */
 /*
- * 1. General                    
- * 2. Hyperlink                        
- * 3. Heading (h1,h2,h3,h4,h5,h6) 
- * 4. Text Effect
- * 5. Drop Cap
- * 6. Vertical Text
+  * 1. 一般
+  * 2. 超链接
+  * 3. 标题 (h1,h2,h3,h4,h5,h6)
+  * 4.文字效果
+  * 5. 首字下沉
+  * 6. 竖排文字
 */
 /*
- ---------------------------
- 1. General
- ---------------------------
- */
+  --------------------------
+  1. 通用
+  --------------------------
+  */
 a,
 h1,
 h2,
@@ -31,7 +31,7 @@ h6,
 }
 /*
  ---------------------------
- 2. Hyperlink
+ 2. 超链接
  ---------------------------
  */
 a {
@@ -44,7 +44,7 @@ a {
 }
 /*
  ---------------------------
- 3. Heading (h1,h2,h3,h4,h5,h6)
+ 3. 标题 (h1,h2,h3,h4,h5,h6)
  ---------------------------
  */
 h1,
@@ -62,7 +62,7 @@ h6,
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 0.625rem;
-    /*Ligatures and contextual forms are ways of combining glyphs to produce more harmonized forms.*/
+    /* 连字和上下文形式是组合字形以产生更协调的形式的方式 */
     padding: 0 0 0.546875rem;
     word-wrap: break-word;
     color: $heading-text-color;
@@ -174,7 +174,7 @@ h6 {
 }
 /* 
  ---------------------------
- 4. Text Effect
+ 4. 文字效果
  ---------------------------
  */
 .uix-typo--style-normal {
@@ -278,7 +278,7 @@ h6 {
 }
 /*
  ---------------------------
- 5. Drop Cap
+ 5. 首字下沉
  ---------------------------
  */
 .uix-typo--dropcap::first-letter,
@@ -292,20 +292,20 @@ h6 {
 }
 /*
  ---------------------------
- 6. Vertical Text
+ 6. 竖排文字
  ---------------------------
  */
 .uix-typo--vertical {
     &:not(.uix-typo--vertical-characters-line) {
-        line-height: 0; /* Fix the problem of left-leaning text after rotation */
+        line-height: 0; /* 修复旋转后文字左倾的问题 */
         transform: translateX(.5rem);
         writing-mode: vertical-rl;
     }
-    /* Defines the orientation of the text characters in a line.  */
+    /* 定义一行中文本字符的方向 */
     &.uix-typo--vertical-characters-line {
         line-height: 1;
         width: 1px;
-        white-space: pre-wrap; /* this is for displaying whitespaces including Firefox */
+        white-space: pre-wrap; /* 这是用于显示包括 Firefox 在内的空格 */
         word-wrap: break-word;
     }
 }
