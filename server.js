@@ -12,4 +12,4 @@ app.get('/',function(req,res) {
 	res.sendFile( homepage );
   });
 
-app.listen(port, () => console.log(`Frontend service listening on port: ${port}, access http://localhost:${port} in the web browser`));
+app.listen(port, () => console.log(`前端服务监听端口：${port}，在浏览器访问http://localhost:${port}`));

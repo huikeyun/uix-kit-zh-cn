@@ -69,19 +69,19 @@ const customWebsiteVersion = json.version,
     customWebsiteGenerator = 'Uix Kit',
     customWebsiteHash = randomString({ length: 20 }),
     customWebsiteComment = `
-DO NOT OVERRIDE THIS FILE.
-Generated with "npm run build"
+不要覆盖此文件。
+使用“npm run build”生成
 
-## Project Name        :  ` + customWebsiteTitle + `
-## Project Description :  ` + customWebsiteDesc + `
-## Project URL         :  ` + json.projectURL + `
-## Version             :  ` + customWebsiteVersion + `
-## Based on            :  Uix Kit (` + json.homepage + `)
-## Last Update         :  ` + moment().format('MMMM D, YYYY') + `
-## Created by          :  ` + json.createdInfo + (json.email != '' ? ' (' + json.email + ')' : '') + `
-## Released under the ` + json.license + ` license.
+## 项目名称           :  ` + customWebsiteTitle + `
+## 项目描述           :  ` + customWebsiteDesc + `
+## 项目网址           :  ` + json.projectURL + `
+## 版本              :  ` + customWebsiteVersion + `
+## 汉化              :  慧科云 (` + json.homepage + `)
+## 最后更新日期        :  ` + moment().format('MMMM D, YYYY') + `
+## 基于 ` + json.createdInfo + (json.email != '' ? ' (' + json.email + ')' : '') + ` 汉化
+## 在 ` + json.license + ` 许可下发布。
 	`;
-// Get all the HTML template files
+// 获取所有 HTML 模板文件
 const tempPagesES6 = glob.sync(globs.pathCore + '/**/*.html');
 const targetTempFilesName = [];
 const targetAllTempFilesName = [];
@@ -101,7 +101,7 @@ const targetFilesNameArrays = [
     targetAllTempFilesName
 ];
 const targetAllWatchFilesName = [].concat(...targetFilesNameArrays);
-// String replacement for page templates
+// 页面模板的字符串替换
 class ReplacePlaceholderForFile {
     constructor(options) {
         this.options = options;
@@ -109,8 +109,8 @@ class ReplacePlaceholderForFile {
     apply(compiler) {
         compiler.hooks.done.tap('ReplacePlaceholderForFile', (stats) => {
             const filepath = this.options.filepath;
-            // When the Node module is running, this plugin may be executed
-            // at the same time, which will result in incomplete content reading.
+            // 当 Node 模块运行时，这个插件可能会被执行
+            // 同时，会导致内容读取不完整。
             /*
             @Other method:
 
@@ -142,8 +142,8 @@ class ReplacePlaceholderForFile {
                                 console.log(colors.fg.Red, err, colors.Reset);
                                 return;
                             }
-                            //file written successfully
-                            //console.log(colors.fg.Green, `${filepath} written successfully!`, colors.Reset);
+                            //文件写入成功
+                            //console.log(colors.fg.Green, `${filepath} 写入成功！`, colors.Reset);
                         });
                     }
                 }
@@ -153,13 +153,13 @@ class ReplacePlaceholderForFile {
 }
 /*!
  *************************************
- *  Run command after webpack build
+ *  webpack 构建后运行命令
  *************************************
  */
 class MyPluginCompiledFunction {
-    // Define `apply` as its prototype method which is supplied with compiler as its argument
+    // 将`apply`定义为其原型方法，编译器作为其参数提供
     apply(compiler) {
-        // Specify the event hook to attach to
+        // 指定要附加的事件钩子
         compiler.hooks.done.tap('MyPluginCompiledFunction', (compilation) => {
             const coreJSsFile = globs.pathCore + '/_app-load.js';
             if (fs.existsSync(coreJSsFile)) {
@@ -176,16 +176,16 @@ class MyPluginCompiledFunction {
                     ];
                     const tocBuildedTotal = tocBuildedFiles.length;
                     let tocBuildedIndex = 1;
-                    // Read all core css and js files and build a table of contents
+                    // 读取所有核心 css 和 js 文件并构建目录
                     //---------------------------------------------------------------------
-                    // Build a table of contents (TOC)
+                    // 建立目录 (TOC)
                     tocBuildedFiles.forEach((filepath) => {
                         if (fs.existsSync(filepath)) {
                             fs.readFile(filepath, 'utf8', function(err, content) {
                                 if (err) throw err;
                                 const curCon = content.toString(),
                                     newtext = curCon.match(/<\!\-\-.*?(?:>|\-\-\/>)/gi);
-                                //is the matched group if found
+                                // 如果找到匹配组
                                 if (newtext && newtext.length > 0) {
                                     let curToc = '';
                                     for (let p = 0; p < newtext.length; p++) {
@@ -197,15 +197,15 @@ class MyPluginCompiledFunction {
                                             curToc += curIndex + '.' + newStr + '\n';
                                         }
                                     }
-                                    //Replace a string in a file with nodejs
+                                    // 用nodejs替换文件中的字符串
                                     const resultData = curCon.replace(/\$\{\{TOC\}\}/gi, curToc);
                                     fs.writeFile(filepath, resultData, 'utf8', function(err) {
                                         if (err) {
                                             console.log(colors.fg.Red, err, colors.Reset);
                                             return;
                                         }
-                                        //file written successfully
-                                        console.log(colors.fg.Green, `${filepath}'s table of contents generated successfully! (${tocBuildedIndex}/${tocBuildedTotal})`, colors.Reset);
+                                        // 文件写入成功
+                                        console.log(colors.fg.Green, `${filepath} 文件生成成功！ (${tocBuildedIndex}/${tocBuildedTotal})`, colors.Reset);
                                         tocBuildedIndex++;
                                     });
                                 }
@@ -219,7 +219,7 @@ class MyPluginCompiledFunction {
 }
 /*!
  *************************************
- *  Main configuration
+ *  主要配置
  *************************************
  */
 const devMode = process.env.NODE_ENV !== 'production';
@@ -236,9 +236,9 @@ const webpackConfig = {
         },
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss', '.sass'],
         alias: {
-            // specific mappings.
-            // Supports directories and custom aliases for specific files when the express server is running,
-            // you need to configure the following files at the same time:
+            // 特定的映射。
+            // 在 express 服务器运行时支持特定文件的目录和自定义别名，
+            // 需要同时配置以下文件：
             // 1) `babel.config.js`    --> "plugins": [["module-resolver", {"alias": {...}} ]]
             //  2) `tsconfig.json`      --> "compilerOptions": { "paths": {...} }
             //  3) `package.json`       --> "jest": { "moduleNameMapper": {...} }
@@ -246,7 +246,7 @@ const webpackConfig = {
             '@uixkit/plugins': path.resolve(__dirname, globs.pathThirdPartyPlugins)
         }
     },
-    //Exclude react from bundle
+    //从包中排除响应
 //    externals: {
 //      'react': 'React',
 //		'react-dom': 'ReactDOM',
@@ -269,8 +269,8 @@ const webpackConfig = {
                 test: /\.min\.js$/i
             }),
             new MiniCssExtractPlugin({
-                // Options similar to the same options in webpackOptions.output
-                // both options are optional
+                // 选项类似于 webpackOptions.output 中的相同选项
+                // 两个选项都是可选的
                 filename: '../css/[name].css'
             }),
             new CssMinimizerPlugin({
@@ -324,25 +324,25 @@ const webpackConfig = {
                 include: path.resolve(__dirname, './' + globs.build),
                 use: [
                     /**
-                     * Note:
-                     * You can use `style-loader` to inject CSS into the DOM to generate a final js file
+                     * 笔记:
+                     * 可以使用 `style-loader` 将 CSS 注入 DOM 以生成最终的 js 文件
                      */
                     {
-                        loader: MiniCssExtractPlugin.loader, //Extracts CSS into separate files  ( Step 3 )
+                        loader: MiniCssExtractPlugin.loader, // 将CSS提取到单独的文件中（第3步）
                         options: {
-                            // you can specify a publicPath here
-                            // by default it use publicPath in webpackOptions.output
+                            // 你可以在这里指定一个publicPath
+                            // 默认情况下它使用 webpackOptions.output 中的 publicPath
                             publicPath: `../../${globs.dist}/js/`
                         }
                     },
                     {
-                        loader: 'css-loader',  // interprets @import and url() and will resolve them. ( Step 2 )
+                        loader: 'css-loader',  // 解释 @import 和 url() 并解析它们。 （ 第2步 ）
                         options: {
                             sourceMap: true
                         }
                     },
                     {
-                        loader: 'sass-loader', // compiles Sass to CSS ( Step 1 )
+                        loader: 'sass-loader', // 将 Sass 编译为 CSS（步骤 1）
                         options: {
                             sourceMap: true,
                             /* (nested | expanded | compact | compressed) */
@@ -364,18 +364,19 @@ const webpackConfig = {
                     }
                 ]
             },
-            // Note:
-            // 1) Compatible with node-sass(4+) and sass-loader(7+)
-            // 2) The versions of node-sass (7+) and sass-loader (12+)
-            //    are matched to extract files without `file-loader`
+            // 笔记：
+            // 1) 兼容 node-sass(4+) 和 sass-loader(7+)
+            // 2) node-sass (7+) 和 sass-loader (12+) 的版本
+            // 匹配以提取没有 `file-loader` 的文件
             {
                 test: /\.(png|jpe?g|gif|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
                 loader: 'file-loader',
                 options: {
-                    esModule: false, //change the css path via output
-                    outputPath: (url, resourcePath, context) => { //the files from `./src/...` will copy to `./dist/`
-                        //original name: path.basename(resourcePath)
-                        //fonts
+                    esModule: false, //通过输出改变css路径
+                    outputPath: (url, resourcePath, context) => {
+                        // 来自`./src/...`的文件将复制到`./dist/`
+                        // 原始名称：path.basename(resourcePath)
+                        // 字体
                         if (resourcePath.indexOf('webfonts/') >= 0 || resourcePath.indexOf('fonts/') >= 0) {
                             return '../fonts/' + url;
                         }
@@ -386,14 +387,14 @@ const webpackConfig = {
                         return '../misc/' + url;
                     },
                     publicPath: (url, resourcePath, context) => { //the css path of output
-                        // If the file is in the root directory, you can leave it empty. If in another directory,
-                        // you can write: "/blog". (but no trailing slash)
+                        // 如果文件在根目录，可以留空。 如果在另一个目录中，
+                        // 你可以写：“/blog”。 （但没有尾部斜杠）
                         const websiteRootDir = '';
-                        //fonts
+                        // 字体
                         if (resourcePath.indexOf('webfonts/') >= 0 || resourcePath.indexOf('fonts/') >= 0) {
                             return `${websiteRootDir}/${globs.dist}/fonts/${url}`;
                         }
-                        //imags
+                        // 图片
                         if (resourcePath.indexOf('images/') >= 0 || resourcePath.indexOf('img/') >= 0) {
                             return `${websiteRootDir}/${globs.dist}/images/${url}`;
                         }
@@ -407,10 +408,9 @@ const webpackConfig = {
             {
                 test: /\.scss$/,
                 loader: 'prettier-loader',
-                // force this loader to run first if it's not first in loaders list
-                enforce: 'pre',
-                // avoid running prettier on all the files!
-                // use it only on your source code and not on dependencies!
+                // 如果加载器列表中不是第一个加载器，则强制它首先运行强制执行：'pre'，
+                // 避免在所有文件上运行 prettier！
+                // 仅在您的源代码上使用它，而不是在依赖项上！
                 options: {
                     'parser': 'postcss',
                     // additional prettier options assigned to options in
@@ -437,18 +437,18 @@ const webpackConfig = {
         new MyPluginCompiledFunction()
     ]
 };
-// Remove include files and extra CSS files
+// 删除包含文件和额外的 CSS 文件
 webpackConfig.plugins.push(
     new CleanWebpackPlugin([
         globs.build + '/**/*.css',
         globs.examples + '/*.html'
     ])
 );
-// Adds a banner to the top of each generated chunk.
+// 在每个生成的块的顶部添加一个横幅。
 webpackConfig.plugins.push(
     new webpack.BannerPlugin(customWebsiteComment)
 );
-// Batch processing HTML template files
+// 批处理 HTML 模板文件
 targetTempFilesName.map((event) => {
     webpackConfig.plugins.push(
         new IncludeFileWebpackPlugin({
@@ -461,7 +461,7 @@ targetTempFilesName.map((event) => {
         })
     );
 });
-// String replacement for page templates
+// 页面模板的字符串替换
 targetTempFilesName.map((event) => {
     webpackConfig.plugins.push(
         new ReplacePlaceholderForFile({
@@ -469,13 +469,13 @@ targetTempFilesName.map((event) => {
         })
     );
 });
-// Add .min.css files souce map
+// 添加 .min.css 文件源映射
 webpackConfig.plugins.push(
     new webpack.SourceMapDevToolPlugin({
         filename: '../js/[file].map'
     })
 );
-// Create vendor.js from all third-party generic script library
+// 从所有第三方通用脚本库创建 vendor.js
 // webpackConfig.plugins.push(
 // 	new WebpackConcatPlugin({
 // 		bundles: [
@@ -513,7 +513,7 @@ require('log-timestamp');
 targetAllWatchFilesName.map((event) => {
     let curFile = `${event[0]}`;
     fs.watchFile(curFile, (curr, prev) => {
-        console.log(colors.fg.Yellow, `${curFile} file Changed`, colors.Reset);
+        console.log(colors.fg.Yellow, `${curFile} 文件已更改`, colors.Reset);
         // After a short delay the configuration is changed and a banner plugin is added
         // to the config
         new CleanWebpackPlugin([
@@ -541,7 +541,7 @@ targetAllWatchFilesName.map((event) => {
  *  Listen the server
  *************************************
  */
-app.listen(globs.port, () => console.log(`Frontend service listening on port: ${globs.port}, access http://localhost:${globs.port} in the web browser`));
+app.listen(globs.port, () => console.log(`前端服务监听端口: ${globs.port}, 在 Web 浏览器中访问 http://localhost:${globs.port}`));
 /*
 const WebpackDevServer = require('webpack-dev-server');
 const server = new WebpackDevServer( compiler, {
