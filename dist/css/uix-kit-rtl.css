@@ -278,7 +278,7 @@ ol.uix-list--numbered-large.uix-list--numbered-bg li::before,
  */
 .uix-entry__content pre:not(.uix-precode) {
   border-left: 1px solid #d9d9d9;
-  border-right: 5px solid #CE3A3E;
+  border-right: 5px solid #ce3a3e;
 }
 
 /* 
@@ -1652,7 +1652,7 @@ dl.uix-list-abreast dd {
 
 .uix-ribbon--triangle.uix-ribbon--triangle--style-2::after {
   border-left: inherit;
-  border-right: 40px solid #CE3A3E;
+  border-right: 40px solid #ce3a3e;
   left: auto;
   right: 0.25rem;
   transform: rotate(-315deg);
