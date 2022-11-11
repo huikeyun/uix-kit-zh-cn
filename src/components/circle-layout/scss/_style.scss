@@ -1,5 +1,5 @@
 /* ======================================================
-    <!-- Circle Layout -->
+    <!-- 圆形布局 Circle Layout -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 @mixin circle-layout( $radius, $radius2, $dot-radius, $num, $js ) {
@@ -24,7 +24,7 @@
             background: $highlight-color1;
             left: 50%;
             top: 50%;
-            transform: translate(-50%, -50%) rotate(0) !important; /* Prevent scripts from modifying values */
+            transform: translate(-50%, -50%) rotate(0) !important; /* 阻止脚本修改值 */
             > div {
                 padding: 2.5rem;
                 overflow: hidden;
@@ -68,7 +68,7 @@
             text-align: center;
         }
     }
-    /* Without JavaScript */
+    /* 没有 JavaScript */
     @if ($js != true) {
         @for $i from 1 through $num {
             li:nth-child(#{$i}) {
@@ -80,21 +80,21 @@
         }
     }
 }
-/* Pure CSS */
+/* 纯 CSS */
 .uix-circle-layout:not(.js-uix-circle-layout) {
     position: relative;
     $w: 150px;
     width: #{$w*2};
     @include circle-layout($w, 110px, 20px, 8, false);
 }
-/* With Javascript, Support dynamically adding elements. */
+/* 使用Javascript，支持动态添加元素。 */
 .uix-circle-layout.js-uix-circle-layout {
     position: relative;
     $w: 150px;
     width: #{$w*2};
     @include circle-layout($w, 110px, 20px, 8, true);
 }
-/* Center alignment */
+/* 居中对齐 */
 .uix-t-c .uix-circle-layout {
     margin: 0 auto;
 }

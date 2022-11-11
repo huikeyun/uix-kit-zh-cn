@@ -1,5 +1,5 @@
 /* ======================================================
-    <!-- Cascading DropDown List -->
+    <!-- 层叠的下拉列表 Cascading DropDown List -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 .uix-cascading-dropdown-list {
@@ -12,7 +12,7 @@
         top: auto;
         left: auto;
         display: block;
-        width: 100%; //required
+        width: 100%; // 必需
     }
     ul, li {
         margin: 0;
@@ -41,7 +41,6 @@
     .uix-cascading-dropdown-list__items {
         position: absolute;
         z-index: 1;
-        top: auto;
         top: calc(100% + 10px);
         left: auto;
         overflow-y: auto;
@@ -49,11 +48,10 @@
         max-height: 350px;
         padding: 10px;
         border: 1px solid rgba(#333, .1);
-        border-radius: 3px;
         border-radius: 8px;
         background: #ffffff;
         box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .07), 0 15px 35px 0 rgba(50, 50, 93, .1);
-        //each item
+        // 每个项目
         ul {
             transition: .2s ease-out;
             > li {
