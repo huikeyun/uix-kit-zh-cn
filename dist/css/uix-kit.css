@@ -45,10 +45,10 @@
     26.高级滑块（特殊效果）Advanced Slider (Special Effects)
     27.Ajax 页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)
     28.回到顶部Back to Top
-    29.Circle Layout
+    29.圆形布局 Circle Layout
     30.Dropdown Menu
     31.Dropdown Menu 2 (Multi-level drop-down navigation)
-    32.Cascading DropDown List
+    32.层叠的下拉列表 Cascading DropDown List
     33.Flexslider (Third-party plugin)
     34.Floating Side Element
     35.Form Progress
@@ -93,7 +93,7 @@
     74.WordPress Core ( Do not use prefix "uix-" )
     75.WordPress Blocks ( Do not use prefix "uix-" )
     76.3rd Party Plugins
-    77.徽章Badges
+    77.徽章 Badges
     78.混合网格布局 Blended Grid Layout
     79.面包屑 Breadcrumbs
     80.按钮 Button
@@ -5505,14 +5505,15 @@ h6 {
   outline: none;
 }
 
+@charset "UTF-8";
 /* ======================================================
-    <!-- Circle Layout -->
+    <!-- 圆形布局 Circle Layout -->
 /* ====================================================== */
-/* Pure CSS */
+/* 纯 CSS */
 .uix-circle-layout:not(.js-uix-circle-layout) {
   position: relative;
   width: 300px;
-  /* Without JavaScript */
+  /* 没有 JavaScript */
 }
 
 .uix-circle-layout:not(.js-uix-circle-layout) ul {
@@ -5538,7 +5539,7 @@ h6 {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%) rotate(0) !important;
-  /* Prevent scripts from modifying values */
+  /* 阻止脚本修改值 */
 }
 
 .uix-circle-layout:not(.js-uix-circle-layout) ul ~ div > div {
@@ -5650,11 +5651,11 @@ h6 {
   transform: rotate(-360deg);
 }
 
-/* With Javascript, Support dynamically adding elements. */
+/* 使用Javascript，支持动态添加元素。 */
 .uix-circle-layout.js-uix-circle-layout {
   position: relative;
   width: 300px;
-  /* Without JavaScript */
+  /* 没有 JavaScript */
 }
 
 .uix-circle-layout.js-uix-circle-layout ul {
@@ -5680,7 +5681,7 @@ h6 {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%) rotate(0) !important;
-  /* Prevent scripts from modifying values */
+  /* 阻止脚本修改值 */
 }
 
 .uix-circle-layout.js-uix-circle-layout ul ~ div > div {
@@ -5728,7 +5729,7 @@ h6 {
   text-align: center;
 }
 
-/* Center alignment */
+/* 居中对齐 */
 .uix-t-c .uix-circle-layout {
   margin: 0 auto;
 }
@@ -5875,8 +5876,9 @@ h6 {
   height: 0;
 }
 
+@charset "UTF-8";
 /* ======================================================
-    <!-- Cascading DropDown List -->
+    <!-- 层叠的下拉列表 Cascading DropDown List -->
 /* ====================================================== */
 .uix-cascading-dropdown-list {
   position: relative;
@@ -5925,7 +5927,6 @@ h6 {
 .uix-cascading-dropdown-list .uix-cascading-dropdown-list__items {
   position: absolute;
   z-index: 1;
-  top: auto;
   top: calc(100% + 10px);
   left: auto;
   overflow-y: auto;
@@ -5933,7 +5934,6 @@ h6 {
   max-height: 350px;
   padding: 10px;
   border: 1px solid rgba(51, 51, 51, 0.1);
-  border-radius: 3px;
   border-radius: 8px;
   background: #ffffff;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.07), 0 15px 35px 0 rgba(50, 50, 93, 0.1);
@@ -18129,7 +18129,7 @@ ul.edd_purchase_receipt_files li {
 
 @charset "UTF-8";
 /* ======================================================
-   <!-- 徽章Badges -->
+   <!-- 徽章 Badges -->
 /* ====================================================== */
 /*
 * 1. 疯狂徽章

@@ -2928,11 +2928,11 @@ var esm_typeof = __webpack_require__(2);
     16.Ajax 推送内容 Ajax Push Content
     17.Ajax 页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)
     18.回到顶部Back to Top
-    19.Circle Layout
+    19.圆形布局 Circle Layout
     20.Counter
     21.Dropdown Menu
     22.Dropdown Menu 2 (Multi-level drop-down navigation)
-    23.Cascading DropDown List
+    23.层叠的下拉列表 Cascading DropDown List
     24.Flexslider (Third-party plugin)
     25.Floating Side Element
     26.Form Progress
@@ -9203,7 +9203,7 @@ var BACK_TO_TOP = function (module, $, window, document) {
 
 /*
  *************************************
- * <!-- Circle Layout -->
+ * <!-- 圆形布局 Circle Layout -->
  *************************************
  */
 
@@ -9463,7 +9463,7 @@ var DROPDOWN_MENU2 = function (module, $, window, document) {
 
 /*
  *************************************
- * <!-- Cascading DropDown List -->
+ * <!-- 层叠的下拉列表 Cascading DropDown List -->
  *************************************
  */
 
