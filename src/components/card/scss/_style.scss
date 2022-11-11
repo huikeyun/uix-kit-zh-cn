@@ -1,17 +1,17 @@
 /* ======================================================
-   <!-- Cards -->
+   <!-- 卡片 Cards -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 /*
- * 1. Author Card
- * 2. Gallery Card (via Flex)
- * 3. Thumbnail Card (via Flex)
+ * 1. 作者卡片
+ * 2. 图库卡片（通过 Flex）
+ * 3. 缩略图卡片（通过 Flex）
 
 */
 $card-radius: 8px;
 /*
  ---------------------------
- 1. Author Card
+ 1. 作者卡片
  ---------------------------
  */
 .uix-card--author {
@@ -86,8 +86,6 @@ $card-radius: 8px;
             border-radius: 0 0 #{$card-radius} #{$card-radius};
         }
         &::after {
-            position: relative;
-            position: absolute;
             bottom: 2.125rem;
             left: 1.75rem;
             width: 0;
@@ -116,7 +114,7 @@ $card-radius: 8px;
 }
 /*
  ---------------------------
- 2. Gallery Card
+ 2. 图库卡片（通过 Flex）
  ---------------------------
  */
 .uix-card--gallery {
@@ -124,21 +122,21 @@ $card-radius: 8px;
     display: inline-flex;
     flex-direction: column;
     box-sizing: border-box;
-    max-width: 100%; /* Prevent text overflow with no-wrap */
-    /* demo style */
+    max-width: 100%; /* 使用 no-wrap 防止文本溢出 */
+    /* 演示样式 */
     @include outer-shadow('regular');
     border-radius: $card-radius;
     .uix-card--gallery__preview,
     .uix-card--gallery__body {
-        display: flex; /* nested flex container */
-        flex-direction: column; /* vertical alignment of flex items */
-        justify-content: center; /* center flex items vertically */
+        display: flex; /* 嵌套的弹性容器 */
+        flex-direction: column; /* 弹性项目的垂直对齐 */
+        justify-content: center; /* 弹性项目的垂直居中 */
     }
     .uix-card--gallery__preview {
         position: relative;
-        align-items: center; /* center flex items horizontally */
+        align-items: center; /* 弹性项目的水平居中 */
         box-sizing: border-box;
-        padding: 0; /* default value, this attribute can be specified in HTML */
+        padding: 0; /* 默认值，该属性可以在 HTML 中指定 */
         border-radius: $card-radius $card-radius 0 0;
         img {
             width: 100%;
@@ -147,8 +145,7 @@ $card-radius: 8px;
             object-fit: cover;
             object-position: center;
         }
-        /* Use a :before to show the selection outline so that the border doesn't
-        * affect the layout of the content within the preview. */
+        /* 使用 :before 显示选择轮廓，以便边框不会影响预览中内容的布局。 */
         &::before {
             position: absolute;
             box-sizing: border-box;
@@ -163,10 +160,10 @@ $card-radius: 8px;
     }
     .uix-card--gallery__header {
         display: flex;
-        align-items: center; /* center flex items horizontally */
+        align-items: center; /* 弹性项目的水平居中 */
         .uix-card--gallery__header__child {
             display: flex;
-            align-items: center;
+            align-items: center; /* 弹性项目的水平居中 */
             flex: 1;
             max-width: 100%;
             word-break: break-all;
@@ -178,14 +175,14 @@ $card-radius: 8px;
     .uix-card--gallery__content {
         > .uix-card--gallery__content__child {
             display: flex;
-            align-items: center;
+            align-items: center; /* 弹性项目的水平居中 */
             flex-direction: row;
             .uix-card--gallery__content__child--left {
                 display: flex;
-                align-items: center; /* center flex items horizontally */
+                align-items: center; /* 弹性项目的水平居中 */
                 flex: 1;
                 flex-direction: row;
-                min-width: 0; /* prevents flex-boxes of becoming smaller than it's contents -- for rows */
+                min-width: 0; /* 防止 flex-boxes 变得比它的内容更小 -- 对于行 */
                 word-break: break-all;
                 > div {
                     line-height: 1.25;
@@ -194,22 +191,22 @@ $card-radius: 8px;
                 }
             }
             .uix-card--gallery__content__child--right {
-                min-width: 50px; /* default value, this attribute can be specified in HTML */
+                min-width: 50px; /* 默认值，该属性可以在 HTML 中指定 */
             }
         }
     }
     .uix-card--gallery__body {
         flex: 1;
-        min-width: 0; /* prevents flex-boxes of becoming smaller than it's contents -- for rows */
-        max-width: 100%; /* Prevent text overflow with no-wrap when horizontal type is used  */
+        min-width: 0; /* 防止 flex-boxes 变得比它的内容更小——对于行 */
+        max-width: 100%; /* 使用横排时防止文本溢出 */
     }
     .uix-card--gallery__action {
         display: flex;
         flex: 1;
-        justify-content: flex-end; /* end flex items vertically */
+        justify-content: flex-end; /* 垂直结束弹性项目 */
         margin-left: 1rem;
     }
-    /*-- horizontal layout --*/
+    /*-- 横向布局--*/
     &.uix-card--gallery--horizontal {
         flex-direction: row;
         .uix-card--gallery__preview {
@@ -242,7 +239,7 @@ $card-radius: 8px;
             }
         }
     }
-    /*-- Menu Group --*/
+    /*-- 菜单组 --*/
     .uix-card--gallery__status {
         position: absolute;
         z-index: 2;
@@ -255,7 +252,7 @@ $card-radius: 8px;
         background-color: rgba(0, 0, 0, 0.3);
         .uix-card--gallery__status__item {
             display: flex;
-            align-items: center;
+            align-items: center; /* 弹性项目的水平居中 */
             padding: 0.5rem 1rem;
             white-space: nowrap;
             color: #ffffff;
@@ -268,7 +265,7 @@ $card-radius: 8px;
     .uix-card--gallery__menu {
         z-index: 2;
         display: flex;
-        align-items: center;
+        align-items: center; /* 弹性项目的水平居中 */
         justify-content: space-between;
         width: 100%;
         padding: 0 25px;
@@ -284,7 +281,7 @@ $card-radius: 8px;
                 width: 42px;
                 height: 42px;
                 margin-right: 15px;
-                object-fit: cover; /* required */
+                object-fit: cover; /* 必需的 */
             }
         }
         .uix-card--gallery__menu__items {
@@ -322,9 +319,8 @@ $card-radius: 8px;
         }
     }
     /*
-     If you do not use "justify-content: space-between; ", 
-     you need to use the following to achieve the layout
-    */
+      如果不使用“justify-content: space-between;”，您需要使用以下内容来实现布局
+     */
     /*
     .uix-card--gallery__menu {
         display: flex;
@@ -340,7 +336,7 @@ $card-radius: 8px;
         }
     }
     */
-    /*-- rxtra elements style --*/
+    /*-- rxtra 元素样式--*/
     button {
         color: rgb(75, 75, 75);
         border-color: rgba(0, 0, 0, 0);
@@ -355,7 +351,7 @@ $card-radius: 8px;
 }
 @media all and (max-width: 768px) {
     .uix-card--gallery {
-        /*-- horizontal layout --*/
+        /*-- 横向布局--*/
         &.uix-card--gallery--horizontal:not(.is-mobile-still) {
             flex-direction: column;
             .uix-card--gallery__preview {
@@ -365,7 +361,7 @@ $card-radius: 8px;
                 }
             }
         }
-        /*-- Menu Group --*/
+        /*-- 菜单组 --*/
         .uix-card--gallery__menu {
             flex-direction: column;
             .uix-card--gallery__menu__avatar {
@@ -379,7 +375,7 @@ $card-radius: 8px;
 }
 /*
  ---------------------------
- 3. Thumbnail Card
+ 3. 缩略图卡片（通过 Flex）
  ---------------------------
  */
 .uix-card--thumb {
@@ -387,30 +383,30 @@ $card-radius: 8px;
     display: inline-flex;
     flex-direction: column;
     box-sizing: border-box;
-    max-width: 100%; /* Prevent text overflow with no-wrap */
-    /* demo style */
+    max-width: 100%; /* 使用 no-wrap 防止文本溢出 */
+    /* 演示样式 */
     padding: 1rem;
     @include outer-shadow('regular');
     border-radius: $card-radius;
     .uix-card--thumb__header {
         display: inline-flex;
-        align-items: center; /* center flex items horizontally */
+        align-items: center; /* 弹性项目的水平居中 */
         flex-direction: row;
         .uix-card--thumb__preview {
-            flex-basis: 50px; /* default value, this attribute can be specified in HTML */
+            flex-basis: 50px; /* 默认值，该属性可以在 HTML 中指定 */
             margin-right: 5px;
         }
         .uix-card--thumb__content {
-            /* ----- Keep the width of the picture fixed -----  begin  */
+            /* ----- 保持图片宽度固定 ----- 开始 */
             flex: 1;
-            min-width: 0; /* prevents flex-boxes of becoming smaller than it's contents -- for rows */
-            /* ----- Keep the width of the picture fixed -----  end  */
+            min-width: 0; /* 防止 flex-boxes 变得比它的内容更小——对于行 */
+            /* ----- 保持图片宽度固定 ----- 结束 */
             > .uix-card--thumb__content__child {
                 display: flex;
                 flex-direction: row;
                 .uix-card--thumb__content__child--left {
                     display: flex;
-                    align-items: center; /* center flex items horizontally */
+                    align-items: center; /* 弹性项目的水平居中 */
                     flex: 1;
                     flex-direction: row;
                     min-width: 0; /* prevents flex-boxes of becoming smaller than it's contents -- for rows */
@@ -422,7 +418,7 @@ $card-radius: 8px;
                     }
                 }
                 .uix-card--thumb__content__child--right {
-                    min-width: 50px; /* default value, this attribute can be specified in HTML */
+                    min-width: 50px; /* 默认值，该属性可以在 HTML 中指定 */
                 }
             }
         }
@@ -431,7 +427,7 @@ $card-radius: 8px;
         line-height: 1.25;
         padding-top: .5rem;
     }
-    /*-- rxtra elements style --*/
+    /*-- rxtra 元素样式--*/
     button {
         color: rgb(75, 75, 75);
         border-color: rgba(0, 0, 0, 0);

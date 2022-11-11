@@ -155,7 +155,7 @@ export const SWIPER = ((module, $, window, document) => {
                         watchSlidesProgress: true,
                         mousewheelControl: false,
                         keyboardControl: false,
-                        virtualTranslate: true, /* Required */
+                        virtualTranslate: true, /* 必需的 */
                         pagination: {
                             el: '.swiper-pagination',
                             clickable: true,

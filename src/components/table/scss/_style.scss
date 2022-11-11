@@ -42,7 +42,7 @@ table.uix-table,
         vertical-align: bottom;
         background: $table-border-headerbg;
         th {
-            text-align: inherit; /* Required */
+            text-align: inherit; /* 必需的 */
             &.uix-t-r {
                 text-align: right;
             }

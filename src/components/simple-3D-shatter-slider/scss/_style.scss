@@ -15,18 +15,18 @@
 .uix-3d-slider--shatter__wrapper {
     position: relative;
 }
-/* Prevent content overflow */
+/* 防止内容溢出 */
 .uix-3d-slider--shatter__wrapper,
 .uix-3d-slider--shatter__inner,
 .uix-3d-slider--shatter__canvas-container {
-    //max-height: 100vh;
+    // 最大高度：100vh；
     overflow: hidden;
 }
 .uix-3d-slider--shatter__canvas-container {
     position: relative;
     z-index: 2;
     display: block;
-    height: 100%; /* Required, It will make the canvas fill up */
+    height: 100%; /* 必需，它将使画布填满 */
 }
 .uix-3d-slider--shatter {
     position: relative;
@@ -49,7 +49,7 @@
         top: 0;
         left: 0;
         display: none;
-        height: 100%; /* Required */
+        height: 100%; /* 必需的 */
         .uix-3d-slider--shatter__item {
             width: 100%;
             opacity: 0;
@@ -79,7 +79,7 @@
     z-index: 2;
     transform: translateY(-40px);
     ul {
-        font-size: 0; /*Fighting the Space Between Inline Block Elements*/
+        font-size: 0; /* 争夺内联块元素之间的空间 */
         position: relative;
         bottom: 0;
         left: 0;
@@ -87,10 +87,10 @@
         width: 100%;
         list-style: none;
         transform: translateY(.5rem);
-        text-align: center; /*require*/
+        text-align: center; /* 要求 */
         li {
-            font-size: 1rem; /*Fighting the Space Between Inline Block Elements*/
-            display: inline-block; /*require*/
+            font-size: 1rem; /* 争夺内联块元素之间的空间 */
+            display: inline-block; /* 要求 */
             margin: 0 .2rem;
             a {
                 display: block;

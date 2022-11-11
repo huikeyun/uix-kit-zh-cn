@@ -2921,13 +2921,13 @@ var esm_typeof = __webpack_require__(2);
     9.Specify a background image
     10.Videos
     11.Theme Scripts
-    12.Accordion Background Images
-    13.Accordion
-    14.Advanced Slider (Basic)
-    15.Advanced Slider (Special Effects)
-    16.Ajax Push Content
-    17.Ajax Page Loader (Loading A Page via Ajax Into Div)
-    18.Back to Top
+    12.手风琴背景图片 Accordion Background Images
+    13.手风琴 Accordion
+    14.高级滑块（基本）Advanced Slider (Basic)
+    15.高级滑块（特殊效果）Advanced Slider (Special Effects)
+    16.Ajax 推送内容 Ajax Push Content
+    17.Ajax 页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)
+    18.回到顶部Back to Top
     19.Circle Layout
     20.Counter
     21.Dropdown Menu
@@ -4896,7 +4896,7 @@ var MAIN = function (module, $, window, document) {
 
 /*
  *************************************
- * <!-- Accordion Background Images -->
+ * <!-- 手风琴背景图片 Accordion Background Images -->
  *************************************
  */
 
@@ -5009,7 +5009,7 @@ var ACCORDION_BG = function (module, $, window, document) {
 
 /*
  *************************************
- * <!-- Accordion -->
+ * <!-- 手风琴 Accordion -->
  *************************************
  */
 
@@ -5026,9 +5026,9 @@ var ACCORDION = function (module, $, window, document) {
       var aEvent = $this.data('event'),
         firstShow = $this.data('first-show');
       var openItem = function openItem(obj) {
-        //to open
-        // - temporarilty set height:auto
-        // - tween from height:0
+        //打开
+        // - 临时设置高度：自动
+        // - 从高度补间：0
         TweenMax.set(obj, {
           height: 'auto'
         });
@@ -5086,7 +5086,7 @@ var ACCORDION = function (module, $, window, document) {
 
 /*
  *************************************
- * <!-- Advanced Slider (Basic) -->
+ * <!--  高级滑块（基本）Advanced Slider (Basic)  -->
  *************************************
  */
 
@@ -6265,7 +6265,7 @@ PixiPlugin.registerPIXI = function (PIXI) {
 
 /*
  *************************************
- * <!-- Advanced Slider (Special Effects) -->
+ * <!--  高级滑块（特殊效果）Advanced Slider (Special Effects) -->
  *************************************
  */
 
@@ -8036,7 +8036,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
 
 /* 
  *************************************
- * <!-- Ajax Push Content  -->
+ * <!-- Ajax 推送内容 Ajax Push Content  -->
  *************************************
  */
 
@@ -8398,7 +8398,7 @@ var AJAX_PUSH_CONTENT = function (module, $, window, document) {
 
 /* 
  *************************************
- * <!-- Ajax Page Loader (Loading A Page via Ajax Into Div)  -->
+ * <!--  Ajax 页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)   -->
  *************************************
  */
 
@@ -9143,7 +9143,7 @@ ScrollToPlugin_p._kill = function (lookup) {
 
 /* 
  *************************************
- * <!-- Back to Top -->
+ * <!--  回到顶部Back to Top -->
  *************************************
  */
 
@@ -30854,7 +30854,7 @@ var SWIPER = function (module, $, window, document) {
             mousewheelControl: false,
             keyboardControl: false,
             virtualTranslate: true,
-            /* Required */
+            /* 必需的 */
             pagination: {
               el: '.swiper-pagination',
               clickable: true,

@@ -224,7 +224,7 @@ $control-sub-color: #dce4e8;
     margin-right: auto;
     margin-left: .3rem;
     &.js-uix-new {
-        text-align: right; /* Required */
+        text-align: right; /* 必需的 */
     }
 }
 .uix-controls__select-wrapper {
@@ -294,7 +294,7 @@ $control-sub-color: #dce4e8;
 }
 .uix-controls__toggle {
     label {
-        text-align: right; /* Required */
+        text-align: right; /* 必需的 */
     }
     input[type="checkbox"] {
         display: none;
@@ -317,7 +317,7 @@ $control-sub-color: #dce4e8;
 }
 .uix-controls__checkbox {
     label {
-        text-align: right; /* Required */
+        text-align: right; /* 必需的 */
     }
     .uix-controls__checkbox-trigger {
         margin: #{$control-padding-height} 0 #{$control-padding-height} .5rem;

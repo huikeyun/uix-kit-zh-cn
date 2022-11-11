@@ -1,6 +1,6 @@
 /*
  *************************************
- * <!-- Accordion -->
+ * <!-- 手风琴 Accordion -->
  *************************************
  */
 import {
@@ -28,9 +28,9 @@ export const ACCORDION = ((module, $, window, document) => {
             let aEvent = $this.data('event'),
                 firstShow = $this.data('first-show');
             const openItem = function(obj) {
-                //to open
-                // - temporarilty set height:auto
-                // - tween from height:0
+                //打开
+                // - 临时设置高度：自动
+                // - 从高度补间：0
                 TweenMax.set(obj, { height: 'auto' });
                 TweenMax.from(obj, 0.5, { height: 0 });
             };

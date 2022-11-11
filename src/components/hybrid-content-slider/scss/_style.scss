@@ -14,7 +14,7 @@
  ---------------------------
  */
 .uix-hybrid-content-slider {
-    /* Required */
+    /* 必需的 */
     overflow: hidden;
     width: 100%;
     height: auto;
@@ -27,7 +27,7 @@
                 pointer-events: none;
             }
             &.js-is-ready {
-                position: absolute; /* required */
+                position: absolute; /* 必需的 */
             }
             &.is-active {
             }
@@ -81,7 +81,7 @@
     z-index: 2;
     margin-top: 40px;
     ul.uix-hybrid-content-slider__pagination--default {
-        font-size: 0; /*Fighting the Space Between Inline Block Elements*/
+        font-size: 0; /* 争夺内联块元素之间的空间 */
         position: relative;
         bottom: 0;
         left: 0;
@@ -90,10 +90,10 @@
         margin: 0;
         padding: 0;
         list-style: none;
-        text-align: center; /*require*/
+        text-align: center; /* 要求 */
         li {
-            font-size: 1rem; /*Fighting the Space Between Inline Block Elements*/
-            display: inline-block; /*require*/
+            font-size: 1rem; /* 争夺内联块元素之间的空间 */
+            display: inline-block; /* 要求 */
             margin: 0 .2rem;
             a {
                 display: block;
@@ -113,7 +113,7 @@
         }
     }
     ul.uix-hybrid-content-slider__pagination--custom {
-        font-size: 0; /*Fighting the Space Between Inline Block Elements*/
+        font-size: 0; /* 争夺内联块元素之间的空间 */
         position: relative;
         bottom: 0;
         left: 0;
@@ -123,10 +123,10 @@
         padding: 0;
         list-style: none;
         transform: translateY(.5rem);
-        text-align: center; /*require*/
+        text-align: center; /* 要求 */
         li {
-            font-size: 0.75rem; /*Fighting the Space Between Inline Block Elements*/
-            display: inline-block; /*require*/
+            font-size: 0.75rem; /* 争夺内联块元素之间的空间 */
+            display: inline-block; /* 要求 */
             margin: 0 .2rem;
             a {
                 display: block;

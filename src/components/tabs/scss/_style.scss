@@ -73,15 +73,15 @@
     &.uix-tabs--center {
         .uix-tabs__nav {
             > ul {
-                font-size: 0; /*Fighting the Space Between Inline Block Elements*/
+                font-size: 0; /* 争夺内联块元素之间的空间 */
                 display: block;
                 width: 100%;
-                text-align: center; /*require*/
+                text-align: center; /* 要求 */
                 border-bottom: 1px solid #dcdcdc;
                 li {
-                    font-size: 1rem; /*Fighting the Space Between Inline Block Elements*/
+                    font-size: 1rem; /* 争夺内联块元素之间的空间 */
                     display: inline-block;
-                    /*require*/
+                    /* 要求 */
                     float: none;
                 }
             }
@@ -90,15 +90,15 @@
     &.uix-tabs--normal {
         .uix-tabs__nav {
             > ul {
-                font-size: 0; /*Fighting the Space Between Inline Block Elements*/
+                font-size: 0; /* 争夺内联块元素之间的空间 */
                 display: block;
                 width: 100%;
-                text-align: left; /*require*/
+                text-align: left; /* 要求 */
                 border-bottom: 1px solid #dcdcdc;
                 li {
-                    font-size: 1rem; /*Fighting the Space Between Inline Block Elements*/
+                    font-size: 1rem; /* 争夺内联块元素之间的空间 */
                     display: inline-block;
-                    /*require*/
+                    /* 要求 */
                     float: none;
                 }
             }
@@ -135,7 +135,7 @@
                     left: 50%;
                     box-sizing: border-box;
                     width: 80px;
-                    min-width: inherit; /* Required */
+                    min-width: inherit; /* 必需的 */
                     height: 80px;
                     margin: 0;
                     padding: 0;

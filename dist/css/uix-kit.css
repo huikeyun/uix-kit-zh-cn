@@ -38,13 +38,13 @@
     19.标签 tag
     20.排版 typography
     21.视频 Video
-    22.Custom Core Scripts & Stylesheets
-    23.Accordion Background Images
-    24.Accordion
-    25.Advanced Slider (Basic)
-    26.Advanced Slider (Special Effects)
-    27.Ajax Page Loader (Loading A Page via Ajax Into Div)
-    28.Back to Top
+    22.自定义核心脚本和样式表 Custom Core Scripts & Stylesheets
+    23.手风琴背景图片 Accordion Background Images
+    24.手风琴 Accordion
+    25.高级滑块（基本）Advanced Slider (Basic)
+    26.高级滑块（特殊效果）Advanced Slider (Special Effects)
+    27.Ajax 页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)
+    28.回到顶部Back to Top
     29.Circle Layout
     30.Dropdown Menu
     31.Dropdown Menu 2 (Multi-level drop-down navigation)
@@ -93,11 +93,11 @@
     74.WordPress Core ( Do not use prefix "uix-" )
     75.WordPress Blocks ( Do not use prefix "uix-" )
     76.3rd Party Plugins
-    77.Badges
-    78.Blended Grid Layout
-    79.Breadcrumbs
-    80.Button
-    81.Cards
+    77.徽章Badges
+    78.混合网格布局 Blended Grid Layout
+    79.面包屑 Breadcrumbs
+    80.按钮 Button
+    81.卡片 Cards
     82.Badges
     83.辅助标记
     84.Content Placeholder Animated
@@ -4614,18 +4614,20 @@ h6 {
   display: none;
 }
 
+@charset "UTF-8";
 /* ====================================================== 
-   <!-- Custom Core Scripts & Stylesheets --> 
+   <!-- 自定义核心脚本和样式表 Custom Core Scripts & Stylesheets -->
 /* ====================================================== */
 /*
- * 1. Title  
- * 2. Title
- * 3. Title
+  * 1. 标题
+  * 2. 标题
+  * 3. 标题
 
 */
 
+@charset "UTF-8";
 /* ======================================================
-    <!-- Accordion Background Images -->
+    <!-- 手风琴背景图片 Accordion Background Images -->
 /* ====================================================== */
 .uix-accordion-img {
   overflow: hidden;
@@ -4635,7 +4637,7 @@ h6 {
 
 .uix-accordion-img > ul {
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: table;
   width: 100%;
   margin: 0;
@@ -4645,7 +4647,7 @@ h6 {
 
 .uix-accordion-img > ul > li {
   font-size: 1rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   position: relative;
   z-index: 1;
   display: table-cell;
@@ -4724,14 +4726,15 @@ h6 {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-    <!-- Accordion -->
+    <!-- 手风琴 Accordion -->
 /* ====================================================== */
 .uix-accordion dl {
   position: relative;
   transition: .1s ease-in-out;
   background: white;
-  /* Actived status */
+  /* 活动状态 */
 }
 
 .uix-accordion dl dt {
@@ -4796,23 +4799,23 @@ h6 {
 
 @charset "UTF-8";
 /* ======================================================
-   <!-- Advanced Slider (Basic) -->
+   <!--  高级滑块（基本）Advanced Slider (Basic)  -->
 /* ====================================================== */
 /*
- * 1. Initialize the slider style
- * 2. Pagination dots
- * 3. Next/Prev buttons
+ * 1. 初始化滑块样式
+ * 2. 页码点
+ * 3. 下一个/上一个按钮
 */
 /*
  ---------------------------
- 1. Initialize the slider style
+ 1. 初始化滑块样式
  ---------------------------
  */
 .uix-advanced-slider__wrapper {
   position: relative;
 }
 
-/* Prevent content overflow */
+/* 防止内容溢出 */
 .uix-advanced-slider {
   position: relative;
   z-index: 1;
@@ -4821,7 +4824,7 @@ h6 {
 }
 
 .uix-advanced-slider .uix-advanced-slider__inner {
-  /* Don't set overflow to "hidden" */
+  /* 不要将溢出设置为“隐藏” */
   position: relative;
   z-index: 1;
   height: 100%;
@@ -4834,7 +4837,7 @@ h6 {
   left: 0;
   width: 100%;
   transition: all 0.6s ease;
-  /* Javascript will automatically get this value, please do not delete */
+  /* Javascript 会自动获取这个值，请不要删除 */
   opacity: 0;
   /* New XL container for Bootstrap 5.x */
 }
@@ -4895,7 +4898,7 @@ h6 {
 }
 
 .uix-advanced-slider .uix-advanced-slider__inner .uix-advanced-slider__item.is-active {
-  /* Allow button clicks */
+  /* 允许按钮点击 */
   z-index: 2;
   opacity: 1;
 }
@@ -4906,15 +4909,14 @@ h6 {
   opacity: 1;
 }
 
-/* Tests native CSS3 and HTML5 features are available */
-/*---- Effect: Scale ----*/
-/* --------------------------- */
+/* 测试原生 CSS3 和 HTML5 功能是否可用 */
+/*---- 效果：比例 ----*/
 .cssanimations .uix-advanced-slider.uix-advanced-slider--eff-scale .uix-advanced-slider__inner .uix-advanced-slider__item {
   transform: scale(0.8);
   opacity: 0;
-  /* Default */
-  /* Leave  */
-  /* Active  */
+  /* 默认 */
+  /* 离开  */
+  /* 激活 */
 }
 
 .cssanimations .uix-advanced-slider.uix-advanced-slider--eff-scale .uix-advanced-slider__inner .uix-advanced-slider__item.prev {
@@ -4950,8 +4952,7 @@ h6 {
   transform: translateX(0) scale(1);
 }
 
-/*---- Effect: Slide ----*/
-/* --------------------------- */
+/*---- 效果：幻灯片 ----*/
 .cssanimations .uix-advanced-slider.uix-advanced-slider--eff-slide .uix-advanced-slider__inner .uix-advanced-slider__item {
   z-index: 3;
   opacity: 1;
@@ -5046,7 +5047,7 @@ h6 {
 
 /*
  ---------------------------
- 2. Pagination dots
+ 2. 页码点
  ---------------------------
  */
 .uix-advanced-slider__pagination {
@@ -5057,7 +5058,7 @@ h6 {
 
 .uix-advanced-slider__pagination ul {
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   position: relative;
   bottom: 0;
   left: 0;
@@ -5066,14 +5067,14 @@ h6 {
   list-style: none;
   transform: translateY(0.5rem);
   text-align: center;
-  /*require*/
+  /* 要求 */
 }
 
 .uix-advanced-slider__pagination ul li {
   font-size: 1rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: inline-block;
-  /*require*/
+  /* 要求 */
   margin: 0 .2rem;
 }
 
@@ -5085,7 +5086,7 @@ h6 {
   text-indent: -9999px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.6);
-  box-shadow: 0px 3px 22px 0px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 3px 22px 0 rgba(0, 0, 0, 0.45);
 }
 
 .uix-advanced-slider__pagination ul li a:hover, .uix-advanced-slider__pagination ul li a.is-active {
@@ -5095,7 +5096,7 @@ h6 {
 
 /*
  ---------------------------
- 3. Next/Prev buttons
+ 3. 下一个/上一个按钮
  ---------------------------
  */
 .uix-advanced-slider__arrows {
@@ -5113,7 +5114,7 @@ h6 {
   text-align: center;
   border-radius: 100%;
   background: #ffffff;
-  box-shadow: 0px 10px 54px 0px rgba(19, 32, 62, 0.21);
+  box-shadow: 0 10px 54px 0 rgba(19, 32, 62, 0.21);
 }
 
 .uix-advanced-slider__arrows .uix-advanced-slider__arrows--prev {
@@ -5134,23 +5135,23 @@ h6 {
 
 @charset "UTF-8";
 /* ======================================================
-   <!-- Advanced Slider (Special Effects) -->
+   <!--  高级滑块（特殊效果）Advanced Slider (Special Effects) -->
 /* ====================================================== */
 /*
- * 1. Initialize the slider style
- * 2. Pagination dots
- * 3. Next/Prev buttons
+ * 1. 初始化滑块样式
+ * 2. 页码点
+ * 3. 下一个/上一个按钮
 */
 /*
  ---------------------------
- 1. Initialize the slider style
+ 1. 初始化滑块样式
  ---------------------------
  */
 .uix-advanced-slider-sp__wrapper {
   position: relative;
 }
 
-/* Prevent content overflow */
+/* 防止内容溢出 */
 .uix-advanced-slider-sp__wrapper,
 .uix-advanced-slider-sp__inner,
 .uix-advanced-slider-sp__canvas-container {
@@ -5162,7 +5163,7 @@ h6 {
   z-index: 2;
   display: block;
   height: 100%;
-  /* Required, It will make the canvas fill up */
+  /* 必需，它将使画布填满 */
 }
 
 .uix-advanced-slider-sp {
@@ -5189,7 +5190,7 @@ h6 {
   top: 0;
   left: 0;
   height: 100%;
-  /* Required */
+  /* 必需的 */
 }
 
 .uix-advanced-slider-sp .uix-advanced-slider-sp__inner .uix-advanced-slider-sp__item {
@@ -5204,7 +5205,7 @@ h6 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) !important;
-  /* Allow button clicks */
+  /* 允许按钮点击 */
   pointer-events: all !important;
 }
 
@@ -5252,7 +5253,7 @@ h6 {
   opacity: 1;
 }
 
-/* If the browser does not support webGL then use the default video load event */
+/* 如果浏览器不支持 webGL 则使用默认的视频加载事件 */
 .webgl .uix-advanced-slider-sp video {
   display: none;
 }
@@ -5301,7 +5302,7 @@ h6 {
 
 /*
  ---------------------------
- 2. Pagination dots
+ 2. 页码点
  ---------------------------
  */
 .uix-advanced-slider-sp__pagination {
@@ -5312,7 +5313,7 @@ h6 {
 
 .uix-advanced-slider-sp__pagination ul {
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   position: relative;
   bottom: 0;
   left: 0;
@@ -5321,14 +5322,14 @@ h6 {
   list-style: none;
   transform: translateY(0.5rem);
   text-align: center;
-  /*require*/
+  /* 要求 */
 }
 
 .uix-advanced-slider-sp__pagination ul li {
   font-size: 1rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: inline-block;
-  /*require*/
+  /* 要求 */
   margin: 0 .2rem;
 }
 
@@ -5340,7 +5341,7 @@ h6 {
   text-indent: -9999px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.6);
-  box-shadow: 0px 3px 22px 0px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 3px 22px 0 rgba(0, 0, 0, 0.45);
 }
 
 .uix-advanced-slider-sp__pagination ul li a:hover, .uix-advanced-slider-sp__pagination ul li a.is-active {
@@ -5350,7 +5351,7 @@ h6 {
 
 /*
  ---------------------------
- 3. Next/Prev buttons
+ 3. 下一个/上一个按钮
  ---------------------------
  */
 .uix-advanced-slider-sp__arrows {
@@ -5368,7 +5369,7 @@ h6 {
   text-align: center;
   border-radius: 100%;
   background: #ffffff;
-  box-shadow: 0px 10px 54px 0px rgba(19, 32, 62, 0.21);
+  box-shadow: 0 10px 54px 0 rgba(19, 32, 62, 0.21);
 }
 
 .uix-advanced-slider-sp__arrows .uix-advanced-slider-sp__arrows--prev {
@@ -5387,14 +5388,15 @@ h6 {
   visibility: hidden;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Ajax Page Loader (Loading A Page via Ajax Into Div)  -->
+   <!--  Ajax 页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)   -->
 /* ====================================================== */
 .uix-ajax-load__container {
   position: relative;
 }
 
-/* Used for full page */
+/* 用于整页 */
 .uix-ajax-load__fullpage-container {
   position: relative;
   overflow: hidden;
@@ -5476,8 +5478,9 @@ h6 {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Back to Top -->
+   <!--  回到顶部Back to Top -->
 /* ====================================================== */
 #uix-to-top {
   position: fixed;
@@ -5964,6 +5967,7 @@ h6 {
   background: #f7f7f7;
 }
 
+@charset "UTF-8";
 /* ======================================================
     <!-- Flexslider (Third-party plugin) -->
 /* ====================================================== */
@@ -6075,7 +6079,7 @@ h6 {
 
 .uix-flexslider .uix-flexslider__inner {
   height: 100%;
-  /* Required */
+  /* 必需的 */
 }
 
 .uix-flexslider .uix-flexslider__inner > .uix-flexslider__item {
@@ -6186,7 +6190,7 @@ ul.uix-flexslider__direction-nav li a.uix-flexslider__next.uix-flexslider__disab
 /*----- 2.3. Pagination Dot by default -----*/
 ol.uix-flexslider__control-paging {
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   position: absolute;
   bottom: 0;
   left: 0;
@@ -6194,14 +6198,14 @@ ol.uix-flexslider__control-paging {
   width: 100%;
   list-style: none;
   text-align: center;
-  /*require*/
+  /* 要求 */
 }
 
 ol.uix-flexslider__control-paging li {
   font-size: 1rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: inline-block;
-  /*require*/
+  /* 要求 */
   margin: 0 .2rem;
 }
 
@@ -7434,7 +7438,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 .uix-controls__select.js-uix-new {
   text-align: left;
-  /* Required */
+  /* 必需的 */
 }
 
 .uix-controls__select.is-fullwidth {
@@ -7681,7 +7685,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   margin: 0.54688rem 0.5rem 0.54688rem 0;
   cursor: pointer;
   pointer-events: auto;
-  /* Required */
+  /* 必需的 */
   font-weight: 500;
   color: #999999;
 }
@@ -7749,7 +7753,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   margin-bottom: 0.54688rem;
   cursor: pointer;
   text-align: left;
-  /* Required */
+  /* 必需的 */
   white-space: nowrap;
   border: 1px solid #dce4e8;
 }
@@ -7820,7 +7824,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   color: #999999;
   cursor: pointer;
   text-align: left;
-  /* Required */
+  /* 必需的 */
 }
 
 .uix-controls__checkbox input[type="checkbox"] {
@@ -9198,6 +9202,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   /* IE6-9 */
 }
 
+@charset "UTF-8";
 /* ======================================================
         <!-- Gallery -->
 /* ====================================================== */
@@ -9294,14 +9299,14 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 .uix-gallery[data-show-type*="filter"] > .uix-gallery__tiles,
 .uix-gallery[data-show-type*="masonry"] > .uix-gallery__tiles {
   position: relative;
-  /* required */
+  /* 必需的 */
   overflow: inherit;
   width: calc(100% + 15px);
 }
 
 .uix-gallery[data-show-type*="filter"] > .uix-gallery__tiles .uix-gallery__item,
 .uix-gallery[data-show-type*="masonry"] > .uix-gallery__tiles .uix-gallery__item {
-  /* required */
+  /* 必需的 */
   position: absolute;
   z-index: 1;
   display: block;
@@ -9329,6 +9334,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   z-index: 0;
 }
 
+@charset "UTF-8";
 /* ======================================================
     <!-- Hybrid Content Slider -->
 /* ====================================================== */
@@ -9344,7 +9350,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
  ---------------------------
  */
 .uix-hybrid-content-slider {
-  /* Required */
+  /* 必需的 */
   overflow: hidden;
   width: 100%;
   height: auto;
@@ -9365,7 +9371,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 .uix-hybrid-content-slider .uix-hybrid-content-slider__items > .uix-hybrid-content-slider__item.js-is-ready {
   position: absolute;
-  /* required */
+  /* 必需的 */
 }
 
 /*
@@ -9423,7 +9429,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 .uix-hybrid-content-slider__pagination ul.uix-hybrid-content-slider__pagination--default {
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   position: relative;
   bottom: 0;
   left: 0;
@@ -9433,14 +9439,14 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   padding: 0;
   list-style: none;
   text-align: center;
-  /*require*/
+  /* 要求 */
 }
 
 .uix-hybrid-content-slider__pagination ul.uix-hybrid-content-slider__pagination--default li {
   font-size: 1rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: inline-block;
-  /*require*/
+  /* 要求 */
   margin: 0 .2rem;
 }
 
@@ -9463,7 +9469,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 .uix-hybrid-content-slider__pagination ul.uix-hybrid-content-slider__pagination--custom {
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   position: relative;
   bottom: 0;
   left: 0;
@@ -9474,14 +9480,14 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   list-style: none;
   transform: translateY(0.5rem);
   text-align: center;
-  /*require*/
+  /* 要求 */
 }
 
 .uix-hybrid-content-slider__pagination ul.uix-hybrid-content-slider__pagination--custom li {
   font-size: 0.75rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: inline-block;
-  /*require*/
+  /* 要求 */
   margin: 0 .2rem;
 }
 
@@ -9534,6 +9540,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   transition: none;
 }
 
+@charset "UTF-8";
 /* ======================================================
    <!-- Lava-Lamp Style Menu -->
 /* ====================================================== */
@@ -9545,7 +9552,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 .uix-lavalamp-menu__container ul.uix-lavalamp-menu {
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   margin: 0;
   /* Required*/
   padding: 0;
@@ -9553,7 +9560,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 .uix-lavalamp-menu__container ul.uix-lavalamp-menu li {
   font-size: 1rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   position: relative;
   display: inline-block;
   margin: 0;
@@ -10695,6 +10702,7 @@ a.uix-lightbox__original__link {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
    <!-- Multiple Items Carousel -->
 /* ====================================================== */
@@ -10708,7 +10716,7 @@ a.uix-lightbox__original__link {
  ---------------------------
  */
 .uix-multi-carousel {
-  /* Required */
+  /* 必需的 */
   overflow: hidden;
   width: 100%;
   /*----- Vertical Carousel -----*/
@@ -10722,9 +10730,9 @@ a.uix-lightbox__original__link {
 .uix-multi-carousel .uix-multi-carousel__items > .uix-multi-carousel__item {
   font-size: 1.2rem;
   position: absolute;
-  /* required */
+  /* 必需的 */
   height: 100%;
-  /* Demo Style */
+  /* 演示样式 */
   text-align: center;
   color: #ffffff;
   background: #333333;
@@ -10750,7 +10758,7 @@ a.uix-lightbox__original__link {
 }
 
 .uix-multi-carousel.is-vertical {
-  /* Required */
+  /* 必需的 */
   overflow: hidden;
   width: 500px;
   height: 450px;
@@ -10758,13 +10766,13 @@ a.uix-lightbox__original__link {
 
 .uix-multi-carousel.is-vertical .uix-multi-carousel__items {
   width: 100%;
-  /* Required */
+  /* 必需的 */
   height: 100%;
 }
 
 .uix-multi-carousel.is-vertical .uix-multi-carousel__items > .uix-multi-carousel__item {
   width: 100%;
-  /* Demo Style */
+  /* 演示样式 */
   box-shadow: inset 0px -1px 0px 0px rgba(255, 255, 255, 0.5);
 }
 
@@ -10836,6 +10844,7 @@ a.uix-lightbox__original__link {
   visibility: hidden;
 }
 
+@charset "UTF-8";
 /* ======================================================
        <!-- Periodical Scroll -->
 /* ====================================================== */
@@ -10849,7 +10858,7 @@ a.uix-lightbox__original__link {
 
 .uix-periodical-scroll ul li {
   position: absolute;
-  /* required */
+  /* 必需的 */
   display: block;
   opacity: 0;
 }
@@ -13234,7 +13243,7 @@ a.uix-lightbox__original__link {
   position: relative;
 }
 
-/* Prevent content overflow */
+/* 防止内容溢出 */
 .uix-svgMask-slider {
   position: relative;
   z-index: 1;
@@ -13370,7 +13379,7 @@ a.uix-lightbox__original__link {
 }
 
 .uix-svgMask-slider .uix-svgMask-slider__inner .uix-svgMask-slider__item.is-active {
-  /* Allow button clicks */
+  /* 允许按钮点击 */
   z-index: 3;
 }
 
@@ -13414,7 +13423,7 @@ a.uix-lightbox__original__link {
 
 .uix-svgMask-slider__pagination ul {
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   position: relative;
   bottom: 0;
   left: 0;
@@ -13423,14 +13432,14 @@ a.uix-lightbox__original__link {
   list-style: none;
   transform: translateY(0.5rem);
   text-align: center;
-  /*require*/
+  /* 要求 */
 }
 
 .uix-svgMask-slider__pagination ul li {
   font-size: 1rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: inline-block;
-  /*require*/
+  /* 要求 */
   margin: 0 .2rem;
 }
 
@@ -14271,6 +14280,7 @@ button.swiper-pagination-bullet {
   opacity: 0;
 }
 
+@charset "UTF-8";
 /* ======================================================
     <!-- Swiper -->
 /* ====================================================== */
@@ -14365,7 +14375,7 @@ button.swiper-pagination-bullet {
 #app-slider3 .swiper-slide,
 #app-slider4 .swiper-slide {
   overflow: hidden;
-  /* required */
+  /* 必需的 */
 }
 
 #app-slider3 .swiper-slide > .slide-inner,
@@ -14626,6 +14636,7 @@ button.swiper-pagination-bullet {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
    <!-- 3D Shatter Slider -->
 /* ====================================================== */
@@ -14643,7 +14654,7 @@ button.swiper-pagination-bullet {
   position: relative;
 }
 
-/* Prevent content overflow */
+/* 防止内容溢出 */
 .uix-3d-slider--shatter__wrapper,
 .uix-3d-slider--shatter__inner,
 .uix-3d-slider--shatter__canvas-container {
@@ -14655,7 +14666,7 @@ button.swiper-pagination-bullet {
   z-index: 2;
   display: block;
   height: 100%;
-  /* Required, It will make the canvas fill up */
+  /* 必需，它将使画布填满 */
 }
 
 .uix-3d-slider--shatter {
@@ -14683,7 +14694,7 @@ button.swiper-pagination-bullet {
   left: 0;
   display: none;
   height: 100%;
-  /* Required */
+  /* 必需的 */
 }
 
 .uix-3d-slider--shatter .uix-3d-slider--shatter__inner .uix-3d-slider--shatter__item {
@@ -14721,7 +14732,7 @@ button.swiper-pagination-bullet {
 
 .uix-3d-slider--shatter__pagination ul {
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   position: relative;
   bottom: 0;
   left: 0;
@@ -14730,14 +14741,14 @@ button.swiper-pagination-bullet {
   list-style: none;
   transform: translateY(0.5rem);
   text-align: center;
-  /*require*/
+  /* 要求 */
 }
 
 .uix-3d-slider--shatter__pagination ul li {
   font-size: 1rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: inline-block;
-  /*require*/
+  /* 要求 */
   margin: 0 .2rem;
 }
 
@@ -14796,6 +14807,7 @@ button.swiper-pagination-bullet {
   visibility: hidden;
 }
 
+@charset "UTF-8";
 /* ======================================================
    <!-- 3D Explosive Particle Slider -->
 /* ====================================================== */
@@ -14813,7 +14825,7 @@ button.swiper-pagination-bullet {
   position: relative;
 }
 
-/* Prevent content overflow */
+/* 防止内容溢出 */
 .uix-3d-slider--expParticle__wrapper,
 .uix-3d-slider--expParticle__inner,
 .uix-3d-slider--expParticle__canvas-container {
@@ -14825,7 +14837,7 @@ button.swiper-pagination-bullet {
   z-index: 2;
   display: block;
   height: 100%;
-  /* Required, It will make the canvas fill up */
+  /* 必需，它将使画布填满 */
 }
 
 .uix-3d-slider--expParticle {
@@ -14853,7 +14865,7 @@ button.swiper-pagination-bullet {
   left: 0;
   display: none;
   height: 100%;
-  /* Required */
+  /* 必需的 */
 }
 
 .uix-3d-slider--expParticle .uix-3d-slider--expParticle__inner .uix-3d-slider--expParticle__item {
@@ -14891,7 +14903,7 @@ button.swiper-pagination-bullet {
 
 .uix-3d-slider--expParticle__pagination ul {
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   position: relative;
   bottom: 0;
   left: 0;
@@ -14900,14 +14912,14 @@ button.swiper-pagination-bullet {
   list-style: none;
   transform: translateY(0.5rem);
   text-align: center;
-  /*require*/
+  /* 要求 */
 }
 
 .uix-3d-slider--expParticle__pagination ul li {
   font-size: 1rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: inline-block;
-  /*require*/
+  /* 要求 */
   margin: 0 .2rem;
 }
 
@@ -14966,6 +14978,7 @@ button.swiper-pagination-bullet {
   visibility: hidden;
 }
 
+@charset "UTF-8";
 /* ======================================================
    <!-- 3D Liquid Scrollspy Slider -->
 /* ====================================================== */
@@ -14983,7 +14996,7 @@ button.swiper-pagination-bullet {
   position: relative;
 }
 
-/* Prevent content overflow */
+/* 防止内容溢出 */
 .uix-3d-slider--liquid-scrollspy__wrapper,
 .uix-3d-slider--liquid-scrollspy__inner,
 .uix-3d-slider--liquid-scrollspy__canvas-container {
@@ -14995,7 +15008,7 @@ button.swiper-pagination-bullet {
   z-index: 2;
   display: block;
   height: 100%;
-  /* Required, It will make the canvas fill up */
+  /* 必需，它将使画布填满 */
 }
 
 .uix-3d-slider--liquid-scrollspy {
@@ -15023,7 +15036,7 @@ button.swiper-pagination-bullet {
   left: 0;
   display: none;
   height: 100%;
-  /* Required */
+  /* 必需的 */
 }
 
 .uix-3d-slider--liquid-scrollspy .uix-3d-slider--liquid-scrollspy__inner .uix-3d-slider--liquid-scrollspy__item {
@@ -15061,7 +15074,7 @@ button.swiper-pagination-bullet {
 
 .uix-3d-slider--liquid-scrollspy__pagination ul {
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   position: relative;
   bottom: 0;
   left: 0;
@@ -15070,14 +15083,14 @@ button.swiper-pagination-bullet {
   list-style: none;
   transform: translateY(0.5rem);
   text-align: center;
-  /*require*/
+  /* 要求 */
 }
 
 .uix-3d-slider--liquid-scrollspy__pagination ul li {
   font-size: 1rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: inline-block;
-  /*require*/
+  /* 要求 */
   margin: 0 .2rem;
 }
 
@@ -15136,6 +15149,7 @@ button.swiper-pagination-bullet {
   visibility: hidden;
 }
 
+@charset "UTF-8";
 /* ======================================================
    <!-- Table -->
 /* ====================================================== */
@@ -15188,7 +15202,7 @@ table.uix-table thead,
 table.uix-table thead th,
 .uix-table table thead th {
   text-align: inherit;
-  /* Required */
+  /* 必需的 */
   /* The breakpoint is the same as bootstrap 5 */
   /*
             --breakpoint-xs:0;
@@ -16007,6 +16021,7 @@ table.is-horizontal th,
   padding: .5rem 1rem;
 }
 
+@charset "UTF-8";
 /* ======================================================
     <!-- Tabs -->
 /* ====================================================== */
@@ -16088,37 +16103,37 @@ table.is-horizontal th,
 
 .uix-tabs.uix-tabs--center .uix-tabs__nav > ul {
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: block;
   width: 100%;
   text-align: center;
-  /*require*/
+  /* 要求 */
   border-bottom: 1px solid #dcdcdc;
 }
 
 .uix-tabs.uix-tabs--center .uix-tabs__nav > ul li {
   font-size: 1rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: inline-block;
-  /*require*/
+  /* 要求 */
   float: none;
 }
 
 .uix-tabs.uix-tabs--normal .uix-tabs__nav > ul {
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: block;
   width: 100%;
   text-align: left;
-  /*require*/
+  /* 要求 */
   border-bottom: 1px solid #dcdcdc;
 }
 
 .uix-tabs.uix-tabs--normal .uix-tabs__nav > ul li {
   font-size: 1rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: inline-block;
-  /*require*/
+  /* 要求 */
   float: none;
 }
 
@@ -16152,7 +16167,7 @@ table.is-horizontal th,
   box-sizing: border-box;
   width: 80px;
   min-width: inherit;
-  /* Required */
+  /* 必需的 */
   height: 80px;
   margin: 0;
   padding: 0;
@@ -16278,6 +16293,7 @@ table.is-horizontal th,
   transform-origin: 50% 100%;
 }
 
+@charset "UTF-8";
 /* ======================================================
    <!-- Timeline -->
 /* ====================================================== */
@@ -16679,7 +16695,7 @@ table.is-horizontal th,
     position: absolute;
     margin-top: -50px;
     transform: translate(-50%, -100%);
-    /* Required */
+    /* 必需的 */
   }
   .uix-timeline__container-wrapper.is-horizontal.is-reversed .uix-timeline__container .uix-timeline .uix-timeline__item:nth-child(even) .uix-timeline__item__info .uix-timeline__item__date {
     top: auto;
@@ -18113,21 +18129,21 @@ ul.edd_purchase_receipt_files li {
 
 @charset "UTF-8";
 /* ======================================================
-   <!-- Badges -->
+   <!-- 徽章Badges -->
 /* ====================================================== */
 /*
- * 1. Crazy Badges
- * 2. Status Badges
+* 1. 疯狂徽章
+* 2. 状态徽章
 */
 .uix-badge {
   /*
      ---------------------------
-     1) Crazy Badges
+     1) 疯狂徽章
      ---------------------------
      */
   /*
      ---------------------------
-     2) Status Badges
+     2) 状态徽章
      ---------------------------
      */
 }
@@ -18147,8 +18163,7 @@ ul.edd_purchase_receipt_files li {
   display: table;
   width: 300px;
   height: 300px;
-  margin: 0 auto;
-  margin-bottom: 3rem;
+  margin: 0 auto 3rem;
   background: #ffffff;
   transition: all 0.3s ease;
 }
@@ -18209,8 +18224,9 @@ ul.edd_purchase_receipt_files li {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Blended Grid Layout -->
+   <!-- 混合网格布局 Blended Grid Layout -->
 /* ====================================================== */
 .uix-blended-grid {
   width: calc(100% + 30px);
@@ -18219,12 +18235,12 @@ ul.edd_purchase_receipt_files li {
   display: block;
   position: relative;
   margin-top: -15px;
-  /*--- 2 Rows, Large image on the left ---*/
-  /*--- 2 Rows, Large image on the right ---*/
-  /*--- 3 Rows, Large image on the left ---*/
-  /*--- 3 Rows, Large image on the right ---*/
-  /*--- 2 Rows, 3 Columns, Large image on the left and right ---*/
-  /*--- 2 Rows, 3 Columns, Large image on the left, 2 columns image on the right ---*/
+  /*--- 2 行，左侧为大图 ---*/
+  /*--- 2 行，右侧大图 ---*/
+  /*--- 3 行，左侧为大图 ---*/
+  /*--- 3 行，右侧大图 ---*/
+  /*--- 2行3列左右大图 ---*/
+  /*--- 2 行，3 列，左侧为大图，右侧为 2 列图 ---*/
 }
 
 .uix-blended-grid > ul {
@@ -18233,14 +18249,12 @@ ul.edd_purchase_receipt_files li {
 }
 
 .uix-blended-grid > ul > li {
-  margin: 0;
-  padding: 0;
   width: 33%;
   height: 33%;
   position: absolute;
   padding: 15px;
   box-sizing: border-box;
-  margin-left: -15px;
+  margin: 0 0 0 -15px;
 }
 
 .uix-blended-grid > ul > li > div {
@@ -18458,8 +18472,9 @@ ul.edd_purchase_receipt_files li {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Breadcrumbs -->
+   <!-- 面包屑 Breadcrumbs -->
 /* ====================================================== */
 .uix-breadcrumbs__container {
   margin-top: -27px;
@@ -18467,14 +18482,14 @@ ul.edd_purchase_receipt_files li {
 
 .uix-breadcrumbs ul {
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: inline-table;
   list-style: none;
 }
 
 .uix-breadcrumbs ul li {
   font-size: 0.875rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: inline-block;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 5px 15px 0px, rgba(50, 50, 93, 0.1) 0px 15px 35px 0px;
 }
@@ -18557,21 +18572,22 @@ ul.edd_purchase_receipt_files li {
   width: auto;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Button -->
+   <!--  按钮 Button -->
 /* ====================================================== */
 /*
- * 1. Common button styles
- * 2. Borders
- * 3. Sizes
- * 4. Icons
- * 5. Group
- * 6. Background
- * 7. Margin
+ * 1. 常用按钮样式
+ * 2. 边框
+ * 3. 尺寸
+ * 4. 图标
+ * 5. 组
+ * 6. 背景
+ * 7. 边距
 */
 /*
  ---------------------------
- 1. Common button styles
+ 1. 常用按钮样式
  ---------------------------
  */
 .uix-btn[class*=button-]:focus {
@@ -18594,7 +18610,7 @@ ul.edd_purchase_receipt_files li {
   background: none;
   background-size: 300% 100%;
   transition: all 0.3s ease;
-  /* Waiting state */
+  /* 等待状态 */
 }
 
 .uix-btn:hover {
@@ -18660,13 +18676,13 @@ ul.edd_purchase_receipt_files li {
     background-position: 0 0;
   }
   100% {
-    background-position: 30px 0px;
+    background-position: 30px 0;
   }
 }
 
 /*
  ---------------------------
- 2. Borders
+ 2. 边框
  ---------------------------
  */
 .uix-btn__border--thin {
@@ -18687,50 +18703,50 @@ ul.edd_purchase_receipt_files li {
 
 /*
  ---------------------------
- 3. Sizes
+ 3. 尺寸
  ---------------------------
  */
-/* tiny */
+/* 微型 */
 .uix-btn__size--t {
   font-size: 0.75rem;
   padding: .5rem 1rem;
 }
 
-/* small */
+/* 小号 */
 .uix-btn__size--s {
   font-size: 0.875rem;
   padding: .8rem 1.5rem;
 }
 
-/* medium */
+/* 中号 */
 .uix-btn__size--m {
   font-size: 1rem;
   padding: 1rem 2.5rem;
 }
 
-/* large */
+/* 大号 */
 .uix-btn__size--l {
   font-size: 1.375rem;
   padding: 1.25rem 5rem;
 }
 
 @media all and (max-width: 320px) {
-  /* tiny */
+  /* 微型 */
   .uix-btn__size--t {
     font-size: 0.625rem;
     padding: .3rem .7rem;
   }
-  /* small */
+  /* 小号 */
   .uix-btn__size--s {
     font-size: 0.75rem;
     padding: .5rem 1rem;
   }
-  /* medium */
+  /* 中号 */
   .uix-btn__size--m {
     font-size: 0.875rem;
     padding: 0.7rem 2rem;
   }
-  /* large */
+  /* 大号 */
   .uix-btn__size--l {
     font-size: 1rem;
     padding: 1rem 3.5rem;
@@ -18739,7 +18755,7 @@ ul.edd_purchase_receipt_files li {
 
 /*
  ---------------------------
- 4. Icons
+ 4. 图标
  ---------------------------
  */
 .uix-btn__icon {
@@ -18768,8 +18784,7 @@ ul.edd_purchase_receipt_files li {
 
 .uix-btn__icon > span i {
   position: relative;
-  margin: 0;
-  margin-top: 50%;
+  margin: 50% 0 0;
   transform: translateY(-50%);
 }
 
@@ -18817,69 +18832,69 @@ ul.edd_purchase_receipt_files li {
 
 /*
  ---------------------------
- 5. Group
+ 5. 组
  ---------------------------
  */
-.uix-btn__group {
+.uix-btn__组 {
   display: inline-block;
-  /* Each fullwidth button from group */
+  /* 组中的每个全角按钮 */
 }
 
-.uix-btn__group::after {
+.uix-btn__组::after {
   display: table;
   clear: both;
   content: '';
 }
 
-.uix-btn__group > .uix-btn {
+.uix-btn__组 > .uix-btn {
   float: left;
   box-sizing: border-box;
   margin: 0;
   border-radius: 0;
 }
 
-.uix-btn__group > .uix-btn.is-pill:first-child {
+.uix-btn__组 > .uix-btn.is-pill:first-child {
   border-radius: 50px 0 0 50px;
 }
 
-.uix-btn__group > .uix-btn.is-pill:last-child {
+.uix-btn__组 > .uix-btn.is-pill:last-child {
   border-radius: 0 50px 50px 0;
 }
 
-.uix-btn__group > .uix-btn.is-rounded:first-child {
+.uix-btn__组 > .uix-btn.is-rounded:first-child {
   border-radius: 4px 0 0 4px;
 }
 
-.uix-btn__group > .uix-btn.is-rounded:last-child {
+.uix-btn__组 > .uix-btn.is-rounded:last-child {
   border-radius: 0 4px 4px 0;
 }
 
-.uix-btn__group > .uix-btn.uix-btn__border--thin:not(:first-child) {
+.uix-btn__组 > .uix-btn.uix-btn__border--thin:not(:first-child) {
   margin-left: -1px;
 }
 
-.uix-btn__group > .uix-btn.uix-btn__border--medium:not(:first-child) {
+.uix-btn__组 > .uix-btn.uix-btn__border--medium:not(:first-child) {
   margin-left: -2px;
 }
 
-.uix-btn__group > .uix-btn.uix-btn__border--thick:not(:first-child) {
+.uix-btn__组 > .uix-btn.uix-btn__border--thick:not(:first-child) {
   margin-left: -3px;
 }
 
-.uix-btn__group.is-fullwidth {
+.uix-btn__组.is-fullwidth {
   display: flex;
 }
 
-.uix-btn__group.is-fullwidth > .uix-btn {
+.uix-btn__组.is-fullwidth > .uix-btn {
   flex: 1;
 }
 
 /*
  ---------------------------
- 6. Background
+ 6. 背景
  ---------------------------
  */
-/* Your Custom colors for buttons */
+/* 自定义按钮颜色 */
 .uix-btn__bg--primary {
   color: #ffffff;
   border-color: #ce3a3e;
@@ -18946,7 +18961,7 @@ ul.edd_purchase_receipt_files li {
 
 /*
  ---------------------------
- 7. Margin
+ 7. 边距
  ---------------------------
  */
 .uix-btn__margin--b {
@@ -18961,18 +18976,19 @@ ul.edd_purchase_receipt_files li {
   margin-right: 1rem;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Cards -->
+   <!-- 卡片 Cards -->
 /* ====================================================== */
 /*
- * 1. Author Card
- * 2. Gallery Card (via Flex)
- * 3. Thumbnail Card (via Flex)
+ * 1. 作者卡片
+ * 2. 图库卡片（通过 Flex）
+ * 3. 缩略图卡片（通过 Flex）
 
 */
 /*
  ---------------------------
- 1. Author Card
+ 1. 作者卡片
  ---------------------------
  */
 .uix-card--author {
@@ -19063,8 +19079,6 @@ ul.edd_purchase_receipt_files li {
 }
 
 .uix-card--author .uix-card--author__content::after {
-  position: relative;
-  position: absolute;
   bottom: 2.125rem;
   left: 1.75rem;
   width: 0;
@@ -19094,7 +19108,7 @@ ul.edd_purchase_receipt_files li {
 
 /*
  ---------------------------
- 2. Gallery Card
+ 2. 图库卡片（通过 Flex）
  ---------------------------
  */
 .uix-card--gallery {
@@ -19103,17 +19117,16 @@ ul.edd_purchase_receipt_files li {
   flex-direction: column;
   box-sizing: border-box;
   max-width: 100%;
-  /* Prevent text overflow with no-wrap */
-  /* demo style */
+  /* 使用 no-wrap 防止文本溢出 */
+  /* 演示样式 */
   box-shadow: rgba(0, 0, 0, 0.07) 0px 5px 15px 0px, rgba(50, 50, 93, 0.1) 0px 15px 35px 0px;
   border-radius: 8px;
-  /*-- horizontal layout --*/
+  /*-- 横向布局--*/
   /*-- overlay layout --*/
-  /*-- Menu Group --*/
+  /*-- 菜单组 --*/
   /*
-     If you do not use "justify-content: space-between; ", 
-     you need to use the following to achieve the layout
-    */
+      如果不使用“justify-content: space-between;”，您需要使用以下内容来实现布局
+     */
   /*
     .uix-card--gallery__menu {
         display: flex;
@@ -19129,29 +19142,28 @@ ul.edd_purchase_receipt_files li {
         }
     }
     */
-  /*-- rxtra elements style --*/
+  /*-- rxtra 元素样式--*/
 }
 
 .uix-card--gallery .uix-card--gallery__preview,
 .uix-card--gallery .uix-card--gallery__body {
   display: flex;
-  /* nested flex container */
+  /* 嵌套的弹性容器 */
   flex-direction: column;
-  /* vertical alignment of flex items */
+  /* 弹性项目的垂直对齐 */
   justify-content: center;
-  /* center flex items vertically */
+  /* 弹性项目的垂直居中 */
 }
 
 .uix-card--gallery .uix-card--gallery__preview {
   position: relative;
   align-items: center;
-  /* center flex items horizontally */
+  /* 弹性项目的水平居中 */
   box-sizing: border-box;
   padding: 0;
-  /* default value, this attribute can be specified in HTML */
+  /* 默认值，该属性可以在 HTML 中指定 */
   border-radius: 8px 8px 0 0;
-  /* Use a :before to show the selection outline so that the border doesn't
-        * affect the layout of the content within the preview. */
+  /* 使用 :before 显示选择轮廓，以便边框不会影响预览中内容的布局。 */
 }
 
 .uix-card--gallery .uix-card--gallery__preview img {
@@ -19177,12 +19189,13 @@ ul.edd_purchase_receipt_files li {
 .uix-card--gallery .uix-card--gallery__header {
   display: flex;
   align-items: center;
-  /* center flex items horizontally */
+  /* 弹性项目的水平居中 */
 }
 
 .uix-card--gallery .uix-card--gallery__header .uix-card--gallery__header__child {
   display: flex;
   align-items: center;
+  /* 弹性项目的水平居中 */
   flex: 1;
   max-width: 100%;
   word-break: break-all;
@@ -19195,17 +19208,18 @@ ul.edd_purchase_receipt_files li {
 .uix-card--gallery .uix-card--gallery__content > .uix-card--gallery__content__child {
   display: flex;
   align-items: center;
+  /* 弹性项目的水平居中 */
   flex-direction: row;
 }
 
 .uix-card--gallery .uix-card--gallery__content > .uix-card--gallery__content__child .uix-card--gallery__content__child--left {
   display: flex;
   align-items: center;
-  /* center flex items horizontally */
+  /* 弹性项目的水平居中 */
   flex: 1;
   flex-direction: row;
   min-width: 0;
-  /* prevents flex-boxes of becoming smaller than it's contents -- for rows */
+  /* 防止 flex-boxes 变得比它的内容更小 -- 对于行 */
   word-break: break-all;
 }
 
@@ -19217,22 +19231,22 @@ ul.edd_purchase_receipt_files li {
 
 .uix-card--gallery .uix-card--gallery__content > .uix-card--gallery__content__child .uix-card--gallery__content__child--right {
   min-width: 50px;
-  /* default value, this attribute can be specified in HTML */
+  /* 默认值，该属性可以在 HTML 中指定 */
 }
 
 .uix-card--gallery .uix-card--gallery__body {
   flex: 1;
   min-width: 0;
-  /* prevents flex-boxes of becoming smaller than it's contents -- for rows */
+  /* 防止 flex-boxes 变得比它的内容更小——对于行 */
   max-width: 100%;
-  /* Prevent text overflow with no-wrap when horizontal type is used  */
+  /* 使用横排时防止文本溢出 */
 }
 
 .uix-card--gallery .uix-card--gallery__action {
   display: flex;
   flex: 1;
   justify-content: flex-end;
-  /* end flex items vertically */
+  /* 垂直结束弹性项目 */
   margin-left: 1rem;
 }
 
@@ -19286,6 +19300,7 @@ ul.edd_purchase_receipt_files li {
 .uix-card--gallery .uix-card--gallery__status .uix-card--gallery__status__item {
   display: flex;
   align-items: center;
+  /* 弹性项目的水平居中 */
   padding: 0.5rem 1rem;
   white-space: nowrap;
   color: #ffffff;
@@ -19300,6 +19315,7 @@ ul.edd_purchase_receipt_files li {
   z-index: 2;
   display: flex;
   align-items: center;
+  /* 弹性项目的水平居中 */
   justify-content: space-between;
   width: 100%;
   padding: 0 25px;
@@ -19321,7 +19337,7 @@ ul.edd_purchase_receipt_files li {
   height: 42px;
   margin-right: 15px;
   object-fit: cover;
-  /* required */
+  /* 必需的 */
 }
 
 .uix-card--gallery .uix-card--gallery__menu .uix-card--gallery__menu__items {
@@ -19378,8 +19394,8 @@ ul.edd_purchase_receipt_files li {
 
 @media all and (max-width: 768px) {
   .uix-card--gallery {
-    /*-- horizontal layout --*/
-    /*-- Menu Group --*/
+    /*-- 横向布局--*/
+    /*-- 菜单组 --*/
   }
   .uix-card--gallery.uix-card--gallery--horizontal:not(.is-mobile-still) {
     flex-direction: column;
@@ -19403,7 +19419,7 @@ ul.edd_purchase_receipt_files li {
 
 /*
  ---------------------------
- 3. Thumbnail Card
+ 3. 缩略图卡片（通过 Flex）
  ---------------------------
  */
 .uix-card--thumb {
@@ -19412,33 +19428,33 @@ ul.edd_purchase_receipt_files li {
   flex-direction: column;
   box-sizing: border-box;
   max-width: 100%;
-  /* Prevent text overflow with no-wrap */
-  /* demo style */
+  /* 使用 no-wrap 防止文本溢出 */
+  /* 演示样式 */
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 5px 15px 0px, rgba(50, 50, 93, 0.1) 0px 15px 35px 0px;
   border-radius: 8px;
-  /*-- rxtra elements style --*/
+  /*-- rxtra 元素样式--*/
 }
 
 .uix-card--thumb .uix-card--thumb__header {
   display: inline-flex;
   align-items: center;
-  /* center flex items horizontally */
+  /* 弹性项目的水平居中 */
   flex-direction: row;
 }
 
 .uix-card--thumb .uix-card--thumb__header .uix-card--thumb__preview {
   flex-basis: 50px;
-  /* default value, this attribute can be specified in HTML */
+  /* 默认值，该属性可以在 HTML 中指定 */
   margin-right: 5px;
 }
 
 .uix-card--thumb .uix-card--thumb__header .uix-card--thumb__content {
-  /* ----- Keep the width of the picture fixed -----  begin  */
+  /* ----- 保持图片宽度固定 ----- 开始 */
   flex: 1;
   min-width: 0;
-  /* prevents flex-boxes of becoming smaller than it's contents -- for rows */
-  /* ----- Keep the width of the picture fixed -----  end  */
+  /* 防止 flex-boxes 变得比它的内容更小——对于行 */
+  /* ----- 保持图片宽度固定 ----- 结束 */
 }
 
 .uix-card--thumb .uix-card--thumb__header .uix-card--thumb__content > .uix-card--thumb__content__child {
@@ -19449,7 +19465,7 @@ ul.edd_purchase_receipt_files li {
 .uix-card--thumb .uix-card--thumb__header .uix-card--thumb__content > .uix-card--thumb__content__child .uix-card--thumb__content__child--left {
   display: flex;
   align-items: center;
-  /* center flex items horizontally */
+  /* 弹性项目的水平居中 */
   flex: 1;
   flex-direction: row;
   min-width: 0;
@@ -19465,7 +19481,7 @@ ul.edd_purchase_receipt_files li {
 
 .uix-card--thumb .uix-card--thumb__header .uix-card--thumb__content > .uix-card--thumb__content__child .uix-card--thumb__content__child--right {
   min-width: 50px;
-  /* default value, this attribute can be specified in HTML */
+  /* 默认值，该属性可以在 HTML 中指定 */
 }
 
 .uix-card--thumb .uix-card--thumb__body {
@@ -19889,6 +19905,7 @@ ul.edd_purchase_receipt_files li {
   background-size: 12px 6px;
 }
 
+@charset "UTF-8";
 /* ======================================================
    <!-- Equal-width Columns -->
 /* ====================================================== */
@@ -19900,7 +19917,7 @@ ul.edd_purchase_receipt_files li {
  */
 .uix-equal-width-divs ul {
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: table;
   /* [1] */
   width: 100%;
@@ -19912,7 +19929,7 @@ ul.edd_purchase_receipt_files li {
 
 .uix-equal-width-divs ul li {
   font-size: 1rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: table-cell;
   /* [4] */
   box-shadow: 1px 0px 0px 0px #aeaeae;
@@ -21638,6 +21655,7 @@ dl.uix-list-abreast.uix-list-abreast--icon dd {
   opacity: 1;
 }
 
+@charset "UTF-8";
 /* ======================================================
    <!-- Testimonials Carousel -->
 /* ====================================================== */
@@ -21648,7 +21666,7 @@ dl.uix-list-abreast.uix-list-abreast--icon dd {
 }
 
 .uix-testimonials {
-  /* Required */
+  /* 必需的 */
   overflow: hidden;
 }
 

@@ -31,10 +31,10 @@
     10.Navs
     11.Sidebar
     12.Typography
-    13.Advanced Slider (Basic)
-    14.Advanced Slider (Special Effects)
-    15.Button
-    16.Cards
+    13.高级滑块（基本）Advanced Slider (Basic)
+    14.高级滑块（特殊效果）Advanced Slider (Special Effects)
+    15.按钮 Button
+    16.卡片 Cards
     17.Content Placeholder Animated
     18.Dropdown Menu
     19.Flexslider (Third-party plugin)
@@ -778,8 +778,9 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
   writing-mode: vertical-lr;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Advanced Slider (Basic) -->
+   <!--  高级滑块（基本）Advanced Slider (Basic)  -->
 /* ====================================================== */
 /*
  * 1. Initialize the slider style
@@ -822,8 +823,9 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
   text-align: left;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Advanced Slider (Special Effects) -->
+   <!--  高级滑块（特殊效果）Advanced Slider (Special Effects) -->
 /* ====================================================== */
 /*
  * 1. Initialize the slider style
@@ -871,8 +873,9 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
   text-align: left;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Button -->
+   <!--  按钮 Button -->
 /* ====================================================== */
 /*
  * 4. Icons
@@ -981,8 +984,9 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
   margin-left: 1rem;
 }
 
+@charset "UTF-8";
 /* ======================================================
-    <!-- Cards -->
+    <!-- 卡片 Cards -->
 /* ====================================================== */
 
 /* ======================================================
@@ -1020,6 +1024,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
   direction: ltr !important;
 }
 
+@charset "UTF-8";
 /* ======================================================
     <!-- Form -->
 /* ====================================================== */
@@ -1249,7 +1254,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
 
 .uix-controls__select.js-uix-new {
   text-align: right;
-  /* Required */
+  /* 必需的 */
 }
 
 .uix-controls__select-wrapper:not(.uix-controls--line).is-disabled {
@@ -1329,7 +1334,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
 
 .uix-controls__toggle label {
   text-align: right;
-  /* Required */
+  /* 必需的 */
 }
 
 .uix-controls__toggle input[type="checkbox"] {
@@ -1357,7 +1362,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
 
 .uix-controls__checkbox label {
   text-align: right;
-  /* Required */
+  /* 必需的 */
 }
 
 .uix-controls__checkbox .uix-controls__checkbox-trigger {

@@ -1,10 +1,10 @@
 /* ======================================================
-   <!-- Badges -->
+   <!-- 徽章 Badges -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 /*
- * 1. Crazy Badges
- * 2. Status Badges
+* 1. 疯狂徽章
+* 2. 状态徽章
 */
 .uix-badge {
     .uix-badge__inner {
@@ -17,7 +17,7 @@
     }
     /*
      ---------------------------
-     1) Crazy Badges
+     1) 疯狂徽章
      ---------------------------
      */
     &.uix-badge--crazy {
@@ -25,14 +25,13 @@
         display: table;
         width: 300px;
         height: 300px;
-        margin: 0 auto;
-        margin-bottom: 3rem;
+        margin: 0 auto 3rem;
         @include border-gradient($btn-gradient-color1, $btn-gradient-color2, 15px, 'to bottom', #ffffff);
         @include transition-default();
     }
     /*
      ---------------------------
-     2) Status Badges
+     2) 状态徽章
      ---------------------------
      */
     &.uix-badge--status {

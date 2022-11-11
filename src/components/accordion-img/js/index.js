@@ -1,6 +1,6 @@
 /*
  *************************************
- * <!-- Accordion Background Images -->
+ * <!-- 手风琴背景图片 Accordion Background Images -->
  *************************************
  */
 import {

@@ -1,21 +1,21 @@
 /* ======================================================
-   <!-- Button -->
+   <!--  按钮 Button -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 /*
- * 1. Common button styles
- * 2. Borders
- * 3. Sizes
- * 4. Icons
- * 5. Group
- * 6. Background
- * 7. Margin
+ * 1. 常用按钮样式
+ * 2. 边框
+ * 3. 尺寸
+ * 4. 图标
+ * 5. 组
+ * 6. 背景
+ * 7. 边距
 */
 $button-class-margin-lr: 1rem;
 $button-class-margin-b: 1rem;
 /*
  ---------------------------
- 1. Common button styles
+ 1. 常用按钮样式
  ---------------------------
  */
 .uix-btn[class*=button-]:focus {
@@ -54,7 +54,7 @@ $button-class-margin-b: 1rem;
         background-image: linear-gradient(to right, #e4e7ed 0%, #e4e7ed 20%, #e4e7ed 100%) !important;
         box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05) !important;
     }
-    /* Waiting state */
+    /* 等待状态 */
     &.is-waiting {
         cursor: wait !important;
         animation: uix-cssAnim--moveWaitingStripes 0.5s linear infinite !important;
@@ -92,12 +92,12 @@ $button-class-margin-b: 1rem;
         background-position: 0 0;
     }
     100% {
-        background-position: 30px 0px;
+        background-position: 30px 0;
     }
 }
 /*
  ---------------------------
- 2. Borders
+ 2. 边框
  ---------------------------
  */
 .uix-btn__border--thin {
@@ -114,46 +114,46 @@ $button-class-margin-b: 1rem;
 }
 /*
  ---------------------------
- 3. Sizes
+ 3. 尺寸
  ---------------------------
  */
-/* tiny */
+/* 微型 */
 .uix-btn__size--t {
     font-size: 0.75rem;
     padding: .5rem 1rem;
 }
-/* small */
+/* 小号 */
 .uix-btn__size--s {
     font-size: 0.875rem;
     padding: .8rem 1.5rem;
 }
-/* medium */
+/* 中号 */
 .uix-btn__size--m {
     font-size: 1rem;
     padding: 1rem 2.5rem;
 }
-/* large */
+/* 大号 */
 .uix-btn__size--l {
     font-size: 1.375rem;
     padding: 1.25rem 5rem;
 }
 @media all and (max-width: 320px) {
-    /* tiny */
+    /* 微型 */
     .uix-btn__size--t {
         font-size: 0.625rem;
         padding: .3rem .7rem;
     }
-    /* small */
+    /* 小号 */
     .uix-btn__size--s {
         font-size: 0.75rem;
         padding: .5rem 1rem;
     }
-    /* medium */
+    /* 中号 */
     .uix-btn__size--m {
         font-size: 0.875rem;
         padding: 0.7rem 2rem;
     }
-    /* large */
+    /* 大号 */
     .uix-btn__size--l {
         font-size: 1rem;
         padding: 1rem 3.5rem;
@@ -161,7 +161,7 @@ $button-class-margin-b: 1rem;
 }
 /*
  ---------------------------
- 4. Icons
+ 4. 图标
  ---------------------------
  */
 .uix-btn__icon {
@@ -184,8 +184,7 @@ $button-class-margin-b: 1rem;
         background-color: rgba(0, 0, 0, .1);
         i {
             position: relative;
-            margin: 0;
-            margin-top: 50%;
+            margin: 50% 0 0;
             transform: translateY(-50%);
         }
     }
@@ -242,10 +241,10 @@ $button-class-margin-b: 1rem;
 }
 /*
  ---------------------------
- 5. Group
+ 5. 组
  ---------------------------
  */
-.uix-btn__group {
+.uix-btn__组 {
     display: inline-block;
     &::after {
         display: table;
@@ -283,7 +282,7 @@ $button-class-margin-b: 1rem;
             margin-left: -3px;
         }
     }
-    /* Each fullwidth button from group */
+    /* 组中的每个全角按钮 */
     &.is-fullwidth {
         display: flex;
         > .uix-btn {
@@ -293,10 +292,10 @@ $button-class-margin-b: 1rem;
 }
 /*
  ---------------------------
- 6. Background
+ 6. 背景
  ---------------------------
  */
-/* Your Custom colors for buttons */
+/* 自定义按钮颜色 */
 .uix-btn__bg--primary {
     color: #ffffff;
     border-color: $btn-gradient-color1;
@@ -355,7 +354,7 @@ $button-class-margin-b: 1rem;
 }
 /*
  ---------------------------
- 7. Margin
+ 7. 边距
  ---------------------------
  */
 .uix-btn__margin--b {

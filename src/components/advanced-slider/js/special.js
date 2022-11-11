@@ -1,6 +1,6 @@
 /*
  *************************************
- * <!-- Advanced Slider (Special Effects) -->
+ * <!--  高级滑块（特殊效果）Advanced Slider (Special Effects) -->
  *************************************
  */
 import {

@@ -1,26 +1,26 @@
 /* ======================================================
-    <!-- Accordion Background Images -->
+    <!-- 手风琴背景图片 Accordion Background Images -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
-// Accordion Height
+// 手风琴高度
 $accordion-img-height: 250px;
 .uix-accordion-img {
     overflow: hidden;
     width: 100%;
     height: $accordion-img-height;
     > ul {
-        font-size: 0; /*Fighting the Space Between Inline Block Elements*/
+        font-size: 0; /* 争夺内联块元素之间的空间 */
         display: table;
         width: 100%;
         margin: 0;
         padding: 0;
         table-layout: fixed;
         > li {
-            font-size: 1rem; /*Fighting the Space Between Inline Block Elements*/
+            font-size: 1rem; /* 争夺内联块元素之间的空间 */
             position: relative;
             z-index: 1;
             display: table-cell;
-            width: 16.66666666666667%; // 6 into 100
+            width: 16.66666666666667%; // 6 到 100
             height: $accordion-img-height;
             vertical-align: bottom;
             background-repeat: no-repeat;
@@ -75,7 +75,7 @@ $accordion-img-height: 250px;
         }
     }
 }
-// Stack items
+// 堆叠项目
 @media all and (max-width: 768px) {
     .uix-accordion-img {
         height: auto;

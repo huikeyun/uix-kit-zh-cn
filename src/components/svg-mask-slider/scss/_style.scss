@@ -15,10 +15,10 @@
 .uix-svgMask-slider__wrapper {
     position: relative;
 }
-/* Prevent content overflow */
+/* 防止内容溢出 */
 .uix-svgMask-slider__wrapper,
 .uix-svgMask-slider__item {
-    //max-height: 100vh;
+    // 最大高度：100vh；
 }
 .uix-svgMask-slider {
     position: relative;
@@ -86,7 +86,7 @@
                 z-index: 2;
             }
             &.is-active {
-                /* Allow button clicks */
+                /* 允许按钮点击 */
                 z-index: 3;
             }
             &.is-loaded {
@@ -137,7 +137,7 @@
     z-index: 2;
     transform: translateY(-40px);
     ul {
-        font-size: 0; /*Fighting the Space Between Inline Block Elements*/
+        font-size: 0; /* 争夺内联块元素之间的空间 */
         position: relative;
         bottom: 0;
         left: 0;
@@ -145,10 +145,10 @@
         width: 100%;
         list-style: none;
         transform: translateY(.5rem);
-        text-align: center; /*require*/
+        text-align: center; /* 要求 */
         li {
-            font-size: 1rem; /*Fighting the Space Between Inline Block Elements*/
-            display: inline-block; /*require*/
+            font-size: 1rem; /* 争夺内联块元素之间的空间 */
+            display: inline-block; /* 要求 */
             margin: 0 .2rem;
             a {
                 display: block;
@@ -168,7 +168,7 @@
         }
     }
 }
-//******** Style 2 **********
+//******** 样式 2 **********
 //
 //.uix-svgMask-slider__pagination {
 //	margin: 0;

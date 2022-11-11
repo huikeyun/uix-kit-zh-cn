@@ -428,7 +428,7 @@ $horizontal-container-width: 1000px;
                     .uix-timeline__item__info {
                         position: absolute;
                         margin-top: -50px;
-                        transform: translate(-50%, -100%); /* Required */
+                        transform: translate(-50%, -100%); /* 必需的 */
                         .uix-timeline__item__date {
                             top: auto;
                             bottom: -90px;

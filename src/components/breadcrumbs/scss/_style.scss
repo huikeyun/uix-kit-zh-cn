@@ -1,5 +1,5 @@
 /* ======================================================
-   <!-- Breadcrumbs -->
+   <!-- 面包屑 Breadcrumbs -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 $crumbs-back: #ffffff;
@@ -11,11 +11,11 @@ $crumbs-size: 27px;
 }
 .uix-breadcrumbs {
     ul {
-        font-size: 0; /*Fighting the Space Between Inline Block Elements*/
+        font-size: 0; /* 争夺内联块元素之间的空间 */
         display: inline-table;
         list-style: none;
         li {
-            font-size: 0.875rem; /*Fighting the Space Between Inline Block Elements*/
+            font-size: 0.875rem; /* 争夺内联块元素之间的空间 */
             display: inline-block;
             @include outer-shadow('regular');
             a {

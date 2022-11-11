@@ -87,11 +87,11 @@ $gallery-masonry-item-gap: 15px;
 .uix-gallery[data-show-type*="filter"],
 .uix-gallery[data-show-type*="masonry"] {
     > .uix-gallery__tiles {
-        position: relative; /* required */
+        position: relative; /* 必需的 */
         overflow: inherit;
         width: calc(100% + #{$gallery-masonry-item-gap});
         .uix-gallery__item {
-            /* required */
+            /* 必需的 */
             position: absolute;
             z-index: 1;
             display: block;

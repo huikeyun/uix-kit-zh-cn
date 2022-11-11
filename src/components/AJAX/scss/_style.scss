@@ -1,11 +1,11 @@
 /* ======================================================
-   <!-- Ajax Page Loader (Loading A Page via Ajax Into Div)  -->
+   <!--  Ajax 页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)   -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 .uix-ajax-load__container {
     position: relative;
 }
-/* Used for full page */
+/* 用于整页 */
 .uix-ajax-load__fullpage-container {
     position: relative;
     overflow: hidden;

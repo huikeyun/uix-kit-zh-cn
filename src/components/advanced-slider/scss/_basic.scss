@@ -1,25 +1,25 @@
 /* ======================================================
-   <!-- Advanced Slider (Basic) -->
+   <!--  高级滑块（基本）Advanced Slider (Basic)  -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 /*
- * 1. Initialize the slider style
- * 2. Pagination dots
- * 3. Next/Prev buttons
+ * 1. 初始化滑块样式
+ * 2. 页码点
+ * 3. 下一个/上一个按钮
 */
 $anim-duration: 0.6s;
 /*
  ---------------------------
- 1. Initialize the slider style
+ 1. 初始化滑块样式
  ---------------------------
  */
 .uix-advanced-slider__wrapper {
     position: relative;
 }
-/* Prevent content overflow */
+/* 防止内容溢出 */
 .uix-advanced-slider__wrapper,
 .uix-advanced-slider__item {
-    //max-height: 100vh;
+    // 最大高度：100vh；
 }
 .uix-advanced-slider {
     position: relative;
@@ -27,7 +27,7 @@ $anim-duration: 0.6s;
     overflow: hidden;
     width: 100%;
     .uix-advanced-slider__inner {
-        /* Don't set overflow to "hidden" */
+        /* 不要将溢出设置为“隐藏” */
         position: relative;
         z-index: 1;
         height: 100%;
@@ -38,7 +38,7 @@ $anim-duration: 0.6s;
             left: 0;
             width: 100%;
             transition: all #{$anim-duration} ease;
-            /* Javascript will automatically get this value, please do not delete */
+            /* Javascript 会自动获取这个值，请不要删除 */
             opacity: 0;
             .uix-advanced-slider__txt {
                 position: absolute;
@@ -65,7 +65,7 @@ $anim-duration: 0.6s;
                 }
             }
             &.is-active {
-                /* Allow button clicks */
+                /* 允许按钮点击 */
                 z-index: 2;
                 opacity: 1;
                 .uix-advanced-slider__txt {
@@ -77,9 +77,8 @@ $anim-duration: 0.6s;
         }
     }
 }
-/* Tests native CSS3 and HTML5 features are available */
-/*---- Effect: Scale ----*/
-/* --------------------------- */
+/* 测试原生 CSS3 和 HTML5 功能是否可用 */
+/*---- 效果：比例 ----*/
 .cssanimations {
     .uix-advanced-slider {
         &.uix-advanced-slider--eff-scale {
@@ -87,14 +86,14 @@ $anim-duration: 0.6s;
                 .uix-advanced-slider__item {
                     transform: scale(.8);
                     opacity: 0;
-                    /* Default */
+                    /* 默认 */
                     &.prev {
                         transform: translateX(200px) scale(.8);
                     }
                     &.next {
                         transform: translateX(-200px) scale(.8);
                     }
-                    /* Leave  */
+                    /* 离开  */
                     &.leave {
                         opacity: 0;
                         &.prev {
@@ -104,7 +103,7 @@ $anim-duration: 0.6s;
                             transform: translateX(200px) scale(.8);
                         }
                     }
-                    /* Active  */
+                    /* 激活 */
                     &.is-active {
                         transition-delay: #{$anim-duration};
                         opacity: 1;
@@ -120,8 +119,7 @@ $anim-duration: 0.6s;
         }
     }
 }
-/*---- Effect: Slide ----*/
-/* --------------------------- */
+/*---- 效果：幻灯片 ----*/
 .cssanimations {
     .uix-advanced-slider {
         &.uix-advanced-slider--eff-slide {
@@ -222,7 +220,7 @@ $anim-duration: 0.6s;
 }
 /*
  ---------------------------
- 2. Pagination dots
+ 2. 页码点
  ---------------------------
  */
 .uix-advanced-slider__pagination {
@@ -230,7 +228,7 @@ $anim-duration: 0.6s;
     z-index: 2;
     transform: translateY(-40px);
     ul {
-        font-size: 0; /*Fighting the Space Between Inline Block Elements*/
+        font-size: 0; /* 争夺内联块元素之间的空间 */
         position: relative;
         bottom: 0;
         left: 0;
@@ -238,10 +236,10 @@ $anim-duration: 0.6s;
         width: 100%;
         list-style: none;
         transform: translateY(.5rem);
-        text-align: center; /*require*/
+        text-align: center; /* 要求 */
         li {
-            font-size: 1rem; /*Fighting the Space Between Inline Block Elements*/
-            display: inline-block; /*require*/
+            font-size: 1rem; /* 争夺内联块元素之间的空间 */
+            display: inline-block; /* 要求 */
             margin: 0 .2rem;
             a {
                 display: block;
@@ -251,7 +249,7 @@ $anim-duration: 0.6s;
                 text-indent: -9999px;
                 border-radius: 20px;
                 background: rgba(255, 255, 255, .6);
-                box-shadow: 0px 3px 22px 0px rgba(0, 0, 0, 0.45);
+                box-shadow: 0 3px 22px 0 rgba(0, 0, 0, 0.45);
                 &:hover,
                 &.is-active {
                     width: 25px;
@@ -261,7 +259,7 @@ $anim-duration: 0.6s;
         }
     }
 }
-//******** Style 2 **********
+//******** 样式 2 **********
 //
 //.uix-advanced-slider__pagination {
 //	margin: 0;
@@ -315,7 +313,7 @@ $anim-duration: 0.6s;
 //}
 /*
  ---------------------------
- 3. Next/Prev buttons
+ 3. 下一个/上一个按钮
  ---------------------------
  */
 .uix-advanced-slider__arrows {
@@ -331,7 +329,7 @@ $anim-duration: 0.6s;
         text-align: center;
         border-radius: 100%;
         background: #ffffff;
-        box-shadow: 0px 10px 54px 0px rgba(19, 32, 62, 0.21);
+        box-shadow: 0 10px 54px 0 rgba(19, 32, 62, 0.21);
     }
     .uix-advanced-slider__arrows--prev {
         left: 15px;

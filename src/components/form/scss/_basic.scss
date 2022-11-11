@@ -597,7 +597,7 @@ $controls-merge-button-width: 20%;
     position: relative;
     margin-right: .3rem;
     &.js-uix-new {
-        text-align: left; /* Required */
+        text-align: left; /* 必需的 */
     }
     &.is-fullwidth {
         width: 100%;
@@ -808,7 +808,7 @@ $controls-merge-button-width: 20%;
         left: auto;
         margin: #{$control-padding-height} .5rem #{$control-padding-side} 0;
         cursor: pointer;
-        pointer-events: auto; /* Required */
+        pointer-events: auto; /* 必需的 */
         @include control-label-text();
     }
     &:not(.uix-controls--line).is-disabled {
@@ -865,7 +865,7 @@ $controls-merge-button-width: 20%;
         margin-top: 0;
         margin-bottom: $control-padding-height;
         cursor: pointer;
-        text-align: left; /* Required */
+        text-align: left; /* 必需的 */
         white-space: nowrap;
         border: 1px solid $control-sub-color;
     }
@@ -927,7 +927,7 @@ $controls-merge-button-width: 20%;
     label {
         @include control-label-text();
         cursor: pointer;
-        text-align: left; /* Required */
+        text-align: left; /* 必需的 */
     }
     input[type="checkbox"] {
         display: none;

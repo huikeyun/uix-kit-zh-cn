@@ -1,6 +1,6 @@
 /* 
  *************************************
- * <!-- Ajax Page Loader (Loading A Page via Ajax Into Div)  -->
+ * <!--  Ajax 页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)   -->
  *************************************
  */
 import {

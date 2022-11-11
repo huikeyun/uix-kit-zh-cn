@@ -6,11 +6,11 @@
     position: relative; /* Required*/
     margin: 0 auto;
     ul.uix-lavalamp-menu {
-        font-size: 0; /*Fighting the Space Between Inline Block Elements*/
+        font-size: 0; /* 争夺内联块元素之间的空间 */
         margin: 0; /* Required*/
         padding: 0;
         li {
-            font-size: 1rem; /*Fighting the Space Between Inline Block Elements*/
+            font-size: 1rem; /* 争夺内联块元素之间的空间 */
             position: relative;
             display: inline-block;
             margin: 0;
