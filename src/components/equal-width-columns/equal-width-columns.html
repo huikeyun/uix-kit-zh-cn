@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang='@@{website_lang}' dir='@@{website_dirLTR}'>
+<html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-    <meta charset='@@{website_charset}' />
+    <meta charset="@@{website_charset}" />
     <title>等宽列 - @@{website_title}</title>
     @@include('./src/components/_global/include-header.html')
 </head>
-<body class='page'>
+<body class="page">
 @@include('./src/components/_global/include-loader.html')
 @@include('./src/components/_global/include-toggle-trigger.html')
-<div class='uix-wrapper'>
+<div class="uix-wrapper">
     <!-- Header Area
     ============================================= -->
-    <header class='uix-header__container'>
-        <div class='uix-header'>
-            <div class='container'>
+    <header class="uix-header__container">
+        <div class="uix-header">
+            <div class="container">
                 @@include('./src/components/_global/include-brand.html')
                 @@include('./src/components/_global/include-menu.html')
             </div>
             <!-- .container end -->
-            <div class='uix-clearfix'></div>
+            <div class="uix-clearfix"></div>
         </div>
     </header>
-    <div class='uix-header__placeholder js-uix-header__placeholder-autoheight'></div>
-    <main id='uix-maincontent'>
+    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+    <main id="uix-maincontent">
         <!-- Content
         ====================================================== -->
-        <section class='uix-spacing--s uix-spacing--no-bottom'>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-12'>
+        <section class="uix-spacing--s uix-spacing--no-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
                         <h3>等宽列</h3>
                         <p>仅使用 CSS，我们可以创建一个选项卡式导航，其选项卡始终占据可用宽度的相等份额。 没有 JS 来询问 DOM，没有服务器端逻辑来计算项目，没有内联样式。</p>
                         <hr>
@@ -40,8 +40,8 @@
         </section>
         <!-- Content
          ====================================================== -->
-        <section class='uix-spacing--s'>
-            <div class='container'>
+        <section class="uix-spacing--s">
+            <div class="container">
                 <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-equal-width-divs uix-t-c&quot;&gt;
     &lt;ul&gt;
         &lt;li&gt;&lt;h3&gt;223&lt;/h3&gt;&lt;span&gt;Web Design&lt;/span&gt;&lt;/li&gt;
@@ -60,7 +60,7 @@
                     </ul>
                 </div>
                 <!-- .uix-equal-width-divs  end -->
-                <div class='uix-equal-width-divs uix-equal-width-divs--no-break uix-t-c'>
+                <div class="uix-equal-width-divs uix-equal-width-divs--no-break uix-t-c">
                     <ul>
                         <li><h3>223</h3><span>No Break</span></li>
                         <li><h3>13</h3><span>No Break</span></li>

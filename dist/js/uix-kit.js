@@ -8,7 +8,7 @@
  * ## 项目网址           :  https://uix-kit.13aq.com/
  * ## 版本              :  4.7.0
  * ## 汉化              :  慧科云 (https://github.com/huikeyun/uix-kit)
- * ## 最后更新日期        :  November 10, 2022
+ * ## 最后更新日期        :  November 11, 2022
  * ## 基于 UIUX Lab (https://uiux.cc) (uiuxlab@gmail.com) 汉化
  * ## 在 MIT 许可下发布。
  *
@@ -2969,12 +2969,9 @@ var esm_typeof = __webpack_require__(2);
 ;// CONCATENATED MODULE: ./src/components/_global/js/index.js
 
 /**
-
-	TABLE OF CONTENTS
-	---------------------------
-
-
-	1.Base
+ 目录
+ ---------------------------
+ 1.基础
     2.Body And Header
     3.Common Height
     4.Get all custom attributes of an element like "data-*"
@@ -3063,16 +3060,13 @@ var esm_typeof = __webpack_require__(2);
     87.Vertical Menu
     88.WordPress Core Scripts
 
-
-*/
-
+ */
 /*
  *************************************
- * <!-- Base -->
+ * <!-- 基础 -->
  *************************************
  */
-/* !!! To build a table of contents (TOC), you need to import this scss file into JS */
-
+/* !!! 构建目录（TOC）需要将此scss文件导入JS */
 
 /*
  * Global variables from front pages
@@ -3096,7 +3090,6 @@ if (typeof APP_ROOTPATH === 'undefined') {
   homeUrl = APP_ROOTPATH.homeUrl.replace(/\/\s*$/, '');
   ajaxUrl = APP_ROOTPATH.ajaxUrl.replace(/\/\s*$/, '');
 }
-
 /*
  * Determine whether it is a special browser
  *
@@ -3105,7 +3098,7 @@ if (typeof APP_ROOTPATH === 'undefined') {
 // Add feature test for passive event listener support
 var supportsPassive = false;
 try {
-  document.addEventListener("test", null, {
+  document.addEventListener('test', null, {
     get passive() {
       supportsPassive = true;
     }
@@ -3117,11 +3110,10 @@ var browser = {
   isPC: !navigator.userAgent.match(/(iPhone|iPod|Android|ios|Mobile)/i),
   isSafari: !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/),
   /*Test to 9, 10. */
-  isIE: !!window.ActiveXObject || "ActiveXObject" in window,
+  isIE: !!window.ActiveXObject || 'ActiveXObject' in window,
   /*Test to 6 ~ 11 (not edge) */
   supportsPassive: supportsPassive
 };
-
 /*
  * Core scripts for current site
  *
@@ -3153,7 +3145,7 @@ var UixModuleInstance = function ($, window, document) {
     });
   }
   function pageLoaded(context) {
-    context = (0,esm_typeof/* default */.Z)(context) == "object" ? $ : context;
+    context = (0,esm_typeof/* default */.Z)(context) == 'object' ? $ : context;
     components.pageLoaded.forEach(function (component) {
       component(context);
     });
@@ -3172,7 +3164,6 @@ var UixModuleInstance = function ($, window, document) {
   _APP.pageLoaded = pageLoaded;
   return _APP;
 }($, window, document);
-
 /*
  * Create GUID / UUID
  *
@@ -3182,7 +3173,7 @@ var UixModuleInstance = function ($, window, document) {
  */
 var UixGUID = UixGUID || function () {
   function t() {}
-  return t.version = "0.0.1", t.create = function () {
+  return t.version = '0.0.1', t.create = function () {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
       var r = Math.random() * 16 | 0,
         v = c == 'x' ? r : r & 0x3 | 0x8;
@@ -3192,7 +3183,6 @@ var UixGUID = UixGUID || function () {
   //
   t;
 }();
-
 /*
  * Evaluating a string as a mathematical expression in JavaScript
  *
@@ -3202,42 +3192,40 @@ var UixGUID = UixGUID || function () {
  */
 var UixMath = UixMath || function () {
   function t() {}
-  return t.version = "0.0.1", t.evaluate = function (s) {
-    var chars = s.replace(/\s/g, '').split("");
+  return t.version = '0.0.1', t.evaluate = function (s) {
+    var chars = s.replace(/\s/g, '').split('');
     var n = [],
       op = [],
       index = 0,
       oplast = true;
-    n[index] = "";
-
+    n[index] = '';
     // Parse the expression
     for (var c = 0; c < chars.length; c++) {
-      if (isNaN(parseInt(chars[c])) && chars[c] !== "." && !oplast) {
+      if (isNaN(parseInt(chars[c])) && chars[c] !== '.' && !oplast) {
         op[index] = chars[c];
         index++;
-        n[index] = "";
+        n[index] = '';
         oplast = true;
       } else {
         n[index] += chars[c];
         oplast = false;
       }
     }
-
     // Calculate the expression
     s = parseFloat(n[0]);
     for (var o = 0; o < op.length; o++) {
       var num = parseFloat(n[o + 1]);
       switch (op[o]) {
-        case "+":
+        case '+':
           s = s + num;
           break;
-        case "-":
+        case '-':
           s = s - num;
           break;
-        case "*":
+        case '*':
           s = s * num;
           break;
-        case "/":
+        case '/':
           s = s / num;
           break;
       }
@@ -3247,7 +3235,6 @@ var UixMath = UixMath || function () {
   //
   t;
 }();
-
 /*
  * Get the CSS property
  *
@@ -3258,7 +3245,7 @@ var UixMath = UixMath || function () {
  */
 var UixCssProperty = UixCssProperty || function () {
   function t() {}
-  return t.version = "0.0.1", t.getTransitionDuration = function (el) {
+  return t.version = '0.0.1', t.getTransitionDuration = function (el) {
     if ((0,esm_typeof/* default */.Z)(el) === ( true ? "undefined" : 0)) {
       return 0;
     }
@@ -3267,8 +3254,8 @@ var UixCssProperty = UixCssProperty || function () {
       delay = style.webkitTransitionDelay;
     if ((0,esm_typeof/* default */.Z)(duration) != ( true ? "undefined" : 0)) {
       // fix miliseconds vs seconds
-      duration = duration.indexOf("ms") > -1 ? parseFloat(duration) : parseFloat(duration) * 1000;
-      delay = delay.indexOf("ms") > -1 ? parseFloat(delay) : parseFloat(delay) * 1000;
+      duration = duration.indexOf('ms') > -1 ? parseFloat(duration) : parseFloat(duration) * 1000;
+      delay = delay.indexOf('ms') > -1 ? parseFloat(delay) : parseFloat(delay) * 1000;
       return duration;
     } else {
       return 0;
@@ -3296,7 +3283,6 @@ var UixCssProperty = UixCssProperty || function () {
   //
   t;
 }();
-
 /*
 * Throttle
 *
@@ -3317,7 +3303,6 @@ var UixThrottle = function UixThrottle(fn) {
     }
   };
 };
-
 /*
 * Debounce
 *
@@ -3331,7 +3316,6 @@ var UixDebounce = function UixDebounce(fn) {
   return function () {
     //Every time this returned function is called, the timer is cleared to ensure that fn is not executed
     clearTimeout(timer);
-
     // When the returned function is called for the last time (that is the user stops a continuous operation)
     // Execute fn after another delay milliseconds
     timer = setTimeout(function () {

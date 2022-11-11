@@ -1,5 +1,5 @@
 /* ====================================================== 
-   <!-- 间距 -->
+   <!-- 间距 spacing -->
 /* ====================================================== */
 .uix-spacing--s {
     position: relative;
@@ -24,7 +24,7 @@
 }
 /* 没有间距 */
 .uix-spacing--no {
-    margin: 0 !important; /* compatible with <p>, <h1>, <h2>, <h3>... */
+    margin: 0 !important; /* 兼容 <p>, <h1>, <h2>, <h3>... */
     padding: 0 !important;
 }
 @media all and (max-width: 768px) {

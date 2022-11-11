@@ -2,94 +2,72 @@
    <!-- Wave Background -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
-
 /*
  * 1. Wave Mask
  * 2. Pure Svg
 
 */
-
 /*
  ---------------------------
  1. Wave Mask
  ---------------------------
  */
 .uix-wave-bg__container {
-	position: relative;
-	height: 50px;
-	z-index: 1;
-
-
+    position: relative;
+    z-index: 1;
+    height: 50px;
 }
-
 .uix-wave-bg__svgmask {
-	overflow: hidden;
-	position: absolute;
-	width: 140%;
-	transform: translateY(-50%);
-	color: #fff;
-	margin-left: -20%;
-	animation: 5s ease-in-out infinite alternate uix-cssAnim--wave;
-
-	svg {
-		fill: currentColor;
-		width: 102%;
-		margin-left: -1%;
-		height: auto;
-
-	}
+    position: absolute;
+    overflow: hidden;
+    width: 140%;
+    margin-left: -20%;
+    transform: translateY(-50%);
+    animation: 5s ease-in-out infinite alternate uix-cssAnim--wave;
+    color: #ffffff;
+    svg {
+        width: 102%;
+        height: auto;
+        margin-left: -1%;
+        fill: currentColor;
+    }
 }
-
-
-
-
 @keyframes uix-cssAnim--wave {
     0% {
-        transform: translate(-80px,-52%);
+        transform: translate(-80px, -52%);
     }
-
     100% {
-        transform: translate(80px,-50%);
+        transform: translate(80px, -50%);
     }
 }
-
-
-
 /*
  ---------------------------
  2. Pure Svg
  ---------------------------
  */
-
-.uix-wave-bg__pureSvg{
-	width: 100%;
-	height: 300px;
-	position: relative;
-
-	.uix-wave-bg__parallax > use {
-		animation: uix-cssAnim--wave2 14s linear infinite;
-
-		&:nth-child(1) {
-			animation-delay: -2s;
-			animation-duration: 7s;
-			fill-opacity: .2;
-		}
-
-		&:nth-child(2) {
-			animation-delay: -3s;
-			animation-duration: 12s;
-			fill-opacity: 1;
-		}
-	}
+.uix-wave-bg__pureSvg {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    .uix-wave-bg__parallax > use {
+        animation: uix-cssAnim--wave2 14s linear infinite;
+        &:nth-child(1) {
+            animation-duration: 7s;
+            animation-delay: -2s;
+            fill-opacity: .2;
+        }
+        &:nth-child(2) {
+            animation-duration: 12s;
+            animation-delay: -3s;
+            fill-opacity: 1;
+        }
+    }
 }
-
-  
 @keyframes uix-cssAnim--wave2 {
-	0% {
-		transform: translate3d(-90px, 0, 0);
-	}
-
-	100% {
-		transform: translate3d(85px, 0, 0);
-	}
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
 }

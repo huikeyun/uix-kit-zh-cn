@@ -2,545 +2,407 @@
    <!-- Table -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
-
 /*
  * 1. Generic
  * 2. Table Sorter
  * 3. Row Dropzone
 */
-
-
 /*
  ---------------------------
  1. Generic
  ---------------------------
  */
-$table-border-color: #EEEEEE;
-$table-border-headerbg: #FAFAFA;
-$table-alternant-bg: #FAFAFA;
-
+$table-border-color: #eeeeee;
+$table-border-headerbg: #fafafa;
+$table-alternant-bg: #fafafa;
 table.uix-table,
 .uix-table table {
-	margin: 0;
-	padding: 0;
-	border-collapse: collapse;
-	border-spacing: 0;
-	empty-cells: show;
-	border: 1px solid $table-border-color;
-	width: 100%;
-	border-color: $table-border-color;
-
-	caption {
-		padding: 0.875rem 0;
-	}
-
-	th,
-	td {
-		border-color: $table-border-color;
-		border-left: 1px solid $table-border-color;
-		border-width: 0 0 0 1px;
-		margin: 0;
-		overflow: visible;
-		padding: 0.5rem 0.75rem;
-		vertical-align: top;
-
-
-	}
-
-	thead {
-		background: $table-border-headerbg;
-		vertical-align: bottom;
-
-		th {
-			text-align: inherit; /* Required */
-
-			&.uix-t-r {
-				text-align: right;
-			}
-
-			&.uix-t-l {
-				text-align: left;
-			}
-
-
-			&.uix-t-c {
-				text-align: center;
-			}
-
-			/* The breakpoint is the same as bootstrap 5 */
-			/*
-			--breakpoint-xs:0;
-			--breakpoint-sm:576px;
-			--breakpoint-md:768px;
-			--breakpoint-lg:992px;
-			--breakpoint-xl:1200px;
-			--breakpoint-xxl:1400px;
-			*/
-			@media all and (max-width: 576px) {
-				&.uix-t-r--sm {
-					text-align: right;
-				}
-
-				&.uix-t-l--sm {
-					text-align: left;
-				}
-				&.uix-t-c--sm {
-					text-align: center;
-				}
-			}
-
-			@media all and (max-width: 768px) {
-				&.uix-t-r--md {
-					text-align: right;
-				}
-
-				&.uix-t-l--md {
-					text-align: left;
-				}
-				&.uix-t-c--md {
-					text-align: center;
-				}
-			}
-
-			@media all and (max-width: 992px) {
-				&.uix-t-r--lg {
-					text-align: right;
-				}
-
-				&.uix-t-l--lg {
-					text-align: left;
-				}
-				&.uix-t-c--lg {
-					text-align: center;
-				}
-			}
-
-
-			@media all and (max-width: 1200px) {
-				&.uix-t-r--xl {
-					text-align: right;
-				}
-
-				&.uix-t-l--xl {
-					text-align: left;
-				}
-				.uix-t-c--xl {
-					text-align: center;
-				}
-			}
-			@media all and (max-width: 1400px) {
-				&.uix-t-r--xxl {
-					text-align: right;
-				}
-
-				&.uix-t-l--xxl {
-					text-align: left;
-				}
-				.uix-t-c--xxl {
-					text-align: center;
-				}
-			}
-
-		}
-	}
-
-	tfoot {
-		border: 1px solid $table-border-color;
-	}
-
-
-	td {
-		background-color: transparent;
-
-	}
-
-
-
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    empty-cells: show;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 1px solid $table-border-color;
+    border-color: $table-border-color;
+    caption {
+        padding: 0.875rem 0;
+    }
+    th,
+    td {
+        overflow: visible;
+        margin: 0;
+        padding: 0.5rem 0.75rem;
+        vertical-align: top;
+        border-width: 0 0 0 1px;
+        border-color: $table-border-color;
+        border-left: 1px solid $table-border-color;
+    }
+    thead {
+        vertical-align: bottom;
+        background: $table-border-headerbg;
+        th {
+            text-align: inherit; /* Required */
+            &.uix-t-r {
+                text-align: right;
+            }
+            &.uix-t-l {
+                text-align: left;
+            }
+            &.uix-t-c {
+                text-align: center;
+            }
+            /* The breakpoint is the same as bootstrap 5 */
+            /*
+            --breakpoint-xs:0;
+            --breakpoint-sm:576px;
+            --breakpoint-md:768px;
+            --breakpoint-lg:992px;
+            --breakpoint-xl:1200px;
+            --breakpoint-xxl:1400px;
+            */
+            @media all and (max-width: 576px) {
+                &.uix-t-r--sm {
+                    text-align: right;
+                }
+                &.uix-t-l--sm {
+                    text-align: left;
+                }
+                &.uix-t-c--sm {
+                    text-align: center;
+                }
+            }
+            @media all and (max-width: 768px) {
+                &.uix-t-r--md {
+                    text-align: right;
+                }
+                &.uix-t-l--md {
+                    text-align: left;
+                }
+                &.uix-t-c--md {
+                    text-align: center;
+                }
+            }
+            @media all and (max-width: 992px) {
+                &.uix-t-r--lg {
+                    text-align: right;
+                }
+                &.uix-t-l--lg {
+                    text-align: left;
+                }
+                &.uix-t-c--lg {
+                    text-align: center;
+                }
+            }
+            @media all and (max-width: 1200px) {
+                &.uix-t-r--xl {
+                    text-align: right;
+                }
+                &.uix-t-l--xl {
+                    text-align: left;
+                }
+                .uix-t-c--xl {
+                    text-align: center;
+                }
+            }
+            @media all and (max-width: 1400px) {
+                &.uix-t-r--xxl {
+                    text-align: right;
+                }
+                &.uix-t-l--xxl {
+                    text-align: left;
+                }
+                .uix-t-c--xxl {
+                    text-align: center;
+                }
+            }
+        }
+    }
+    tfoot {
+        border: 1px solid $table-border-color;
+    }
+    td {
+        background-color: transparent;
+    }
 }
-
 /*-- Table Effect by Default --*/
 /* Compatible with  Uix Shortcodes (WordPress Plugin) and Block Button Link */
 .uix-table a:not(.uix-sc-btn):not(.wp-block-button__link):not(.uix-btn) {
     color: $highlight-color1;
 }
-
 .uix-table a:not(.uix-sc-btn):not(.wp-block-button__link):not(.uix-btn):hover {
-    color: $highlight-color2;
     text-decoration: underline;
+    color: $highlight-color2;
 }
-
 .uix-table a:not(.uix-sc-btn):not(.wp-block-button__link):not(.uix-btn):hover img {
     text-decoration: none;
 }
-
-
 @media all and (max-width: 768px) {
-
-	table.uix-table.is-responsive,
-	.uix-table.is-responsive table {
-
-		thead {
-		    display: none;
-		}
-		tbody {
-
-			tr {
-				@include outer-shadow( 'light' );
-				margin-bottom: 1rem;
-				display: block;
-			}
-
-			tr:nth-of-type(even) {
-				//background-color: $table-alternant-bg;
-			}
-
-			td {
-				display: block;
-
-
-
-				&::before {
-					content: attr(data-table);
-					display: block;
-					float: left;
-					width: 40%;
-					font-weight: bold;
-					border-right: 1px solid $table-border-color;
-					margin-right: 0.5rem;
-				}
-
-				&::after {
-					content: '';
-					display: block;
-					clear: both;
-				}
-			}
-
-		}
-
-
-	}
-
-
-	/* With scroll bars */
-	.js-uix-table--responsive-scrolled table,
-	table.js-uix-table--responsive-scrolled {
-		display: block;
-		width: 100%;
-		border-bottom: 0 !important;
-		border-left: 0 !important;
-		border-right: 0 !important;
-		overflow: auto;
-
-
-		thead {
-			display: block;
-			float: left;
-			width: 100px;
-			border-bottom: 1px solid $table-border-color;
-
-			th {
-				display: block;
-
-				&:not(last-child) {
-					border-bottom: 0;
-				}
-
-			}
-		}
-		tbody {
-			width: calc(100% - 100px);
-			display: block;
-			float: left;
-			overflow-x: scroll;
-			border-bottom: 1px solid $table-border-color;
-			border-right: 1px solid $table-border-color;
-		}
-		thead tr,
-		tbody tr {
-			display: block;
-		}
-		th,
-		tbody td {
-			box-sizing: border-box;
-			overflow-x: hidden;
-			overflow-y: auto;
-
-			&:first-child {
-				border-top: 0;
-			}
-
-			&:not(last-child) {
-				border-bottom: 0;
-				border-right: 0;
-			}
-
-		}
-
-
-		tbody tr {
-			display: table-cell;
-
-		}
-
-		tbody td {
-		    display: block;
-		}
-
-
-
-	}
-
+    table.uix-table.is-responsive,
+    .uix-table.is-responsive table {
+        thead {
+            display: none;
+        }
+        tbody {
+            tr {
+                @include outer-shadow('light');
+                display: block;
+                margin-bottom: 1rem;
+            }
+            tr:nth-of-type(even) {
+                //background-color: $table-alternant-bg;
+            }
+            td {
+                display: block;
+                &::before {
+                    font-weight: bold;
+                    display: block;
+                    float: left;
+                    width: 40%;
+                    margin-right: 0.5rem;
+                    content: attr(data-table);
+                    border-right: 1px solid $table-border-color;
+                }
+                &::after {
+                    display: block;
+                    clear: both;
+                    content: '';
+                }
+            }
+        }
+    }
+    /* With scroll bars */
+    .js-uix-table--responsive-scrolled table,
+    table.js-uix-table--responsive-scrolled {
+        display: block;
+        overflow: auto;
+        width: 100%;
+        border-right: 0 !important;
+        border-bottom: 0 !important;
+        border-left: 0 !important;
+        thead {
+            display: block;
+            float: left;
+            width: 100px;
+            border-bottom: 1px solid $table-border-color;
+            th {
+                display: block;
+                &:not(last-child) {
+                    border-bottom: 0;
+                }
+            }
+        }
+        tbody {
+            display: block;
+            float: left;
+            overflow-x: scroll;
+            width: calc(100% - 100px);
+            border-right: 1px solid $table-border-color;
+            border-bottom: 1px solid $table-border-color;
+        }
+        thead tr,
+        tbody tr {
+            display: block;
+        }
+        th,
+        tbody td {
+            overflow-x: hidden;
+            overflow-y: auto;
+            box-sizing: border-box;
+            &:first-child {
+                border-top: 0;
+            }
+            &:not(last-child) {
+                border-right: 0;
+                border-bottom: 0;
+            }
+        }
+        tbody tr {
+            display: table-cell;
+        }
+        tbody td {
+            display: block;
+        }
+    }
 }
-
-
 table.uix-table--bordered,
 .uix-table--bordered table {
-
-	border: 1px solid $table-border-color;
-	border-collapse: collapse;
-	width: 100%;
-
-
-	td,
-	th {
-		border: 1px solid $table-border-color;
-		padding: 0.6875rem;
-	}
-
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid $table-border-color;
+    td,
+    th {
+        padding: 0.6875rem;
+        border: 1px solid $table-border-color;
+    }
 }
-
 table.uix-table--noborder,
 .uix-table--noborder table {
-	border: none;
+    border: none;
 }
-
 table.uix-table--top-noborder,
 .uix-table--top-noborder table {
-	td {
-		border-top: none;
-	}
+    td {
+        border-top: none;
+    }
 }
-
 table.uix-table--bottom-noborder,
 .uix-table--bottom-noborder table {
-	td {
-		border-bottom: none;
-	}
+    td {
+        border-bottom: none;
+    }
 }
-
 table.uix-table--alternant-row,
 .uix-table--alternant-row table {
-	tbody tr:nth-child(even) {
-		background-color: $table-alternant-bg;
-	}
+    tbody tr:nth-child(even) {
+        background-color: $table-alternant-bg;
+    }
 }
-
 table.uix-table--alternant-col,
 .uix-table--alternant-col table {
-
-	col:first-child {
-		background-color: #000;
-	}
-	col:nth-child(2n+3) {
-		background-color: $table-alternant-bg;
-	}
-
+    col:first-child {
+        background-color: #000000;
+    }
+    col:nth-child(2n+3) {
+        background-color: $table-alternant-bg;
+    }
 }
-
 table.uix-table--striped tr:nth-child(2n-1) td,
 .uix-table--striped table tr:nth-child(2n-1) td {
-	background-color: $table-border-headerbg;
+    background-color: $table-border-headerbg;
 }
-
 table.uix-table--per-line,
 .uix-table--per-line table {
-
-	td {
-		border-bottom: 1px solid $table-border-color;
-		border-width: 0 0 1px;
-	}
-
-
-	tbody tr:last-child td {
-		border-bottom-width: 0;
-	}
-
+    td {
+        border-width: 0 0 1px;
+        border-bottom: 1px solid $table-border-color;
+    }
+    tbody tr:last-child td {
+        border-bottom-width: 0;
+    }
 }
-
 table.is-horizontal,
 .is-horizontal table {
-
-	td {
-		border-bottom: 1px solid $table-border-color;
-		border-width: 0 0 1px;
-	}
-
-	tbody tr:last-child td {
-		border-bottom-width: 0;
-	}
-
-	th {
-
-		border-bottom: 1px solid $table-border-color;
-	}
-
+    td {
+        border-width: 0 0 1px;
+        border-bottom: 1px solid $table-border-color;
+    }
+    tbody tr:last-child td {
+        border-bottom-width: 0;
+    }
+    th {
+        border-bottom: 1px solid $table-border-color;
+    }
 }
-
-
 @media all and (max-width: 768px) {
-
-
-	table.uix-table--per-line.is-responsive,
-	.uix-table--per-line.is-responsive table {
-
-		tbody tr:last-child td {
-			border-bottom-width: 1px;
-		}
-
-	}
-
-	table.is-horizontal.is-responsive,
-	.is-horizontal.is-responsive table {
-
-		tbody tr:last-child td {
-			border-bottom-width: 1px;
-		}
-
-
-	}
-
+    table.uix-table--per-line.is-responsive,
+    .uix-table--per-line.is-responsive table {
+        tbody tr:last-child td {
+            border-bottom-width: 1px;
+        }
+    }
+    table.is-horizontal.is-responsive,
+    .is-horizontal.is-responsive table {
+        tbody tr:last-child td {
+            border-bottom-width: 1px;
+        }
+    }
 }
-
-
 /*
  ---------------------------
  2. Table Sorter
  ---------------------------
  */
-
 .uix-table-sorter {
-	cursor: pointer;
-
-	&::after {
-		content: '';
-		font-family: 'Font Awesome 5 Free';
-		font-weight: 600;
-		color: $sub-text-color;
-		margin-left: .5rem;
-		font-size: 0.75rem;
-		content: "\f0dc";
-	}
-
+    cursor: pointer;
+    &::after {
+        font-family: 'Font Awesome 5 Free';
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-left: .5rem;
+        content: '';
+        content: "\f0dc";
+        color: $sub-text-color;
+    }
 }
-
-
 .js-uix-newsort {
-	animation: uix-cssAnim--newsort .5s linear 1 forwards;
-	opacity: 0;
+    animation: uix-cssAnim--newsort .5s linear 1 forwards;
+    opacity: 0;
 }
-
 @for $i from 1 to 100 {
-
-	.js-uix-newsort:nth-child(#{$i+1}) {
-		animation-delay: #{$i*100}ms;
-	}
+    .js-uix-newsort:nth-child(#{$i+1}) {
+        animation-delay: #{$i*100}ms;
+    }
 }
-
-
-
 @keyframes uix-cssAnim--newsort {
-	0%   {
-		opacity: 0;
-		transform: translateX(10px);
-	}
-
-	100% {
-		opacity: 1;
-		transform: translateX(0);
-	}
+    0% {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
-
-
-
 /*
  ---------------------------
  3. Row Dropzone
  ---------------------------
  */
-
-
 .uix-table-grid {
-    border-collapse: separate;
     border-spacing: 0;
-    
+    border-collapse: separate;
     .uix-table-grid__head {
         display: flex;
-
         .uix-table-grid__head-cell {
-            flex: 1; /* default value, this attribute can be specified in HTML */
-            box-sizing: border-box;
-            text-align: start;
             font-size: 0.875rem;
             font-weight: bold;
             line-height: 1.71428571429;
-            text-transform: uppercase;
-            outline: 0;
+            flex: 1; /* default value, this attribute can be specified in HTML */
+            box-sizing: border-box;
             padding: .5rem 1rem;
+            text-align: start;
+            text-transform: uppercase;
             color: $sub-text-color;
-
+            outline: 0;
         }
- 
     }
-    
-    
     .uix-table-grid__body {
         position: relative;
+        overflow: auto;
+        margin-top: 1rem;
+        vertical-align: middle;
         border: 1px $table-border-color solid;
         border-radius: 3px;
-        overflow: auto;
-        vertical-align: middle;
         background-color: $table-alternant-bg;
-        margin-top: 1rem;
     }
-    
-
     .uix-table-grid__row {
-        display: flex;
         position: relative;
+        display: flex;
         cursor: pointer;
         border-bottom: 1px solid $table-border-color;
-        @include transition-default(); 
-
-        
-        
+        @include transition-default();
         &:focus {
             outline: 0;
         }
-        
         /* Helper for shared drop target overlay */
         &.is-drop-target {
             border-radius: 3px;
-            
             &::before {
-                content: '';
                 position: absolute;
-                height: 100%;
-                width: 100%;
                 z-index: 1;
+                width: 100%;
+                height: 100%;
+                content: '';
                 box-shadow: inset 0 0 0 2px rgb(55, 142, 240);
             }
         }
-        
-        
         .uix-table-grid__row-cell {
-            flex: 1; /* default value, this attribute can be specified in HTML */
             font-size: 1rem;
+            flex: 1; /* default value, this attribute can be specified in HTML */
             padding: .5rem 1rem;
         }
     }
-    
-    
 }
 
 

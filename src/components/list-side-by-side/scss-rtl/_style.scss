@@ -2,21 +2,16 @@
    <!-- Side by Side List -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
-
-
 dl.uix-list-abreast {
-
-	dt {
-		float: right;
-		clear: right;
-		text-align: left;
-	}
-
-	dd {
-		float: right;
-		text-align: right;
-		padding-left: auto;
-		padding-right: 1rem;
-	}
-
+    dt {
+        float: right;
+        clear: right;
+        text-align: left;
+    }
+    dd {
+        float: right;
+        padding-right: 1rem;
+        padding-left: auto;
+        text-align: right;
+    }
 }

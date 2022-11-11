@@ -1,12 +1,12 @@
 .navigation-color-loop(@ruleset) when (length( @colors ) >= 1) {
   @length: length(@colors);
-  .looper( 1 );
+  .looper(1);
   .looper( @index ) when ( @index <= @length ) and (length(extract( @colors, @index )) = 2) {
     @navPair: extract(@colors, @index);
     @navColorName: extract(@navPair, 1);
     @navColorValue: extract(@navPair, 2);
     @ruleset();
-    .looper( @index + 1 );
+    .looper(@index + 1);
   }
 }
 
@@ -16,6 +16,7 @@
   --swiper-navigation-color: var(--swiper-theme-color);
   */
 }
+
 .swiper-button-prev,
 .swiper-button-next {
   position: absolute;
@@ -29,11 +30,13 @@
   align-items: center;
   justify-content: center;
   color: var(--swiper-navigation-color, var(--swiper-theme-color));
+
   &.swiper-button-disabled {
     opacity: 0.35;
     cursor: auto;
     pointer-events: none;
   }
+
   &:after {
     font-family: swiper-icons;
     font-size: var(--swiper-navigation-size);
@@ -44,22 +47,27 @@
     line-height: 1;
   }
 }
+
 .swiper-button-prev,
 .swiper-container-rtl .swiper-button-next {
   &:after {
     content: 'prev';
   }
+
   left: 10px;
   right: auto;
 }
+
 .swiper-button-next,
 .swiper-container-rtl .swiper-button-prev {
   &:after {
     content: 'next';
   }
+
   right: 10px;
   left: auto;
 }
+
 .navigation-color-loop({
   .swiper-button-prev,
   .swiper-button-next {

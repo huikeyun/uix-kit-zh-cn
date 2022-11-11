@@ -17,9 +17,13 @@ function isObject(obj) {
         obj.constructor === Object);
 }
 function extend(target, src) {
-    if (target === void 0) { target = {}; }
-    if (src === void 0) { src = {}; }
-    Object.keys(src).forEach(function (key) {
+    if (target === void 0) {
+        target = {};
+    }
+    if (src === void 0) {
+        src = {};
+    }
+    Object.keys(src).forEach(function(key) {
         if (typeof target[key] === 'undefined')
             target[key] = src[key];
         else if (isObject(src[key]) &&
@@ -29,44 +33,48 @@ function extend(target, src) {
         }
     });
 }
-
 var ssrDocument = {
     body: {},
-    addEventListener: function () { },
-    removeEventListener: function () { },
-    activeElement: {
-        blur: function () { },
-        nodeName: '',
+    addEventListener: function() {
     },
-    querySelector: function () {
+    removeEventListener: function() {
+    },
+    activeElement: {
+        blur: function() {
+        },
+        nodeName: ''
+    },
+    querySelector: function() {
         return null;
     },
-    querySelectorAll: function () {
+    querySelectorAll: function() {
         return [];
     },
-    getElementById: function () {
+    getElementById: function() {
         return null;
     },
-    createEvent: function () {
+    createEvent: function() {
         return {
-            initEvent: function () { },
+            initEvent: function() {
+            }
         };
     },
-    createElement: function () {
+    createElement: function() {
         return {
             children: [],
             childNodes: [],
             style: {},
-            setAttribute: function () { },
-            getElementsByTagName: function () {
-                return [];
+            setAttribute: function() {
             },
+            getElementsByTagName: function() {
+                return [];
+            }
         };
     },
-    createElementNS: function () {
+    createElementNS: function() {
         return {};
     },
-    importNode: function () {
+    importNode: function() {
         return null;
     },
     location: {
@@ -77,19 +85,18 @@ var ssrDocument = {
         origin: '',
         pathname: '',
         protocol: '',
-        search: '',
-    },
+        search: ''
+    }
 };
 function getDocument() {
     var doc = typeof document !== 'undefined' ? document : {};
     extend(doc, ssrDocument);
     return doc;
 }
-
 var ssrWindow = {
     document: ssrDocument,
     navigator: {
-        userAgent: '',
+        userAgent: ''
     },
     location: {
         hash: '',
@@ -99,52 +106,61 @@ var ssrWindow = {
         origin: '',
         pathname: '',
         protocol: '',
-        search: '',
+        search: ''
     },
     history: {
-        replaceState: function () { },
-        pushState: function () { },
-        go: function () { },
-        back: function () { },
+        replaceState: function() {
+        },
+        pushState: function() {
+        },
+        go: function() {
+        },
+        back: function() {
+        }
     },
     CustomEvent: function CustomEvent() {
         return this;
     },
-    addEventListener: function () { },
-    removeEventListener: function () { },
-    getComputedStyle: function () {
+    addEventListener: function() {
+    },
+    removeEventListener: function() {
+    },
+    getComputedStyle: function() {
         return {
-            getPropertyValue: function () {
+            getPropertyValue: function() {
                 return '';
-            },
+            }
         };
     },
-    Image: function () { },
-    Date: function () { },
+    Image: function() {
+    },
+    Date: function() {
+    },
     screen: {},
-    setTimeout: function () { },
-    clearTimeout: function () { },
-    matchMedia: function () {
+    setTimeout: function() {
+    },
+    clearTimeout: function() {
+    },
+    matchMedia: function() {
         return {};
     },
-    requestAnimationFrame: function (callback) {
+    requestAnimationFrame: function(callback) {
         if (typeof setTimeout === 'undefined') {
             callback();
             return null;
         }
         return setTimeout(callback, 0);
     },
-    cancelAnimationFrame: function (id) {
+    cancelAnimationFrame: function(id) {
         if (typeof setTimeout === 'undefined') {
             return;
         }
         clearTimeout(id);
-    },
+    }
 };
 function getWindow() {
     var win = typeof window !== 'undefined' ? window : {};
     extend(win, ssrWindow);
     return win;
 }
-
 export { extend, getDocument, getWindow, ssrDocument, ssrWindow };

@@ -2,98 +2,75 @@
    <!-- Team Focus -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
-
 $team-info-width: 300px;
-
 .uix-team-focus__info {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	z-index: 12;
-	width: $team-info-width;
-	padding-left: 2rem;
-	cursor: pointer;
-	opacity: 0;
-	display: none;
-
-	.uix-team-focus__info__text {
-
-	}
-
-	h4 {
-
-		em {
-			display: block;
-			font-size: 0.75rem !important;
-		}
-
-		span {
-			display: block;
-		}
-
-		&::after {
-			content: '';
-			display: block;
-			height: 3px;
-			width: 35px;
-			background: $highlight-color1;
-			margin: .5rem 0;
-		}
-	}
+    position: absolute;
+    z-index: 12;
+    top: 50%;
+    left: 50%;
+    display: none;
+    width: $team-info-width;
+    padding-left: 2rem;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    .uix-team-focus__info__text {
+    }
+    h4 {
+        em {
+            font-size: 0.75rem !important;
+            display: block;
+        }
+        span {
+            display: block;
+        }
+        &::after {
+            display: block;
+            width: 35px;
+            height: 3px;
+            margin: .5rem 0;
+            content: '';
+            background: $highlight-color1;
+        }
+    }
 }
 .uix-team-focus__mask {
-	display: block;
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: 11;
-	content: '';
-	width: 100vw;
-	height: 100vh;
-	background-color: transparent;
-	display: none;
+    position: absolute;
+    z-index: 11;
+    top: 0;
+    left: 0;
+    display: block;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    content: '';
+    background-color: transparent;
 }
-
 .uix-team-focus {
-	position: relative;
-	z-index: 10;
-
-
-	> div {
-		float: left;
-		cursor: pointer;
-		z-index: 4;
-		text-align: center;
-
-
-		img {
-			width: 90%;
-		}
-
-
-
-		&.is-active {
-
-		}
-
-		&.focus {
-			position: absolute;
-			top: 0;
-			left: 50%;
-			height: 100px;
-			transform: translateX(-50%);
-			z-index: 5;
-			margin-left: -$team-info-width;
-
-			img {
-				transform: scale(1.3);
-				@include outer-shadow( 'highlight', $highlight-color1 );
-			}
-
-		}
-
-
-
-	}
+    position: relative;
+    z-index: 10;
+    > div {
+        z-index: 4;
+        float: left;
+        cursor: pointer;
+        text-align: center;
+        img {
+            width: 90%;
+        }
+        &.is-active {
+        }
+        &.focus {
+            position: absolute;
+            z-index: 5;
+            top: 0;
+            left: 50%;
+            height: 100px;
+            margin-left: -$team-info-width;
+            transform: translateX(-50%);
+            img {
+                transform: scale(1.3);
+                @include outer-shadow('highlight', $highlight-color1);
+            }
+        }
+    }
 }

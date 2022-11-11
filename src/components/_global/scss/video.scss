@@ -1,12 +1,12 @@
 /* ====================================================== 
-   <!-- Video -->
+   <!-- 视频 Video -->
 /* ====================================================== */
-/* Embedded directly in the webpage or embedded via a slider */
+/* 直接嵌入网页或通过滑块嵌入 */
 .uix-video,
 .uix-video__slider {
     visibility: hidden;
 }
-/* Display cover and play buttons when some mobile device browsers cannot automatically play video */
+/* 当某些移动设备浏览器无法自动播放视频时显示封面和播放按钮 */
 .uix-video__cover {
     .uix-video__cover__placeholder {
         position: absolute;
@@ -39,8 +39,7 @@
             font-weight: 600;
             line-height: 1;
             display: inline-block;
-            margin: 15px;
-            margin-left: 1.3rem;
+            margin: 15px 15px 15px 1.3rem;
             content: "\f04b";
             cursor: pointer;
             color: #ffffff;
@@ -50,7 +49,7 @@
 .uix-video__slider {
     visibility: visible;
 }
-/* Video play button */
+/* 视频播放按钮 */
 .uix-video__btn-play {
     font-size: 3rem;
     line-height: 44px;
@@ -76,7 +75,7 @@
 [data-video-iframe] {
     display: none;
 }
-/* External container for video background. */
+/* 视频背景的外部容器 */
 .uix-video__container-bg {
     position: relative;
     overflow: hidden;
@@ -88,7 +87,7 @@
         height: auto;
     }
 }
-/* Override the default button for videojs */
+/* 覆盖 videojs 的默认按钮 */
 .video-js .vjs-big-play-button {
     line-height: 64px;
     position: absolute;
@@ -108,8 +107,7 @@
         font-weight: 600;
         line-height: 1;
         display: inline-block;
-        margin: 15px;
-        margin-left: 1.3rem;
+        margin: 15px 15px 15px 1.3rem;
         content: "\f04b";
         cursor: pointer;
         transform: translateY(-3px);

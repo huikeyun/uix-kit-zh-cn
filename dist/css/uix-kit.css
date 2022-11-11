@@ -15,29 +15,29 @@
  */
 @charset "UTF-8";
 /**
-	TABLE OF CONTENTS
+	目录
 	---------------------------
-	1.基础
-    2.品牌
-    3.项目符号列表
-    4.入口
-    5.页脚
-    6.标题区
-    7.辅助类
-    8.基本布局样式
-    9.加载器
-    10.移动菜单
-    11.导航
-    12.导航
-    13.单页菜单
-    14.分页
-    15.单选框
-    16.侧边栏
-    17.社交媒体图标
-    18.间距
-    19.标签
-    20.排版
-    21.Video
+	1.基础 basic
+    2.品牌 brand
+    3.项目符号列表 bullet-list
+    4.入口 entry
+    5.页脚 footer
+    6.标题区 header-area
+    7.辅助类 helper-classes
+    8.基本布局样式 layout
+    9.加载器 loader
+    10.移动菜单 mobile-menu
+    11.导航 navigation
+    12.导航 navs
+    13.单页菜单 onepage-menu
+    14.分页 pagination
+    15.单选框 ratios
+    16.侧边栏 sidebar
+    17.社交媒体图标 social-meida-icons
+    18.间距 spacing
+    19.标签 tag
+    20.排版 typography
+    21.视频 Video
     22.Custom Core Scripts & Stylesheets
     23.Accordion Background Images
     24.Accordion
@@ -129,13 +129,11 @@
 
 */
 /******/
-/******/
 /* 必须放在首位 */
-/******/
 /******/
 /* 基础 */
 /* ====================================================== 
-    <!-- 基础 -->
+    <!-- 基础 basic -->
 /* ====================================================== */
 ::placeholder {
   color: #e6e6e8;
@@ -346,7 +344,7 @@ figure figcaption {
 }
 
 /* ====================================================== 
-   <!-- 品牌 -->
+   <!-- 品牌 brand -->
 /* ====================================================== */
 .uix-brand {
   font-size: 1.3125rem;
@@ -396,7 +394,7 @@ figure figcaption {
 }
 
 /* ====================================================== 
-   <!-- 项目符号列表 -->
+   <!-- 项目符号列表 bullet-list -->
 /* ====================================================== */
 /*
   * 1. 普通列表样式
@@ -691,7 +689,7 @@ ol.uix-list--numbered-large.uix-list--numbered-bg li::before,
 }
 
 /* ================================================= ======
-    <!-- 入口 -->
+    <!-- 入口 entry -->
 /* ================================================= ====== */
 /*
   * 1. 间距
@@ -874,7 +872,7 @@ ul.uix-entry__meta:not(.uix-entry__meta--wrap) li:first-child::before {
 }
 
 /* ================================================= ======
-    <!-- 页脚 -->
+    <!-- 页脚 footer -->
 /* ================================================= ====== */
 .uix-footer__container {
   font-size: 0.75rem;
@@ -906,7 +904,7 @@ ul.uix-entry__meta:not(.uix-entry__meta--wrap) li:first-child::before {
 }
 
 /* ================================================= ======
-    <!-- 标题区 -->
+    <!-- 标题区 header-area -->
 /* ================================================= ====== */
 /*
   * 1. 默认
@@ -992,7 +990,7 @@ ul.uix-entry__meta:not(.uix-entry__meta--wrap) li:first-child::before {
 }
 
 /* ================================================= ======
-     <!-- 辅助类 -->
+     <!-- 辅助类 helper-classes -->
 /* ================================================= ====== */
 /*
   * 1. 内容块
@@ -1514,7 +1512,6 @@ ul.uix-entry__meta:not(.uix-entry__meta--wrap) li:first-child::before {
  */
 .uix-bubble {
   font-size: 0.625rem;
-  font-weight: 100;
   font-weight: 700;
   line-height: 1.2;
   position: absolute;
@@ -1715,7 +1712,7 @@ details.uix-details-reset > summary::-webkit-details-marker {
 }
 
 /* ================================================= ======
-    <!-- 基本布局样式 -->
+    <!-- 基本布局样式 layout -->
 /* ================================================= ====== */
 /*
   * 1. Bootstrap 5.x			 - 不要使用前缀“uix-”
@@ -2162,7 +2159,7 @@ details.uix-details-reset > summary::-webkit-details-marker {
 }
 
 /* ================================================= ======
-    <!-- 加载器 -->
+    <!-- 加载器 loader -->
 /* ================================================= ====== */
 .uix-loader-progress {
   font-size: 0.75rem;
@@ -2264,7 +2261,7 @@ details.uix-details-reset > summary::-webkit-details-marker {
 }
 
 /* ================================================= ======
-    <!-- 移动菜单 -->
+    <!-- 移动菜单 mobile-menu -->
 /* ================================================= ====== */
 /* 移动菜单切换 */
 .uix-menu-mobile__toggle {
@@ -2287,7 +2284,6 @@ details.uix-details-reset > summary::-webkit-details-marker {
   z-index: 90001;
   top: 0;
   left: 0;
-  display: block;
   display: none;
   width: 100%;
   height: 100%;
@@ -2379,7 +2375,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   height: 100%;
   color: #212121;
   background: #f8f8f8;
-  box-shadow: 0px 0px 37px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 37px 0 rgba(0, 0, 0, 0.1);
   /* 超级和下拉菜单 */
   /* Form Elements */
 }
@@ -2424,7 +2420,6 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   margin: 0 0 5px;
   padding: 0 15px;
   color: #212121;
-  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2RmZGZkZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==");
   background-image: linear-gradient(#ffffff, #dfdfdf);
   background-size: 100%;
   box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.2);
@@ -2557,21 +2552,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   font-size: 13px;
 }
 
-.uix-menu__container.is-mobile input:not([type="checkbox"]):not([type="radio"]) {
-  font-size: 13px;
-  display: block;
-  clear: both;
-  box-sizing: border-box;
-  width: 100%;
-  margin: 0 0 10px;
-  padding: 5px;
-  color: rgba(51, 51, 51, 0.6);
-  border: 0;
-  border-radius: 2px;
-  background: rgba(0, 0, 0, 0.1);
-}
-
-.uix-menu__container.is-mobile textarea,
+.uix-menu__container.is-mobile input:not([type="checkbox"]):not([type="radio"]).textarea,
 .uix-menu__container.is-mobile select {
   font-size: 13px;
   display: block;
@@ -2606,11 +2587,11 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 }
 
 /* ================================================= ======
-    <!-- 导航 -->
+    <!-- 导航 navigation -->
 /* ================================================= ====== */
 /*
   * 1. 主菜单
-  * 2.子菜单（使用WordPress默认类名）
+  * 2. 子菜单（使用WordPress默认类名）
   * 3. 超级/下拉菜单
   * 4. 下拉箭头
 */
@@ -2644,7 +2625,6 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 
 .uix-menu__container:not(.is-mobile) ul.uix-menu {
   font-size: 0.75rem;
-  font-size: 0;
   /* 争夺内联块元素之间的空间 */
   line-height: 2.34375;
   float: left;
@@ -2901,7 +2881,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 }
 
 /* ================================================= ======
-    <!-- 导航 -->
+    <!-- 导航 navs -->
 /* ================================================= ====== */
 /*
   * 1. 基地导航
@@ -3143,7 +3123,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 }
 
 /* ================================================= ======
-     <!-- 单页菜单 -->
+     <!-- 单页菜单 onepage-menu -->
 /* ================================================= ====== */
 .uix-menu-sidefixed {
   position: absolute;
@@ -3205,7 +3185,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 }
 
 /* ================================================= ======
-    <!-- 分页 -->
+    <!-- 分页 pagination -->
 /* ================================================= ====== */
 /*
   * 1. 默认
@@ -3252,7 +3232,6 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   width: 3.125rem;
   height: 3.125rem;
   margin-top: 0;
-  margin-bottom: 0;
   margin-bottom: 2.06818181818rem;
   padding-top: 0.25rem;
   text-align: center;
@@ -3298,8 +3277,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   line-height: 1.25;
   position: relative;
   display: block;
-  margin: 0.875rem 0;
-  margin-left: -1px;
+  margin: 0.875rem 0 0.875rem -1px;
   padding: 0.5rem 0.75rem;
   border: 1px solid #dee2e6;
 }
@@ -3327,7 +3305,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 }
 
 /* ======================================================
-   <!-- 单选框 -->
+   <!-- 单选框 ratios -->
 /* ====================================================== */
 .uix-ratio {
   position: relative;
@@ -3373,7 +3351,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 }
 
 /* ================================================= ======
-    <!-- 侧边栏 -->
+    <!-- 侧边栏 sidebar -->
 /* ================================================= ====== */
 /*
   * 1. Basic - 同步到 WordPress 的类名
@@ -3664,7 +3642,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 }
 
 /* ================================================= ======
-    <!-- 社交媒体图标 -->
+    <!-- 社交媒体图标 social-meida-icons -->
 /* ================================================= ====== */
 /*
   * 1. 社交媒体按钮
@@ -4061,7 +4039,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 }
 
 /* ====================================================== 
-   <!-- 间距 -->
+   <!-- 间距 spacing -->
 /* ====================================================== */
 .uix-spacing--s {
   position: relative;
@@ -4093,7 +4071,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 /* 没有间距 */
 .uix-spacing--no {
   margin: 0 !important;
-  /* compatible with <p>, <h1>, <h2>, <h3>... */
+  /* 兼容 <p>, <h1>, <h2>, <h3>... */
   padding: 0 !important;
 }
 
@@ -4122,7 +4100,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 }
 
 /* ====================================================== 
-   <!-- 标签 -->
+   <!-- 标签 tag -->
 /* ====================================================== */
 .uix-tags-box::before {
   display: block;
@@ -4153,7 +4131,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 }
 
 /* ================================================= ======
-    <!-- 排版 -->
+    <!-- 排版 typography -->
 /* ================================================= ====== */
 /*
   * 1. 一般
@@ -4504,15 +4482,15 @@ h6 {
 }
 
 /* ====================================================== 
-   <!-- Video -->
+   <!-- 视频 Video -->
 /* ====================================================== */
-/* Embedded directly in the webpage or embedded via a slider */
+/* 直接嵌入网页或通过滑块嵌入 */
 .uix-video,
 .uix-video__slider {
   visibility: hidden;
 }
 
-/* Display cover and play buttons when some mobile device browsers cannot automatically play video */
+/* 当某些移动设备浏览器无法自动播放视频时显示封面和播放按钮 */
 .uix-video__cover .uix-video__cover__placeholder {
   position: absolute;
   z-index: 5;
@@ -4549,8 +4527,7 @@ h6 {
   font-weight: 600;
   line-height: 1;
   display: inline-block;
-  margin: 15px;
-  margin-left: 1.3rem;
+  margin: 15px 15px 15px 1.3rem;
   content: "\f04b";
   cursor: pointer;
   color: #ffffff;
@@ -4560,7 +4537,7 @@ h6 {
   visibility: visible;
 }
 
-/* Video play button */
+/* 视频播放按钮 */
 .uix-video__btn-play {
   font-size: 3rem;
   line-height: 44px;
@@ -4589,7 +4566,7 @@ h6 {
   display: none;
 }
 
-/* External container for video background. */
+/* 视频背景的外部容器 */
 .uix-video__container-bg {
   position: relative;
   overflow: hidden;
@@ -4603,7 +4580,7 @@ h6 {
   }
 }
 
-/* Override the default button for videojs */
+/* 覆盖 videojs 的默认按钮 */
 .video-js .vjs-big-play-button {
   line-height: 64px;
   position: absolute;
@@ -4625,8 +4602,7 @@ h6 {
   font-weight: 600;
   line-height: 1;
   display: inline-block;
-  margin: 15px;
-  margin-left: 1.3rem;
+  margin: 15px 15px 15px 1.3rem;
   content: "\f04b";
   cursor: pointer;
   transform: translateY(-3px);

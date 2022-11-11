@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang='@@{website_lang}' dir='@@{website_dirLTR}'>
+<html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-    <meta charset='@@{website_charset}' />
+    <meta charset="@@{website_charset}" />
     <title>下拉菜单 - @@{website_title}</title>
     @@include('./src/components/_global/include-header.html')
 </head>
-<body class='page'>
+<body class="page">
 @@include('./src/components/_global/include-loader.html')
 @@include('./src/components/_global/include-toggle-trigger.html')
-<div class='uix-wrapper'>
+<div class="uix-wrapper">
     <!-- Header Area
     ============================================= -->
-    <header class='uix-header__container'>
-        <div class='uix-header'>
-            <div class='container'>
+    <header class="uix-header__container">
+        <div class="uix-header">
+            <div class="container">
                 @@include('./src/components/_global/include-brand.html')
                 @@include('./src/components/_global/include-menu.html')
             </div>
             <!-- .container end -->
-            <div class='uix-clearfix'></div>
+            <div class="uix-clearfix"></div>
         </div>
     </header>
-    <div class='uix-header__placeholder js-uix-header__placeholder-autoheight'></div>
-    <main id='uix-maincontent'>
+    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+    <main id="uix-maincontent">
         <!-- Content
         ====================================================== -->
-        <section class='uix-spacing--s uix-spacing--no-bottom'>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-12'>
+        <section class="uix-spacing--s uix-spacing--no-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
                         <h3>下拉菜单</h3>
                         <p>单击超链接显示下拉菜单</p>
                         <hr>
@@ -40,17 +40,17 @@
         </section>
         <!-- Content
          ====================================================== -->
-        <section class='uix-spacing--s'>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-12'>
-                        <details class='uix-details-reset uix-dropdown-menu'>
-                            <summary><i class='fa fa-cog' aria-hidden='true'></i> <span>单击我</span></summary>
-                            <input type='hidden' value='男孩'>
+        <section class="uix-spacing--s">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <details class="uix-details-reset uix-dropdown-menu">
+                            <summary><i class="fa fa-cog" aria-hidden="true"></i> <span>单击我</span></summary>
+                            <input type="hidden" value="男孩">
                             <ul>
-                                <li><a data-value='男孩' data-display-text='男孩(选中)' href='#1'>男孩</a></li>
-                                <li><a data-value='女孩' data-display-text='女孩(选中)' href='#2'>女孩</a></li>
-                                <li><a data-value='' data-display-text='' href='#3'不改变文字</a></li>
+                                <li><a data-value="男孩" data-display-text="男孩(选中)" href="#1">男孩</a></li>
+                                <li><a data-value="女孩" data-display-text="女孩(选中)" href="#2">女孩</a></li>
+                                <li><a data-value="" data-display-text="" href="#3" 不改变文字</a></li>
                             </ul>
                         </details><!-- /.uix-dropdown-menu -->
                     </div>

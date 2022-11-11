@@ -2,7 +2,6 @@
    <!-- Vertical Menu (RTL) -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
-
 /*
  * 1. Primary Menu
  * 2. Sub Menu (Using WordPress default class name )
@@ -10,135 +9,91 @@
  * 4. Mega/Dropdown Menu
  * 5. Dropdown Arrow
 */
-
-$vertical-menu-w            : 250px;
-$vertical-menu-sub-w        : 200px;
-$vertical-menu-font-size    : 0.75rem;
-$vertical-menu-top          : 0;
-
+$vertical-menu-w: 250px;
+$vertical-menu-sub-w: 200px;
+$vertical-menu-font-size: 0.75rem;
+$vertical-menu-top: 0;
 .uix-v-menu__container:not(.is-mobile) {
-	left: auto;
-	right: 0;
-	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-
-	/*
-	 ---------------------------
-	 1. Primary Menu
-	 ---------------------------
-	 */
-	ul.uix-menu {
-
-		li {
-			text-align: left;
-
-
-			.uix-bubble {
-				right: auto;
-				left: 1rem;
-			}
-
-		}
-
-
-		/*
-		 ---------------------------
-		 2. Sub Menu (Using WordPress default class name )
-		 ---------------------------
-		 */
-		ul.sub-menu {
-
-			border-left: none;
-			border-right: 1px solid rgba(255, 255, 255, 0.13);
-			left: auto;
-			right: #{$vertical-menu-w + $vertical-menu-sub-w*0};
-
-
-			/*
-			 ---------------------------
-			 3. Multi-level Sub Menu Position
-			 ---------------------------
-			 */
-			 @for $i from 1 through 10 {
-				$sel: if($i == 1, "ul", selector-nest($sel, "ul")) !global;
-			
-				#{$sel} {
-					right: #{$vertical-menu-w + $vertical-menu-sub-w * $i};
-				}
-			}
-
-
-		}
-
-		/*
-		 ---------------------------
-		 4. Mega/Dropdown Menu
-		 ---------------------------
-		 */
-		/* Multi-column */
-		li.multi-column {
-
-			span.multi-column-title {
-				text-align: right;
-
-			}
-
-			> ul {
-
-
-
-				ul {
-
-					li {
-						text-align: right;
-					}
-				}
-
-				li {
-
-					ul {
-						border-right: none;
-
-					}
-
-
-				}
-
-
-				> li {
-					border-left: none;
-					border-right: 1px solid rgba(255, 255, 255, 0.2);
-
-					&:first-child {
-						border-right: none;
-					}
-
-					ul {
-						left: auto;
-						right: 0;
-					}
-
-				}
-
-
-			}
-
-
-		}
-
-
-	}
-
-
-
-	/*
-	 ---------------------------
-	 4. Dropdown Arrow
-	 ---------------------------
-	 */
-	.uix-menu__arrow {
-		right: auto;
-		left: .5rem;
-	}
-
-
+    right: 0;
+    left: auto;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    /*
+     ---------------------------
+     1. Primary Menu
+     ---------------------------
+     */
+    ul.uix-menu {
+        li {
+            text-align: left;
+            .uix-bubble {
+                right: auto;
+                left: 1rem;
+            }
+        }
+        /*
+         ---------------------------
+         2. Sub Menu (Using WordPress default class name )
+         ---------------------------
+         */
+        ul.sub-menu {
+            right: #{$vertical-menu-w + $vertical-menu-sub-w*0};
+            left: auto;
+            border-right: 1px solid rgba(255, 255, 255, 0.13);
+            border-left: none;
+            /*
+             ---------------------------
+             3. Multi-level Sub Menu Position
+             ---------------------------
+             */
+            @for $i from 1 through 10 {
+                $sel: if($i == 1, "ul", selector-nest($sel, "ul")) !global;
+                #{$sel} {
+                    right: #{$vertical-menu-w + $vertical-menu-sub-w * $i};
+                }
+            }
+        }
+        /*
+         ---------------------------
+         4. Mega/Dropdown Menu
+         ---------------------------
+         */
+        /* Multi-column */
+        li.multi-column {
+            span.multi-column-title {
+                text-align: right;
+            }
+            > ul {
+                ul {
+                    li {
+                        text-align: right;
+                    }
+                }
+                li {
+                    ul {
+                        border-right: none;
+                    }
+                }
+                > li {
+                    border-right: 1px solid rgba(255, 255, 255, 0.2);
+                    border-left: none;
+                    &:first-child {
+                        border-right: none;
+                    }
+                    ul {
+                        right: 0;
+                        left: auto;
+                    }
+                }
+            }
+        }
+    }
+    /*
+     ---------------------------
+     4. Dropdown Arrow
+     ---------------------------
+     */
+    .uix-menu__arrow {
+        right: auto;
+        left: .5rem;
+    }
 }

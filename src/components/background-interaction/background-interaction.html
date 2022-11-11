@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang='@@{website_lang}' dir='@@{website_dirLTR}'>
+<html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-    <meta charset='@@{website_charset}' />
+    <meta charset="@@{website_charset}" />
     <title>背景互动 - @@{website_title}</title>
     @@include('./src/components/_global/include-header.html')
 </head>
-<body class='page'>
+<body class="page">
 @@include('./src/components/_global/include-loader.html')
 @@include('./src/components/_global/include-toggle-trigger.html')
-<div class='uix-wrapper'>
+<div class="uix-wrapper">
     <!-- Header Area
     ============================================= -->
-    <header class='uix-header__container'>
-        <div class='uix-header'>
-            <div class='container'>
+    <header class="uix-header__container">
+        <div class="uix-header">
+            <div class="container">
                 @@include('./src/components/_global/include-brand.html')
                 @@include('./src/components/_global/include-menu.html')
             </div>
             <!-- .container end -->
-            <div class='uix-clearfix'></div>
+            <div class="uix-clearfix"></div>
         </div>
     </header>
-    <div class='uix-header__placeholder js-uix-header__placeholder-autoheight'></div>
-    <main id='uix-maincontent'>
+    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+    <main id="uix-maincontent">
         <!-- Content
         ====================================================== -->
-        <section class='uix-spacing--s uix-spacing--no-bottom'>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-12'>
+        <section class="uix-spacing--s uix-spacing--no-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
                         <h3>视差背景</h3>
                         <p>使用<code>data-bg</code>属性设置背景和视差效果。 例如</p>
                     </div>
@@ -39,8 +39,8 @@
         </section>
         <!-- Content
          ====================================================== -->
-        <section class='uix-spacing--s uix-spacing--no-top'>
-            <pre class='uix-precode'><label>HTML</label><code>&lt;div class=&quot;uix-relative&quot; data-bg=&#x27;{&quot;src&quot;:&quot;assets/images/demo/spiral-galaxy-1920x1080.jpg&quot;,&quot;position&quot;:&quot;center center&quot;,&quot;size&quot;:&quot;cover&quot;,&quot;repeat&quot;:&quot;no-repeat&quot;,&quot;fill&quot;:false,&quot;offsetTop&quot;:0,&quot;parallax&quot;:0.7}&#x27; style=&quot;height: 500px;background-color: tan;&quot;&gt;
+        <section class="uix-spacing--s uix-spacing--no-top">
+            <pre class="uix-precode"><label>HTML</label><code>&lt;div class=&quot;uix-relative&quot; data-bg=&#x27;{&quot;src&quot;:&quot;assets/images/demo/spiral-galaxy-1920x1080.jpg&quot;,&quot;position&quot;:&quot;center center&quot;,&quot;size&quot;:&quot;cover&quot;,&quot;repeat&quot;:&quot;no-repeat&quot;,&quot;fill&quot;:false,&quot;offsetTop&quot;:0,&quot;parallax&quot;:0.7}&#x27; style=&quot;height: 500px;background-color: tan;&quot;&gt;
     &lt;div class=&quot;uix-v-align--absolute uix-t-c&quot;&gt;
         &lt;div class=&quot;row&quot;&gt;
             &lt;div class=&quot;col-12&quot;&gt;
@@ -63,15 +63,15 @@
         </section>
         <!-- Content
         ====================================================== -->
-        <section class='uix-spacing--s uix-spacing--no-bottom'>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-12'>
+        <section class="uix-spacing--s uix-spacing--no-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
                         <h3>
                             背景文字
                         </h3>
                         <p>使用如下示例代码实现如下效果：</p>
-                        <pre class='uix-precode'><label>HTML</label><code>&lt;h1 class=&quot;uix-relative&quot; data-bg='{"src":"assets/images/demo/cool-slider-1.jpg","position":"top left","size":"cover","repeat":"no-repeat","fill":true,"offsetTop":0,"parallax":-0.3}'&gt;背景-剪辑文本&lt;/h1&gt;&#x9;</code>
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;h1 class=&quot;uix-relative&quot; data-bg='{"src":"assets/images/demo/cool-slider-1.jpg","position":"top left","size":"cover","repeat":"no-repeat","fill":true,"offsetTop":0,"parallax":-0.3}'&gt;背景-剪辑文本&lt;/h1&gt;&#x9;</code>
 </pre>
                     </div>
                 </div>
@@ -81,20 +81,20 @@
         </section>
         <!-- Content
          ====================================================== -->
-        <section class='uix-spacing--s uix-t-c'>
-            <h1 class='uix-relative' data-bg='{"src":"assets/images/demo/cool-slider-1.jpg","position":"top left","size":"cover","repeat":"no-repeat","fill":true,"offsetTop":0,"parallax":-0.3}' style='height: 150px;'>背景-剪辑文本</h1>
+        <section class="uix-spacing--s uix-t-c">
+            <h1 class="uix-relative" data-bg='{"src":"assets/images/demo/cool-slider-1.jpg","position":"top left","size":"cover","repeat":"no-repeat","fill":true,"offsetTop":0,"parallax":-0.3}' style="height: 150px;">背景-剪辑文本</h1>
         </section>
         <!-- Content
         ====================================================== -->
-        <section class='uix-spacing--s uix-spacing--no-bottom'>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-12'>
+        <section class="uix-spacing--s uix-spacing--no-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
                         <h3>
                             运动动画
                         </h3>
                         <p>不同方向的连续位置移动。 例如</p>
-                        <pre class='uix-precode'><label>HTML</label><code>&lt;div class=&quot;uix-relative&quot; data-bg='{"src":"assets/images/demo/templates.jpg","size":"auto","repeat":"repeat","move":{"dir":"right","speed":"350","easing":"linear","loop":true}}' style=&quot;height: 450px;&quot;&gt;
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;div class=&quot;uix-relative&quot; data-bg='{"src":"assets/images/demo/templates.jpg","size":"auto","repeat":"repeat","move":{"dir":"right","speed":"350","easing":"linear","loop":true}}' style=&quot;height: 450px;&quot;&gt;
     &lt;div class=&quot;uix-overlay uix-overlay--black uix-overlay--cover&quot;&gt;
         &lt;div class=&quot;uix-v-align--table&quot;&gt;
             &lt;div&gt;
@@ -112,46 +112,46 @@
         </section>
         <!-- Content
          ====================================================== -->
-        <section class='uix-spacing--s'>
-            <div class='uix-relative' data-bg='{"src":"assets/images/demo/templates.jpg","size":"auto","repeat":"repeat","move":{"dir":"left","speed":"350","easing":"linear","loop":true}}' style='height: 450px;'>
-                <div class='uix-overlay uix-overlay--black uix-overlay--cover'>
-                    <div class='uix-v-align--table'>
+        <section class="uix-spacing--s">
+            <div class="uix-relative" data-bg='{"src":"assets/images/demo/templates.jpg","size":"auto","repeat":"repeat","move":{"dir":"left","speed":"350","easing":"linear","loop":true}}' style="height: 450px;">
+                <div class="uix-overlay uix-overlay--black uix-overlay--cover">
+                    <div class="uix-v-align--table">
                         <div>
-                            <h2 class='uix-typo--color-white uix-t-c'>height: 450px (向左无限移动)</h2>
+                            <h2 class="uix-typo--color-white uix-t-c">height: 450px (向左无限移动)</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class='uix-spacing--s'>
-            <div class='uix-relative' data-bg='{"src":"assets/images/demo/templates.jpg","size":"auto","repeat":"repeat","move":{"dir":"right","speed":"350","easing":"linear","loop":true}}' style='height: 450px;'>
-                <div class='uix-overlay uix-overlay--black uix-overlay--cover'>
-                    <div class='uix-v-align--table'>
+        <section class="uix-spacing--s">
+            <div class="uix-relative" data-bg='{"src":"assets/images/demo/templates.jpg","size":"auto","repeat":"repeat","move":{"dir":"right","speed":"350","easing":"linear","loop":true}}' style="height: 450px;">
+                <div class="uix-overlay uix-overlay--black uix-overlay--cover">
+                    <div class="uix-v-align--table">
                         <div>
-                            <h2 class='uix-typo--color-white uix-t-c'>height: 450px (无限向右移动)</h2>
+                            <h2 class="uix-typo--color-white uix-t-c">height: 450px (无限向右移动)</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class='uix-spacing--s'>
-            <div class='uix-relative' data-bg='{"src":"assets/images/demo/templates.jpg","size":"auto","repeat":"repeat","move":{"dir":"top","speed":"350","easing":"linear","loop":true}}' style='height: 450px;'>
-                <div class='uix-v-align--absolute uix-t-c'>
-                    <div class='row'>
-                        <div class='col-12'>
-                            <h2 style='box-shadow: 0 5px 15px 0 rgba(0,0,0,.07), 0 15px 35px 0 rgba(50,50,93,.1); background: #ffffff; padding: 3rem; display: inline-block;'>height: 450px (无限移动到顶部)</h2>
+        <section class="uix-spacing--s">
+            <div class="uix-relative" data-bg='{"src":"assets/images/demo/templates.jpg","size":"auto","repeat":"repeat","move":{"dir":"top","speed":"350","easing":"linear","loop":true}}' style="height: 450px;">
+                <div class="uix-v-align--absolute uix-t-c">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 style="box-shadow: 0 5px 15px 0 rgba(0,0,0,.07), 0 15px 35px 0 rgba(50,50,93,.1); background: #ffffff; padding: 3rem; display: inline-block;">height: 450px (无限移动到顶部)</h2>
                         </div>
                     </div>
                     <!-- .row end -->
                 </div>
             </div>
         </section>
-        <section class='uix-spacing--s'>
-            <div class='uix-relative' data-bg='{"src":"assets/images/demo/templates.jpg","size":"auto","repeat":"repeat","move":{"dir":"bottom","speed":"350","easing":"linear","loop":true}}' style='height: 450px;'>
-                <div class='uix-v-align--absolute uix-t-c'>
-                    <div class='row'>
-                        <div class='col-12'>
-                            <h2 style='box-shadow: 0 5px 15px 0 rgba(0,0,0,.07), 0 15px 35px 0 rgba(50,50,93,.1); background: #ffffff; padding: 3rem; display: inline-block;'>height: 450px (无限移动到底部)</h2>
+        <section class="uix-spacing--s">
+            <div class="uix-relative" data-bg='{"src":"assets/images/demo/templates.jpg","size":"auto","repeat":"repeat","move":{"dir":"bottom","speed":"350","easing":"linear","loop":true}}' style="height: 450px;">
+                <div class="uix-v-align--absolute uix-t-c">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 style="box-shadow: 0 5px 15px 0 rgba(0,0,0,.07), 0 15px 35px 0 rgba(50,50,93,.1); background: #ffffff; padding: 3rem; display: inline-block;">height: 450px (无限移动到底部)</h2>
                         </div>
                     </div>
                     <!-- .row end -->

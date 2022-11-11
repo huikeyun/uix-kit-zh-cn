@@ -5,9 +5,6 @@
 import UixModuleFilter from '@uixkit/core/_global/js/fn/UixModuleFilter';
 import UixApplyAsyncScripts from '@uixkit/core/_global/js/fn/UixApplyAsyncScripts';
 import UixApplyAsyncAllScripts from '@uixkit/core/_global/js/fn/UixApplyAsyncAllScripts';
-
-
-
 /*
  * Import modules from components
  *    
@@ -25,11 +22,9 @@ import MOBILE_MENU from '@uixkit/core/_global/js/modules/mobile-menu';
 import NAVIGATION from '@uixkit/core/_global/js/modules/navigation';
 import SET_BG from '@uixkit/core/_global/js/modules/set-background';
 import VIDEOS from '@uixkit/core/_global/js/modules/videos';
-
-	
 /******/
 /******/
-/* pages */	
+/* pages */
 /* Note: The CSS style file has been included by JavaScript files */
 import MAIN from '@uixkit/core/_main/js';
 import ACCORDION_BG from '@uixkit/core/accordion-img/js';
@@ -96,26 +91,22 @@ import THREE_SPHERE_THREE from '@uixkit/core/simple-3D-sphere-three/js';
 import THREE_OBJ_ANIM_INTERACTION from '@uixkit/core/simple-3D-obj-anim-interaction/js';
 import THREE_MOUSE_INTERACTION from '@uixkit/core/simple-3D-mouse-interaction/js';
 import THREE_MOUSE_INTERACTION2 from '@uixkit/core/simple-3D-mouse-interaction2/js';
-import THREE_SHATTER_SLIDER from '@uixkit/core/simple-3D-shatter-slider/js';	
+import THREE_SHATTER_SLIDER from '@uixkit/core/simple-3D-shatter-slider/js';
 import THREE_EXP_PARTICLE_SLIDER from '@uixkit/core/simple-3D-explosive-particle-slider/js';
 import THREE_LIQUID_SCROLLSPY_SLIDER from '@uixkit/core/simple-3D-liquid-scrollspy-slider/js';
 import THREE_FILMIC_EFF from '@uixkit/core/simple-3D-filmic-effects/js';
 import THREE_SIMULATE_HTML_LAYOUT from '@uixkit/core/simple-3D-simulate-html-layout/js';
 import TABLE from '@uixkit/core/table/js/basic';
-import TABLE_SORTER from '@uixkit/core/table/js/sorter';	
+import TABLE_SORTER from '@uixkit/core/table/js/sorter';
 import TABS from '@uixkit/core/tabs/js';
 import TEAM_FOCUS from '@uixkit/core/team-focus/js';
 import TEXT_EFFECT from '@uixkit/core/text-effect/js';
 import TIMELINE from '@uixkit/core/timeline/js';
 import VERTICAL_MENU from '@uixkit/core/vertical-menu/js';
 import WP_CORE from '@uixkit/core/wordpress/js';
-
-
-
-	
 /******/
 /******/
-/* pages */	
+/* pages */
 /* Note: These modules do not contain JavaScript */
 import '@uixkit/core/badges/scss/_style.scss';
 import '@uixkit/core/blended-grid-layout/scss/_style.scss';

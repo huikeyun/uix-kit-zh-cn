@@ -3,66 +3,46 @@
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 @import '_variable-and-mixin.scss';
-
-
 .uix-controls-layout {
-    align-items: center;
     display: flex;
+    align-items: center;
     padding: #{$control-padding-height} 0;
-    
-	.uix-controls {
-		margin: 0 !important;
-	}
-	
+    .uix-controls {
+        margin: 0 !important;
+    }
     .uix-controls-layout__content {
         flex: 1;
-
         .uix-controls-layout__content__inner {
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
-
+            flex-wrap: wrap;
             > div {
                 &:first-child {
-                    margin-right: 1.5rem;
                     width: 150px;
+                    margin-right: 1.5rem;
                 }
                 &:last-child {
                     flex: 1;
                 }
             }
         }
-
     }
-
     .uix-controls-layout__icon {
         flex-grow: 0;
         margin-left: 1rem;
     }
-
-    
 }
-
-
-
 @media all and (max-width: 768px) {
-    
     .uix-controls-layout {
-
         .uix-controls-layout__content {
-
             .uix-controls-layout__content__inner {
-
                 > div {
                     &:first-child {
-                        margin-right: 0;
                         width: 100%;
+                        margin-right: 0;
                     }
                 }
             }
-
-
         }
-
-    }  
+    }
 }
