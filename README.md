@@ -20,7 +20,7 @@ Uix Kit是一个偏视觉交互的开发工具包，帮助开发者快速完成�
 
 
 ---
-
+- [英文版](https://github.com/xizon/uix-kit)
 - [React版](https://github.com/xizon/poemkit)
 
 
