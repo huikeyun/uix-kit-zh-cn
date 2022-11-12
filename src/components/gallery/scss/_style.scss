@@ -1,13 +1,13 @@
 /* ======================================================
-        <!-- Gallery -->
+        <!-- 画廊 Gallery -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 .uix-gallery {
     > .uix-gallery__tiles {
-        overflow: auto; /* Fix a bug for floating divs have 0 height */
+        overflow: auto; /* 修复浮动 div 高度为 0 的错误 */
         .uix-gallery__item {
             position: relative;
-            margin-bottom: 0; /* Cover the bottom spacing of the grid system */
+            margin-bottom: 0; /* 覆盖网格系统的底部间距 */
             transition: none;
             text-align: left;
             .uix-gallery__image {
@@ -81,8 +81,8 @@
         }
     }
 }
-/* Filter or Masonry */
-/* You can directly use uix-core-grid__col-* to control the width of the item */
+/* 过滤器或瀑布流 */
+/* 可以直接使用uix-core-grid__col-*来控制item的宽度*/
 $gallery-masonry-item-gap: 15px;
 .uix-gallery[data-show-type*="filter"],
 .uix-gallery[data-show-type*="masonry"] {

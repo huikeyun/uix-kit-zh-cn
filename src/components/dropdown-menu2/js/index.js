@@ -1,6 +1,6 @@
 /*
  *************************************
- * <!-- Dropdown Menu 2 (Multi-level drop-down navigation) -->
+ * <!-- 下拉菜单 2（多级下拉导航）Dropdown Menu 2 (Multi-level drop-down navigation) -->
  *************************************
  */
 import {

@@ -8,7 +8,7 @@
  * ## 项目网址           :  https://uix-kit.13aq.com/
  * ## 版本              :  4.7.0
  * ## 汉化              :  慧科云 (https://github.com/huikeyun/uix-kit)
- * ## 最后更新日期        :  November 11, 2022
+ * ## 最后更新日期        :  November 13, 2022
  * ## 基于 UIUX Lab (https://uiux.cc) (uiuxlab@gmail.com) 汉化
  * ## 在 MIT 许可下发布。
  *
@@ -46,26 +46,26 @@
     27.Ajax 页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)
     28.回到顶部Back to Top
     29.圆形布局 Circle Layout
-    30.Dropdown Menu
-    31.Dropdown Menu 2 (Multi-level drop-down navigation)
+    30.下拉菜单 Dropdown Menu
+    31.下拉菜单 2（多级下拉导航）Dropdown Menu 2 (Multi-level drop-down navigation)
     32.层叠的下拉列表 Cascading DropDown List
-    33.Flexslider (Third-party plugin)
-    34.Floating Side Element
-    35.Form Progress
-    36.Form
-    37.Form ( Layout )-
+    33.弹性滑块（第三方插件）Flexslider (Third-party plugin)
+    34.浮动侧边栏 Floating Side Element
+    35.表单进度 Form Progress
+    36.表格 Form
+    37.表格（布局）Form ( Layout )-
     38.Form  ( Material Design Theme )
-    39.Form ( 3rd Party Plugin )
-    40.Gallery
-    41.Hybrid Content Slider
-    42.Image Shapes
-    43.Infinite Scrolling Element
-    44.Lava-Lamp Style Menu
-    45.Cutom Light Box
+    39.表单（第三方插件） Form ( 3rd Party Plugin )
+    40.画廊 Gallery
+    41.混合内容滑块 Hybrid Content Slider
+    42.图像形状 Image Shapes
+    43.无限滚动元素 Infinite Scrolling Element
+    44.Lava-Lamp 风格菜单 Lava-Lamp Style Menu
+    45.自定义灯箱 Cutom Light Box
     46.Bulleted List
     47.List of Posts
     48.List of Split Posts
-    49.Full Width Column to Edge
+    49.全宽列到边缘 Full Width Column to Edge
     50.Login Templates
     51.Modal Dialog
     52.Multiple Items Carousel
@@ -98,17 +98,17 @@
     79.面包屑 Breadcrumbs
     80.按钮 Button
     81.卡片 Cards
-    82.Badges
-    83.辅助标记
-    84.Content Placeholder Animated
-    85.Dividing Line
-    86.Dotted Line
-    87.Equal-width Columns
-    88.Features
-    89.Footer Templates
-    90.Gallery Grid Layout
-    91.Heading
-    92.Image Animation
+    82.圆形文字 Circle Text
+    83.辅助标记 Coach Mark
+    84.内容占位符动画 Content Placeholder Animated
+    85.分割线 Dividing Line
+    86.虚线 Dotted Line
+    87.等宽列 Equal-width Columns
+    88.特性 Features
+    89.页脚模板 Footer Templates
+    90.图库网格布局 Gallery Grid Layout
+    91.标题 Heading
+    92.图像动画 Image Animation
     93.Brands List
     94.Maintain Aspect Ratio List
     95.Side by Side List
@@ -5734,10 +5734,11 @@ h6 {
   margin: 0 auto;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Dropdown Menu -->
+   <!-- 下拉菜单 Dropdown Menu -->
 /* ====================================================== */
-/* Do not use <a> tag */
+/* 不要使用 <a> 标签 */
 .uix-dropdown-menu {
   position: relative;
   display: inline-block;
@@ -5820,8 +5821,9 @@ h6 {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Dropdown Menu 2 (Multi-level drop-down navigation) -->
+   <!-- 下拉菜单 2（多级下拉导航）Dropdown Menu 2 (Multi-level drop-down navigation) -->
 /* ====================================================== */
 .uix-vertical-menu {
   margin: 0;
@@ -5969,30 +5971,30 @@ h6 {
 
 @charset "UTF-8";
 /* ======================================================
-    <!-- Flexslider (Third-party plugin) -->
+    <!-- 弹性滑块（第三方插件）Flexslider (Third-party plugin) -->
 /* ====================================================== */
 /*
- * 1. Thumbnail ControlNav Pattern
- * 2. Default Slideshow & Default  Controls
- *    2.1. Prevent content overflow
- *    2.2. Left and right arrows by default
- *    2.3. Pagination Dot by default
- *    2.4. Thumbnail
+ * 1. 缩略图控制导航模式
+ * 2. 默认幻灯片和默认控件
+ *    2.1. 防止内容溢出
+ *    2.2. 默认左右箭头
+ *    2.3. 默认情况下的分页点
+ *    2.4. 缩略图
 
- * 3. Custom Controls
- *    3.1. Left and right arrows by Custom Controls
- *    3.2. Pagination by Custom Controls
- *    3.3. Custom Next/Prev and Pagination Styles
- *    3.4. Next/Prev Image Thumbnail In Navigation
- *    3.5. Timeline Indicator
+ * 3. 自定义控件
+ *    3.1. 自定义控件的左右箭头
+ *    3.2. 自定义控件的分页
+ *    3.3. 自定义下一个/上一个和分页样式
+ *    3.4. 导航中的下一个/上一个图像缩略图
+ *    3.5. 时间轴指示器
 
- * 4. Primary Slideshow  (with dynamic min/max ranges )
- * 5. Primary Slideshow
- * 6. Parallax Slideshow
+ * 4. 主要幻灯片（动态最小/最大范围）
+ * 5. 主要幻灯片
+ * 6. 视差幻灯片
 */
 /*
  ---------------------------
- 1. Thumbnail ControlNav Pattern
+ 1. 缩略图控制导航模式
  ---------------------------
  */
 .uix-flexslider__thumbs {
@@ -6008,7 +6010,7 @@ h6 {
 }
 
 .uix-flexslider__thumbs::-webkit-scrollbar-track {
-  border-radius: 0px;
+  border-radius: 0;
   background-color: #e6e3e3;
 }
 
@@ -6018,7 +6020,7 @@ h6 {
 }
 
 .uix-flexslider__thumbs::-webkit-scrollbar-thumb {
-  border-radius: 0px;
+  border-radius: 0;
   background-color: #ce3a3e;
 }
 
@@ -6043,15 +6045,15 @@ h6 {
 }
 
 .uix-flexslider__thumbs ul li img {
-  box-shadow: 0px 6px 11px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 11px 1px rgba(0, 0, 0, 0.15);
 }
 
 /*
  ---------------------------
- 2. Default Slideshow & Default  Controls
+ 2. 默认幻灯片和默认控件
  ---------------------------
  */
-/*---- 2.1. Prevent content overflow ----*/
+/*---- 2.1. 防止内容溢出 ----*/
 .uix-flexslider,
 .uix-flexslider .uix-flexslider__inner,
 .uix-flexslider .uix-flexslider__inner > .uix-flexslider__item {
@@ -6118,7 +6120,7 @@ html[xmlns] .uix-flexslider .uix-flexslider__inner {
   height: auto;
 }
 
-/*---- 2.2. Left and right arrows by default ----*/
+/*---- 2.2. 默认左右箭头 ----*/
 ul.uix-flexslider__direction-nav {
   position: absolute;
   top: 50%;
@@ -6149,7 +6151,6 @@ ul.uix-flexslider__direction-nav li a {
   height: 40px;
   margin-top: -20px;
   text-align: center;
-  opacity: 0.8;
   opacity: 0.66;
   color: #ffffff;
 }
@@ -6187,7 +6188,7 @@ ul.uix-flexslider__direction-nav li a.uix-flexslider__next.uix-flexslider__disab
   right: 20px;
 }
 
-/*----- 2.3. Pagination Dot by default -----*/
+/*----- 2.3. 默认情况下的分页点 -----*/
 ol.uix-flexslider__control-paging {
   font-size: 0;
   /* 争夺内联块元素之间的空间 */
@@ -6217,7 +6218,7 @@ ol.uix-flexslider__control-paging li a {
   text-indent: -9999px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.5);
-  box-shadow: 0px 6px 23px -2px rgba(0, 0, 0, 0.36);
+  box-shadow: 0 6px 23px -2px rgba(0, 0, 0, 0.36);
 }
 
 ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging li a.uix-flexslider__active {
@@ -6225,7 +6226,7 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
   background: white;
 }
 
-/*----- 2.4. Thumbnail -----*/
+/*----- 2.4. 缩略图 -----*/
 .uix-flexslider__control-thumbs {
   position: static;
   overflow: hidden;
@@ -6258,7 +6259,7 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
 
 /*
  ---------------------------
- 3. Custom Controls
+ 3. 自定义控件
  ---------------------------
  */
 .uix-flexslider__mycontrols {
@@ -6266,8 +6267,8 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
   width: 100%;
   margin-top: 1.75rem;
   table-layout: fixed;
-  /*----- 3.1. Left and right arrows by Custom Controls -----*/
-  /*----- 3.2. Pagination by Custom Controls  -----*/
+  /*----- 3.1. 自定义控件的左右箭头 -----*/
+  /*----- 3.2. 自定义控件的分页  -----*/
 }
 
 .uix-flexslider__mycontrols > a {
@@ -6350,13 +6351,12 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
   transform: scale(1);
 }
 
-/*---- 3.3. Custom Next/Prev and Pagination Styles ----*/
-/*----- 3.4. Next/Prev Image Thumbnail In Navigation -----*/
+/*---- 3.3. 自定义下一个/上一个和分页样式 ----*/
+/*----- 3.4. 导航中的下一个/上一个图像缩略图 -----*/
 .uix-flexslider__mycontrols--thumb {
   position: absolute;
   top: 50%;
   display: table;
-  width: 100%;
   width: calc(100% - 30px);
   margin-top: 1.75rem;
   table-layout: fixed;
@@ -6405,7 +6405,7 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
   display: none;
 }
 
-/*----- 3.5. Timeline Indicator -----*/
+/*----- 3.5. 时间轴指示器 -----*/
 .uix-flexslider__timeline-nav {
   position: relative;
   width: 100%;
@@ -6424,7 +6424,7 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
 
 /*
  ---------------------------
- 4. Primary Slideshow  (with dynamic min/max ranges )
+ 4. 主要幻灯片（动态最小/最大范围）
  ---------------------------
  */
 .uix-flexslider.uix-flexslider--itemgrid .uix-flexslider__item {
@@ -6444,14 +6444,14 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
 
 /*
  ---------------------------
- 5. Primary Slideshow
+ 5. 主要幻灯片
  ---------------------------
  */
 .uix-flexslider.uix-flexslider--primary {
   overflow: hidden;
-  /* Full Screen Slider
-     * You need add an attribute "data-slider-bg" to ".uix-flexslider__item"
-    */
+  /* 全屏滑块
+     * 您需要将属性“data-slider-bg”添加到“.uix-flexslider__item”
+     */
 }
 
 .uix-flexslider.uix-flexslider--primary.is-fullscreen {
@@ -6473,10 +6473,9 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
 .uix-flexslider.uix-flexslider--primary .uix-flexslider__inner > .uix-flexslider__item .uix-flexslider__desc {
   position: absolute;
   top: 0;
-  top: 50%;
   left: 0;
   width: 100%;
-  /* Vertical Center */
+  /* 垂直居中 */
   transform: translateY(-50%);
   color: white;
 }
@@ -6563,7 +6562,7 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
 
 /*
  ---------------------------
- 6. Parallax Slideshow
+ 6. 视差幻灯片
  ---------------------------
  */
 .uix-flexslider.uix-flexslider--parallax {
@@ -6591,9 +6590,9 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
   top: 50%;
   width: auto;
   transition: all 1.5s ease;
-  /* Note: The duration can not be less than 1.5 */
+  /* 注意：时长不能小于1.5 */
   transform: translateY(-50%);
-  box-shadow: 0px 0px 34px -6px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 0 34px -6px rgba(0, 0, 0, 0.55);
 }
 
 .uix-flexslider.uix-flexslider--parallax .uix-flexslider__inner > .uix-flexslider__item .uix-flexslider__el-level-1 {
@@ -6622,8 +6621,9 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
   transform: translate(50px, -50%);
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Floating Side Element -->
+   <!-- 浮动侧边栏 Floating Side Element -->
 /* ====================================================== */
 .uix-floating-side-el {
   position: absolute;
@@ -6671,8 +6671,9 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
   color: #ffffff;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Form Progress -->
+   <!-- 表单进度 Form Progress -->
 /* ====================================================== */
 .uix-form-progress {
   position: relative;
@@ -6736,7 +6737,7 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
   background: #ce3a3e;
 }
 
-/* Form animations */
+/* 表单动画 */
 .uix-form-progress__target {
   transition: all 0.3s ease;
   position: relative;
@@ -6788,41 +6789,43 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
 
 @charset "UTF-8";
 /* ======================================================
-    <!-- Form -->
+    <!-- 表格 Form -->
 /* ====================================================== */
 /*
- * 1. Controls
- * 2. Upload
- * 3. Group
- * 4. Custom Select
- * 5. Custom Radio, Toggle And Checkbox
- * 6. Custom Input Number
- * 7. Multiple Selector
- * 8. Single Selector
- * 9. Search of Widget
- * 10. Add / remove input field dynamically
- * 11. Tag Input
+ * 1. 控件
+ * 2. 上传
+ * 3. 组
+ * 4. 自定义选择
+ * 5. 自定义单选、切换和复选框
+ * 6. 自定义输入数字
+ * 7. 多重选择器
+ * 8. 单一选择器
+ * 9. 搜索小工具
+ * 10. 动态添加/删除输入字段
+ * 11. 标签输入
 */
 /*
  ---------------------------
- 1. Controls
+ 1. 控件
  ---------------------------
  */
-/* Change Autocomplete styles in Chrome*/
+/* 更改 Chrome 中的自动完成样式*/
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
-input:-webkit-autofill:focus textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
   border: 1px solid #dce4e8;
-  box-shadow: 0 0 0px 1000px #ffffff inset;
+  box-shadow: 0 0 0 1000px #ffffff inset;
   -webkit-text-fill-color: #dce4e8;
 }
 
-/* Remove default text/placeholder present in html5 input element of type=date and type=datetime-local */
+/* 删除 type=date 和 type=datetime-local 的 html5 输入元素中存在的默认文本/占位符 */
 input[type="date"]::-webkit-datetime-edit,
 input[type="datetime-local"]::-webkit-datetime-edit {
   color: transparent !important;
@@ -6835,7 +6838,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   color: #888888 !important;
 }
 
-/* Required field marker */
+/* 必填字段标记 */
 .uix-controls__im {
   font-size: 1.5rem;
   position: absolute;
@@ -6844,20 +6847,20 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   color: red;
 }
 
-/* Default Controls */
+/* 默认控件 */
 .uix-controls:not(.uix-controls__toggle):not(.uix-controls__checkbox):not(.uix-controls__radio):not(.uix-controls__select) {
   position: relative;
   display: inline-block;
   /* Avoid line breaks */
   margin-bottom: 1.09375rem;
-  /*-- Select Arrow --*/
-  /*-- Radio --*/
-  /*-- Select --*/
-  /*-- Form With Icon --*/
-  /*-- Form Status: Success --*/
-  /*-- Form Status: Error --*/
-  /*-- Form Status: Disable --*/
-  /*-- WordPress Style --*/
+  /*-- 选择箭头 --*/
+  /*-- 单选按钮 --*/
+  /*-- 选择 --*/
+  /*-- 带图标的表单 --*/
+  /*-- 表单状态：成功 --*/
+  /*-- 表单状态：错误 --*/
+  /*-- 表单状态：禁用 --*/
+  /*-- WordPress 风格 --*/
 }
 
 .uix-controls:not(.uix-controls__toggle):not(.uix-controls__checkbox):not(.uix-controls__radio):not(.uix-controls__select).is-fullwidth {
@@ -6888,7 +6891,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 .uix-controls:not(.uix-controls__toggle):not(.uix-controls__checkbox):not(.uix-controls__radio):not(.uix-controls__select) input:not([type="checkbox"]):not([type="radio"]) {
   font-size: 0.875rem;
-  /* Remove inner shadow from inputs on mobile iOS */
+  /* 从移动 iOS 上的输入中移除内部阴影 */
   box-sizing: content-box;
   transition: all 0.3s ease;
   width: calc(100% - 1.09375rem - 2px);
@@ -6930,13 +6933,12 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 .uix-controls:not(.uix-controls__toggle):not(.uix-controls__checkbox):not(.uix-controls__radio):not(.uix-controls__select) button:not(.uix-btn),
 .uix-controls:not(.uix-controls__toggle):not(.uix-controls__checkbox):not(.uix-controls__radio):not(.uix-controls__select) select {
   font-size: 0.875rem;
-  /* Remove inner shadow from inputs on mobile iOS */
+  /* 从移动 iOS 上的输入中移除内部阴影 */
   box-sizing: content-box;
   width: calc(100% - 1.09375rem - 2px);
   margin: 0;
   padding: 0.54688rem 0.54688rem;
   color: #888888;
-  border: none;
   transition: all 0.3s ease;
   border: 1px solid #dce4e8;
   border-radius: 0;
@@ -7058,7 +7060,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 }
 
 .uix-controls:not(.uix-controls__toggle):not(.uix-controls__checkbox):not(.uix-controls__radio):not(.uix-controls__select).uix-controls__normal-select.is-disabled {
-  /* Mask used to prohibit selection */
+  /* 用于禁止选择的遮罩 */
 }
 
 .uix-controls:not(.uix-controls__toggle):not(.uix-controls__checkbox):not(.uix-controls__radio):not(.uix-controls__select).uix-controls__normal-select.is-disabled::before {
@@ -7183,7 +7185,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 2. Upload
+ 2. 上传
  ---------------------------
  */
 .uix-controls__file-container {
@@ -7215,14 +7217,13 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   font-style: italic;
 }
 
-/* HTML5 drag and drop upload control */
+/* HTML5 拖拽上传控件 */
 .uix-controls__file-field-container {
   position: relative;
   z-index: 2;
   height: 400px;
   max-height: 30vh;
-  margin: 0 auto;
-  margin-bottom: 2.5rem;
+  margin: 0 auto 2.5rem;
   background-color: transparent;
 }
 
@@ -7237,7 +7238,6 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   max-width: 100%;
   height: 100%;
   cursor: pointer;
-  pointer-events: hover;
   color: #cbcbcb;
   border-radius: 8px;
   background: #fbfdfd;
@@ -7302,12 +7302,12 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 3. Group
+ 3. 组
  ---------------------------
  */
 .uix-controls__merge {
   position: relative;
-  /*-- Form With Icon --*/
+  /*-- 带图标的表单 --*/
 }
 
 .uix-controls__merge::after {
@@ -7326,7 +7326,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 .uix-controls__merge button,
 .uix-controls__merge select {
   border: none;
-  /* Remove inner shadow from inputs on mobile iOS */
+  /* 从移动 iOS 上的输入中移除内部阴影 */
   border-radius: 0;
   -webkit-appearance: none;
 }
@@ -7341,7 +7341,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   margin-bottom: 1.09375rem;
   padding: 0.54688rem 0.54688rem;
   color: #888888;
-  /* Fixed the gap*/
+  /* 修正间隙*/
   border: 1px solid #dce4e8;
 }
 
@@ -7357,7 +7357,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   min-width: 0;
   margin-left: -1px;
   padding: 0.82813rem 0;
-  /* Fixed the gap*/
+  /* 修正间隙*/
   letter-spacing: .02rem;
 }
 
@@ -7428,7 +7428,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 4. Custom Select
+ 4. 自定义选择
  ---------------------------
  */
 .uix-controls__select {
@@ -7450,7 +7450,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   display: inline-block;
   min-height: 4.1rem;
   user-select: none;
-  /* Shown above */
+  /* 如上所示 */
 }
 
 .uix-controls__select-wrapper.is-fullwidth {
@@ -7467,7 +7467,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 }
 
 .uix-controls__select-wrapper:not(.uix-controls--line).is-disabled {
-  /* Mask used to prohibit selection */
+  /* 用于禁止选择的遮罩 */
 }
 
 .uix-controls__select-wrapper:not(.uix-controls--line).is-disabled::before {
@@ -7635,7 +7635,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 }
 
 .uix-controls__select-wrapper .uix-controls__select--top {
-  /* Shown from above */
+  /* 如上图所示 */
 }
 
 .uix-controls__select-wrapper .uix-controls__select--top .uix-controls__select__option-container {
@@ -7671,7 +7671,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 5. Custom Radio, Toggle And Checkbox
+ 5. 自定义单选、切换和复选框
  ---------------------------
  */
 .uix-controls__radio {
@@ -7780,8 +7780,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   display: inline-block;
   width: 12px;
   height: 12px;
-  margin: 0.5rem .5rem 0.5rem 0;
-  margin-left: 50px;
+  margin: 0.5rem .5rem 0.5rem 50px;
   vertical-align: top;
   border-radius: 50%;
   background: #dce4e8;
@@ -7872,7 +7871,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 6. Custom Input Number
+ 6. 自定义输入数字
  ---------------------------
  */
 .uix-controls__number input[type="number"]::-webkit-inner-spin-button,
@@ -7927,7 +7926,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 7. Multiple Selector
+ 7. 多重选择器
  ---------------------------
  */
 .uix-controls__multi-sel > span {
@@ -7976,7 +7975,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 8. Single Selector
+ 8. 单一选择器
  ---------------------------
  */
 .uix-controls__single-sel > span {
@@ -8027,7 +8026,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 9. Search of Widget
+ 9. 搜索小工具
  ---------------------------
  */
 .uix-search-box {
@@ -8076,7 +8075,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 10. Add / remove input field dynamically
+ 10. 动态添加/删除输入字段
  ---------------------------
  */
 .uix-controls__dynamic-fields-container {
@@ -8099,7 +8098,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 11. Tag Input
+ 11. 标签输入
  ---------------------------
  */
 .uix-controls__tags-wrapper {
@@ -8165,8 +8164,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   position: relative;
   display: inline-block;
   overflow: hidden;
-  margin: 5px;
-  margin-bottom: 0;
+  margin: 5px 5px 0;
   padding: .1rem 1.5rem .1rem 1rem;
   text-overflow: ellipsis;
   border-radius: 30px;
@@ -8186,8 +8184,9 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   color: #333333;
 }
 
+@charset "UTF-8";
 /* ======================================================
-    <!-- Form ( Layout )- -->
+    <!-- 表格（布局）Form ( Layout )- -->
 /* ====================================================== */
 .uix-controls-layout {
   display: flex;
@@ -8230,27 +8229,28 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
     <!-- Form  ( Material Design Theme )-->
 /* ====================================================== */
 /*
- * 1. Controls
- * 4. Custom Select
- * 6. Custom Input Number
- * 7. Multiple Selector
- * 8. Single Selector
- * 11. Tag Input
+ * 1. 控件
+ * 4. 自定义选择
+ * 6. 自定义输入数字
+ * 7. 多重选择器
+ * 8. 单一选择器
+ * 11. 标签输入
 */
 /*
  ---------------------------
- 1. Controls
+ 1. 控件
  ---------------------------
  */
-/* Default Controls */
+/* 默认控件 */
 .uix-controls:not(.uix-controls__toggle):not(.uix-controls__checkbox):not(.uix-controls__radio):not(.uix-controls__select) {
-  /*-- Form Status: Success --*/
-  /*-- Form Status: Error --*/
-  /*-- Form Status: Disable --*/
+  /*-- 表单状态：成功 --*/
+  /*-- 表单状态：错误 --*/
+  /*-- 表单状态：禁用 --*/
 }
 
 .uix-controls:not(.uix-controls__toggle):not(.uix-controls__checkbox):not(.uix-controls__radio):not(.uix-controls__select) .uix-controls__basic-bar,
@@ -8295,11 +8295,11 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   background: #e1e1e1;
 }
 
-/* Create Line Effect on Click */
+/* 创建点击时的线条效果 */
 .uix-controls.uix-controls--line {
-  /*-- Form With Icon --*/
-  /*-- Select --*/
-  /*-- Form Status: Disable --*/
+  /*-- 带图标的表单 --*/
+  /*-- 选择 --*/
+  /*-- 表单状态：禁用 --*/
 }
 
 .uix-controls.uix-controls--line.is-pill input:not([type="checkbox"]):not([type="radio"]),
@@ -8393,7 +8393,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 .uix-controls.uix-controls--line.is-iconic.is-reversed textarea,
 .uix-controls.uix-controls--line.is-iconic.is-reversed button:not(.uix-btn),
 .uix-controls.uix-controls--line.is-iconic.is-reversed select {
-  padding-left: !important;
+  padding-left: 0 !important;
 }
 
 .uix-controls.uix-controls--line.is-iconic.is-reversed label {
@@ -8425,12 +8425,12 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 4. Custom Select
+ 4. 自定义选择
  ---------------------------
  */
 .uix-controls__select-wrapper.uix-controls--line.is-disabled {
   opacity: .7;
-  /* Mask used to prohibit selection */
+  /* 用于禁止选择的遮罩 */
 }
 
 .uix-controls__select-wrapper.uix-controls--line.is-disabled::before {
@@ -8493,7 +8493,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 6. Custom Input Number
+ 6. 自定义输入数字
  ---------------------------
  */
 .uix-controls__number.uix-controls--line .uix-controls__number__btn {
@@ -8502,11 +8502,11 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 7. Multiple Selector
+ 7. 多重选择器
  ---------------------------
  */
 .uix-controls__multi-sel {
-  /* Create Line Effect on Click */
+  /* 创建点击时的线条效果 */
 }
 
 .uix-controls__multi-sel.uix-controls--line > span {
@@ -8528,11 +8528,11 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 8. Single Selector
+ 8. 单一选择器
  ---------------------------
  */
 .uix-controls__single-sel {
-  /* Create Line Effect on Click */
+  /* 创建点击时的线条效果 */
 }
 
 .uix-controls__single-sel.uix-controls--line > span {
@@ -8558,7 +8558,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 11. Tag Input
+ 11. 标签输入
  ---------------------------
  */
 .uix-controls__tags-wrapper.uix-controls--line > div {
@@ -8569,15 +8569,16 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   border-radius: 0;
 }
 
+@charset "UTF-8";
 /* ======================================================
-    <!-- Form ( 3rd Party Plugin ) -->
+    <!-- 表单（第三方插件） Form ( 3rd Party Plugin ) -->
 /* ====================================================== */
 /*
- * 1. Date Picker  
+ * 1. 日期选择器
 */
 /*
  ---------------------------
- 1. Date Picker ( 3rd Party Plugin )
+ 1. 日期选择器（第三者插件）
  ---------------------------
  */
 .uix-controls__date::after {
@@ -9204,17 +9205,17 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 @charset "UTF-8";
 /* ======================================================
-        <!-- Gallery -->
+        <!-- 画廊 Gallery -->
 /* ====================================================== */
 .uix-gallery > .uix-gallery__tiles {
   overflow: auto;
-  /* Fix a bug for floating divs have 0 height */
+  /* 修复浮动 div 高度为 0 的错误 */
 }
 
 .uix-gallery > .uix-gallery__tiles .uix-gallery__item {
   position: relative;
   margin-bottom: 0;
-  /* Cover the bottom spacing of the grid system */
+  /* 覆盖网格系统的底部间距 */
   transition: none;
   text-align: left;
 }
@@ -9294,8 +9295,8 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   background: rgba(255, 255, 255, 0.95);
 }
 
-/* Filter or Masonry */
-/* You can directly use uix-core-grid__col-* to control the width of the item */
+/* 过滤器或瀑布流 */
+/* 可以直接使用uix-core-grid__col-*来控制item的宽度*/
 .uix-gallery[data-show-type*="filter"] > .uix-gallery__tiles,
 .uix-gallery[data-show-type*="masonry"] > .uix-gallery__tiles {
   position: relative;
@@ -9336,17 +9337,17 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 @charset "UTF-8";
 /* ======================================================
-    <!-- Hybrid Content Slider -->
+    <!-- 混合内容滑块 Hybrid Content Slider -->
 /* ====================================================== */
 /*
- * 1. Initialize the core style
- * 2. Next/Prev buttons
- * 3. Pagination dots
+ * 1. 初始化核心样式
+ * 2. 下一个/上一个按钮
+ * 3. 分页点
  * 
 */
 /*
  ---------------------------
- 1. Initialize the core style
+ 1. 初始化核心样式
  ---------------------------
  */
 .uix-hybrid-content-slider {
@@ -9376,7 +9377,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 2. Next/Prev buttons
+ 2. 下一个/上一个按钮
  ---------------------------
  */
 .uix-hybrid-content-slider__controls {
@@ -9418,7 +9419,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 3. Pagination dots
+ 3. 分页点
  ---------------------------
  */
 .uix-hybrid-content-slider__pagination {
@@ -9458,7 +9459,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   text-indent: -9999px;
   border-radius: 20px;
   background: rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 6px 23px -2px rgba(0, 0, 0, 0.36);
+  box-shadow: 0 6px 23px -2px rgba(0, 0, 0, 0.36);
 }
 
 .uix-hybrid-content-slider__pagination ul.uix-hybrid-content-slider__pagination--default li:hover a,
@@ -9498,7 +9499,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   color: #ffffff;
   border-radius: 20px;
   background: rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 6px 23px -2px rgba(0, 0, 0, 0.36);
+  box-shadow: 0 6px 23px -2px rgba(0, 0, 0, 0.36);
 }
 
 .uix-hybrid-content-slider__pagination ul.uix-hybrid-content-slider__pagination--custom li:hover a,
@@ -9506,8 +9507,9 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   background: black;
 }
 
+@charset "UTF-8";
 /* ======================================================
-        <!-- Image Shapes -->
+        <!-- 图像形状 Image Shapes -->
 /* ====================================================== */
 .uix-shape-img {
   opacity: 0;
@@ -9526,8 +9528,9 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   display: block;
 }
 
+@charset "UTF-8";
 /* ======================================================
-       <!-- Infinite Scrolling Element -->
+       <!-- 无限滚动元素 Infinite Scrolling Element -->
 /* ====================================================== */
 .uix-infinite-scrolling {
   position: relative;
@@ -9542,11 +9545,11 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 @charset "UTF-8";
 /* ======================================================
-   <!-- Lava-Lamp Style Menu -->
+   <!-- Lava-Lamp 风格菜单 Lava-Lamp Style Menu -->
 /* ====================================================== */
 .uix-lavalamp-menu__container {
   position: relative;
-  /* Required*/
+  /* 必需的 */
   margin: 0 auto;
 }
 
@@ -9554,7 +9557,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   font-size: 0;
   /* 争夺内联块元素之间的空间 */
   margin: 0;
-  /* Required*/
+  /* 必需的 */
   padding: 0;
 }
 
@@ -9563,12 +9566,10 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   /* 争夺内联块元素之间的空间 */
   position: relative;
   display: inline-block;
-  margin: 0;
-  margin-right: 1.6875rem;
-  padding: 0;
+  margin: 0 1.6875rem 0 0;
   padding: 0 1.159375rem;
   white-space: nowrap;
-  /* Required*/
+  /* 必需的 */
 }
 
 .uix-lavalamp-menu__container ul.uix-lavalamp-menu li a {
@@ -9593,16 +9594,17 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   background: #ce3a3e;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Cutom Light Box -->
+   <!-- 自定义灯箱 Cutom Light Box -->
 /* ====================================================== */
 /*
- * 1. Initialization module
- * 2. Click to enlarge image in light box
+ * 1. 初始化模块
+ * 2. 点击放大灯箱图片
 */
 /*
  ---------------------------
- 1. Initialization module
+ 1. 初始化模块
  ---------------------------
  */
 .uix-lightbox__content-container {
@@ -9678,7 +9680,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  /* Avoid masks being blocked */
+  /* 避免遮罩被阻塞 */
 }
 
 .uix-lightbox__container .uix-lightbox__inner {
@@ -9690,7 +9692,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   transform: translateY(-50%);
   text-align: center;
   pointer-events: all;
-  /* Custom content width you want */
+  /* 你想要的自定义内容宽度 */
 }
 
 .uix-lightbox__container .uix-lightbox__inner .uix-lightbox__html {
@@ -9876,7 +9878,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 .uix-lightbox__container .uix-lightbox__inner.js-uix-pure-image .uix-lightbox__html img {
   max-height: 95vh;
-  /* Do not use percentages here */
+  /* 此处不要使用百分比 */
 }
 
 .uix-lightbox__container .uix-lightbox__inner.js-uix-custom {
@@ -9897,7 +9899,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   position: fixed;
   top: 0;
   margin-top: 0 !important;
-  /* Protected from js */
+  /* 防止 js */
 }
 
 .uix-lightbox__container.js-uix-no-fixed .uix-lightbox__inner {
@@ -9985,7 +9987,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   .uix-lightbox__container .uix-lightbox__inner {
     max-width: calc(100% - 30px) !important;
     margin: 15px auto;
-    /* Custom content width you want */
+    /* 你想要的自定义内容宽度 */
   }
   .uix-lightbox__container .uix-lightbox__inner .uix-lightbox__html > .uix-lightbox__content {
     width: auto;
@@ -10006,7 +10008,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
     top: 0;
   }
   .uix-lightbox__container.js-uix-no-fixed .uix-lightbox__inner {
-    /* Prevent closing button position error */
+    /* 防止关闭按钮位置出错 */
     overflow: hidden;
   }
   .uix-lightbox__container.js-uix-no-fixed .uix-lightbox__inner.js-uix-custom {
@@ -10019,7 +10021,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 /*
  ---------------------------
- 2. Click to enlarge image in light box
+ 2. 点击放大灯箱图片
  ---------------------------
  */
 a.uix-lightbox__original__link {
@@ -10027,7 +10029,7 @@ a.uix-lightbox__original__link {
   cursor: zoom-in;
 }
 
-/* Styles the close link, adds the slide down transition */
+/* 设置关闭链接的样式，添加向下滑动过渡 */
 .uix-lightbox__original__close {
   position: fixed;
   z-index: 100001;
@@ -10041,8 +10043,8 @@ a.uix-lightbox__original__link {
   color: black;
   background: white;
   transition: all 0.3s ease;
-  /* Provides part of the "X" to eliminate an image from the close link */
-  /* Provides part of the "X" to eliminate an image from the close link */
+  /* 提供部分“X”以从关闭链接中删除图像 */
+  /* 提供部分“X”以从关闭链接中删除图像 */
 }
 
 .uix-lightbox__original__close.is-active {
@@ -10073,7 +10075,7 @@ a.uix-lightbox__original__link {
   background: black;
 }
 
-/* Styles the lightbox image, centers it vertically and horizontally, adds the zoom-in transition and makes it responsive using a combination of margin and absolute positioning */
+/* 设置灯箱图像的样式，将其垂直和水平居中，添加放大过渡并结合使用边距和绝对定位使其响应 */
 .uix-lightbox__original__target {
   position: fixed;
   z-index: 100000;
@@ -10086,7 +10088,7 @@ a.uix-lightbox__original__link {
   transform: translate(-50%, -50%);
   opacity: 0;
   background: rgba(0, 0, 0, 0.7);
-  /* To perform the animations upon clicking the .uix-lightbox__original__target anchor */
+  /* 在点击 .uix-lightbox__original__target 锚点时执行动画 */
 }
 
 .uix-lightbox__original__target::-webkit-scrollbar-track {
@@ -10112,13 +10114,13 @@ a.uix-lightbox__original__link {
   left: 0;
   box-sizing: border-box;
   width: auto !important;
-  /* Protected from js */
+  /* 防止 js */
   max-width: 0%;
   height: auto !important;
-  /* Protected from js */
+  /* 防止 js */
   max-height: 0%;
   margin: auto !important;
-  /* Protected from js */
+  /* 防止 js */
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -10127,7 +10129,7 @@ a.uix-lightbox__original__link {
   bottom: 0;
   height: 100vh;
   opacity: 1;
-  /* When zooming in on the picture */
+  /* 放大图片时 */
 }
 
 .uix-lightbox__original__target.is-active.no-fixed-imgEnlarged {
@@ -10148,7 +10150,7 @@ a.uix-lightbox__original__link {
 
 .uix-lightbox__original__target.uix-lightbox__original__target--imgfull img {
   margin: 0 auto !important;
-  /* Protected from js */
+  /* 防止 js */
 }
 
 /* ======================================================
@@ -10363,8 +10365,9 @@ a.uix-lightbox__original__link {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-    <!-- Full Width Column to Edge -->
+    <!-- 全宽列到边缘 Full Width Column to Edge -->
 /* ====================================================== */
 .uix-fullwidth-column-to-edge--fixed-and-variable {
   display: flex;
@@ -10378,7 +10381,8 @@ a.uix-lightbox__original__link {
 
 .uix-fullwidth-column-to-edge--fixed-and-variable .uix-fullwidth-column-to-edge--fixed-and-variable__variable {
   flex: 10000 auto auto;
-  /* 
+  /*
+        为什么这么高？ 当容器的宽度超过 500 像素（意思是）时，200 像素的固定列和 300 像素的可变列有足够的空间，然后 flex grow 开始确定每列应该得到的比例。 需要注意的是，固定列永远不会小于 200 像素（当它们在同一行时），无论出于何种浏览器原因，这个大数字确保固定列不会增长。 要了解我的意思，请更改为 100 并调整屏幕大小。 您会看到固定列的小像素移动。
         Why so high? When the container is more than 500px wide (meaning) there's more than enough room for the 200px fixed and 300px variable columns, then flex grow kicks in to determine what proportion each column should get. The caveat is that the fixed column will never be less than 200px (when they're on the same row) and for whatever browser reason, this big number ensures the fixed column doesn't grow. To see what I mean, change to 100 and resize the screen. You'll see a small pixel movement of the fixed column.
         */
   flex-basis: auto;
@@ -16601,7 +16605,7 @@ table.is-horizontal th,
   float: none;
   overflow: hidden;
   width: 50px;
-  /* Vertical Center */
+  /* 垂直居中 */
   transform: translateX(-50%);
   text-align: center;
 }
@@ -19502,8 +19506,9 @@ ul.edd_purchase_receipt_files li {
   box-shadow: none;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Badges -->
+   <!-- 圆形文字 Circle Text -->
 /* ====================================================== */
 .uix-circle-text {
   position: relative;
@@ -19533,11 +19538,11 @@ ul.edd_purchase_receipt_files li {
 
 @charset "UTF-8";
 /* ======================================================
-   <!-- 辅助标记 -->
+   <!-- 辅助标记 Coach Mark -->
 /* ====================================================== */
 /*
- * 1. Ripple effect 1
- * 2. Ripple Effect 2
+ * 1. 涟漪效应 1
+ * 2. 涟漪效应 2
 */
 .uix-coach-mark-indicator-ripple {
   position: relative;
@@ -19548,12 +19553,12 @@ ul.edd_purchase_receipt_files li {
   background: #ce3a3e;
   /*
      ---------------------------
-     1. Ripple effect 1
+     1. 涟漪效应 1
      ---------------------------
      */
   /*
      ---------------------------
-     2. Ripple Effect 2
+     2. 涟漪效应 2
      ---------------------------
      */
 }
@@ -19648,8 +19653,9 @@ ul.edd_purchase_receipt_files li {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Content Placeholder Animated -->
+   <!-- 内容占位符动画 Content Placeholder Animated -->
 /* ====================================================== */
 .uix-content-placeholder {
   width: 100%;
@@ -19742,8 +19748,9 @@ ul.edd_purchase_receipt_files li {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Dividing Line -->
+   <!-- 分割线 Dividing Line -->
 /* ====================================================== */
 .uix-separator-base {
   display: block;
@@ -19821,16 +19828,17 @@ ul.edd_purchase_receipt_files li {
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Dotted Line -->
+   <!-- 虚线 Dotted Line -->
 /* ====================================================== */
 .uix-dotted-line {
   display: inline-block;
   height: 300px;
   margin: 1.5rem;
-  /* Small Size */
-  /* Medium Size */
-  /* Large Size */
+  /* 小尺寸 */
+  /* 中等大小 */
+  /* 大尺寸 */
 }
 
 .uix-dotted-line.uix-dotted-line--s {
@@ -19845,15 +19853,12 @@ ul.edd_purchase_receipt_files li {
 .uix-dotted-line.uix-dotted-line--s.is-horizontal {
   width: 300px;
   height: 1px;
-  background: linear-gradient(to right, #212121 10%, rgba(255, 255, 255, 0) 0%);
-  background-repeat: repeat-x;
-  background-position: top;
+  background: linear-gradient(to right, #212121 10%, rgba(255, 255, 255, 0) 0%) repeat-x top;
   background-size: 8px 1px;
 }
 
 .uix-dotted-line.uix-dotted-line--s.is-circle {
-  background: radial-gradient(circle, #212121 1.5px, transparent 2px);
-  background-position: top;
+  background: radial-gradient(circle, #212121 1.5px, transparent 2px) top;
   background-size: 12px 6px;
 }
 
@@ -19869,15 +19874,12 @@ ul.edd_purchase_receipt_files li {
 .uix-dotted-line.uix-dotted-line--m.is-horizontal {
   width: 300px;
   height: 3px;
-  background: linear-gradient(to right, #212121 20%, rgba(255, 255, 255, 0) 0%);
-  background-repeat: repeat-x;
-  background-position: top;
+  background: linear-gradient(to right, #212121 20%, rgba(255, 255, 255, 0) 0%) repeat-x top;
   background-size: 10px 3px;
 }
 
 .uix-dotted-line.uix-dotted-line--m.is-circle {
-  background: radial-gradient(circle, #212121 1.5px, transparent 2px);
-  background-position: top;
+  background: radial-gradient(circle, #212121 1.5px, transparent 2px) top;
   background-size: 12px 6px;
 }
 
@@ -19893,27 +19895,22 @@ ul.edd_purchase_receipt_files li {
 .uix-dotted-line.uix-dotted-line--l.is-horizontal {
   width: 300px;
   height: 6px;
-  background: linear-gradient(to right, #212121 30%, rgba(255, 255, 255, 0) 0%);
-  background-repeat: repeat-x;
-  background-position: top;
+  background: linear-gradient(to right, #212121 30%, rgba(255, 255, 255, 0) 0%) repeat-x top;
   background-size: 12px 6px;
 }
 
 .uix-dotted-line.uix-dotted-line--l.is-circle {
-  background: radial-gradient(circle, #212121 1.5px, transparent 2px);
-  background-position: top;
+  background: radial-gradient(circle, #212121 1.5px, transparent 2px) top;
   background-size: 12px 6px;
 }
 
 @charset "UTF-8";
 /* ======================================================
-   <!-- Equal-width Columns -->
+   <!-- 等宽列 Equal-width Columns -->
 /* ====================================================== */
 /**
- * Using only CSS, we can make a tabbed navigation whose tabs always
- * occupy an equal share of the available width. No JS to interrogate
- * the DOM, no server-side logic to count through items, no inline styles.
- *
+ * 仅使用 CSS，我们可以制作标签式导航，其标签始终占据可用宽度的相等份额。
+ * 没有 JS 来查询 DOM，没有服务器端逻辑来计算项目，没有内联样式。
  */
 .uix-equal-width-divs ul {
   font-size: 0;
@@ -19932,7 +19929,7 @@ ul.edd_purchase_receipt_files li {
   /* 争夺内联块元素之间的空间 */
   display: table-cell;
   /* [4] */
-  box-shadow: 1px 0px 0px 0px #aeaeae;
+  box-shadow: 1px 0 0 0 #aeaeae;
 }
 
 .uix-equal-width-divs ul li:last-child {
@@ -19961,22 +19958,22 @@ ul.edd_purchase_receipt_files li {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Features -->
+   <!-- 特性 Features -->
 /* ====================================================== */
 /*
- * 1. Features with Grid System
- * 2. Features with Dividing Line
-
+ * 1. 网格系统的特点
+ * 2. 带分割线的功能
 */
 /*
  ---------------------------
- 1. Features with Grid System
+ 1. 网格系统的特点
  ---------------------------
  */
 .uix-feature {
-  /* Horizontal Icons */
-  /* Vertical Icons */
+  /* 水平图标 */
+  /* 垂直图标 */
 }
 
 .uix-feature .uix-feature__icon {
@@ -20098,8 +20095,8 @@ ul.edd_purchase_receipt_files li {
 }
 
 .uix-typo--color-white .uix-feature {
-  /* Horizontal Icons */
-  /* Vertical Icons */
+  /* 水平图标 */
+  /* 垂直图标 */
 }
 
 .uix-typo--color-white .uix-feature .uix-feature__icon.is-bordered {
@@ -20112,7 +20109,7 @@ ul.edd_purchase_receipt_files li {
 
 /*
  ---------------------------
- 2. Features with Dividing Line
+ 2. 带分割线的功能
  ---------------------------
  */
 .uix-feature.uix-feature--line {
@@ -20174,8 +20171,9 @@ ul.edd_purchase_receipt_files li {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Footer Templates -->
+   <!-- 页脚模板 Footer Templates -->
 /* ====================================================== */
 .uix-special-footer__container {
   margin: 3rem 0 0;
@@ -20242,8 +20240,9 @@ ul.edd_purchase_receipt_files li {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Gallery Grid Layout -->
+   <!-- 图库网格布局 Gallery Grid Layout -->
 /* ====================================================== */
 .uix-gallery-grid .uix-gallery-grid__tiles {
   display: flex;
@@ -20373,20 +20372,21 @@ ul.edd_purchase_receipt_files li {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Heading -->
+   <!-- 标题 Heading -->
 /* ====================================================== */
 /*
- * 1. Header Pinlines
- * 2. Text Overlay
- * 3. Show Image Under Text
- * 4. Custom Underline
- * 5. Hybrid Heading
- * 6. Placeholder Line Heading
+ * 1. 标题引脚线
+ * 2. 文字叠加
+ * 3. 在文字下方显示图片
+ * 4. 自定义下划线
+ * 5. 混合标题
+ * 6. 占位符行标题
 */
 /*
  ---------------------------
- 1. Header Pinlines
+ 1. 标题引脚线
  ---------------------------
  */
 .uix-heading--pinline {
@@ -20439,7 +20439,7 @@ ul.edd_purchase_receipt_files li {
 
 /*
  ---------------------------
- 2. Text Overlay
+ 2. 文字叠加
  ---------------------------
  */
 .uix-heading--overlay {
@@ -20455,9 +20455,8 @@ ul.edd_purchase_receipt_files li {
 }
 
 .uix-heading--overlay::before {
-  font-size: inherit;
   font-size: 1.5em;
-  /* Don't use "REM" */
+  /* 不要使用“REM” */
   font-weight: 900;
   position: absolute;
   z-index: 0;
@@ -20486,8 +20485,7 @@ ul.edd_purchase_receipt_files li {
 
 .uix-heading--overlay.uix-heading--overlay--bottom::after {
   font-size: 0.35em;
-  /* Don't use "REM" */
-  font-weight: 900;
+  /* 不要使用“REM” */
   font-weight: 900;
   line-height: 1.1;
   position: relative;
@@ -20504,7 +20502,7 @@ ul.edd_purchase_receipt_files li {
 .uix-heading--overlay.uix-heading--overlay--sub {
   padding: 1rem 4rem;
   background-color: white;
-  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
@@ -20514,7 +20512,7 @@ ul.edd_purchase_receipt_files li {
 }
 
 .uix-heading--overlay.uix-heading--overlay--sub:hover {
-  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1), 0 -4px 0px 0px #ce3a3e;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1), 0 -4px 0px 0px #ce3a3e;
 }
 
 .uix-heading--overlay.uix-heading--overlay--sub:hover i {
@@ -20523,13 +20521,13 @@ ul.edd_purchase_receipt_files li {
 
 /*
  ---------------------------
- 3. Show Image Under Text
+ 3. 在文字下方显示图片
  ---------------------------
  */
 .uix-heading--fill {
   user-select: none;
   color: #212121;
-  /* Fallback: assume this color ON TOP of image */
+  /* 回退：假设这个颜色在图像的顶部 */
   background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) no-repeat;
   -webkit-background-clip: text;
   background-size: cover;
@@ -20538,7 +20536,7 @@ ul.edd_purchase_receipt_files li {
 
 /*
  ---------------------------
- 4. Custom Underline
+ 4. 自定义下划线
  ---------------------------
  */
 .uix-heading--underline span {
@@ -20557,19 +20555,19 @@ ul.edd_purchase_receipt_files li {
 
 /*
  ---------------------------
- 5. Hybrid Heading
+ 5. 混合标题
  ---------------------------
  */
 .uix-heading--hybrid span {
   font-size: 0.35em;
-  /* Don't use "REM" */
+  /* 不要使用“REM” */
   display: block;
   letter-spacing: 2px;
 }
 
 /*
  ---------------------------
- 6. Placeholder Line Heading
+ 6. 占位符行标题
  ---------------------------
  */
 .uix-heading--placeholder-line {
@@ -20591,8 +20589,9 @@ ul.edd_purchase_receipt_files li {
   background: linear-gradient(to right, #ce3a3e 0%, #de510e 100%);
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Image Animation -->
+   <!-- 图像动画 Image Animation -->
 /* ====================================================== */
 .uix-image-anim {
   line-height: 0;
@@ -20601,10 +20600,10 @@ ul.edd_purchase_receipt_files li {
   overflow: hidden;
   transform: rotate(0.0001deg);
   background-color: #f5f6fa;
-  /* Image overlay */
-  /*-- Effect 1 --*/
-  /*-- Effect 2 --*/
-  /*-- Effect 3 --*/
+  /* 图像叠加 */
+  /*-- 效果 1 --*/
+  /*-- 效果 2 --*/
+  /*-- 效果 3 --*/
 }
 
 .uix-image-anim img {

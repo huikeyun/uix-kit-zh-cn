@@ -1,5 +1,5 @@
 /* ======================================================
-   <!-- Form Progress -->
+   <!-- 表单进度 Form Progress -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 $indicator-desc-w: 60px;
@@ -58,7 +58,7 @@ $indicator-desc-w: 60px;
         }
     }
 }
-/* Form animations */
+/* 表单动画 */
 .uix-form-progress__target {
     @include transition-default();
     position: relative;

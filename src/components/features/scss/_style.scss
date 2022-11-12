@@ -1,21 +1,20 @@
 /* ======================================================
-   <!-- Features -->
+   <!-- 特性 Features -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 /*
- * 1. Features with Grid System
- * 2. Features with Dividing Line
-
+ * 1. 网格系统的特点
+ * 2. 带分割线的功能
 */
 /*
  ---------------------------
- 1. Features with Grid System
+ 1. 网格系统的特点
  ---------------------------
  */
 $card-radius: 8px;
 $features-icon-size: 1.5rem;
 .uix-feature {
-    /* Horizontal Icons */
+    /* 水平图标 */
     .uix-feature__icon {
         line-height: #{$features-icon-size*3};
         display: inline-block;
@@ -41,7 +40,7 @@ $features-icon-size: 1.5rem;
             }
         }
     }
-    /* Vertical Icons */
+    /* 垂直图标 */
     .uix-feature__icon--side {
         line-height: #{$features-icon-size*2};
         position: relative;
@@ -121,13 +120,13 @@ $features-icon-size: 1.5rem;
 }
 .uix-typo--color-white {
     .uix-feature {
-        /* Horizontal Icons */
+        /* 水平图标 */
         .uix-feature__icon {
             &.is-bordered {
                 border-color: #ffffff;
             }
         }
-        /* Vertical Icons */
+        /* 垂直图标 */
         .uix-feature__icon--side {
             &.is-bordered {
                 &::before {
@@ -139,7 +138,7 @@ $features-icon-size: 1.5rem;
 }
 /*
  ---------------------------
- 2. Features with Dividing Line
+ 2. 带分割线的功能
  ---------------------------
  */
 .uix-feature {

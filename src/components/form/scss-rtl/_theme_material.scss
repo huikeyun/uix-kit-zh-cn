@@ -4,12 +4,12 @@
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 @import '_variable-and-mixin.scss';
 /*
- * 1. Controls
- * 4. Custom Select
+ * 1. 控件
+ * 4. 自定义选择
 */
 /*
  ---------------------------
- 1. Controls
+ 1. 控件
  ---------------------------
  */
 @mixin create-line-rtl() {
@@ -19,7 +19,7 @@
         right: 0;
     }
 }
-/* Default Controls */
+/* 默认控件 */
 .uix-controls:not(.uix-controls__toggle):not(.uix-controls__checkbox):not(.uix-controls__radio):not(.uix-controls__select) {
     //Create Line Effect on Click
     @include create-line-rtl();
@@ -34,7 +34,7 @@
             transform-origin: right top;
         }
     }
-    /*-- Form With Icon --*/
+    /*-- 带图标的表单 --*/
     &.is-iconic {
         label {
             right: #{$control-padding-side + $control-icon-placeholder} !important;
@@ -61,7 +61,7 @@
             }
         }
     }
-    /*-- Select --*/
+    /*-- 选择 --*/
     &.uix-controls__normal-select {
         select {
             padding-right: 0 !important;
@@ -71,12 +71,12 @@
 }
 /*
  ---------------------------
- 4. Custom Select
+ 4. 自定义选择
  ---------------------------
  */
 .uix-controls__select-wrapper {
     &.uix-controls--line.is-disabled {
-        /* Mask used to prohibit selection */
+        /* 用于禁止选择的遮罩 */
         &::before {
             right: 0;
             left: auto;

@@ -1,12 +1,12 @@
 /* ======================================================
-   <!-- Dotted Line -->
+   <!-- 虚线 Dotted Line -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 .uix-dotted-line {
     display: inline-block;
     height: 300px;
     margin: 1.5rem;
-    /* Small Size */
+    /* 小尺寸 */
     &.uix-dotted-line--s {
         width: 1px;
         background: $primary-text-color;
@@ -17,18 +17,15 @@
         &.is-horizontal {
             width: 300px;
             height: 1px;
-            background: linear-gradient(to right, $primary-text-color 10%, rgba(255, 255, 255, 0) 0%);
-            background-repeat: repeat-x;
-            background-position: top;
+            background: linear-gradient(to right, $primary-text-color 10%, rgba(255, 255, 255, 0) 0%) repeat-x top;
             background-size: 8px 1px;
         }
         &.is-circle {
-            background: radial-gradient(circle, $primary-text-color 1.5px, transparent 2px);
-            background-position: top;
+            background: radial-gradient(circle, $primary-text-color 1.5px, transparent 2px) top;
             background-size: 12px 6px;
         }
     }
-    /* Medium Size */
+    /* 中等大小 */
     &.uix-dotted-line--m {
         width: 3px;
         background: $primary-text-color;
@@ -39,18 +36,15 @@
         &.is-horizontal {
             width: 300px;
             height: 3px;
-            background: linear-gradient(to right, $primary-text-color 20%, rgba(255, 255, 255, 0) 0%);
-            background-repeat: repeat-x;
-            background-position: top;
+            background: linear-gradient(to right, $primary-text-color 20%, rgba(255, 255, 255, 0) 0%) repeat-x top;
             background-size: 10px 3px;
         }
         &.is-circle {
-            background: radial-gradient(circle, $primary-text-color 1.5px, transparent 2px);
-            background-position: top;
+            background: radial-gradient(circle, $primary-text-color 1.5px, transparent 2px) top;
             background-size: 12px 6px;
         }
     }
-    /* Large Size */
+    /* 大尺寸 */
     &.uix-dotted-line--l {
         width: 6px;
         background: $primary-text-color;
@@ -61,14 +55,11 @@
         &.is-horizontal {
             width: 300px;
             height: 6px;
-            background: linear-gradient(to right, $primary-text-color 30%, rgba(255, 255, 255, 0) 0%);
-            background-repeat: repeat-x;
-            background-position: top;
+            background: linear-gradient(to right, $primary-text-color 30%, rgba(255, 255, 255, 0) 0%) repeat-x top;
             background-size: 12px 6px;
         }
         &.is-circle {
-            background: radial-gradient(circle, $primary-text-color 1.5px, transparent 2px);
-            background-position: top;
+            background: radial-gradient(circle, $primary-text-color 1.5px, transparent 2px) top;
             background-size: 12px 6px;
         }
     }

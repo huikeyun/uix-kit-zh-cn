@@ -1,42 +1,42 @@
 /* ======================================================
-    <!-- Form -->
+    <!-- 表格 Form -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 @import '_variable-and-mixin.scss';
 /*
- * 1. Controls
- * 2. Upload
- * 3. Group
- * 4. Custom Select
- * 5. Custom Radio, Toggle And Checkbox
- * 6. Custom Input Number
- * 7. Multiple Selector
- * 8. Single Selector
- * 9. Search of Widget
- * 10. Add / remove input field dynamically
- * 11. Tag Input
+ * 1. 控件
+ * 2. 上传
+ * 3. 组
+ * 4. 自定义选择
+ * 5. 自定义单选、切换和复选框
+ * 6. 自定义输入数字
+ * 7. 多重选择器
+ * 8. 单一选择器
+ * 9. 搜索小工具
+ * 10. 动态添加/删除输入字段
+ * 11. 标签输入
 */
 /*
  ---------------------------
- 1. Controls
+ 1. 控件
  ---------------------------
  */
-/* Change Autocomplete styles in Chrome*/
+/* 更改 Chrome 中的自动完成样式*/
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
-input:-webkit-autofill:focus
+input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:hover,
 textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
     transition: background-color 5000s ease-in-out 0s;
     border: 1px solid $control-sub-color;
-    box-shadow: 0 0 0px 1000px #ffffff inset;
+    box-shadow: 0 0 0 1000px #ffffff inset;
     -webkit-text-fill-color: $control-sub-color;
 }
-/* Remove default text/placeholder present in html5 input element of type=date and type=datetime-local */
+/* 删除 type=date 和 type=datetime-local 的 html5 输入元素中存在的默认文本/占位符 */
 input[type="date"]::-webkit-datetime-edit,
 input[type="datetime-local"]::-webkit-datetime-edit {
     color: transparent !important;
@@ -47,7 +47,7 @@ input[type="date"].is-active::-webkit-datetime-edit,
 input[type="datetime-local"].is-active::-webkit-datetime-edit {
     color: $control-text-color !important;
 }
-/* Required field marker */
+/* 必填字段标记 */
 .uix-controls__im {
     font-size: #{$font-size-form*1.71428571428571};
     position: absolute;
@@ -55,7 +55,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
     padding: 0 .5rem;
     color: red;
 }
-/* Default Controls */
+/* 默认控件 */
 .uix-controls:not(.uix-controls__toggle):not(.uix-controls__checkbox):not(.uix-controls__radio):not(.uix-controls__select) {
     position: relative;
     display: inline-block; /* Avoid line breaks */
@@ -87,7 +87,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
     }
     input:not([type="checkbox"]):not([type="radio"]) {
         font-size: $font-size-form;
-        /* Remove inner shadow from inputs on mobile iOS */
+        /* 从移动 iOS 上的输入中移除内部阴影 */
         box-sizing: content-box;
         @include transition-default();
         width: calc(100% - #{$control-padding-side*2} - 2px);
@@ -129,13 +129,12 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
     button:not(.uix-btn),
     select {
         font-size: $font-size-form;
-        /* Remove inner shadow from inputs on mobile iOS */
+        /* 从移动 iOS 上的输入中移除内部阴影 */
         box-sizing: content-box;
         width: calc(100% - #{$control-padding-side*2} - 2px);
         margin: 0;
         padding: $control-padding-height $control-padding-side;
         color: $control-text-color;
-        border: none;
         @include transition-default();
         border: 1px solid $control-sub-color;
         border-radius: 0;
@@ -191,7 +190,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
             background-color: white;
         }
     }
-    /*-- Select Arrow --*/
+   /*-- 选择箭头 --*/
     .uix-controls__arrow {
         font-size: 0.625rem;
         position: absolute;
@@ -200,7 +199,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
         display: inline-block;
         @include control-label-text();
     }
-    /*-- Radio --*/
+    /*-- 单选按钮 --*/
     &.uix-controls__normal-radio {
         label {
             position: relative !important;
@@ -213,7 +212,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
             }
         }
     }
-    /*-- Select --*/
+    /*-- 选择 --*/
     &.uix-controls__normal-select {
         &:not(.is-fullwidth) {
             margin-right: 1.5rem;
@@ -242,7 +241,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
             }
         }
         &.is-disabled {
-            /* Mask used to prohibit selection */
+            /* 用于禁止选择的遮罩 */
             &::before {
                 position: absolute;
                 z-index: 2;
@@ -257,7 +256,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
             }
         }
     }
-    /*-- Form With Icon --*/
+    /*-- 带图标的表单 --*/
     &.is-iconic {
         label {
             left: #{$control-padding-side + $control-icon-placeholder};
@@ -312,7 +311,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
             }
         }
     }
-    /*-- Form Status: Success --*/
+    /*-- 表单状态：成功 --*/
     &.is-success {
         input:not([type="checkbox"]):not([type="radio"]) {
             border-color: #4ab005;
@@ -326,7 +325,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
             color: #4ab005 !important;
         }
     }
-    /*-- Form Status: Error --*/
+    /*-- 表单状态：错误 --*/
     &.is-error {
         input:not([type="checkbox"]):not([type="radio"]) {
             border-color: #ff0000;
@@ -340,7 +339,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
             color: #ff0000 !important;
         }
     }
-    /*-- Form Status: Disable --*/
+    /*-- 表单状态：禁用 --*/
     &:not(.uix-controls--line).is-disabled {
         input:not([type="checkbox"]):not([type="radio"]) {
             border-color: #e1e1e1;
@@ -353,7 +352,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
             background: #e1e1e1;
         }
     }
-    /*-- WordPress Style --*/
+    /*-- WordPress 风格 --*/
     .req-icon {
         position: absolute;
         top: 0.721875rem;
@@ -363,7 +362,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 }
 /*
  ---------------------------
- 2. Upload
+ 2. 上传
  ---------------------------
  */
 .uix-controls__file-container {
@@ -392,14 +391,13 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 .uix-controls__file-return {
     font-style: italic;
 }
-/* HTML5 drag and drop upload control */
+/* HTML5 拖拽上传控件 */
 .uix-controls__file-field-container {
     position: relative;
     z-index: 2;
     height: 400px;
     max-height: 30vh;
-    margin: 0 auto;
-    margin-bottom: 2.5rem;
+    margin: 0 auto 2.5rem;
     background-color: transparent;
     .uix-controls__file-field-trigger {
         position: absolute;
@@ -412,7 +410,6 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
         max-width: 100%;
         height: 100%;
         cursor: pointer;
-        pointer-events: hover;
         color: #cbcbcb;
         border-radius: 8px;
         background: #fbfdfd;
@@ -476,7 +473,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 }
 /*
  ---------------------------
- 3. Group
+ 3. 组
  ---------------------------
  */
 $controls-merge-button-width: 20%;
@@ -496,7 +493,7 @@ $controls-merge-button-width: 20%;
     button,
     select {
         border: none;
-        /* Remove inner shadow from inputs on mobile iOS */
+        /* 从移动 iOS 上的输入中移除内部阴影 */
         border-radius: 0;
         -webkit-appearance: none;
     }
@@ -510,7 +507,7 @@ $controls-merge-button-width: 20%;
         margin-bottom: #{$control-padding-height*2};
         padding: $control-padding-height $control-padding-side;
         color: $control-text-color;
-        /* Fixed the gap*/
+        /* 修正间隙*/
         border: 1px solid $control-sub-color;
         &:focus {
             outline: none;
@@ -524,7 +521,7 @@ $controls-merge-button-width: 20%;
         min-width: 0;
         margin-left: -1px;
         padding: #{$control-padding-height + 0.25 + 0.03125} 0; //0.03125rem = 0.5px
-        /* Fixed the gap*/
+        /* 修正间隙*/
         letter-spacing: .02rem;
         span {
             line-height: 100%;
@@ -550,7 +547,7 @@ $controls-merge-button-width: 20%;
             border-radius: 0 4px 4px 0;
         }
     }
-    /*-- Form With Icon --*/
+    /*-- 带图标的表单 --*/
     &.is-iconic {
         input {
             width: calc(#{100-$controls-merge-button-width} - #{$control-padding-side*2 + $control-icon-placeholder} - 2px);
@@ -590,7 +587,7 @@ $controls-merge-button-width: 20%;
 }
 /*
  ---------------------------
- 4. Custom Select
+ 4. 自定义选择
  ---------------------------
  */
 .uix-controls__select {
@@ -619,7 +616,7 @@ $controls-merge-button-width: 20%;
         pointer-events: none;
     }
     &:not(.uix-controls--line).is-disabled {
-        /* Mask used to prohibit selection */
+        /* 用于禁止选择的遮罩 */
         &::before {
             position: absolute;
             z-index: 2;
@@ -650,7 +647,7 @@ $controls-merge-button-width: 20%;
         cursor: pointer;
         border: 1px solid $control-sub-color;
         background: #ffffff;
-        //Effect after selecting an option
+        // 选择选项后的效果
         &.is-active {
             color: $control-text-color;
         }
@@ -761,9 +758,9 @@ $controls-merge-button-width: 20%;
             }
         }
     }
-    /* Shown above */
+    /* 如上所示 */
     .uix-controls__select--top {
-        /* Shown from above */
+        /* 如上图所示 */
         .uix-controls__select__option-container {
             top: auto;
             bottom: 100%;
@@ -797,7 +794,7 @@ $controls-merge-button-width: 20%;
 }
 /*
  ---------------------------
- 5. Custom Radio, Toggle And Checkbox
+ 5. 自定义单选、切换和复选框
  ---------------------------
  */
 .uix-controls__radio {
@@ -891,8 +888,7 @@ $controls-merge-button-width: 20%;
         display: inline-block;
         width: 12px;
         height: 12px;
-        margin: 0.5rem .5rem 0.5rem 0;
-        margin-left: 50px;
+        margin: 0.5rem .5rem 0.5rem 50px;
         vertical-align: top;
         border-radius: 50%;
         background: $control-sub-color;
@@ -970,7 +966,7 @@ $controls-merge-button-width: 20%;
 }
 /*
  ---------------------------
- 6. Custom Input Number
+ 6. 自定义输入数字
  ---------------------------
  */
 .uix-controls__number {
@@ -1019,7 +1015,7 @@ $controls-merge-button-width: 20%;
 }
 /*
  ---------------------------
- 7. Multiple Selector
+ 7. 多重选择器
  ---------------------------
  */
 .uix-controls__multi-sel {
@@ -1071,7 +1067,7 @@ $controls-merge-button-width: 20%;
 }
 /*
  ---------------------------
- 8. Single Selector
+ 8. 单一选择器
  ---------------------------
  */
 .uix-controls__single-sel {
@@ -1120,7 +1116,7 @@ $controls-merge-button-width: 20%;
 }
 /*
  ---------------------------
- 9. Search of Widget
+ 9. 搜索小工具
  ---------------------------
  */
 .uix-search-box {
@@ -1162,7 +1158,7 @@ $controls-merge-button-width: 20%;
 }
 /*
  ---------------------------
- 10. Add / remove input field dynamically
+ 10. 动态添加/删除输入字段
  ---------------------------
  */
 .uix-controls__dynamic-fields-container {
@@ -1181,7 +1177,7 @@ $controls-merge-button-width: 20%;
 }
 /*
  ---------------------------
- 11. Tag Input
+ 11. 标签输入
  ---------------------------
  */
 .uix-controls__tags-wrapper {
@@ -1236,8 +1232,7 @@ $controls-merge-button-width: 20%;
             position: relative;
             display: inline-block;
             overflow: hidden;
-            margin: 5px;
-            margin-bottom: 0;
+            margin: 5px 5px 0;
             padding: .1rem 1.5rem .1rem 1rem;
             text-overflow: ellipsis;
             border-radius: 30px;

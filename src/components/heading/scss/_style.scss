@@ -1,18 +1,18 @@
 /* ======================================================
-   <!-- Heading -->
+   <!-- 标题 Heading -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 /*
- * 1. Header Pinlines
- * 2. Text Overlay
- * 3. Show Image Under Text
- * 4. Custom Underline
- * 5. Hybrid Heading
- * 6. Placeholder Line Heading
+ * 1. 标题引脚线
+ * 2. 文字叠加
+ * 3. 在文字下方显示图片
+ * 4. 自定义下划线
+ * 5. 混合标题
+ * 6. 占位符行标题
 */
 /*
  ---------------------------
- 1. Header Pinlines
+ 1. 标题引脚线
  ---------------------------
  */
 .uix-heading--pinline {
@@ -61,7 +61,7 @@
 }
 /*
  ---------------------------
- 2. Text Overlay
+ 2. 文字叠加
  ---------------------------
  */
 .uix-heading--overlay {
@@ -74,8 +74,7 @@
         padding: 0;
     }
     &::before {
-        font-size: inherit;
-        font-size: 1.5em; /* Don't use "REM" */
+        font-size: 1.5em; /* 不要使用“REM” */
         font-weight: 900;
         position: absolute;
         z-index: 0;
@@ -104,8 +103,7 @@
             display: none;
         }
         &::after {
-            font-size: 0.35em; /* Don't use "REM" */
-            font-weight: 900;
+            font-size: 0.35em; /* 不要使用“REM” */
             font-weight: 900;
             line-height: 1.1;
             position: relative;
@@ -122,15 +120,14 @@
     &.uix-heading--overlay--sub {
         padding: 1rem 4rem;
         background-color: rgb(255, 255, 255);
-        box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1);
         @include transition-default();
         i {
             font-weight: normal;
             margin-left: .6rem;
         }
         &:hover {
-            box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1),
-            0 -4px 0px 0px $highlight-color1;
+            box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1),0 -4px 0px 0px $highlight-color1;
             i {
                 margin-left: 1rem;
             }
@@ -139,12 +136,12 @@
 }
 /*
  ---------------------------
- 3. Show Image Under Text
+ 3. 在文字下方显示图片
  ---------------------------
  */
 .uix-heading--fill {
     user-select: none;
-    color: $primary-text-color; /* Fallback: assume this color ON TOP of image */
+    color: $primary-text-color; /* 回退：假设这个颜色在图像的顶部 */
     background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) no-repeat;
     -webkit-background-clip: text;
     background-size: cover;
@@ -152,7 +149,7 @@
 }
 /*
  ---------------------------
- 4. Custom Underline
+ 4. 自定义下划线
  ---------------------------
  */
 .uix-heading--underline {
@@ -170,19 +167,19 @@
 }
 /*
  ---------------------------
- 5. Hybrid Heading
+ 5. 混合标题
  ---------------------------
  */
 .uix-heading--hybrid {
     span {
-        font-size: 0.35em; /* Don't use "REM" */
+        font-size: 0.35em; /* 不要使用“REM” */
         display: block;
         letter-spacing: 2px;
     }
 }
 /*
  ---------------------------
- 6. Placeholder Line Heading
+ 6. 占位符行标题
  ---------------------------
  */
 .uix-heading--placeholder-line {

@@ -1,5 +1,5 @@
-/* ======================================================
-    <!-- Full Width Column to Edge -->
+ /* ======================================================
+    <!-- 全宽列到边缘 Full Width Column to Edge -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 .uix-fullwidth-column-to-edge--fixed-and-variable {
@@ -10,10 +10,11 @@
         flex-grow: 1;
     }
     .uix-fullwidth-column-to-edge--fixed-and-variable__variable {
-        // The point at which the variable column breaks the whole
-        // system down to two rows
+        // 变量列断整的点
+        // 系统减少到两行
         flex: 10000 auto auto;
-        /* 
+        /*
+        为什么这么高？ 当容器的宽度超过 500 像素（意思是）时，200 像素的固定列和 300 像素的可变列有足够的空间，然后 flex grow 开始确定每列应该得到的比例。 需要注意的是，固定列永远不会小于 200 像素（当它们在同一行时），无论出于何种浏览器原因，这个大数字确保固定列不会增长。 要了解我的意思，请更改为 100 并调整屏幕大小。 您会看到固定列的小像素移动。
         Why so high? When the container is more than 500px wide (meaning) there's more than enough room for the 200px fixed and 300px variable columns, then flex grow kicks in to determine what proportion each column should get. The caveat is that the fixed column will never be less than 200px (when they're on the same row) and for whatever browser reason, this big number ensures the fixed column doesn't grow. To see what I mean, change to 100 and resize the screen. You'll see a small pixel movement of the fixed column.
         */
         flex-basis: auto;

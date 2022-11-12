@@ -1,23 +1,21 @@
 /* ======================================================
-   <!-- Lava-Lamp Style Menu -->
+   <!-- Lava-Lamp 风格菜单 Lava-Lamp Style Menu -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 .uix-lavalamp-menu__container {
-    position: relative; /* Required*/
+    position: relative; /* 必需的 */
     margin: 0 auto;
     ul.uix-lavalamp-menu {
         font-size: 0; /* 争夺内联块元素之间的空间 */
-        margin: 0; /* Required*/
+        margin: 0; /* 必需的 */
         padding: 0;
         li {
             font-size: 1rem; /* 争夺内联块元素之间的空间 */
             position: relative;
             display: inline-block;
-            margin: 0;
-            margin-right: 1.6875rem;
-            padding: 0;
+            margin: 0 1.6875rem 0 0;
             padding: 0 1.159375rem;
-            white-space: nowrap; /* Required*/
+            white-space: nowrap; /* 必需的 */
             a {
                 display: block;
             }

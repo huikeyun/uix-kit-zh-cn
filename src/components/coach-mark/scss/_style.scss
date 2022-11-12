@@ -1,10 +1,10 @@
 /* ======================================================
-   <!-- 辅助标记 -->
+   <!-- 辅助标记 Coach Mark -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 /*
- * 1. Ripple effect 1
- * 2. Ripple Effect 2
+ * 1. 涟漪效应 1
+ * 2. 涟漪效应 2
 */
 $dot-size: 20px;
 .uix-coach-mark-indicator-ripple {
@@ -16,7 +16,7 @@ $dot-size: 20px;
     background: $highlight-color1;
     /*
      ---------------------------
-     1. Ripple effect 1
+     1. 涟漪效应 1
      ---------------------------
      */
     &.uix-coach-mark-indicator-ripple--line {
@@ -61,7 +61,7 @@ $dot-size: 20px;
     }
     /*
      ---------------------------
-     2. Ripple Effect 2
+     2. 涟漪效应 2
      ---------------------------
      */
     &.uix-coach-mark-indicator-ripple--bg {

@@ -1,6 +1,6 @@
 /*
  *************************************
- * <!-- Flexslider (Third-party plugin) -->
+ * <!-- 弹性滑块（第三方插件）Flexslider (Third-party plugin) -->
  *************************************
  */
 import {

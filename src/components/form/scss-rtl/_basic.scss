@@ -1,18 +1,18 @@
 /* ======================================================
-    <!-- Form -->
+    <!-- 表格 Form -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 @import '_variable-and-mixin.scss';
 /*
- * 1. Controls
- * 2. Upload
- * 3. Group
- * 4. Custom Select
- * 5. Custom Radio, Toggle And Checkbox
- * 6. Custom Input Number
- * 7. Multiple Selector
- * 8. Single Selector
- * 9. Search of Widget
+ * 1. 控件
+ * 2. 上传
+ * 3. 组
+ * 4. 自定义选择
+ * 5. 自定义单选、切换和复选框
+ * 6. 自定义输入数字
+ * 7. 多重选择器
+ * 8. 单一选择器
+ * 9. 搜索小工具
 */
 $control-sub-color: #dce4e8;
 @mixin select-arrow-rtl( $top, $left ) {
@@ -22,10 +22,10 @@ $control-sub-color: #dce4e8;
 }
 /*
  ---------------------------
- 1. Controls
+ 1. 控件
  ---------------------------
  */
-/* Default Controls */
+/* 默认控件 */
 .uix-controls:not(.uix-controls__toggle):not(.uix-controls__checkbox):not(.uix-controls__radio):not(.uix-controls__select) {
     text-align: right;
     &.uix-controls__side {
@@ -55,7 +55,7 @@ $control-sub-color: #dce4e8;
         left: auto;
         transform-origin: right top;
     }
-    /*-- Select Arrow --*/
+   /*-- 选择箭头 --*/
     .uix-controls__arrow {
         right: auto;
         left: 0.875rem;
@@ -68,7 +68,7 @@ $control-sub-color: #dce4e8;
             padding-left: auto !important;
         }
     }
-    /*-- Select --*/
+    /*-- 选择 --*/
     &.uix-controls__normal-select {
         margin-right: auto;
         margin-left: 1.65rem;
@@ -76,7 +76,7 @@ $control-sub-color: #dce4e8;
             left: -1rem;
         }
     }
-    /*-- Form With Icon --*/
+    /*-- 带图标的表单 --*/
     &.is-iconic {
         label {
             right: #{$control-padding-side + $control-icon-placeholder};
@@ -125,7 +125,7 @@ $control-sub-color: #dce4e8;
             }
         }
     }
-    /*-- WordPress Style --*/
+    /*-- WordPress 风格 --*/
     .req-icon {
         right: auto;
         left: 0.721875rem;
@@ -133,7 +133,7 @@ $control-sub-color: #dce4e8;
 }
 /*
  ---------------------------
- 2. Upload
+ 2. 上传
  ---------------------------
  */
 .uix-controls__file-container {
@@ -148,7 +148,7 @@ $control-sub-color: #dce4e8;
         left: auto;
     }
 }
-/* HTML5 drag and drop upload control */
+/* HTML5 拖拽上传控件 */
 .uix-controls__file-field-container {
     .uix-controls__file-field-trigger {
         > div {
@@ -165,7 +165,7 @@ $control-sub-color: #dce4e8;
 }
 /*
  ---------------------------
- 3. Group
+ 3. 组
  ---------------------------
  */
 .uix-controls__merge {
@@ -185,7 +185,7 @@ $control-sub-color: #dce4e8;
             border-radius: 50px 0 0 50px;
         }
     }
-    /*-- Form With Icon --*/
+    /*-- 带图标的表单 --*/
     &.is-iconic {
         input {
             padding-right: #{$control-padding-side + $control-icon-placeholder};
@@ -217,7 +217,7 @@ $control-sub-color: #dce4e8;
 }
 /*
  ---------------------------
- 4. Custom Select
+ 4. 自定义选择
  ---------------------------
  */
 .uix-controls__select {
@@ -229,7 +229,7 @@ $control-sub-color: #dce4e8;
 }
 .uix-controls__select-wrapper {
     &:not(.uix-controls--line).is-disabled {
-        /* Mask used to prohibit selection */
+        /* 用于禁止选择的遮罩 */
         &::before {
             right: 0;
             left: auto;
@@ -273,7 +273,7 @@ $control-sub-color: #dce4e8;
 }
 /*
  ---------------------------
- 5. Custom Radio, Toggle And Checkbox
+ 5. 自定义单选、切换和复选框
  ---------------------------
  */
 .uix-controls__radio {
@@ -330,7 +330,7 @@ $control-sub-color: #dce4e8;
 }
 /*
  ---------------------------
- 6. Custom Input Number
+ 6. 自定义输入数字
  ---------------------------
  */
 .uix-controls__number {
@@ -343,7 +343,7 @@ $control-sub-color: #dce4e8;
 }
 /*
  ---------------------------
- 7. Multiple Selector
+ 7. 多重选择器
  ---------------------------
  */
 .uix-controls__multi-sel {
@@ -359,7 +359,7 @@ $control-sub-color: #dce4e8;
 }
 /*
  ---------------------------
- 8. Single Selector
+ 8. 单一选择器
  ---------------------------
  */
 .uix-controls__single-sel {
@@ -371,7 +371,7 @@ $control-sub-color: #dce4e8;
 }
 /*
  ---------------------------
- 9. Search of Widget
+ 9. 搜索小工具
  ---------------------------
  */
 .uix-search-box {

@@ -1,6 +1,6 @@
 /* 
  *************************************
- * <!-- Infinite Scrolling Element -->
+ * <!-- 无限滚动元素 Infinite Scrolling Element -->
  *************************************
  */
 import {

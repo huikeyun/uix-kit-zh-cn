@@ -1,5 +1,5 @@
 /* ======================================================
-   <!-- Image Animation -->
+   <!-- 图像动画 Image Animation -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 $img-overlay-bg: #f5f6fa;
@@ -14,7 +14,7 @@ $img-overlay-bg: #f5f6fa;
         transform: scale(1.1);
         @include transition-cubic-bezier();
     }
-    /* Image overlay */
+    /* 图像叠加 */
     &::after {
         position: absolute;
         top: 0;
@@ -28,7 +28,7 @@ $img-overlay-bg: #f5f6fa;
         backface-visibility: hidden;
         @include transition-cubic-bezier();
     }
-    /*-- Effect 1 --*/
+    /*-- 效果 1 --*/
     &.uix-image-anim--x {
         &::after {
             transform: translateX(0);
@@ -43,7 +43,7 @@ $img-overlay-bg: #f5f6fa;
             }
         }
     }
-    /*-- Effect 2 --*/
+    /*-- 效果 2 --*/
     &.uix-image-anim--y {
         &::after {
             transform: translateY(0);
@@ -58,7 +58,7 @@ $img-overlay-bg: #f5f6fa;
             }
         }
     }
-    /*-- Effect 3 --*/
+    /*-- 效果 3 --*/
     &.uix-image-anim--z {
         &::after {
             transform: scale(1);

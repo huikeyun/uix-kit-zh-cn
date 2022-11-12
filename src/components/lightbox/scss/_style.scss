@@ -1,15 +1,15 @@
 /* ======================================================
-   <!-- Cutom Light Box -->
+   <!-- 自定义灯箱 Cutom Light Box -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 /*
- * 1. Initialization module
- * 2. Click to enlarge image in light box
+ * 1. 初始化模块
+ * 2. 点击放大灯箱图片
 */
 $lb-custom-w: 1000px;
 /*
  ---------------------------
- 1. Initialization module
+ 1. 初始化模块
  ---------------------------
  */
 $lb-radius: 3px;
@@ -76,7 +76,7 @@ $lb-radius: 3px;
     display: none;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Avoid masks being blocked */
+    pointer-events: none; /* 避免遮罩被阻塞 */
     .uix-lightbox__inner {
         position: relative;
         top: 50%;
@@ -245,11 +245,11 @@ $lb-radius: 3px;
                     display: none;
                 }
                 img {
-                    max-height: 95vh; /* Do not use percentages here */
+                    max-height: 95vh; /* 此处不要使用百分比 */
                 }
             }
         }
-        /* Custom content width you want */
+        /* 你想要的自定义内容宽度 */
         &.js-uix-custom {
             max-width: 70vw;
             .uix-lightbox__html {
@@ -266,7 +266,7 @@ $lb-radius: 3px;
         &.no-fixed-imgEnlarged {
             position: fixed;
             top: 0;
-            margin-top: 0 !important; /* Protected from js */
+            margin-top: 0 !important; /* 防止 js */
         }
         .uix-lightbox__inner {
             top: 0;
@@ -309,7 +309,7 @@ $lb-radius: 3px;
                     bottom: -100px;
                 }
             }
-            /* Custom content width you want */
+            /* 你想要的自定义内容宽度 */
             &.js-uix-custom {
                 max-width: calc(100vw - 30px);
                 .uix-lightbox__html {
@@ -325,7 +325,7 @@ $lb-radius: 3px;
                 top: 0;
             }
             .uix-lightbox__inner {
-                /* Prevent closing button position error */
+                /* 防止关闭按钮位置出错 */
                 overflow: hidden;
                 &.js-uix-custom {
                     max-width: calc(100vw - 30px);
@@ -339,14 +339,14 @@ $lb-radius: 3px;
 }
 /*
  ---------------------------
- 2. Click to enlarge image in light box
+ 2. 点击放大灯箱图片
  ---------------------------
  */
 a.uix-lightbox__original__link {
     display: block;
     cursor: zoom-in;
 }
-/* Styles the close link, adds the slide down transition */
+/* 设置关闭链接的样式，添加向下滑动过渡 */
 .uix-lightbox__original__close {
     position: fixed;
     z-index: 100001;
@@ -363,7 +363,7 @@ a.uix-lightbox__original__link {
     &.is-active {
         display: block;
     }
-    /* Provides part of the "X" to eliminate an image from the close link */
+    /* 提供部分“X”以从关闭链接中删除图像 */
     &::before {
         position: absolute;
         top: 10px;
@@ -375,7 +375,7 @@ a.uix-lightbox__original__link {
         transform: rotate(45deg);
         background: black;
     }
-    /* Provides part of the "X" to eliminate an image from the close link */
+    /* 提供部分“X”以从关闭链接中删除图像 */
     &::after {
         position: absolute;
         top: 10px;
@@ -388,7 +388,7 @@ a.uix-lightbox__original__link {
         background: black;
     }
 }
-/* Styles the lightbox image, centers it vertically and horizontally, adds the zoom-in transition and makes it responsive using a combination of margin and absolute positioning */
+/* 设置灯箱图像的样式，将其垂直和水平居中，添加放大过渡并结合使用边距和绝对定位使其响应 */
 .uix-lightbox__original__target {
     position: fixed;
     z-index: 100000;
@@ -420,20 +420,20 @@ a.uix-lightbox__original__link {
         bottom: 0;
         left: 0;
         box-sizing: border-box;
-        width: auto !important; /* Protected from js */
+        width: auto !important; /* 防止 js */
         max-width: 0%;
-        height: auto !important; /* Protected from js */
+        height: auto !important; /* 防止 js */
         max-height: 0%;
-        margin: auto !important; /* Protected from js */
+        margin: auto !important; /* 防止 js */
         box-shadow: 0px 0px 8px rgba(0, 0, 0, .3);
     }
-    /* To perform the animations upon clicking the .uix-lightbox__original__target anchor */
+    /* 在点击 .uix-lightbox__original__target 锚点时执行动画 */
     &.is-active {
         top: 0;
         bottom: 0;
         height: 100vh;
         opacity: 1;
-        /* When zooming in on the picture */
+        /* 放大图片时 */
         &.no-fixed-imgEnlarged {
             top: 0 !important;
             transform: translate(-50%, 0);
@@ -450,7 +450,7 @@ a.uix-lightbox__original__link {
     }
     &.uix-lightbox__original__target--imgfull {
         img {
-            margin: 0 auto !important; /* Protected from js */
+            margin: 0 auto !important; /* 防止 js */
         }
     }
 }

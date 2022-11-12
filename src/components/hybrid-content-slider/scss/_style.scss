@@ -1,16 +1,16 @@
 /* ======================================================
-    <!-- Hybrid Content Slider -->
+    <!-- 混合内容滑块 Hybrid Content Slider -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 /*
- * 1. Initialize the core style
- * 2. Next/Prev buttons
- * 3. Pagination dots
+ * 1. 初始化核心样式
+ * 2. 下一个/上一个按钮
+ * 3. 分页点
  * 
 */
 /*
  ---------------------------
- 1. Initialize the core style
+ 1. 初始化核心样式
  ---------------------------
  */
 .uix-hybrid-content-slider {
@@ -36,7 +36,7 @@
 }
 /*
  ---------------------------
- 2. Next/Prev buttons
+ 2. 下一个/上一个按钮
  ---------------------------
  */
 .uix-hybrid-content-slider__controls {
@@ -73,7 +73,7 @@
 }
 /*
  ---------------------------
- 3. Pagination dots
+ 3. 分页点
  ---------------------------
  */
 .uix-hybrid-content-slider__pagination {
@@ -103,7 +103,7 @@
                 text-indent: -9999px;
                 border-radius: 20px;
                 background: rgba(0, 0, 0, 0.5);
-                box-shadow: 0px 6px 23px -2px rgba(0, 0, 0, 0.36);
+                box-shadow: 0 6px 23px -2px rgba(0, 0, 0, 0.36);
             }
             &:hover a,
             &.is-active a {
@@ -135,7 +135,7 @@
                 color: #ffffff;
                 border-radius: 20px;
                 background: rgba(0, 0, 0, 0.5);
-                box-shadow: 0px 6px 23px -2px rgba(0, 0, 0, 0.36);
+                box-shadow: 0 6px 23px -2px rgba(0, 0, 0, 0.36);
             }
             &:hover a,
             &.is-active a {
