@@ -1,10 +1,10 @@
 /* ======================================================
-    <!-- Brands List -->
+    <!-- 品牌列表 Brands List -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 .uix-list-brands {
     display: block;
-    overflow: auto; /* CSS background disappears when using float:left */
+    overflow: auto; /* CSS 背景在使用 float:left 时消失 */
     &::after {
         display: block;
         clear: both;
@@ -12,11 +12,10 @@
     }
     li {
         display: inline-block;
-        float: left; /* When using inline-block elements, there will always be an whitespace issue between those elements (that space is about ~ 4px wide). */
+        float: left; /* 当使用行内块元素时，这些元素之间总会有一个空白问题（那个空白大约是 ~ 4px 宽）。 */
         box-sizing: border-box;
         margin: 0;
         padding: 1rem 0;
-        text-align: center;
         text-align: center;
         span {
             font-size: 0.875rem;
@@ -39,7 +38,7 @@
                 clear: both;
             }
         }
-        /* Default */
+        /* 默认 */
         &.uix-list-brands--medium li {
             width: 25%;
             &:nth-child(4n+1) {

@@ -1,5 +1,5 @@
 /* ======================================================
-   <!-- Login Templates -->
+   <!-- 登录模板 Login Templates -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 $white: #ffffff;
@@ -8,7 +8,7 @@ $dark-gray: lighten($black, 20%);
 $gray: lighten($black, 40%);
 $light-gray: lighten($black, 60%);
 $lighter-gray: lighten($black, 80%);
-/* Form Module */
+/* 表单模块 */
 .uix-special-login__container {
     position: relative;
     overflow: hidden;

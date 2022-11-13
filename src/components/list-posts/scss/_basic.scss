@@ -1,5 +1,5 @@
 /* ======================================================
-   <!-- List of Posts -->
+   <!-- 文章列表 List of Posts -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 .uix-list-topic {
@@ -29,11 +29,11 @@
                 line-height: inherit !important;
             }
         }
-        /* WordPress style */
+        /* WordPress 风格 */
         .gallery-caption {
             display: none;
         }
-        /* WordPress style */
+        /* WordPress 风格 */
         &:not(.post-blockquote) blockquote {
             font-size: inherit;
             line-height: inherit;
@@ -125,10 +125,10 @@
                 padding-left: 1rem;
             }
             .uix-list-topic__item__addition a {
-                /* Used when "uix-list uix-list--normal uix-table uix-table--bordered" style are used */
+                /* 当使用“uix-list uix-list--normal uix-table uix-table--bordered”样式时使用 */
                 color: $primary-link-color !important;
                 &:hover {
-                    /* Used when "uix-list uix-list--normal uix-table uix-table--bordered" style are used */
+                    /* 当使用“uix-list uix-list--normal uix-table uix-table--bordered”样式时使用 */
                     text-decoration: none;
                     color: #000000 !important;
                 }

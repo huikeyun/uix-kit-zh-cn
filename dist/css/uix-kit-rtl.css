@@ -13,6 +13,7 @@
  * ## 在 MIT 许可下发布。
  *
  */
+@charset "UTF-8";
 /**
 
 	TABLE OF CONTENTS
@@ -23,7 +24,7 @@
     2.Brand
     3.Bullet List
     4.Entry
-    5.Header Area
+    5.页眉区
     6.Helper Classes
     7.Basic Layout Styles
     8.Mobile Menu
@@ -43,11 +44,11 @@
     22.Form  ( Material Design Theme )
     23.表格 Form
     24.自定义灯箱 Cutom Light Box
-    25.Brands List
-    26.Bulleted List
-    27.Maintain Aspect Ratio List
-    28.Side by Side List
-    29.Login Templates
+    25.品牌列表 Brands List
+    26.项目符号列表 Bulleted List
+    27.保持纵横比列表 Maintain Aspect Ratio List
+    28.并排列表 Side by Side List
+    29.登录模板 Login Templates
     30.Modal Dialog
     31.Ribbon
     32.Comments
@@ -292,7 +293,7 @@ ul.uix-entry__meta.uix-entry__meta--wrap li strong {
 }
 
 /* ====================================================== 
-   <!-- Header Area -->                                          
+   <!-- 页眉区 -->
 /* ====================================================== */
 .uix-header__container {
   right: 0;
@@ -1564,23 +1565,26 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
   left: 15px;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Brands List -->
+   <!-- 品牌列表 Brands List -->
 /* ====================================================== */
 .uix-list-brands li {
   float: right;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Bulleted List -->
+   <!-- 项目符号列表 Bulleted List -->
 /* ====================================================== */
 .uix-list-bullet i {
   margin-right: auto;
   margin-left: .5rem;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Maintain Aspect Ratio List -->
+   <!-- 保持纵横比列表 Maintain Aspect Ratio List -->
 /* ====================================================== */
 @media all and (max-width: 768px) {
   .uix-list-aspect-ratio {
@@ -1592,8 +1596,9 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Side by Side List -->
+   <!-- 并排列表 Side by Side List -->
 /* ====================================================== */
 dl.uix-list-abreast dt {
   float: right;
@@ -1608,8 +1613,9 @@ dl.uix-list-abreast dd {
   text-align: right;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Login Templates -->
+   <!-- 登录模板 Login Templates -->
 /* ====================================================== */
 
 /* ======================================================

@@ -49,7 +49,7 @@ export const BODY_AND_HEADER = ((module, $, window, document) => {
         const debounceFuncWindow = UixDebounce(windowUpdate, 50);
         window.removeEventListener('resize', debounceFuncWindow);
         window.addEventListener('resize', debounceFuncWindow);
-        //-------- Sticky header area
+        //-------- Sticky 页眉区
         const $el = $('.uix-header__container, .uix-header__placeholder');
         function scrollUpdate() {
             const scrolled = $(window).scrollTop(),

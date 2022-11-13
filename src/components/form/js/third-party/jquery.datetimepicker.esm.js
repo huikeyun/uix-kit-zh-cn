@@ -244,7 +244,8 @@ var DateFormatter;
             return '';
         }
     };
-}();/**
+}();
+/**
  * @preserve jQuery DateTimePicker
  * @homepage http://xdsoft.net/jqplugins/datetimepicker/
  * @author Chupurnov Valeriy (<chupurnov@gmail.com>)

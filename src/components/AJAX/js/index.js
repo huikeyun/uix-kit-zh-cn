@@ -3,19 +3,7 @@
  * <!--  Ajax 页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)   -->
  *************************************
  */
-import {
-    templateUrl,
-    homeUrl,
-    ajaxUrl,
-    browser,
-    UixModuleInstance,
-    UixGUID,
-    UixMath,
-    UixCssProperty,
-    UixDebounce,
-    UixThrottle
-} from '@uixkit/core/_global/js';
-import UixApplyAsyncScripts from '@uixkit/core/_global/js/fn/UixApplyAsyncScripts';
+import { browser, UixDebounce, UixGUID, UixModuleInstance } from '@uixkit/core/_global/js';
 import '../scss/_style.scss';
 export const AJAX_PAGE_LOADER = ((module, $, window, document) => {
     if (window.AJAX_PAGE_LOADER === null) return false;

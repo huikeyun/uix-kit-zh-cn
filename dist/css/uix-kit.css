@@ -62,11 +62,11 @@
     43.无限滚动元素 Infinite Scrolling Element
     44.Lava-Lamp 风格菜单 Lava-Lamp Style Menu
     45.自定义灯箱 Cutom Light Box
-    46.Bulleted List
-    47.List of Posts
-    48.List of Split Posts
+    46.项目符号列表 Bulleted List
+    47.文章列表 List of Posts
+    48.拆分文章列表
     49.全宽列到边缘 Full Width Column to Edge
-    50.Login Templates
+    50.登录模板 Login Templates
     51.Modal Dialog
     52.Multiple Items Carousel
     53.Parallax
@@ -109,10 +109,10 @@
     90.图库网格布局 Gallery Grid Layout
     91.标题 Heading
     92.图像动画 Image Animation
-    93.Brands List
-    94.Maintain Aspect Ratio List
-    95.Side by Side List
-    96.Side by Side List With Photo
+    93.品牌列表 Brands List
+    94.保持纵横比列表 Maintain Aspect Ratio List
+    95.并排列表 Side by Side List
+    96.带照片的并排列表 Side by Side List With Photo
     97.Mouse Animation Scroll
     98.Overlay
     99.Ribbon
@@ -3189,7 +3189,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 /* ================================================= ====== */
 /*
   * 1. 默认
-  * 2. 为 WordPress 帖子分页
+  * 2. 为 WordPress 文章分页
 */
 /*
   --------------------------
@@ -3269,7 +3269,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 
 /*
   --------------------------
-  2. 为 WordPress 帖子分页
+  2. 为 WordPress 文章分页
   --------------------------
   */
 .uix-page-links {
@@ -3358,8 +3358,8 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
   * 2. 日历小部件 - 同步到 WordPress 的类名
   * 3. 链接列表 - 同步到 WordPress 的类名
   * 4. 侧边栏标签云 - 同步到 WordPress 的类名
-  * 5. 帖子列表
-  * 6. 带有特色图片的帖子列表
+  * 5. 文章列表
+  * 6. 带有特色图片的文章列表
 */
 /*
   --------------------------
@@ -3543,7 +3543,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 
 /*
  ---------------------------
- 5. 帖子列表
+ 5. 文章列表
  ---------------------------
  */
 .uix-sidebar__posts li {
@@ -3553,7 +3553,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span:nth-child(3) {
 
 /*
  ---------------------------
- 6. 带有特色图片的帖子列表
+ 6. 带有特色图片的文章列表
  ---------------------------
  */
 .uix-sidebar__posts-img {
@@ -10153,21 +10153,23 @@ a.uix-lightbox__original__link {
   /* 防止 js */
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Bulleted List -->
+   <!-- 项目符号列表 Bulleted List -->
 /* ====================================================== */
 .uix-list-bullet i {
   margin-right: .5rem;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- List of Posts -->
+   <!-- 文章列表 List of Posts -->
 /* ====================================================== */
 .uix-list-topic .uix-list-topic__item {
   position: relative;
   margin-bottom: 4.8125rem;
-  /* WordPress style */
-  /* WordPress style */
+  /* WordPress 风格 */
+  /* WordPress 风格 */
 }
 
 .uix-list-topic .uix-list-topic__item .uix-list-topic__item__audio {
@@ -10301,12 +10303,12 @@ a.uix-lightbox__original__link {
 }
 
 .uix-list-topic .uix-list-topic__item.uix-list-topic__item--style-2 .uix-list-topic__item__addition a {
-  /* Used when "uix-list uix-list--normal uix-table uix-table--bordered" style are used */
+  /* 当使用“uix-list uix-list--normal uix-table uix-table--bordered”样式时使用 */
   color: #474747 !important;
 }
 
 .uix-list-topic .uix-list-topic__item.uix-list-topic__item--style-2 .uix-list-topic__item__addition a:hover {
-  /* Used when "uix-list uix-list--normal uix-table uix-table--bordered" style are used */
+  /* 当使用“uix-list uix-list--normal uix-table uix-table--bordered”样式时使用 */
   text-decoration: none;
   color: #000000 !important;
 }
@@ -10323,8 +10325,9 @@ a.uix-lightbox__original__link {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- List of Split Posts -->
+   <!-- 拆分文章列表 -->
 /* ====================================================== */
 .uix-list-split .uix-list-split__item {
   position: relative;
@@ -10390,10 +10393,11 @@ a.uix-lightbox__original__link {
   width: 325px;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Login Templates -->
+   <!-- 登录模板 Login Templates -->
 /* ====================================================== */
-/* Form Module */
+/* 表单模块 */
 .uix-special-login__container {
   position: relative;
   overflow: hidden;
@@ -20665,13 +20669,14 @@ ul.edd_purchase_receipt_files li {
   transform: scale(0);
 }
 
+@charset "UTF-8";
 /* ======================================================
-    <!-- Brands List -->
+    <!-- 品牌列表 Brands List -->
 /* ====================================================== */
 .uix-list-brands {
   display: block;
   overflow: auto;
-  /* CSS background disappears when using float:left */
+  /* CSS 背景在使用 float:left 时消失 */
 }
 
 .uix-list-brands::after {
@@ -20683,11 +20688,10 @@ ul.edd_purchase_receipt_files li {
 .uix-list-brands li {
   display: inline-block;
   float: left;
-  /* When using inline-block elements, there will always be an whitespace issue between those elements (that space is about ~ 4px wide). */
+  /* 当使用行内块元素时，这些元素之间总会有一个空白问题（那个空白大约是 ~ 4px 宽）。 */
   box-sizing: border-box;
   margin: 0;
   padding: 1rem 0;
-  text-align: center;
   text-align: center;
 }
 
@@ -20699,7 +20703,7 @@ ul.edd_purchase_receipt_files li {
 
 @media all and (min-width: 769px) {
   .uix-list-brands {
-    /* Default */
+    /* 默认 */
   }
   .uix-list-brands.uix-list-brands--tiny li {
     width: 16.66666666666667%;
@@ -20746,23 +20750,24 @@ ul.edd_purchase_receipt_files li {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Maintain Aspect Ratio List -->
+   <!-- 保持纵横比列表 Maintain Aspect Ratio List -->
 /* ====================================================== */
 .uix-list-aspect-ratio .uix-list-aspect-ratio__content {
   padding: 0 3rem;
-  /* You can change this value to change items size */
+  /* 你可以改变这个值来改变项目的大小 */
 }
 
 .uix-list-aspect-ratio .uix-list-aspect-ratio__item {
   position: relative;
-  /* If you want text inside of it */
+  /* 如果你想要里面的文本 */
   transition: all 0.3s ease;
   display: block;
-  /* Maintain Aspect Ratio 1:1*/
+  /* 保持纵横比 1:1*/
   width: 100%;
   padding-top: 100%;
-  /* 1:1 Aspect Ratio */
+  /* 1:1 纵横比 */
   background: #212121;
 }
 
@@ -20786,8 +20791,7 @@ ul.edd_purchase_receipt_files li {
 
 @media all and (max-width: 768px) {
   .uix-list-aspect-ratio {
-    padding: 0;
-    padding-right: 15px;
+    padding: 0 15px 0 0;
   }
   .uix-list-aspect-ratio .uix-list-aspect-ratio__item img,
   .uix-list-aspect-ratio .uix-list-aspect-ratio__item i {
@@ -20803,15 +20807,16 @@ ul.edd_purchase_receipt_files li {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Side by Side List -->
+   <!-- 并排列表 Side by Side List -->
 /* ====================================================== */
 dl.uix-list-abreast {
   font-size: 0.875rem;
   width: 100%;
-  /* adjust the width; make sure the total of both is 100% */
+  /* 调整宽度； 确保两者的总和为 100% */
   margin-bottom: 0;
-  /* Icon List */
+  /* 图标列表 */
 }
 
 dl.uix-list-abreast dt {
@@ -20828,8 +20833,7 @@ dl.uix-list-abreast dd {
   float: left;
   width: calc(100% - 80px);
   margin: 0;
-  padding: 5px 0;
-  padding-left: 1rem;
+  padding: 5px 0 5px 1rem;
   text-align: left;
   word-break: break-all;
 }
@@ -20856,8 +20860,9 @@ dl.uix-list-abreast.uix-list-abreast--icon dd {
   width: calc(100% - 30px);
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Side by Side List With Photo -->
+   <!-- 带照片的并排列表 Side by Side List With Photo -->
 /* ====================================================== */
 .uix-list-abreast-img .uix-list-abreast-img__item {
   position: relative;

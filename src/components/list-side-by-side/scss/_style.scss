@@ -1,10 +1,10 @@
 /* ======================================================
-   <!-- Side by Side List -->
+   <!-- 并排列表 Side by Side List -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 dl.uix-list-abreast {
     font-size: 0.875rem;
-    width: 100%; /* adjust the width; make sure the total of both is 100% */
+    width: 100%; /* 调整宽度； 确保两者的总和为 100% */
     margin-bottom: 0;
     dt {
         font-weight: 600;
@@ -19,8 +19,7 @@ dl.uix-list-abreast {
         float: left;
         width: calc(100% - 80px);
         margin: 0;
-        padding: 5px 0;
-        padding-left: 1rem;
+        padding: 5px 0 5px 1rem;
         text-align: left;
         word-break: break-all;
         p {
@@ -32,7 +31,7 @@ dl.uix-list-abreast {
         clear: both;
         content: '';
     }
-    /* Icon List */
+    /* 图标列表 */
     &.uix-list-abreast--icon {
         dt {
             width: 30px;

@@ -5,40 +5,15 @@
  */
 /*
     Note:
-	
-	If you use the "change" event to asynchronously change a custom control of select, radio or checkbox, 
+
+	If you use the "change" event to asynchronously change a custom control of select, radio or checkbox,
 	you need add a callback function that initializes the style:
-	
+
 	$( document ).UixRenderXXXXXXXXX();
 
-	
+
 */
-import {
-    templateUrl,
-    homeUrl,
-    ajaxUrl,
-    browser,
-    UixModuleInstance,
-    UixGUID,
-    UixMath,
-    UixCssProperty,
-    UixDebounce,
-    UixThrottle
-} from '@uixkit/core/_global/js';
-import UixRenderNormalRadio from '@uixkit/core/form/js/fn/normal-radio';
-import UixRenderDatePicker from '@uixkit/core/form/js/fn/datepicker';
-import UixRenderControlsHover from '@uixkit/core/form/js/fn/controls-hover';
-import UixRenderCustomSingleSel from '@uixkit/core/form/js/fn/single-seletor';
-import UixRenderCustomMultiSel from '@uixkit/core/form/js/fn/multi-seletor';
-import UixRenderCustomFileDropzone from '@uixkit/core/form/js/fn/file-dropzone';
-import UixRenderCustomFile from '@uixkit/core/form/js/fn/upload';
-import UixRenderControlsDisable from '@uixkit/core/form/js/fn/controls-disable';
-import UixRenderControlsLineEff from '@uixkit/core/form/js/fn/controls-line';
-import UixRenderCustomRadioCheckbox from '@uixkit/core/form/js/fn/radio-and-checkbox';
-import UixRenderCustomSelect from '@uixkit/core/form/js/fn/select';
-import UixRenderTagInput from '@uixkit/core/form/js/fn/tag-input';
-import UixRenderDynamicFields from '@uixkit/core/form/js/fn/dynamic-fields';
-import UixRenderNumberInput from '@uixkit/core/form/js/fn/number-input';
+import { UixModuleInstance } from '@uixkit/core/_global/js';
 import '../scss/_basic.scss';
 import '../scss/_layout.scss';
 import '../scss/_theme_material.scss';
