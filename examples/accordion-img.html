@@ -2,7 +2,7 @@
 <html lang="zh-cn" dir="ltr">
 <head>
     <meta charset="utf-8" />
-    <title>Accordion Background Images - Uix Kit 中文</title>
+    <title>手风琴背景图片 Accordion Background Images - Uix Kit 中文</title>
     <!-- Compatibility Settings
 ============================================= -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -21,9 +21,9 @@
 <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css?ver=5.7.0">
 <link rel="stylesheet" href="assets/fonts/fontawesome/css/v4-shims.min.css?ver=5.7.0">
 <!-- Theme  -->
-<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=2th3SU36xQ9gFxmf1QbT" />
+<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=nPaXMfPTLMQLajt6bYdn" />
 <!--[if lt IE 10]>
-<link rel="stylesheet" href="assets/css/IE.css?ver=2th3SU36xQ9gFxmf1QbT" />
+<link rel="stylesheet" href="assets/css/IE.css?ver=nPaXMfPTLMQLajt6bYdn" />
 <![endif]-->
 <!-- Core & Theme CSS  end -->
 <!-- Vendor
@@ -354,9 +354,8 @@
                 <!-- 行列 开始 -->
                 <div class="row">
                     <div class="col-12">
-                        <h3>Accordion Background Images</h3>
-                        <p>Show hidden divs on mouse event.</p>
-                        <hr>
+                        <h3>手风琴背景图片</h3>
+                        <p>在鼠标事件中显示隐藏的 div</p>
                     </div>
                 </div>
                 <!-- 行列 结束 -->
@@ -370,6 +369,34 @@
                 <!-- 行列 开始 -->
                 <div class="row">
                     <div class="col-12">
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;div class=&quot;uix-accordion-img uix-typo--color-white&quot; data-actived-item=&quot;0&quot; data-event=&quot;mouseover&quot; data-out-reset=&quot;true&quot; data-offset=&quot;50%&quot; data-direction=&quot;horizontal&quot; data-close-btn=&quot;false&quot;&gt;
+    &lt;ul&gt;
+        &lt;li style=&quot;background-image: url(assets/images/demo/test-img-big-1.jpg);&quot;&gt;
+            &lt;div class=&quot;uix-accordion-img__content&quot;&gt;
+                &lt;a href=&quot;javascript:&quot;&gt;
+                    &lt;h3&gt;Lorem Ipsum&lt;/h3&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit&lt;/p&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li style=&quot;background-image: url(assets/images/demo/test-img-big-2.jpg);&quot;&gt;
+            &lt;div class=&quot;uix-accordion-img__content&quot;&gt;
+                &lt;a href=&quot;javascript:&quot;&gt;
+                    &lt;h3&gt;Lorem Ipsum&lt;/h3&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit&lt;/p&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li style=&quot;background-image: url(assets/images/demo/test-img-big-4.jpg);&quot;&gt;
+            &lt;div class=&quot;uix-accordion-img__content&quot;&gt;
+                &lt;a href=&quot;javascript:&quot;&gt;
+                    &lt;h3&gt;Lorem Ipsum&lt;/h3&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit&lt;/p&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
                         <div class="uix-accordion-img uix-typo--color-white" data-actived-item="0" data-event="mouseover" data-out-reset="true" data-offset="50%" data-direction="horizontal" data-close-btn="false">
                             <ul>
                                 <li style="background-image: url(assets/images/demo/test-img-big-1.jpg);">
@@ -398,7 +425,6 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- .uix-accordion-img end -->
                     </div>
                 </div>
                 <!-- 行列 结束 -->
@@ -412,9 +438,8 @@
                 <!-- 行列 开始 -->
                 <div class="row">
                     <div class="col-12">
-                        <h3>Accordion Background Images 2</h3>
-                        <p>Click the item to show it. Hidden divs when you click the close button.</p>
-                        <hr>
+                        <h3>手风琴背景图片 2</h3>
+                        <p>单击该项目以显示它，单击关闭按钮时隐藏的 div。</p>
                     </div>
                 </div>
                 <!-- 行列 结束 -->
@@ -428,6 +453,38 @@
                 <!-- 行列 开始 -->
                 <div class="row">
                     <div class="col-12">
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;div class=&quot;uix-accordion-img uix-typo--color-white&quot; data-actived-item=&quot;false&quot; data-event=&quot;click&quot; data-out-reset=&quot;false&quot; data-offset=&quot;60%&quot; data-close-btn=&quot;.uix-accordion-img__close&quot;&gt;
+    &lt;ul&gt;
+        &lt;li style=&quot;background-image: url(assets/images/demo/test-img-big-1.jpg);&quot;&gt;
+            &lt;div class=&quot;uix-accordion-img__content&quot;&gt;
+                &lt;h3&gt;Lorem Ipsum&lt;/h3&gt;
+                &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit&lt;/p&gt;
+                &lt;a class=&quot;uix-accordion-img__close&quot; href=&quot;javascript:&quot;&gt;Close&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li style=&quot;background-image: url(assets/images/demo/test-img-big-2.jpg);&quot;&gt;
+            &lt;div class=&quot;uix-accordion-img__content&quot;&gt;
+                &lt;h3&gt;Lorem Ipsum&lt;/h3&gt;
+                &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit&lt;/p&gt;
+                &lt;a class=&quot;uix-accordion-img__close&quot; href=&quot;javascript:&quot;&gt;Close&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li style=&quot;background-image: url(assets/images/demo/test-img-big-4.jpg);&quot;&gt;
+            &lt;div class=&quot;uix-accordion-img__content&quot;&gt;
+                &lt;h3&gt;Lorem Ipsum&lt;/h3&gt;
+                &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit&lt;/p&gt;
+                &lt;a class=&quot;uix-accordion-img__close&quot; href=&quot;javascript:&quot;&gt;Close&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li style=&quot;background-image: url(assets/images/demo/test-img-big-5.jpg);&quot;&gt;
+            &lt;div class=&quot;uix-accordion-img__content&quot;&gt;
+                &lt;h3&gt;Lorem Ipsum&lt;/h3&gt;
+                &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit&lt;/p&gt;
+                &lt;a class=&quot;uix-accordion-img__close&quot; href=&quot;javascript:&quot;&gt;Close&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
                         <div class="uix-accordion-img uix-typo--color-white" data-actived-item="false" data-event="click" data-out-reset="false" data-offset="60%" data-close-btn=".uix-accordion-img__close">
                             <ul>
                                 <li style="background-image: url(assets/images/demo/test-img-big-1.jpg);">
@@ -460,7 +517,6 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- .uix-accordion-img end -->
                     </div>
                 </div>
                 <!-- 行列 结束 -->
@@ -538,7 +594,7 @@
     */
     window.$ = window.jQuery;
 </script>
-<script defer src="../dist/js/uix-kit.min.js?ver=2th3SU36xQ9gFxmf1QbT"></script>
+<script defer src="../dist/js/uix-kit.min.js?ver=nPaXMfPTLMQLajt6bYdn"></script>
 <!-- Your Plugins & Theme Scripts  end -->
 </body>
 </html>
