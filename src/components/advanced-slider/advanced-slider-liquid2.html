@@ -2,7 +2,7 @@
 <html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
     <meta charset="@@{website_charset}" />
-    <title>Advanced Slider Liquid 2 - @@{website_title}</title>
+    <title>高级滑块液体效果 2 Advanced Slider Liquid 2 - @@{website_title}</title>
     @@include('./src/components/_global/include-header.html')
 </head>
 <body class="page">
@@ -29,9 +29,8 @@
                 <!-- 行列 开始 -->
                 <div class="row">
                     <div class="col-12">
-                        <h3>Advanced Slider</h3>
-                        <p>Liquid Distortion Effect 2</p>
-                        <hr>
+                        <h3>高级滑块</h3>
+                        <p>液体扭曲效果2</p>
                     </div>
                 </div>
                 <!-- 行列 结束 -->
@@ -39,7 +38,73 @@
             <!-- 容器 结束 -->
         </section>
         <!-- 内容 结束 -->
+        <pre class="uix-precode"><label>HTML</label><code>&lt;!-- .uuix-advanced-slider-sp__wrapper 开始 --&gt;
+&lt;div role=&quot;banner&quot; class=&quot;uix-advanced-slider-sp__wrapper&quot;&gt;
+    &lt;!-- .uix-advanced-slider__outline 开始 --&gt;
+    &lt;div class=&quot;uix-advanced-slider__outline uix-advanced-slider-sp uix-advanced-slider-sp--eff-liquid2&quot;
+        data-draggable=&quot;false&quot;
+        data-draggable-cursor=&quot;move&quot;
+        data-auto=&quot;true&quot;
+        data-loop=&quot;false&quot;
+        data-speed=&quot;800&quot;
+        data-timing=&quot;10000&quot;
+        data-count-total=&quot;false&quot;
+        data-count-now=&quot;false&quot;
+        data-filter-texture=&quot;assets/images/dmaps/1024x512/gradient.png&quot;
+        data-controls-pagination=&quot;.my-a-slider-pagination-2&quot;
+        data-controls-arrows=&quot;.my-a-slider-arrows-2&quot;&gt;
+        &lt;!-- .uix-advanced-slider-sp__inner 开始 --&gt;
+        &lt;div class=&quot;uix-advanced-slider-sp__inner&quot;&gt;
+            &lt;div class=&quot;uix-advanced-slider-sp__item&quot;&gt;
+                &lt;img src=&quot;assets/images/demo/cool-slider-1.jpg&quot; alt=&quot;Title 1&quot; /&gt;
+                &lt;div class=&quot;uix-advanced-slider-sp__txt&quot;&gt;
+                    &lt;div class=&quot;uix-core-grid__col-7 uix-typo--color-white&quot;&gt;
+                        &lt;h3&gt;美丽的自由 &amp;amp; 高级响应式 WordPress 主题&lt;/h3&gt;
+                        &lt;p&gt;UIx 响应式 Web UI 框架&lt;/p&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;uix-btn uix-btn__border--thin uix-btn__margin--b uix-btn__size--s uix-btn__bg--secondary is-pill is-fill-white&quot;&gt;链接&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;uix-advanced-slider-sp__item&quot;&gt;
+                &lt;img src=&quot;assets/images/demo/cool-slider-2.jpg&quot; alt=&quot;Title 2&quot; /&gt;
+                &lt;div class=&quot;uix-advanced-slider-sp__txt&quot;&gt;
+                    &lt;div class=&quot;uix-core-grid__col-7 uix-typo--color-white&quot;&gt;
+                        &lt;h3&gt;你好世界&lt;/h3&gt;
+                        &lt;p&gt;UIUX Lab 精心打造原创设计资产并发表有关 UI/UX 趋势的文章！&lt;/p&gt;
+                        &lt;a href=&quot;#&quot; class=&quot;uix-btn uix-btn__border--thin uix-btn__margin--b uix-btn__size--s uix-btn__bg--secondary is-pill is-fill-white&quot;&gt;链接&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;uix-advanced-slider-sp__item&quot;&gt;
+                &lt;img src=&quot;assets/images/demo/cool-slider-3.jpg&quot; alt=&quot;Title 3&quot; /&gt;
+                &lt;div class=&quot;uix-advanced-slider-sp__txt&quot;&gt;
+                    &lt;div class=&quot;uix-core-grid__col-7 uix-typo--color-white&quot;&gt;
+                        &lt;h3&gt;标题 3&lt;/h3&gt;
+                        &lt;p&gt;Lorem ipsum dolor sit amet，consectetur adipiscing elit。&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;uix-advanced-slider-sp__item&quot;&gt;
+                &lt;div class=&quot;uix-video__slider&quot; data-embed-video-width=&quot;auto&quot; data-embed-video-height=&quot;auto&quot; data-embed-video-controls=&quot;false&quot; data-embed-video-autoplay=&quot;true&quot; data-embed-video-loop=&quot;false&quot;&gt;
+                    &lt;video id=&quot;video-demo-1&quot; class=&quot;video-js vjs-default-skin&quot; controls poster=&quot;assets/videos/1440x1050/demo.jpg&quot;&gt;
+                        &lt;source src=&quot;assets/videos/1440x1050/demo.mp4&quot; type=&quot;video/mp4&quot;&gt;
+                    &lt;/video&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- .uix-advanced-slider-sp__inner 结束 --&gt;
+    &lt;/div&gt;
+    &lt;!-- .uix-advanced-slider__outline 结束 --&gt;
+&lt;/div&gt;
+&lt;!-- .uuix-advanced-slider-sp__wrapper 结束 --&gt;
+&lt;div class=&quot;uix-advanced-slider-sp__pagination my-a-slider-pagination-2&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;uix-advanced-slider-sp__arrows my-a-slider-arrows-2&quot;&gt;
+    &lt;a href=&quot;#&quot; class=&quot;uix-advanced-slider-sp__arrows--prev&quot;&gt;&lt;i class=&quot;fa fa-long-arrow-left&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;uix-advanced-slider-sp__arrows--next&quot;&gt;&lt;i class=&quot;fa fa-long-arrow-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+        <!-- .uuix-advanced-slider-sp__wrapper 开始 -->
         <div role="banner" class="uix-advanced-slider-sp__wrapper">
+            <!-- .uix-advanced-slider__outline 开始 -->
             <div class="uix-advanced-slider__outline uix-advanced-slider-sp uix-advanced-slider-sp--eff-liquid2"
                 data-draggable="false"
                 data-draggable-cursor="move"
@@ -52,6 +117,7 @@
                 data-filter-texture="assets/images/dmaps/1024x512/gradient.png"
                 data-controls-pagination=".my-a-slider-pagination-2"
                 data-controls-arrows=".my-a-slider-arrows-2">
+                <!-- .uix-advanced-slider-sp__inner 开始 -->
                 <div class="uix-advanced-slider-sp__inner">
                     <div class="uix-advanced-slider-sp__item">
                         <img src="assets/images/demo/cool-slider-1.jpg" alt="Title 1" />
@@ -77,8 +143,8 @@
                         <img src="assets/images/demo/cool-slider-3.jpg" alt="Title 3" />
                         <div class="uix-advanced-slider-sp__txt">
                             <div class="uix-core-grid__col-7 uix-typo--color-white">
-                               <h3>标题 3</h3>
-                                 <p>Lorem ipsum dolor sit amet，consectetur adipiscing elit。</p>
+                                <h3>标题 3</h3>
+                                <p>Lorem ipsum dolor sit amet，consectetur adipiscing elit。</p>
                             </div>
                         </div>
                     </div>
@@ -90,11 +156,11 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.uix-advanced-slider-sp__inner -->
+                <!-- .uix-advanced-slider-sp__inner 结束 -->
             </div>
-            <!-- /.uix-advanced-slider__outline -->
+            <!-- .uix-advanced-slider__outline 结束 -->
         </div>
-        <!-- /.uuix-advanced-slider-sp__wrapper -->
+        <!-- .uuix-advanced-slider-sp__wrapper 结束 -->
         <div class="uix-advanced-slider-sp__pagination my-a-slider-pagination-2"></div>
         <div class="uix-advanced-slider-sp__arrows my-a-slider-arrows-2">
             <a href="#" class="uix-advanced-slider-sp__arrows--prev"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
