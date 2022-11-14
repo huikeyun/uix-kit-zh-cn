@@ -2,7 +2,7 @@
 <html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
     <meta charset="@@{website_charset}" />
-    <title>Advanced Slider (Basic) - @@{website_title}</title>
+    <title>高级滑块（基本）Advanced Slider (Basic) - @@{website_title}</title>
     @@include('./src/components/_global/include-header.html')
 </head>
 <body class="page">
@@ -31,11 +31,10 @@
                 <!-- 行列 开始 -->
                 <div class="row">
                     <div class="col-12">
-                        <h3>Advanced Slider (Basic)</h3>
-                        <p>If you want to modify the transition-duration property, please directly modify the
-                            <code>.uix-advanced-slider__item</code> in the CSS file. It is not on the
-                            <code>data-</code> attribute of the HTML tag.</p>
-                        <hr>
+                        <h3>高级滑块（基本）</h3>
+                        <p>如果要修改transition-duration属性，请直接修改
+                            <code>.uix-advanced-slider__item</code> 在 CSS 文件中。 它不在
+                            HTML 标记的 <code>data-</code> 属性。</p>
                     </div>
                 </div>
                 <!-- 行列 结束 -->
@@ -43,17 +42,11 @@
             <!-- 容器 结束 -->
         </section>
         <!-- 内容 结束 -->
+        <!-- .uix-advanced-slider__wrapper 开始 -->
         <div role="banner" class="uix-advanced-slider__wrapper">
-            <div class="uix-advanced-slider__outline uix-advanced-slider uix-advanced-slider--eff-scale"
-                data-draggable="false"
-                data-draggable-cursor="move"
-                data-auto="true"
-                data-loop="true"
-                data-timing="10000"
-                data-count-total="false"
-                data-count-now="false"
-                data-controls-pagination=".my-a-slider-pagination-1"
-                data-controls-arrows=".my-a-slider-arrows-1">
+            <!-- .uix-advanced-slider__outline 开始 -->
+            <div class="uix-advanced-slider__outline uix-advanced-slider uix-advanced-slider--eff-scale" data-draggable="false" data-draggable-cursor="move" data-auto="true" data-loop="true" data-timing="10000" data-count-total="false" data-count-now="false" data-controls-pagination=".my-a-slider-pagination-1" data-controls-arrows=".my-a-slider-arrows-1">
+                <!-- .uix-advanced-slider__inner 开始 -->
                 <div class="uix-advanced-slider__inner">
                     <div class="uix-advanced-slider__item">
                         <img src="assets/images/demo/cool-slider-1.jpg" alt="Title 1" />
@@ -92,18 +85,17 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.uix-advanced-slider__inner -->
+                <!-- .uix-advanced-slider__inner 结束 -->
             </div>
-            <!-- /.uix-advanced-slider__outline -->
+            <!-- .uix-advanced-slider__outline 结束 -->
         </div>
-        <!-- /.uix-advanced-slider__wrapper -->
+        <!-- .uix-advanced-slider__wrapper 结束 -->
         <div class="uix-advanced-slider__pagination my-a-slider-pagination-1"></div>
         <div class="uix-advanced-slider__arrows my-a-slider-arrows-1">
             <a href="#" class="uix-advanced-slider__arrows--prev"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
             <a href="#" class="uix-advanced-slider__arrows--next"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
         </div>
-        <!-- Title
-        ====================================================== -->
+        <hr>
         <section class="uix-spacing--s">
             <!-- 容器 开始 -->
             <div class="container">
