@@ -1,6 +1,6 @@
 /* 
  *************************************
- * <!--  Ajax 页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)   -->
+ * <!--  异步加载页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)   -->
  *************************************
  */
 import { browser, UixDebounce, UixGUID, UixModuleInstance } from '@uixkit/core/_global/js';
