@@ -43,7 +43,7 @@
     24.手风琴 Accordion
     25.高级滑块（基本）Advanced Slider (Basic)
     26.高级滑块（特殊效果）Advanced Slider (Special Effects)
-    27.Ajax 页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)
+    27.异步加载页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)
     28.回到顶部Back to Top
     29.圆形布局 Circle Layout
     30.下拉菜单 Dropdown Menu
@@ -5390,7 +5390,7 @@ h6 {
 
 @charset "UTF-8";
 /* ======================================================
-   <!--  Ajax 页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)   -->
+   <!--  异步加载页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)   -->
 /* ====================================================== */
 .uix-ajax-load__container {
   position: relative;
