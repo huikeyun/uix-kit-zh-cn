@@ -2,7 +2,7 @@
 <html lang="zh-cn" dir="ltr">
 <head>
     <meta charset="utf-8" />
-    <title>Ajax Page 3 - Content - Uix Kit 中文</title>
+    <title>异步加载页面3 Ajax Page 3 - Content - Uix Kit 中文</title>
     <!-- Compatibility Settings
 ============================================= -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -21,9 +21,9 @@
 <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css?ver=5.7.0">
 <link rel="stylesheet" href="assets/fonts/fontawesome/css/v4-shims.min.css?ver=5.7.0">
 <!-- Theme  -->
-<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=xKLBxlmAK3ZNWgf4YZIg" />
+<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=TZ0P5M29rRg3CeUaqmDv" />
 <!--[if lt IE 10]>
-<link rel="stylesheet" href="assets/css/IE.css?ver=xKLBxlmAK3ZNWgf4YZIg" />
+<link rel="stylesheet" href="assets/css/IE.css?ver=TZ0P5M29rRg3CeUaqmDv" />
 <![endif]-->
 <!-- Core & Theme CSS  end -->
 <!-- Vendor
@@ -346,55 +346,52 @@
         </div>
     </header>
     <main id="uix-maincontent">
-        <!-- Section Navigation
-        ============================================= -->
+        <!-- 版块导航 开始 -->
         <ol class="uix-menu-sidefixed">
             <li>
-                <a href="ajax-content-page-1.html" data-ajax-page="true" data-index="0"><span>01</span><strong>Page 1</strong></a>
+                <a href="ajax-content-page-1.html" data-ajax-page="true" data-index="0"><span>01</span><strong>页面 1</strong></a>
             </li>
             <li>
-                <a href="ajax-content-page-2.html" data-ajax-page="true" data-index="1"><span>02</span><strong>Page 2</strong></a>
+                <a href="ajax-content-page-2.html" data-ajax-page="true" data-index="1"><span>02</span><strong>页面 2</strong></a>
             </li>
             <li>
-                <a href="ajax-content-page-3.html" data-ajax-page="true" data-index="2"><span>03</span><strong>Page 3</strong></a>
+                <a href="ajax-content-page-3.html" data-ajax-page="true" data-index="2"><span>03</span><strong>页面 3</strong></a>
             </li>
             <li>
-                <a href="ajax-content-page-4.html" data-ajax-page="true" data-index="3"><span>04</span><strong>Page 4</strong></a>
+                <a href="ajax-content-page-4.html" data-ajax-page="true" data-index="3"><span>04</span><strong>页面 4</strong></a>
             </li>
         </ol>
-        <!-- Page Container
-        ============================================= -->
+        <!-- 版块导航 结束 -->
+        <!-- .uix-ajax-load__fullpage-container 开始 -->
         <div class="uix-ajax-load__fullpage-container">
             <div class="uix-ajax-load__loader"><span></span><em id="app-loading" data-txt="{progress}%"></em></div>
             <section class="uix-height--100 is-mobile-still" style="background: #b5bdc8; background: linear-gradient(to bottom, #b5bdc8 0%,#28343b 100%);">
-                <!-- ajax container -->
+                <!-- ajax container 开始 -->
                 <div class="ajax-container" data-ajax-method="GET" data-ajax-page-id="2">
                     <div class="js-uix-ajax-load__container">
+                        <!-- .uix-ajax-load__container 开始 -->
                         <div class="uix-ajax-load__container">
-                            <!-- Your Special Content Here
-                            ========================= -->
+                            <!-- 容器 开始 -->
                             <div class="container uix-spacing--m">
+                                <!-- 行列 开始 -->
                                 <div class="row">
                                     <div class="col-md-10 offset-md-1">
                                         <div class="uix-entry__content uix-list uix-list--normal uix-table uix-table--bordered">
-                                            <h1>AJAX Content 3</h1>
-                                            <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper.</p>
-                                            <p>Dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper.</p>
-                                            <p>Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper.</p>
+                                            <h1>异步加载内容3</h1>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- 行列 结束 -->
                             </div>
                             <!-- 容器 结束 -->
-                            <!-- ========================= -->
                         </div>
-                        <!-- .uix-ajax-load__container -->
+                        <!-- .uix-ajax-load__container 结束 -->
                     </div>
                 </div>
+                <!-- ajax container 结束 -->
             </section>
         </div>
-        <!-- .uix-ajax-load__fullpage-container -->
+        <!-- .uix-ajax-load__fullpage-container 结束 -->
     </main>
     <!-- 版权部分
 ============================================= -->
@@ -466,7 +463,7 @@
     */
     window.$ = window.jQuery;
 </script>
-<script defer src="../dist/js/uix-kit.min.js?ver=xKLBxlmAK3ZNWgf4YZIg"></script>
+<script defer src="../dist/js/uix-kit.min.js?ver=TZ0P5M29rRg3CeUaqmDv"></script>
 <!-- Your Plugins & Theme Scripts  end -->
 </body>
 </html>
