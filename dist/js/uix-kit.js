@@ -9114,7 +9114,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
         loadingTmpl = $control.data('cascading-dd-loading-tmpl');
       if ((0,esm_typeof/* default */.Z)(ajaxURL) === ( true ? "undefined" : 0)) ajaxURL = '';
       if ((0,esm_typeof/* default */.Z)(ajaxMethod) === ( true ? "undefined" : 0)) ajaxMethod = 'POST';
-      if ((0,esm_typeof/* default */.Z)(loadingTmpl) === ( true ? "undefined" : 0)) loadingTmpl = '<div>loading...</div>';
+      if ((0,esm_typeof/* default */.Z)(loadingTmpl) === ( true ? "undefined" : 0)) loadingTmpl = '<div>加载中...</div>';
       if ((0,esm_typeof/* default */.Z)(actived) === ( true ? "undefined" : 0)) {
         // Methods
         //------------------------------------------
