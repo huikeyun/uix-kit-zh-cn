@@ -2,7 +2,7 @@
 <html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
     <meta charset="@@{website_charset}" />
-    <title>Cascading DropDown List - @@{website_title}</title>
+    <title>层叠的下拉列表 Cascading DropDown List - @@{website_title}</title>
     @@include('./src/components/_global/include-header.html')
 </head>
 <body class="page">
@@ -30,9 +30,8 @@
                 <!-- 行列 开始 -->
                 <div class="row">
                     <div class="col-12">
-                        <h3>Cascading DropDown List</h3>
-                        <p>Create a dynamic dropdown form that loads its data from a JSON file. Support infinite recursion.</p>
-                        <hr>
+                        <h3>级联下拉列表</h3>
+                        <p>创建一个从 JSON 文件加载数据的动态下拉表单。 支持无限递归。</p>
                     </div>
                 </div>
                 <!-- 行列 结束 -->
@@ -46,8 +45,8 @@
                 <!-- 行列 开始 -->
                 <div class="row">
                     <div class="col-12">
-                        <h4>Empty value</h4>
-                        <!-- control begin -->
+                        <h4>空值</h4>
+                        <!-- 内容 开始 -->
                         <div
                             class="uix-cascading-dropdown-list"
                             data-cascading-dd-json="assets/json/dropdown-list.json"
@@ -55,9 +54,9 @@
                             data-cascading-dd-loading-tmpl="<div>loading...</div>"
                         >
                             <input class="uix-cascading-dropdown-list__res" name="myname1" type="hidden" value="" />
-                            <a role="button" href="#" class="uix-cascading-dropdown-list__trigger" style="border: 1px solid #dadcdf;padding: 0.25rem 1rem;border-radius: 25px;font-size: .875rem;">Select</a>
+                            <a role="button" href="#" class="uix-cascading-dropdown-list__trigger" style="border: 1px solid #dadcdf;padding: 0.25rem 1rem;border-radius: 25px;font-size: .875rem;">选择</a>
                         </div>
-                        <!-- control end -->
+                        <!-- 内容 结束 -->
                     </div>
                     <!-- col-12 end -->
                 </div>
@@ -72,18 +71,27 @@
                 <!-- 行列 开始 -->
                 <div class="row">
                     <div class="col-12">
-                        <h4>The default value is specified</h4>
-                        <!-- control begin -->
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;div
+    class=&quot;uix-cascading-dropdown-list&quot;
+    data-cascading-dd-json=&quot;assets/json/dropdown-list.json&quot;
+    data-cascading-dd-method=&quot;GET&quot;
+    data-cascading-dd-loading-tmpl=&quot;&lt;div&gt;加载中...&lt;/div&gt;&quot;
+&gt;
+    &lt;input class=&quot;uix-cascading-dropdown-list__res&quot; name=&quot;myname2&quot; type=&quot;hidden&quot; value=&quot;1_2&quot; /&gt;
+    &lt;a role=&quot;button&quot; href=&quot;#&quot; class=&quot;uix-cascading-dropdown-list__trigger&quot; style=&quot;border: 1px solid #dadcdf;padding: 0.25rem 1rem;border-radius: 25px;font-size: .875rem;&quot;&gt;选择&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+                        <h4>指定默认值</h4>
+                        <!-- 内容 开始 -->
                         <div
                             class="uix-cascading-dropdown-list"
                             data-cascading-dd-json="assets/json/dropdown-list.json"
                             data-cascading-dd-method="GET"
-                            data-cascading-dd-loading-tmpl="<div>loading...</div>"
+                            data-cascading-dd-loading-tmpl="<div>加载中...</div>"
                         >
                             <input class="uix-cascading-dropdown-list__res" name="myname2" type="hidden" value="1_2" />
-                            <a role="button" href="#" class="uix-cascading-dropdown-list__trigger" style="border: 1px solid #dadcdf;padding: 0.25rem 1rem;border-radius: 25px;font-size: .875rem;">Select</a>
+                            <a role="button" href="#" class="uix-cascading-dropdown-list__trigger" style="border: 1px solid #dadcdf;padding: 0.25rem 1rem;border-radius: 25px;font-size: .875rem;">选择</a>
                         </div>
-                        <!-- control end -->
+                        <!-- 内容 结束 -->
                     </div>
                     <!-- col-12 end -->
                 </div>
@@ -98,18 +106,27 @@
                 <!-- 行列 开始 -->
                 <div class="row">
                     <div class="col-12">
-                        <h4>Show city list of China as per state select in dropdown select box</h4>
-                        <!-- control begin -->
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;div
+    class=&quot;uix-cascading-dropdown-list&quot;
+    data-cascading-dd-json=&quot;assets/json/province-city-china-level.json&quot;
+    data-cascading-dd-method=&quot;GET&quot;
+    data-cascading-dd-loading-tmpl=&quot;&lt;div&gt;正在加载中...&lt;/div&gt;&quot;
+&gt;
+    &lt;input class=&quot;uix-cascading-dropdown-list__res&quot; name=&quot;myname3&quot; type=&quot;hidden&quot; value=&quot;&quot; /&gt;
+    &lt;a role=&quot;button&quot; href=&quot;#&quot; class=&quot;uix-cascading-dropdown-list__trigger&quot; style=&quot;border: 1px solid #dadcdf;padding: 0.25rem 1rem;border-radius: 25px;font-size: .875rem;&quot;&gt;选择省份&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+                        <h4>根据在下拉选择框中选择的州显示中国城市列表</h4>
+                        <!-- 内容 开始 -->
                         <div
                             class="uix-cascading-dropdown-list"
                             data-cascading-dd-json="assets/json/province-city-china-level.json"
                             data-cascading-dd-method="GET"
-                            data-cascading-dd-loading-tmpl="<div>loading...</div>"
+                            data-cascading-dd-loading-tmpl="<div>正在加载中...</div>"
                         >
                             <input class="uix-cascading-dropdown-list__res" name="myname3" type="hidden" value="" />
-                            <a role="button" href="#" class="uix-cascading-dropdown-list__trigger" style="border: 1px solid #dadcdf;padding: 0.25rem 1rem;border-radius: 25px;font-size: .875rem;">Select Province</a>
+                            <a role="button" href="#" class="uix-cascading-dropdown-list__trigger" style="border: 1px solid #dadcdf;padding: 0.25rem 1rem;border-radius: 25px;font-size: .875rem;">选择省份</a>
                         </div>
-                        <!-- control end -->
+                        <!-- 内容 结束 -->
                         <br><br><br><br><br><br>
                     </div>
                     <!-- col-12 end -->
