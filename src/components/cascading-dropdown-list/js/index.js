@@ -35,7 +35,7 @@ export const CASCADING_DD_LIST = ((module, $, window, document) => {
                 loadingTmpl = $control.data('cascading-dd-loading-tmpl');
             if (typeof ajaxURL === typeof undefined) ajaxURL = '';
             if (typeof ajaxMethod === typeof undefined) ajaxMethod = 'POST';
-            if (typeof loadingTmpl === typeof undefined) loadingTmpl = '<div>加载中...</div>';
+            if (typeof loadingTmpl === typeof undefined) loadingTmpl = '<div>正在加载中......</div>';
             if (typeof actived === typeof undefined) {
                 //Initialize HTML structure
                 $control.append(`
