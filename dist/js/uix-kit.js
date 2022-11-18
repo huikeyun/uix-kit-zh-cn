@@ -8,7 +8,7 @@
  * ## 项目网址           :  https://uix-kit.13aq.com/
  * ## 版本              :  4.7.0
  * ## 汉化              :  慧科云 (https://github.com/huikeyun/uix-kit)
- * ## 最后更新日期        :  November 16, 2022
+ * ## 最后更新日期        :  November 18, 2022
  * ## 基于 UIUX Lab (https://uiux.cc) (uiuxlab@gmail.com) 汉化
  * ## 在 MIT 许可下发布。
  *
@@ -14182,9 +14182,9 @@ var MODAL_DIALOG = function (module, $, window, document) {
     /*
       * Unbind that one in a safe way that won't accidentally unbind other click handlers.
       * In order to trigger other custom Modal Dialog events.
-         $( '#element' ).off( 'click.MODAL_DIALOG' );
+          $( '#element' ).off( 'click.MODAL_DIALOG' );
         $( '#element' ).off( 'click.MODAL_DIALOG_CLOSE' );
-     */
+      */
     //Add modal mask to stage
     if ($('.uix-modal-mask').length == 0) {
       $('body').prepend('<div class="uix-modal-mask"></div>');
@@ -16189,13 +16189,13 @@ var SCROLL_REVEAL = function (module, $, window, document) {
       *
       * @return {Void}
       * #Usage:
-          <ul data-uix-anim='{"viewport":"90%","from":{"y":0},"to":{"y":0},"ease":"Power2.easeOut","duration":0.8,"delay":0.2,"infinite":true}' data-img-ids='["[data-imgshow]"]'>
+           <ul data-uix-anim='{"viewport":"90%","from":{"y":0},"to":{"y":0},"ease":"Power2.easeOut","duration":0.8,"delay":0.2,"infinite":true}' data-img-ids='["[data-imgshow]"]'>
              <li data-imgshow="1"><img src="logo-1.jpg" alt=""></li>
              <li data-imgshow="1"><img src="logo-2.jpg" alt=""></li>
              <li data-imgshow="1"><img src="logo-3.jpg" alt=""></li>
              <li data-imgshow="1"><img src="logo-4.jpg" alt=""></li>
          <ul>
-        */
+          */
       function spyImageTrans(type) {
         var _imgIds = $el.data('img-ids');
         if ((0,esm_typeof/* default */.Z)(_imgIds) !== ( true ? "undefined" : 0)) {
@@ -17598,12 +17598,12 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
                       points: path1
                   },
             onComplete: function() {
-                 TweenMax.to( this.target, animSpeed/1000, {
+                  TweenMax.to( this.target, animSpeed/1000, {
                     morphSVG: path2,
                     delay: 0,
                     ease: Power2.easeOut,
                     onComplete: function() {
-                         TweenMax.to( this.target, animSpeed/1000, {
+                          TweenMax.to( this.target, animSpeed/1000, {
                             morphSVG: path3,
                             delay: 0,
                             ease: Power2.easeInOut,
@@ -17611,9 +17611,9 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
                                 svgAnimating = false;
                             }
                         });
-                      }
+                        }
                 });
-             }
+              }
         });
         */
         TweenMax.set($current.find('polygon')[0], {
@@ -27791,14 +27791,14 @@ var THREE_BACKGROUND_THREE = function (module, $, window, document) {
         //push objects
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
         for (var i = 0; i < sceneSubjects.length; i++) {
           sceneSubjects[i].update(clock.getElapsedTime() * 1);
@@ -27998,14 +27998,14 @@ var THREE_BACKGROUND_THREE2 = function (module, $, window, document) {
         //push objects
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
         for (var i = 0; i < sceneSubjects.length; i++) {
           sceneSubjects[i].update(clock.getElapsedTime() * 1);
@@ -28133,14 +28133,14 @@ var THREE_BACKGROUND_THREE3 = function (module, $, window, document) {
         //push objects
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
         for (var i = 0; i < sceneSubjects.length; i++) {
           sceneSubjects[i].update(clock.getElapsedTime() * 1);
@@ -29285,14 +29285,14 @@ var THREE_GALLERY = function (module, $, window, document) {
         //push objects
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
         for (var i = 0; i < sceneSubjects.length; i++) {
           sceneSubjects[i].update(clock.getElapsedTime() * 1);
@@ -29529,14 +29529,14 @@ var THREE_IMAGE_TRANSITION = function (module, $, window, document) {
         //push objects
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
         for (var i = 0; i < sceneSubjects.length; i++) {
           sceneSubjects[i].update(clock.getElapsedTime() * 1);
@@ -31620,10 +31620,10 @@ var THREE_MODEL = function (module, $, window, document) {
           });
           /*
           If you can not use `object.scene.children[ 0 ]`, use the following code:
-            const gltfMesh = object.scene;
+              const gltfMesh = object.scene;
           object.scene.traverse( function( child ) {
              if ( ( child instanceof THREE.Mesh ) ) {
-                    child.material = new THREE.MeshPhongMaterial( {
+                      child.material = new THREE.MeshPhongMaterial( {
                                       color: 0xdddddd,
                                       shininess: 80,
                                       wireframe: true,
@@ -31631,11 +31631,11 @@ var THREE_MODEL = function (module, $, window, document) {
                                       side: THREE.DoubleSide,
                                       fog : false //Excluding objects from fog
                                   } );
-                   // set castShadow to object
+                    // set castShadow to object
                   child.castShadow = true;
-               }
+                }
           });
-            */
+              */
           displacementSprite.add(gltfMesh);
           displacementSprite.scale.set(1.2, 1.2, 1.2);
           displacementSprite.position.y = 100;
@@ -31688,14 +31688,14 @@ var THREE_MODEL = function (module, $, window, document) {
         //push objects
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
         for (var i = 0; i < sceneSubjects.length; i++) {
           sceneSubjects[i].update(clock.getElapsedTime() * 1);
@@ -32011,14 +32011,14 @@ var THREE_PAGES = function (module, $, window, document) {
         //push objects
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
         for (var i = 0; i < sceneSubjects.length; i++) {
           sceneSubjects[i].update(clock.getElapsedTime() * 1);
@@ -32327,14 +32327,14 @@ var THREE_PARTICLE = function (module, $, window, document) {
         //push objects
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
         for (var _i = 0; _i < sceneSubjects.length; _i++) {
           sceneSubjects[_i].update(clock.getElapsedTime() * 1);
@@ -32606,14 +32606,14 @@ var THREE_SPHERE_THREE = function (module, $, window, document) {
         //push objects
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
         for (var i = 0; i < sceneSubjects.length; i++) {
           sceneSubjects[i].update(clock.getElapsedTime() * 1);
@@ -32755,14 +32755,14 @@ var THREE_OBJ_ANIM_INTERACTION = function (module, $, window, document) {
         //push objects
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
         for (var i = 0; i < sceneSubjects.length; i++) {
           sceneSubjects[i].update(clock.getElapsedTime() * 1);
@@ -32965,14 +32965,14 @@ var THREE_MOUSE_INTERACTION = function (module, $, window, document) {
         //push objects
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
         for (var i = 0; i < sceneSubjects.length; i++) {
           sceneSubjects[i].update(clock.getElapsedTime() * 1);
@@ -33327,14 +33327,14 @@ var THREE_MOUSE_INTERACTION2 = function (module, $, window, document) {
         //push objects
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
         for (var i = 0; i < sceneSubjects.length; i++) {
           sceneSubjects[i].update(clock.getElapsedTime() * 1);
@@ -34050,14 +34050,14 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
         //push objects
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
         for (var i = 0; i < sceneSubjects.length; i++) {
           sceneSubjects[i].update(clock.getElapsedTime() * 1);
@@ -34691,14 +34691,14 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
         //push objects
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
         for (var _i2 = 0; _i2 < sceneSubjects.length; _i2++) {
           sceneSubjects[_i2].update(clock.getElapsedTime() * 1);
@@ -35384,14 +35384,14 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
         //push objects
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
         for (var i = 0; i < sceneSubjects.length; i++) {
           sceneSubjects[i].update(clock.getElapsedTime() * 1);
@@ -36394,14 +36394,14 @@ var THREE_FILMIC_EFF = function (module, $, window, document) {
         //push objects
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
         for (var i = 0; i < sceneSubjects.length; i++) {
           sceneSubjects[i].update(clock.getElapsedTime() * 1);
@@ -36697,12 +36697,12 @@ var THREE_SIMULATE_HTML_LAYOUT = function (module, $, window, document) {
         var t = (e.targetTouches) ? e.targetTouches[0] : e;
         touchStartY = t.pageY;
     };
-     function onTouchMove (e) {
+      function onTouchMove (e) {
         var evt = _event;
         var t = (e.targetTouches) ? e.targetTouches[0] : e;
         evt.deltaY = (t.pageY - touchStartY) * 5;
         touchStartY = t.pageY;
-     };*/
+      };*/
     //=====================================================================================
     //=====================================================================================
     //===================================IMAGES LOADER====================================
