@@ -1,391 +1,265 @@
 /* ======================================================
-   <!-- Advanced Slider (Basic) -->
+   <!--  高级滑块（基本）Advanced Slider (Basic)  -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
-
-
 /*
- * 1. Initialize the slider style
- * 2. Pagination dots
- * 3. Next/Prev buttons
+ * 1. 初始化滑块样式
+ * 2. 页码点
+ * 3. 下一个/上一个按钮
 */
-
 $anim-duration: 0.6s;
-
-
-
 /*
  ---------------------------
- 1. Initialize the slider style
+ 1. 初始化滑块样式
  ---------------------------
  */
 .uix-advanced-slider__wrapper {
-	position: relative;
+    position: relative;
 }
-
-
-/* Prevent content overflow */
+/* 防止内容溢出 */
 .uix-advanced-slider__wrapper,
 .uix-advanced-slider__item {
-	//max-height: 100vh;
+    // 最大高度：100vh；
 }
-
 .uix-advanced-slider {
-	position: relative;
-	width: 100%;
-	overflow: hidden;
-	z-index: 1;
-
-
-	.uix-advanced-slider__inner {
-		/* Don't set overflow to "hidden" */
-		position: relative;
-		z-index: 1;
-		height: 100%;
-
-
-
-		.uix-advanced-slider__item {
-			position: absolute;
-			left: 0;
-			top: 0;
-			z-index: 1;
-			width: 100%;
-			opacity: 0;
-
-			/* Javascript will automatically get this value, please do not delete */
-			transition: all #{$anim-duration} ease;
-
-
-
-			.uix-advanced-slider__txt {
-				position: absolute;
-				left: 50%;
-				top: 50%;
-				transform: translate(-50%,-50%) !important;
-				z-index: 15;
-				@include transition-cubic-bezier();
-				margin-top: 100px;
-				opacity: 0;
-
-				h3 {
-					margin-bottom: 0;
-				}
-
-			}
-
-
-			@include securityWidthForElement( '.uix-advanced-slider__txt' ) ;
-
-
-
-
-			img {
-				width: 100%;
-			}
-
-			&.leave {
-				opacity: 0;
-
-
-				.uix-advanced-slider__txt {
-					margin-top: 100px;
-					opacity: 0;
-				}
-
-			}
-
-			&.is-active {
-				/* Allow button clicks */
-				z-index: 2;
-				opacity: 1;
-
-
-				.uix-advanced-slider__txt {
-					margin-top: 0;
-					opacity: 1;
-					transition-delay: 0.6s;
-				}
-
-
-			}
-
-
-		}
-
-	}
-
-
-}
-
-
-/* Tests native CSS3 and HTML5 features are available */
-/*---- Effect: Scale ----*/
-/* --------------------------- */
-.cssanimations {
-
-	.uix-advanced-slider {
-
-		&.uix-advanced-slider--eff-scale {
-			.uix-advanced-slider__inner {
-
-				.uix-advanced-slider__item {
-					opacity: 0;
-					transform: scale(.8);
-
-					/* Default */
-					&.prev {
-						transform: translateX(200px) scale(.8);
-					}
-
-					&.next {
-						transform: translateX(-200px) scale(.8);
-					}
-
-
-
-					/* Leave  */
-					&.leave {
-						opacity: 0;
-
-						&.prev {
-							transform: translateX(-200px) scale(.8);
-						}
-
-						&.next {
-							transform: translateX(200px) scale(.8);
-						}
-
-					}
-
-					/* Active  */
-					&.is-active {
-						transition-delay: #{$anim-duration};
-						opacity: 1;
-
-						&.prev {
-							transform: translateX(0) scale(1);
-						}
-
-						&.next {
-							transform: translateX(0) scale(1);
-						}
-
-
-					}
-
-
-				}
-
-			}
-
-		}
-
-	}
-
-
-}
-
-/*---- Effect: Slide ----*/
-/* --------------------------- */
-.cssanimations {
-
-	.uix-advanced-slider {
-
-		&.uix-advanced-slider--eff-slide {
-			.uix-advanced-slider__inner {
-
-                .uix-advanced-slider__item {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    width: 100%;
+    .uix-advanced-slider__inner {
+        /* 不要将溢出设置为“隐藏” */
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        .uix-advanced-slider__item {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transition: all #{$anim-duration} ease;
+            /* Javascript 会自动获取这个值，请不要删除 */
+            opacity: 0;
+            .uix-advanced-slider__txt {
+                position: absolute;
+                z-index: 15;
+                top: 50%;
+                left: 50%;
+                margin-top: 100px;
+                @include transition-cubic-bezier();
+                transform: translate(-50%, -50%) !important;
+                opacity: 0;
+                h3 {
+                    margin-bottom: 0;
+                }
+            }
+            @include securityWidthForElement('.uix-advanced-slider__txt') ;
+            img {
+                width: 100%;
+            }
+            &.leave {
+                opacity: 0;
+                .uix-advanced-slider__txt {
+                    margin-top: 100px;
+                    opacity: 0;
+                }
+            }
+            &.is-active {
+                /* 允许按钮点击 */
+                z-index: 2;
+                opacity: 1;
+                .uix-advanced-slider__txt {
+                    margin-top: 0;
+                    transition-delay: 0.6s;
                     opacity: 1;
-                    z-index: 3;
-
-                    &:not(.leave):not(.is-active) {
-                        transition: none;
-                        z-index: 1;
+                }
+            }
+        }
+    }
+}
+/* 测试原生 CSS3 和 HTML5 功能是否可用 */
+/*---- 效果：比例 ----*/
+.cssanimations {
+    .uix-advanced-slider {
+        &.uix-advanced-slider--eff-scale {
+            .uix-advanced-slider__inner {
+                .uix-advanced-slider__item {
+                    transform: scale(.8);
+                    opacity: 0;
+                    /* 默认 */
+                    &.prev {
+                        transform: translateX(200px) scale(.8);
                     }
-
+                    &.next {
+                        transform: translateX(-200px) scale(.8);
+                    }
+                    /* 离开  */
+                    &.leave {
+                        opacity: 0;
+                        &.prev {
+                            transform: translateX(-200px) scale(.8);
+                        }
+                        &.next {
+                            transform: translateX(200px) scale(.8);
+                        }
+                    }
+                    /* 激活 */
+                    &.is-active {
+                        transition-delay: #{$anim-duration};
+                        opacity: 1;
+                        &.prev {
+                            transform: translateX(0) scale(1);
+                        }
+                        &.next {
+                            transform: translateX(0) scale(1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*---- 效果：幻灯片 ----*/
+.cssanimations {
+    .uix-advanced-slider {
+        &.uix-advanced-slider--eff-slide {
+            .uix-advanced-slider__inner {
+                .uix-advanced-slider__item {
+                    z-index: 3;
+                    opacity: 1;
+                    &:not(.leave):not(.is-active) {
+                        z-index: 1;
+                        transition: none;
+                    }
                     &.leave {
                         &.prev {
                             animation: uix-cssAnim--slideLeftLeave 1.2s ease 1 forwards;
                         }
-
                         &.next {
                             animation: uix-cssAnim--slideRightLeave 1.2s ease 1 forwards;
                         }
                     }
-
                     &.is-active {
                         transition-delay: 0s;
-
                         &.prev {
                             animation: uix-cssAnim--slideRight 1.2s ease 1 forwards;
                         }
-
                         &.next {
                             animation: uix-cssAnim--slideLeft 1.2s ease 1 forwards;
                         }
                     }
                 }
-                
-
-			}
-
-		}
-
-	}
-
-
+            }
+        }
+    }
 }
-
-
 /* --------------------------- */
 @keyframes uix-cssAnim--slideRightLeave {
     0% {
         transform: translateX(0);
     }
-
     100% {
         transform: translateX(100%);
     }
 }
-
 @keyframes uix-cssAnim--slideRight {
     0% {
         transform: translateX(100%);
         z-index: 2;
     }
-
     100% {
         transform: translateX(0);
     }
 }
-
 @keyframes uix-cssAnim--slideLeftLeave {
     0% {
         transform: translateX(0);
     }
-
     100% {
         transform: translateX(-100%);
     }
 }
-
 @keyframes uix-cssAnim--slideLeft {
     0% {
         transform: translateX(-100%);
         z-index: 2;
     }
-
     100% {
         transform: translateX(0);
     }
 }
-
-
-
-
 @media all and (max-width: 768px) {
-
-
-	.uix-advanced-slider {
-
-		.uix-advanced-slider__inner {
-
-			.uix-advanced-slider__item {
-
-				.uix-advanced-slider__txt {
-
-					h3 {
-						font-size: 1rem;
-
-					}
-
-					p {
-						font-size: 0.875rem;
-					}
-
-					h3,
-					p {
-						margin-bottom: 0;
-						padding-bottom: 0;
-						line-height: 1.2;
-					}
-
-					[class*='uix-core-grid__col-'] {
-						width: 100%;
-					}
-
-					.uix-btn {
-						margin-top: .3rem;
-						padding: .3rem 1rem;
-						font-size: 0.75rem;
-					}
-
-				}
-
-			}
-
-		}
-
-
-	}
-
+    .uix-advanced-slider {
+        .uix-advanced-slider__inner {
+            .uix-advanced-slider__item {
+                .uix-advanced-slider__txt {
+                    h3 {
+                        font-size: 1rem;
+                    }
+                    p {
+                        font-size: 0.875rem;
+                    }
+                    h3,
+                    p {
+                        line-height: 1.2;
+                        margin-bottom: 0;
+                        padding-bottom: 0;
+                    }
+                    [class*='uix-core-grid__col-'] {
+                        width: 100%;
+                    }
+                    .uix-btn {
+                        font-size: 0.75rem;
+                        margin-top: .3rem;
+                        padding: .3rem 1rem;
+                    }
+                }
+            }
+        }
+    }
 }
 /*
  ---------------------------
- 2. Pagination dots
+ 2. 页码点
  ---------------------------
  */
 .uix-advanced-slider__pagination {
-
-	position: relative;
-	transform: translateY(-40px);
-	z-index: 2;
-
-	ul {
-		list-style: none;
-		left: 0;
-		bottom: 0;
-		font-size: 0;/*Fighting the Space Between Inline Block Elements*/
-		display: block;
-		width: 100%;
-		text-align: center; /*require*/
-		position: relative;
-		transform: translateY(.5rem);
-
-		li {
-			font-size: 1rem;/*Fighting the Space Between Inline Block Elements*/
-			display: inline-block; /*require*/
-			margin: 0 .2rem;
-
-			a {
-				width: 12px;
-				height: 12px;
-				display: block;
-				box-shadow: 0px 3px 22px 0px rgba(0,0,0,0.45);
-				background: rgba(255, 255, 255, .6);
-				cursor: pointer;
-				text-indent: -9999px;
-				border-radius: 20px;
-
-				&:hover,
-				&.is-active {
-					background: rgba(255, 255, 255, 1);
-					width: 25px;
-				}
-			}
-
-		}
-
-
-	}
-
-
-
+    position: relative;
+    z-index: 2;
+    transform: translateY(-40px);
+    ul {
+        font-size: 0; /* 争夺内联块元素之间的空间 */
+        position: relative;
+        bottom: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        list-style: none;
+        transform: translateY(.5rem);
+        text-align: center; /* 要求 */
+        li {
+            font-size: 1rem; /* 争夺内联块元素之间的空间 */
+            display: inline-block; /* 要求 */
+            margin: 0 .2rem;
+            a {
+                display: block;
+                width: 12px;
+                height: 12px;
+                cursor: pointer;
+                text-indent: -9999px;
+                border-radius: 20px;
+                background: rgba(255, 255, 255, .6);
+                box-shadow: 0 3px 22px 0 rgba(0, 0, 0, 0.45);
+                &:hover,
+                &.is-active {
+                    width: 25px;
+                    background: rgba(255, 255, 255, 1);
+                }
+            }
+        }
+    }
 }
-
-
-//******** Style 2 **********
+//******** 样式 2 **********
 //
 //.uix-advanced-slider__pagination {
 //	margin: 0;
@@ -437,50 +311,36 @@ $anim-duration: 0.6s;
 //		}
 //	}
 //}
-
-
-
 /*
  ---------------------------
- 3. Next/Prev buttons
+ 3. 下一个/上一个按钮
  ---------------------------
  */
 .uix-advanced-slider__arrows {
-	position: relative;
-	transform: translateY(-65px);
-	z-index: 3;
-
-	a {
-		box-shadow: 0px 10px 54px 0px rgba(19, 32, 62, 0.21);
-		border-radius: 100%;
-		width: 50px;
-		height: 50px;
-		position: absolute;
-		transition: .3s ease-in-out;
-		line-height: 50px;
-		text-align: center;
-		background: #fff;
-
-	}
-
-	.uix-advanced-slider__arrows--prev {
-		left: 15px;
-
-		&.is-disabled {
-			visibility: hidden;
-
-		}
-
-	}
-	.uix-advanced-slider__arrows--next {
-		right: 15px;
-
-		&.is-disabled {
-			visibility: hidden;
-		}
-
-
-
-	}
-
+    position: relative;
+    z-index: 3;
+    transform: translateY(-65px);
+    a {
+        line-height: 50px;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        transition: .3s ease-in-out;
+        text-align: center;
+        border-radius: 100%;
+        background: #ffffff;
+        box-shadow: 0 10px 54px 0 rgba(19, 32, 62, 0.21);
+    }
+    .uix-advanced-slider__arrows--prev {
+        left: 15px;
+        &.is-disabled {
+            visibility: hidden;
+        }
+    }
+    .uix-advanced-slider__arrows--next {
+        right: 15px;
+        &.is-disabled {
+            visibility: hidden;
+        }
+    }
 }

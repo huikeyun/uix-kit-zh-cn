@@ -50,9 +50,9 @@
 	- pass in _gsScope as the first parameter of the main function (which is actually at the bottom)
 	- remove the "export to multiple environments" in Definition().
  */
-var _gsScope = typeof window !== "undefined" ? window :  true && module.exports && typeof __webpack_require__.g !== "undefined" ? __webpack_require__.g : undefined || {};
+var _gsScope = typeof window !== 'undefined' ? window :  true && module.exports && typeof __webpack_require__.g !== 'undefined' ? __webpack_require__.g : undefined || {};
 var TweenLite = function (window) {
-  "use strict";
+  'use strict';
 
   var _exports = {},
       _doc = window.document,
@@ -63,7 +63,7 @@ var TweenLite = function (window) {
   }
 
   var _namespace = function _namespace(ns) {
-    var a = ns.split("."),
+    var a = ns.split('.'),
         p = _globals,
         i;
 
@@ -73,7 +73,7 @@ var TweenLite = function (window) {
 
     return p;
   },
-      gs = _namespace("com.greensock"),
+      gs = _namespace('com.greensock'),
       _tinyNum = 0.00000001,
       _slice = function _slice(a) {
     //don't use Array.prototype.slice.call(target, 0) because that doesn't work in IE8 with a NodeList that's returned by querySelectorAll()
@@ -91,7 +91,7 @@ var TweenLite = function (window) {
     var toString = Object.prototype.toString,
         array = toString.call([]);
     return function (obj) {
-      return obj != null && (obj instanceof Array || (0,_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(obj) === "object" && !!obj.push && toString.call(obj) === array);
+      return obj != null && (obj instanceof Array || (0,_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(obj) === 'object' && !!obj.push && toString.call(obj) === array);
     };
   }(),
       a,
@@ -160,25 +160,25 @@ var TweenLite = function (window) {
       }
 
       if (missing === 0 && func) {
-        a = ("com.greensock." + ns).split(".");
+        a = ('com.greensock.' + ns).split('.');
         n = a.pop();
-        cl = _namespace(a.join("."))[n] = this.gsClass = func.apply(func, _classes); //exports to multiple environments
+        cl = _namespace(a.join('.'))[n] = this.gsClass = func.apply(func, _classes); //exports to multiple environments
 
         if (global) {
           _globals[n] = _exports[n] = cl; //provides a way to avoid global namespace pollution. By default, the main classes like TweenLite, Power1, Strong, etc. are added to window unless a GreenSockGlobals is defined. So if you want to have things added to a custom object instead, just do something like window.GreenSockGlobals = {} before loading any GreenSock files. You can even set up an alias like window.GreenSockGlobals = windows.gs = {} so that you can access everything like gs.TweenLite. Also remember that ALL classes are added to the window.com.greensock object (in their respective packages, like com.greensock.easing.Power1, com.greensock.TweenLite, etc.)
 
           /*
           if (typeof(module) !== "undefined" && module.exports) { //node
-          	if (ns === moduleName) {
-          		module.exports = _exports[moduleName] = cl;
-          		for (i in _exports) {
-          			cl[i] = _exports[i];
-          		}
-          	} else if (_exports[moduleName]) {
-          		_exports[moduleName][n] = cl;
-          	}
+              if (ns === moduleName) {
+                  module.exports = _exports[moduleName] = cl;
+                  for (i in _exports) {
+                      cl[i] = _exports[i];
+                  }
+              } else if (_exports[moduleName]) {
+                  _exports[moduleName][n] = cl;
+              }
           } else if (typeof(define) === "function" && define.amd){ //AMD
-          	define((window.GreenSockAMDPath ? window.GreenSockAMDPath + "/" : "") + ns.split(".").pop(), [], function() { return cl; });
+              define((window.GreenSockAMDPath ? window.GreenSockAMDPath + "/" : "") + ns.split(".").pop(), [], function() { return cl; });
           }
           */
         }
@@ -214,7 +214,7 @@ var TweenLite = function (window) {
    */
 
   var _baseParams = [0, 0, 1, 1],
-      Ease = _class("easing.Ease", function (func, extraParams, type, power) {
+      Ease = _class('easing.Ease', function (func, extraParams, type, power) {
     this._func = func;
     this._type = type || 0;
     this._power = power || 0;
@@ -222,9 +222,9 @@ var TweenLite = function (window) {
   }, true),
       _easeMap = Ease.map = {},
       _easeReg = Ease.register = function (ease, names, types, create) {
-    var na = names.split(","),
+    var na = names.split(','),
         i = na.length,
-        ta = (types || "easeIn,easeOut,easeInOut").split(","),
+        ta = (types || 'easeIn,easeOut,easeInOut').split(','),
         e,
         name,
         j,
@@ -232,12 +232,12 @@ var TweenLite = function (window) {
 
     while (--i > -1) {
       name = na[i];
-      e = create ? _class("easing." + name, null, true) : gs.easing[name] || {};
+      e = create ? _class('easing.' + name, null, true) : gs.easing[name] || {};
       j = ta.length;
 
       while (--j > -1) {
         type = ta[j];
-        _easeMap[name + "." + type] = _easeMap[type + name] = e[type] = ease.getRatio ? ease : ease[type] || new ease();
+        _easeMap[name + '.' + type] = _easeMap[type + name] = e[type] = ease.getRatio ? ease : ease[type] || new ease();
       }
     }
   };
@@ -269,17 +269,17 @@ var TweenLite = function (window) {
   }; //create all the standard eases like Linear, Quad, Cubic, Quart, Quint, Strong, Power0, Power1, Power2, Power3, and Power4 (each with easeIn, easeOut, and easeInOut)
 
 
-  a = ["Linear", "Quad", "Cubic", "Quart", "Quint,Strong"];
+  a = ['Linear', 'Quad', 'Cubic', 'Quart', 'Quint,Strong'];
   i = a.length;
 
   while (--i > -1) {
-    p = a[i] + ",Power" + i;
+    p = a[i] + ',Power' + i;
 
-    _easeReg(new Ease(null, null, 1, i), p, "easeOut", true);
+    _easeReg(new Ease(null, null, 1, i), p, 'easeOut', true);
 
-    _easeReg(new Ease(null, null, 2, i), p, "easeIn" + (i === 0 ? ",easeNone" : ""));
+    _easeReg(new Ease(null, null, 2, i), p, 'easeIn' + (i === 0 ? ',easeNone' : ''));
 
-    _easeReg(new Ease(null, null, 3, i), p, "easeInOut");
+    _easeReg(new Ease(null, null, 3, i), p, 'easeInOut');
   }
 
   _easeMap.linear = gs.easing.Linear.easeIn;
@@ -291,7 +291,7 @@ var TweenLite = function (window) {
    * ----------------------------------------------------------------
    */
 
-  var EventDispatcher = _class("events.EventDispatcher", function (target) {
+  var EventDispatcher = _class('events.EventDispatcher', function (target) {
     this._listeners = {};
     this._eventTarget = target || this;
   });
@@ -395,21 +395,21 @@ var TweenLite = function (window) {
       _lastUpdate = _getTime(); //now try to determine the requestAnimationFrame and cancelAnimationFrame functions and if none are found, we'll use a setTimeout()/clearTimeout() polyfill.
 
 
-  a = ["ms", "moz", "webkit", "o"];
+  a = ['ms', 'moz', 'webkit', 'o'];
   i = a.length;
 
   while (--i > -1 && !_reqAnimFrame) {
-    _reqAnimFrame = window[a[i] + "RequestAnimationFrame"];
-    _cancelAnimFrame = window[a[i] + "CancelAnimationFrame"] || window[a[i] + "CancelRequestAnimationFrame"];
+    _reqAnimFrame = window[a[i] + 'RequestAnimationFrame'];
+    _cancelAnimFrame = window[a[i] + 'CancelAnimationFrame'] || window[a[i] + 'CancelRequestAnimationFrame'];
   }
 
-  _class("Ticker", function (fps, useRAF) {
+  _class('Ticker', function (fps, useRAF) {
     var _self = this,
         _startTime = _getTime(),
-        _useRAF = useRAF !== false && _reqAnimFrame ? "auto" : false,
+        _useRAF = useRAF !== false && _reqAnimFrame ? 'auto' : false,
         _lagThreshold = 500,
         _adjustedLag = 33,
-        _tickWord = "tick",
+        _tickWord = 'tick',
         //helps reduce gc burden
     _fps,
         _req,
@@ -531,7 +531,7 @@ var TweenLite = function (window) {
 
 
     setTimeout(function () {
-      if (_useRAF === "auto" && _self.frame < 5 && (_doc || {}).visibilityState !== "hidden") {
+      if (_useRAF === 'auto' && _self.frame < 5 && (_doc || {}).visibilityState !== 'hidden') {
         _self.useRAF(false);
       }
     }, 1500);
@@ -545,7 +545,7 @@ var TweenLite = function (window) {
    * ----------------------------------------------------------------
    */
 
-  var Animation = _class("core.Animation", function (duration, vars) {
+  var Animation = _class('core.Animation', function (duration, vars) {
     this.vars = vars = vars || {};
     this._duration = this._totalDuration = duration || 0;
     this._delay = Number(vars.delay) || 0;
@@ -580,7 +580,7 @@ var TweenLite = function (window) {
   p._paused = false; //some browsers (like iOS) occasionally drop the requestAnimationFrame event when the user switches to a different tab and then comes back again, so we use a 2-second setTimeout() to sense if/when that condition occurs and then wake() the ticker.
 
   var _checkTimeout = function _checkTimeout() {
-    if (_tickerActive && _getTime() - _lastUpdate > 2000 && ((_doc || {}).visibilityState !== "hidden" || !_ticker.lagSmoothing())) {
+    if (_tickerActive && _getTime() - _lastUpdate > 2000 && ((_doc || {}).visibilityState !== 'hidden' || !_ticker.lagSmoothing())) {
       //note: if the tab is hidden, we should still wake if lagSmoothing has been disabled.
       _ticker.wake();
     }
@@ -703,7 +703,7 @@ var TweenLite = function (window) {
         copy = params.concat();
 
     while (--i > -1) {
-      if (params[i] === "{self}") {
+      if (params[i] === '{self}') {
         copy[i] = this;
       }
     }
@@ -714,8 +714,8 @@ var TweenLite = function (window) {
   p._callback = function (type) {
     var v = this.vars,
         callback = v[type],
-        params = v[type + "Params"],
-        scope = v[type + "Scope"] || v.callbackScope || this,
+        params = v[type + 'Params'],
+        scope = v[type + 'Scope'] || v.callbackScope || this,
         l = params ? params.length : 0;
 
     switch (l) {
@@ -739,7 +739,7 @@ var TweenLite = function (window) {
 
 
   p.eventCallback = function (type, callback, params, scope) {
-    if ((type || "").substr(0, 2) === "on") {
+    if ((type || '').substr(0, 2) === 'on') {
       var v = this.vars;
 
       if (arguments.length === 1) {
@@ -750,11 +750,11 @@ var TweenLite = function (window) {
         delete v[type];
       } else {
         v[type] = callback;
-        v[type + "Params"] = _isArray(params) && params.join("").indexOf("{self}") !== -1 ? this._swapSelfInParams(params) : params;
-        v[type + "Scope"] = scope;
+        v[type + 'Params'] = _isArray(params) && params.join('').indexOf('{self}') !== -1 ? this._swapSelfInParams(params) : params;
+        v[type + 'Scope'] = scope;
       }
 
-      if (type === "onUpdate") {
+      if (type === 'onUpdate') {
         this._onUpdate = callback;
       }
     }
@@ -984,7 +984,7 @@ var TweenLite = function (window) {
    */
 
 
-  var SimpleTimeline = _class("core.SimpleTimeline", function (vars) {
+  var SimpleTimeline = _class('core.SimpleTimeline', function (vars) {
     Animation.call(this, 0, vars);
     this.autoRemoveChildren = this.smoothChildTiming = true;
   });
@@ -1114,23 +1114,23 @@ var TweenLite = function (window) {
    */
 
 
-  var TweenLite = _class("TweenLite", function (target, duration, vars) {
+  var TweenLite = _class('TweenLite', function (target, duration, vars) {
     Animation.call(this, duration, vars);
     this.render = TweenLite.prototype.render; //speed optimization (avoid prototype lookup on this "hot" method)
 
     if (target == null) {
-      throw "Cannot tween a null target.";
+      throw 'Cannot tween a null target.';
     }
 
-    this.target = target = typeof target !== "string" ? target : TweenLite.selector(target) || target;
+    this.target = target = typeof target !== 'string' ? target : TweenLite.selector(target) || target;
     var isSelector = target.jquery || target.length && target !== window && target[0] && (target[0] === window || target[0].nodeType && target[0].style && !target.nodeType),
         overwrite = this.vars.overwrite,
         i,
         targ,
         targets;
-    this._overwrite = overwrite = overwrite == null ? _overwriteLookup[TweenLite.defaultOverwrite] : typeof overwrite === "number" ? overwrite >> 0 : _overwriteLookup[overwrite];
+    this._overwrite = overwrite = overwrite == null ? _overwriteLookup[TweenLite.defaultOverwrite] : typeof overwrite === 'number' ? overwrite >> 0 : _overwriteLookup[overwrite];
 
-    if ((isSelector || target instanceof Array || target.push && _isArray(target)) && typeof target[0] !== "number") {
+    if ((isSelector || target instanceof Array || target.push && _isArray(target)) && typeof target[0] !== 'number') {
       this._targets = targets = _slice(target); //don't use Array.prototype.slice.call(target, 0) because that doesn't work in IE8 with a NodeList that's returned by querySelectorAll()
 
       this._propLookup = [];
@@ -1142,10 +1142,10 @@ var TweenLite = function (window) {
         if (!targ) {
           targets.splice(i--, 1);
           continue;
-        } else if (typeof targ === "string") {
+        } else if (typeof targ === 'string') {
           targ = targets[i--] = TweenLite.selector(targ); //in case it's an array of strings
 
-          if (typeof targ === "string") {
+          if (typeof targ === 'string') {
             targets.splice(i + 1, 1); //to avoid an endless loop (can't imagine why the selector would return a string, but just in case)
           }
 
@@ -1184,7 +1184,7 @@ var TweenLite = function (window) {
         p;
 
     for (p in vars) {
-      if (!_reservedProps[p] && (!(p in target) || p === "transform" || p === "x" || p === "y" || p === "width" || p === "height" || p === "className" || p === "border") && (!_plugins[p] || _plugins[p] && _plugins[p]._autoCSS)) {
+      if (!_reservedProps[p] && (!(p in target) || p === 'transform' || p === 'x' || p === 'y' || p === 'width' || p === 'height' || p === 'className' || p === 'border') && (!_plugins[p] || _plugins[p] && _plugins[p]._autoCSS)) {
         //note: <img> elements contain read-only "x" and "y" properties. We should also prioritize editing css width/height rather than the element's properties.
         css[p] = vars[p];
         delete vars[p];
@@ -1201,9 +1201,9 @@ var TweenLite = function (window) {
   p.ratio = 0;
   p._firstPT = p._targets = p._overwrittenProps = p._startAt = null;
   p._notifyPluginsOfEnabled = p._lazy = false;
-  TweenLite.version = "2.1.3";
+  TweenLite.version = '2.1.3';
   TweenLite.defaultEase = p._ease = new Ease(null, null, 1, 1);
-  TweenLite.defaultOverwrite = "auto";
+  TweenLite.defaultOverwrite = 'auto';
   TweenLite.ticker = _ticker;
   TweenLite.autoSleep = 120;
 
@@ -1224,7 +1224,7 @@ var TweenLite = function (window) {
       _doc = window.document;
     }
 
-    return !_doc ? e : _doc.querySelectorAll ? _doc.querySelectorAll(e) : _doc.getElementById(e.charAt(0) === "#" ? e.substr(1) : e);
+    return !_doc ? e : _doc.querySelectorAll ? _doc.querySelectorAll(e) : _doc.getElementById(e.charAt(0) === '#' ? e.substr(1) : e);
   };
 
   var _lazyTweens = [],
@@ -1238,7 +1238,7 @@ var TweenLite = function (window) {
         val;
 
     while (pt) {
-      val = !pt.blob ? pt.c * v + pt.s : v === 1 && this.end != null ? this.end : v ? this.join("") : this.start;
+      val = !pt.blob ? pt.c * v + pt.s : v === 1 && this.end != null ? this.end : v ? this.join('') : this.start;
 
       if (pt.m) {
         val = pt.m.call(this._tween, val, this._target || pt.t, this._tween);
@@ -1259,13 +1259,13 @@ var TweenLite = function (window) {
     }
   },
       _blobRound = function _blobRound(v) {
-    return (v * 1000 | 0) / 1000 + "";
+    return (v * 1000 | 0) / 1000 + '';
   },
       //compares two strings (start/end), finds the numbers that are different and spits back an array representing the whole value but with the changing values isolated as elements. For example, "rgb(0,0,0)" and "rgb(100,50,0)" would become ["rgb(", 0, ",", 50, ",0)"]. Notice it merges the parts that are identical (performance optimization). The array also has a linked list of PropTweens attached starting with _firstPT that contain the tweening data (t, p, s, c, f, etc.). It also stores the starting value as a "start" property so that we can revert to it if/when necessary, like when a tween rewinds fully. If the quantity of numbers differs between the start and end, it will always prioritize the end value(s). The pt parameter is optional - it's for a PropTween that will be appended to the end of the linked list and is typically for actually setting the value after all of the elements have been updated (with array.join("")).
   _blobDif = function _blobDif(start, end, filter, pt) {
     var a = [],
         charIndex = 0,
-        s = "",
+        s = '',
         color = 0,
         startNums,
         endNums,
@@ -1276,9 +1276,9 @@ var TweenLite = function (window) {
         currentNum;
     a.start = start;
     a.end = end;
-    start = a[0] = start + ""; //ensure values are strings
+    start = a[0] = start + ''; //ensure values are strings
 
-    end = a[1] = end + "";
+    end = a[1] = end + '';
 
     if (filter) {
       filter(a); //pass an array with the starting and ending values and let the filter do whatever it needs to the values.
@@ -1302,14 +1302,14 @@ var TweenLite = function (window) {
     for (i = 0; i < l; i++) {
       currentNum = endNums[i];
       nonNumbers = end.substr(charIndex, end.indexOf(currentNum, charIndex) - charIndex);
-      s += nonNumbers || !i ? nonNumbers : ","; //note: SVG spec allows omission of comma/space when a negative sign is wedged between two numbers, like 2.5-5.3 instead of 2.5,-5.3 but when tweening, the negative value may switch to positive, so we insert the comma just in case.
+      s += nonNumbers || !i ? nonNumbers : ','; //note: SVG spec allows omission of comma/space when a negative sign is wedged between two numbers, like 2.5-5.3 instead of 2.5,-5.3 but when tweening, the negative value may switch to positive, so we insert the comma just in case.
 
       charIndex += nonNumbers.length;
 
       if (color) {
         //sense rgba() values and round them.
         color = (color + 1) % 5;
-      } else if (nonNumbers.substr(-5) === "rgba(") {
+      } else if (nonNumbers.substr(-5) === 'rgba(') {
         color = 1;
       }
 
@@ -1318,7 +1318,7 @@ var TweenLite = function (window) {
       } else {
         if (s) {
           a.push(s);
-          s = "";
+          s = '';
         }
 
         num = parseFloat(startNums[i]);
@@ -1328,7 +1328,7 @@ var TweenLite = function (window) {
           t: a,
           p: a.length - 1,
           s: num,
-          c: (currentNum.charAt(1) === "=" ? parseInt(currentNum.charAt(0) + "1", 10) * parseFloat(currentNum.substr(2)) : parseFloat(currentNum) - num) || 0,
+          c: (currentNum.charAt(1) === '=' ? parseInt(currentNum.charAt(0) + '1', 10) * parseFloat(currentNum.substr(2)) : parseFloat(currentNum) - num) || 0,
           f: 0,
           m: color && color < 4 ? Math.round : _blobRound
         }; //limiting to 3 decimal places and casting as a string can really help performance when array.join() is called!
@@ -1355,35 +1355,35 @@ var TweenLite = function (window) {
   },
       //note: "funcParam" is only necessary for function-based getters/setters that require an extra parameter like getAttribute("width") and setAttribute("width", value). In this example, funcParam would be "width". Used by AttrPlugin for example.
   _addPropTween = function _addPropTween(target, prop, start, end, overwriteProp, mod, funcParam, stringFilter, index) {
-    if (typeof end === "function") {
+    if (typeof end === 'function') {
       end = end(index || 0, target);
     }
 
     var type = (0,_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(target[prop]),
-        getterName = type !== "function" ? "" : prop.indexOf("set") || typeof target["get" + prop.substr(3)] !== "function" ? prop : "get" + prop.substr(3),
-        s = start !== "get" ? start : !getterName ? target[prop] : funcParam ? target[getterName](funcParam) : target[getterName](),
-        isRelative = typeof end === "string" && end.charAt(1) === "=",
+        getterName = type !== 'function' ? '' : prop.indexOf('set') || typeof target['get' + prop.substr(3)] !== 'function' ? prop : 'get' + prop.substr(3),
+        s = start !== 'get' ? start : !getterName ? target[prop] : funcParam ? target[getterName](funcParam) : target[getterName](),
+        isRelative = typeof end === 'string' && end.charAt(1) === '=',
         pt = {
       t: target,
       p: prop,
       s: s,
-      f: type === "function",
+      f: type === 'function',
       pg: 0,
       n: overwriteProp || prop,
-      m: !mod ? 0 : typeof mod === "function" ? mod : Math.round,
+      m: !mod ? 0 : typeof mod === 'function' ? mod : Math.round,
       pr: 0,
-      c: isRelative ? parseInt(end.charAt(0) + "1", 10) * parseFloat(end.substr(2)) : parseFloat(end) - s || 0
+      c: isRelative ? parseInt(end.charAt(0) + '1', 10) * parseFloat(end.substr(2)) : parseFloat(end) - s || 0
     },
         blob;
 
-    if (typeof s !== "number" || typeof end !== "number" && !isRelative) {
-      if (funcParam || isNaN(s) || !isRelative && isNaN(end) || typeof s === "boolean" || typeof end === "boolean") {
+    if (typeof s !== 'number' || typeof end !== 'number' && !isRelative) {
+      if (funcParam || isNaN(s) || !isRelative && isNaN(end) || typeof s === 'boolean' || typeof end === 'boolean') {
         //a blob (string that has multiple numbers in it)
         pt.fp = funcParam;
-        blob = _blobDif(s, isRelative ? parseFloat(pt.s) + pt.c + (pt.s + "").replace(/[0-9\-\.]/g, "") : end, stringFilter || TweenLite.defaultStringFilter, pt);
+        blob = _blobDif(s, isRelative ? parseFloat(pt.s) + pt.c + (pt.s + '').replace(/[0-9\-\.]/g, '') : end, stringFilter || TweenLite.defaultStringFilter, pt);
         pt = {
           t: blob,
-          p: "setRatio",
+          p: 'setRatio',
           s: 0,
           c: 1,
           f: 2,
@@ -1467,8 +1467,8 @@ var TweenLite = function (window) {
     concurrent: 3,
     allOnStart: 4,
     preexisting: 5,
-    "true": 1,
-    "false": 0
+    'true': 1,
+    'false': 0
   },
       _rootFramesTimeline = Animation._rootFramesTimeline = new SimpleTimeline(),
       _rootTimeline = Animation._rootTimeline = new SimpleTimeline(),
@@ -1545,14 +1545,14 @@ var TweenLite = function (window) {
     }
   };
 
-  _ticker.addEventListener("tick", Animation._updateRoot);
+  _ticker.addEventListener('tick', Animation._updateRoot);
 
   var _register = function _register(target, tween, scrub) {
     var id = target._gsTweenID,
         a,
         i;
 
-    if (!_tweenLookup[id || (target._gsTweenID = id = "t" + _tweenLookupNum++)]) {
+    if (!_tweenLookup[id || (target._gsTweenID = id = 't' + _tweenLookupNum++)]) {
       _tweenLookup[id] = {
         target: target,
         tweens: []
@@ -1706,7 +1706,7 @@ var TweenLite = function (window) {
         startVars[p] = v.startAt[p];
       }
 
-      startVars.data = "isStart";
+      startVars.data = 'isStart';
       startVars.overwrite = false;
       startVars.immediateRender = true;
       startVars.lazy = immediate && v.lazy !== false;
@@ -1740,13 +1740,13 @@ var TweenLite = function (window) {
 
         for (p in v) {
           //copy props into a new object and skip any reserved props, otherwise onComplete or onUpdate or onStart could fire. We should, however, permit autoCSS to go through.
-          if (!_reservedProps[p] || p === "autoCSS") {
+          if (!_reservedProps[p] || p === 'autoCSS') {
             pt[p] = v[p];
           }
         }
 
         pt.overwrite = 0;
-        pt.data = "isFromStart"; //we tag the tween with as "isFromStart" so that if [inside a plugin] we need to only do something at the very END of a tween, we have a way of identifying this tween as merely the one that's setting the beginning values for a "from()" tween. For example, clearProps in CSSPlugin should only get applied at the very END of a tween and without this tag, from(...{height:100, clearProps:"height", delay:1}) would wipe the height at the beginning of the tween and after 1 second, it'd kick back in.
+        pt.data = 'isFromStart'; //we tag the tween with as "isFromStart" so that if [inside a plugin] we need to only do something at the very END of a tween, we have a way of identifying this tween as merely the one that's setting the beginning values for a "from()" tween. For example, clearProps in CSSPlugin should only get applied at the very END of a tween and without this tag, from(...{height:100, clearProps:"height", delay:1}) would wipe the height at the beginning of the tween and after 1 second, it'd kick back in.
 
         pt.lazy = immediate && v.lazy !== false;
         pt.immediateRender = immediate; //zero-duration tweens render immediately by default, but if we're not specifically instructed to render this tween immediately, we should skip this and merely _init() to record the starting values (rendering them immediately would push them to completion which is wasteful in that case - we'd have to render(-1) immediately after)
@@ -1769,7 +1769,7 @@ var TweenLite = function (window) {
       }
     }
 
-    this._ease = ease = !ease ? TweenLite.defaultEase : ease instanceof Ease ? ease : typeof ease === "function" ? new Ease(ease, v.easeParams) : _easeMap[ease] || TweenLite.defaultEase;
+    this._ease = ease = !ease ? TweenLite.defaultEase : ease instanceof Ease ? ease : typeof ease === 'function' ? new Ease(ease, v.easeParams) : _easeMap[ease] || TweenLite.defaultEase;
 
     if (v.easeParams instanceof Array && ease.config) {
       this._ease = ease.config.apply(ease, v.easeParams);
@@ -1792,11 +1792,11 @@ var TweenLite = function (window) {
     }
 
     if (initPlugins) {
-      TweenLite._onPluginEvent("_onInitAllProps", this); //reorders the array in order of priority. Uses a static TweenPlugin method in order to minimize file size in TweenLite
+      TweenLite._onPluginEvent('_onInitAllProps', this); //reorders the array in order of priority. Uses a static TweenPlugin method in order to minimize file size in TweenLite
 
     }
 
-    if (op) if (!this._firstPT) if (typeof this.target !== "function") {
+    if (op) if (!this._firstPT) if (typeof this.target !== 'function') {
       //if all tweening properties have been overwritten, kill the tween. If the target is a function, it's probably a delayedCall so let it live.
       this._enabled(false, false);
     }
@@ -1836,7 +1836,7 @@ var TweenLite = function (window) {
       v = this.vars[p];
 
       if (_reservedProps[p]) {
-        if (v) if (v instanceof Array || v.push && _isArray(v)) if (v.join("").indexOf("{self}") !== -1) {
+        if (v) if (v instanceof Array || v.push && _isArray(v)) if (v.join('').indexOf('{self}') !== -1) {
           this.vars[p] = v = this._swapSelfInParams(v, this);
         }
       } else if (_plugins[p] && (plugin = new _plugins[p]())._onInitTween(target, this.vars[p], this, index)) {
@@ -1852,7 +1852,7 @@ var TweenLite = function (window) {
         this._firstPT = pt = {
           _next: this._firstPT,
           t: plugin,
-          p: "setRatio",
+          p: 'setRatio',
           s: 0,
           c: 1,
           f: 1,
@@ -1879,7 +1879,7 @@ var TweenLite = function (window) {
           pt._next._prev = pt;
         }
       } else {
-        propLookup[p] = _addPropTween.call(this, target, p, "get", v, p, 0, null, this.vars.stringFilter, index);
+        propLookup[p] = _addPropTween.call(this, target, p, 'get', v, p, 0, null, this.vars.stringFilter, index);
       }
     }
 
@@ -1916,7 +1916,7 @@ var TweenLite = function (window) {
 
       if (!self._reversed) {
         isComplete = true;
-        callback = "onComplete";
+        callback = 'onComplete';
         force = force || self._timeline.autoRemoveChildren; //otherwise, if the animation is unpaused/activated after it's already finished, it doesn't get removed from the parent timeline.
       }
 
@@ -1927,12 +1927,12 @@ var TweenLite = function (window) {
           time = 0;
         }
 
-        if (prevRawPrevTime < 0 || time <= 0 && time >= -_tinyNum || prevRawPrevTime === _tinyNum && self.data !== "isPause") if (prevRawPrevTime !== time) {
+        if (prevRawPrevTime < 0 || time <= 0 && time >= -_tinyNum || prevRawPrevTime === _tinyNum && self.data !== 'isPause') if (prevRawPrevTime !== time) {
           //note: when this.data is "isPause", it's a callback added by addPause() on a timeline that we should not be triggered when LEAVING its exact start time. In other words, tl.addPause(1).play(1) shouldn't pause.
           force = true;
 
           if (prevRawPrevTime > _tinyNum) {
-            callback = "onReverseComplete";
+            callback = 'onReverseComplete';
           }
         }
         self._rawPrevTime = rawPrevTime = !suppressEvents || time || prevRawPrevTime === time ? time : _tinyNum; //when the playhead arrives at EXACTLY time 0 (right on top) of a zero-duration tween, we need to discern if events are suppressed so that when the playhead moves again (next time), it'll trigger the callback. If events are NOT suppressed, obviously the callback would be triggered in this render. Basically, the callback should fire either when the playhead ARRIVES or LEAVES this exact spot, not both. Imagine doing a timeline.seek(0) and there's a callback that sits at 0. Since events are suppressed on that seek() by default, nothing will fire, but when the playhead moves off of that position, the callback should fire. This behavior is what people intuitively expect. We set the _rawPrevTime to be a precise tiny number to indicate this scenario rather than using another property/variable which would increase memory usage. This technique is less readable, but more efficient.
@@ -1943,7 +1943,7 @@ var TweenLite = function (window) {
       self.ratio = self._ease._calcEnd ? self._ease.getRatio(0) : 0;
 
       if (prevTime !== 0 || duration === 0 && prevRawPrevTime > 0) {
-        callback = "onReverseComplete";
+        callback = 'onReverseComplete';
         isComplete = self._reversed;
       }
 
@@ -1953,7 +1953,7 @@ var TweenLite = function (window) {
         self._active = false;
         if (duration === 0) if (self._initted || !self.vars.lazy || force) {
           //zero-duration tweens are tricky because we must discern the momentum/direction of time in order to determine whether the starting values should be rendered or the ending values. If the "playhead" of its timeline goes past the zero-duration tween in the forward direction or lands directly on it, the end values should be rendered, but if the timeline's "playhead" moves past it in the backward direction (from a postitive time to a negative time), the starting values must be rendered.
-          if (prevRawPrevTime >= 0 && !(prevRawPrevTime === _tinyNum && self.data === "isPause")) {
+          if (prevRawPrevTime >= 0 && !(prevRawPrevTime === _tinyNum && self.data === 'isPause')) {
             force = true;
           }
 
@@ -2037,12 +2037,12 @@ var TweenLite = function (window) {
         if (time >= 0) {
           self._startAt.render(time, true, force);
         } else if (!callback) {
-          callback = "_dummyGS"; //if no callback is defined, use a dummy value just so that the condition at the end evaluates as true because _startAt should render AFTER the normal render loop when the time is negative. We could handle this in a more intuitive way, of course, but the render loop is the MOST important thing to optimize, so this technique allows us to avoid adding extra conditional logic in a high-frequency area.
+          callback = '_dummyGS'; //if no callback is defined, use a dummy value just so that the condition at the end evaluates as true because _startAt should render AFTER the normal render loop when the time is negative. We could handle this in a more intuitive way, of course, but the render loop is the MOST important thing to optimize, so this technique allows us to avoid adding extra conditional logic in a high-frequency area.
         }
       }
 
       if (self.vars.onStart) if (self._time !== 0 || duration === 0) if (!suppressEvents) {
-        self._callback("onStart");
+        self._callback('onStart');
       }
     }
 
@@ -2065,7 +2065,7 @@ var TweenLite = function (window) {
 
       }
       if (!suppressEvents) if (self._time !== prevTime || isComplete || force) {
-        self._callback("onUpdate");
+        self._callback('onUpdate');
       }
     }
 
@@ -2096,7 +2096,7 @@ var TweenLite = function (window) {
   };
 
   p._kill = function (vars, target, overwritingTween) {
-    if (vars === "all") {
+    if (vars === 'all') {
       vars = null;
     }
 
@@ -2104,7 +2104,7 @@ var TweenLite = function (window) {
       this._lazy = false;
       return this._enabled(false, false);
     }
-    target = typeof target !== "string" ? target || this._targets || this.target : TweenLite.selector(target) || target;
+    target = typeof target !== 'string' ? target || this._targets || this.target : TweenLite.selector(target) || target;
     var simultaneousOverwrite = overwritingTween && this._time && overwritingTween._startTime === this._startTime && this._timeline === overwritingTween._timeline,
         firstPT = this._firstPT,
         i,
@@ -2117,7 +2117,7 @@ var TweenLite = function (window) {
         record,
         killed;
 
-    if ((_isArray(target) || _isSelector(target)) && typeof target[0] !== "number") {
+    if ((_isArray(target) || _isSelector(target)) && typeof target[0] !== 'number') {
       i = target.length;
 
       while (--i > -1) {
@@ -2133,7 +2133,7 @@ var TweenLite = function (window) {
           if (target === this._targets[i]) {
             propLookup = this._propLookup[i] || {};
             this._overwrittenProps = this._overwrittenProps || [];
-            overwrittenProps = this._overwrittenProps[i] = vars ? this._overwrittenProps[i] || {} : "all";
+            overwrittenProps = this._overwrittenProps[i] = vars ? this._overwrittenProps[i] || {} : 'all';
             break;
           }
         }
@@ -2141,12 +2141,12 @@ var TweenLite = function (window) {
         return false;
       } else {
         propLookup = this._propLookup;
-        overwrittenProps = this._overwrittenProps = vars ? this._overwrittenProps || {} : "all";
+        overwrittenProps = this._overwrittenProps = vars ? this._overwrittenProps || {} : 'all';
       }
 
       if (propLookup) {
         killProps = vars || propLookup;
-        record = vars !== overwrittenProps && overwrittenProps !== "all" && vars !== propLookup && ((0,_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(vars) !== "object" || !vars._tempKill); //_tempKill is a super-secret way to delete a particular tweening property but NOT have it remembered as an official overwritten property (like in BezierPlugin)
+        record = vars !== overwrittenProps && overwrittenProps !== 'all' && vars !== propLookup && ((0,_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(vars) !== 'object' || !vars._tempKill); //_tempKill is a super-secret way to delete a particular tweening property but NOT have it remembered as an official overwritten property (like in BezierPlugin)
 
         if (overwritingTween && (TweenLite.onOverwrite || this.vars.onOverwrite)) {
           for (p in killProps) {
@@ -2216,7 +2216,7 @@ var TweenLite = function (window) {
 
   p.invalidate = function () {
     if (this._notifyPluginsOfEnabled) {
-      TweenLite._onPluginEvent("_onDisable", this);
+      TweenLite._onPluginEvent('_onDisable', this);
     }
 
     var t = this._time;
@@ -2257,7 +2257,7 @@ var TweenLite = function (window) {
     Animation.prototype._enabled.call(this, enabled, ignoreTimeline);
 
     if (this._notifyPluginsOfEnabled) if (this._firstPT) {
-      return TweenLite._onPluginEvent(enabled ? "_onEnable" : "_onDisable", this);
+      return TweenLite._onPluginEvent(enabled ? '_onEnable' : '_onDisable', this);
     }
     return false;
   }; //----TweenLite static methods -----------------------------------------------------
@@ -2303,10 +2303,10 @@ var TweenLite = function (window) {
       return [];
     }
 
-    target = typeof target !== "string" ? target : TweenLite.selector(target) || target;
+    target = typeof target !== 'string' ? target : TweenLite.selector(target) || target;
     var i, a, j, t;
 
-    if ((_isArray(target) || _isSelector(target)) && typeof target[0] !== "number") {
+    if ((_isArray(target) || _isSelector(target)) && typeof target[0] !== 'number') {
       i = target.length;
       a = [];
 
@@ -2341,7 +2341,7 @@ var TweenLite = function (window) {
   };
 
   TweenLite.killTweensOf = TweenLite.killDelayedCallsTo = function (target, onlyActive, vars) {
-    if ((0,_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(onlyActive) === "object") {
+    if ((0,_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)(onlyActive) === 'object') {
       vars = onlyActive; //for backwards compatibility (before "onlyActive" parameter was inserted)
 
       onlyActive = false;
@@ -2361,15 +2361,15 @@ var TweenLite = function (window) {
    */
 
 
-  var TweenPlugin = _class("plugins.TweenPlugin", function (props, priority) {
-    this._overwriteProps = (props || "").split(",");
+  var TweenPlugin = _class('plugins.TweenPlugin', function (props, priority) {
+    this._overwriteProps = (props || '').split(',');
     this._propName = this._overwriteProps[0];
     this._priority = priority || 0;
     this._super = TweenPlugin.prototype;
   }, true);
 
   p = TweenPlugin.prototype;
-  TweenPlugin.version = "1.19.0";
+  TweenPlugin.version = '1.19.0';
   TweenPlugin.API = 2;
   p._firstPT = null;
   p._addTween = _addPropTween;
@@ -2417,9 +2417,9 @@ var TweenLite = function (window) {
         val;
 
     while (pt) {
-      val = lookup[this._propName] || pt.n != null && lookup[pt.n.split(this._propName + "_").join("")];
+      val = lookup[this._propName] || pt.n != null && lookup[pt.n.split(this._propName + '_').join('')];
 
-      if (val && typeof val === "function") {
+      if (val && typeof val === 'function') {
         //some properties that are very plugin-specific add a prefix named after the _propName plus an underscore, so we need to ignore that extra stuff here.
         if (pt.f === 2) {
           pt.t._applyPT.m = val;
@@ -2440,7 +2440,7 @@ var TweenLite = function (window) {
         last,
         next;
 
-    if (type === "_onInitAllProps") {
+    if (type === '_onInitAllProps') {
       //sorts the PropTween linked list in order of priority because some plugins need to render earlier/later than others, like MotionBlurPlugin applies its effects after all x/y/alpha tweens have rendered on each frame.
       while (pt) {
         next = pt._next;
@@ -2469,7 +2469,7 @@ var TweenLite = function (window) {
     }
 
     while (pt) {
-      if (pt.pg) if (typeof pt.t[type] === "function") if (pt.t[type]()) {
+      if (pt.pg) if (typeof pt.t[type] === 'function') if (pt.t[type]()) {
         changed = true;
       }
       pt = pt._next;
@@ -2493,21 +2493,21 @@ var TweenLite = function (window) {
 
   _gsDefine.plugin = function (config) {
     if (!config || !config.propName || !config.init || !config.API) {
-      throw "illegal plugin definition.";
+      throw 'illegal plugin definition.';
     }
 
     var propName = config.propName,
         priority = config.priority || 0,
         overwriteProps = config.overwriteProps,
         map = {
-      init: "_onInitTween",
-      set: "setRatio",
-      kill: "_kill",
-      round: "_mod",
-      mod: "_mod",
-      initAll: "_onInitAllProps"
+      init: '_onInitTween',
+      set: 'setRatio',
+      kill: '_kill',
+      round: '_mod',
+      mod: '_mod',
+      initAll: '_onInitAllProps'
     },
-        Plugin = _class("plugins." + propName.charAt(0).toUpperCase() + propName.substr(1) + "Plugin", function () {
+        Plugin = _class('plugins.' + propName.charAt(0).toUpperCase() + propName.substr(1) + 'Plugin', function () {
       TweenPlugin.call(this, propName, priority);
       this._overwriteProps = overwriteProps || [];
     }, config.global === true),
@@ -2518,7 +2518,7 @@ var TweenLite = function (window) {
     Plugin.API = config.API;
 
     for (prop in map) {
-      if (typeof config[prop] === "function") {
+      if (typeof config[prop] === 'function') {
         p[map[prop]] = config[prop];
       }
     }
@@ -2538,7 +2538,7 @@ var TweenLite = function (window) {
 
     for (p in _defLookup) {
       if (!_defLookup[p].func) {
-        window.console.log("GSAP encountered missing dependency: " + p);
+        window.console.log('GSAP encountered missing dependency: ' + p);
       }
     }
   }
@@ -2546,7 +2546,7 @@ var TweenLite = function (window) {
   _tickerActive = false; //ensures that the first official animation forces a ticker.tick() to update the time when it is instantiated
 
   return TweenLite;
-}(_gsScope, "TweenLite");
+}(_gsScope, 'TweenLite');
 var globals = _gsScope.GreenSockGlobals;
 var nonGlobals = globals.com.greensock;
 
@@ -2567,7 +2567,7 @@ var EventDispatcher = nonGlobals.events.EventDispatcher;
 /***/ 319:
 /***/ (() => {
 
-/* 
+/*
  *************************************
  * Get all attributes of an element using jQuery
  *
@@ -2603,7 +2603,7 @@ var EventDispatcher = nonGlobals.events.EventDispatcher;
 /***/ 111:
 /***/ (() => {
 
-/* 
+/*
  *************************************
  * Scroll Lock
  * @https://gist.github.com/barneycarroll/6550066
@@ -3422,18 +3422,18 @@ var esm_typeof = __webpack_require__(2);
     9.Specify a background image
     10.Videos
     11.Theme Scripts
-    12.Accordion Background Images
-    13.Accordion
-    14.Advanced Slider (Basic)
-    15.Advanced Slider (Special Effects)
-    16.Ajax Push Content
-    17.Ajax Page Loader (Loading A Page via Ajax Into Div)
-    18.Back to Top
-    19.Circle Layout
+    12.手风琴背景图片 Accordion Background Images
+    13.手风琴 Accordion
+    14.高级滑块（基本）Advanced Slider (Basic)
+    15.高级滑块（特殊效果）Advanced Slider (Special Effects)
+    16.异步加载推送内容 Ajax Push Content
+    17.异步加载页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)
+    18.回到顶部Back to Top
+    19.圆形布局 Circle Layout
     20.Counter
     21.Dropdown Menu
     22.Dropdown Menu 2 (Multi-level drop-down navigation)
-    23.Cascading DropDown List
+    23.层叠的下拉列表 Cascading DropDown List
     24.Flexslider (Third-party plugin)
     25.Floating Side Element
     26.Form Progress
@@ -5662,9 +5662,9 @@ var MAIN = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
- * <!-- Accordion Background Images -->
+ * <!-- 手风琴背景图片 Accordion Background Images -->
  *************************************
  */
 
@@ -5745,7 +5745,7 @@ var ACCORDION_BG = function (module, $, window, document) {
       /*
        * Active the target item
        *
-          * @param  {Number} index     - The index value of the item to be activated.
+       * @param  {Number} index     - The index value of the item to be activated.
        * @return {Void}
        */
 
@@ -5791,9 +5791,9 @@ var ACCORDION_BG = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
- * <!-- Accordion -->
+ * <!-- 手风琴 Accordion -->
  *************************************
  */
 
@@ -5812,9 +5812,9 @@ var ACCORDION = function (module, $, window, document) {
           firstShow = $this.data('first-show');
 
       var openItem = function openItem(obj) {
-        //to open
-        // - temporarilty set height:auto
-        // - tween from height:0
+        //打开
+        // - 临时设置高度：自动
+        // - 从高度补间：0
         TweenMax.set(obj, {
           height: 'auto'
         });
@@ -5878,9 +5878,9 @@ var ACCORDION = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
- * <!-- Advanced Slider (Basic) -->
+ * <!--  高级滑块（基本）Advanced Slider (Basic)  -->
  *************************************
  */
 
@@ -5951,10 +5951,10 @@ var ADVANCED_SLIDER = function (module, $, window, document) {
           var playTimes; //A function called "timer" once every second (like a digital watch).
 
           $this[0].animatedSlides; //Get the duration of the animation from CSS/SCSS
-          //-------------------------------------	
+          //-------------------------------------
 
           animDelay = UixCssProperty.getTransitionDuration($first[0]); //Initialize the properties of each Item
-          //-------------------------------------	
+          //-------------------------------------
 
           $items.each(function (index) {
             var _item = $(this);
@@ -6084,7 +6084,7 @@ var ADVANCED_SLIDER = function (module, $, window, document) {
       var $this = slider,
           $items = $this.find('.uix-advanced-slider__item'),
           $first = $items.first(),
-          itemsTotal = $items.length; //If arrows does not exist on the page, it will be added by default, 
+          itemsTotal = $items.length; //If arrows does not exist on the page, it will be added by default,
       //and the drag and drop function will be activated.
 
       if ($(arrowsID).length == 0) {
@@ -6102,8 +6102,8 @@ var ADVANCED_SLIDER = function (module, $, window, document) {
       //-------------------------------------
 
 
-      normalSliderVideoInit($items, false); //Pagination dots 
-      //-------------------------------------	
+      normalSliderVideoInit($items, false); //Pagination dots
+      //-------------------------------------
 
       var _dot = '',
           _dotActive = '';
@@ -6140,7 +6140,7 @@ var ADVANCED_SLIDER = function (module, $, window, document) {
           clearInterval($this[0].animatedSlides);
         }
       }); //Next/Prev buttons
-      //-------------------------------------		
+      //-------------------------------------
 
       var _prev = $(arrowsID).find('.uix-advanced-slider__arrows--prev'),
           _next = $(arrowsID).find('.uix-advanced-slider__arrows--next');
@@ -6203,7 +6203,7 @@ var ADVANCED_SLIDER = function (module, $, window, document) {
 
         sliderUpdates(parseFloat($items.filter('.is-active').index()) + 1, $this, 'next', countTotalID, countCurID, paginationID, arrowsID, loop);
       } //Added touch method to mobile device and desktop
-      //-------------------------------------	
+      //-------------------------------------
 
 
       var $dragTrigger = $this.find('.uix-advanced-slider__inner');
@@ -6295,11 +6295,11 @@ var ADVANCED_SLIDER = function (module, $, window, document) {
      * @param  {Number} elementIndex           - Index of current slider.
      * @param  {Element} slider                 - Selector of the slider .
      * @param  {String} dir                    - Switching direction indicator.
-           * @param  {String} countTotalID           - Total number ID or class of counter.
-           * @param  {String} countCurID             - Current number ID or class of counter.
-           * @param  {String} paginationID           - Navigation ID for paging control of each slide.
-           * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
-           * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
+     * @param  {String} countTotalID           - Total number ID or class of counter.
+     * @param  {String} countCurID             - Current number ID or class of counter.
+     * @param  {String} paginationID           - Navigation ID for paging control of each slide.
+     * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
+     * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
      * @return {Void}
      */
 
@@ -6367,14 +6367,14 @@ var ADVANCED_SLIDER = function (module, $, window, document) {
 
       normalSliderVideoInit($items, false);
       normalSliderVideoInit($current, true); //Reset the default height of item
-      //-------------------------------------	
+      //-------------------------------------
 
       itemDefaultInit(slider, $current);
     }
     /*
      * Initialize the default height of item
      *
-           * @param  {Element} slider                 - Selector of the slider .
+     * @param  {Element} slider                 - Selector of the slider .
      * @param  {Element} currentLlement         - Current selector of each slider.
      * @return {Void}
      */
@@ -6458,7 +6458,7 @@ var ADVANCED_SLIDER = function (module, $, window, document) {
             myPlayer.play();
             $('#' + coverPlayBtnID).hide();
           });
-        } //Add replay button to video 
+        } //Add replay button to video
 
 
         if ($replayBtn.length == 0) {
@@ -6486,7 +6486,7 @@ var ADVANCED_SLIDER = function (module, $, window, document) {
                 curH = obj.videoHeight(),
                 newW = curW,
                 newH = curH;
-            newW = videoWrapperW; //Scaled/Proportional Content 
+            newW = videoWrapperW; //Scaled/Proportional Content
 
             newH = curH * (newW / curW);
 
@@ -6664,7 +6664,7 @@ var _numExp = /(\d|\.)+/g,
  * @return {(array|number)} An array containing red, green, and blue (and optionally alpha) in that order, or if the format parameter was "hsl", the array will contain hue, saturation and lightness (and optionally alpha) in that order. Or if "format" is defined as "number", it'll return a number like 0xFF0000. Always numbers unless there's a relative prefix found in an hsl() or hsla() string and "format" is "hsl".
  */
 _parseColor = function _parseColor(v, format) {
-  var toHSL = format === "hsl",
+  var toHSL = format === 'hsl',
       a,
       r,
       g,
@@ -6679,28 +6679,28 @@ _parseColor = function _parseColor(v, format) {
 
   if (!v) {
     a = _colorLookup.black;
-  } else if (typeof v === "number") {
+  } else if (typeof v === 'number') {
     a = [v >> 16, v >> 8 & 255, v & 255];
   } else {
-    if (v.charAt(v.length - 1) === ",") {
+    if (v.charAt(v.length - 1) === ',') {
       //sometimes a trailing comma is included and we should chop it off (typically from a comma-delimited list of values like a textShadow:"2px 2px 2px blue, 5px 5px 5px rgb(255,0,0)" - in this example "blue," has a trailing comma. We could strip it out inside parseComplex() but we'd need to do it to the beginning and ending values plus it wouldn't provide protection from other potential scenarios like if the user passes in a similar value.
       v = v.substr(0, v.length - 1);
     }
 
     if (_colorLookup[v]) {
       a = _colorLookup[v];
-    } else if (v.charAt(0) === "#") {
+    } else if (v.charAt(0) === '#') {
       if (v.length === 4) {
         //for shorthand like #9F0
         r = v.charAt(1);
         g = v.charAt(2);
         b = v.charAt(3);
-        v = "#" + r + r + g + g + b + b;
+        v = '#' + r + r + g + g + b + b;
       }
 
       v = parseInt(v.substr(1), 16);
       a = [v >> 16, v >> 8 & 255, v & 255];
-    } else if (v.substr(0, 3) === "hsl") {
+    } else if (v.substr(0, 3) === 'hsl') {
       a = wasHSL = v.match(_numExp);
 
       if (!toHSL) {
@@ -6717,7 +6717,7 @@ _parseColor = function _parseColor(v, format) {
         a[0] = _hue(h + 1 / 3, r, g);
         a[1] = _hue(h, r, g);
         a[2] = _hue(h - 1 / 3, r, g);
-      } else if (v.indexOf("=") !== -1) {
+      } else if (v.indexOf('=') !== -1) {
         //if relative values are found, just return the raw strings with the relative prefixes in place.
         return v.match(_relNumExp);
       }
@@ -6756,12 +6756,12 @@ _parseColor = function _parseColor(v, format) {
     a[2] = l * 100 + 0.5 | 0;
   }
 
-  return format === "number" ? a[0] << 16 | a[1] << 8 | a[2] : a;
+  return format === 'number' ? a[0] << 16 | a[1] << 8 | a[2] : a;
 },
     _formatColors = function _formatColors(s, toHSL) {
-  var colors = (s + "").match(_colorExp) || [],
+  var colors = (s + '').match(_colorExp) || [],
       charIndex = 0,
-      parsed = "",
+      parsed = '',
       i,
       color,
       temp;
@@ -6774,20 +6774,20 @@ _parseColor = function _parseColor(v, format) {
     color = colors[i];
     temp = s.substr(charIndex, s.indexOf(color, charIndex) - charIndex);
     charIndex += temp.length + color.length;
-    color = _parseColor(color, toHSL ? "hsl" : "rgb");
+    color = _parseColor(color, toHSL ? 'hsl' : 'rgb');
 
     if (color.length === 3) {
       color.push(1);
     }
 
-    parsed += temp + (toHSL ? "hsla(" + color[0] + "," + color[1] + "%," + color[2] + "%," + color[3] : "rgba(" + color.join(",")) + ")";
+    parsed += temp + (toHSL ? 'hsla(' + color[0] + ',' + color[1] + '%,' + color[2] + '%,' + color[3] : 'rgba(' + color.join(',')) + ')';
   }
 
   return parsed + s.substr(charIndex);
 },
     _colorStringFilter,
     PixiPlugin_TweenLite = (esm_TweenLite/* _gsScope.GreenSockGlobals */.ML.GreenSockGlobals || esm_TweenLite/* _gsScope */.ML).TweenLite,
-    _colorExp = "(?:\\b(?:(?:rgb|rgba|hsl|hsla)\\(.+?\\))|\\B#(?:[0-9a-f]{3}){1,2}\\b",
+    _colorExp = '(?:\\b(?:(?:rgb|rgba|hsl|hsla)\\(.+?\\))|\\B#(?:[0-9a-f]{3}){1,2}\\b',
     //we'll dynamically build this Regular Expression to conserve file size. After building it, it will be able to find rgb(), rgba(), # (hexadecimal), and named color values like red, blue, purple, etc.
 _idMatrix = [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
     _lumR = 0.212671,
@@ -6843,7 +6843,7 @@ _idMatrix = [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
       filter;
 
   if (!filterClass) {
-    throw "PixiPlugin error: " + type + " isn't present.";
+    throw 'PixiPlugin error: ' + type + ' isn\'t present.';
   }
 
   while (--i > -1) {
@@ -6854,7 +6854,7 @@ _idMatrix = [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
 
   filter = new filterClass();
 
-  if (type === "BlurFilter") {
+  if (type === 'BlurFilter') {
     filter.blur = 0;
   }
 
@@ -6878,21 +6878,21 @@ _idMatrix = [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
   contrast: 1,
   saturation: 1,
   colorizeAmount: 0,
-  colorize: "rgb(255,255,255)",
+  colorize: 'rgb(255,255,255)',
   hue: 0,
   brightness: 1
 },
     _parseColorMatrixFilter = function _parseColorMatrixFilter(t, v, pg) {
-  var filter = _getFilter(t, "ColorMatrixFilter"),
+  var filter = _getFilter(t, 'ColorMatrixFilter'),
       cache = t._gsColorMatrixFilter = t._gsColorMatrixFilter || {
     contrast: 1,
     saturation: 1,
     colorizeAmount: 0,
-    colorize: "rgb(255,255,255)",
+    colorize: 'rgb(255,255,255)',
     hue: 0,
     brightness: 1
   },
-      combine = v.combineCMF && !("colorMatrixFilter" in v && !v.colorMatrixFilter),
+      combine = v.combineCMF && !('colorMatrixFilter' in v && !v.colorMatrixFilter),
       i,
       matrix,
       startMatrix;
@@ -6907,25 +6907,25 @@ _idMatrix = [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
     matrix = v.matrix;
 
     if (cache.contrast !== 1) {
-      _addColorMatrixFilterCacheTween("contrast", pg, cache, _CMFdefaults);
+      _addColorMatrixFilterCacheTween('contrast', pg, cache, _CMFdefaults);
     }
 
     if (cache.hue) {
-      _addColorMatrixFilterCacheTween("hue", pg, cache, _CMFdefaults);
+      _addColorMatrixFilterCacheTween('hue', pg, cache, _CMFdefaults);
     }
 
     if (cache.brightness !== 1) {
-      _addColorMatrixFilterCacheTween("brightness", pg, cache, _CMFdefaults);
+      _addColorMatrixFilterCacheTween('brightness', pg, cache, _CMFdefaults);
     }
 
     if (cache.colorizeAmount) {
-      _addColorMatrixFilterCacheTween("colorize", pg, cache, _CMFdefaults);
+      _addColorMatrixFilterCacheTween('colorize', pg, cache, _CMFdefaults);
 
-      _addColorMatrixFilterCacheTween("colorizeAmount", pg, cache, _CMFdefaults);
+      _addColorMatrixFilterCacheTween('colorizeAmount', pg, cache, _CMFdefaults);
     }
 
     if (cache.saturation !== 1) {
-      _addColorMatrixFilterCacheTween("saturation", pg, cache, _CMFdefaults);
+      _addColorMatrixFilterCacheTween('saturation', pg, cache, _CMFdefaults);
     }
   } else {
     matrix = _idMatrix.slice();
@@ -6933,65 +6933,65 @@ _idMatrix = [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
     if (v.contrast != null) {
       matrix = _setContrast(matrix, Number(v.contrast));
 
-      _addColorMatrixFilterCacheTween("contrast", pg, cache, v);
+      _addColorMatrixFilterCacheTween('contrast', pg, cache, v);
     } else if (cache.contrast !== 1) {
       if (combine) {
         matrix = _setContrast(matrix, cache.contrast);
       } else {
-        _addColorMatrixFilterCacheTween("contrast", pg, cache, _CMFdefaults);
+        _addColorMatrixFilterCacheTween('contrast', pg, cache, _CMFdefaults);
       }
     }
 
     if (v.hue != null) {
       matrix = _setHue(matrix, Number(v.hue));
 
-      _addColorMatrixFilterCacheTween("hue", pg, cache, v);
+      _addColorMatrixFilterCacheTween('hue', pg, cache, v);
     } else if (cache.hue) {
       if (combine) {
         matrix = _setHue(matrix, cache.hue);
       } else {
-        _addColorMatrixFilterCacheTween("hue", pg, cache, _CMFdefaults);
+        _addColorMatrixFilterCacheTween('hue', pg, cache, _CMFdefaults);
       }
     }
 
     if (v.brightness != null) {
       matrix = _applyBrightnessToMatrix(Number(v.brightness), matrix);
 
-      _addColorMatrixFilterCacheTween("brightness", pg, cache, v);
+      _addColorMatrixFilterCacheTween('brightness', pg, cache, v);
     } else if (cache.brightness !== 1) {
       if (combine) {
         matrix = _applyBrightnessToMatrix(cache.brightness, matrix);
       } else {
-        _addColorMatrixFilterCacheTween("brightness", pg, cache, _CMFdefaults);
+        _addColorMatrixFilterCacheTween('brightness', pg, cache, _CMFdefaults);
       }
     }
 
     if (v.colorize != null) {
-      v.colorizeAmount = "colorizeAmount" in v ? Number(v.colorizeAmount) : 1;
+      v.colorizeAmount = 'colorizeAmount' in v ? Number(v.colorizeAmount) : 1;
       matrix = _colorize(matrix, v.colorize, v.colorizeAmount);
 
-      _addColorMatrixFilterCacheTween("colorize", pg, cache, v);
+      _addColorMatrixFilterCacheTween('colorize', pg, cache, v);
 
-      _addColorMatrixFilterCacheTween("colorizeAmount", pg, cache, v);
+      _addColorMatrixFilterCacheTween('colorizeAmount', pg, cache, v);
     } else if (cache.colorizeAmount) {
       if (combine) {
         matrix = _colorize(matrix, cache.colorize, cache.colorizeAmount);
       } else {
-        _addColorMatrixFilterCacheTween("colorize", pg, cache, _CMFdefaults);
+        _addColorMatrixFilterCacheTween('colorize', pg, cache, _CMFdefaults);
 
-        _addColorMatrixFilterCacheTween("colorizeAmount", pg, cache, _CMFdefaults);
+        _addColorMatrixFilterCacheTween('colorizeAmount', pg, cache, _CMFdefaults);
       }
     }
 
     if (v.saturation != null) {
       matrix = _setSaturation(matrix, Number(v.saturation));
 
-      _addColorMatrixFilterCacheTween("saturation", pg, cache, v);
+      _addColorMatrixFilterCacheTween('saturation', pg, cache, v);
     } else if (cache.saturation !== 1) {
       if (combine) {
         matrix = _setSaturation(matrix, cache.saturation);
       } else {
-        _addColorMatrixFilterCacheTween("saturation", pg, cache, _CMFdefaults);
+        _addColorMatrixFilterCacheTween('saturation', pg, cache, _CMFdefaults);
       }
     }
   }
@@ -7000,11 +7000,11 @@ _idMatrix = [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
 
   while (--i > -1) {
     if (matrix[i] !== startMatrix[i]) {
-      pg._addTween(startMatrix, i, startMatrix[i], matrix[i], "colorMatrixFilter");
+      pg._addTween(startMatrix, i, startMatrix[i], matrix[i], 'colorMatrixFilter');
     }
   }
 
-  pg._overwriteProps.push("colorMatrixFilter");
+  pg._overwriteProps.push('colorMatrixFilter');
 },
     _addColorTween = function _addColorTween(target, p, value, colorSetter, plugin) {
   var pt = colorSetter._firstPT = {
@@ -7012,11 +7012,11 @@ _idMatrix = [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
     t: target,
     p: p,
     proxy: {},
-    f: typeof target[p] === "function"
+    f: typeof target[p] === 'function'
   };
-  pt.proxy[p] = "rgb(" + _parseColor(!pt.f ? target[p] : target[p.indexOf("set") || typeof target["get" + p.substr(3)] !== "function" ? p : "get" + p.substr(3)]()).join(",") + ")";
+  pt.proxy[p] = 'rgb(' + _parseColor(!pt.f ? target[p] : target[p.indexOf('set') || typeof target['get' + p.substr(3)] !== 'function' ? p : 'get' + p.substr(3)]()).join(',') + ')';
 
-  plugin._addTween(pt.proxy, p, "get", typeof value === "number" ? "rgb(" + _parseColor(value, false).join(",") + ")" : value, p, null, null, _colorStringFilter);
+  plugin._addTween(pt.proxy, p, 'get', typeof value === 'number' ? 'rgb(' + _parseColor(value, false).join(',') + ')' : value, p, null, null, _colorStringFilter);
 },
     //to improve performance, when a color is sensed, we hijack the setRatio() method of the plugin instance with a new function that this method spits back. This is a special method that handles parsing color values on-the-fly and turns them into numeric values which PixiJS requires. In other words, instead of "rgb(255, 0, 0)", PixiJS wants 0xFF0000. This also works with hsl() values.
 _buildColorSetter = function _buildColorSetter(tween, plugin) {
@@ -7028,7 +7028,7 @@ _buildColorSetter = function _buildColorSetter(tween, plugin) {
     setRatio.call(plugin, v);
 
     while (pt) {
-      val = _parseColor(pt.proxy[pt.p], "number");
+      val = _parseColor(pt.proxy[pt.p], 'number');
 
       if (pt.f) {
         pt.t[pt.p](val);
@@ -7054,12 +7054,12 @@ _buildColorSetter = function _buildColorSetter(tween, plugin) {
   lineColor: 1,
   fillColor: 1
 },
-    _xyContexts = "position,scale,skew,pivot,anchor,tilePosition,tileScale".split(","),
+    _xyContexts = 'position,scale,skew,pivot,anchor,tilePosition,tileScale'.split(','),
     _contexts = {
-  x: "position",
-  y: "position",
-  tileX: "tilePosition",
-  tileY: "tilePosition"
+  x: 'position',
+  y: 'position',
+  tileX: 'tilePosition',
+  tileY: 'tilePosition'
 },
     _colorMatrixFilterProps = {
   colorMatrixFilter: 1,
@@ -7073,7 +7073,7 @@ _buildColorSetter = function _buildColorSetter(tween, plugin) {
 },
     _DEG2RAD = Math.PI / 180,
     _degreesToRadians = function _degreesToRadians(value) {
-  return typeof value === "string" && value.charAt(1) === "=" ? value.substr(0, 2) + parseFloat(value.substr(2)) * _DEG2RAD : value * _DEG2RAD;
+  return typeof value === 'string' && value.charAt(1) === '=' ? value.substr(0, 2) + parseFloat(value.substr(2)) * _DEG2RAD : value * _DEG2RAD;
 },
     i,
     p; //context setup...
@@ -7081,24 +7081,24 @@ _buildColorSetter = function _buildColorSetter(tween, plugin) {
 
 for (i = 0; i < _xyContexts.length; i++) {
   p = _xyContexts[i];
-  _contexts[p + "X"] = p;
-  _contexts[p + "Y"] = p;
+  _contexts[p + 'X'] = p;
+  _contexts[p + 'Y'] = p;
 } //color parsing setup...
 
 
 for (p in _colorLookup) {
-  _colorExp += "|" + p + "\\b";
+  _colorExp += '|' + p + '\\b';
 }
 
-_colorExp = new RegExp(_colorExp + ")", "gi");
+_colorExp = new RegExp(_colorExp + ')', 'gi');
 
 _colorStringFilter = function _colorStringFilter(a) {
-  var combined = a[0] + " " + a[1],
+  var combined = a[0] + ' ' + a[1],
       toHSL;
   _colorExp.lastIndex = 0;
 
   if (_colorExp.test(combined)) {
-    toHSL = combined.indexOf("hsl(") !== -1 || combined.indexOf("hsla(") !== -1;
+    toHSL = combined.indexOf('hsl(') !== -1 || combined.indexOf('hsla(') !== -1;
     a[0] = _formatColors(a[0], toHSL);
     a[1] = _formatColors(a[1], toHSL);
   }
@@ -7109,17 +7109,17 @@ if (!PixiPlugin_TweenLite.defaultStringFilter) {
 }
 
 var PixiPlugin = esm_TweenLite/* _gsScope._gsDefine.plugin */.ML._gsDefine.plugin({
-  propName: "pixi",
+  propName: 'pixi',
   priority: 0,
   API: 2,
   global: true,
-  version: "0.3.0",
+  version: '0.3.0',
   init: function init(target, values, tween, index) {
     if (!target instanceof esm_TweenLite/* _gsScope.PIXI.DisplayObject */.ML.PIXI.DisplayObject) {
       return false;
     }
 
-    var isV4 = esm_TweenLite/* _gsScope.PIXI.VERSION.charAt */.ML.PIXI.VERSION.charAt(0) === "4",
+    var isV4 = esm_TweenLite/* _gsScope.PIXI.VERSION.charAt */.ML.PIXI.VERSION.charAt(0) === '4',
         context,
         axis,
         value,
@@ -7136,19 +7136,19 @@ var PixiPlugin = esm_TweenLite/* _gsScope._gsDefine.plugin */.ML._gsDefine.plugi
       context = _contexts[p];
       value = values[p];
 
-      if (typeof value === "function") {
+      if (typeof value === 'function') {
         value = value(index || 0, target);
       }
 
       if (context) {
-        axis = p.charAt(p.length - 1).toLowerCase().indexOf("x") !== -1 ? "x" : "y";
+        axis = p.charAt(p.length - 1).toLowerCase().indexOf('x') !== -1 ? 'x' : 'y';
 
-        this._addTween(target[context], axis, target[context][axis], context === "skew" ? _degreesToRadians(value) : value, p);
-      } else if (p === "scale" || p === "anchor" || p === "pivot" || p === "tileScale") {
-        this._addTween(target[p], "x", target[p].x, value, p + "X");
+        this._addTween(target[context], axis, target[context][axis], context === 'skew' ? _degreesToRadians(value) : value, p);
+      } else if (p === 'scale' || p === 'anchor' || p === 'pivot' || p === 'tileScale') {
+        this._addTween(target[p], 'x', target[p].x, value, p + 'X');
 
-        this._addTween(target[p], "y", target[p].y, value, p + "Y");
-      } else if (p === "rotation") {
+        this._addTween(target[p], 'y', target[p].y, value, p + 'Y');
+      } else if (p === 'rotation') {
         //PIXI expects rotation in radians, but as a convenience we let folks define it in degrees and we do the conversion.
         this._addTween(target, p, target.rotation, _degreesToRadians(value), p);
       } else if (_colorMatrixFilterProps[p]) {
@@ -7157,8 +7157,8 @@ var PixiPlugin = esm_TweenLite/* _gsScope._gsDefine.plugin */.ML._gsDefine.plugi
 
           colorMatrix = true;
         }
-      } else if (p === "blur" || p === "blurX" || p === "blurY" || p === "blurPadding") {
-        filter = _getFilter(target, "BlurFilter");
+      } else if (p === 'blur' || p === 'blurX' || p === 'blurY' || p === 'blurPadding') {
+        filter = _getFilter(target, 'BlurFilter');
 
         this._addTween(filter, p, filter[p], value, p);
 
@@ -7175,32 +7175,32 @@ var PixiPlugin = esm_TweenLite/* _gsScope._gsDefine.plugin */.ML._gsDefine.plugi
           colorSetter = _buildColorSetter(tween, this);
         }
 
-        if ((p === "lineColor" || p === "fillColor") && target instanceof esm_TweenLite/* _gsScope.PIXI.Graphics */.ML.PIXI.Graphics) {
+        if ((p === 'lineColor' || p === 'fillColor') && target instanceof esm_TweenLite/* _gsScope.PIXI.Graphics */.ML.PIXI.Graphics) {
           data = (target.geometry || target).graphicsData; //"geometry" was introduced in PIXI version 5
 
           i = data.length;
 
           while (--i > -1) {
-            _addColorTween(isV4 ? data[i] : data[i][p.substr(0, 4) + "Style"], isV4 ? p : "color", value, colorSetter, this);
+            _addColorTween(isV4 ? data[i] : data[i][p.substr(0, 4) + 'Style'], isV4 ? p : 'color', value, colorSetter, this);
           }
 
           colorSetter.graphics = target.geometry || target;
         } else {
           _addColorTween(target, p, value, colorSetter, this);
         }
-      } else if (p === "autoAlpha") {
+      } else if (p === 'autoAlpha') {
         this._firstPT = pt = {
           t: {
             setRatio: function setRatio() {
               target.visible = !!target.alpha;
             }
           },
-          p: "setRatio",
+          p: 'setRatio',
           s: 0,
           c: 1,
           f: 1,
           pg: 0,
-          n: "visible",
+          n: 'visible',
           pr: 0,
           m: 0,
           _next: this._firstPT
@@ -7210,9 +7210,9 @@ var PixiPlugin = esm_TweenLite/* _gsScope._gsDefine.plugin */.ML._gsDefine.plugi
           pt._next._prev = pt;
         }
 
-        this._addTween(target, "alpha", target.alpha, value, "alpha");
+        this._addTween(target, 'alpha', target.alpha, value, 'alpha');
 
-        this._overwriteProps.push("alpha", "visible");
+        this._overwriteProps.push('alpha', 'visible');
       } else {
         this._addTween(target, p, target[p], value, p);
       }
@@ -7239,9 +7239,9 @@ PixiPlugin.registerPIXI = function (PIXI) {
 
 
 
-/* 
+/*
  *************************************
- * <!-- Advanced Slider (Special Effects) -->
+ * <!--  高级滑块（特殊效果）Advanced Slider (Special Effects) -->
  *************************************
  */
 
@@ -7261,7 +7261,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
     var $sliderWrapper = $('.uix-advanced-slider-sp');
     var //Save different canvas heights as an array
     canvasHeights = [],
-        //Basic webGL renderers 
+        //Basic webGL renderers
     rendererOuterID = 'uix-advanced-slider-sp__canvas-container',
         rendererCanvasID = 'uix-advanced-slider-sp__canvas',
         renderer,
@@ -7289,11 +7289,11 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
     window.removeEventListener('resize', debounceFuncWindow);
     window.addEventListener('resize', debounceFuncWindow);
     /*
-     * Initialize slideshow
-     *
-     * @param  {Boolean} resize            - Determine whether the window size changes.
-     * @return {Void}
-     */
+    * Initialize slideshow
+    *
+    * @param  {Boolean} resize            - Determine whether the window size changes.
+    * @return {Void}
+    */
 
     function sliderInit(resize) {
       $sliderWrapper.each(function () {
@@ -7331,18 +7331,18 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
           var playTimes; //A function called "timer" once every second (like a digital watch).
 
           $this[0].animatedSlides; //Get the animation speed
-          //-------------------------------------	
+          //-------------------------------------
 
           if ((0,esm_typeof/* default */.Z)(dataSpeed) != ( true ? "undefined" : 0) && dataSpeed != false) {
             animSpeed = dataSpeed;
           } //Display all images
-          //-------------------------------------	
+          //-------------------------------------
 
 
           if (!Modernizr.webgl) {
             $this.find('img').css('visibility', 'visible');
           } //Initialize the first item container
-          //-------------------------------------		
+          //-------------------------------------
 
 
           $items.addClass('next');
@@ -7390,7 +7390,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
               img.src = imgURL;
             }
           } //Autoplay Slider
-          //-------------------------------------		
+          //-------------------------------------
 
 
           if (!resize) {
@@ -7429,10 +7429,10 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
     * @param  {Number} timing                 - Autoplay interval.
     * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
     * @param  {Element} slider                 - Selector of the slider .
-    * @param  {String} countTotalID           - Total number ID or class of counter.
-    * @param  {String} countCurID             - Current number ID or class of counter.
-    * @param  {String} paginationID           - Navigation ID for paging control of each slide.
-    * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
+     * @param  {String} countTotalID           - Total number ID or class of counter.
+     * @param  {String} countCurID             - Current number ID or class of counter.
+     * @param  {String} paginationID           - Navigation ID for paging control of each slide.
+     * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
     * @return {Void}                          - The constructor.
     */
 
@@ -7459,28 +7459,28 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
       }, timing);
     }
     /*
-     * Initialize all the items to the stage
-     *
-     * @param  {Element} slider                 - Current selector of each slider.
-     * @param  {Number} nativeItemW            - Returns the intrinsic width of the image/video.
-     * @param  {Number} nativeItemH            - Returns the intrinsic height of the image/video.
-           * @param  {String} paginationID           - Navigation ID for paging control of each slide.
-           * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
-           * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop. 
-           * @param  {Boolean} draggable             - Allow drag and drop on the slider.
-           * @param  {String} draggableCursor        - Drag & Drop Change icon/cursor while dragging.
-           * @param  {String} countTotalID           - Total number ID or class of counter.
-           * @param  {String} countCurID             - Current number ID or class of counter.
-           * @param  {String} filterTexture          - The texture used for the displacement map.
-     * @return {Void}
-     */
+    * Initialize all the items to the stage
+    *
+    * @param  {Element} slider                 - Current selector of each slider.
+    * @param  {Number} nativeItemW            - Returns the intrinsic width of the image/video.
+    * @param  {Number} nativeItemH            - Returns the intrinsic height of the image/video.
+     * @param  {String} paginationID           - Navigation ID for paging control of each slide.
+     * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
+     * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
+     * @param  {Boolean} draggable             - Allow drag and drop on the slider.
+     * @param  {String} draggableCursor        - Drag & Drop Change icon/cursor while dragging.
+     * @param  {String} countTotalID           - Total number ID or class of counter.
+     * @param  {String} countCurID             - Current number ID or class of counter.
+     * @param  {String} filterTexture          - The texture used for the displacement map.
+    * @return {Void}
+    */
 
 
     function addItemsToStage(slider, nativeItemW, nativeItemH, paginationID, arrowsID, loop, draggable, draggableCursor, countTotalID, countCurID, filterTexture) {
       var $this = slider,
           $items = $this.find('.uix-advanced-slider-sp__item'),
           $first = $items.first(),
-          itemsTotal = $items.length; //If arrows does not exist on the page, it will be added by default, 
+          itemsTotal = $items.length; //If arrows does not exist on the page, it will be added by default,
       //and the drag and drop function will be activated.
 
       if ($(arrowsID).length == 0) {
@@ -7498,11 +7498,11 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
 
       if (Modernizr.webgl) {
         //Load slides to canvas
-        //-------------------------------------	
+        //-------------------------------------
         if ($('#' + rendererCanvasID).length == 0) {
           $this.prepend('<div id="' + rendererOuterID + '" class="uix-advanced-slider-sp__canvas-container"><canvas id="' + rendererCanvasID + '"></canvas></div>');
         } //Save different canvas heights as an array
-        //-------------------------------------	
+        //-------------------------------------
 
 
         $this.find('.uix-advanced-slider-sp__item').each(function (index) {
@@ -7518,7 +7518,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
                   curH = this.videoHeight,
                   newW = curW,
                   newH = curH;
-              newW = $this.width(); //Scaled/Proportional Content 
+              newW = $this.width(); //Scaled/Proportional Content
 
               newH = curH * (newW / curW); //Save different canvas heights as an array
 
@@ -7536,7 +7536,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
                   curH_img = this.height,
                   newW_img = curW_img,
                   newH_img = curH_img;
-              newW_img = $this.width(); //Scaled/Proportional Content 
+              newW_img = $this.width(); //Scaled/Proportional Content
 
               newH_img = curH_img * (newW_img / curW_img); //Save different canvas heights as an array
 
@@ -7548,7 +7548,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
             imgCur.src = imgURL;
           }
         }); //$this.find( '.uix-advanced-slider-sp__item' ).each
-        //Basic webGL renderers 
+        //Basic webGL renderers
         //-------------------------------------
 
         renderer = new PIXI.Application({
@@ -7571,7 +7571,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
         container__items = new PIXI.Container();
         displacementSprite = /^.*\.(avi|AVI|wmv|WMV|flv|FLV|mpg|MPG|mp4|MP4)/.test(filterTexture) ? new PIXI.Sprite(PIXI.Texture.from(filterTexture)) : new PIXI.Sprite.from(filterTexture);
         displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite); //----------------------------------------------------------------------------------
-        //--------------------------------- Brightness Effect -------------------------------	
+        //--------------------------------- Brightness Effect -------------------------------
         //----------------------------------------------------------------------------------
         //Usage of returning sprite object: renderer.stage.children[index]
 
@@ -7625,11 +7625,11 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
             TweenMax.set(curSprite, {
               alpha: 0
             }); //Render updated scene
-            //-------------------------------------   
+            //-------------------------------------
 
             renderer.stage.addChild(curSprite);
           }); //Initialize the default height of canvas
-          //-------------------------------------	
+          //-------------------------------------
 
           setTimeout(function () {
             canvasDefaultInit($this, $first);
@@ -7690,9 +7690,9 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
             curSprite.height = renderer.view.height; //Need to scale according to the screen
 
             curSprite.scale.set(canvasRatio); //Render updated scene
-            //-------------------------------------   
+            //-------------------------------------
 
-            container__items.addChild(curSprite); //Add child container to the main container 
+            container__items.addChild(curSprite); //Add child container to the main container
             //-------------------------------------
 
             stage__filter.addChild(container__items); // Enable Interactions
@@ -7703,7 +7703,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
 
             displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
             stage__filter.filters = [displacementFilter]; //Add filter container to the main container
-            //-------------------------------------				
+            //-------------------------------------
 
             displacementSprite.anchor.set(0.5);
             displacementSprite.x = renderer__filter.width / 2;
@@ -7722,7 +7722,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
               renderer__filter.render(stage__filter);
             });
           }); //Initialize the default height of canvas
-          //-------------------------------------	
+          //-------------------------------------
 
           setTimeout(function () {
             canvasDefaultInit($this, $first);
@@ -7787,9 +7787,9 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
             TweenMax.set(curSprite, {
               alpha: 0
             }); //Render updated scene
-            //-------------------------------------   
+            //-------------------------------------
 
-            container__items.addChild(curSprite); //Add child container to the main container 
+            container__items.addChild(curSprite); //Add child container to the main container
             //-------------------------------------
 
             stage__filter.addChild(container__items); // Enable Interactions
@@ -7800,7 +7800,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
 
             displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.CLAMP;
             stage__filter.filters = [displacementFilter]; //Add filter container to the main container
-            //-------------------------------------				
+            //-------------------------------------
 
             displacementSprite.anchor.set(0.5);
             displacementSprite.x = renderer__filter.width / 2;
@@ -7817,7 +7817,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
               renderer__filter.render(stage__filter);
             });
           }); //Initialize the default height of canvas
-          //-------------------------------------	
+          //-------------------------------------
 
           setTimeout(function () {
             canvasDefaultInit($this, $first);
@@ -7882,9 +7882,9 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
             TweenMax.set(curSprite, {
               alpha: 0
             }); //Render updated scene
-            //-------------------------------------   
+            //-------------------------------------
 
-            container__items.addChild(curSprite); //Add child container to the main container 
+            container__items.addChild(curSprite); //Add child container to the main container
             //-------------------------------------
 
             stage__filter.addChild(container__items); // Enable Interactions
@@ -7895,7 +7895,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
 
             displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
             stage__filter.filters = [displacementFilter]; //Add filter container to the main container
-            //-------------------------------------				
+            //-------------------------------------
 
             displacementSprite.anchor.set(0.5);
             displacementSprite.x = renderer__filter.width / 2;
@@ -7915,7 +7915,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
               renderer__filter.render(stage__filter);
             });
           }); //Initialize the default height of canvas
-          //-------------------------------------	
+          //-------------------------------------
 
           setTimeout(function () {
             canvasDefaultInit($this, $first);
@@ -7980,9 +7980,9 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
             TweenMax.set(curSprite, {
               alpha: 0
             }); //Render updated scene
-            //-------------------------------------   
+            //-------------------------------------
 
-            container__items.addChild(curSprite); //Add child container to the main container 
+            container__items.addChild(curSprite); //Add child container to the main container
             //-------------------------------------
 
             stage__filter.addChild(container__items); // Enable Interactions
@@ -8013,7 +8013,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
               renderer__filter.render(stage__filter);
             });
           }); //Initialize the default height of canvas
-          //-------------------------------------	
+          //-------------------------------------
 
           setTimeout(function () {
             canvasDefaultInit($this, $first);
@@ -8028,8 +8028,8 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
       //-------------------------------------
 
 
-      if (!Modernizr.webgl) normalSliderVideoInit($items, false); //Pagination dots 
-      //-------------------------------------	
+      if (!Modernizr.webgl) normalSliderVideoInit($items, false); //Pagination dots
+      //-------------------------------------
 
       var _dot = '',
           _dotActive = '';
@@ -8069,7 +8069,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
           clearInterval($this[0].animatedSlides);
         }
       }); //Next/Prev buttons
-      //-------------------------------------		
+      //-------------------------------------
 
       var _prev = $(arrowsID).find('.uix-advanced-slider-sp__arrows--prev'),
           _next = $(arrowsID).find('.uix-advanced-slider-sp__arrows--next');
@@ -8136,7 +8136,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
 
         sliderUpdates(parseFloat($items.filter('.is-active').index()) + 1, $this, 'next', countTotalID, countCurID, paginationID, arrowsID, loop);
       } //Added touch method to mobile device and desktop
-      //-------------------------------------	
+      //-------------------------------------
 
 
       var $dragTrigger = $this.find('.uix-advanced-slider-sp__inner');
@@ -8223,18 +8223,18 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
       }
     }
     /*
-     * Transition Between Slides
-     *
-     * @param  {Number} elementIndex           - Index of current slider.
-     * @param  {Element} slider                 - Selector of the slider .
-     * @param  {String} dir                    - Switching direction indicator.
-           * @param  {String} countTotalID           - Total number ID or class of counter.
-           * @param  {String} countCurID             - Current number ID or class of counter.
-           * @param  {String} paginationID           - Navigation ID for paging control of each slide.
-           * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
-           * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
-     * @return {Void}
-     */
+    * Transition Between Slides
+    *
+    * @param  {Number} elementIndex           - Index of current slider.
+    * @param  {Element} slider                 - Selector of the slider .
+    * @param  {String} dir                    - Switching direction indicator.
+     * @param  {String} countTotalID           - Total number ID or class of counter.
+     * @param  {String} countCurID             - Current number ID or class of counter.
+     * @param  {String} paginationID           - Navigation ID for paging control of each slide.
+     * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
+     * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
+    * @return {Void}
+    */
 
 
     function sliderUpdates(elementIndex, slider, dir, countTotalID, countCurID, paginationID, arrowsID, loop) {
@@ -8290,7 +8290,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
       $(paginationID).find('li a').removeClass('leave');
       $(paginationID).find('li a.is-active').removeClass('is-active').addClass('leave');
       $(paginationID).find('li a[data-index="' + elementIndex + '"]').addClass('is-active').removeClass('leave'); //Add transition class to each item
-      //-------------------------------------	
+      //-------------------------------------
 
       $items.removeClass('leave prev next');
       $items.addClass(dirIndicatorClass);
@@ -8306,7 +8306,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
         normalSliderVideoInit($items, false);
         normalSliderVideoInit($current, true);
       } //Reset the default height of canvas
-      //-------------------------------------	
+      //-------------------------------------
 
 
       setTimeout(function () {
@@ -8324,7 +8324,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
       if (slider.hasClass('uix-advanced-slider-sp--eff-liquid2')) {} //-- Liquid Distortion Effect 3
 
 
-      if (slider.hasClass('uix-advanced-slider-sp--eff-liquid3')) {} //-- Parallax Effect 
+      if (slider.hasClass('uix-advanced-slider-sp--eff-liquid3')) {} //-- Parallax Effect
 
 
       if (slider.hasClass('uix-advanced-slider-sp--eff-parallax')) {
@@ -8336,12 +8336,12 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
       transitionInteractions(elementIndex, $items.filter('.leave').index(), slider, 'in', dir);
     }
     /*
-     * Fixed image width adaptation problem for Advanced Slider (on HTML tag <canvas>)
-     *
-     * @param  {Number} w                - The width that the canvas will be set.
-     * @param  {Number} h                - The height that the canvas will be set.
-     * @return {Void}
-     */
+    * Fixed image width adaptation problem for Advanced Slider (on HTML tag <canvas>)
+    *
+    * @param  {Number} w                - The width that the canvas will be set.
+    * @param  {Number} h                - The height that the canvas will be set.
+    * @return {Void}
+    */
 
 
     function fixCanvasTagSize(w, h) {
@@ -8351,12 +8351,12 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
       });
     }
     /*
-     * Initialize the default height of canvas
-     *
-           * @param  {Element} slider                 - Selector of the slider .
-     * @param  {Element} currentLlement         - Current selector of each slider.
-     * @return {Void}
-     */
+    * Initialize the default height of canvas
+    *
+     * @param  {Element} slider                 - Selector of the slider .
+    * @param  {Element} currentLlement         - Current selector of each slider.
+    * @return {Void}
+    */
 
 
     function canvasDefaultInit(slider, currentLlement) {
@@ -8397,17 +8397,17 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
       }
     }
     /*
-     * Canvas Transition Interactions
-     * @http://pixijs.download/dev/docs/index.html
-     *
-     * @param  {Number} elementIndex           - Index of current slider.
-     * @param  {Number} prevElementIndex       - Index of previous slider.
-     * @param  {Element} slider                 - Selector of the slider.
-     * @param  {String} goType                 - The type of entry and exit between two items.  
-                                                 Optional values: in, out
-     * @param  {String} dir                    - Switching direction indicator.	 
-     * @return {Void}
-     */
+    * Canvas Transition Interactions
+    * @http://pixijs.download/dev/docs/index.html
+    *
+    * @param  {Number} elementIndex           - Index of current slider.
+    * @param  {Number} prevElementIndex       - Index of previous slider.
+    * @param  {Element} slider                 - Selector of the slider.
+    * @param  {String} goType                 - The type of entry and exit between two items.
+                                           Optional values: in, out
+    * @param  {String} dir                    - Switching direction indicator.
+    * @return {Void}
+    */
 
 
     function transitionInteractions(elementIndex, prevElementIndex, slider, goType, dir) {
@@ -8422,7 +8422,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
             spTotal = slider.find('.uix-advanced-slider-sp__item').length;
         elementIndex = parseFloat(elementIndex);
         prevElementIndex = parseFloat(prevElementIndex); //----------------------------------------------------------------------------------
-        //--------------------------------- Brightness Effect -------------------------------	
+        //--------------------------------- Brightness Effect -------------------------------
         //----------------------------------------------------------------------------------
 
         if (slider.hasClass('uix-advanced-slider-sp--eff-brightness')) {
@@ -8431,7 +8431,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
           TweenMax.to($allItems, animSpeed / 1000, {
             alpha: 0
           }); //Display wrapper of canvas (transitions between slides)
-          //-------------------------------------	
+          //-------------------------------------
 
           if (goType == 'out') {
             //Current item leaving action
@@ -8528,7 +8528,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
 
             slider.addClass('js-init-ok');
           } //Display wrapper of canvas (transitions between slides)
-          //-------------------------------------	
+          //-------------------------------------
 
 
           if (goType == 'out') {//Current item leaving action
@@ -8600,14 +8600,14 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
             }, 'final'); //Add new ripple each time mouse
             //-------------------------------------
 
-            slider[0].addEventListener("mousedown", function (e) {
+            slider[0].addEventListener('mousedown', function (e) {
               TweenMax.to(displacementFilter.scale, 1, {
-                x: "+=" + Math.sin(e.pageX) * 100 + "",
-                y: "+=" + Math.cos(e.pageY) * 100 + ""
+                x: '+=' + Math.sin(e.pageX) * 100 + '',
+                y: '+=' + Math.cos(e.pageY) * 100 + ''
               });
               rotateSpite();
             });
-            slider[0].addEventListener("mouseup", function (e) {
+            slider[0].addEventListener('mouseup', function (e) {
               TweenMax.to(displacementFilter.scale, 1, {
                 x: 0,
                 y: 0
@@ -8630,7 +8630,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
           TweenMax.to($allItems, animSpeed / 1000, {
             alpha: 0
           }); //Display wrapper of canvas (transitions between slides)
-          //-------------------------------------	
+          //-------------------------------------
 
           if (goType == 'out') {
             //Current item leaving action
@@ -8701,7 +8701,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
                 baseTimeline.clear(); //filter
 
                 baseTimeline.to(displacementFilter.scale, animSpeed / 1000, {
-                  y: "+=" + 200 + "",
+                  y: '+=' + 200 + '',
                   ease: Power3.easeOut
                 }).to(curSp, animSpeed / 2 / 1000, {
                   alpha: 1,
@@ -8717,9 +8717,9 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
             }); //Add new ripple each time mouse is clicked/mousemoved
             //-------------------------------------
 
-            document.addEventListener("mousemove", function (e) {
+            document.addEventListener('mousemove', function (e) {
               TweenMax.to(displacementFilter.scale, 1, {
-                x: e.pageX / 2 + ""
+                x: e.pageX / 2 + ''
               });
             });
           }
@@ -8735,7 +8735,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
           TweenMax.to($allItems, animSpeed / 1000, {
             alpha: 0
           }); //Display wrapper of canvas (transitions between slides)
-          //-------------------------------------	
+          //-------------------------------------
 
           if (goType == 'out') {
             //Current item leaving action
@@ -8796,7 +8796,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
                 baseTimeline.clear(); //filter
 
                 baseTimeline.to(displacementFilter.scale, animSpeed / 1000, {
-                  y: "+=" + 50 + "",
+                  y: '+=' + 50 + '',
                   ease: Power3.easeOut
                 }).to(curSp, animSpeed / 2 / 1000, {
                   alpha: 1,
@@ -8841,7 +8841,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
 
             slider.addClass('js-init-ok');
           } //Display wrapper of canvas (transitions between slides)
-          //-------------------------------------	
+          //-------------------------------------
 
 
           if (goType == 'out') {//Current item leaving action
@@ -8964,19 +8964,19 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
 
             goNextItem();
           }
-        } // end effect		
+        } // end effect
 
       } else {
         slider.find('.uix-advanced-slider-sp__item canvas').hide();
       }
     }
     /*
-     * Initialize embedded local video.
-     *
-     * @param  {Element} wrapper          - The outermost video container, which can contain multiple videos
-     * @param  {Boolean} play            - Forced to trigger pause or play events.
-     * @return {Void}
-     */
+    * Initialize embedded local video.
+    *
+    * @param  {Element} wrapper          - The outermost video container, which can contain multiple videos
+    * @param  {Boolean} play            - Forced to trigger pause or play events.
+    * @return {Void}
+    */
 
 
     function normalSliderVideoInit(wrapper, play) {
@@ -9024,7 +9024,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
             myPlayer.play();
             $('#' + coverPlayBtnID).hide();
           });
-        } //Add replay button to video 
+        } //Add replay button to video
 
 
         if ($replayBtn.length == 0) {
@@ -9052,7 +9052,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
                 curH = obj.videoHeight(),
                 newW = curW,
                 newH = curH;
-            newW = videoWrapperW; //Scaled/Proportional Content 
+            newW = videoWrapperW; //Scaled/Proportional Content
 
             newH = curH * (newW / curW);
 
@@ -9183,7 +9183,7 @@ var ADVANCED_SLIDER_FILTER = function (module, $, window, document) {
 
 /* 
  *************************************
- * <!-- Ajax Push Content  -->
+ * <!-- 异步加载推送内容 Ajax Push Content  -->
  *************************************
  */
 
@@ -9203,10 +9203,10 @@ var AJAX_PUSH_CONTENT = function (module, $, window, document) {
     /* Need to set it as a global variable for history */
 
     var ajaxConfig = {
-      "container": "#my-ajax-demo-push-container",
-      "target": "#my-ajax-demo-target-container",
-      "loading": "<div class=\"my-loader\"><span><i class=\"fa fa-spinner fa-spin\"></i> loading <em id=\"app-loading\" data-txt=\"{progress}%\"></em>...</span></div>",
-      "method": "POST"
+      'container': '#my-ajax-demo-push-container',
+      'target': '#my-ajax-demo-target-container',
+      'loading': '<div class="my-loader"><span><i class="fa fa-spinner fa-spin"></i> loading <em id="app-loading" data-txt="{progress}%"></em>...</span></div>',
+      'method': 'POST'
     },
         thisPageTitle = document.title; // The progress of each page load, using global variables to accurately determine
 
@@ -9289,7 +9289,7 @@ var AJAX_PUSH_CONTENT = function (module, $, window, document) {
      * @param  {Element} container       - The target container to which the content will be added.
      * @param  {String|Boolean} target  - The instance ID or class name returned from the callback data. If it is "false", the push content is empty.
      * @param  {String} loading         - Content of loading area.
-     * @param  {String} url             - The target URL via AJAX. 
+     * @param  {String} url             - The target URL via AJAX.
      * @param  {String} method          - The HTTP method to use for the request (e.g. "POST", "GET", "PUT")
      * @param  {?Element|Boolean} btn     - Current trigger button. Avoid button events if "false".
      * @return {Void}
@@ -9339,9 +9339,9 @@ var AJAX_PUSH_CONTENT = function (module, $, window, document) {
 
         $(htmlCode).find('img').each(function () {
           sources.push({
-            "url": this.src,
-            "id": 'img-' + UixGUID.create(),
-            "type": 'img'
+            'url': this.src,
+            'id': 'img-' + UixGUID.create(),
+            'type': 'img'
           });
         }); //Push all videos from page
 
@@ -9350,9 +9350,9 @@ var AJAX_PUSH_CONTENT = function (module, $, window, document) {
 
           if ((0,esm_typeof/* default */.Z)(_src) === ( true ? "undefined" : 0)) _src = $(this).attr('src');
           sources.push({
-            "url": _src,
-            "id": 'video-' + UixGUID.create(),
-            "type": 'video'
+            'url': _src,
+            'id': 'video-' + UixGUID.create(),
+            'type': 'video'
           });
         }); //Execute after all images have loaded
 
@@ -9374,9 +9374,9 @@ var AJAX_PUSH_CONTENT = function (module, $, window, document) {
             if (sources[i].type == 'img') {
               ///////////
               // IMAGE //
-              ///////////   
+              ///////////
               promises.push(new Promise(function (resolve, reject) {
-                var img = document.createElement("img");
+                var img = document.createElement('img');
                 img.src = sources[i].url;
 
                 img.onload = function (image) {
@@ -9391,7 +9391,7 @@ var AJAX_PUSH_CONTENT = function (module, $, window, document) {
             } else {
               ///////////
               // VIDEO //
-              ///////////    
+              ///////////
               promises.push(new Promise(function (resolve, reject) {
                 $('#' + sources[i].id).one('loadedmetadata', resolve);
                 return resolve(sources[i].url);
@@ -9499,10 +9499,10 @@ var AJAX_PUSH_CONTENT = function (module, $, window, document) {
     /*
      * Remove loader
      *
-           * @param  {Element} container - The instance returned from the request succeeds
-           * @param  {String} title      - The title of a requested page.
+     * @param  {Element} container - The instance returned from the request succeeds
+     * @param  {String} title      - The title of a requested page.
      * @param  {?Element} btn      - Current trigger button.
-           * @param  {String} content    - The data returned from the server
+     * @param  {String} content    - The data returned from the server
      * @return {Void}
      */
 
@@ -9584,10 +9584,9 @@ var AJAX_PUSH_CONTENT = function (module, $, window, document) {
 
 /* 
  *************************************
- * <!-- Ajax Page Loader (Loading A Page via Ajax Into Div)  -->
+ * <!--  异步加载页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)   -->
  *************************************
  */
-
 
 
 var AJAX_PAGE_LOADER = function (module, $, window, document) {
@@ -9625,7 +9624,7 @@ var AJAX_PAGE_LOADER = function (module, $, window, document) {
 
 
     if ($sectionsContainer.length == 0) return false;
-    /* 
+    /*
      ====================================================
      *  Navigation Interaction
      ====================================================
@@ -9638,7 +9637,7 @@ var AJAX_PAGE_LOADER = function (module, $, window, document) {
       //Activate navigation from AJAX request
       if ((0,esm_typeof/* default */.Z)(curAjaxPageID) != ( true ? "undefined" : 0)) $navs.eq(curAjaxPageID).addClass('is-active');
     }
-    /* 
+    /*
      ====================================================
      *  AJAX Interaction
      ====================================================
@@ -9744,7 +9743,7 @@ var AJAX_PAGE_LOADER = function (module, $, window, document) {
     /*
      * Scroll initialize
      *
-     * @param  {Event} event        - The wheel event is fired when a wheel button of a pointing device (usually a mouse) is rotated. 
+     * @param  {Event} event        - The wheel event is fired when a wheel button of a pointing device (usually a mouse) is rotated.
      * @param  {String} dir          - Gets a value that indicates the amount that the mouse wheel has changed.
      * @return {Void}
      */
@@ -9769,7 +9768,7 @@ var AJAX_PAGE_LOADER = function (module, $, window, document) {
     /*
      * Move Animation
      *
-     * @param  {Element} container    - The instance returned from the request succeeds 
+     * @param  {Element} container    - The instance returned from the request succeeds
      * @param  {String} url          - The target URL via AJAX.
      * @param  {String} dir          - Rolling direction indicator.
      * @param  {Number} customIndex  - User-specified index value, located on the corresponding AJAX hyperlink.
@@ -9867,9 +9866,9 @@ var AJAX_PAGE_LOADER = function (module, $, window, document) {
 
           $(htmlCode).find('img').each(function () {
             sources.push({
-              "url": this.src,
-              "id": 'img-' + UixGUID.create(),
-              "type": 'img'
+              'url': this.src,
+              'id': 'img-' + UixGUID.create(),
+              'type': 'img'
             });
           }); //Push all videos from page
 
@@ -9878,9 +9877,9 @@ var AJAX_PAGE_LOADER = function (module, $, window, document) {
 
             if ((0,esm_typeof/* default */.Z)(_src) === ( true ? "undefined" : 0)) _src = $(this).attr('src');
             sources.push({
-              "url": _src,
-              "id": 'video-' + UixGUID.create(),
-              "type": 'video'
+              'url': _src,
+              'id': 'video-' + UixGUID.create(),
+              'type': 'video'
             });
           }); //Execute after all images have loaded
 
@@ -9903,9 +9902,9 @@ var AJAX_PAGE_LOADER = function (module, $, window, document) {
               if (sources[i].type == 'img') {
                 ///////////
                 // IMAGE //
-                ///////////   
+                ///////////
                 promises.push(new Promise(function (resolve, reject) {
-                  var img = document.createElement("img");
+                  var img = document.createElement('img');
                   img.src = sources[i].url;
 
                   img.onload = function (image) {
@@ -9920,7 +9919,7 @@ var AJAX_PAGE_LOADER = function (module, $, window, document) {
               } else {
                 ///////////
                 // VIDEO //
-                ///////////    
+                ///////////
                 promises.push(new Promise(function (resolve, reject) {
                   $('#' + sources[i].id).one('loadedmetadata', resolve);
                   return resolve(sources[i].url);
@@ -10032,11 +10031,11 @@ var AJAX_PAGE_LOADER = function (module, $, window, document) {
     /*
      * Remove loader
      *
-           * @param  {Element} container - The instance returned from the request succeeds
-           * @param  {String} title     - The title of a requested page.
+     * @param  {Element} container - The instance returned from the request succeeds
+     * @param  {String} title     - The title of a requested page.
      * @param  {String} dir       - Gets a value that indicates the amount that the mouse wheel has changed.
      * @param  {String} oldContent   - The old data returned from the server
-           * @param  {String} content   - The data returned from the server
+     * @param  {String} content   - The data returned from the server
      * @return {Void}
      */
 
@@ -10128,7 +10127,7 @@ var AJAX_PAGE_LOADER = function (module, $, window, document) {
         });
       });
     }
-    /* 
+    /*
      ====================================================
      *  Mouse Wheel Method
      ====================================================
@@ -10220,14 +10219,14 @@ var AJAX_PAGE_LOADER = function (module, $, window, document) {
 var _doc = (esm_TweenLite/* _gsScope.document */.ML.document || {}).documentElement,
     _window = esm_TweenLite/* _gsScope */.ML,
     _max = function _max(element, axis) {
-  var dim = axis === "x" ? "Width" : "Height",
-      scroll = "scroll" + dim,
-      client = "client" + dim,
+  var dim = axis === 'x' ? 'Width' : 'Height',
+      scroll = 'scroll' + dim,
+      client = 'client' + dim,
       body = document.body;
-  return element === _window || element === _doc || element === body ? Math.max(_doc[scroll], body[scroll]) - (_window["inner" + dim] || _doc[client] || body[client]) : element[scroll] - element["offset" + dim];
+  return element === _window || element === _doc || element === body ? Math.max(_doc[scroll], body[scroll]) - (_window['inner' + dim] || _doc[client] || body[client]) : element[scroll] - element['offset' + dim];
 },
     _unwrapElement = function _unwrapElement(value) {
-  if (typeof value === "string") {
+  if (typeof value === 'string') {
     value = TweenLite.selector(value);
   }
 
@@ -10239,11 +10238,11 @@ var _doc = (esm_TweenLite/* _gsScope.document */.ML.document || {}).documentElem
 },
     _buildGetter = function _buildGetter(e, axis) {
   //pass in an element and an axis ("x" or "y") and it'll return a getter function for the scroll position of that element (like scrollTop or scrollLeft, although if the element is the window, it'll use the pageXOffset/pageYOffset or the documentElement's scrollTop/scrollLeft or document.body's. Basically this streamlines things and makes a very fast getter across browsers.
-  var p = "scroll" + (axis === "x" ? "Left" : "Top");
+  var p = 'scroll' + (axis === 'x' ? 'Left' : 'Top');
 
   if (e === _window) {
     if (e.pageXOffset != null) {
-      p = "page" + axis.toUpperCase() + "Offset";
+      p = 'page' + axis.toUpperCase() + 'Offset';
     } else if (_doc[p] != null) {
       e = _doc;
     } else {
@@ -10270,19 +10269,19 @@ var _doc = (esm_TweenLite/* _gsScope.document */.ML.document || {}).documentElem
 
   if (!isRoot && container) {
     //only add the current scroll position if it's not the window/body.
-    offsets.x += _buildGetter(container, "x")();
-    offsets.y += _buildGetter(container, "y")();
+    offsets.x += _buildGetter(container, 'x')();
+    offsets.y += _buildGetter(container, 'y')();
   }
 
   return offsets;
   /*	PREVIOUS
   var rect = _unwrapElement(element).getBoundingClientRect(),
-  	isRoot = (!container || container === _window || container === document.body),
-  	cRect = (isRoot ? _doc : container).getBoundingClientRect(),
-  	offsets = {x: rect.left - cRect.left, y: rect.top - cRect.top};
+      isRoot = (!container || container === _window || container === document.body),
+      cRect = (isRoot ? _doc : container).getBoundingClientRect(),
+      offsets = {x: rect.left - cRect.left, y: rect.top - cRect.top};
   if (!isRoot && container) { //only add the current scroll position if it's not the window/body.
-  	offsets.x += _buildGetter(container, "x")();
-  	offsets.y += _buildGetter(container, "y")();
+      offsets.x += _buildGetter(container, "x")();
+      offsets.y += _buildGetter(container, "y")();
   }
   return offsets;
   */
@@ -10290,25 +10289,25 @@ var _doc = (esm_TweenLite/* _gsScope.document */.ML.document || {}).documentElem
     _parseVal = function _parseVal(value, target, axis, currentVal) {
   var type = (0,esm_typeof/* default */.Z)(value);
 
-  return !isNaN(value) ? parseFloat(value) : type === "string" && value.charAt(1) === "=" ? parseInt(value.charAt(0) + "1", 10) * parseFloat(value.substr(2)) + currentVal : value === "max" ? _max(target, axis) : Math.min(_max(target, axis), _getOffset(value, target)[axis]);
+  return !isNaN(value) ? parseFloat(value) : type === 'string' && value.charAt(1) === '=' ? parseInt(value.charAt(0) + '1', 10) * parseFloat(value.substr(2)) + currentVal : value === 'max' ? _max(target, axis) : Math.min(_max(target, axis), _getOffset(value, target)[axis]);
 },
     ScrollToPlugin = esm_TweenLite/* _gsScope._gsDefine.plugin */.ML._gsDefine.plugin({
-  propName: "scrollTo",
+  propName: 'scrollTo',
   API: 2,
   global: true,
-  version: "1.9.2",
+  version: '1.9.2',
   //called when the tween renders for the first time. This is where initial values should be recorded and any setup routines should run.
   init: function init(target, value, tween) {
     this._wdw = target === _window;
     this._target = target;
     this._tween = tween;
 
-    if ((0,esm_typeof/* default */.Z)(value) !== "object") {
+    if ((0,esm_typeof/* default */.Z)(value) !== 'object') {
       value = {
         y: value
       }; //if we don't receive an object as the parameter, assume the user intends "y".
 
-      if (typeof value.y === "string" && value.y !== "max" && value.y.charAt(1) !== "=") {
+      if (typeof value.y === 'string' && value.y !== 'max' && value.y.charAt(1) !== '=') {
         value.x = value.y;
       }
     } else if (value.nodeType) {
@@ -10320,23 +10319,23 @@ var _doc = (esm_TweenLite/* _gsScope.document */.ML.document || {}).documentElem
 
     this.vars = value;
     this._autoKill = value.autoKill !== false;
-    this.getX = _buildGetter(target, "x");
-    this.getY = _buildGetter(target, "y");
+    this.getX = _buildGetter(target, 'x');
+    this.getY = _buildGetter(target, 'y');
     this.x = this.xPrev = this.getX();
     this.y = this.yPrev = this.getY();
 
     if (value.x != null) {
-      this._addTween(this, "x", this.x, _parseVal(value.x, target, "x", this.x) - (value.offsetX || 0), "scrollTo_x", true);
+      this._addTween(this, 'x', this.x, _parseVal(value.x, target, 'x', this.x) - (value.offsetX || 0), 'scrollTo_x', true);
 
-      this._overwriteProps.push("scrollTo_x");
+      this._overwriteProps.push('scrollTo_x');
     } else {
       this.skipX = true;
     }
 
     if (value.y != null) {
-      this._addTween(this, "y", this.y, _parseVal(value.y, target, "y", this.y) - (value.offsetY || 0), "scrollTo_y", true);
+      this._addTween(this, 'y', this.y, _parseVal(value.y, target, 'y', this.y) - (value.offsetY || 0), 'scrollTo_y', true);
 
-      this._overwriteProps.push("scrollTo_y");
+      this._overwriteProps.push('scrollTo_y');
     } else {
       this.skipY = true;
     }
@@ -10364,11 +10363,11 @@ var _doc = (esm_TweenLite/* _gsScope.document */.ML.document || {}).documentElem
 
     if (this._autoKill) {
       //note: iOS has a bug that throws off the scroll by several pixels, so we need to check if it's within 7 pixels of the previous one that we set instead of just looking for an exact match.
-      if (!this.skipX && (xDif > threshold || xDif < -threshold) && x < _max(this._target, "x")) {
+      if (!this.skipX && (xDif > threshold || xDif < -threshold) && x < _max(this._target, 'x')) {
         this.skipX = true; //if the user scrolls separately, we should stop tweening!
       }
 
-      if (!this.skipY && (yDif > threshold || yDif < -threshold) && y < _max(this._target, "y")) {
+      if (!this.skipY && (yDif > threshold || yDif < -threshold) && y < _max(this._target, 'y')) {
         this.skipY = true; //if the user scrolls separately, we should stop tweening!
       }
 
@@ -10423,7 +10422,7 @@ ScrollToPlugin_p._kill = function (lookup) {
 
 /* 
  *************************************
- * <!-- Back to Top -->
+ * <!--  回到顶部Back to Top -->
  *************************************
  */
 
@@ -10439,7 +10438,7 @@ var BACK_TO_TOP = function (module, $, window, document) {
         windowHeight = window.innerHeight;
     $('<a href="#" id="uix-to-top"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>').appendTo('body');
     $.when($('#uix-to-top').length > 0).then(function () {
-      //-------- Sticky button of back to top 
+      //-------- Sticky button of back to top
       var $el = $('#uix-to-top');
 
       function scrollUpdate() {
@@ -10488,9 +10487,9 @@ var BACK_TO_TOP = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
- * <!-- Circle Layout -->
+ * <!-- 圆形布局 Circle Layout -->
  *************************************
  */
 
@@ -10553,7 +10552,7 @@ var CIRCLE_LAYOUT = function (module, $, window, document) {
             y = radius * Math.sin(angle) - liHeight / 2;
         el.css({
           'transform': 'translate(' + parseFloat(x + liWidth / 2) + 'px,' + parseFloat(pad / 2 + y + liHeight / 2) + 'px)',
-          'transition-delay': transitionDelay + "s"
+          'transition-delay': transitionDelay + 's'
         }).find('> a').css({
           'transform': 'rotate(' + parseFloat(-rotation) + 'deg)'
         });
@@ -10780,9 +10779,9 @@ var DROPDOWN_MENU2 = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
- * <!-- Cascading DropDown List -->
+ * <!-- 层叠的下拉列表 Cascading DropDown List -->
  *************************************
  */
 
@@ -10807,7 +10806,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           loadingTmpl = $control.data('cascading-dd-loading-tmpl');
       if ((0,esm_typeof/* default */.Z)(ajaxURL) === ( true ? "undefined" : 0)) ajaxURL = '';
       if ((0,esm_typeof/* default */.Z)(ajaxMethod) === ( true ? "undefined" : 0)) ajaxMethod = 'POST';
-      if ((0,esm_typeof/* default */.Z)(loadingTmpl) === ( true ? "undefined" : 0)) loadingTmpl = '<div>loading...</div>';
+      if ((0,esm_typeof/* default */.Z)(loadingTmpl) === ( true ? "undefined" : 0)) loadingTmpl = '<div>正在加载中......</div>';
 
       if ((0,esm_typeof/* default */.Z)(actived) === ( true ? "undefined" : 0)) {
         // Methods
@@ -10827,8 +10826,8 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           var firstLevelItems = [];
           $control.data('ajaxOptions').forEach(function (item) {
             firstLevelItems.push({
-              "id": item.id,
-              "name": item.name
+              'id': item.id,
+              'name': item.name
             });
           }); //
 
@@ -10863,7 +10862,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
               depth = 0;
             } else {
               depth++;
-            } //    
+            } //
 
 
             for (var i = 0; i < list.length; i++) {
@@ -11092,7 +11091,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           if (allData !== undefined) {
             $control.data({
               'ajaxOptions': allData
-            }); //Initialize options 
+            }); //Initialize options
 
             handleInitControl(); //Set a default value
 
@@ -11131,7 +11130,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
         //Prevents front-end javascripts that are activated in the background to repeat loading.
 
         $control.data('activated', 1);
-      } //endif actived			
+      } //endif actived
 
     });
   };
@@ -20586,7 +20585,7 @@ var _cssRatioSetter = function _cssRatioSetter(pt, cssp, mod) {
             str = pt.xs0 + val + pt.xs1;
 
             for (i = 1; i < pt.l; i++) {
-              str += pt["xn" + i] + pt["xs" + (i + 1)];
+              str += pt['xn' + i] + pt['xs' + (i + 1)];
             }
 
             pt.t[pt.p] = mod.call(tween, str, target, tween);
@@ -20612,7 +20611,7 @@ var _cssRatioSetter = function _cssRatioSetter(pt, cssp, mod) {
         str = pt.xs0 + val + pt.xs1;
 
         for (i = 1; i < pt.l; i++) {
-          str += pt["xn" + i] + pt["xs" + (i + 1)];
+          str += pt['xn' + i] + pt['xs' + (i + 1)];
         }
 
         pt.t[pt.p] = mod.call(tween, str, target, tween);
@@ -20633,7 +20632,7 @@ var _cssRatioSetter = function _cssRatioSetter(pt, cssp, mod) {
 },
     _modCSS = function _modCSS(lookup, cssp) {
   var pt = cssp._firstPT,
-      hasBezier = lookup.rotation && cssp._overwriteProps.join("").indexOf("bezier") !== -1; //when a Bezier tween is applying autoRotation, it's a very special case we need to handle differently.
+      hasBezier = lookup.rotation && cssp._overwriteProps.join('').indexOf('bezier') !== -1; //when a Bezier tween is applying autoRotation, it's a very special case we need to handle differently.
 
   if (lookup.scale) {
     lookup.scaleX = lookup.scaleY = lookup.scale;
@@ -20642,9 +20641,9 @@ var _cssRatioSetter = function _cssRatioSetter(pt, cssp, mod) {
   }
 
   while (pt) {
-    if (typeof lookup[pt.p] === "function") {
+    if (typeof lookup[pt.p] === 'function') {
       _cssRatioSetter(pt, cssp, lookup[pt.p]);
-    } else if (hasBezier && pt.n === "bezier" && pt.plugin._overwriteProps.join("").indexOf("rotation") !== -1) {
+    } else if (hasBezier && pt.n === 'bezier' && pt.plugin._overwriteProps.join('').indexOf('rotation') !== -1) {
       pt.data.mod = lookup.rotation;
     }
 
@@ -20652,8 +20651,8 @@ var _cssRatioSetter = function _cssRatioSetter(pt, cssp, mod) {
   }
 },
     ModifiersPlugin = esm_TweenLite/* _gsScope._gsDefine.plugin */.ML._gsDefine.plugin({
-  propName: "modifiers",
-  version: "0.0.4",
+  propName: 'modifiers',
+  version: '0.0.4',
   API: 2,
   //called when the tween renders for the first time. This is where initial values should be recorded and any setup routines should run.
   init: function init(target, value, tween) {
@@ -20681,7 +20680,7 @@ var _cssRatioSetter = function _cssRatioSetter(pt, cssp, mod) {
       val = lookup[pt.n];
 
       if (pt.pg) {
-        if (pt.t._propName === "css") {
+        if (pt.t._propName === 'css') {
           //handle CSSPlugin uniquely (for performance, due to the fact that the values almost always are a concatenation of numbers and strings, like suffixes, and we don't want to slow down the regular CSSPlugin setRatio() performance with conditional checks for if the value needs to be modded, so we pull any modding prop out and change it to a type:2 one that simply calls a setRatio() method where we encapsulate the modding and update all together. That way, it says in the main CSSProp linked list and just has some custom logic applied to it inside its setRatio())
           _modCSS(lookup, pt.t);
         } else if (pt.t !== mpt) {
@@ -20689,9 +20688,9 @@ var _cssRatioSetter = function _cssRatioSetter(pt, cssp, mod) {
           val = lookup[pt.t._propName];
           pt.t._tween = tween;
 
-          pt.t._mod((0,esm_typeof/* default */.Z)(val) === "object" ? val : lookup);
+          pt.t._mod((0,esm_typeof/* default */.Z)(val) === 'object' ? val : lookup);
         }
-      } else if (typeof val === "function") {
+      } else if (typeof val === 'function') {
         if (pt.f === 2 && pt.t) {
           //a blob (text containing multiple numeric values)
           pt.t._applyPT.m = val;
@@ -20729,10 +20728,10 @@ ModifiersPlugin_p._add = function (target, p, s, c, mod) {
   this._overwriteProps.push(p);
 };
 
-ModifiersPlugin_p = esm_TweenLite/* _gsScope._gsDefine.globals.TweenLite.version.split */.ML._gsDefine.globals.TweenLite.version.split(".");
+ModifiersPlugin_p = esm_TweenLite/* _gsScope._gsDefine.globals.TweenLite.version.split */.ML._gsDefine.globals.TweenLite.version.split('.');
 
 if (Number(ModifiersPlugin_p[0]) <= 1 && Number(ModifiersPlugin_p[1]) < 19 && esm_TweenLite/* _gsScope.console */.ML.console) {
-  console.log("ModifiersPlugin requires GSAP 1.19.0 or later.");
+  console.log('ModifiersPlugin requires GSAP 1.19.0 or later.');
 }
 
 
@@ -38033,9 +38032,9 @@ THREE.GLTFLoader = function () {
   /**
    * DDS Texture Extension
    *
-   * Specification: 
+   * Specification:
    * https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/MSFT_texture_dds
-   * 
+   *
    */
 
   function GLTFTextureDDSExtension() {
@@ -38499,7 +38498,6 @@ THREE.GLTFLoader = function () {
     THREE.Interpolant.call(this, parameterPositions, sampleValues, sampleSize, resultBuffer);
   }
 
-  ;
   GLTFCubicSplineInterpolant.prototype = Object.create(THREE.Interpolant.prototype);
   GLTFCubicSplineInterpolant.prototype.constructor = GLTFCubicSplineInterpolant;
 
@@ -44913,7 +44911,7 @@ Object.assign(THREE.ClearMaskPass.prototype, {
  */
 THREE.TexturePass = function (map, opacity) {
   THREE.Pass.call(this);
-  if (THREE.CopyShader === undefined) console.error("THREE.TexturePass relies on THREE.CopyShader");
+  if (THREE.CopyShader === undefined) console.error('THREE.TexturePass relies on THREE.CopyShader');
   var shader = THREE.CopyShader;
   this.map = map;
   this.opacity = opacity !== undefined ? opacity : 1.0;
@@ -44935,8 +44933,8 @@ THREE.TexturePass.prototype = Object.assign(Object.create(THREE.Pass.prototype),
     var oldAutoClear = renderer.autoClear;
     renderer.autoClear = false;
     this.fsQuad.material = this.material;
-    this.uniforms["opacity"].value = this.opacity;
-    this.uniforms["tDiffuse"].value = this.map;
+    this.uniforms['opacity'].value = this.opacity;
+    this.uniforms['tDiffuse'].value = this.map;
     this.material.transparent = this.opacity < 1.0;
     renderer.setRenderTarget(this.renderToScreen ? null : readBuffer);
     if (this.clear) renderer.clear();
@@ -44951,7 +44949,7 @@ THREE.TexturePass.prototype = Object.assign(Object.create(THREE.Pass.prototype),
  */
 THREE.ShaderPass = function (shader, textureID) {
   THREE.Pass.call(this);
-  this.textureID = textureID !== undefined ? textureID : "tDiffuse";
+  this.textureID = textureID !== undefined ? textureID : 'tDiffuse';
 
   if (shader instanceof THREE.ShaderMaterial) {
     this.uniforms = shader.uniforms;
@@ -45077,15 +45075,15 @@ THREE.ClearPass.prototype = Object.assign(Object.create(THREE.Pass.prototype), {
  */
 THREE.CopyShader = {
   uniforms: {
-    "tDiffuse": {
+    'tDiffuse': {
       value: null
     },
-    "opacity": {
+    'opacity': {
       value: 1.0
     }
   },
-  vertexShader: ["varying vec2 vUv;", "void main() {", "vUv = uv;", "gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );", "}"].join("\n"),
-  fragmentShader: ["uniform float opacity;", "uniform sampler2D tDiffuse;", "varying vec2 vUv;", "void main() {", "vec4 texel = texture2D( tDiffuse, vUv );", "gl_FragColor = opacity * texel;", "}"].join("\n")
+  vertexShader: ['varying vec2 vUv;', 'void main() {', 'vUv = uv;', 'gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );', '}'].join('\n'),
+  fragmentShader: ['uniform float opacity;', 'uniform sampler2D tDiffuse;', 'varying vec2 vUv;', 'void main() {', 'vec4 texel = texture2D( tDiffuse, vUv );', 'gl_FragColor = opacity * texel;', '}'].join('\n')
 };
 /* harmony default export */ const CopyShader = (THREE.CopyShader);
 ;// CONCATENATED MODULE: ./src/components/_third-party-plugins/THREE/esm/shaders/ConvolutionShader.js
@@ -45098,22 +45096,22 @@ THREE.CopyShader = {
  */
 THREE.ConvolutionShader = {
   defines: {
-    "KERNEL_SIZE_FLOAT": "25.0",
-    "KERNEL_SIZE_INT": "25"
+    'KERNEL_SIZE_FLOAT': '25.0',
+    'KERNEL_SIZE_INT': '25'
   },
   uniforms: {
-    "tDiffuse": {
+    'tDiffuse': {
       value: null
     },
-    "uImageIncrement": {
+    'uImageIncrement': {
       value: new THREE.Vector2(0.001953125, 0.0)
     },
-    "cKernel": {
+    'cKernel': {
       value: []
     }
   },
-  vertexShader: ["uniform vec2 uImageIncrement;", "varying vec2 vUv;", "void main() {", "vUv = uv - ( ( KERNEL_SIZE_FLOAT - 1.0 ) / 2.0 ) * uImageIncrement;", "gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );", "}"].join("\n"),
-  fragmentShader: ["uniform float cKernel[ KERNEL_SIZE_INT ];", "uniform sampler2D tDiffuse;", "uniform vec2 uImageIncrement;", "varying vec2 vUv;", "void main() {", "vec2 imageCoord = vUv;", "vec4 sum = vec4( 0.0, 0.0, 0.0, 0.0 );", "for( int i = 0; i < KERNEL_SIZE_INT; i ++ ) {", "sum += texture2D( tDiffuse, imageCoord ) * cKernel[ i ];", "imageCoord += uImageIncrement;", "}", "gl_FragColor = sum;", "}"].join("\n"),
+  vertexShader: ['uniform vec2 uImageIncrement;', 'varying vec2 vUv;', 'void main() {', 'vUv = uv - ( ( KERNEL_SIZE_FLOAT - 1.0 ) / 2.0 ) * uImageIncrement;', 'gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );', '}'].join('\n'),
+  fragmentShader: ['uniform float cKernel[ KERNEL_SIZE_INT ];', 'uniform sampler2D tDiffuse;', 'uniform vec2 uImageIncrement;', 'varying vec2 vUv;', 'void main() {', 'vec2 imageCoord = vUv;', 'vec4 sum = vec4( 0.0, 0.0, 0.0, 0.0 );', 'for( int i = 0; i < KERNEL_SIZE_INT; i ++ ) {', 'sum += texture2D( tDiffuse, imageCoord ) * cKernel[ i ];', 'imageCoord += uImageIncrement;', '}', 'gl_FragColor = sum;', '}'].join('\n'),
   buildKernel: function buildKernel(sigma) {
     // We lop off the sqrt(2 * pi) * sigma term, since we're going to normalize anyway.
     function gauss(x, sigma) {
@@ -45162,14 +45160,14 @@ THREE.BloomPass = function (strength, kernelSize, sigma, resolution) {
     format: THREE.RGBAFormat
   };
   this.renderTargetX = new THREE.WebGLRenderTarget(resolution, resolution, pars);
-  this.renderTargetX.texture.name = "BloomPass.x";
+  this.renderTargetX.texture.name = 'BloomPass.x';
   this.renderTargetY = new THREE.WebGLRenderTarget(resolution, resolution, pars);
-  this.renderTargetY.texture.name = "BloomPass.y"; // copy material
+  this.renderTargetY.texture.name = 'BloomPass.y'; // copy material
 
-  if (THREE.CopyShader === undefined) console.error("THREE.BloomPass relies on THREE.CopyShader");
+  if (THREE.CopyShader === undefined) console.error('THREE.BloomPass relies on THREE.CopyShader');
   var copyShader = THREE.CopyShader;
   this.copyUniforms = THREE.UniformsUtils.clone(copyShader.uniforms);
-  this.copyUniforms["opacity"].value = strength;
+  this.copyUniforms['opacity'].value = strength;
   this.materialCopy = new THREE.ShaderMaterial({
     uniforms: this.copyUniforms,
     vertexShader: copyShader.vertexShader,
@@ -45178,18 +45176,18 @@ THREE.BloomPass = function (strength, kernelSize, sigma, resolution) {
     transparent: true
   }); // convolution material
 
-  if (THREE.ConvolutionShader === undefined) console.error("THREE.BloomPass relies on THREE.ConvolutionShader");
+  if (THREE.ConvolutionShader === undefined) console.error('THREE.BloomPass relies on THREE.ConvolutionShader');
   var convolutionShader = THREE.ConvolutionShader;
   this.convolutionUniforms = THREE.UniformsUtils.clone(convolutionShader.uniforms);
-  this.convolutionUniforms["uImageIncrement"].value = THREE.BloomPass.blurX;
-  this.convolutionUniforms["cKernel"].value = THREE.ConvolutionShader.buildKernel(sigma);
+  this.convolutionUniforms['uImageIncrement'].value = THREE.BloomPass.blurX;
+  this.convolutionUniforms['cKernel'].value = THREE.ConvolutionShader.buildKernel(sigma);
   this.materialConvolution = new THREE.ShaderMaterial({
     uniforms: this.convolutionUniforms,
     vertexShader: convolutionShader.vertexShader,
     fragmentShader: convolutionShader.fragmentShader,
     defines: {
-      "KERNEL_SIZE_FLOAT": kernelSize.toFixed(1),
-      "KERNEL_SIZE_INT": kernelSize.toFixed(0)
+      'KERNEL_SIZE_FLOAT': kernelSize.toFixed(1),
+      'KERNEL_SIZE_INT': kernelSize.toFixed(0)
     }
   });
   this.needsSwap = false;
@@ -45202,20 +45200,20 @@ THREE.BloomPass.prototype = Object.assign(Object.create(THREE.Pass.prototype), {
     if (maskActive) renderer.context.disable(renderer.context.STENCIL_TEST); // Render quad with blured scene into texture (convolution pass 1)
 
     this.fsQuad.material = this.materialConvolution;
-    this.convolutionUniforms["tDiffuse"].value = readBuffer.texture;
-    this.convolutionUniforms["uImageIncrement"].value = THREE.BloomPass.blurX;
+    this.convolutionUniforms['tDiffuse'].value = readBuffer.texture;
+    this.convolutionUniforms['uImageIncrement'].value = THREE.BloomPass.blurX;
     renderer.setRenderTarget(this.renderTargetX);
     renderer.clear();
     this.fsQuad.render(renderer); // Render quad with blured scene into texture (convolution pass 2)
 
-    this.convolutionUniforms["tDiffuse"].value = this.renderTargetX.texture;
-    this.convolutionUniforms["uImageIncrement"].value = THREE.BloomPass.blurY;
+    this.convolutionUniforms['tDiffuse'].value = this.renderTargetX.texture;
+    this.convolutionUniforms['uImageIncrement'].value = THREE.BloomPass.blurY;
     renderer.setRenderTarget(this.renderTargetY);
     renderer.clear();
     this.fsQuad.render(renderer); // Render original scene with superimposed blur to texture
 
     this.fsQuad.material = this.materialCopy;
-    this.copyUniforms["tDiffuse"].value = this.renderTargetY.texture;
+    this.copyUniforms['tDiffuse'].value = this.renderTargetY.texture;
     if (maskActive) renderer.context.enable(renderer.context.STENCIL_TEST);
     renderer.setRenderTarget(readBuffer);
     if (this.clear) renderer.clear();
@@ -45231,7 +45229,7 @@ THREE.BloomPass.blurY = new THREE.Vector2(0.0, 0.001953125);
  */
 THREE.FilmPass = function (noiseIntensity, scanlinesIntensity, scanlinesCount, grayscale) {
   THREE.Pass.call(this);
-  if (THREE.FilmShader === undefined) console.error("THREE.FilmPass relies on THREE.FilmShader");
+  if (THREE.FilmShader === undefined) console.error('THREE.FilmPass relies on THREE.FilmShader');
   var shader = THREE.FilmShader;
   this.uniforms = THREE.UniformsUtils.clone(shader.uniforms);
   this.material = new THREE.ShaderMaterial({
@@ -45251,8 +45249,8 @@ THREE.FilmPass.prototype = Object.assign(Object.create(THREE.Pass.prototype), {
   render: function render(renderer, writeBuffer, readBuffer, deltaTime
   /*, maskActive */
   ) {
-    this.uniforms["tDiffuse"].value = readBuffer.texture;
-    this.uniforms["time"].value += deltaTime;
+    this.uniforms['tDiffuse'].value = readBuffer.texture;
+    this.uniforms['time'].value += deltaTime;
 
     if (this.renderToScreen) {
       renderer.setRenderTarget(null);
@@ -45289,38 +45287,38 @@ THREE.FilmPass.prototype = Object.assign(Object.create(THREE.Pass.prototype), {
  */
 THREE.FilmShader = {
   uniforms: {
-    "tDiffuse": {
+    'tDiffuse': {
       value: null
     },
-    "time": {
+    'time': {
       value: 0.0
     },
-    "nIntensity": {
+    'nIntensity': {
       value: 0.5
     },
-    "sIntensity": {
+    'sIntensity': {
       value: 0.05
     },
-    "sCount": {
+    'sCount': {
       value: 4096
     },
-    "grayscale": {
+    'grayscale': {
       value: 1
     }
   },
-  vertexShader: ["varying vec2 vUv;", "void main() {", "vUv = uv;", "gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );", "}"].join("\n"),
-  fragmentShader: ["#include <common>", // control parameter
-  "uniform float time;", "uniform bool grayscale;", // noise effect intensity value (0 = no effect, 1 = full effect)
-  "uniform float nIntensity;", // scanlines effect intensity value (0 = no effect, 1 = full effect)
-  "uniform float sIntensity;", // scanlines effect count value (0 = no effect, 4096 = full effect)
-  "uniform float sCount;", "uniform sampler2D tDiffuse;", "varying vec2 vUv;", "void main() {", // sample the source
-  "vec4 cTextureScreen = texture2D( tDiffuse, vUv );", // make some noise
-  "float dx = rand( vUv + time );", // add noise
-  "vec3 cResult = cTextureScreen.rgb + cTextureScreen.rgb * clamp( 0.1 + dx, 0.0, 1.0 );", // get us a sine and cosine
-  "vec2 sc = vec2( sin( vUv.y * sCount ), cos( vUv.y * sCount ) );", // add scanlines
-  "cResult += cTextureScreen.rgb * vec3( sc.x, sc.y, sc.x ) * sIntensity;", // interpolate between source and result by intensity
-  "cResult = cTextureScreen.rgb + clamp( nIntensity, 0.0,1.0 ) * ( cResult - cTextureScreen.rgb );", // convert to grayscale if desired
-  "if( grayscale ) {", "cResult = vec3( cResult.r * 0.3 + cResult.g * 0.59 + cResult.b * 0.11 );", "}", "gl_FragColor =  vec4( cResult, cTextureScreen.a );", "}"].join("\n")
+  vertexShader: ['varying vec2 vUv;', 'void main() {', 'vUv = uv;', 'gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );', '}'].join('\n'),
+  fragmentShader: ['#include <common>', // control parameter
+  'uniform float time;', 'uniform bool grayscale;', // noise effect intensity value (0 = no effect, 1 = full effect)
+  'uniform float nIntensity;', // scanlines effect intensity value (0 = no effect, 1 = full effect)
+  'uniform float sIntensity;', // scanlines effect count value (0 = no effect, 4096 = full effect)
+  'uniform float sCount;', 'uniform sampler2D tDiffuse;', 'varying vec2 vUv;', 'void main() {', // sample the source
+  'vec4 cTextureScreen = texture2D( tDiffuse, vUv );', // make some noise
+  'float dx = rand( vUv + time );', // add noise
+  'vec3 cResult = cTextureScreen.rgb + cTextureScreen.rgb * clamp( 0.1 + dx, 0.0, 1.0 );', // get us a sine and cosine
+  'vec2 sc = vec2( sin( vUv.y * sCount ), cos( vUv.y * sCount ) );', // add scanlines
+  'cResult += cTextureScreen.rgb * vec3( sc.x, sc.y, sc.x ) * sIntensity;', // interpolate between source and result by intensity
+  'cResult = cTextureScreen.rgb + clamp( nIntensity, 0.0,1.0 ) * ( cResult - cTextureScreen.rgb );', // convert to grayscale if desired
+  'if( grayscale ) {', 'cResult = vec3( cResult.r * 0.3 + cResult.g * 0.59 + cResult.b * 0.11 );', '}', 'gl_FragColor =  vec4( cResult, cTextureScreen.a );', '}'].join('\n')
 };
 /* harmony default export */ const FilmShader = (THREE.FilmShader);
 ;// CONCATENATED MODULE: ./src/components/simple-3D-filmic-effects/js/index.js

@@ -2,52 +2,37 @@
    <!-- Basic -->                  
 /* ====================================================== */
 body {
-	direction: rtl;
-	unicode-bidi: embed;
+    direction: rtl;
+    unicode-bidi: embed;
 }
-
-caption, 
-th, 
+caption,
+th,
 td {
     text-align: right;
 }
-
-
 .wp-block-quote,
 blockquote {
-	border-left-width: 1px !important;
-	border-right-width: 5px !important;
-	border-left-color: #F8F8F8 !important;
-	border-right-color: #CE3A3E !important;
-	
-	&::before {
-		margin-right: auto;
-		margin-left: 0.21875rem;
-	}
+    border-right-width: 5px !important;
+    border-right-color: #ce3a3e !important;
+    border-left-width: 1px !important;
+    border-left-color: #f8f8f8 !important;
+    &::before {
+        margin-right: auto;
+        margin-left: 0.21875rem;
+    }
 }
-
-
-
 pre {
-	
-	&.uix-precode {
-		
-		label {
-			
-			left: auto;
-			right: -5px;
-			
-		}
-		code {
-			margin: 0 3rem 0 0;
-			border-left: none;
-			border-right: 1px solid #d9d9d9;
-			
-		}
-		
-	}
-  
-
+    &.uix-precode {
+        label {
+            right: -5px;
+            left: auto;
+        }
+        code {
+            margin: 0 3rem 0 0;
+            border-right: 1px solid #d9d9d9;
+            border-left: none;
+        }
+    }
 }
 
 

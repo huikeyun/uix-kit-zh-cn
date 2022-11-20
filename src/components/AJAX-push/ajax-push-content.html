@@ -1,149 +1,97 @@
 <!DOCTYPE html>
 <html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-	<meta charset="@@{website_charset}" />
-	<title>Ajax Push Content - @@{website_title}</title>	
-	@@include('./src/components/_global/include-header.html')
-</head>  
-
-     
-  <body class="page">
-  
-  
-  
-          
-    @@include('./src/components/_global/include-loader.html')
-    @@include('./src/components/_global/include-toggle-trigger.html')
-    
-    
-
-  
-  
-    <div class="uix-wrapper">
-    
-        <!-- Header Area
-        ============================================= -->      
-        <header class="uix-header__container">
-            
-             <div class="uix-header">
-                 <div class="container">
-                 
-                        @@include('./src/components/_global/include-brand.html')
-                        
-                        @@include('./src/components/_global/include-menu.html')
-                        
-                        
-                        
-                        
-                  </div>
-                  <!-- .container end -->
-                  
-                  <div class="uix-clearfix"></div>
-             </div>
-        
-        </header>
-         <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-    
-		
-		<main id="uix-maincontent">
-			
-
-			<!-- Content 
-			====================================================== -->
-			<section class="uix-spacing--s uix-spacing--no-bottom">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<h3>Ajax Push Content</h3>
-							<p>Click the hyperlink to push the specified content to element.</p>
-							<hr>
-							
-							
-						</div>
-					</div>
-					<!-- .row end -->
-
-				</div>
-				<!-- .container end -->
-
-			</section>
-
-
-
-
-		   <!-- Content 
-			====================================================== -->
-			<section class="uix-spacing--s uix-spacing--no-bottom">
-				<div class="container uix-t-c">
-						<div class="row">
-							<div class="col-12">
-    
-								<a href="button.html" data-ajax-push-content='{
-																			  "container":"#my-ajax-demo-push-container",
-																			  "target":"#my-ajax-demo-target-button",
-																			  "loading":"<div class=\"my-loader\"><span><i class=\"fa fa-spinner fa-spin\"></i> loading <em id=\"app-loading\" data-txt=\"{progress}%\"></em>...</span></div>",
-																			  "method":"GET"
-																			  }'><i class="fa fa-cog" aria-hidden="true"></i> Add <strong>"button.html"</strong> Elements To Div 1</a>
-
-
-
-								<div id="my-ajax-demo-push-container" style="padding: 15px; margin: 15px; background: rgba(237,235,235,1.00);"></div>
-
-
-
-							</div>
-						</div>
-						<!-- .row end -->
-
-
-				</div>
-				<!-- .container end -->
-
-			</section>
-
-
-		   <!-- Content 
-			====================================================== -->
-			<section class="uix-spacing--s uix-spacing--no-bottom">
-				<div class="container uix-t-c">
-						<div class="row">
-							<div class="col-12">
-
-								<a href="pricing.html" data-ajax-push-content='{
-																			  "container":"#my-ajax-demo-push-container2",
-																			  "target":"#my-ajax-demo-target-pricing",
-																			  "loading":"<div class=\"my-loader\"><span><i class=\"fa fa-spinner fa-spin\"></i> loading <em id=\"app-loading\" data-txt=\"{progress}%\"></em>...</span></div>",
-																			  "method":"GET"
-																			  }'><i class="fa fa-cog" aria-hidden="true"></i> Add <strong>"pricing.html"</strong> Elements To Div 2</a>
-
-
-
-								<div id="my-ajax-demo-push-container2" style="padding: 15px; margin: 15px; background: rgba(237,235,235,1.00);"></div>
-
-
-
-
-							</div>
-						</div>
-						<!-- .row end -->
-
-
-				</div>
-				<!-- .container end -->
-
-			</section>		
-			
-		</main>
-
-		
-        @@include('./src/components/_global/include-copyright.html')
-        
-        
-    </div>
-    <!-- .uix-wrapper end -->
-       
-       
-    @@include('./src/components/_global/include-footer.html')
+    <meta charset="@@{website_charset}" />
+    <title>异步加载推送内容 Ajax Push Content - @@{website_title}</title>
+    @@include('./src/components/_global/include-header.html')
+</head>
+<body class="page">
+@@include('./src/components/_global/include-loader.html')
+@@include('./src/components/_global/include-toggle-trigger.html')
+<div class="uix-wrapper">
+    <!-- 页眉区 -->
+    <header class="uix-header__container">
+        <div class="uix-header">
+            <!-- 容器 开始 -->
+            <div class="container">
+                @@include('./src/components/_global/include-brand.html')
+                @@include('./src/components/_global/include-menu.html')
+            </div>
+            <!-- 容器 结束 -->
+            <div class="uix-clearfix"></div>
+        </div>
+    </header>
+    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+    <main id="uix-maincontent">
+        <!-- 内容 开始 -->
+        <section class="uix-spacing--s uix-spacing--no-bottom">
+            <!-- 容器 开始 -->
+            <div class="container">
+                <!-- 行列 开始 -->
+                <div class="row">
+                    <div class="col-12">
+                        <h3>异步加载推送内容</h3>
+                        <p>点击超链接将指定内容推送到元素</p>
+                        <hr>
+                    </div>
+                </div>
+                <!-- 行列 结束 -->
+            </div>
+            <!-- 容器 结束 -->
+        </section>
+        <!-- 内容 结束 -->
+        <section class="uix-spacing--s uix-spacing--no-bottom">
+            <div class="container uix-t-c">
+                <div class="row">
+                    <div class="col-12">
+                        <pre class="uix-precode uix-t-l"><label>HTML</label><code>&lt;a href=&quot;button.html&quot; data-ajax-push-content=&#x27;{
+                        &quot;container&quot;:&quot;#my-ajax-demo-push-container&quot;,
+                        &quot;target&quot;:&quot;#my-ajax-demo-target-button&quot;,
+                        &quot;loading&quot;:&quot;&lt;div class=\&quot;my-loader\&quot;&gt;&lt;span&gt;&lt;i class=\&quot;fa fa-spinner fa-spin\&quot;&gt;&lt;/i&gt; 正在加载中...... &lt;em id=\&quot;app-loading\&quot; data-txt=\&quot;{progress}%\&quot;&gt;&lt;/em&gt;...&lt;/span&gt;&lt;/div&gt;&quot;,
+                        &quot;method&quot;:&quot;GET&quot;}&#x27;&gt;&lt;i class=&quot;fa fa-cog&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 添加
+    &lt;strong&gt;&quot;button.html&quot;&lt;/strong&gt; 元素到 Div 1&lt;/a&gt;
+&lt;div id=&quot;my-ajax-demo-push-container&quot; style=&quot;padding: 15px; margin: 15px; background: rgba(237,235,235,1.00);&quot;&gt;&lt;/div&gt;</code></pre>
+                        <a href="button.html" data-ajax-push-content='{
+                        "container":"#my-ajax-demo-push-container",
+                        "target":"#my-ajax-demo-target-button",
+                        "loading":"<div class=\"my-loader\"><span><i class=\"fa fa-spinner fa-spin\"></i> 正在加载中...... <em id=\"app-loading\" data-txt=\"{progress}%\"></em>...</span></div>",
+                        "method":"GET"}'><i class="fa fa-cog" aria-hidden="true"></i> 添加
+                            <strong>"button.html"</strong> 元素到 Div 1</a>
+                        <div id="my-ajax-demo-push-container" style="padding: 15px; margin: 15px; background: rgba(237,235,235,1.00);"></div>
+                    </div>
+                </div>
+                <!-- 行列 结束 -->
+            </div>
+            <!-- 容器 结束 -->
+        </section>
+        <!-- 内容 结束 -->
+        <section class="uix-spacing--s uix-spacing--no-bottom">
+            <div class="container uix-t-c">
+                <div class="row">
+                    <div class="col-12">
+                        <pre class="uix-precode uix-t-l"><label>HTML</label><code>&lt;a href=&quot;pricing.html&quot; data-ajax-push-content=&#x27;{
+                        &quot;container&quot;:&quot;#my-ajax-demo-push-container2&quot;,
+                        &quot;target&quot;:&quot;#my-ajax-demo-target-pricing&quot;,
+                        &quot;loading&quot;:&quot;&lt;div class=\&quot;my-loader\&quot;&gt;&lt;span&gt;&lt;i class=\&quot;fa fa-spinner fa-spin\&quot;&gt;&lt;/i&gt; 正在加载中...... &lt;em id=\&quot;app-loading\&quot; data-txt=\&quot;{progress}%\&quot;&gt;&lt;/em&gt;...&lt;/span&gt;&lt;/div&gt;&quot;,
+                        &quot;method&quot;:&quot;GET&quot;}&#x27;&gt;&lt;i class=&quot;fa fa-cog&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;添加&lt;strong&gt;&quot;pricing.html&quot;&lt;/strong&gt; 元素到 Div 2&lt;/a&gt;
+&lt;div id=&quot;my-ajax-demo-push-container2&quot; style=&quot;padding: 15px; margin: 15px; background: rgba(237,235,235,1.00);&quot;&gt;&lt;/div&gt;</code></pre>
+                        <a href="pricing.html" data-ajax-push-content='{
+                        "container":"#my-ajax-demo-push-container2",
+                        "target":"#my-ajax-demo-target-pricing",
+                        "loading":"<div class=\"my-loader\"><span><i class=\"fa fa-spinner fa-spin\"></i> 正在加载中...... <em id=\"app-loading\" data-txt=\"{progress}%\"></em>...</span></div>",
+                        "method":"GET"}'><i class="fa fa-cog" aria-hidden="true"></i>添加<strong>"pricing.html"</strong> 元素到 Div 2</a>
+                        <div id="my-ajax-demo-push-container2" style="padding: 15px; margin: 15px; background: rgba(237,235,235,1.00);"></div>
+                    </div>
+                </div>
+                <!-- 行列 结束 -->
+            </div>
+            <!-- 容器 结束 -->
+        </section>
+    </main>
+    @@include('./src/components/_global/include-copyright.html')
+</div>
+<!-- uix-wrapper end -->
+@@include('./src/components/_global/include-footer.html')
 
 
 		
