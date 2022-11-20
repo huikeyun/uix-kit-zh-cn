@@ -3,13 +3,9 @@
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 @import '_variable-and-mixin.scss';
-
 .uix-controls-layout {
-
     .uix-controls-layout__content {
-
         .uix-controls-layout__content__inner {
-
             > div {
                 &:first-child {
                     margin-right: auto;
@@ -17,35 +13,22 @@
                 }
             }
         }
-
-
-    }   
-
-    .uix-controls-layout__icon {
-        margin-left: auto;
-        margin-right: 1rem;
     }
-}  
-
-
-
+    .uix-controls-layout__icon {
+        margin-right: 1rem;
+        margin-left: auto;
+    }
+}
 @media all and (max-width: 768px) {
-    
     .uix-controls-layout {
-
         .uix-controls-layout__content {
-
             .uix-controls-layout__content__inner {
-
                 > div {
                     &:first-child {
                         margin-left: 0;
                     }
                 }
             }
-
-
         }
-
-    }  
+    }
 }

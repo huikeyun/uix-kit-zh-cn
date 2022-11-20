@@ -1,72 +1,47 @@
 /* ======================================================
-   <!-- Equal-width Columns -->
+   <!-- 等宽列 Equal-width Columns -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
-
-
 /**
- * Using only CSS, we can make a tabbed navigation whose tabs always
- * occupy an equal share of the available width. No JS to interrogate
- * the DOM, no server-side logic to count through items, no inline styles.
- *
+ * 仅使用 CSS，我们可以制作标签式导航，其标签始终占据可用宽度的相等份额。
+ * 没有 JS 来查询 DOM，没有服务器端逻辑来计算项目，没有内联样式。
  */
 .uix-equal-width-divs {
-
-	ul {
-		list-style: none;
-		font-size: 0; /*Fighting the Space Between Inline Block Elements*/
-
-		display: table; /* [1] */
-		table-layout: fixed; /* [2] */
-		width: 100%; /* [3] */
-
-
-		li {
-			font-size: 1rem;/*Fighting the Space Between Inline Block Elements*/
-			display: table-cell; /* [4] */
-			box-shadow: 1px 0px 0px 0px $sub-text-color;
-
-			&:last-child {
-				box-shadow: none;
-			}
-
-			span {
-				display: block;
-				font-size: 0.75rem;
-			}
-
-		}
-
-	}
-
+    ul {
+        font-size: 0; /* 争夺内联块元素之间的空间 */
+        display: table; /* [1] */
+        width: 100%; /* [3] */
+        table-layout: fixed; /* [2] */
+        list-style: none;
+        li {
+            font-size: 1rem; /* 争夺内联块元素之间的空间 */
+            display: table-cell; /* [4] */
+            box-shadow: 1px 0 0 0 $sub-text-color;
+            &:last-child {
+                box-shadow: none;
+            }
+            span {
+                font-size: 0.75rem;
+                display: block;
+            }
+        }
+    }
 }
-
 @media all and (max-width: 768px) {
-
-	.uix-equal-width-divs:not(.uix-equal-width-divs--no-break) {
-
-		ul {
-			display: block;
-
-			li {
-
-				display: inline-block;
-				width: 50%;
-				margin-bottom: .5rem;
-
-
-
-				&:nth-child(2n+0) {
-					box-shadow: none;
-				}
-
-				span {
-					padding-bottom: 1rem;
-				}
-
-			}
-
-		}
-
-	}
+    .uix-equal-width-divs:not(.uix-equal-width-divs--no-break) {
+        ul {
+            display: block;
+            li {
+                display: inline-block;
+                width: 50%;
+                margin-bottom: .5rem;
+                &:nth-child(2n+0) {
+                    box-shadow: none;
+                }
+                span {
+                    padding-bottom: 1rem;
+                }
+            }
+        }
+    }
 }
