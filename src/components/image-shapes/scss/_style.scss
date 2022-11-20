@@ -1,21 +1,27 @@
 /* ======================================================
-        <!-- 图像形状 Image Shapes -->
+        <!-- Image Shapes -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
+
+
 .uix-shape-img {
-    opacity: 0;
-    @include transition-default();
-    &.is-active {
-        opacity: 1;
-    }
-    img {
-        display: none;
-    }
+
+	opacity: 0;
+	@include transition-default();
+
+	&.is-active {
+		opacity: 1;
+	}
+
+	img {
+		display: none;
+	}
 }
+
 .no-cssanimations {
-    .uix-shape-img {
-        img {
-            display: block;
-        }
-    }
+	.uix-shape-img {
+		img {
+			display: block;
+		}
+	}
 }

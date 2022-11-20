@@ -1,13 +1,19 @@
 /* ====================================================== 
-   <!-- 自定义核心脚本和样式表 Custom Core Scripts & Stylesheets -->
+   <!-- Custom Core Scripts & Stylesheets --> 
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
+
+
 /*
-  * 1. 标题
-  * 2. 标题
-  * 3. 标题
+ * 1. Title  
+ * 2. Title
+ * 3. Title
 
 */
-// 在实际项目中使用 Uix Kit 时，最好使用“app-”作为前缀，方便区分
+
+
+// When Uix Kit is used for the actual project, 
+// it is best to use "app-" as a prefix to make it easy to distinguish
 .app-demo {
+	
 }

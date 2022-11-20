@@ -1,46 +1,62 @@
 /* ======================================================
-   <!-- 并排列表 Side by Side List -->
+   <!-- Side by Side List -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
+
+
 dl.uix-list-abreast {
-    font-size: 0.875rem;
-    width: 100%; /* 调整宽度； 确保两者的总和为 100% */
-    margin-bottom: 0;
-    dt {
-        font-weight: 600;
-        float: left;
-        clear: left;
-        width: 80px;
-        margin: 0;
-        padding: 5px 0;
-        text-align: left;
-    }
-    dd {
-        float: left;
-        width: calc(100% - 80px);
-        margin: 0;
-        padding: 5px 0 5px 1rem;
-        text-align: left;
+	width: 100%; /* adjust the width; make sure the total of both is 100% */
+	font-size: 0.875rem;
+	margin-bottom: 0;
+
+
+	dt {
+		float: left;
+		clear: left;
+		width: 80px;
+		padding: 5px 0;
+		margin: 0;
+		font-weight: 600;
+		text-align: left;
+	}
+
+	dd {
+		float: left;
+		width: calc(100% - 80px);
+		padding: 5px 0;
+		margin: 0;
+		text-align: left;
+		padding-left: 1rem;
         word-break: break-all;
-        p {
-            margin-bottom: .2rem;
-        }
-    }
-    &::after {
-        display: table;
-        clear: both;
-        content: '';
-    }
-    /* 图标列表 */
-    &.uix-list-abreast--icon {
-        dt {
-            width: 30px;
-            i {
-                font-size: 1.5rem;
-            }
-        }
-        dd {
-            width: calc(100% - 30px);
-        }
-    }
+
+		p {
+			margin-bottom: .2rem;
+		}
+
+	}
+
+	&::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+
+	/* Icon List */
+	&.uix-list-abreast--icon {
+		dt {
+			width: 30px;
+
+			i {
+				font-size: 1.5rem;
+			}
+
+		}
+
+		dd {
+			width: calc(100% - 30px);
+		}
+
+	}
+
+
 }

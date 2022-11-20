@@ -1,15 +1,19 @@
 /* ======================================================
-       <!-- 无限滚动元素 Infinite Scrolling Element -->
+       <!-- Infinite Scrolling Element -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
+
+
 .uix-infinite-scrolling {
     position: relative;
-    overflow: hidden;
     width: auto;
-    ul {
-        li {
+    overflow: hidden;
+
+	ul {
+
+		li {
             position: absolute;
             transition: none;
-        }
-    }
+		}
+	}
 }

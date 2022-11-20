@@ -1,5 +1,6 @@
 // Swiper Class
 import Swiper from './components/core/core-class';
+
 //IMPORT_COMPONENTS
 import Zoom from './components/zoom/zoom.js';
 import Virtual from './components/virtual/virtual.js';
@@ -20,28 +21,33 @@ import EffectCoverflow from './components/effect-coverflow/effect-coverflow.js';
 import Controller from './components/controller/controller.js';
 import Autoplay from './components/autoplay/autoplay.js';
 import A11y from './components/a11y/a11y.js';
+
+
 const components = [
-    Virtual,
-    Keyboard,
-    Mousewheel,
-    Navigation,
-    Pagination,
-    Scrollbar,
-    Parallax,
-    Zoom,
-    Lazy,
-    Controller,
-    A11y,
-    History,
-    HashNavigation,
-    Autoplay,
-    EffectFade,
-    EffectCube,
-    EffectFlip,
-    EffectCoverflow,
-    Thumbs
+	Virtual, 
+	Keyboard, 
+	Mousewheel, 
+	Navigation, 
+	Pagination, 
+	Scrollbar, 
+	Parallax, 
+	Zoom, 
+	Lazy, 
+	Controller, 
+	A11y, 
+	History, 
+	HashNavigation, 
+	Autoplay, 
+	EffectFade, 
+	EffectCube, 
+	EffectFlip, 
+	EffectCoverflow, 
+	Thumbs
 ];
 Swiper.use(components);
+
+
+
 //EXPORT
 export default Swiper;
 

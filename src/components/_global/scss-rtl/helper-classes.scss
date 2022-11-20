@@ -1,20 +1,26 @@
 /* ====================================================== 
    <!-- Helper Classes -->                                 
 /* ====================================================== */
+
+
 /*
  * 5. Element Floating
  * 6. Element Alignment
  * 12. Tip Bubble
  * 14. Position
 */
-/*
+
+
+
+/* 
  ---------------------------
  5. Element Floating
  ---------------------------
- */
+ */ 
 .uix-f-l {
     float: right;
 }
+
 .uix-f-r {
     float: left;
 }
@@ -22,13 +28,16 @@
  ---------------------------
  6. Element Alignment
  ---------------------------
- */
+ */ 
+
 .uix-t-r {
     text-align: left;
 }
+
 .uix-t-l {
     text-align: right;
 }
+
 /* The breakpoint is the same as bootstrap 5 */
 /*
 --breakpoint-xs:0;
@@ -39,89 +48,112 @@
 --breakpoint-xxl:1400px;
 */
 @media all and (max-width: 576px) {
-    .uix-t-r--sm {
-        text-align: left;
-    }
-    .uix-t-l--sm {
-        text-align: right;
-    }
+	.uix-t-r--sm {
+		text-align: left;
+	}
+
+	.uix-t-l--sm {
+		text-align: right;
+	}
 }
+
 @media all and (max-width: 768px) {
-    .uix-t-r--md {
-        text-align: left;
-    }
-    .uix-t-l--md {
-        text-align: right;
-    }
+	.uix-t-r--md {
+		text-align: left;
+	}
+
+	.uix-t-l--md {
+		text-align: right;
+	}
 }
+
 @media all and (max-width: 992px) {
-    .uix-t-r--lg {
-        text-align: left;
-    }
-    .uix-t-l--lg {
-        text-align: right;
-    }
+	.uix-t-r--lg {
+		text-align: left;
+	}
+
+	.uix-t-l--lg {
+		text-align: right;
+	}
 }
+
+
 @media all and (max-width: 1200px) {
-    .uix-t-r--xl {
-        text-align: left;
-    }
-    .uix-t-l--xl {
-        text-align: right;
-    }
+	.uix-t-r--xl {
+		text-align: left;
+	}
+
+	.uix-t-l--xl {
+		text-align: right;
+	}
 }
+
 @media all and (max-width: 1400px) {
-    .uix-t-r--xxl {
-        text-align: left;
-    }
-    .uix-t-l--xxl {
-        text-align: right;
-    }
+	.uix-t-r--xxl {
+		text-align: left;
+	}
+
+	.uix-t-l--xxl {
+		text-align: right;
+	}
 }
-/*
+
+
+
+
+/* 
  ---------------------------
  12. Tip Bubble
  ---------------------------
- */
+ */ 
 .uix-bubble {
-    right: auto;
-    left: 2.3rem;
-    margin-right: .5rem;
-    margin-left: auto;
+	margin-left: auto;
+	margin-right: .5rem;
+	right: auto;
+	left: 2.3rem;
 }
+
 @media all and (max-width: 768px) {
-    .uix-bubble {
-        right: auto;
-        left: 1rem;
-    }
+	.uix-bubble {
+		right: auto;
+		left: 1rem;
+	}
+
 }
-/*
+
+
+
+/* 
  ---------------------------
  14. Position
  ---------------------------
- */
+ */ 
+
 /* Don't use `width: 100%` because it is wrong if the parent has padding. */
 .uix-dir--left {
-    right: 0 !important;
     left: auto !important;
+	right: 0 !important;
 }
 .uix-dir--right {
+	left: 0 !important;
     right: auto !important;
-    left: 0 !important;
 }
+
 .uix-dir--top-left {
-    right: 0 !important;
     left: auto !important;
+	right: 0 !important;
 }
 .uix-dir--top-right {
+	left: 0 !important;
     right: auto !important;
-    left: 0 !important;
+
 }
 .uix-dir--bottom-left {
-    right: 0 !important;
     left: auto !important;
+	right: 0 !important;
 }
 .uix-dir--bottom-right {
+	left: 0 !important;
     right: auto !important;
-    left: 0 !important;
+
 }

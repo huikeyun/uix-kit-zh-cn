@@ -1,28 +1,29 @@
 <p align="center">
-  <a href="https://github.com/huikeyun/uix-kit">
+  <a href="https://github.com/xizon/uix-kit">
 	  <img src="misc/screenshots/logo-colorful.png"  alt="Uix Kit"  width="180" >
   </a>
-</p>
-
-  <p align="center">超过<strong>120+</strong>基础模块，快速搭建你的响应式网站!</p>
+  <p align="center">Make over <strong>120+</strong> components to wear again and again!</p>
   <p align="center">
-     <a href="https://app.travis-ci.com/github/xizon/uix-kit" title="Travis CI"><img src="https://img.shields.io/travis/com/xizon/uix-kit?style=for-the-badge"/></a>
+      <a href="https://app.travis-ci.com/github/xizon/uix-kit" title="Travis CI"><img src="https://img.shields.io/travis/com/xizon/uix-kit?style=for-the-badge"/></a>
       <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fxizon.github.io%2Fuix-kit%2Fexamples%2F" title="w3c"><img src="https://img.shields.io/w3c-validation/html?style=for-the-badge&targetUrl=https%3A%2F%2Fxizon.github.io%2Fuix-kit%2Fexamples%2F"/></a>
 	  <a href="https://www.npmjs.com/package/uix-kit" title="npm version"><img src="https://img.shields.io/npm/v/uix-kit?style=for-the-badge"/></a>
-	  <a href="https://github.com/huikeyun/uix-kit/blob/master/LICENSE" title="license"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=for-the-badge"/></a>
-
+	  <a href="https://github.com/xizon/uix-kit/blob/master/LICENSE" title="license"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=for-the-badge"/></a>
+	   
   </p>
+  <br>
+</p>
 
-Uix Kit是一个偏视觉交互的开发工具包，帮助开发者快速完成一套完整的交互型网站。**它不是一个框架**，所有的模块脚本和样式，全部由你掌控！
+**Uix Kit is not a framework, just a UI toolkit based on some common libraries for building beautiful responsive website.**
 
+Uix Kit isn't a reusable component structure, mostly custom CSS and JavaScript based. Definitely interesting, and if you're developing mostly web content and not applications this is particularly useful. It is a web dev build tool/scaffold that does not depend on any framework.  You can import any external libraries/frameworks or native ES Modules for production. 
 
-这是一个不依赖任何框架的Web开发构建工具/脚手架。 您可以导入任何外部库、框架或本机ES模块进行生产。 dist目录中生成的核心文件可以在任何网站中单独使用。
+The generated core file in the dist directory can be used separately in any website. Support JS, HTML, and SASS component library automatically packaged. Automatically convert ES6 JS to ES5 using Babel in this scaffold. 
 
+**Uix Kit is now in Long Term Support (LTS) mode.**
 
 ---
-- [英文版](https://github.com/xizon/uix-kit)
-- [React版](https://github.com/xizon/poemkit)
 
+- [React Version](https://github.com/xizon/poemkit)
 
 
 ---
@@ -32,97 +33,86 @@ Uix Kit是一个偏视觉交互的开发工具包，帮助开发者快速完成�
 
 ---
 
-## 演示
 
-[https://uix-kit.13aq.com/examples/](https://uix-kit.13aq.com/examples)
+## Demo
 
-GitHub pages只提供静态内容访问，AJAX和PHP请求无法预览效果，你可以通过线上服务器进行完整预览。
+[https://xizon.github.io/uix-kit/examples/](https://xizon.github.io/uix-kit/examples/)
 
-[https://uiux.cc/uix-kit](https://uiux.cc/uix-kit)
+GitHub pages can only serve static content, and there is no way to run PHP or get AJAX request on the pages. You need to visit the link below to see some special demos &#128071;
 
-
-## 目录
-
-* [为何使用它?](#为何使用它)
-* [目录结构](#目录结构)
-* [开发者基本操作](#开发者基本操作)
-* [入门指引](#入门指引)
-* [HTML模版](#html模版)
-* [如何创建一个新的自定义模块? &#128293;](#如何创建一个新的自定义模块)
-* [兼容性](#兼容性)
-* [支持的开发环境](#支持的开发环境)
-* [许可证](#许可证)
+[https://uiux.cc/uix-kit](https://uiux.cc/uix-kit) 
 
 
 
+## Table of Contents
 
-
-## 为何使用它?
-
-* 它不是可重用的组件结构
-* 它不是一个JavaScript框架
-* 它是一个基于Webpack的开发环境的工具箱
-* 您可以用最喜欢的方式使用任意JavaScript库来构建样式和动画脚本
-* 适用于开发视觉交互类型的网站和WordPress模板
-* 遵循W3C标准和SEO优化
-* 使用BEM命名，因此核心Uix Kit项目不会与其他项目冲突
-* 自动为每个模块的名称注释生成目录
-* 每个模块均包含SASS/SCSS，JavaScript和HTML文件
-* 为React架构提供开发环境配置
-* 与Bootstrap 5.x兼容 (你也可以移除Bootstrap的样式表)
-* 提供常见的网页组件和布局，提高开发效率和页面质量标准
-* 使用ES6导入或导出多个模块，第三方插件可以采用纯文件合并的方式不进行导入和导出
-* 完整的示例目录可以在没有Node.js开发环境的情况下独立开发响应式网站
+* [Getting Started with Videos](#getting-started-with-videos)
+* [Why use it](#why-use-it)
+* [File Structures](#file-structures)
+* [Getting Started](#getting-started)
+* [HTML Template](#html-template)
+* [How to Create a Custom Module？ &#128293; ](#how-to-create-a-custom-module)
+* [Contributing](#contributing)
+* [Changelog](#changelog)
+* [Browser Support](#browser-support)
+* [Supported development environment](#supported-development-environment)
+* [Licensing](#licensing)
 
 
 
-## 目录结构
+## Getting Started with Videos
+
+[https://www.youtube.com/watch?v=aRDY9Cr-1-E](https://www.youtube.com/watch?v=aRDY9Cr-1-E)
+
+
+
+## File Structures
 
 
 ```sh
 
 uix-kit/
-├── README.md   --------------------------- # 主要文档
-├── CHANGELOG.md   ------------------------ # 更新日志
-├── CONTRIBUTING.md   --------------------- # 引用资源
-├── LICENSE     --------------------------- # 许可证
-├── webpack.config.js  -------------------- # webpack脚手架配置
-├── server.js  ---------------------------- # 本地服务端配置
-├── package.json  ------------------------- # 项目配置文件【网站编译生成的注释信息可以在此修改】
+├── README.md   --------------------------- # Main Documentation
+├── CHANGELOG.md   ------------------------ # Changelog
+├── CONTRIBUTING.md   --------------------- # External resource references
+├── LICENSE     --------------------------- # License
+├── webpack.config.js  -------------------- # Webpack scaffold configuration file
+├── server.js  ---------------------------- # Local server configuration
+├── package.json  ------------------------- # Project configuration file (site info can be modified here)
 ├── package-lock.json
 ├── dist/
 │   ├── css/
-│   │   ├── uix-kit.css  ------------------ # 网站核心样式（已编译）
+│   │   ├── uix-kit.css  ------------------ # Main css file
 │   │   ├── uix-kit.css.map
-│   │   ├── uix-kit.min.css  -------------- # 网站核心样式压缩版，默认产品调用（已编译）
+│   │   ├── uix-kit.min.css  -------------- # Main css file which is used for production
 │   │   ├── uix-kit.min.css.map
-│   │   ├── uix-kit-rtl.css   ------------- # 网站核心RTL样式（已编译）
+│   │   ├── uix-kit-rtl.css   ------------- # Main RTL css file
 │   │   ├── uix-kit-rtl.css.map
-│   │   ├── uix-kit-rtl.min.css   --------- # 网站核心RTL样式压缩版，默认产品调用（已编译）
+│   │   ├── uix-kit-rtl.min.css   --------- # Main RTL css file which is used for production
 │   │   └── uix-kit-rtl.min.css.map
 │   └── js/
-│   │   ├── uix-kit.js   ------------------ # 网站核心脚本（已编译）
+│   │   ├── uix-kit.js   ------------------ # Main js file
 │   │   ├── uix-kit.js.map
-│   │   ├── uix-kit.min.js  --------------- # 网站核心样式压缩版，默认产品调用（已编译）
+│   │   ├── uix-kit.min.js  --------------- # Main js file which is used for production
 │   │   ├── uix-kit.min.js.map
 │   │   ├── uix-kit-rtl.js
 │   │   ├── uix-kit-rtl.js.map
 │   │   ├── uix-kit-rtl.min.js
 │   │   └── uix-kit-rtl.min.js.map
 ├── misc/                
-│   ├── screenshots/  --------------------- # 截图
-│   └── grid/ ----------------------------- # PSD版本网格系统，辅助UI设计
+│   ├── screenshots/  --------------------- # Screenshots
+│   └── grid/ ----------------------------- # PSD grid system
 ├── src/
 │   ├── components/
-│   │   ├── _app-load.js  ------------- # 网站需要使用的模块导入入口文件
-│   │   ├── _app-load-rtl.js  --------- # 网站需要使用的RTL模块导入入口文件
-│   │   ├── _global/ ------------------ # 网站通用代码模块
-│   │   ├── _main/  ------------------- # 网站定制化文件目录【用于二次开发或者新网站开发。网站新的HTML模板和其它样式脚本可以直接放到此文件夹】
-│   │   ├── _third-party-plugins/  ---- # 第三方插件
-│   │   └── */  ----------------------- # 网站通用功能模块【一般不需要去修改它们，可以根据情况修改其样式和脚本】
+│   │   ├── _app-load.js  ------------- # Import your modules to be used
+│   │   ├── _app-load-rtl.js  --------- # Import your RTL modules to be used
+│   │   ├── _global/ ------------------ # Generic modules
+│   │   ├── _main/  ------------------- # Customization site file directory (for secondary or new website development)
+│   │   ├── _third-party-plugins/  ---- # Third-party plugins
+│   │   └── */  ----------------------- # Core functional modules
 ├── examples/                                
-│   ├── *.html  --------------------------- # 编译后的纯HTML模板，用于后端整合或者演示
-│   └── assets/  -------------------------- # 静态资源目录
+│   ├── *.html  --------------------------- # HTML templates
+│   └── assets/  -------------------------- # Static resource directory
 │   │       ├── css/
 │   │       ├── fonts/
 │   │       ├── images/
@@ -134,106 +124,110 @@ uix-kit/
 ```
 
 
-## 开发者基本操作
+## Why use it
+
+* Not a reusable component structure
+* Not a JavaScript framework
+* Webpack-based dev environment which is an intuitive toolkit system
+* Use any JavaScript libraries in your favorite way to build styles and animation scripts
+* Suitable for developing Visual Interaction websites and WordPress templates
+* W3C standard and SEO 
+* Control scope with BEM naming, so the core Uix Kit project is not in conflict with the other projects
+* Automatically generate a table of contents for each module comment of the name
+* Each module consists of SASS / SCSS, JavaScript and HTML files
+* Make a foundation for the React architecture
+* Compatible with Bootstrap 5.x (You could also remove Bootstrap's stylesheets)
+* Provides a common web page components and layouts
+* Using ES6 to import or export multiple modules, the third-party plugins could adopt pure file merger method and do not import and export
+* The complete directory of examples in order to develop a responsive website independently without Node.js dev environment
 
 
-1. 配置你电脑的Node.js环境
-
-2. 下载完资源后，进入到 `uix-kit` 目录下，运行 `npm run build`, 进入开发模式
-
-3. 当你需要配置脚手架和网站基础信息和结构的时候，请直接编辑 `package.json` 文件。
-
-4. 网站的定制化模块功能在 `src/components/_global` 和 `src/components/_main` 中，`src/components/*` 其它模块是通用型的功能模块。HTML文件将会自动打包生成到 `examples/` 文件夹中，核心JavaScript和CSS文件会自动打包到 `dist/` 文件夹里
-
-不建议跳过开发模式直接修改examples/ 文件夹里的文件，因为代码量非常大，很难去维护和定制各种动画、交互、结构。
+* * *
 
 
-
-## 入门指引
-
+## Getting Started
 
 ![quick overview 1](misc/screenshots/quick-overview-1.gif)
 
 ![quick overview 2](misc/screenshots/quick-overview-2.gif)
 
+You will need to have [node](https://nodejs.org/) setup on your machine. That will output the built distributables to `./dist/*` and `./examples/*.html`.
 
 
-**Step 1.** 使用 NPM（找到您当前的项目目录，然后输入以下命令）, 或从 [Github]（https://github.com/huikeyun/uix-kit）下载最新版本。
+**Step 1.** Use NPM (Locate your current directory of project, and enter the following command.) or download the latest version from [Github](https://github.com/xizon/uix-kit). For nodejs you have to install some dependencies.
 
 ```sh
 $ sudo npm install uix-kit
 ```
 
-Or clone the repo to get all source files including build scripts:
+Or clone the repo to get all source files including build scripts: 
 
 ```sh
 $ git clone git://github.com/xizon/uix-kit.git
 ```
 
 
-**Step 2.** 使用命令进入 `uix-kit/` 目录, {your_directory}换成你的目录路径
+**Step 2.** First, using an absolute path into your `"uix-kit/"` folder directory.
 
 ```sh
 $ cd /{your_directory}/uix-kit
 ```
 
 
-**Step 3.** 安装开发环境
+**Step 3.** Before doing all dev stuff make sure you have `Node 10+` installed. After that, run the following code in the main directory to install the node module dependencies.
 
 ```sh
 $ sudo npm install
 ```
-or
+or 
 ```sh
 $ sudo npm install --only=dev --unsafe-perm --production
 ```
 
 
 
-**Step 4.** 运行下面的代码来实时开发项目，修改模块功能
+**Step 4.** When you’re ready to deploy to production, create a minified bundle with:
 
 ```sh
 $ npm run build
 ```
+Using `Ctrl + C` to stop it.
 
-使用 `Ctrl + C` 停止打包。
+When you have done, this will spin up a server that can be accessed at `http://localhost:8080/examples/`
 
-可以使用 `http://localhost:8080/examples/` 网址直接访问，建议使用本地服务器来访问，因为下面的网址是静态访问，不会执行AJAX请求，一些模块需要异步来测试效果。
 
-**Step 5.** 预览页面而不编译打包，请运行下面命令:
+**Step 5.** To preview the page without compiling and packaging, please run the following command:
 
 ```sh
 $ npm run preview
 ```
 
-通过 `http://localhost:3000` 可以预览所有页面。
+All pages can be previewed via `http://localhost:3000`. 
 
 <blockquote>
-但是没有办法在页面上运行 PHP 或获取 AJAX 请求。 您需要访问服务器上的链接，或通过 MAMP 构建服务器。然后可以访问类似的网址: <strong>http://localhost:{port}/uix-kit/examples/</strong>
+But there is no way to run PHP or get AJAX request on the pages. You need to visit the link on your server, or build a server via MAMP. Then visit a similar URL: <strong>http://localhost:{port}/uix-kit/examples/</strong>
 </blockquote>
 
 
 
-**(Optional)** 调试应用程序, 它可以用来单独检查TypeScript类型的文件而不进行编译和打包操作，便于提高开发效率，专注整体代码的编写。
+**(Optional)** Debug application. It can be checked separately as TypeScript without compiling and packaging behavior.
 
 ```sh
 $ npm run check
 ```
 
 
+### Note:
+ 
+
+**a) How to use modules?**
+
+You could custom modules of what to import in `src/components/_app-load.js` and `src/components/_app-load-rtl.js`. Because the modules are imported too much, you need to wait at least 5.5 seconds (default value). You can set the compilation wait time in the `webpack.config.js` according to the imported modules you want.
 
 
-### 常见问题:
+**b) Site Info Configuration**
 
-
-**a) 如何使用模块?**
-
-您可以在`src/components/_app-load.js` and `src/components/_app-load-rtl.js`中自定义要导入的模块。如果模块导入过多，因此您至少需要等待5.5秒（默认值，根据模块数量自动计算), 您可以根据需要导入相应的模块，在`webpack.config.js`中可以设置编译等待时间。
-
-
-**b) 网站配置修改**
-
-修改`package.json`文件即可：
+You can update the Placeholders in Templates by modifying the Site Info configuration of `package.json`. Like this:
 
 ```json
 {
@@ -245,30 +239,29 @@ $ npm run check
   "createdInfo": "UIUX Lab (https://uiux.cc)",
   "projectURL": "https://uiux.cc",
   "description": "A free web kits for fast web design and development, compatible with Bootstrap v5.",
-  "...": ""
+  ...
 }
 ```
 
 
 **c) ERROR: npm update check failed.**
 
-如果出现如上错误，表示nodejs的环境或权限问题，可以使用下面的命令解决，注意把{username}换成你自己的设备里的名字。
+Solution:
 
 ```sh
 $ sudo chown -R $USER:$(id -gn $USER) /Users/{username}/.config
 ```
 
-
 **d) ERROR: Node sass version 6.x.x is not compatible with ^ 4.x.x.**
 
-如果出现如上错误,请修改node-sass的版本:
+Solution:
 
 ```sh
 $ npm install node-sass@4.14.1
 ```
 
 
-**e) 如果升级Node版本，请执行以下代码:**
+**e) If you upgrade the version of Node, please execute the following code:**
 
 ```sh
 $ sudo npm install
@@ -278,9 +271,12 @@ $ sudo npm rebuild node-sass
 
 
 
-## HTML模版
+* * *
 
-### 1\. 静态HTML代码
+
+## HTML Template
+
+### 1\. Static HTML code
 
 ```html
 <!DOCTYPE html>
@@ -377,9 +373,9 @@ $ sudo npm rebuild node-sass
 
 ```
 
-### 2\. PSD网格模版
+### 2\. PSD Grid Templates
 
-您可以使用相应的`.PSD`网格示范文件。
+You can download the corresponding .PSD grid files.
 
 *   `misc/grid/bootstrap3_1170_grid_web.psd` (Default Container: 1170px)
 *   `misc/grid/bootstrap3_1278_grid_web.psd` (XL Container: 1278px)
@@ -387,14 +383,14 @@ $ sudo npm rebuild node-sass
 
 
 
+## How to Create a Custom Module
 
-## 如何创建一个新的自定义模块?
-
-假设你下载的文件位于根目录中，并且想要在`src/components/`目录中创建模块。 您可以创建一个新目录并将其命名为**demo-module**。
+Assuming you are in your application's root directory and want to create components inside `src/components/` as you show above. You can create a new directory and name it **demo-module**. 
 
 &#128071;&#128071;&#128071;
 
-这是一个自定义模块目录结构示例：
+
+Here’s a sample custom module directory structure, I’ve included some examples of files that would sit inside of each folder:
 
 
 ```sh
@@ -413,10 +409,10 @@ uix-kit/
 ```
 
 
-**Step 1.** 在新创建的目录中新建两个文件夹: `/scss` 和 `/js` 用来存放JS和CSS代码. 如果你需要网站支持RTL布局, 则再创建一个文件夹 `/scss-rtl`.
+**Step 1.** Inside that folder create two sub folders: `/scss` and `/js`. If you need to support RTL, create another `/scss-rtl`.
 
 
-**Step 2.** 进入目录`src/components/demo-module/scss/`，创建一个SASS/SCSS文件并命名为: `_style.scss`. 记得在文件中导入全局变量和函数，下面是示例代码:
+**Step 2.** Create a SASS/SCSS file. Go into the `src/components/demo-module/scss/` folder and create a file called: `_style.scss`. Please import global variables or functions. Here's an example:
 
 ```sh
 /* ====================================================== 
@@ -430,7 +426,7 @@ uix-kit/
 }
 ```
 
-**Step 2-2 (可选的).** 当然，如果你还需要支持RTL布局.再创建另一个SASS/SCSS文件到目录 `src/components/demo-module/scss-rtl/` 中，同样命名为 `_style.scss`. 下面是示例代码:
+**Step 2-2 (Optional).** Alright, so if you need to support RTL. You need create a new SASS/SCSS file. Go into the `src/components/demo-module/scss-rtl/` folder and create a file called: `_style.scss`. Like this:
 
 ```sh
 /* ====================================================== 
@@ -444,11 +440,11 @@ uix-kit/
 ```
 
 
-**Step 3.** 进入目录`src/components/demo-module/js/` 创建一个JAVASCRIPT文件 `index.js`. 为了使其正确工作，需要导入网站全局变量和函数到 index.js 中.
+**Step 3.** Create a JS file. Go into the `src/components/demo-module/js/` folder and create a file called: `index.js`. In order to make it work we need to import the global variables or functions in file index.js. 
 
-同时，你可以将SASS/SCSS文件一起导入到 `src/components/demo-module/js/index.js` 文件中，使样式生效.
+Simultaneously, Now you’re ready to import your Stylesheets to use with this component. Import SASS/SCSS file in `src/components/demo-module/js/index.js`.
 
-代码如下:.
+Like this:.
 
 ```sh
 /* 
@@ -478,28 +474,28 @@ export const DEMO_MODULE = ( ( module, $, window, document ) => {
     module.DEMO_MODULE.version       = '0.0.1';
     
     
-    // 页面打开时就开始执行
+    // executes when HTML-Document is loaded and DOM is ready
     module.DEMO_MODULE.documentReady = function( $ ) {
 		/* 
 		 ---------------------------
-		 函数名
+		 Function Name
 		 ---------------------------
 		 */ 
-		// 任意JS代码，可以使用任意第三方库，第三方库已经通过HTML来加载（当然你也可以修改webpack配置文件来直接导入第三方库）
+		// your code here...
 	
     };
     module.components.documentReady.push( module.DEMO_MODULE.documentReady );
 	
     
     
-    // 等待页面中的图像等资源全部加载完成后才执行
+    // executes when complete page is fully loaded, including all frames, objects and images
     module.DEMO_MODULE.pageLoaded    = function() {
 		/* 
 		 ---------------------------
-		 函数名
+		 Function Name
 		 ---------------------------
 		 */ 
-		// 任意JS代码，可以使用任意第三方库，第三方库已经通过HTML来加载（当然你也可以修改webpack配置文件来直接导入第三方库）
+		 // your code here...
 		
     };
     module.components.pageLoaded.push( module.DEMO_MODULE.pageLoaded );	
@@ -516,7 +512,7 @@ export const DEMO_MODULE = ( ( module, $, window, document ) => {
 
 
 
-**Step 4.** 最后，你还需要动态导入刚刚创建好的模块到 `src/components/_app-load.js` 文件中. 下面是示例代码:
+**Step 4.** So far, to dynamically import the module you just created in `src/components/_app-load.js`.  The simplest version directly imports the default:
 
 
 ```sh
@@ -524,17 +520,17 @@ import DEMO_MODULE from '@uixkit/core/demo-module/js';
 ```
 
 
-**Step 4-2  (可选的).** 如果需要网站支持RTL布局, 再 `src/components/_app-load-rtl.js` 中导入样式即可:
+**Step 4-2  (Optional).** If you need to support RTL, in `src/components/_app-load-rtl.js`.  like this:
 
 
 ```sh
 import '@uixkit/core/demo-module/scss-rtl/_style.scss';
 ```
 
-这些RTL模块都不需要JavaScript，因此只需要导入SASS/SCSS文件即可。（如果你想使用JS也未尝不可）
+These RTL modules do not need JavaScript.
 
 
-**Step 5 (可选的).** 您也可以创建一个HTML文件来单独运行此模块的演示，所有HTML文件将自动导出到目录`examples/`. HTML文件的演示代码如下：
+**Step 5 (Optional).** You could also create an HTML file to run the demo of this module separately, all HTML files will be automatically exported into the directory `examples/`. The demo code of the HTML file is as follows:
 
 
 ```sh
@@ -542,7 +538,7 @@ import '@uixkit/core/demo-module/scss-rtl/_style.scss';
 <html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
 	<meta charset="@@{website_charset}" />
-	<title>模块标题 - @@{website_title}</title>	
+	<title>Demo Module - @@{website_title}</title>	
 	@@include('./src/components/_global/include-header.html')
 </head>  
 <body class="page">
@@ -574,7 +570,7 @@ import '@uixkit/core/demo-module/scss-rtl/_style.scss';
 				<div class="container">
 					<div class="row">
 						<div class="col-12">
-							<h3>模块标题</h3>
+							<h3>Demo Module</h3>
 							<hr>
 						</div>
 					</div>
@@ -602,8 +598,7 @@ import '@uixkit/core/demo-module/scss-rtl/_style.scss';
     @@include('./src/components/_global/include-footer.html')
 ```
 
-
-**提示 &#128161;:** 您可以调用指定的模块脚本，该脚本通常用于AJAX异步请求的回调。 演示代码在这里:
+**Note &#128161;:** You could call a specified module script which is commonly used for callbacks of AJAX request from Asynchronous method. The demo code is here:
 
 ```sh
 import { UixModuleInstance } from '@uixkit/core/_global/js';
@@ -613,29 +608,42 @@ if ( UixModuleInstance.DEMO_MODULE ) UixModuleInstance.DEMO_MODULE.documentReady
 ```
 
 
-**由于Uix Kit不是JavaScript框架，因此您可以使用任何第三方库以最直观的方式构建自定义模块样式和动画脚本。**
+
+**Since Uix Kit is not a JavaScript framework, you could use any third-party libraries to build your custom module styles and animation scripts in the most intuitive way.**
 
 
 
-## 兼容性
-
-| Chrome | Firefox | Edge | IE   | Safari | Opera | iOS  | Android |
-|--------|---------|------|------|--------|-------|------|---------|
-| >= 49  | >= 45   | >=14 | >=11 | >= 9   | >= 30 | >=10 | >=4.4   |
 
 
-## 支持的开发环境
+## Contributing
+
+Finding bugs, sending pull requests or improving our docs - any contribution is welcome and highly appreciated. To get started, head over to our [contribution guidelines](CONTRIBUTING.md). Thanks!
+
+
+## Changelog
+
+[releases](CHANGELOG.md)
+
+
+
+## Browser Support
+
+| Chrome | Firefox | Edge | IE| Safari |Opera | iOS  | Android
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| >= 49 | >= 45 | >=14 | >=11 | >= 9 | >= 30 | >=10 | >=4.4 |
+
+
+## Supported development environment
 
 - React 17 +
-- TypeScript 4.x.x +
-- Babel 7.x.x +
+- TypeScript 4.x.x + 
+- Babel 7.x.x + 
 - Webpack 5.x.x
 - Express 4.x.x
 
+## Licensing
 
-## 许可证
-
-基于 [MIT](https://opensource.org/licenses/MIT).
+Licensed under the [MIT](https://opensource.org/licenses/MIT).
 
 
 

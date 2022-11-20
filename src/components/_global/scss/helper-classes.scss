@@ -1,70 +1,91 @@
-/* ================================================= ======
-     <!-- 辅助类 helper-classes -->
-/* ================================================= ====== */
+/* ====================================================== 
+    <!-- Helper Classes -->              
+/* ====================================================== */
+
 /*
-  * 1. 内容块
-  * 2. 浮动元素之后的元素将围绕它流动
-  * 3. 阴影效果
-  * 4. 平滑过渡效果
-  * 5. 元素浮动
-  * 6. 元素对齐
-  * 7. 用省略号截断字符串
-  * 8. 垂直或水平对齐的块
-  * 9. 指定是否裁剪内容
-  * 10. 指定默认高度
-  * 11. 隐藏移动或桌面设备上的元素
-  * 12. 提示气泡
-  * 13. 图像悬停叠加效果
-  * 14. 定位
-  * 15. 元素隐藏样式
-  * 16. 边界半径
-  * 17. 对齐元素的宽类和全类
-  * 18. HTML 公开摘要元素
+ * 1. Content Block                     
+ * 2. Elements after a floating element will flow around it.
+ * 3. Shadow Effect
+ * 4. Smooth Transition Effect
+ * 5. Element Floating
+ * 6. Element Alignment
+ * 7. Truncate String with Ellipsis
+ * 8. Vertically or Horizontally Aligned Blocks
+ * 9. Specifies Whether To Clip Content
+ * 10. Specifies a Default Height
+ * 11. Hidden The Element on Mobile or Desktop Device
+ * 12. Tip Bubble
+ * 13. Image Hover Overlay Effects
+ * 14. Position
+ * 15. Element Hidden Style
+ * 16. Border Radius
+ * 17. Align Wide and Full Classes For Elements
+ * 18. HTML Disclosure Summary element 
 */
-/*
+
+
+
+/* 
  ---------------------------
- 1. 内容块
+ 1. Content Block
  ---------------------------
- */
+ */ 
 .uix-relative {
     position: relative;
+	
 }
+
 .uix-relative--inline {
-    position: relative;
-    display: inline-block;
-    /* 防止内容溢出 */
-    max-width: 100%;
-    /* 表现得像大多数内联块元素 */
-    vertical-align: middle;
-    /*
-     * 与 Webkit 中的叠加层和过渡相结合时，强制硬件加速而不创建新的堆叠上下文来修复 1px 故障
-     */
-    -webkit-backface-visibility: hidden;
+	display: inline-block;
+	position: relative;
+	
+	/* Prevent content overflow */
+	max-width: 100%;
+	
+	/* Behave like most inline-block elements */
+	vertical-align: middle;
+	
+	/*
+	 * Force hardware acceleration without creating a new stacking context
+	 *    to fix 1px glitch when combined with overlays and transitions in Webkit
+	 */
+	-webkit-backface-visibility: hidden;
+	
+
 }
-/* 裁剪子元素 */
+
+/* Clip child elements */
 .uix-relative--inline-clip {
-    overflow: hidden;
+  overflow: hidden;
 }
+
+
 /*----*/
 .uix-display-none {
     display: none !important;
 }
+
 .uix-display-inline {
     display: inline !important;
 }
+
 .uix-display-inline-block {
     display: inline-block !important;
 }
+
 .uix-display-block {
     display: block !important;
 }
+
 .uix-display-flex {
     display: flex !important;
 }
+
 .uix-display-inline-flex {
     display: inline-flex !important;
 }
-/* 断点与 bootstrap 5 相同 */
+
+/* The breakpoint is the same as bootstrap 5 */
 /*
 --breakpoint-xs:0;
 --breakpoint-sm:576px;
@@ -74,186 +95,240 @@
 --breakpoint-xxl:1400px;
 */
 @media all and (max-width: 576px) {
-    .uix-display-none--sm {
+    .uix-display-none--sm  {
         display: none !important;
     }
-    .uix-display-inline--sm {
+    
+    .uix-display-inline--sm  {
         display: inline !important;
     }
-    .uix-display-inline-block--sm {
+    
+    .uix-display-inline-block--sm  {
         display: inline-block !important;
     }
-    .uix-display-block--sm {
+    
+    .uix-display-block--sm  {
         display: block !important;
     }
-    .uix-display-flex--sm {
+    
+    .uix-display-flex--sm  {
         display: flex !important;
     }
-    .uix-display-inline-flex--sm {
+    
+    .uix-display-inline-flex--sm  {
         display: inline-flex !important;
     }
 }
+
 @media all and (max-width: 768px) {
-    .uix-display-none--md {
+    .uix-display-none--md  {
         display: none !important;
     }
-    .uix-display-inline--md {
+    
+    .uix-display-inline--md  {
         display: inline !important;
     }
-    .uix-display-inline-block--md {
+    
+    .uix-display-inline-block--md  {
         display: inline-block !important;
     }
-    .uix-display-block--md {
+    
+    .uix-display-block--md  {
         display: block !important;
     }
-    .uix-display-flex--md {
+    
+    .uix-display-flex--md  {
         display: flex !important;
     }
-    .uix-display-inline-flex--md {
+    
+    .uix-display-inline-flex--md  {
         display: inline-flex !important;
     }
 }
+
 @media all and (max-width: 992px) {
-    .uix-display-none--lg {
+    .uix-display-none--lg  {
         display: none !important;
     }
-    .uix-display-inline--lg {
+    
+    .uix-display-inline--lg  {
         display: inline !important;
     }
-    .uix-display-inline-block--lg {
+    
+    .uix-display-inline-block--lg  {
         display: inline-block !important;
     }
-    .uix-display-block--lg {
+    
+    .uix-display-block--lg  {
         display: block !important;
     }
-    .uix-display-flex--lg {
+    
+    .uix-display-flex--lg  {
         display: flex !important;
     }
-    .uix-display-inline-flex--lg {
+    
+    .uix-display-inline-flex--lg  {
         display: inline-flex !important;
     }
 }
+
+
 @media all and (max-width: 1200px) {
-    .uix-display-none--xl {
+    .uix-display-none--xl  {
         display: none !important;
     }
-    .uix-display-inline--xl {
+    
+    .uix-display-inline--xl  {
         display: inline !important;
     }
-    .uix-display-inline-block--xl {
+    
+    .uix-display-inline-block--xl  {
         display: inline-block !important;
     }
-    .uix-display-block--xl {
+    
+    .uix-display-block--xl  {
         display: block !important;
     }
-    .uix-display-flex--xl {
+    
+    .uix-display-flex--xl  {
         display: flex !important;
     }
-    .uix-display-inline-flex--xl {
+    
+    .uix-display-inline-flex--xl  {
         display: inline-flex !important;
     }
 }
+
 @media all and (max-width: 1400px) {
-    .uix-display-none--xxl {
+    .uix-display-none--xxl  {
         display: none !important;
     }
-    .uix-display-inline--xxl {
+    
+    .uix-display-inline--xxl  {
         display: inline !important;
     }
-    .uix-display-inline-block--xxl {
+    
+    .uix-display-inline-block--xxl  {
         display: inline-block !important;
     }
-    .uix-display-block--xxl {
+    
+    .uix-display-block--xxl  {
         display: block !important;
     }
-    .uix-display-flex--xxl {
+    
+    .uix-display-flex--xxl  {
         display: flex !important;
     }
-    .uix-display-inline-flex--xxl {
+    
+    .uix-display-inline-flex--xxl  {
         display: inline-flex !important;
     }
 }
-/*
+
+
+/* 
  ---------------------------
-2. 浮动元素之后的元素将围绕它流动
-   使用“uix-clearfix” hack 来解决问题
+ 2. Elements after a floating element will flow around it. 
+    Use the "uix-clearfix" hack to fix the problem
  ---------------------------
- */
+ */ 
 .uix-clearfix {
-    &::before {
-        line-height: 0;
-        display: table;
-        content: "";
-    }
-    &::after {
-        line-height: 0;
-        display: table;
-        clear: both;
-        content: "";
-    }
+	
+	&::before {
+		display: table;
+		content: "";
+		line-height: 0;
+	}
+	
+	&::after {
+		display: table;
+		content: "";
+		line-height: 0;
+		clear: both;
+	}
 }
-/*
+
+
+/* 
  ---------------------------
- 3. 阴影效果
+ 3. Shadow Effect
  ---------------------------
- */
+ */ 
 .uix-outer-shadow--regular {
-    @include outer-shadow('regular');
+    @include outer-shadow( 'regular' );
 }
+
 .uix-outer-shadow--thick {
-    @include outer-shadow('thick');
+    @include outer-shadow( 'thick' );
 }
+
 .uix-outer-shadow--light {
-    @include outer-shadow('light');
+    @include outer-shadow( 'light' );
 }
+
 .uix-outer-shadow--highlight {
-    @include outer-shadow('highlight', $highlight-color1);
+    @include outer-shadow( 'highlight', $highlight-color1 );
 }
+
 .uix-none-shadow {
-    box-shadow: none !important;
-    text-shadow: none !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
 }
-/*
+
+/* 
  ---------------------------
- 4. 平滑过渡效果
+ 4. Smooth Transition Effect
  ---------------------------
- */
+ */ 
 .uix-trans {
     @include transition-default();
-    img,
-    a,
-    i,
-    li,
-    span {
+
+    img, 
+	a, 
+	i, 
+	li, 
+	span {
         @include transition-default();
     }
 }
-/*
+
+
+
+
+/* 
  ---------------------------
- 5. 元素浮动
+ 5. Element Floating
  ---------------------------
- */
+ */ 
 .uix-f-l {
     float: left;
 }
+
 .uix-f-r {
     float: right;
 }
-/*
+
+
+/* 
  ---------------------------
- 6. 元素对齐
+ 6. Element Alignment
  ---------------------------
- */
+ */ 
 .uix-t-r {
     text-align: right;
 }
+
 .uix-t-l {
     text-align: left;
 }
+
+
 .uix-t-c {
     text-align: center;
 }
-/* 断点与 bootstrap 5 相同 */
+
+
+/* The breakpoint is the same as bootstrap 5 */
 /*
 --breakpoint-xs:0;
 --breakpoint-sm:576px;
@@ -263,241 +338,298 @@
 --breakpoint-xxl:1400px;
 */
 @media all and (max-width: 576px) {
-    .uix-t-r--sm {
-        text-align: right;
-    }
-    .uix-t-l--sm {
-        text-align: left;
-    }
-    .uix-t-c--sm {
-        text-align: center;
-    }
+	.uix-t-r--sm {
+		text-align: right;
+	}
+
+	.uix-t-l--sm {
+		text-align: left;
+	}
+	.uix-t-c--sm {
+		text-align: center;
+	}
 }
+
 @media all and (max-width: 768px) {
-    .uix-t-r--md {
-        text-align: right;
-    }
-    .uix-t-l--md {
-        text-align: left;
-    }
-    .uix-t-c--md {
-        text-align: center;
-    }
+	.uix-t-r--md {
+		text-align: right;
+	}
+
+	.uix-t-l--md {
+		text-align: left;
+	}
+	.uix-t-c--md {
+		text-align: center;
+	}
 }
+
 @media all and (max-width: 992px) {
-    .uix-t-r--lg {
-        text-align: right;
-    }
-    .uix-t-l--lg {
-        text-align: left;
-    }
-    .uix-t-c--lg {
-        text-align: center;
-    }
+	.uix-t-r--lg {
+		text-align: right;
+	}
+
+	.uix-t-l--lg {
+		text-align: left;
+	}
+	.uix-t-c--lg {
+		text-align: center;
+	}
 }
+
+
 @media all and (max-width: 1200px) {
-    .uix-t-r--xl {
-        text-align: right;
-    }
-    .uix-t-l--xl {
-        text-align: left;
-    }
-    .uix-t-c--xl {
-        text-align: center;
-    }
+	.uix-t-r--xl {
+		text-align: right;
+	}
+
+	.uix-t-l--xl {
+		text-align: left;
+	}
+	.uix-t-c--xl {
+		text-align: center;
+	}
 }
+
 @media all and (max-width: 1400px) {
-    .uix-t-r--xxl {
-        text-align: right;
-    }
-    .uix-t-l--xxl {
-        text-align: left;
-    }
-    .uix-t-c--xxl {
-        text-align: center;
-    }
+	.uix-t-r--xxl {
+		text-align: right;
+	}
+
+	.uix-t-l--xxl {
+		text-align: left;
+	}
+	.uix-t-c--xxl {
+		text-align: center;
+	}
 }
-/*
+
+
+/* 
  ---------------------------
- 7. 使用省略号截取字符串
+ 7. Truncate String with Ellipsis
  ---------------------------
- */
+ */ 
 .uix-t-ellipsis {
-    @include ellipsis();
+	@include ellipsis();
 }
-/*
+
+
+/* 
  ---------------------------
- 8. 垂直或水平对齐的块
+ 8. Vertically or Horizontally Aligned Blocks
  ---------------------------
- */
-/*-- 使用转换属性--*/
+ */ 
+
+/*-- Using transform property --*/
 .uix-v-align--absolute,
 .uix-v-align--relative {
     position: absolute;
     z-index: 6;
-    top: 50%;
-    /* 垂直居中 */
     width: 100%;
-    transform: translateY(-50%);
-    /* 垂直底部 */
-    &.uix-v-align--absolute--b {
-        top: auto;
-        bottom: 0;
-        transform: translateY(0);
-    }
-    /* 垂直顶部 */
-    &.uix-v-align--absolute--t {
-        top: 0;
-        transform: translateY(0);
-    }
+	/* Vertical Center */
+	top: 50%;
+	transform: translateY(-50%);
+	
+	/* Vertical Bottom */
+	&.uix-v-align--absolute--b {
+		top: auto;
+		bottom: 0;
+		transform: translateY(0);	
+	}
+
+	/* Vertical Top */
+	&.uix-v-align--absolute--t {
+		top: 0;
+		transform: translateY(0);	
+	}	
 }
+
 .uix-v-align--relative {
     position: relative;
 }
+
+
 @media all and (max-width: 768px) {
-    .uix-v-align--relative {
-        top: 0;
-        transform: none;
-    }
+	.uix-v-align--relative {
+		top: 0;
+		transform: none;
+	}
 }
-/*-- 使用表格 --*/
+
+/*-- Using table --*/
 .uix-v-align--table {
-    display: table;
-    width: 100%;
-    height: 100%;
-    > div {
-        display: table-cell;
-        vertical-align: middle;
-    }
-    /* 垂直底部 */
-    &.uix-v-align--table--b > div {
-        vertical-align: bottom;
-    }
-    /* 垂直顶部 */
-    &.uix-v-align--table--t > div {
-        vertical-align: top;
-    }
+	display: table;
+	width: 100%;
+	height: 100%;
+	> div {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	
+	/* Vertical Bottom */
+	&.uix-v-align--table--b > div {
+		vertical-align: bottom;
+	}
+
+	/* Vertical Top */
+	&.uix-v-align--table--t > div {
+		vertical-align: top;
+	}	
+	
 }
-/*
+
+
+/* 
  ---------------------------
- 9. 指定是否裁剪内容
+ 9. Specifies Whether To Clip Content
  ---------------------------
- */
+ */ 
 .uix-hidden-scrollbar-x {
     overflow-x: hidden;
 }
+
 .uix-hidden-scrollbar {
     overflow: hidden;
 }
-/*
+
+
+
+/* 
  ---------------------------
- 10. 指定默认高度
+ 10. Specifies a Default Height
  ---------------------------
- */
+ */ 
 .uix-height--10 {
     height: 10vh !important;
 }
+
 .uix-height--20 {
     height: 20vh !important;
 }
+
 .uix-height--30 {
     height: 30vh !important;
 }
+
 .uix-height--40 {
     height: 40vh !important;
 }
+
 .uix-height--50 {
     height: 50vh !important;
 }
+
 .uix-height--60 {
     height: 60vh !important;
 }
+
 .uix-height--70 {
     height: 70vh !important;
 }
+
 .uix-height--80 {
     height: 80vh !important;
 }
+
 .uix-height--90 {
     height: 90vh !important;
 }
+
 .uix-height--100 {
     height: 100vh !important;
 }
+
 @media all and (max-width: 768px) {
-    .uix-height--100:not(.is-mobile-still),
-    .uix-height--90:not(.is-mobile-still),
-    .uix-height--80:not(.is-mobile-still),
-    .uix-height--70:not(.is-mobile-still),
-    .uix-height--60:not(.is-mobile-still),
-    .uix-height--50:not(.is-mobile-still),
-    .uix-height--40:not(.is-mobile-still),
-    .uix-height--30:not(.is-mobile-still),
-    .uix-height--20:not(.is-mobile-still),
-    .uix-height--10:not(.is-mobile-still) {
-        height: auto !important;
-    }
+	.uix-height--100:not(.is-mobile-still), 
+	.uix-height--90:not(.is-mobile-still), 
+	.uix-height--80:not(.is-mobile-still), 
+	.uix-height--70:not(.is-mobile-still), 
+	.uix-height--60:not(.is-mobile-still), 
+	.uix-height--50:not(.is-mobile-still), 
+	.uix-height--40:not(.is-mobile-still), 
+	.uix-height--30:not(.is-mobile-still), 
+	.uix-height--20:not(.is-mobile-still), 
+	.uix-height--10:not(.is-mobile-still) {
+	    height: auto !important;
+		
+	}
 }
-/*
+
+
+
+/* 
  ---------------------------
- 11. 在移动或桌面设备上隐藏元素
+ 11. Hidden The Element on Mobile or Desktop Device
  ---------------------------
- */
+ */ 
 @media all and (max-width: 768px) {
     .uix-hide-mobile {
         display: none !important;
     }
 }
+
+
 @media all and (min-width: 769px) {
     .uix-hide-pc {
         display: none !important;
     }
 }
-/*
+
+
+
+/* 
  ---------------------------
- 12. 提示气泡
+ 12. Tip Bubble
  ---------------------------
- */
+ */ 
 .uix-bubble {
-    font-size: 0.625rem;
-    font-weight: 700;
-    line-height: 1.2;
-    position: absolute;
-    top: .5rem;
-    right: 2.3rem;
-    margin-left: .5rem;
-    padding: .1rem .3rem !important;
-    transform: scale(.7);
-    vertical-align: middle;
-    text-transform: uppercase;
-    color: #ffffff !important;
-    border-radius: 10px;
-    background: $highlight-color1;
+	font-weight: 100;
+	text-transform: uppercase;
+	font-weight: 700;
+	line-height: 1.2;
+	background: $highlight-color1;
+	border-radius: 10px;
+	padding: .1rem .3rem !important;
+	margin-left: .5rem;
+	font-size: 0.625rem;
+	vertical-align: middle;
+	color: #fff !important;
+	position: absolute;
+	right: 2.3rem;
+	top: .5rem;
+	transform: scale(.7);
 }
+
 @media all and (max-width: 768px) {
-    .uix-bubble {
-        top: .7rem;
-        right: 1rem;
-    }
+	.uix-bubble {
+		right: 1rem;
+		top: .7rem;
+	}
+
 }
-/*
+
+/* 
  ---------------------------
- 13. 图像悬停叠加效果
+ 13. Image Hover Overlay Effects
  ---------------------------
- */
+ */ 
 img.uix-filter-hover--color,
 .uix-filter-hover--color img {
-    transition: filter .3s cubic-bezier(.445, .05, .55, .95);
+	transition: filter .3s cubic-bezier(.445,.05,.55,.95);
     will-change: filter;
-    &:hover {
-        filter: brightness(120%) hue-rotate(45deg);
-    }
+	
+	&:hover {
+		filter: brightness(120%) hue-rotate(45deg);
+	}
 }
-/*
+
+
+
+/* 
  ---------------------------
- 14. 定位
+ 14. Position
  ---------------------------
- */
+ */ 
 /*--- Directions --- */
 [class*='uix-dir--top'],
 [class*='uix-dir--bottom'],
@@ -506,132 +638,153 @@ img.uix-filter-hover--color,
 [class*='uix-dir--center'] {
     position: absolute !important;
 }
-/* 不要使用 `width: 100%` 因为如果父级有填充是错误的。 */
+
+
+/* Don't use `width: 100%` because it is wrong if the parent has padding. */
 .uix-dir--top {
-    top: 0 !important;
-    right: 0 !important;
+	top: 0 !important;
     bottom: auto !important;
-    left: 0 !important;
+	left: 0 !important;
+	right: 0 !important;
 }
 .uix-dir--bottom {
     top: auto !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
+	bottom: 0 !important;
+	left: 0 !important;
+	right: 0 !important;
 }
 .uix-dir--left {
-    top: 0 !important;
+	top: 0 !important;
+	bottom: 0 !important;
+	left: 0 !important;
     right: auto !important;
-    bottom: 0 !important;
-    left: 0 !important;
 }
 .uix-dir--right {
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
+	top: 0 !important;
+	bottom: 0 !important;
     left: auto !important;
+	right: 0 !important;
 }
+
 .uix-dir--top-left {
-    top: 0 !important;
-    right: auto !important;
+	top: 0 !important;
     bottom: auto !important;
-    left: 0 !important;
+	left: 0 !important;
+    right: auto !important;
 }
 .uix-dir--top-right {
-    top: 0 !important;
-    right: 0 !important;
+	top: 0 !important;
     bottom: auto !important;
     left: auto !important;
+	right: 0 !important;
 }
 .uix-dir--bottom-left {
     top: auto !important;
+	bottom: 0 !important;
+	left: 0 !important;
     right: auto !important;
-    bottom: 0 !important;
-    left: 0 !important;
 }
 .uix-dir--bottom-right {
     top: auto !important;
-    right: 0 !important;
-    bottom: 0 !important;
+	bottom: 0 !important;
     left: auto !important;
+	right: 0 !important;
 }
-/*
+
+
+/* 
  ---------------------------
- 15. 元素隐藏样式
+ 15. Element Hidden Style
  ---------------------------
- */
+ */ 
 .uix-el--transparent {
-    opacity: 0;
+	opacity: 0;
 }
 .uix-el--scale {
-    transform: scale(0);
+	transform: scale(0);
 }
 .uix-el--skew {
-    transform: skew(0deg, -5deg);
+    transform: skew(0deg, -5deg);	
 }
-/*
+
+/* 
  ---------------------------
-  16. 边界半径
+  16. Border Radius
  ---------------------------
- */
+ */ 
 .uix-border--rounded {
-    border-radius: 4px;
-    &.uix-border--rounded-img {
-        > img {
-            border-radius: 4px;
-        }
-    }
-    &.uix-border--rounded-only-img {
-        border-radius: 0;
-        > img {
-            border-radius: 4px;
-        }
-    }
+	
+	border-radius: 4px;
+	
+	&.uix-border--rounded-img {
+		> img {
+			border-radius: 4px;
+		}		
+	}
+	
+	&.uix-border--rounded-only-img {
+		border-radius: 0;
+		> img {
+			border-radius: 4px;
+		}		
+	}	
+	
+
 }
+
 .uix-border--circle {
-    border-radius: 50%;
-    &.uix-border--circle-img {
-        > img {
-            border-radius: 50%;
-        }
-    }
-    &.uix-border--circle-only-img {
-        border-radius: 0;
-        > img {
-            border-radius: 50%;
-        }
-    }
+	border-radius: 50%;
+	
+	&.uix-border--circle-img {
+		> img {
+			border-radius: 50%;
+		}		
+	}
+	
+	&.uix-border--circle-only-img {
+		border-radius: 0;
+		> img {
+			border-radius: 50%;
+		}		
+	}	
 }
-/*
+
+
+
+/* 
  ---------------------------
- 17. 对齐元素的宽类和完整类
+ 17. Align Wide and Full Classes For Elements
  ---------------------------
- */
+ */ 
 img.uix-alignfull,
 .uix-alignfull img {
-    width: 100vw !important;
-    max-width: 100vw;
-    height: auto;
-    margin-right: calc(-100vw / 2 + 100% / 2);
-    margin-left: calc(-100vw / 2 + 100% / 2);
+	margin-left: calc( -100vw / 2 + 100% / 2 );
+	margin-right: calc( -100vw / 2 + 100% / 2 );
+	max-width: 100vw;
+	width: 100vw !important;
+	height: auto;
 }
-/*
+
+
+/* 
  ---------------------------
- 18. HTML 公开摘要元素
+ 18. HTML Disclosure Summary element 
  ---------------------------
- */
+ */ 
 details.uix-details-reset {
-    &:not([open]) > *:not(summary) {
+    &:not([open]) > *:not(summary){
         display: none !important;
     }
+    
     > summary {
-        list-style: none;
-        cursor: pointer;
-        &::before {
-            display: none;
+        cursor:pointer;
+        list-style:none;
+        &::before{
+            display:none;
         }
-        &::-webkit-details-marker {
-            display: none;
-        }
+        &::-webkit-details-marker{
+            display:none;
+        }  
     }
+   
 }

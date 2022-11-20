@@ -1,15 +1,22 @@
 /* ======================================================
-   <!-- 下拉菜单 Dropdown Menu -->
+   <!-- Dropdown Menu -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
-/* 不要使用 <a> 标签 */
+
+
+/* Do not use <a> tag */
 .uix-dropdown-menu {
-    > ul {
-        right: 0;
-        left: auto;
-        &::before {
-            right: 20px;
-            left: auto;
-        }
-    }
+
+	> ul {
+		left: auto;
+		right: 0;
+
+
+		&::before {
+			left: auto;
+			right: 20px;
+		}
+
+	}
+
 }

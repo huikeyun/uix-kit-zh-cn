@@ -1,12 +1,12 @@
-# 有关使用的配置的更多信息
-# 在此文件中，请参阅 Travis CI 文档：
+# For more information about the configurations used
+# in this file, please see the Travis CI documentation:
 # https://docs.travis-ci.com
 language: node_js
 
 node_js:
   - 10
   
-# 使用 README.md 命令 `npm install --only=dev --unsafe-perm --production`，不要使用 `npm ci`
+# Use README.md command `npm install --only=dev --unsafe-perm --production`, don't use `npm ci`
 
 script:
   - npm install --dev

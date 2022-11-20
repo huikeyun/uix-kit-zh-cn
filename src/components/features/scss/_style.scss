@@ -1,206 +1,298 @@
 /* ======================================================
-   <!-- 特性 Features -->
+   <!-- Features -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
+
 /*
- * 1. 网格系统的特点
- * 2. 带分割线的功能
+ * 1. Features with Grid System
+ * 2. Features with Dividing Line
+
 */
+
+
 /*
  ---------------------------
- 1. 网格系统的特点
+ 1. Features with Grid System
  ---------------------------
  */
+
+
 $card-radius: 8px;
 $features-icon-size: 1.5rem;
+
 .uix-feature {
-    /* 水平图标 */
-    .uix-feature__icon {
-        line-height: #{$features-icon-size*3};
-        display: inline-block;
-        width: #{$features-icon-size*3};
-        height: #{$features-icon-size*3};
-        @include transition-default();
-        i {
-            font-size: #{$features-icon-size*1.2};
-            @include transition-default();
-        }
-        &.is-bordered {
-            border: 1px $primary-text-color solid;
-            i {
-                font-size: $features-icon-size;
-            }
-        }
-        &:hover {
-            border-color: $primary-text-color;
-            background: $primary-text-color;
-            i {
-                transform: rotate(30deg);
-                color: #ffffff;
-            }
-        }
-    }
-    /* 垂直图标 */
-    .uix-feature__icon--side {
-        line-height: #{$features-icon-size*2};
-        position: relative;
-        display: inline-block;
-        width: #{$features-icon-size*2};
-        height: #{$features-icon-size*2};
-        @include transition-default();
-        i {
-            font-size: $features-icon-size;
-            margin-right: .36rem;
-            @include transition-default();
-        }
-        &:hover i {
-            transform: rotate(30deg);
-        }
-        &.uix-feature__icon--side--sep-col {
-            display: table-cell;
-            vertical-align: top;
-        }
-        &.is-bordered {
-            margin-right: 1rem;
-            text-align: center;
-            i {
-                font-size: #{$features-icon-size/1.2};
-                margin-right: 0;
-            }
-            ~ .uix-feature__desc {
-                transform: translateX(1rem);
-            }
-            &::before {
-                position: absolute;
-                z-index: 0;
-                top: 0;
-                left: 0;
-                display: block;
-                width: #{$features-icon-size*2};
-                height: #{$features-icon-size*2};
-                margin-right: 1rem;
-                content: '';
-                text-align: center;
-                border: 1px $primary-text-color solid;
-            }
-        }
-        &.is-bordered.uix-border--circle {
-            &::before {
-                border-radius: 100%;
-            }
-        }
-        &.is-bordered.uix-border--rounded {
-            &::before {
-                border-radius: 4px;
-            }
-        }
-    }
-    .uix-feature__title {
-        font-size: 1.125rem;
-        letter-spacing: 0;
-        &:hover i {
-            transform: rotate(30deg);
-        }
-    }
-    .uix-feature__desc {
-        font-size: 0.75rem;
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-        padding: .175em 0 1.2rem;
-        &.uix-feature__desc--sep-col {
-            padding-bottom: 1.2rem;
-        }
-        &.uix-feature__desc--sep-col-side {
-            display: table-cell;
-            padding-bottom: 1.2rem;
-            vertical-align: top;
-        }
-    }
+
+	/* Horizontal Icons */
+	.uix-feature__icon {
+		display: inline-block;
+		width: #{$features-icon-size*3};
+		height: #{$features-icon-size*3};
+		line-height: #{$features-icon-size*3};
+		@include transition-default();
+
+		i {
+			font-size: #{$features-icon-size*1.2};
+			@include transition-default();
+		}
+
+		&.is-bordered {
+			border: 1px $primary-text-color solid;
+
+
+			i {
+				font-size: $features-icon-size;
+			}
+		}
+
+		&:hover {
+			background: $primary-text-color;
+			border-color: $primary-text-color;
+
+
+			i {
+				color: #fff;
+				transform: rotate(30deg);
+			}
+
+		}
+	}
+
+
+
+	/* Vertical Icons */
+	.uix-feature__icon--side {
+		position: relative;
+		display: inline-block;
+		width: #{$features-icon-size*2};
+		height: #{$features-icon-size*2};
+		line-height: #{$features-icon-size*2};
+		@include transition-default();
+
+		i {
+			font-size: $features-icon-size;
+			margin-right: .36rem;
+			@include transition-default();
+		}
+
+		&:hover i {
+			transform: rotate(30deg);
+		}
+
+
+		&.uix-feature__icon--side--sep-col {
+			display: table-cell;
+			vertical-align: top;
+		}
+
+
+		&.is-bordered {
+			text-align: center;
+			margin-right: 1rem;
+
+
+			i {
+				font-size: #{$features-icon-size/1.2};
+				margin-right: 0;
+			}
+
+			~ .uix-feature__desc {
+				transform: translateX(1rem);
+			}
+
+			&::before {
+				content: '';
+				display: block;
+				width: #{$features-icon-size*2};
+				height: #{$features-icon-size*2};
+				position: absolute;
+				z-index: 0;
+				left: 0;
+				top: 0;
+				border: 1px $primary-text-color solid;
+				text-align: center;
+				margin-right: 1rem;
+
+			}
+		}
+
+		&.is-bordered.uix-border--circle {
+
+			&::before {
+				border-radius: 100%;
+
+			}
+		}
+
+		&.is-bordered.uix-border--rounded {
+
+			&::before {
+				border-radius: 4px;
+
+			}
+		}
+
+
+
+	}
+
+
+	.uix-feature__title {
+		font-size: 1.125rem;
+		letter-spacing: 0;
+
+		&:hover i {
+			transform: rotate(30deg);
+		}
+	}
+	.uix-feature__desc {
+		margin: 0;
+		padding: 0;
+		font-size: 0.75rem;
+		line-height: 1.6;
+		padding: .175em 0 1.2rem;
+
+		&.uix-feature__desc--sep-col {
+			padding-bottom: 1.2rem;
+		}
+
+		&.uix-feature__desc--sep-col-side {
+			padding-bottom: 1.2rem;
+			display: table-cell;
+			vertical-align: top;
+		}
+
+	}
 }
+
+
 .uix-typo--color-white {
-    .uix-feature {
-        /* 水平图标 */
-        .uix-feature__icon {
-            &.is-bordered {
-                border-color: #ffffff;
-            }
-        }
-        /* 垂直图标 */
-        .uix-feature__icon--side {
-            &.is-bordered {
-                &::before {
-                    border-color: #ffffff;
-                }
-            }
-        }
-    }
+
+	.uix-feature {
+
+		/* Horizontal Icons */
+		.uix-feature__icon {
+
+			&.is-bordered {
+				border-color: #fff;
+			}
+
+		}
+
+
+
+		/* Vertical Icons */
+		.uix-feature__icon--side {
+
+
+			&.is-bordered {
+
+
+				&::before {
+					border-color: #fff;
+
+				}
+			}
+
+		}
+
+	}
+
 }
+
+
+
 /*
  ---------------------------
- 2. 带分割线的功能
+ 2. Features with Dividing Line
  ---------------------------
  */
 .uix-feature {
-    &.uix-feature--line {
-        display: flex;
-        flex-wrap: wrap;
-        .uix-feature--line__box {
-            flex: 0 0 33.3333%;
-            width: 33.3333%;
-            margin-top: -1px;
-            padding-right: 35px;
-            padding-left: 35px;
-            transition: box-shadow .3s ease-out;
-            border: 1px solid #e3e3ec;
-            > div {
-                padding: 1.5rem;
-            }
-            &:hover {
-                border: 1px solid #e3e3ec;
-                @include outer-shadow('regular');
-                background: #ffffff;
-            }
-            &:nth-child(3n+1) {
-                border-left: 1px solid transparent;
-            }
-            &:nth-child(3n+2) {
-                margin-left: -1px;
-            }
-            &:first-child,
-            &:nth-child(2),
-            &:nth-child(3) {
-                margin-top: 0;
-                border-top: 1px solid transparent;
-            }
-            &:nth-child(3n) {
-                margin-left: -1px;
-                border-right: 1px solid transparent;
-            }
-            &:last-child,
-            &:nth-last-child(2),
-            &:nth-last-child(3) {
-                border-bottom: 1px solid transparent;
-            }
-        }
-    }
+	&.uix-feature--line {
+		display: flex;
+		flex-wrap: wrap;	
+		
+		
+		.uix-feature--line__box {
+			
+			border: 1px solid #e3e3ec;
+			flex: 0 0 33.3333%;
+			width: 33.3333%;
+			padding-left: 35px;
+			padding-right: 35px;
+			transition: box-shadow .3s ease-out;
+			margin-top: -1px;
+			
+			> div {
+				padding: 1.5rem;
+			}
+			
+			&:hover {
+				background: #fff;
+				@include outer-shadow( 'regular' );
+				border: 1px solid #e3e3ec;
+			}	
+			
+			
+			&:nth-child(3n+1) {
+				border-left: 1px solid transparent;
+			}
+			
+			&:nth-child(3n+2) {
+				margin-left: -1px;
+			}		
+			
+			&:first-child, 
+			&:nth-child(2), 
+			&:nth-child(3) {
+				border-top: 1px solid transparent;
+				margin-top: 0;
+			}	
+			
+
+			&:nth-child(3n) {
+				border-right: 1px solid transparent;
+				margin-left: -1px;
+			}
+			
+			
+			&:last-child, 
+			&:nth-last-child(2), 
+			&:nth-last-child(3) {
+				border-bottom: 1px solid transparent;
+			}
+			
+			
+		}
+		
+
+	}
+	
 }
+
 @media all and (max-width: 768px) {
-    .uix-feature {
-        &.uix-feature--line {
-            .uix-feature--line__box {
-                flex: none;
-                width: 100%;
-                border: none;
-                border-bottom: 1px solid #e3e3ec;
-                &:last-child,
-                &:nth-last-child(2),
-                &:nth-last-child(3) {
-                    border-bottom: 1px solid #e3e3ec;
-                }
-            }
-        }
-    }
+
+	.uix-feature {
+		&.uix-feature--line {
+			.uix-feature--line__box {
+				border: none;
+				border-bottom: 1px solid #e3e3ec;
+				flex: none;
+				width: 100%;
+
+
+				&:last-child, 
+				&:nth-last-child(2), 
+				&:nth-last-child(3) {
+					border-bottom: 1px solid #e3e3ec;
+				}	
+
+				
+			}
+
+
+		}
+
+	}	
 }
 
 

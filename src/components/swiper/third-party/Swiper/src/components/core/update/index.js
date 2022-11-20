@@ -7,14 +7,15 @@ import updateProgress from './updateProgress';
 import updateSlidesClasses from './updateSlidesClasses';
 import updateActiveIndex from './updateActiveIndex';
 import updateClickedSlide from './updateClickedSlide';
+
 export default {
-    updateSize,
-    updateSlides,
-    updateAutoHeight,
-    updateSlidesOffset,
-    updateSlidesProgress,
-    updateProgress,
-    updateSlidesClasses,
-    updateActiveIndex,
-    updateClickedSlide
+  updateSize,
+  updateSlides,
+  updateAutoHeight,
+  updateSlidesOffset,
+  updateSlidesProgress,
+  updateProgress,
+  updateSlidesClasses,
+  updateActiveIndex,
+  updateClickedSlide,
 };

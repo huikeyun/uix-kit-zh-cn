@@ -2,8 +2,9 @@
    <!-- Text effect -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
+
 .uix-letter {
-    line-height: 1;
-    display: inline-block;
-    transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+	display: inline-block;
+	line-height: 1;
 }
