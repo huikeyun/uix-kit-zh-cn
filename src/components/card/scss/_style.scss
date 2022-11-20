@@ -1,326 +1,434 @@
 /* ======================================================
-   <!-- 卡片 Cards -->
+   <!-- Cards -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
+
+
 /*
- * 1. 作者卡片
- * 2. 图库卡片（通过 Flex）
- * 3. 缩略图卡片（通过 Flex）
+ * 1. Author Card
+ * 2. Gallery Card (via Flex)
+ * 3. Thumbnail Card (via Flex)
 
 */
+
 $card-radius: 8px;
+
 /*
  ---------------------------
- 1. 作者卡片
+ 1. Author Card
  ---------------------------
  */
+
 .uix-card--author {
-    position: relative;
     box-sizing: border-box;
-    margin: 0 auto;
-    border: 1px solid #eaeaea;
-    border-top: 8px solid $highlight-color1;
-    border-radius: $card-radius;
-    @include outer-shadow('regular');
-    &.uix-card--author--noborder {
-        border: none;
-    }
-    &.uix-card--author--stats {
-        margin-top: 2rem;
-    }
-    &::before,
-    &::after {
-        display: table;
-        clear: both;
-        content: " ";
-    }
-    .uix-card--author__tagline {
-        font-size: 0.75rem;
-        font-weight: 500;
-        text-transform: uppercase;
-        color: rgba(51, 51, 51, .4);
-    }
-    .uix-card--author__header {
-        min-height: 2.086538461rem;
-        padding: 0.65625rem 1.75rem 0 1.75rem;
-        border-radius: #{$card-radius} #{$card-radius} 0 0;
-        background: #ffffff;
-        h3 {
-            font-size: 1.125rem;
-            margin: 0;
-            padding: 0;
-        }
-        .uix-card--author__text {
-            width: calc(100% - 105px);
-            margin-top: 0.4375rem;
-            a {
-                font-size: 0.75rem;
-            }
-        }
-        .uix-card--author__preview {
-            position: relative;
-            top: 0.175rem;
-            display: inline-block;
-            width: 100px;
-            height: 100px;
-            &.uix-card--author__preview--rounded {
-                border-radius: $card-radius;
-            }
-            &.uix-card--author__preview--jumpOut {
-                @include outer-shadow('regular');
-                position: absolute;
-                transform: translateY(-2rem);
-            }
-            img {
-                width: 90px !important;
-                height: 90px !important;
-                margin: 0.3125rem 0 0 0.3125rem;
-            }
-        }
-    }
-    .uix-card--author__content {
-        line-height: 1.5;
-        padding: 1.75rem 1.75rem 1.3125rem 1.75rem;
-        background: #ffffff;
-        &.uix-card--author__content--rounded {
-            border-radius: 0 0 #{$card-radius} #{$card-radius};
-        }
-        &::after {
-            bottom: 2.125rem;
-            left: 1.75rem;
-            width: 0;
-            height: 0;
-            content: '';
-            border-top: 0.4375rem solid #ffffff;
-            border-right: 0.4375rem solid transparent;
-            border-left: 0.4375rem solid transparent;
-        }
-        p {
-            margin-top: 0.875rem;
-            padding: 0 0.875rem 0 1.75rem;
-        }
-    }
-    .uix-card--author__jump {
-        font-size: 0.875rem;
-        display: block;
-        padding: 0.525rem 2.1875rem;
-        transition: all 500ms ease-in-out;
-        text-align: right;
-        vertical-align: middle;
-        color: #bdbdbd;
-        border-radius: 0 0 #{$card-radius} #{$card-radius};
-        background: #f6f6f6;
-    }
+	margin: 0 auto;
+	border: 1px solid #eaeaea;
+	position: relative;
+	border-top: 8px solid $highlight-color1;
+	border-radius: $card-radius;
+	@include outer-shadow( 'regular' );
+
+	&.uix-card--author--noborder {
+		border: none;
+	}
+	&.uix-card--author--stats {
+		margin-top: 2rem;
+	}
+
+	&::before,
+	&::after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+
+	.uix-card--author__tagline {
+		font-size: 0.75rem;
+		font-weight: 500;
+		text-transform: uppercase;
+		color: rgba(51, 51, 51, .4);
+	}
+
+
+	.uix-card--author__header {
+		min-height: 2.086538461rem;
+		background: #fff;
+		padding: 0.65625rem 1.75rem 0 1.75rem;
+		border-radius: #{$card-radius} #{$card-radius} 0  0;
+
+
+		h3 {
+			margin: 0;
+			padding: 0;
+			font-size: 1.125rem;
+
+		}
+		.uix-card--author__text {
+			margin-top: 0.4375rem;
+			width: calc(100% - 105px );
+			a {
+				font-size: 0.75rem;
+			}
+		}
+		.uix-card--author__preview {
+			position: relative;
+			display: inline-block;
+			top: 0.175rem;
+			width: 100px;
+			height: 100px;
+
+			&.uix-card--author__preview--rounded {
+				border-radius: $card-radius;
+			}
+
+			&.uix-card--author__preview--jumpOut {
+				@include outer-shadow( 'regular' );
+				position: absolute;
+				transform: translateY(-2rem);
+
+			}
+
+			img {
+				width: 90px !important;
+				height: 90px !important;
+				margin: 0.3125rem 0 0 0.3125rem;
+			}
+
+		}
+	}
+
+	.uix-card--author__content {
+		background: #fff;
+		padding: 1.75rem 1.75rem 1.3125rem 1.75rem;
+		line-height: 1.5;
+
+		&.uix-card--author__content--rounded {
+			border-radius: 0  0 #{$card-radius} #{$card-radius};
+		}
+
+		&::after {
+			content: '';
+			position: relative;
+			height: 0;
+			width: 0;
+			border-left: 0.4375rem solid transparent;
+			border-right: 0.4375rem solid transparent;
+			border-top: 0.4375rem solid #fff;
+			position: absolute;
+			bottom: 2.125rem;
+			left: 1.75rem;
+		}
+
+		p {
+			margin-top: 0.875rem;
+			padding: 0 0.875rem 0 1.75rem;
+		}
+	}
+
+	.uix-card--author__jump {
+		font-size: 0.875rem;
+		display: block;
+		background: #F6F6F6;
+		padding: 0.525rem 2.1875rem;
+		text-align: right;
+		transition: all 500ms ease-in-out;
+		color: #BDBDBD;
+		border-radius: 0  0 #{$card-radius} #{$card-radius};
+		vertical-align: middle;
+	}
+
+
 }
+
+
 /*
  ---------------------------
- 2. 图库卡片（通过 Flex）
+ 2. Gallery Card
  ---------------------------
  */
 .uix-card--gallery {
+    box-sizing: border-box;
     position: relative;
     display: inline-flex;
     flex-direction: column;
-    box-sizing: border-box;
-    max-width: 100%; /* 使用 no-wrap 防止文本溢出 */
-    /* 演示样式 */
-    @include outer-shadow('regular');
+    max-width: 100%; /* Prevent text overflow with no-wrap */
+    
+    /* demo style */
+    @include outer-shadow( 'regular' );
     border-radius: $card-radius;
+   
+    
     .uix-card--gallery__preview,
     .uix-card--gallery__body {
-        display: flex; /* 嵌套的弹性容器 */
-        flex-direction: column; /* 弹性项目的垂直对齐 */
-        justify-content: center; /* 弹性项目的垂直居中 */
+        display: flex;                 /* nested flex container */
+        flex-direction: column;        /* vertical alignment of flex items */
+        justify-content: center;       /* center flex items vertically */  
     }
+    
     .uix-card--gallery__preview {
-        position: relative;
-        align-items: center; /* 弹性项目的水平居中 */
+        align-items: center; /* center flex items horizontally */
+        padding: 0;  /* default value, this attribute can be specified in HTML */
         box-sizing: border-box;
-        padding: 0; /* 默认值，该属性可以在 HTML 中指定 */
+        position: relative;
         border-radius: $card-radius $card-radius 0 0;
+        
+        
         img {
-            width: 100%;
-            height: 100%;
-            border-radius: $card-radius $card-radius 0 0;
             object-fit: cover;
             object-position: center;
+            height: 100%;
+            width: 100%;
+            border-radius: $card-radius $card-radius 0 0;
         }
-        /* 使用 :before 显示选择轮廓，以便边框不会影响预览中内容的布局。 */
+
+        /* Use a :before to show the selection outline so that the border doesn't
+        * affect the layout of the content within the preview. */
         &::before {
-            position: absolute;
-            box-sizing: border-box;
             content: '';
-            border: 1px solid transparent;
-            border-radius: inherit;
+            position: absolute;
             inset-block-start: 0;
             inset-inline-start: 0;
             inline-size: 100%;
             block-size: 100%;
+            box-sizing: border-box;
+            border-radius: inherit;
+            border: 1px solid transparent;
         }
+        
     }
+    
+    
     .uix-card--gallery__header {
         display: flex;
-        align-items: center; /* 弹性项目的水平居中 */
+        align-items: center; /* center flex items horizontally */
+        
         .uix-card--gallery__header__child {
             display: flex;
-            align-items: center; /* 弹性项目的水平居中 */
             flex: 1;
-            max-width: 100%;
             word-break: break-all;
+            align-items: center;
+            max-width: 100%;
+ 
+            
             small {
                 white-space: nowrap;
             }
-        }
+        }      
     }
+    
     .uix-card--gallery__content {
+  
         > .uix-card--gallery__content__child {
             display: flex;
-            align-items: center; /* 弹性项目的水平居中 */
             flex-direction: row;
+            align-items: center;
+
+
             .uix-card--gallery__content__child--left {
                 display: flex;
-                align-items: center; /* 弹性项目的水平居中 */
-                flex: 1;
                 flex-direction: row;
-                min-width: 0; /* 防止 flex-boxes 变得比它的内容更小 -- 对于行 */
+                flex: 1;
+                align-items: center; /* center flex items horizontally */
                 word-break: break-all;
+                min-width: 0; /* prevents flex-boxes of becoming smaller than it's contents -- for rows */
+
                 > div {
                     line-height: 1.25;
-                    width: 100%;
                     margin-left: .5rem;
-                }
+                    width: 100%;
+                }   
+
             }
+
+
             .uix-card--gallery__content__child--right {
-                min-width: 50px; /* 默认值，该属性可以在 HTML 中指定 */
-            }
+                min-width: 50px; /* default value, this attribute can be specified in HTML */
+            }   
+
+
         }
+
+
     }
+
+
+    
+    
     .uix-card--gallery__body {
         flex: 1;
-        min-width: 0; /* 防止 flex-boxes 变得比它的内容更小——对于行 */
-        max-width: 100%; /* 使用横排时防止文本溢出 */
+        max-width: 100%; /* Prevent text overflow with no-wrap when horizontal type is used  */
+        min-width: 0; /* prevents flex-boxes of becoming smaller than it's contents -- for rows */
     }
+    
     .uix-card--gallery__action {
         display: flex;
         flex: 1;
-        justify-content: flex-end; /* 垂直结束弹性项目 */
         margin-left: 1rem;
+        justify-content: flex-end; /* end flex items vertically */
     }
-    /*-- 横向布局--*/
+    
+  
+    /*-- horizontal layout --*/
     &.uix-card--gallery--horizontal {
         flex-direction: row;
+        
+
         .uix-card--gallery__preview {
             border-radius: $card-radius 0 0 $card-radius;
+        
             img {
                 visibility: hidden;
                 border-radius: $card-radius 0 0 $card-radius;
-            }
+            }  
+            
         }
+        
         .uix-card--gallery__header {
             .uix-card--gallery__header__child {
                 display: block;
-            }
-        }
+            }      
+        }   
+        
     }
+    
+    
     /*-- overlay layout --*/
     &.uix-card--gallery--overlay {
+        
         .uix-card--gallery__preview {
             border-radius: $card-radius;
             img {
                 border-radius: $card-radius;
             }
         }
+
         .uix-card--gallery__body {
-            position: absolute;
-            bottom: 0;
+			position: absolute;
+			bottom: 0;
             left: 0;
+            
             &.uix-card--gallery__body--verticalCenter {
                 height: 100%;
             }
         }
     }
-    /*-- 菜单组 --*/
+
+    
+    
+
+    /*-- Menu Group --*/
     .uix-card--gallery__status {
         position: absolute;
-        z-index: 2;
-        right: 0;
+        justify-content: center;
+        display: flex;
+        background-color: rgba(0, 0, 0, 0.3);
+        width: 100%;
         bottom: 0;
         left: 0;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
+        right: 0;
+        z-index: 2;
+
+
         .uix-card--gallery__status__item {
             display: flex;
-            align-items: center; /* 弹性项目的水平居中 */
+            align-items: center;
+            color: #fff;
             padding: 0.5rem 1rem;
             white-space: nowrap;
-            color: #ffffff;
+
             svg {
                 width: 20px;
                 margin-right: .5rem;
             }
         }
+
+
     }
+
+
+
     .uix-card--gallery__menu {
-        z-index: 2;
         display: flex;
-        align-items: center; /* 弹性项目的水平居中 */
         justify-content: space-between;
+        align-items: center;
         width: 100%;
-        padding: 0 25px;
-        border-radius: 0 0 4px 4px;
         box-shadow: -1px 3px 8px -1px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 4px 4px;
+        padding: 0 25px;
+        z-index: 2;
+
+
         .uix-card--gallery__menu__avatar {
             display: flex;
             align-items: center;
+
             > span {
                 white-space: nowrap;
             }
+
             img {
                 width: 42px;
                 height: 42px;
+                object-fit: cover; /* required */
                 margin-right: 15px;
-                object-fit: cover; /* 必需的 */
             }
+
+
         }
+
+
         .uix-card--gallery__menu__items {
             display: flex;
             cursor: pointer;
+
             > a {
                 padding: 20px;
                 transition: all 500ms ease-in-out;
+
                 &.is-active,
                 &:hover {
-                    color: $highlight-color1;
                     border-bottom: 3px solid $highlight-color1;
+                    color: $highlight-color1;
                 }
-            }
+            }  
         }
+
+
         .uix-card--gallery__menu__action {
             display: flex;
+
             button {
-                font-size: 0.75rem;
-                font-weight: 600;
-                padding: .5rem 1rem;
-                cursor: pointer;
-                color: #c9c9c9;
                 border: 1px solid #dcdcdc;
+                color: #C9C9C9;
                 border-radius: 25px 0 0 25px;
+                padding: .5rem 1rem;
+                font-weight: 600;
+                font-size: 0.75rem;
+                cursor: pointer;
                 background-color: transparent;
+
+
                 &:last-child {
-                    margin-left: -1px;
                     border-radius: 0 25px 25px 0;
+                    margin-left: -1px;
                 }
+
                 &:hover {
-                    background-color: #fafafa;
+                    background-color: #FAFAFA;
                 }
             }
+
+
         }
+
+
     }
+
+
     /*
-      如果不使用“justify-content: space-between;”，您需要使用以下内容来实现布局
-     */
+     If you do not use "justify-content: space-between; ", 
+     you need to use the following to achieve the layout
+    */
     /*
     .uix-card--gallery__menu {
         display: flex;
@@ -336,108 +444,157 @@ $card-radius: 8px;
         }
     }
     */
-    /*-- rxtra 元素样式--*/
+
+    
+    
+    /*-- rxtra elements style --*/
     button {
-        color: rgb(75, 75, 75);
-        border-color: rgba(0, 0, 0, 0);
         background-color: rgba(0, 0, 0, 0);
+        border-color: rgba(0, 0, 0, 0);
+        color: rgb(75, 75, 75);  
+
         &:active {
-            color: rgb(44, 44, 44);
-            border-color: rgb(225, 225, 225);
             background-color: rgb(225, 225, 225);
+            border-color: rgb(225, 225, 225);
+            color: rgb(44, 44, 44);
             box-shadow: none;
         }
     }
+
+    
+    
+
 }
+
 @media all and (max-width: 768px) {
-    .uix-card--gallery {
-        /*-- 横向布局--*/
+	.uix-card--gallery {
+
+        
+        /*-- horizontal layout --*/
         &.uix-card--gallery--horizontal:not(.is-mobile-still) {
             flex-direction: column;
+            
             .uix-card--gallery__preview {
                 border-radius: $card-radius $card-radius 0 0;
                 img {
                     border-radius: $card-radius $card-radius 0 0;
-                }
-            }
+                }  
+            }  
         }
-        /*-- 菜单组 --*/
+        
+        
+
+        /*-- Menu Group --*/
         .uix-card--gallery__menu {
             flex-direction: column;
+
             .uix-card--gallery__menu__avatar {
                 margin: 1rem;
             }
+
             .uix-card--gallery__menu__action {
                 margin: 1rem;
             }
+
         }
-    }
+
+        
+		
+	}
+
 }
+
 /*
  ---------------------------
- 3. 缩略图卡片（通过 Flex）
+ 3. Thumbnail Card
  ---------------------------
  */
 .uix-card--thumb {
+    box-sizing: border-box;
     position: relative;
     display: inline-flex;
     flex-direction: column;
-    box-sizing: border-box;
-    max-width: 100%; /* 使用 no-wrap 防止文本溢出 */
-    /* 演示样式 */
+    max-width: 100%; /* Prevent text overflow with no-wrap */
+    
+    /* demo style */
     padding: 1rem;
-    @include outer-shadow('regular');
+    @include outer-shadow( 'regular' );
     border-radius: $card-radius;
+
     .uix-card--thumb__header {
         display: inline-flex;
-        align-items: center; /* 弹性项目的水平居中 */
         flex-direction: row;
+        align-items: center; /* center flex items horizontally */
+        
+        
         .uix-card--thumb__preview {
-            flex-basis: 50px; /* 默认值，该属性可以在 HTML 中指定 */
+            flex-basis: 50px; /* default value, this attribute can be specified in HTML */
             margin-right: 5px;
         }
+        
         .uix-card--thumb__content {
-            /* ----- 保持图片宽度固定 ----- 开始 */
+            /* ----- Keep the width of the picture fixed -----  begin  */
             flex: 1;
-            min-width: 0; /* 防止 flex-boxes 变得比它的内容更小——对于行 */
-            /* ----- 保持图片宽度固定 ----- 结束 */
+            min-width: 0; /* prevents flex-boxes of becoming smaller than it's contents -- for rows */
+            /* ----- Keep the width of the picture fixed -----  end  */
+            
             > .uix-card--thumb__content__child {
                 display: flex;
                 flex-direction: row;
+
+                
                 .uix-card--thumb__content__child--left {
                     display: flex;
-                    align-items: center; /* 弹性项目的水平居中 */
-                    flex: 1;
                     flex-direction: row;
-                    min-width: 0; /* prevents flex-boxes of becoming smaller than it's contents -- for rows */
+                    flex: 1;
+                    align-items: center; /* center flex items horizontally */
                     word-break: break-all;
+                    min-width: 0; /* prevents flex-boxes of becoming smaller than it's contents -- for rows */
+
                     > div {
                         line-height: 1.25;
-                        width: 100%;
                         margin-left: .5rem;
-                    }
+                        width: 100%;
+                    }   
+
                 }
+                
+
                 .uix-card--thumb__content__child--right {
-                    min-width: 50px; /* 默认值，该属性可以在 HTML 中指定 */
-                }
+                    min-width: 50px; /* default value, this attribute can be specified in HTML */
+                }   
+
+                  
             }
+           
+            
         }
+
+
     }
+    
+    
     .uix-card--thumb__body {
-        line-height: 1.25;
         padding-top: .5rem;
+        line-height: 1.25;
     }
-    /*-- rxtra 元素样式--*/
+
+
+    /*-- rxtra elements style --*/
     button {
-        color: rgb(75, 75, 75);
-        border-color: rgba(0, 0, 0, 0);
         background-color: rgba(0, 0, 0, 0);
+        border-color: rgba(0, 0, 0, 0);
+        color: rgb(75, 75, 75);  
+
         &:active {
-            color: rgb(44, 44, 44);
-            border-color: rgb(225, 225, 225);
             background-color: rgb(225, 225, 225);
+            border-color: rgb(225, 225, 225);
+            color: rgb(44, 44, 44);
             box-shadow: none;
         }
     }
+
+    
+    
 }
 

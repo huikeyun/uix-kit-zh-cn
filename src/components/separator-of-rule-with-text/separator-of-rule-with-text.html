@@ -1,87 +1,158 @@
 <!DOCTYPE html>
 <html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-    <meta charset="@@{website_charset}" />
-    <title>规则与文本的分隔符 - @@{website_title}</title>
-    @@include('./src/components/_global/include-header.html')
-</head>
-<body class="page">
-@@include('./src/components/_global/include-loader.html')
-@@include('./src/components/_global/include-toggle-trigger.html')
-<div class="uix-wrapper">
-    <!-- 页眉区 -->
-    <header class="uix-header__container">
-        <div class="uix-header">
-            <!-- 容器 开始 -->
-            <div class="container">
-                @@include('./src/components/_global/include-brand.html')
-                @@include('./src/components/_global/include-menu.html')
-            </div>
-            <!-- 容器 结束 -->
-            <div class="uix-clearfix"></div>
-        </div>
-    </header>
-    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-    <main id="uix-maincontent">
-        <!-- 内容 开始 -->
-        <section class="uix-spacing--s uix-spacing--no-bottom">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
-                        <h3>垂直分隔符</h3>
-                    </div>
-                </div>
-                <!-- 行列 结束 -->
-            </div>
-            <!-- 容器 结束 -->
-        </section>
-        <!-- 内容 结束 -->
-        <section class="uix-spacing--s">
-            <div class="container uix-t-c">
-                <div class="row">
-                    <div class="col-12">
-                        <div style="width: 320px;  height: 320px; border: 2px dashed #f5f5f5;">
-                            <hr class="uix-separator-rwt uix-separator-rwt--v" data-content="分隔符里的内容">
-                        </div>
-                    </div>
-                </div>
-                <!-- 行列 结束 -->
-            </div>
-            <!-- 容器 结束 -->
-        </section>
-        <!-- 内容 开始 -->
-        <section class="uix-spacing--s uix-spacing--no-bottom">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
-                        <h3>水平分隔符</h3>
-                    </div>
-                </div>
-                <!-- 行列 结束 -->
-            </div>
-            <!-- 容器 结束 -->
-        </section>
-        <!-- 内容 结束 -->
-        <section class="uix-spacing--s">
-            <div class="container uix-t-c">
-                <div class="row">
-                    <div class="col-12">
-                        <div style="width: 320px; height: 100px; border: 2px dashed #f5f5f5;">
-                            <hr class="uix-separator-rwt uix-separator-rwt--h" data-content="分隔符里的内容">
-                        </div>
-                    </div>
-                </div>
-                <!-- 行列 结束 -->
-            </div>
-            <!-- 容器 结束 -->
-        </section>
-    </main>
-    @@include('./src/components/_global/include-copyright.html')
-</div>
-<!-- uix-wrapper end -->
-@@include('./src/components/_global/include-footer.html')
+	<meta charset="@@{website_charset}" />
+	<title>Separator of Rule With Text - @@{website_title}</title>	
+	@@include('./src/components/_global/include-header.html')
+</head>  
+
+     
+  <body class="page">
+  
+  
+          
+    @@include('./src/components/_global/include-loader.html')
+    @@include('./src/components/_global/include-toggle-trigger.html')
+    
+    
+
+  
+    <div class="uix-wrapper">
+    
+        <!-- Header Area
+        ============================================= -->      
+        <header class="uix-header__container">
+            
+             <div class="uix-header">
+                 <div class="container">
+                 
+                        @@include('./src/components/_global/include-brand.html')
+                        
+                        @@include('./src/components/_global/include-menu.html')
+                        
+                        
+                        
+                        
+                  </div>
+                  <!-- .container end -->
+                  
+                  <div class="uix-clearfix"></div>
+             </div>
+        
+        </header>
+        <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+      
+        
+		<main id="uix-maincontent">
+			
+			<!-- Content   
+			====================================================== -->
+			<section class="uix-spacing--s uix-spacing--no-bottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h3>Vertical Separator</h3>
+							
+							
+						</div>
+					</div>
+					<!-- .row end -->
+
+				</div>
+				<!-- .container end -->
+
+			</section>
+			
+			
+			
+		
+
+
+		   <!-- Content  
+			====================================================== -->
+			<section class="uix-spacing--s">
+				<div class="container uix-t-c">
+						<div class="row">
+							<div class="col-12">
+
+                                <div style="width: 320px;  height: 320px; border: 2px dashed #f5f5f5;">
+                                
+                                    <hr class="uix-separator-rwt uix-separator-rwt--v" data-content="Or">
+                                    
+                                </div>
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+
+				</div>
+				<!-- .container end -->
+
+			</section>   
+
+            
+            
+			<!-- Content   
+			====================================================== -->
+			<section class="uix-spacing--s uix-spacing--no-bottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h3>Horizontal Separator</h3>
+							
+						</div>
+					</div>
+					<!-- .row end -->
+
+				</div>
+				<!-- .container end -->
+
+			</section>
+			
+			
+			
+		
+
+
+		   <!-- Content  
+			====================================================== -->
+			<section class="uix-spacing--s">
+				<div class="container uix-t-c">
+						<div class="row">
+							<div class="col-12">
+
+                                <div style="width: 320px; height: 100px; border: 2px dashed #f5f5f5;">
+                                
+                                    <hr class="uix-separator-rwt uix-separator-rwt--h" data-content="Or">
+                                    
+                                </div>
+                                
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+
+				</div>
+				<!-- .container end -->
+
+			</section>   
+
+			
+		</main>
+		
+        
+		   
+        
+    
+        
+        @@include('./src/components/_global/include-copyright.html')
+        
+        
+    </div>
+    <!-- .uix-wrapper end -->
+       
+       
+    @@include('./src/components/_global/include-footer.html')
 

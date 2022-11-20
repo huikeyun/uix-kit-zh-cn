@@ -1,596 +1,796 @@
 /* ======================================================
-    <!-- 弹性滑块（第三方插件）Flexslider (Third-party plugin) -->
+    <!-- Flexslider (Third-party plugin) -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
+
+
 /*
- * 1. 缩略图控制导航模式
- * 2. 默认幻灯片和默认控件
- *    2.1. 防止内容溢出
- *    2.2. 默认左右箭头
- *    2.3. 默认情况下的分页点
- *    2.4. 缩略图
+ * 1. Thumbnail ControlNav Pattern
+ * 2. Default Slideshow & Default  Controls
+ *    2.1. Prevent content overflow
+ *    2.2. Left and right arrows by default
+ *    2.3. Pagination Dot by default
+ *    2.4. Thumbnail
 
- * 3. 自定义控件
- *    3.1. 自定义控件的左右箭头
- *    3.2. 自定义控件的分页
- *    3.3. 自定义下一个/上一个和分页样式
- *    3.4. 导航中的下一个/上一个图像缩略图
- *    3.5. 时间轴指示器
+ * 3. Custom Controls
+ *    3.1. Left and right arrows by Custom Controls
+ *    3.2. Pagination by Custom Controls
+ *    3.3. Custom Next/Prev and Pagination Styles
+ *    3.4. Next/Prev Image Thumbnail In Navigation
+ *    3.5. Timeline Indicator
 
- * 4. 主要幻灯片（动态最小/最大范围）
- * 5. 主要幻灯片
- * 6. 视差幻灯片
+ * 4. Primary Slideshow  (with dynamic min/max ranges )
+ * 5. Primary Slideshow
+ * 6. Parallax Slideshow
 */
+
+
+
 /*
  ---------------------------
- 1. 缩略图控制导航模式
+ 1. Thumbnail ControlNav Pattern
  ---------------------------
  */
 .uix-flexslider__thumbs {
-    position: relative;
-    left: 50%;
-    overflow: hidden;
-    overflow-x: auto;
-    width: 100%;
-    margin-top: 1.5rem;
-    transform: translateX(-50%);
-    text-align: center;
-    white-space: nowrap;
-    &::-webkit-scrollbar-track {
-        border-radius: 0;
-        background-color: #e6e3e3;
-    }
-    &::-webkit-scrollbar {
-        height: 5px;
-        background-color: $highlight-color1;
-    }
-    &::-webkit-scrollbar-thumb {
-        border-radius: 0;
-        background-color: $highlight-color1;
-    }
-    ul {
-        margin: 0;
-        padding: 0;
-        li {
-            display: inline-block;
-            width: 100px;
-            max-height: 100px;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            padding: 0;
-            cursor: pointer;
-            transform: scale(.9);
-            &.is-active {
-                transform: scale(1);
-            }
-            img {
-                box-shadow: 0 6px 11px 1px rgba(0, 0, 0, 0.15);
-            }
-        }
-    }
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	width: 100%;
+	overflow: hidden;
+	overflow-x: auto;
+	white-space: nowrap;
+	margin-top: 1.5rem;
+
+
+	&::-webkit-scrollbar-track {
+		border-radius: 0px;
+		background-color: #E6E3E3;
+	}
+
+	&::-webkit-scrollbar {
+		height: 5px;
+		background-color: $highlight-color1;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: 0px;
+		background-color: $highlight-color1;
+	}
+
+	ul {
+
+		margin: 0;
+		padding: 0;
+
+
+		li {
+			width: 100px;
+			max-height: 100px;
+			display: inline-block;
+			cursor: pointer;
+			margin-right: 10px;
+			margin-bottom: 10px;
+			padding: 0;
+			transform: scale(.9);
+
+			&.is-active {
+				transform: scale(1);
+			}
+
+
+			img {
+
+				box-shadow: 0px 6px 11px 1px rgba(0,0,0,0.15);
+			}
+
+		}
+	}
+
+
 }
+
+
+
 /*
  ---------------------------
- 2. 默认幻灯片和默认控件
+ 2. Default Slideshow & Default  Controls
  ---------------------------
  */
-/*---- 2.1. 防止内容溢出 ----*/
+/*---- 2.1. Prevent content overflow ----*/
 .uix-flexslider,
 .uix-flexslider .uix-flexslider__inner,
 .uix-flexslider .uix-flexslider__inner > .uix-flexslider__item {
     max-height: 100vh;
+
 }
+
+
 .uix-flexslider,
 .uix-flexslider__viewport {
-    transition: .1s ease;
+	transition: .1s ease;
 }
+
 .uix-flexslider {
-    position: relative;
-    z-index: 0;
-    overflow: hidden;
-    zoom: 1;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	zoom: 1;
+	width: 100%;
+	overflow: hidden;
+	z-index: 0;
 }
+
 .uix-flexslider__viewport {
     max-height: 200vh;
 }
+
 .uix-flexslider .uix-flexslider__inner {
-    height: 100%; /* 必需的 */
-    > .uix-flexslider__item {
-        position: relative;
-        display: none;
-        -webkit-backface-visibility: hidden;
-    }
-    img {
-        display: block;
-        max-width: 100%;
-        margin: 0;
-        padding: 0;
-        border: none;
-        box-shadow: none;
-    }
+
+	height: 100%; /* Required */
+
+	> .uix-flexslider__item {
+		display: none;
+		-webkit-backface-visibility: hidden;
+		position: relative;
+
+	}
+	img {
+		max-width: 100%;
+		display: block;
+		border: none;
+		box-shadow: none;
+		margin: 0;
+		padding: 0;
+	}
 }
+
 html[xmlns] .uix-flexslider .uix-flexslider__inner {
     display: block;
 }
+
 * html .uix-flexslider .uix-flexslider__inner {
     height: 1%;
 }
+
 .no-js .uix-flexslider .uix-flexslider__inner > .uix-flexslider__item:first-child {
     display: block;
 }
+
 .uix-flexslider .uix-flexslider__inner {
-    zoom: 1;
-    img {
-        width: 100%;
-        height: auto;
-    }
+	zoom: 1;
+
+	img {
+		height: auto;
+		width: 100%;
+	}
 }
-/*---- 2.2. 默认左右箭头 ----*/
+
+
+/*---- 2.2. Left and right arrows by default ----*/
 ul.uix-flexslider__direction-nav {
-    position: absolute;
-    top: 50%;
-    display: block;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    transform: translateY(-50%);
-    background: none;
-    li {
-        position: relative;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        a {
-            font-size: 1.3125rem;
-            line-height: 40px;
-            position: absolute;
-            z-index: 9;
-            top: 50%;
-            display: block;
-            width: 50px;
-            height: 40px;
-            margin-top: -20px;
-            text-align: center;
-            opacity: 0.66;
-            color: #ffffff;
-            &:hover {
-                text-decoration: none;
-                opacity: 1;
-                color: #ffffff;
-            }
-            &.uix-flexslider__prev {
-                left: -100px;
-                &.uix-flexslider__disabled {
-                    visibility: hidden;
-                    pointer-events: none;
-                }
-            }
-            &.uix-flexslider__next {
-                right: -100px;
-                text-align: right;
-                &.uix-flexslider__disabled {
-                    visibility: hidden;
-                    pointer-events: none;
-                }
-            }
-        }
-    }
+
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background: none;
+
+	li {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		position: relative;
+
+		a {
+			display: block;
+			z-index: 9;
+			position: absolute;
+			top: 50%;
+			height: 40px;
+			margin-top: -20px;
+			line-height: 40px;
+			width: 50px;
+			text-align: center;
+			opacity: 0.8;
+			color: #fff;
+			font-size: 1.3125rem;
+			opacity: 0.66;
+
+			&:hover {
+				opacity: 1;
+				color: #fff;
+				text-decoration: none;
+			}
+
+			&.uix-flexslider__prev {
+				left: -100px;
+
+				&.uix-flexslider__disabled {
+					visibility: hidden;
+					pointer-events: none;
+				}
+
+			}
+			&.uix-flexslider__next {
+				right: -100px;
+				text-align: right;
+
+				&.uix-flexslider__disabled {
+					visibility: hidden;
+					pointer-events: none;
+				}
+
+			}
+
+
+		}
+	}
+
+
 }
+
 .uix-flexslider:hover {
-    a {
-        &.uix-flexslider__prev {
-            left: 0;
-        }
-        &.uix-flexslider__next {
-            right: 20px;
-        }
-    }
+
+	a {
+		&.uix-flexslider__prev {
+			left: 0;
+		}
+		&.uix-flexslider__next {
+			right: 20px;
+		}
+	}
+
 }
-/*----- 2.3. 默认情况下的分页点 -----*/
+
+/*----- 2.3. Pagination Dot by default -----*/
 ol.uix-flexslider__control-paging {
-    font-size: 0; /* 争夺内联块元素之间的空间 */
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    list-style: none;
-    text-align: center; /* 要求 */
-    li {
-        font-size: 1rem; /* 争夺内联块元素之间的空间 */
-        display: inline-block; /* 要求 */
-        margin: 0 .2rem;
-        a {
-            display: block;
-            width: 12px;
-            height: 12px;
-            cursor: pointer;
-            text-indent: -9999px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 6px 23px -2px rgba(0, 0, 0, 0.36);
-            &:hover,
-            &.uix-flexslider__active {
-                width: 25px;
-                background: rgba(255, 255, 255, 1);
-            }
-        }
-    }
+	list-style: none;
+	left: 0;
+	bottom: 0;
+	font-size: 0;/*Fighting the Space Between Inline Block Elements*/
+	display: block;
+	width: 100%;
+	text-align: center; /*require*/
+	position: absolute;
+
+	li {
+		font-size: 1rem;/*Fighting the Space Between Inline Block Elements*/
+		display: inline-block; /*require*/
+		margin: 0 .2rem;
+
+		a {
+			width: 12px;
+			height: 12px;
+			display: block;
+			background: rgba(255, 255, 255, 0.5);
+			cursor: pointer;
+			text-indent: -9999px;
+			border-radius: 20px;
+			box-shadow: 0px 6px 23px -2px rgba(0, 0, 0, 0.36);
+
+			&:hover,
+			&.uix-flexslider__active {
+				background: rgba(255, 255, 255, 1);
+				width: 25px;
+			}
+		}
+
+	}
+
 }
-/*----- 2.4. 缩略图 -----*/
+
+/*----- 2.4. Thumbnail -----*/
 .uix-flexslider__control-thumbs {
-    position: static;
-    overflow: hidden;
-    margin: 5px 0 0;
-    li {
-        float: left;
-        width: 25%;
-        margin: 0;
-    }
-    img {
-        display: block;
-        width: 100%;
-        height: auto;
-        cursor: pointer;
-        transition: .1s ease;
-        opacity: .7;
-        &:hover {
-            opacity: 1;
-        }
-    }
-    .uix-flexslider__active {
-        cursor: default;
-        opacity: 1;
-    }
+	margin: 5px 0 0;
+	position: static;
+	overflow: hidden;
+
+	li {
+		width: 25%;
+		float: left;
+		margin: 0;
+	}
+	img {
+		width: 100%;
+		height: auto;
+		display: block;
+		opacity: .7;
+		cursor: pointer;
+		transition: .1s ease;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+	.uix-flexslider__active {
+		opacity: 1;
+		cursor: default;
+	}
 }
+
+
+
 /*
  ---------------------------
- 3. 自定义控件
+ 3. Custom Controls
  ---------------------------
  */
 .uix-flexslider__mycontrols {
-    display: table;
-    width: 100%;
-    margin-top: 1.75rem;
-    table-layout: fixed;
-    /*----- 3.1. 自定义控件的左右箭头 -----*/
-    > a {
-        line-height: 30px;
-        position: relative;
-        display: table-cell;
-        width: 30px;
-        text-align: center;
-        opacity: .7;
-        color: rgba(233, 47, 22, 1);
-        &::after {
-            position: absolute;
-            top: 0;
-            display: block;
-            width: 30px;
-            height: 30px;
-            content: '';
-            border: 1px solid rgba(233, 47, 22, 1);
-            border-radius: 50%;
-        }
-        &:hover {
-            opacity: 1;
-        }
-        &.uix-flexslider__mycontrols__prev {
-            &::after {
-                left: 0;
-            }
-            &.uix-flexslider__disabled {
-                visibility: hidden;
-                pointer-events: none;
-            }
-        }
-        &.uix-flexslider__mycontrols__next {
-            &::after {
-                right: 0;
-            }
-            &.uix-flexslider__disabled {
-                visibility: hidden;
-                pointer-events: none;
-            }
-        }
-    }
-    /*----- 3.2. 自定义控件的分页  -----*/
-    .uix-flexslider__mycontrols__control-paging {
-        > ol {
-            position: relative;
-            transform: translateY(.5rem);
-            li {
-                margin: 0 .5rem;
-                a {
-                    position: relative;
-                    background: rgba(233, 47, 22, 0.5);
-                    &::after {
-                        position: absolute;
-                        top: -4px;
-                        left: -4px;
-                        display: block;
-                        width: 20px;
-                        height: 20px;
-                        content: '';
-                        transform: scale(0);
-                        border: 1px solid rgba(233, 47, 22, 1);
-                        border-radius: 100%;
-                        @include transition-default();
-                    }
-                    &:hover,
-                    &.uix-flexslider__active {
-                        width: 12px;
-                        background: rgba(233, 47, 22, 1);
-                        &::after {
-                            transform: scale(1);
-                        }
-                    }
-                }
-            }
-        }
-    }
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+	margin-top: 1.75rem;
+
+
+	/*----- 3.1. Left and right arrows by Custom Controls -----*/
+	> a {
+		position: relative;
+		display: table-cell;
+		color: rgba(233, 47, 22, 1);
+		opacity: .7;
+		width: 30px;
+		line-height: 30px;
+		text-align: center;
+
+		&::after {
+			content: '';
+			width: 30px;
+			height: 30px;
+			border: 1px solid rgba(233, 47, 22, 1);
+			position: absolute;
+			display: block;
+			top: 0;
+			border-radius: 50%;
+		}
+
+
+		&:hover {
+			opacity: 1;
+		}
+
+		&.uix-flexslider__mycontrols__prev {
+
+			&::after {
+				left: 0;
+			}
+
+
+			&.uix-flexslider__disabled {
+				visibility: hidden;
+				pointer-events: none;
+
+			}
+		}
+		&.uix-flexslider__mycontrols__next {
+
+			&::after {
+				right: 0;
+			}
+
+			&.uix-flexslider__disabled {
+				visibility: hidden;
+				pointer-events: none;
+			}
+
+		}
+
+
+	}
+
+
+	/*----- 3.2. Pagination by Custom Controls  -----*/
+	.uix-flexslider__mycontrols__control-paging {
+
+		> ol {
+
+			position: relative;
+			transform: translateY(.5rem);
+
+			li {
+
+				margin: 0 .5rem;
+
+
+				a {
+					background: rgba(233, 47, 22, 0.5);
+					position: relative;
+
+					&::after {
+						content: '';
+						display: block;
+						width: 20px;
+						height: 20px;
+						border: 1px solid rgba(233, 47, 22, 1);
+						border-radius: 100%;
+						position: absolute;
+						top: -4px;
+						left: -4px;
+						transform: scale(0);
+						@include transition-default();
+					}
+
+
+					&:hover,
+					&.uix-flexslider__active {
+						background: rgba(233, 47, 22, 1);
+						width: 12px;
+
+						&::after {
+							transform: scale(1);
+						}
+
+					}
+				}
+
+			}
+
+		}
+
+
+	}
+
 }
-/*---- 3.3. 自定义下一个/上一个和分页样式 ----*/
+
+
+/*---- 3.3. Custom Next/Prev and Pagination Styles ----*/
 .uix-flexslider__mycontrols.uix-flexslider__mycontrols--style-1 {
+
+
 }
-/*----- 3.4. 导航中的下一个/上一个图像缩略图 -----*/
+
+
+
+/*----- 3.4. Next/Prev Image Thumbnail In Navigation -----*/
 .uix-flexslider__mycontrols--thumb {
-    position: absolute;
-    top: 50%;
-    display: table;
-    width: calc(100% - 30px);
-    margin-top: 1.75rem;
-    table-layout: fixed;
-    transform: translateY(-50%);
-    a > span {
-        @include transition-default();
-        display: inline-block;
-        overflow: hidden;
-        width: 100px;
-        height: 100px;
-        transform: scale(.7);
-        opacity: .5;
-        border-radius: 50%;
-        @include outer-shadow('regular');
-        img {
-            width: 100%;
-            height: 100%;
-        }
-    }
-    > {
-        * {
-            display: table-cell;
-        }
-        a {
-            width: 50px;
-            &:hover {
-                > span {
-                    transform: scale(1);
-                    opacity: 1;
-                }
-            }
-        }
-    }
-    .uix-flexslider__mycontrols--thumb__prev {
-        &.is-disabled {
-            display: none;
-        }
-    }
-    .uix-flexslider__mycontrols--thumb__next {
-        text-align: right;
-        &.is-disabled {
-            display: none;
-        }
-    }
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+	margin-top: 1.75rem;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: calc(100% - 30px);
+
+
+	a > span {
+		@include transition-default();
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		display: inline-block;
+		overflow: hidden;
+		transform: scale(.7);
+		opacity: .5;
+		@include outer-shadow( 'regular' );
+
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+
+	> {
+		* {
+			display: table-cell;
+		}
+		a {
+			width: 50px;
+
+			&:hover {
+				> span {
+					transform: scale(1);
+					opacity: 1;
+				}
+			}
+
+		}
+	}
+
+	.uix-flexslider__mycontrols--thumb__prev {
+		&.is-disabled {
+			display: none;
+		}
+
+	}
+	.uix-flexslider__mycontrols--thumb__next {
+
+		text-align: right;
+
+		&.is-disabled {
+			display: none;
+		}
+
+
+
+	}
+
 }
-/*----- 3.5. 时间轴指示器 -----*/
+
+
+
+/*----- 3.5. Timeline Indicator -----*/
 .uix-flexslider__timeline-nav {
-    position: relative;
-    width: 100%;
-    height: 3px;
-    margin: 1rem 0;
-    background: rgba(0, 0, 0, .1);
-    > span {
-        display: block;
-        width: 0;
-        height: 100%;
-        background: $highlight-color1;
-        @include transition-default();
-    }
+
+	height: 3px;
+	position: relative;
+	width: 100%;
+	background: rgba(0,0,0,.1);
+	margin: 1rem 0;
+
+	> span {
+		display: block;
+		width: 0;
+		height: 100%;
+		background: $highlight-color1;
+		@include transition-default();
+	}
+
 }
+
+
+
+
 /*
  ---------------------------
- 4. 主要幻灯片（动态最小/最大范围）
+ 4. Primary Slideshow  (with dynamic min/max ranges )
  ---------------------------
  */
 .uix-flexslider.uix-flexslider--itemgrid {
-    .uix-flexslider__item {
-        transition: .1s ease;
-        opacity: 0.2;
-        &.uix-flexslider__item--active-prev {
-        }
-        &.uix-flexslider__item--active-next {
-        }
-        &.uix-flexslider__item--active {
-            opacity: 1;
-        }
-    }
+
+	.uix-flexslider__item {
+		transition: .1s ease;
+		opacity: 0.2;
+
+		&.uix-flexslider__item--active-prev {
+
+		}
+
+		&.uix-flexslider__item--active-next {
+
+		}
+
+		&.uix-flexslider__item--active {
+			opacity: 1;
+		}
+	}
+
+
 }
+
 @media all and (max-width: 768px) {
-    .uix-flexslider.uix-flexslider--itemgrid {
-        .uix-flexslider__item {
-            opacity: 1;
-        }
-    }
+	.uix-flexslider.uix-flexslider--itemgrid {
+
+		.uix-flexslider__item {
+			opacity: 1;
+		}
+
+
+	}
+
 }
+
+
+
 /*
  ---------------------------
- 5. 主要幻灯片
+ 5. Primary Slideshow
  ---------------------------
  */
 .uix-flexslider.uix-flexslider--primary {
-    overflow: hidden;
-    /* 全屏滑块
-     * 您需要将属性“data-slider-bg”添加到“.uix-flexslider__item”
-     */
-    &.is-fullscreen {
-        min-height: 100vh;
-        img {
-            visibility: hidden;
-            height: 100vh;
-        }
-    }
-    .uix-flexslider__inner {
-        > .uix-flexslider__item {
-            @include background-cover();
-            position: relative;
-            .uix-flexslider__desc {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                /* 垂直居中 */
-                transform: translateY(-50%);
-                color: white;
-                .uix-flexslider__el-level {
-                    animation-name: uix-cssAnim--fadeOutLeft;
-                    animation-duration: .6s;
-                    animation-delay: .5s;
-                    animation-fill-mode: both;
-                }
-                .uix-flexslider__el-level-1,
-                .uix-flexslider__el-level-2 {
-                    color: #ffffff;
-                }
-            }
-            &.uix-flexslider__active-slide {
-                .uix-flexslider__desc {
-                    .uix-flexslider__el-level {
-                        animation-name: uix-cssAnim--fadeInLeft;
-                        animation-duration: .6s;
-                        animation-delay: .4s;
-                        animation-fill-mode: both;
-                    }
-                    .uix-flexslider__el-level-1 {
-                        animation-delay: .4s;
-                    }
-                    .uix-flexslider__el-level-2 {
-                        animation-delay: .5s;
-                    }
-                    .uix-flexslider__el-level-3 {
-                        animation-delay: .6s;
-                    }
-                }
-            }
-        }
-    }
+	overflow: hidden;
+
+
+	/* Full Screen Slider
+	 * You need add an attribute "data-slider-bg" to ".uix-flexslider__item"
+	*/
+	&.is-fullscreen {
+		min-height: 100vh;
+
+		img {
+			height: 100vh;
+			visibility: hidden;
+		}
+	}
+
+	.uix-flexslider__inner {
+
+		> .uix-flexslider__item {
+
+			@include background-cover();
+			position: relative;
+
+			.uix-flexslider__desc {
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: white;
+				width: 100%;
+				/* Vertical Center */
+				top: 50%;
+				transform: translateY(-50%);
+
+				.uix-flexslider__el-level {
+					animation-delay: .5s;
+					animation-duration: .6s;
+					animation-fill-mode: both;
+					animation-name: uix-cssAnim--fadeOutLeft;
+				}
+				.uix-flexslider__el-level-1,
+				.uix-flexslider__el-level-2 {
+					color: #fff;
+				}
+			}
+
+			&.uix-flexslider__active-slide {
+
+				.uix-flexslider__desc {
+
+					.uix-flexslider__el-level {
+						animation-delay: .4s;
+						animation-duration: .6s;
+						animation-fill-mode: both;
+						animation-name: uix-cssAnim--fadeInLeft;
+					}
+
+					.uix-flexslider__el-level-1 {
+						animation-delay: .4s;
+					}
+					.uix-flexslider__el-level-2 {
+						animation-delay: .5s;
+					}
+					.uix-flexslider__el-level-3 {
+						animation-delay: .6s;
+					}
+
+				}
+			}
+		}
+	}
 }
+
+
 @media all and (max-width: 768px) {
-    .uix-flexslider.uix-flexslider--primary {
-        &.is-fullscreen {
-            min-height: inherit;
-            img {
-                height: auto;
-            }
-        }
-        .uix-flexslider__inner > .uix-flexslider__item {
-            .uix-flexslider__desc {
-                h2,
-                h3 {
-                    font-size: 1rem;
-                }
-                p {
-                    font-size: 0.875rem;
-                }
-                h2,
-                h3,
-                p {
-                    line-height: 1.2;
-                    margin-bottom: 0;
-                    padding-bottom: 0;
-                }
-                .uix-btn {
-                    font-size: 0.75rem;
-                    margin-top: .3rem;
-                    padding: .3rem 1rem;
-                }
-            }
-        }
-    }
+
+	.uix-flexslider.uix-flexslider--primary {
+
+		&.is-fullscreen {
+			min-height: inherit;
+
+			img {
+				height: auto;
+			}
+		}
+
+
+		.uix-flexslider__inner > .uix-flexslider__item {
+			.uix-flexslider__desc {
+
+				h2,
+				h3 {
+					font-size: 1rem;
+				}
+
+				p {
+					font-size: 0.875rem;
+				}
+
+				h2,
+				h3,
+				p {
+					margin-bottom: 0;
+					padding-bottom: 0;
+					line-height: 1.2;
+				}
+
+				.uix-btn {
+					margin-top: .3rem;
+					padding: .3rem 1rem;
+					font-size: 0.75rem;
+				}
+
+			}
+		}
+
+
+	}
 }
+
+
+
 @keyframes uix-cssAnim--fadeInLeft {
-    0% {
-        opacity: 0;
-        transform: translate3d(-100%, 0, 0);
-    }
-    100% {
-        opacity: 1;
-        transform: none;
-    }
+	0% {
+		opacity: 0;
+		transform: translate3d(-100%, 0, 0);
+	}
+
+	100% {
+		opacity: 1;
+		transform: none;
+	}
 }
+
+
 @keyframes uix-cssAnim--fadeOutLeft {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: translate3d(-100%, 0, 0);
-    }
+	0% {
+	    opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+		transform: translate3d(-100%, 0, 0);
+	}
 }
+
+
+
 /*
  ---------------------------
- 6. 视差幻灯片
+ 6. Parallax Slideshow
  ---------------------------
  */
 .uix-flexslider.uix-flexslider--parallax {
-    overflow: hidden;
-    max-height: 100vh;
-    img {
-        max-height: 100vh;
-    }
-    .uix-flexslider__inner {
-        > .uix-flexslider__item {
-            @include background-cover();
-            position: relative;
-            img {
-                max-height: calc(100% - 2rem);
-            }
-            .uix-flexslider__el-level {
-                position: absolute;
-                top: 50%;
-                width: auto;
-                transition: all 1.5s ease; /* 注意：时长不能小于1.5 */
-                transform: translateY(-50%);
-                box-shadow: 0 0 34px -6px rgba(0, 0, 0, 0.55);
-            }
-            .uix-flexslider__el-level-1 {
-                z-index: 3;
-                left: 55%;
-            }
-            .uix-flexslider__el-level-2 {
-                z-index: 2;
-                left: 30%;
-            }
-            &.uix-flexslider__item--left {
-                .uix-flexslider__el-level-1 {
-                    transform: translate(-300px, -50%);
-                }
-                .uix-flexslider__el-level-2 {
-                    transform: translate(-50px, -50%);
-                }
-            }
-            &.uix-flexslider__item--right {
-                .uix-flexslider__el-level-1 {
-                    transform: translate(300px, -50%);
-                }
-                .uix-flexslider__el-level-2 {
-                    transform: translate(50px, -50%);
-                }
-            }
-        }
-    }
+	max-height: 100vh;
+	overflow: hidden;
+
+	img {
+	    max-height: 100vh;
+	}
+
+	.uix-flexslider__inner {
+
+		> .uix-flexslider__item {
+
+			@include background-cover();
+			position: relative;
+
+			img {
+				max-height: calc( 100% - 2rem );
+			}
+
+			.uix-flexslider__el-level {
+				position: absolute;
+				transition: all 1.5s ease; /* Note: The duration can not be less than 1.5 */
+				width: auto;
+				box-shadow: 0px 0px 34px -6px rgba(0,0,0,0.55);
+				transform: translateY(-50%);
+				top: 50%;
+			}
+
+			.uix-flexslider__el-level-1 {
+				left: 55%;
+				z-index: 3;
+			}
+
+			.uix-flexslider__el-level-2 {
+				left: 30%;
+				z-index: 2;
+			}
+
+			&.uix-flexslider__item--left {
+				.uix-flexslider__el-level-1 {
+					transform: translate(-300px,-50%);
+				}
+				.uix-flexslider__el-level-2 {
+					transform: translate(-50px,-50%);
+				}
+			}
+
+			&.uix-flexslider__item--right {
+				.uix-flexslider__el-level-1 {
+					transform: translate(300px,-50%);
+				}
+				.uix-flexslider__el-level-2 {
+					transform: translate(50px,-50%);
+				}
+			}
+
+		}
+
+	}
 }

@@ -1,3 +1,4 @@
+
 /*
  * Fire Modal Dialog
  *
@@ -12,97 +13,141 @@
  * @param  {Number|Boolean} autoClose    - Specify auto-close time. This function is not enabled when this value is false.
  * @param  {Boolean} closeOnlyBtn        - Disable mask to close the window.
  * @return {Void}
- */
+ */	
+
 import '@uixkit/plugins/Miscellaneous/scrollLock';
-(function($) {
+
+( function ( $ ) {
     'use strict';
-    $.fn.UixFireModalDialog = function(options) {
+    $.fn.UixFireModalDialog = function( options ) {
+ 
         // This is the easiest way to have default options.
         const settings = $.extend({
-            id: 'demo',
-            height: false,
-            width: false,
-            speed: 500,
-            btn: false,
-            lightbox: true,
-            autoClose: false,
-            closeOnlyBtn: false
-        }, options);
-        this.each(function() {
-            if (settings.id == '') return false;
-            //Prevent automatic close from affecting new fire effects
-            clearTimeout(window.setCloseModalDialog);
-            //Add modal mask to stage
-            if ($('.uix-modal-mask').length == 0) {
-                $('body').prepend('<div class="uix-modal-mask"></div>');
-            }
-            $.when($('.uix-modal-mask').length > 0).then(function() {
-                if (settings.closeOnlyBtn) {
-                    $('.uix-modal-mask').addClass('js-uix-disabled');
-                } else {
-                    $('.uix-modal-mask').removeClass('js-uix-disabled');
-                }
-                const dataID = settings.id,
-                    dataH = settings.height,
-                    dataW = settings.width,
-                    linkBtn = settings.btn,
-                    closeTime = settings.autoClose,
-                    $obj = $('.uix-modal-box#' + dataID);
-                // Initializate modal
-                if (linkBtn) {
-                    linkBtn.attr('href', 'javascript:void(0)');
-                    $obj.find('.uix-modal-box__content').addClass('js-uix-no-fullscreen');
-                    if (linkBtn.data('video-win')) {
-                        $obj.find('.uix-modal-box__content > .uix-modal-box__body').css('overflow-y', 'hidden');
-                    }
-                }
-                if ($obj.length > 0) {
-                    // Locks the page
-                    $.scrollLock(true);
-                    //Add class for body
-                    //When scrollLock is used, scrollTop value will change
-                    $('body').addClass('scrollLock');
-                    if (typeof dataH != typeof undefined && dataH != '' && dataH) {
-                        $obj.css({ 'height': dataH });
-                    }
-                    if (typeof dataW != typeof undefined && dataW != '' && dataW) {
-                        $obj.css({ 'width': dataW });
-                    }
-                    //Enable the lightbox effect.
-                    if (settings.lightbox) {
-                        TweenMax.set('.uix-modal-mask', {
-                            css: {
-                                opacity: 0,
-                                display: 'none'
-                            },
-                            onComplete: function() {
-                                TweenMax.to(this.target, 0.3, {
-                                    css: {
-                                        opacity: 1,
-                                        display: 'block'
-                                    }
-                                });
-                            }
-                        });
-                    }
-                    $obj.addClass('is-active');
-                    //auto close
-                    if (closeTime && !isNaN(closeTime)) {
-                        window.setCloseModalDialog = setTimeout(function() {
-                            $(document).closeModalDialog();
-                        }, closeTime);
-                    }
-                }
-                if ($obj.hasClass('is-fullscreen')) {
-                    setTimeout(function() {
-                        if (!$obj.hasClass('is-video')) {
-                            $obj.find('.uix-modal-box__content > .uix-modal-box__body').css('overflow-y', 'scroll');
-                        } else {
-                            $obj.find('.uix-modal-box__content > .uix-modal-box__body').css('overflow-y', 'hidden');
-                        }
-                    }, settings.speed);
-                }
-            });
-        });
+			id           : 'demo',
+			height       : false,
+			width        : false,
+			speed        : 500,
+			btn          : false,
+			lightbox     : true,
+			autoClose    : false,
+			closeOnlyBtn : false
+        }, options );
+		
+ 
+        this.each( function() {
+
+			if ( settings.id == '' ) return false;
+
+			//Prevent automatic close from affecting new fire effects
+			clearTimeout( window.setCloseModalDialog );	
+
+			//Add modal mask to stage
+			if ( $( '.uix-modal-mask' ).length == 0 ) {
+				$( 'body' ).prepend( '<div class="uix-modal-mask"></div>' );
+			}
+			$.when( $( '.uix-modal-mask' ).length > 0 ).then( function() {
+				
+				if ( settings.closeOnlyBtn ) {
+					$( '.uix-modal-mask' ).addClass( 'js-uix-disabled' );
+				} else {
+					$( '.uix-modal-mask' ).removeClass( 'js-uix-disabled' );
+				}
+
+				const dataID        = settings.id,
+					  dataH         = settings.height,
+					  dataW         = settings.width,
+					  linkBtn       = settings.btn,
+					  closeTime     = settings.autoClose,
+					  $obj          = $( '.uix-modal-box#'+dataID );
+
+				// Initializate modal
+				if ( linkBtn ) {
+					linkBtn.attr( 'href', 'javascript:void(0)' );
+					$obj.find( '.uix-modal-box__content' ).addClass( 'js-uix-no-fullscreen' );
+
+
+					if ( linkBtn.data( 'video-win' ) ) {
+						$obj.find( '.uix-modal-box__content > .uix-modal-box__body' ).css( 'overflow-y', 'hidden' );
+					}
+
+				}
+
+
+
+				if ( $obj.length > 0 ) {
+
+
+					// Locks the page
+					$.scrollLock( true );
+
+			
+					//Add class for body
+					//When scrollLock is used, scrollTop value will change
+					$( 'body' ).addClass( 'scrollLock' );
+					
+
+					if ( typeof dataH != typeof undefined && dataH != '' && dataH ) {
+						$obj.css( {'height': dataH } );
+					}
+
+					if ( typeof dataW != typeof undefined && dataW != '' && dataW ) {
+						$obj.css( {'width': dataW } );
+					}
+
+					
+					//Enable the lightbox effect.
+					if ( settings.lightbox ) {
+						TweenMax.set( '.uix-modal-mask', {
+							css: {
+								opacity : 0,
+								display : 'none'
+							},
+							onComplete : function() {
+
+								TweenMax.to( this.target, 0.3, {
+									css: {
+										opacity    : 1,
+										display    : 'block'
+									}
+								});		
+
+							}
+						});
+	
+					}
+
+					$obj.addClass( 'is-active' );
+					
+					
+					//auto close
+					if ( closeTime && !isNaN( closeTime ) ) {
+						window.setCloseModalDialog = setTimeout( function() {
+							$( document ).closeModalDialog();
+						}, closeTime );
+					}
+					
+					
+					
+				}
+
+				if ( $obj.hasClass( 'is-fullscreen' ) ) {
+					setTimeout( function() {
+
+						if ( !$obj.hasClass( 'is-video' ) ) {
+							$obj.find( '.uix-modal-box__content > .uix-modal-box__body' ).css( 'overflow-y', 'scroll' );
+						} else {
+							$obj.find( '.uix-modal-box__content > .uix-modal-box__body' ).css( 'overflow-y', 'hidden' );
+						}
+
+					}, settings.speed );
+
+				}	
+
+			});
+			
+			
+		});
+ 
     };
-}(jQuery));
+ 
+}( jQuery ));

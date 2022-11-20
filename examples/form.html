@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
 <head>
-    <meta charset="utf-8" />
-    <title>表单元素 - Uix Kit</title>
-    	<!-- Compatibility Settings
+	<meta charset="utf-8" />
+	<title>Form Elements - Uix Kit 中文</title>	
+		<!-- Compatibility Settings
 	============================================= -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,11 +30,11 @@
 
 
 	<!-- Theme  -->
-	<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=t7rvyX89iKfUAm9HsNui"/>
+	<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=lFKPNbgbaEPZc6wQN2iL"/>
 
 
 	<!--[if lt IE 10]>
-	<link rel="stylesheet" href="assets/css/IE.css?ver=t7rvyX89iKfUAm9HsNui" />
+	<link rel="stylesheet" href="assets/css/IE.css?ver=lFKPNbgbaEPZc6wQN2iL" />
 	<![endif]-->
 
 
@@ -57,9 +57,9 @@
 
 	<!-- SEO
 	============================================= -->
-	<meta name="description" content="A free web kits for fast web design and development, compatible with Bootstrap v5.">
+	<meta name="description" content="一个快速网页设计和开发的偏视觉交互的免费开发工具包，与 Bootstrap v5 兼容。">
 	<meta name="generator" content="Uix Kit" />  
-	<meta name="author" content="UIUX Lab"> 
+	<meta name="author" content="huikeyun"> 
 	<!-- SEO  end -->
 
 
@@ -72,9 +72,14 @@
 	<link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-touch-icon-114x114.png">
 	<!-- Favicons  end -->
 
-</head>
-<body class="page">
+</head>  
+
+     
+  <body class="page">
+  
+  
           
+              
     <!-- Loader
     ============================================= -->      
     <div class="uix-loader">
@@ -90,7 +95,7 @@
     <!-- .uix-loader end -->
     
 
-
+    
     <!-- Mobile Menu Toggle Trigger
     ============================================= -->    
 	<div class="uix-menu-mobile__toggle">
@@ -102,17 +107,26 @@
 	<!-- .uix-menu-mobile__toggle end -->
 
 			
-<div class="uix-wrapper">
-    <!-- 页眉区 -->
-    <header class="uix-header__container">
-        <div class="uix-header">
-            <!-- 容器 开始 -->
-            <div class="container">
-                                        <div class="uix-brand">
-                            <a href="index.html"><img src="assets/images/logo.png" alt="Uix Kit"></a>                       
+    
+    
+
+  
+  
+    <div class="uix-wrapper">
+    
+        <!-- Header Area
+        ============================================= -->      
+        <header class="uix-header__container">
+            
+             <div class="uix-header">
+                 <div class="container">
+                 
+                                                <div class="uix-brand">
+                            <a href="index.html"><img src="assets/images/logo.png" alt="Uix Kit 中文"></a>                       
                         </div>
                         <!-- .uix-brand end -->
-                
+                        
+                        
                         
                         <!-- Navigation Start-->
                         
@@ -120,7 +134,7 @@
                                
                                <div class="uix-menu__inner">
                                
-									<span class="uix-brand--mobile"><img src="assets/images/logo-colorful.png" alt="Uix Kit"></span>
+									<span class="uix-brand--mobile"><img src="assets/images/logo-colorful.png" alt="Uix Kit 中文"></span>
 									<ul class="uix-menu"> 
 										<li class="multi-column current-menu-item is-active"><a href="index.html">Components</a>
 											<ul class="sub-menu">
@@ -396,1255 +410,1295 @@
                         
                  
                    
-            </div>
-            <!-- container end -->
-            <div class="uix-clearfix"></div>
-        </div>
-    </header>
-    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-    <main id="uix-maincontent">
-        <form method="post" action="#" id="app-my-form">
-            <!-- Content
-            ====================================================== -->
-            <section class="uix-spacing--s uix-spacing--no-bottom">
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>输入</h3>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-             ====================================================== -->
-            <section class="uix-spacing--s">
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                             <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls&quot;&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; value=&quot;&quot; name=&quot;input-name-1&quot;&gt;
-    &lt;label&gt;输入框名称&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            文本 1:
-                            <div class="uix-controls">
-                                <input type="text" class="js-uix-float-label" value="" name="input-name-1">
-                                <label>输入框名称</label>
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls&quot;&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;input-name-2&quot; maxlength=&quot;50&quot; value=&quot;0&quot;&gt;
-    &lt;label&gt;输入框名称&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            文本 2:
-                            <div class="uix-controls">
-                                <input type="text" class="js-uix-float-label" name="input-name-2" maxlength="50" value="0">
-                                <label>输入框名称</label>
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls is-disabled&quot;&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;input-name-3&quot; disabled&gt;
-    &lt;label&gt;已禁用&lt;/label&gt;
-&lt;/div&gt;
-&lt;div class=&quot;uix-controls&quot;&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;input-name-3_2&quot; readonly&gt;
-    &lt;label&gt;只读&lt;/label&gt;
-&lt;/div&gt;
-&lt;div class=&quot;uix-controls&quot;&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;input-name-3_3&quot; required&gt;
-    &lt;label&gt;必填&lt;span class=&quot;uix-controls__im&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            文本 3:
-                            <div class="uix-controls is-disabled">
-                                <input type="text" class="js-uix-float-label" name="input-name-3" disabled>
-                                <label>禁用</label>
-                            </div>
-                            <div class="uix-controls">
-                                <input type="text" class="js-uix-float-label" name="input-name-3_2" readonly>
-                                <label>只读</label>
-                            </div>
-                            <div class="uix-controls">
-                                <input type="text" class="js-uix-float-label" name="input-name-3_3" required>
-                                <label>必填<span class="uix-controls__im">*</span></label>
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls is-fullwidth&quot;&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;input-name-4&quot;&gt;
-    &lt;label&gt;全屏宽度&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            文本 4:
-                            <div class="uix-controls is-fullwidth">
-                                <input type="text" class="js-uix-float-label" name="input-name-4">
-                                <label>全屏宽度</label>
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls is-error&quot;&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; value=&quot;输入错误&quot; name=&quot;input-name-5&quot;&gt;
-    &lt;label&gt;输入框名称&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            文本 5:
-                            <div class="uix-controls is-error">
-                                <input type="text" class="js-uix-float-label" value="输入错误" name="input-name-5">
-                                <label>输入框名称</label>
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls is-success&quot;&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; value=&quot;输入正确&quot; name=&quot;input-name-6&quot;&gt;
-    &lt;label&gt;输入框名称&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            文本 6:
-                            <div class="uix-controls is-success">
-                                <input type="text" class="js-uix-float-label" value="输入正确" name="input-name-6">
-                                <label>输入框名称</label>
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls is-pill&quot;&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;input-name-7&quot;&gt;
-    &lt;label&gt;输入名称&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            文本 7:
-                            <div class="uix-controls is-pill">
-                                <input type="text" class="js-uix-float-label" name="input-name-7">
-                                <label>输入名称</label>
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls is-rounded&quot;&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;input-name-8&quot;&gt;
-    &lt;label&gt;输入名称&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            文本 8:
-                            <div class="uix-controls is-rounded">
-                                <input type="text" class="js-uix-float-label" name="input-name-8">
-                                <label>输入名称</label>
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__short-s&quot;&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;input-name-s-1&quot;&gt;
-    &lt;label&gt;短输入 1&lt;/label&gt;输入框描述内容
-&lt;/div&gt;</code>
-</pre>
-                            文本 9:
-                            <div class="uix-controls uix-controls__short-s">
-                                <input type="text" class="js-uix-float-label" name="input-name-s-1">
-                                <label>短输入 1</label>输入框描述内容
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__short-m&quot;&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;input-name-s-2&quot;&gt;
-    &lt;label&gt;短输入 2&lt;/label&gt;输入框描述内容
-&lt;/div&gt;</code>
-</pre>
-                            文本 10:
-                            <div class="uix-controls uix-controls__short-m">
-                                <input type="text" class="js-uix-float-label" name="input-name-s-2">
-                                <label>短输入 2</label>输入框描述内容
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__short-l&quot;&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;input-name-s-3&quot;&gt;
-    &lt;label&gt;短输入 3&lt;/label&gt;输入框描述内容
-&lt;/div&gt;</code>
-</pre>
-                            文本 11:
-                            <div class="uix-controls uix-controls__short-l">
-                                <input type="text" class="js-uix-float-label" name="input-name-s-3">
-                                <label>短输入 3</label>输入框描述内容
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls is-iconic&quot;&gt;
-    &lt;i class=&quot;fa fa-user-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;input-name-12&quot;&gt;
-    &lt;label&gt;左图标&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            文本 12:
-                            <div class="uix-controls is-iconic">
-                                <i class="fa fa-user-o" aria-hidden="true"></i>
-                                <input type="text" class="js-uix-float-label" name="input-name-12">
-                                <label>左图标</label>
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls is-iconic is-reversed&quot;&gt;
-    &lt;i class=&quot;fa fa-user-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;input-name-12_2&quot;&gt;
-    &lt;label&gt;右图标&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls is-iconic is-reversed">
-                                <i class="fa fa-user-o" aria-hidden="true"></i>
-                                <input type="text" class="js-uix-float-label" name="input-name-12_2">
-                                <label>右图标</label>
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls is-fullwidth is-pill is-success&quot;&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;input-name-13&quot;&gt;
-    &lt;label&gt;输入名称&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            混合了一些 UI 属性 (<code>class="uix-controls is-fullwidth is-pill is-success"</code>):<br>
-                            <div class="uix-controls is-fullwidth is-pill is-success">
-                                <input type="text" class="js-uix-float-label" name="input-name-13">
-                                <label>输入名称</label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-            ====================================================== -->
-            <section>
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>文本区域</h3>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-             ====================================================== -->
-            <section class="uix-spacing--s">
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__textarea&quot;&gt;
-    &lt;textarea rows=&quot;5&quot; name=&quot;comments&quot; class=&quot;js-uix-float-label&quot;&gt;&lt;/textarea&gt;
-    &lt;label&gt;文本区域&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__textarea">
-                                <textarea rows="5" name="comments" class="js-uix-float-label"></textarea>
-                                <label>文本区域</label>
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__textarea is-fullwidth&quot;&gt;
-    &lt;textarea rows=&quot;5&quot; name=&quot;comments&quot; class=&quot;js-uix-float-label&quot;&gt;&lt;/textarea&gt;
-    &lt;label&gt;全屏宽度&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__textarea is-fullwidth">
-                                <textarea rows="5" name="comments" class="js-uix-float-label"></textarea>
-                                <label>全屏宽度</label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-            ====================================================== -->
-            <section>
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>选择（正常）</h3>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-             ====================================================== -->
-            <section class="uix-spacing--s">
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__normal-select is-disabled&quot;&gt;
-    &lt;span class=&quot;uix-controls__arrow&quot;&gt;&lt;i class=&quot;fa fa-sort&quot;&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;select name=&quot;country&quot;&gt;
-        &lt;option value=&quot;选项 1&quot;&gt;选项 1&lt;/option&gt;
-        &lt;option value=&quot;选项 2&quot;&gt;选项 2&lt;/option&gt;
-        &lt;option value=&quot;选项 3&quot;&gt;选项 3&lt;/option&gt;
-    &lt;/select&gt;
-    &lt;label&gt;禁用选择&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__normal-select is-disabled">
-                                <span class="uix-controls__arrow"><i class="fa fa-sort"></i></span>
-                                <select name="country">
-                                    <option value="选项 1">选项 1</option>
-                                    <option value="选项 2">选项 2</option>
-                                    <option value="选项 3">选项 3</option>
-                                </select>
-                                <label>禁用选择</label>
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__normal-select&quot;&gt;
-    &lt;span class=&quot;uix-controls__arrow&quot;&gt;&lt;i class=&quot;fa fa-sort&quot;&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;select name=&quot;country&quot;&gt;
-        &lt;option value=&quot;选项 1&quot;&gt;选项 1&lt;/option&gt;
-        &lt;option value=&quot;选项 2&quot;&gt;选项 2&lt;/option&gt;
-        &lt;option value=&quot;选项 3&quot;&gt;选项 3&lt;/option&gt;
-    &lt;/select&gt;
-    &lt;label&gt;选择&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__normal-select">
-                                <span class="uix-controls__arrow"><i class="fa fa-sort"></i></span>
-                                <select name="country">
-                                    <option value="选项 1">选项 1</option>
-                                    <option value="选项 2">选项 2</option>
-                                    <option value="选项 3">选项 3</option>
-                                </select>
-                                <label>选择</label>
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__normal-select is-pill&quot;&gt;
-    &lt;span class=&quot;uix-controls__arrow&quot;&gt;&lt;i class=&quot;fa fa-sort&quot;&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;select name=&quot;country&quot;&gt;
-        &lt;option value=&quot;选项 1&quot;&gt;选项 1&lt;/option&gt;
-        &lt;option value=&quot;选项 2&quot;&gt;选项 2&lt;/option&gt;
-        &lt;option value=&quot;选项 3&quot;&gt;选项 3&lt;/option&gt;
-    &lt;/select&gt;
-    &lt;label&gt;选择&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__normal-select is-pill">
-                                <span class="uix-controls__arrow"><i class="fa fa-sort"></i></span>
-                                <select name="country">
-                                    <option value="选项 1">选项 1</option>
-                                    <option value="选项 2">选项 2</option>
-                                    <option value="选项 3">选项 3</option>
-                                </select>
-                                <label>选择</label>
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__normal-select is-fullwidth&quot;&gt;
-    &lt;span class=&quot;uix-controls__arrow&quot;&gt;&lt;i class=&quot;fa fa-sort&quot;&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;select class=&quot;js-uix-float-label&quot;&gt;
-        &lt;option value=&quot;blank&quot;&gt;&lt;/option&gt;
-        &lt;option value=&quot;苹果&quot;&gt;苹果&lt;/option&gt;
-        &lt;option value=&quot;香蕉&quot;&gt;香蕉&lt;/option&gt;
-        &lt;option value=&quot;猕猴桃&quot;&gt;猕猴桃&lt;/option&gt;
-        &lt;option value=&quot;橙色&quot;&gt;橙色&lt;/option&gt;
-        &lt;option value=&quot;西瓜&quot;&gt;西瓜&lt;/option&gt;
-    &lt;/select&gt;
-    &lt;label&gt;选择箭头&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__normal-select is-fullwidth">
-                                <span class="uix-controls__arrow"><i class="fa fa-sort"></i></span>
-                                <select class="js-uix-float-label">
-                                    <option value="blank"></option>
-                                    <option value="苹果">苹果</option>
-                                    <option value="香蕉">香蕉</option>
-                                    <option value="猕猴桃">猕猴桃</option>
-                                    <option value="橙色">橙色</option>
-                                    <option value="西瓜">西瓜</option>
-                                </select>
-                                <label>选择箭头</label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-            ====================================================== -->
-            <section>
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>自定义选择</h3>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-             ====================================================== -->
-            <section class="uix-spacing--s">
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                             <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__select is-disabled&quot;&gt;
-    &lt;label&gt;
-        &lt;select name=&quot;selectname&quot;&gt;
-            &lt;option value=&quot;选项 1&quot;&gt;选项 1&lt;/option&gt;
-            &lt;option value=&quot;选项 2&quot;&gt;选项 2&lt;/option&gt;
-            &lt;option value=&quot;选项 3&quot;&gt;选项 3&lt;/option&gt;
-        &lt;/select&gt;
-    &lt;/label&gt;
-    &lt;span&gt;禁用选择&lt;/span&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__select is-disabled">
-                                <label>
-                                    <select name="selectname">
-                                        <option value="选项 1">选项 1</option>
-                                        <option value="选项 2">选项 2</option>
-                                        <option value="选项 3">选项 3</option>
-                                    </select>
-                                </label>
-                                <span>禁用选择</span>
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__select&quot;&gt;
-    &lt;label&gt;
-        &lt;select name=&quot;selectname&quot;&gt;
-            &lt;option value=&quot;选项 1&quot;&gt;选项 1&lt;/option&gt;
-            &lt;option value=&quot;选项 2&quot;&gt;选项 2&lt;/option&gt;
-            &lt;option value=&quot;选项 3&quot;&gt;选项 3&lt;/option&gt;
-        &lt;/select&gt;
-    &lt;/label&gt;
-    &lt;span&gt;自定义选择&lt;/span&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__select">
-                                <label>
-                                    <select name="selectname">
-                                        <option value="选项 1">选项 1</option>
-                                        <option value="选项 2">选项 2</option>
-                                        <option value="选项 3">选项 3</option>
-                                    </select>
-                                </label>
-                                <span>自定义选择</span>
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__select is-fullwidth&quot;&gt;
-    &lt;label&gt;
-        &lt;select name=&quot;selectname&quot;&gt;
-            &lt;option value=&quot;&quot;&gt;全宽选择&lt;/option&gt;
-            &lt;option value=&quot;选项 1&quot;&gt;选项 1&lt;/option&gt;
-            &lt;option value=&quot;选项 2&quot;&gt;选项 2&lt;/option&gt;
-            &lt;option value=&quot;选项 3&quot;&gt;选项 3&lt;/option&gt;
-        &lt;/select&gt;
-    &lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__select is-fullwidth">
-                                <label>
-                                    <select name="selectname">
-                                        <option value="">全宽选择</option>
-                                        <option value="选项 1">选项 1</option>
-                                        <option value="选项 2">选项 2</option>
-                                        <option value="选项 3">选项 3</option>
-                                    </select>
-                                </label>
-                            </div>
-                            <br>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__select uix-controls__select--top is-pill&quot;&gt;
-    &lt;label&gt;
-        &lt;select name=&quot;selectname&quot;&gt;
-            &lt;option value=&quot;选项 1&quot;&gt;选项 1&lt;/option&gt;
-            &lt;option value=&quot;选项 2&quot;&gt;选项 2&lt;/option&gt;
-            &lt;option value=&quot;选项 3&quot;&gt;选项 3&lt;/option&gt;
-        &lt;/select&gt;
-    &lt;/label&gt;
-    &lt;span&gt;自定义选择 -Converse&lt;/span&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__select uix-controls__select--top is-pill">
-                                <label>
-                                    <select name="selectname">
-                                        <option value="选项 1">选项 1</option>
-                                        <option value="选项 2">选项 2</option>
-                                        <option value="选项 3">选项 3</option>
-                                    </select>
-                                </label>
-                                <span>自定义选择 -Converse</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-            ====================================================== -->
-            <section>
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>多选</h3>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-             ====================================================== -->
-            <section class="uix-spacing--s">
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                             <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__multi-sel&quot; data-targetid=&quot;my-multi-selector-name-1&quot;&gt;
-    &lt;span aria-checked=&quot;false&quot; role=&quot;checkbox&quot; data-value=&quot;1&quot;&gt;facebook&lt;i class=&quot;fa fa-check no&quot;&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;span aria-checked=&quot;false&quot; role=&quot;checkbox&quot; data-value=&quot;2&quot;&gt;twitter&lt;i class=&quot;fa fa-check no&quot;&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;span aria-checked=&quot;false&quot; role=&quot;checkbox&quot; data-value=&quot;3&quot;&gt;google_plus&lt;i class=&quot;fa fa-check no&quot;&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;span aria-checked=&quot;false&quot; role=&quot;checkbox&quot; data-value=&quot;4&quot;&gt;pinterest&lt;i class=&quot;fa fa-check no&quot;&gt;&lt;/i&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;input type=&quot;hidden&quot; id=&quot;my-multi-selector-name-1&quot; name=&quot;my-multi-selector-name-1&quot; value=&quot;1,3&quot;&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__multi-sel" data-targetid="my-multi-selector-name-1">
-                                <span aria-checked="false" role="checkbox" data-value="1">facebook<i class="fa fa-check no"></i></span>
-                                <span aria-checked="false" role="checkbox" data-value="2">twitter<i class="fa fa-check no"></i></span>
-                                <span aria-checked="false" role="checkbox" data-value="3">google_plus<i class="fa fa-check no"></i></span>
-                                <span aria-checked="false" role="checkbox" data-value="4">pinterest<i class="fa fa-check no"></i></span>
-                            </div>
-                            <input type="hidden" id="my-multi-selector-name-1" name="my-multi-selector-name-1" value="1,3">
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-            ====================================================== -->
-            <section>
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>单选</h3>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-             ====================================================== -->
-            <section class="uix-spacing--s">
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                             <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__single-sel&quot; data-targetid=&quot;my-cus-radio-name-1&quot;&gt;
-    &lt;span aria-checked=&quot;false&quot; role=&quot;radio&quot; data-value=&quot;1&quot; data-switchid=&quot;my-cus-radio-switch-1&quot;&gt;单选 1&lt;/span&gt;
-    &lt;span aria-checked=&quot;false&quot; role=&quot;radio&quot; data-value=&quot;2&quot; data-switchid=&quot;my-cus-radio-switch-2&quot;&gt;单选 2&lt;/span&gt;
-    &lt;span aria-checked=&quot;false&quot; role=&quot;radio&quot; data-value=&quot;3&quot; data-switchid=&quot;my-cus-radio-switch-3&quot;&gt;单选 3&lt;/span&gt;
-&lt;/div&gt;
-&lt;input type=&quot;hidden&quot; id=&quot;my-cus-radio-name-1&quot; name=&quot;my-cus-radio-name-1&quot; value=&quot;2&quot;&gt;
-&lt;div id=&quot;my-cus-radio-switch-1&quot; style=&quot;padding: 10px; background: #d2ff52; background: linear-gradient(to bottom, #d2ff52 0%,#91e842 100%); margin: -30px 0 15px 0; max-width: 300px;&quot;&gt;单选 1&lt;/div&gt;
-&lt;div id=&quot;my-cus-radio-switch-2&quot; style=&quot;padding: 10px; background: #d2ff52; background: linear-gradient(to bottom, #d2ff52 0%,#91e842 100%); margin: -30px 0 15px 0; max-width: 300px;&quot;&gt;单选 2&lt;/div&gt;
-&lt;div id=&quot;my-cus-radio-switch-3&quot; style=&quot;padding: 10px; background: #d2ff52; background: linear-gradient(to bottom, #d2ff52 0%,#91e842 100%); margin: -30px 0 15px 0; max-width: 300px;&quot;&gt;单选 3&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__single-sel" data-targetid="my-cus-radio-name-1">
-                                <span aria-checked="false" role="radio" data-value="1" data-switchid="my-cus-radio-switch-1">单选 1</span>
-                                <span aria-checked="false" role="radio" data-value="2" data-switchid="my-cus-radio-switch-2">单选 2</span>
-                                <span aria-checked="false" role="radio" data-value="3" data-switchid="my-cus-radio-switch-3">单选 3</span>
-                            </div>
-                            <input type="hidden" id="my-cus-radio-name-1" name="my-cus-radio-name-1" value="2">
-                            <div id="my-cus-radio-switch-1" style="padding: 10px; background: #d2ff52; background: linear-gradient(to bottom, #d2ff52 0%,#91e842 100%); margin: -30px 0 15px 0; max-width: 300px;">单选 1</div>
-                            <div id="my-cus-radio-switch-2" style="padding: 10px; background: #d2ff52; background: linear-gradient(to bottom, #d2ff52 0%,#91e842 100%); margin: -30px 0 15px 0; max-width: 300px;">单选 2</div>
-                            <div id="my-cus-radio-switch-3" style="padding: 10px; background: #d2ff52; background: linear-gradient(to bottom, #d2ff52 0%,#91e842 100%); margin: -30px 0 15px 0; max-width: 300px;">单选 3</div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                    <div class="row">
-                        <div class="col-12">
-                             <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__single-sel is-pill&quot; data-targetid=&quot;my-cus-radio-name-2&quot;&gt;
-    &lt;span aria-checked=&quot;false&quot; role=&quot;radio&quot; data-value=&quot;1&quot;&gt;facebook&lt;/span&gt;
-    &lt;span aria-checked=&quot;false&quot; role=&quot;radio&quot; data-value=&quot;2&quot;&gt;twitter&lt;/span&gt;
-    &lt;span aria-checked=&quot;false&quot; role=&quot;radio&quot; data-value=&quot;3&quot;&gt;google_plus&lt;/span&gt;
-    &lt;span aria-checked=&quot;false&quot; role=&quot;radio&quot; data-value=&quot;4&quot;&gt;pinterest&lt;/span&gt;
-&lt;/div&gt;
-&lt;input type=&quot;hidden&quot; id=&quot;my-cus-radio-name-2&quot; name=&quot;my-cus-radio-name-2&quot; value=&quot;1&quot;&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__single-sel is-pill" data-targetid="my-cus-radio-name-2">
-                                <span aria-checked="false" role="radio" data-value="1">facebook</span>
-                                <span aria-checked="false" role="radio" data-value="2">twitter</span>
-                                <span aria-checked="false" role="radio" data-value="3">google_plus</span>
-                                <span aria-checked="false" role="radio" data-value="4">pinterest</span>
-                            </div>
-                            <input type="hidden" id="my-cus-radio-name-2" name="my-cus-radio-name-2" value="1">
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-            ====================================================== -->
-            <section>
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>开关</h3>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-             ====================================================== -->
-            <section class="uix-spacing--s">
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                             <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__toggle is-disabled&quot; data-off-text=&quot;关&quot; data-on-text=&quot;开&quot;&gt;
-    &lt;label&gt;
-        &lt;input role=&quot;switch&quot; type=&quot;checkbox&quot; name=&quot;togglename&quot;&gt;
-    &lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__toggle is-disabled" data-off-text="关" data-on-text="开">
-                                <label>
-                                    <input role="switch" type="checkbox" name="togglename">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                    <div class="row">
-                        <div class="col-12">
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__toggle&quot; data-off-text=&quot;关&quot; data-on-text=&quot;开&quot;&gt;
-    &lt;label&gt;
-        &lt;input role=&quot;switch&quot; type=&quot;checkbox&quot; name=&quot;togglename&quot;&gt;
-    &lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__toggle" data-off-text="关" data-on-text="开">
-                                <label>
-                                    <input role="switch" type="checkbox" name="togglename">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                    <div class="row">
-                        <div class="col-12">
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__toggle is-pill&quot; data-off-text=&quot;关&quot; data-on-text=&quot;开&quot; data-targetid=&quot;my-toggle-name-1&quot;&gt;
-    &lt;label&gt;
-        &lt;input role=&quot;switch&quot; type=&quot;checkbox&quot; name=&quot;togglename2&quot;&gt;
-    &lt;/label&gt;
-&lt;/div&gt;
-&lt;div id=&quot;my-toggle-name-1&quot; style=&quot;padding: 10px; background: #d2ff52; background: linear-gradient(to bottom, #d2ff52 0%,#91e842 100%); margin: 5px 0 15px 0; max-width: 300px;&quot;&gt;开关&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__toggle is-pill" data-off-text="关" data-on-text="开" data-targetid="my-toggle-name-1">
-                                <label>
-                                    <input role="switch" type="checkbox" name="togglename2">
-                                </label>
-                            </div>
-                            <div id="my-toggle-name-1" style="padding: 10px; background: #d2ff52; background: linear-gradient(to bottom, #d2ff52 0%,#91e842 100%); margin: 5px 0 15px 0; max-width: 300px;">开关</div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-            ====================================================== -->
-            <section>
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>单选按钮</h3>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-             ====================================================== -->
-            <section class="uix-spacing--s">
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__radio&quot;&gt;
-    &lt;label&gt;
-        &lt;input type=&quot;radio&quot; name=&quot;radioname&quot;&gt;单选按钮名称 1
-    &lt;/label&gt;
-    &lt;label&gt;
-        &lt;input type=&quot;radio&quot; name=&quot;radioname&quot; checked&gt;单选按钮名称 2
-    &lt;/label&gt;
-    &lt;label&gt;
-        &lt;input type=&quot;radio&quot; name=&quot;radioname&quot;&gt;单选按钮名称 3
-    &lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__radio">
-                                <label>
-                                    <input type="radio" name="radioname">单选按钮名称 1
-                                </label>
-                                <label>
-                                    <input type="radio" name="radioname" checked>单选按钮名称 2
-                                </label>
-                                <label>
-                                    <input type="radio" name="radioname">单选按钮名称 3
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                    <div class="row">
-                        <div class="col-12">
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__radio is-disabled&quot;&gt;
-    &lt;label&gt;
-        &lt;input type=&quot;radio&quot; name=&quot;radioname2&quot;&gt;禁用 单选按钮名称 1
-    &lt;/label&gt;
-    &lt;label&gt;
-        &lt;input type=&quot;radio&quot; name=&quot;radioname2&quot; checked&gt;禁用 单选按钮名称 2
-    &lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__radio is-disabled">
-                                <label>
-                                    <input type="radio" name="radioname2">禁用 单选按钮名称 1
-                                </label>
-                                <label>
-                                    <input type="radio" name="radioname2" checked>禁用 单选按钮名称 2
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-            ====================================================== -->
-            <section>
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>日期</h3>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-             ====================================================== -->
-            <section class="uix-spacing--s">
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__short-l uix-controls__date&quot;&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;shortinput3&quot;
-        autocomplete=&quot;off&quot;
-        data-picker=&quot;true&quot;
-        data-picker-min-date=&quot;0&quot;
-        data-picker-max-date=&quot;+2050/01/01&quot;
-        data-picker-format=&quot;Y-m-d H:i:s&quot;
-        data-picker-timepicker=&quot;true&quot;
-        data-picker-lang=&quot;zh-cn&quot;&gt;
-    &lt;label&gt;日期 1&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__short-l uix-controls__date">
-                                <input type="text" class="js-uix-float-label" name="shortinput3"
-                                    autocomplete="off"
-                                    data-picker="true"
-                                    data-picker-min-date="0"
-                                    data-picker-max-date="+2050/01/01"
-                                    data-picker-format="Y-m-d H:i:s"
-                                    data-picker-timepicker="true"
-                                    data-picker-lang="zh-cn">
-                                <label>日期 1</label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                    <div class="row">
-                        <div class="col-12">
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__short-l uix-controls__date&quot;&gt;
-    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;shortinput3-2&quot;
-        autocomplete=&quot;off&quot;
-        data-picker=&quot;true&quot;
-        data-picker-min-date=&quot;-2016/01/01&quot;
-        data-picker-max-date=&quot;0&quot;
-        data-picker-format=&quot;M d, Y&quot;
-        data-picker-timepicker=&quot;false&quot;
-        data-picker-lang=&quot;zh-cn&quot;&gt;
-    &lt;label&gt;日期 2&lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__short-l uix-controls__date">
-                                <input type="text" class="js-uix-float-label" name="shortinput3-2"
-                                    autocomplete="off"
-                                    data-picker="true"
-                                    data-picker-min-date="-2016/01/01"
-                                    data-picker-max-date="0"
-                                    data-picker-format="M d, Y"
-                                    data-picker-timepicker="false"
-                                    data-picker-lang="zh-cn">
-                                <label>日期 2</label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-            ====================================================== -->
-            <section>
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>复选框</h3>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-             ====================================================== -->
-            <section class="uix-spacing--s">
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__checkbox&quot;&gt;
-    &lt;label&gt;
-        &lt;input type=&quot;checkbox&quot; name=&quot;checkboxname&quot;&gt;复选框
-    &lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__checkbox">
-                                <label>
-                                    <input type="checkbox" name="checkboxname">复选框
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                    <div class="row">
-                        <div class="col-12">
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__checkbox&quot;&gt;
-    &lt;label&gt;
-        &lt;input type=&quot;checkbox&quot; name=&quot;checkboxname&quot; checked&gt;复选框
-    &lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__checkbox">
-                                <label>
-                                    <input type="checkbox" name="checkboxname" checked>复选框
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                    <div class="row">
-                        <div class="col-12">
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__checkbox is-disabled&quot;&gt;
-    &lt;label&gt;
-        &lt;input type=&quot;checkbox&quot; name=&quot;checkboxname&quot;&gt;禁用复选框
-    &lt;/label&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__checkbox is-disabled">
-                                <label>
-                                    <input type="checkbox" name="checkboxname">禁用复选框
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-            ====================================================== -->
-            <section>
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>数字</h3>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-             ====================================================== -->
-            <section class="uix-spacing--s">
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls uix-controls__number&quot;&gt;
-    &lt;input type=&quot;number&quot; step=&quot;0.01&quot; min=&quot;0&quot; class=&quot;js-uix-float-label&quot; name=&quot;numberdemo1&quot; value=&quot;0&quot;&gt;
-    &lt;span class=&quot;uix-controls__number__btn uix-controls__number__btn--add&quot; data-step=&quot;15&quot;&gt;+&lt;/span&gt;
-    &lt;span class=&quot;uix-controls__number__btn uix-controls__number__btn--remove&quot; data-step=&quot;15&quot;&gt;-&lt;/span&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls uix-controls__number">
-                                <input type="number" step="0.01" min="0" class="js-uix-float-label" name="numberdemo1" value="0">
-                                <span class="uix-controls__number__btn uix-controls__number__btn--add" data-step="15">+</span>
-                                <span class="uix-controls__number__btn uix-controls__number__btn--remove" data-step="15">-</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-            ====================================================== -->
-            <section>
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>动态字段</h3>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-             ====================================================== -->
-            <section class="uix-spacing--s">
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                             <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls__dynamic-fields-container&quot; data-max-fields=&quot;10&quot;&gt;
-    &lt;div class=&quot;uix-controls__dynamic-fields__tmpl&quot;&gt;
-        &lt;div class=&quot;uix-controls__dynamic-fields__tmpl__wrapper&quot;&gt;
-            &lt;!-- Use placeholder &#x60;___GUID___&#x60; to represent the unique ID of each item  --&gt;
-            &lt;!--///////////  Custom fields begin /////////// --&gt;
-            &lt;div class=&quot;uix-controls uix-controls__short-l&quot;&gt;
-                &lt;input type=&quot;text&quot; placeholder=&quot;标题&quot; class=&quot;js-uix-float-label&quot; value=&quot;&quot; name=&quot;appnotice-title&quot; id=&quot;appnotice-title-___GUID___&quot;&gt;
-            &lt;/div&gt;
-            &amp;nbsp;&amp;nbsp;
-            &lt;div class=&quot;uix-controls uix-controls__short-l&quot;&gt;
-                &lt;input type=&quot;text&quot; placeholder=&quot;链接&quot; class=&quot;js-uix-float-label&quot; value=&quot;&quot; name=&quot;appnotice-url&quot; id=&quot;appnotice-url-___GUID___&quot;&gt;
-            &lt;/div&gt;
-            &lt;!--///////////  Custom fields end /////////// --&gt;
-            &lt;a href=&quot;javascript:void(0);&quot; class=&quot;uix-controls__dynamic-fields__removebtn&quot;&gt;&lt;i class=&quot;fa fa-minus-circle&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;uix-controls__dynamic-fields__append&quot;&gt;&lt;/div&gt;
-    &lt;a href=&quot;javascript:void(0);&quot; class=&quot;uix-controls__dynamic-fields__addbtn&quot;&gt;&lt;i class=&quot;fa fa-plus-circle&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 新增&lt;/a&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls__dynamic-fields-container" data-max-fields="10">
-                                <div class="uix-controls__dynamic-fields__tmpl">
-                                    <div class="uix-controls__dynamic-fields__tmpl__wrapper">
-                                        <!-- Use placeholder `___GUID___` to represent the unique ID of each item  -->
-                                        <!--///////////  Custom fields begin /////////// -->
-                                        <div class="uix-controls uix-controls__short-l">
-                                            <input type="text" placeholder="标题" class="js-uix-float-label" value="" name="appnotice-title" id="appnotice-title-___GUID___">
-                                        </div>
-                                        &nbsp;&nbsp;
-                                        <div class="uix-controls uix-controls__short-l">
-                                            <input type="text" placeholder="链接" class="js-uix-float-label" value="" name="appnotice-url" id="appnotice-url-___GUID___">
-                                        </div>
-                                        <!--///////////  Custom fields end /////////// -->
-                                        <a href="javascript:void(0);" class="uix-controls__dynamic-fields__removebtn"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                                <div class="uix-controls__dynamic-fields__append"></div>
-                                <a href="javascript:void(0);" class="uix-controls__dynamic-fields__addbtn"><i class="fa fa-plus-circle" aria-hidden="true"></i> 新增</a>
-                            </div>
-                            <!-- uix-controls__dynamic-fields-container -->
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-            ====================================================== -->
-            <section>
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>文件</h3>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-             ====================================================== -->
-            <section class="uix-spacing--s">
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                             <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls__file-container&quot;&gt;
-    &lt;input type=&quot;file&quot; id=&quot;my-file&quot;&gt;
-    &lt;label tabindex=&quot;0&quot; for=&quot;my-file&quot; class=&quot;uix-controls__file-trigger&quot;&gt;&lt;i class=&quot;fa fa-upload&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;上传文件&lt;/label&gt;
-&lt;/div&gt;
-&lt;p class=&quot;uix-controls__file-return&quot;&gt;&lt;/p&gt;</code>
-</pre>
-                            <div class="uix-controls__file-container">
-                                <input type="file" id="my-file">
-                                <label tabindex="0" for="my-file" class="uix-controls__file-trigger"><i class="fa fa-upload" aria-hidden="true"></i>上传文件</label>
-                            </div>
-                            <p class="uix-controls__file-return"></p>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-            ====================================================== -->
-            <section>
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>文件字段</h3>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-             ====================================================== -->
-            <section class="uix-spacing--s">
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                             <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls__file-field-container&quot;&gt;
-    &lt;div class=&quot;uix-controls__file-field-trigger&quot;&gt;
-        &lt;div&gt;
-            &lt;input type=&quot;file&quot; accept=&quot;image/*&quot; data-title=&quot;将文件拖放到此处&quot;&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls__file-field-container">
-                                <div class="uix-controls__file-field-trigger">
-                                    <div>
-                                        <input type="file" accept="image/*" data-title="将文件拖放到此处">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-            ====================================================== -->
-            <section>
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>输入标签</h3>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-             ====================================================== -->
-            <section class="uix-spacing--s">
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls__tags-wrapper is-rounded&quot; data-placeholder=&quot;添加标签...&quot;&gt;
-    &lt;input type=&quot;text&quot; name=&quot;taginputname1&quot; value=&quot;&quot;&gt;
-&lt;/div&gt;
-&lt;br&gt;
-&lt;div class=&quot;uix-controls__tags-wrapper is-rounded&quot; data-placeholder=&quot;添加标签...&quot; data-max-tags=&quot;5&quot;&gt;
-    &lt;input type=&quot;text&quot; name=&quot;taginputname2&quot; value=&quot;标签1,标签2&quot;&gt;
-&lt;/div&gt;</code>
-</pre>
-                            <div class="uix-controls__tags-wrapper is-rounded" data-placeholder="添加标签...">
-                                <input type="text" name="taginputname1" value="">
-                            </div>
-                            <br>
-                            <div class="uix-controls__tags-wrapper is-rounded" data-placeholder="添加标签..." data-max-tags="5">
-                                <input type="text" name="taginputname2" value="标签1,标签2">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-            <!-- Content
-             ====================================================== -->
-            <section class="uix-spacing--s uix-spacing--no-top">
-                <!-- 容器 开始 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 uix-t-l">
-                              <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;p class=&quot;uix-t-l&quot;&gt;
-    &lt;button type=&quot;submit&quot; class=&quot;uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--primary&quot;&gt;提交你的信息&lt;/button&gt;
-&lt;/p&gt;
-&lt;span class=&quot;response&quot;&gt;&lt;/span&gt;</code>
-</pre>
-                            <p class="uix-t-l">
-                                <button type="submit" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--primary">提交你的信息</button>
-                            </p>
-                            <span class="response"></span>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </section>
-        </form>
-        <!-- 内容 开始 -->
-        <section>
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
-                        <h3>搜索框</h3>
-                    </div>
-                </div>
-                <!-- row end -->
-            </div>
-            <!-- container end -->
-        </section>
-        <!-- 内容 结束 -->
-        <section class="uix-spacing--s">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
-                        <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls__merge&quot; role=&quot;search&quot;&gt;
-    &lt;input id=&quot;search-input&quot; placeholder=&quot;Enter your search term...&quot; name=&quot;search-input&quot; type=&quot;text&quot; required /&gt;
-    &lt;button type=&quot;submit&quot; class=&quot;uix-btn uix-btn__bg--primary&quot;&gt;
-        &lt;span&gt;&lt;i class=&quot;fa fa-search&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;搜索&lt;/span&gt;&lt;/button&gt;
-&lt;/div&gt;</code>
-</pre>
-                        <div class="uix-controls__merge" role="search">
-                            <input id="search-input" placeholder="Enter your search term..." name="search-input" type="text" required />
-                            <button type="submit" class="uix-btn uix-btn__bg--primary">
-                                <span><i class="fa fa-search" aria-hidden="true"></i>搜索</span></button>
-                        </div>
-                        <br>
-                        <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls__merge is-pill&quot;&gt;
-    &lt;input id=&quot;search-input2&quot; placeholder=&quot;Enter your search term...&quot; name=&quot;search-input&quot; type=&quot;text&quot; required /&gt;
-    &lt;button type=&quot;submit&quot; class=&quot;uix-btn uix-btn__bg--primary&quot;&gt;&lt;span&gt;搜索&lt;/span&gt;&lt;/button&gt;
-&lt;/div&gt;</code>
-</pre>
-                        <div class="uix-controls__merge is-pill">
-                            <input id="search-input2" placeholder="Enter your search term..." name="search-input" type="text" required />
-                            <button type="submit" class="uix-btn uix-btn__bg--primary"><span>搜索</span></button>
-                        </div>
-                    </div>
-                </div>
-                <!-- row end -->
-            </div>
-            <!-- container end -->
-        </section>
-        <!-- 内容 开始 -->
-        <section>
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
-                        <h3>订阅</h3>
-                    </div>
-                </div>
-                <!-- row end -->
-            </div>
-            <!-- container end -->
-        </section>
-        <!-- 内容 结束 -->
-        <section class="uix-spacing--s">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
-                         <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls__merge&quot;&gt;
-    &lt;input id=&quot;subscribe-input&quot; placeholder=&quot;输入你的邮箱&quot; name=&quot;subscribe-input&quot; type=&quot;email&quot; required /&gt;
-    &lt;button type=&quot;submit&quot; class=&quot;uix-btn uix-btn__bg--primary&quot;&gt;&lt;span&gt;订阅&lt;/span&gt;&lt;/button&gt;
-&lt;/div&gt;</code>
-</pre>
-                        <div class="uix-controls__merge">
-                            <input id="subscribe-input" placeholder="输入你的邮箱" name="subscribe-input" type="email" required />
-                            <button type="submit" class="uix-btn uix-btn__bg--primary"><span>订阅</span></button>
-                        </div>
-                        <br>
-                        <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls__merge is-pill&quot;&gt;
-    &lt;input id=&quot;subscribe-input&quot; placeholder=&quot;输入你的邮箱&quot; name=&quot;subscribe-input&quot; type=&quot;email&quot; required /&gt;
-    &lt;button type=&quot;submit&quot; class=&quot;uix-btn uix-btn__bg--primary&quot;&gt;&lt;span&gt;订阅&lt;/span&gt;&lt;/button&gt;
-&lt;/div&gt;</code>
-</pre>
-                        <div class="uix-controls__merge is-pill">
-                            <input id="subscribe-input" placeholder="输入你的邮箱" name="subscribe-input" type="email" required />
-                            <button type="submit" class="uix-btn uix-btn__bg--primary"><span>订阅</span></button>
-                        </div>
-                        <br>
-                        <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls__merge is-iconic&quot;&gt;
-    &lt;i class=&quot;fa fa-envelope&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
-    &lt;input id=&quot;subscribe-input2&quot; placeholder=&quot;输入你的邮箱&quot; name=&quot;subscribe-input&quot; type=&quot;email&quot; required /&gt;
-    &lt;button type=&quot;submit&quot; class=&quot;uix-btn uix-btn__bg--primary&quot;&gt;&lt;span&gt;订阅&lt;/span&gt;&lt;/button&gt;
-&lt;/div&gt;</code>
-</pre>
-                        <div class="uix-controls__merge is-iconic">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                            <input id="subscribe-input2" placeholder="输入你的邮箱" name="subscribe-input" type="email" required />
-                            <button type="submit" class="uix-btn uix-btn__bg--primary"><span>订阅</span></button>
-                        </div>
-                        <br>
-                        <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls__merge is-pill is-iconic&quot;&gt;
-    &lt;i class=&quot;fa fa-envelope&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
-    &lt;input id=&quot;subscribe-input3&quot; placeholder=&quot;输入你的邮箱&quot; name=&quot;subscribe-input&quot; type=&quot;email&quot; required /&gt;
-    &lt;button type=&quot;submit&quot; class=&quot;uix-btn uix-btn__bg--primary&quot;&gt;&lt;span&gt;订阅&lt;/span&gt;&lt;/button&gt;
-&lt;/div&gt;</code>
-</pre>
-                        <div class="uix-controls__merge is-pill is-iconic">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                            <input id="subscribe-input3" placeholder="输入你的邮箱" name="subscribe-input" type="email" required />
-                            <button type="submit" class="uix-btn uix-btn__bg--primary"><span>订阅</span></button>
-                        </div>
-                    </div>
-                </div>
-                <!-- row end -->
-            </div>
-            <!-- container end -->
-        </section>
-    </main>
-            <!-- Footer
+                        
+                        
+                        
+                        
+                  </div>
+                  <!-- .container end -->
+                  
+                  <div class="uix-clearfix"></div>
+             </div>
+        
+        </header>
+        <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+      
+		
+		<main id="uix-maincontent">
+			
+		
+
+			<form method="post" action="#" id="app-my-form">
+
+				<!-- Content 
+				====================================================== -->
+				<section class="uix-spacing--s uix-spacing--no-bottom">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h3>Inputs</h3>
+								<hr>
+
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+					</div>
+					<!-- .container end -->
+
+				</section>
+
+
+			   <!-- Content 
+				====================================================== -->
+				<section class="uix-spacing--s">
+					<div class="container">
+
+
+						   <div class="row">
+								<div class="col-12">
+
+									Text 1:
+									<div class="uix-controls">
+									  <input type="text" class="js-uix-float-label" value="" name="input-name-1">
+									  <label>Input Normal</label>
+
+									</div>
+									<br>
+
+									Text 2:
+									<div class="uix-controls">
+									  <input type="text" class="js-uix-float-label" name="input-name-2" maxlength="50" value="0">
+									  <label>Input Normal</label>
+									</div>
+									<br>
+
+									Text 3:
+									<div class="uix-controls is-disabled">
+									  <input type="text" class="js-uix-float-label"  name="input-name-3" disabled>
+									  <label>Disabled</label>
+
+									</div>
+
+									<div class="uix-controls">
+									  <input type="text" class="js-uix-float-label"  name="input-name-3_2" readonly>
+									  <label>Read Only</label>
+
+									</div>
+
+									<div class="uix-controls">
+									  <input type="text" class="js-uix-float-label"  name="input-name-3_3" required>
+									  <label>Required<span class="uix-controls__im">*</span></label>
+
+									</div>
+
+									<br>
+
+									Text 4:<br>
+									<div class="uix-controls is-fullwidth">
+									  <input type="text" class="js-uix-float-label" name="input-name-4">
+									  <label>Fullwidth</label>
+									</div>
+									<br>
+
+
+									Text 5:
+									<div class="uix-controls is-error">
+									  <input type="text" class="js-uix-float-label" value="Error" name="input-name-5">
+									  <label>Input Name</label>
+									</div>
+									<br>
+
+									Text 6:
+									<div class="uix-controls is-success">
+									  <input type="text" class="js-uix-float-label" value="Success" name="input-name-6">
+									  <label>Input Name</label>
+
+									</div>
+									<br>
+
+									Text 7:
+									<div class="uix-controls is-pill">
+									  <input type="text" class="js-uix-float-label" name="input-name-7">
+									  <label>Input Name</label>
+									</div>
+									<br>
+
+									Text 8:
+									<div class="uix-controls is-rounded">
+									  <input type="text" class="js-uix-float-label" name="input-name-8">
+									  <label>Input Name</label>
+									</div>
+									<br>
+
+									Text 9:
+									<div class="uix-controls uix-controls__short-s">
+									  <input type="text" class="js-uix-float-label" name="input-name-s-1">
+									  <label>Short Input 1</label>unit
+									</div>
+									<br>
+
+
+									Text 10:
+									<div class="uix-controls uix-controls__short-m">
+									  <input type="text" class="js-uix-float-label" name="input-name-s-2">
+									  <label>Short Input 2</label>unit
+									</div>
+									<br>
+
+
+									Text 11:
+									<div class="uix-controls uix-controls__short-l">
+									  <input type="text" class="js-uix-float-label" name="input-name-s-3">
+									  <label>Short Input 3</label>unit
+									</div>
+									<br>
+
+									Text 12:
+									<div class="uix-controls is-iconic">
+									  <i class="fa fa-user-o" aria-hidden="true"></i>
+									  <input type="text" class="js-uix-float-label" name="input-name-12">
+									  <label>Icon Left</label>
+									</div>
+
+									<div class="uix-controls is-iconic is-reversed">
+									  <i class="fa fa-user-o" aria-hidden="true"></i>
+									  <input type="text" class="js-uix-float-label" name="input-name-12_2">
+									  <label>Icon Right</label>
+									</div>	
+									<br>
+
+
+									Mixed some UI attributes (<code>class="uix-controls is-fullwidth is-pill is-success"</code>):<br>
+									<div class="uix-controls is-fullwidth is-pill is-success">
+									  <input type="text" class="js-uix-float-label" name="input-name-13">
+									  <label>Input Name</label>
+									</div>
+
+
+								</div>  
+							</div>
+							<!-- .row end -->  
+					</div>
+					<!-- .container end -->
+				</section>
+
+
+				
+
+				<!-- Content 
+				====================================================== -->
+				<section>
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h3>Textarea</h3>
+								<hr>
+
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+					</div>
+					<!-- .container end -->
+
+				</section>
+
+
+			   <!-- Content 
+				====================================================== -->
+				<section class="uix-spacing--s">
+					<div class="container">
+
+
+						   <div class="row">
+								<div class="col-12">
+
+									<div class="uix-controls uix-controls__textarea">
+									  <textarea rows="5" name="comments" class="js-uix-float-label"></textarea>
+									  <label>Textarea</label>
+									</div>
+									<br>
+									
+	
+									<div class="uix-controls uix-controls__textarea is-fullwidth">
+									  <textarea rows="5" name="comments" class="js-uix-float-label"></textarea>
+									  <label>Fullwidth</label>
+									</div>					
+									
+
+								</div>  
+							</div>
+							<!-- .row end -->  
+					</div>
+					<!-- .container end -->
+				</section>
+
+
+
+	
+
+				<!-- Content 
+				====================================================== -->
+				<section>
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h3>Select (normal)</h3>
+								<hr>
+
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+					</div>
+					<!-- .container end -->
+
+				</section>
+
+
+
+			   <!-- Content 
+				====================================================== -->
+				<section class="uix-spacing--s">
+					<div class="container">
+
+
+						   <div class="row">
+								<div class="col-12">
+												
+									<div class="uix-controls uix-controls__normal-select is-disabled">
+										<span class="uix-controls__arrow"><i class="fa fa-sort"></i></span>
+										<select name="country">
+											<option value="Option 1">Option 1</option>
+											<option value="Option 2">Option 2</option>
+											<option value="Option 3">Option 3</option>
+										</select>
+										<label>Disabled Select</label>
+
+
+									</div>
+									<br>
+
+									<div class="uix-controls uix-controls__normal-select">
+										<span class="uix-controls__arrow"><i class="fa fa-sort"></i></span>
+										<select name="country">
+											<option value="Option 1">Option 1</option>
+											<option value="Option 2">Option 2</option>
+											<option value="Option 3">Option 3</option>
+										</select>
+										<label>Select</label>
+
+
+									</div>
+									<br>
+
+
+									<div class="uix-controls uix-controls__normal-select">
+										<span class="uix-controls__arrow"><i class="fa fa-sort"></i></span>
+										<select name="country">
+											<option value="Option 1">Option 1</option>
+											<option value="Option 2">Option 2</option>
+											<option value="Option 3">Option 3</option>
+										</select>
+										<label>Select</label>
+
+
+									</div>
+									<br>
+
+
+									<div class="uix-controls uix-controls__normal-select is-fullwidth">
+										<span class="uix-controls__arrow"><i class="fa fa-sort"></i></span>
+										<select class="js-uix-float-label">
+											<option value="blank"></option>
+											<option value="Apple">Apple</option>
+											<option value="Banana">Banana</option>
+											<option value="Kiwi">Kiwi</option>
+											<option value="Orange">Orange</option>
+											<option value="Watermelon">Watermelon</option>
+										</select>
+										<label>Select Arrow</label>
+									</div>
+
+												
+
+
+								</div>  
+							</div>
+							<!-- .row end -->  
+					</div>
+					<!-- .container end -->
+				</section>
+
+
+
+
+				<!-- Content 
+				====================================================== -->
+				<section>
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h3>Custom Select</h3>
+								<hr>
+
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+					</div>
+					<!-- .container end -->
+
+				</section>
+
+
+			   <!-- Content 
+				====================================================== -->
+				<section class="uix-spacing--s">
+					<div class="container">
+
+
+						   <div class="row">
+								<div class="col-12">
+
+
+									<div class="uix-controls uix-controls__select is-disabled">
+										<label>
+											<select name="selectname">
+												<option value="Option 1">Option 1</option>
+												<option value="Option 2">Option 2</option>
+												<option value="Option 3">Option 3</option>
+											</select>
+
+										</label>
+										<span>Disabled Select</span>
+
+									</div>
+									<br>
+
+
+
+									<div class="uix-controls uix-controls__select">
+										<label>
+											<select name="selectname">
+												<option value="Option 1">Option 1</option>
+												<option value="Option 2">Option 2</option>
+												<option value="Option 3">Option 3</option>
+											</select>
+
+										</label>
+										<span>Custom Select</span>
+
+									</div>
+									<br>
+
+									<div class="uix-controls uix-controls__select is-fullwidth">
+										<label>
+											<select name="selectname">
+												<option value="">Full Width Select</option>
+												<option value="Option 1">Option 1</option>
+												<option value="Option 2">Option 2</option>
+												<option value="Option 3">Option 3</option>
+											</select>
+
+										</label>
+
+									</div>
+									<br>
+
+									<div class="uix-controls uix-controls__select uix-controls__select--top is-pill">
+										<label>
+											<select name="selectname">
+												<option value="Option 1">Option 1</option>
+												<option value="Option 2">Option 2</option>
+												<option value="Option 3">Option 3</option>
+											</select>
+
+										</label>
+										<span>Custom Select -Converse</span>
+
+
+									</div>
+										
+
+
+								</div>  
+							</div>
+							<!-- .row end -->  
+					</div>
+					<!-- .container end -->
+				</section>
+
+
+	
+
+				<!-- Content 
+				====================================================== -->
+				<section>
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h3>Multiple Select</h3>
+								<hr>
+
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+					</div>
+					<!-- .container end -->
+
+				</section>
+
+
+
+			   <!-- Content 
+				====================================================== -->
+				<section class="uix-spacing--s">
+					<div class="container">
+
+
+						   <div class="row">
+								<div class="col-12">
+
+									<div class="uix-controls uix-controls__multi-sel" data-targetid="my-multi-selector-name-1">
+										 <span aria-checked="false" role="checkbox" data-value="1">facebook<i class="fa fa-check no"></i></span>
+										 <span aria-checked="false" role="checkbox" data-value="2">twitter<i class="fa fa-check no"></i></span>
+										 <span aria-checked="false" role="checkbox" data-value="3">google_plus<i class="fa fa-check no"></i></span>
+										 <span aria-checked="false" role="checkbox" data-value="4">pinterest<i class="fa fa-check no"></i></span>
+									</div>
+
+									<input type="hidden" id="my-multi-selector-name-1" name="my-multi-selector-name-1" value="1,3">
+
+
+								</div>  
+							</div>
+							<!-- .row end -->  
+					</div>
+					<!-- .container end -->
+				</section>
+
+
+	
+
+				<!-- Content 
+				====================================================== -->
+				<section>
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h3>Single Select</h3>
+								<hr>
+
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+					</div>
+					<!-- .container end -->
+
+				</section>
+
+
+
+			   <!-- Content 
+				====================================================== -->
+				<section class="uix-spacing--s">
+					<div class="container">
+
+					   <div class="row">
+							<div class="col-12">
+								<div class="uix-controls uix-controls__single-sel" data-targetid="my-cus-radio-name-1">
+									 <span aria-checked="false" role="radio" data-value="1" data-switchid="my-cus-radio-switch-1">Switch 1</span>
+									 <span aria-checked="false" role="radio" data-value="2" data-switchid="my-cus-radio-switch-2">Switch 2</span>
+									 <span aria-checked="false" role="radio" data-value="3" data-switchid="my-cus-radio-switch-3">Switch 3</span>
+								</div>
+
+								<input type="hidden" id="my-cus-radio-name-1" name="my-cus-radio-name-1" value="2">
+
+								<div id="my-cus-radio-switch-1" style="padding: 10px; background: #d2ff52; background: linear-gradient(to bottom, #d2ff52 0%,#91e842 100%); margin: -30px 0 15px 0; max-width: 300px;">Switch 1</div>
+								<div id="my-cus-radio-switch-2" style="padding: 10px; background: #d2ff52; background: linear-gradient(to bottom, #d2ff52 0%,#91e842 100%); margin: -30px 0 15px 0; max-width: 300px;">Switch 2</div>
+								<div id="my-cus-radio-switch-3" style="padding: 10px; background: #d2ff52; background: linear-gradient(to bottom, #d2ff52 0%,#91e842 100%); margin: -30px 0 15px 0; max-width: 300px;">Switch 3</div>
+
+							</div>  
+
+						</div>
+						<!-- .row end -->
+
+
+
+					   <div class="row">
+							<div class="col-12">
+								<div class="uix-controls uix-controls__single-sel is-pill" data-targetid="my-cus-radio-name-2">
+									 <span aria-checked="false" role="radio" data-value="1">facebook</span>
+									 <span aria-checked="false" role="radio" data-value="2">twitter</span>
+									 <span aria-checked="false" role="radio" data-value="3">google_plus</span>
+									 <span aria-checked="false" role="radio" data-value="4">pinterest</span>
+								</div>
+
+								<input type="hidden" id="my-cus-radio-name-2" name="my-cus-radio-name-2" value="1">
+
+							</div>  
+
+						</div>
+						<!-- .row end -->
+
+
+
+					</div>
+					<!-- .container end -->
+				</section>
+
+
+	
+
+				<!-- Content 
+				====================================================== -->
+				<section>
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h3>Switch</h3>
+								<hr>
+
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+					</div>
+					<!-- .container end -->
+
+				</section>
+
+
+			   <!-- Content 
+				====================================================== -->
+				<section class="uix-spacing--s">
+					<div class="container">
+
+					   <div class="row">
+							<div class="col-12">
+
+								<div class="uix-controls uix-controls__toggle is-disabled" data-off-text="off" data-on-text="on">
+									<label>
+										<input role="switch" type="checkbox" name="togglename">
+									</label>
+								</div>
+
+							</div>  
+
+						</div>
+						<!-- .row end -->       
+
+
+					   <div class="row">
+							<div class="col-12">
+
+								<div class="uix-controls uix-controls__toggle" data-off-text="off" data-on-text="on">
+									<label>
+										<input role="switch" type="checkbox" name="togglename">
+									</label>
+								</div>
+
+							</div>  
+
+						</div>
+						<!-- .row end -->            	 	 	 
+
+					   <div class="row">
+							<div class="col-12">
+
+								<div class="uix-controls uix-controls__toggle is-pill" data-off-text="off" data-on-text="on" data-targetid="my-toggle-name-1">
+									<label>
+										<input role="switch" type="checkbox" name="togglename2">
+									</label>
+								</div>
+
+								<div id="my-toggle-name-1" style="padding: 10px; background: #d2ff52; background: linear-gradient(to bottom, #d2ff52 0%,#91e842 100%); margin: 5px 0 15px 0; max-width: 300px;">Switch</div>
+
+							</div>  
+
+						</div>
+						<!-- .row end -->   
+
+						
+						
+					</div>
+					<!-- .container end -->
+				</section>
+
+
+
+
+				<!-- Content 
+				====================================================== -->
+				<section>
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h3>Radio</h3>
+								<hr>
+
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+					</div>
+					<!-- .container end -->
+
+				</section>
+
+
+			   <!-- Content 
+				====================================================== -->
+				<section class="uix-spacing--s">
+					<div class="container">
+
+						   <div class="row">
+								<div class="col-12">
+
+									<div class="uix-controls uix-controls__radio">
+										<label>
+											<input type="radio" name="radioname">Radio Name 1
+										</label>
+										<label>
+											<input type="radio" name="radioname" checked>Radio Name 2
+										</label>
+										<label>
+											<input type="radio" name="radioname">Radio Name 3
+										</label>
+									</div>
+
+								</div>  
+
+							</div>
+							<!-- .row end --> 	
+
+
+						   <div class="row">
+								<div class="col-12">
+
+									<div class="uix-controls uix-controls__radio is-disabled">
+										<label>
+											<input type="radio" name="radioname2">Disabled Radio Name 1
+										</label>
+										<label>
+											<input type="radio" name="radioname2" checked>Disabled Radio Name 2
+										</label>
+									</div>
+
+								</div>  
+
+							</div>
+							<!-- .row end --> 	    
+
+					</div>
+					<!-- .container end -->
+				</section>
+
+
+
+
+				<!-- Content 
+				====================================================== -->
+				<section>
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h3>Date</h3>
+								<hr>
+
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+					</div>
+					<!-- .container end -->
+
+				</section>
+
+
+			   <!-- Content 
+				====================================================== -->
+				<section class="uix-spacing--s">
+					<div class="container">
+
+
+					   <div class="row">
+							<div class="col-12">
+								<div class="uix-controls uix-controls__short-l uix-controls__date">
+								  <input  type="text" class="js-uix-float-label" name="shortinput3"
+										  autocomplete="off" 
+										  data-picker="true" 
+										  data-picker-min-date="0"
+										  data-picker-max-date="+2050/01/01"
+										  data-picker-format="Y-m-d H:i:s" 
+										  data-picker-timepicker="true" 
+										  data-picker-lang="en">
+								  <label>Date 1</label>
+								</div>
+
+							</div>  
+
+						</div>
+						<!-- .row end -->    
+
+					   <div class="row">
+							<div class="col-12">
+								<div class="uix-controls uix-controls__short-l uix-controls__date">
+								  <input  type="text" class="js-uix-float-label" name="shortinput3-2"
+										  autocomplete="off" 
+										  data-picker="true" 
+										  data-picker-min-date="-2016/01/01"
+										  data-picker-max-date="0"
+										  data-picker-format="M d, Y" 
+										  data-picker-timepicker="false" 
+										  data-picker-lang="en">
+								  <label>Date 2</label>
+								</div>
+
+							</div>  
+
+						</div>
+						<!-- .row end -->   	
+						
+						
+					</div>
+					<!-- .container end -->
+				</section>
+
+
+
+				<!-- Content 
+				====================================================== -->
+				<section>
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h3>Checkbox</h3>
+								<hr>
+
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+					</div>
+					<!-- .container end -->
+
+				</section>
+
+
+			   <!-- Content 
+				====================================================== -->
+				<section class="uix-spacing--s">
+					<div class="container">
+
+
+
+						   <div class="row">
+								<div class="col-12">
+
+									<div class="uix-controls uix-controls__checkbox">
+										<label>
+											<input type="checkbox" name="checkboxname">Checkbox
+										</label>
+									</div>
+
+								</div>  
+
+							</div>
+							<!-- .row end --> 
+
+						   <div class="row">
+								<div class="col-12">
+
+									<div class="uix-controls uix-controls__checkbox">
+										<label>
+											<input type="checkbox" name="checkboxname" checked>Checkbox
+										</label>
+									</div>
+
+								</div>  
+
+							</div>
+							<!-- .row end --> 
+
+
+
+						   <div class="row">
+								<div class="col-12">
+
+									<div class="uix-controls uix-controls__checkbox is-disabled">
+										<label>
+											<input type="checkbox" name="checkboxname">Disabled Checkbox
+										</label>
+									</div>
+
+								</div>  
+
+							</div>
+							<!-- .row end --> 
+						
+						
+					</div>
+					<!-- .container end -->
+				</section>
+
+
+
+				<!-- Content 
+				====================================================== -->
+				<section>
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h3>Number</h3>
+								<hr>
+
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+					</div>
+					<!-- .container end -->
+
+				</section>
+
+
+
+			   <!-- Content 
+				====================================================== -->
+				<section class="uix-spacing--s">
+					<div class="container">
+
+
+						   <div class="row">
+								<div class="col-12">
+
+									<div class="uix-controls uix-controls__number">
+										<input type="number" step="0.01" min="0" class="js-uix-float-label" name="numberdemo1" value="1">
+										<span class="uix-controls__number__btn uix-controls__number__btn--add" data-step="15">+</span>
+										<span class="uix-controls__number__btn uix-controls__number__btn--remove" data-step="15">-</span>
+									</div>
+
+
+
+								</div>  
+							</div>
+							<!-- .row end -->  
+					</div>
+					<!-- .container end -->
+				</section>
+
+
+
+	
+
+				<!-- Content 
+				====================================================== -->
+				<section>
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h3>Dynamic Fields</h3>
+								<hr>
+
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+					</div>
+					<!-- .container end -->
+
+				</section>
+
+
+			   <!-- Content 
+				====================================================== -->
+				<section class="uix-spacing--s">
+					<div class="container">
+
+
+						   <div class="row">
+								<div class="col-12">
+
+
+
+									<div class="uix-controls__dynamic-fields-container" data-max-fields="10">
+
+										<div class="uix-controls__dynamic-fields__tmpl">
+											<div class="uix-controls__dynamic-fields__tmpl__wrapper">
+
+												<!-- Use placeholder `___GUID___` to represent the unique ID of each item  -->
+												<!--///////////  Custom fields begin /////////// -->
+
+												<div class="uix-controls uix-controls__short-l">
+													  <input type="text" placeholder="Title" class="js-uix-float-label" value="" name="appnotice-title" id="appnotice-title-___GUID___">
+												</div>	
+
+												&nbsp;&nbsp;
+												<div class="uix-controls uix-controls__short-l">
+													  <input type="text" placeholder="URL" class="js-uix-float-label" value="" name="appnotice-url" id="appnotice-url-___GUID___">
+												</div>	
+
+												<!--///////////  Custom fields end /////////// -->
+
+
+												<a href="javascript:void(0);" class="uix-controls__dynamic-fields__removebtn"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+											</div>
+
+										</div>  
+
+
+										<div class="uix-controls__dynamic-fields__append"></div>
+										<a href="javascript:void(0);" class="uix-controls__dynamic-fields__addbtn"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add new</a>
+
+									</div>
+									<!-- /.uix-controls__dynamic-fields-container -->	
+
+
+
+
+
+								</div>  
+							</div>
+							<!-- .row end -->  
+					</div>
+					<!-- .container end -->
+				</section>
+
+
+
+
+				<!-- Content 
+				====================================================== -->
+				<section>
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h3>File</h3>
+								<hr>
+
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+					</div>
+					<!-- .container end -->
+
+				</section>
+
+
+			   <!-- Content 
+				====================================================== -->
+				<section class="uix-spacing--s">
+					<div class="container">
+
+
+						   <div class="row">
+								<div class="col-12">
+
+									<div class="uix-controls__file-container">  
+										<input type="file" id="my-file">
+										<label tabindex="0" for="my-file" class="uix-controls__file-trigger"><i class="fa fa-upload" aria-hidden="true"></i>Upload File</label>
+									</div>
+									<p class="uix-controls__file-return"></p>
+
+
+								</div>  
+							</div>
+							<!-- .row end -->  
+					</div>
+					<!-- .container end -->
+				</section>
+
+
+
+				<!-- Content 
+				====================================================== -->
+				<section>
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h3>File Field</h3>
+								<hr>
+
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+					</div>
+					<!-- .container end -->
+
+				</section>
+
+
+
+			   <!-- Content 
+				====================================================== -->
+				<section class="uix-spacing--s">
+					<div class="container">
+
+
+						   <div class="row">
+								<div class="col-12">
+
+									<div class="uix-controls__file-field-container">
+										<div class="uix-controls__file-field-trigger">
+										  <div>
+											  <input type="file" accept="image/*"  data-title="Drag and drop a file here">
+										  </div>
+										</div>
+
+									</div>
+
+
+								</div>  
+							</div>
+							<!-- .row end -->  
+					</div>
+					<!-- .container end -->
+				</section>
+
+
+
+				<!-- Content 
+				====================================================== -->
+				<section>
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h3>Tag Input</h3>
+								<hr>
+
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+					</div>
+					<!-- .container end -->
+
+				</section>
+
+
+
+			   <!-- Content 
+				====================================================== -->
+				<section class="uix-spacing--s">
+					<div class="container">
+
+
+						   <div class="row">
+								<div class="col-12">
+
+									<div class="uix-controls__tags-wrapper is-rounded" data-placeholder="Add tag...">
+										<input type="text" name="taginputname1" value="">
+									</div>
+
+									<br>
+
+
+									<div class="uix-controls__tags-wrapper is-rounded" data-placeholder="Add tag..." data-max-tags="5">
+										<input type="text" name="taginputname2" value="tag1,tag2">
+									</div>
+			
+			
+
+								</div>  
+							</div>
+							<!-- .row end -->  
+					</div>
+					<!-- .container end -->
+				</section>
+
+						
+	
+
+			   <!-- Content 
+				====================================================== -->
+				<section class="uix-spacing--s uix-spacing--no-top">
+					<div class="container">
+
+					   <div class="row">
+							<div class="col-12 uix-t-l">
+								<p class="uix-t-l">
+								  <button type="submit" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--primary">Submit Your Info</button>
+								</p> 
+
+								 <span class="response"></span>
+
+							</div>  
+
+						</div>
+						<!-- .row end --> 
+
+
+					</div>
+					<!-- .container end -->
+
+
+				</section>
+		
+				
+			</form>
+
+			
+			
+			
+			<!-- Content 
+			====================================================== -->
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h3>Search Box</h3>
+							<hr>
+							
+							
+						</div>
+					</div>
+					<!-- .row end -->
+
+				</div>
+				<!-- .container end -->
+
+			</section>
+			
+		
+
+
+
+		   <!-- Content 
+			====================================================== -->
+			<section class="uix-spacing--s">
+				<div class="container uix-t-c">
+
+
+						<div class="row">
+							<div class="col-12">
+
+
+								<div class="uix-controls__merge" role="search">
+									<input id="search-input" placeholder="Enter your search term..." name="search-input" type="text" required />
+									<button type="submit" class="uix-btn uix-btn__bg--primary"><span><i class="fa fa-search" aria-hidden="true"></i>Search</span></button>                    
+								</div>
+
+
+								<div class="uix-controls__merge is-pill">
+									<input id="search-input2" placeholder="Enter your search term..." name="search-input" type="text" required />
+									<button type="submit" class="uix-btn uix-btn__bg--primary"><span>Search</span></button>                    
+								</div>                    
+
+
+							</div>     
+
+
+						</div>
+						<!-- .row end -->  
+
+
+				</div>
+				<!-- .container end -->
+
+
+
+			</section>
+
+
+
+			<!-- Content 
+			====================================================== -->
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h3>Subscribe</h3>
+							<hr>
+							
+							
+						</div>
+					</div>
+					<!-- .row end -->
+
+				</div>
+				<!-- .container end -->
+
+			</section>
+			
+			
+
+		   <!-- Content 
+			====================================================== -->
+			<section class="uix-spacing--s">
+				<div class="container uix-t-c">
+
+
+						<div class="row">
+							<div class="col-12">
+
+								<div class="uix-controls__merge">
+									<input id="subscribe-input" placeholder="Enter your Email" name="subscribe-input" type="email" required />
+									<button type="submit" class="uix-btn uix-btn__bg--primary"><span>Subscribe</span></button>                    
+								</div>      
+
+
+								<div class="uix-controls__merge is-pill">
+									<input id="subscribe-input" placeholder="Enter your Email" name="subscribe-input" type="email" required />
+									<button type="submit" class="uix-btn uix-btn__bg--primary"><span>Subscribe</span></button>                    
+								</div>    
+
+								<div class="uix-controls__merge is-iconic">
+									<i class="fa fa-envelope" aria-hidden="true"></i>
+									<input id="subscribe-input2" placeholder="Enter your Email" name="subscribe-input" type="email" required />
+									<button type="submit" class="uix-btn uix-btn__bg--primary"><span>Subscribe</span></button>                    
+								</div>       
+
+								<div class="uix-controls__merge is-pill is-iconic">
+									<i class="fa fa-envelope" aria-hidden="true"></i>
+									<input id="subscribe-input3" placeholder="Enter your Email" name="subscribe-input" type="email" required />
+									<button type="submit" class="uix-btn uix-btn__bg--primary"><span>Subscribe</span></button>                    
+								</div>       
+
+
+
+
+							</div>     
+
+
+						</div>
+						<!-- .row end -->  
+
+
+				</div>
+				<!-- .container end -->
+
+
+
+			</section>
+			
+		</main>
+		
+     
+			
+        
+        
+                <!-- Footer
         ============================================= -->    
         <footer class="uix-footer__container">
             <div class="uix-footer">
@@ -1695,81 +1749,140 @@
         </footer>
 
 
-</div>
-<!-- uix-wrapper end -->
-<script>
-    (function($) {
-        'use strict';
-        $(function() {
-            /*
-             ---------------------------
-             Input Validation
-             ---------------------------
-             */
-            $(document).off('submit').on('submit', '#app-my-form', function(e) {
-                var $form = $(this),
-                    validationOK = true,
-                    emailRe = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/igm,
-                    numReg = /^\d+$/;
-                //Radio
-                var radioVal = $form.find('[name="radioname"]:checked').val();
-                if (radioVal == '' || typeof radioVal == typeof undefined) {
-                    $form.find('.response').html('<p class="uix-striking-msg uix-striking-msg--danger is-pill"><i class="fa fa-times" aria-hidden="true"></i> This value of radio cannot be left blank.</p>');
-                    setTimeout(function() {
-                        $form.find('.response').html('');
-                    }, 3000);
-                    validationOK = false;
-                }
-                //Email
-                var emailVal = $form.find('[name="email"]').val();
-                if (emailVal != '' && !emailRe.test(emailVal) && typeof emailVal != typeof undefined) {
-                    $form.find('.response').html('<p class="uix-striking-msg uix-striking-msg--danger is-pill"><i class="fa fa-times" aria-hidden="true"></i> A valid email address.</p>');
-                    setTimeout(function() {
-                        $form.find('.response').html('');
-                    }, 3000);
-                    $form.find('[name="email"]').focus();
-                    validationOK = false;
-                }
-                //Required Fields
-                $form.find('.required').each(function() {
-                    if ($(this).val() == '') {
-                        var _ft = $(this)
-                            .closest('.row')
-                            .find('[class*=col-]')
-                            .html();
-                        if (_ft.indexOf('</select>') >= 0) {
-                            _ft = _ft.replace(/<select[\s\S]*<\/select>/ig, '')
-                                .replace(/<span\sclass=\"uix-controls\_\_select\-trigger\">[\s\S]*<\/span>/ig, '');
-                        }
-                        var info = _ft.replace(/(&nbsp;|<([^>]+)>|\*)/ig, '');
-                        $form.find('.response').html('<p class="uix-striking-msg uix-striking-msg--danger is-pill"><i class="fa fa-times" aria-hidden="true"></i> "' + info + '" Can not be empty.</p>');
-                        setTimeout(function() {
-                            $form.find('.response').html('');
-                        }, 3000);
-                        $(this).focus();
-                        validationOK = false;
-                        //break this loop
-                        return false;
-                    }
-                });
-                //Checkbox
-                if (validationOK && !$form.find('[name="checkboxname"]').get(0).checked) {
-                    $form.find('.response').html('<p class="uix-striking-msg uix-striking-msg--danger is-pill"><i class="fa fa-times" aria-hidden="true"></i> This value of checkbox cannot be left blank.</p>');
-                    setTimeout(function() {
-                        $form.find('.response').html('');
-                    }, 3000);
-                    validationOK = false;
-                }
-                if (validationOK) {
-                    return true;
-                } else {
-                    return false;
-                }
-            });
-        });
-    })(jQuery);
-</script>
-  
+        
+        
+    </div>
+    <!-- .uix-wrapper end -->
+       
+	  
+
+
+	<script>
+	( function( $ ) {
+	"use strict";
+
+		$( function() {
+			/* 
+			 ---------------------------
+			 Input Validation 
+			 ---------------------------
+			 */ 
+			$(document).off( 'submit' ).on( 'submit', '#app-my-form', function(e) {
+
+				var $form        = $( this ),
+					validationOK = true,
+					emailRe      = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/igm,
+					numReg       = /^\d+$/;
+
+
+
+				//Radio
+				var radioVal = $form.find( '[name="radioname"]:checked' ).val();
+
+				if ( radioVal == '' || typeof radioVal == typeof undefined ) {
+					$form.find( '.response' ).html( '<p class="uix-striking-msg uix-striking-msg--danger is-pill"><i class="fa fa-times" aria-hidden="true"></i> This value of radio cannot be left blank.</p>' );
+
+					setTimeout( function(){
+						$form.find( '.response' ).html( '' );
+					}, 3000 );	
+
+					validationOK = false;
+				}
+
+
+				//Email
+				var emailVal = $form.find( '[name="email"]' ).val();
+				if ( emailVal != '' && !emailRe.test( emailVal ) && typeof emailVal != typeof undefined ) {
+					$form.find( '.response' ).html( '<p class="uix-striking-msg uix-striking-msg--danger is-pill"><i class="fa fa-times" aria-hidden="true"></i> A valid email address.</p>' );
+
+					setTimeout( function(){
+						$form.find( '.response' ).html( '' );
+					}, 3000 );
+
+					$form.find( '[name="email"]' ).focus();
+
+					validationOK = false;
+				}
+
+
+				//Required Fields
+				$form.find( '.required' ).each( function()  {
+
+
+					if ( $( this ).val() == '' ) {
+
+						var _ft = $( this )
+										.closest( '.row' )
+										.find( '[class*=col-]' )
+										.html();
+
+
+						if ( _ft.indexOf( '</select>' ) >= 0 ) {
+							_ft = _ft.replace(/<select[\s\S]*<\/select>/ig, '' )
+									 .replace(/<span\sclass=\"uix-controls\_\_select\-trigger\">[\s\S]*<\/span>/ig, '' );
+
+
+						}
+
+
+						var info = _ft.replace(/(&nbsp;|<([^>]+)>|\*)/ig, '' );
+
+						$form.find( '.response' ).html( '<p class="uix-striking-msg uix-striking-msg--danger is-pill"><i class="fa fa-times" aria-hidden="true"></i> "'+info+'" Can not be empty.</p>' );
+
+						setTimeout( function(){
+							$form.find( '.response' ).html( '' );
+						}, 3000 );
+
+						$( this ).focus();
+
+						validationOK = false;
+
+						//break this loop
+						return false;
+
+					}
+
+
+
+				});
+
+
+
+
+
+				//Checkbox
+				if ( validationOK && !$form.find( '[name="checkboxname"]' ).get(0).checked ) {
+					$form.find( '.response' ).html( '<p class="uix-striking-msg uix-striking-msg--danger is-pill"><i class="fa fa-times" aria-hidden="true"></i> This value of checkbox cannot be left blank.</p>' );
+
+					setTimeout( function(){
+						$form.find( '.response' ).html( '' );
+					}, 3000 );	
+
+					validationOK = false;
+				}
+
+
+				if ( validationOK ) {
+					return true;
+				} else {
+					return false;
+				}
+
+			});  	
+
+
+		} );
+
+
+	} ) ( jQuery );	
+
+	</script>
+
+
+
+	  
+       
+      
 
     <!-- Vendor -->
 	<script defer src="assets/js/min/axios.min.js?ver=0.19.2"></script>
@@ -1808,7 +1921,7 @@
         */
         window.$ = window.jQuery;
     </script>  
-    <script defer src="../dist/js/uix-kit.min.js?ver=t7rvyX89iKfUAm9HsNui"></script>
+    <script defer src="../dist/js/uix-kit.min.js?ver=lFKPNbgbaEPZc6wQN2iL"></script>
 	<!-- Your Plugins & Theme Scripts  end -->
     
 

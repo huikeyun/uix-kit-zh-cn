@@ -2,6 +2,8 @@
    <!-- 3rd Party Plugins -->     
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
+
+
 /*
  * 1. Disqus
  * 2. Captcha
@@ -16,30 +18,37 @@
  *    3.8 Downloads Page Pagination
 
 */
-/*
+
+
+/* 
  ---------------------------
  1. Disqus
  ---------------------------
- */
+ */ 
 #disqus_thread {
     padding-top: 1.75rem;
 }
-/*
+
+
+
+/* 
  ---------------------------
  2. Captcha
  ---------------------------
- */
+ */ 
 .custom-captcha-code-str {
+    background-color: #F2F2F2;
     font-size: 20px;
+    text-align: center;
+    padding: .7rem 1.3rem;
     display: inline-block;
     margin-top: .2rem;
-    padding: .7rem 1.3rem;
-    user-select: none;
-    text-align: center;
     pointer-events: none;
-    background-color: #f2f2f2;
+    user-select: none;
 }
-/*
+
+
+/* 
  ---------------------------
  3. Easy Digital Downloads (WP Plugin) 
 
@@ -47,564 +56,678 @@
     @requires ./src/components/AJAX
 
  ---------------------------
- */
+ */ 
+
 /* ---- 3.1 AJAX Button----- */
+
 form.edd_download_purchase_form {
-    opacity: 0;
-    &.show {
-        opacity: 1;
-    }
+	opacity: 0;
+	&.show {
+		opacity: 1;
+	}
 }
+
+
 form.edd_download_purchase_form .edd_price {
-    display: none;
+	display: none;
 }
+
 .edd-loading {
-    border-top-color: #ffffff !important;
-    border-right-color: #ffffff !important;
-    border-bottom-color: #ffffff !important;
-    border-left-color: transparent !important;
+	border-top-color: #fff !important;
+	border-right-color: #fff !important;
+	border-bottom-color: #fff !important;
+	border-left-color: transparent !important;
 }
+
+
 .edd-submit {
-    font-size: 0.875rem !important;
-    font-weight: 600 !important;
-    margin: 0 0 1rem !important;
-    padding: .8rem 1.5rem !important;
-    cursor: pointer !important;
-    transition: .1s ease-in-out !important;
-    letter-spacing: .02rem !important;
-    color: #ffffff !important;
-    border: none !important;
-    border-radius: 35px !important;
-    background: linear-gradient(to right, $btn-gradient-color1 0%, $btn-gradient-color2 20%, $btn-gradient-color3 100%) !important;
-    background-color: $btn-gradient-color1 !important;
-    &.gray,
-    &:visited {
-        color: #ffffff !important;
-        background: linear-gradient(to right, $btn-gradient-color1 0%, $btn-gradient-color2 20%, $btn-gradient-color3 100%) !important;
-    }
-    &:hover {
-        color: #ffffff !important;
-        background: linear-gradient(to right, $btn-gradient-color3 0%, $btn-gradient-color2 20%, $btn-gradient-color1 100%) !important;
-    }
-    &:focus {
-        outline: -webkit-focus-ring-color auto 5px !important;
-    }
+	padding: .8rem 1.5rem !important;
+	border: none !important;
+	border-radius: 35px !important;
+	font-size: 0.875rem !important;
+	font-weight: 600 !important;
+	letter-spacing: .02rem !important;
+	background-color: $btn-gradient-color1 !important;
+	background: linear-gradient(to right, $btn-gradient-color1 0%, $btn-gradient-color2 20%, $btn-gradient-color3 100%) !important;
+	color: #fff !important;
+	cursor: pointer !important;
+	margin: 0 0 1rem !important;
+	transition: .1s ease-in-out !important;
+	
+	&.gray,
+	&:visited {
+		color: #fff !important;
+		background: linear-gradient(to right, $btn-gradient-color1 0%, $btn-gradient-color2 20%, $btn-gradient-color3 100%) !important;
+	}
+
+	&:hover {
+		background: linear-gradient(to right, $btn-gradient-color3 0%, $btn-gradient-color2 20%, $btn-gradient-color1 100%) !important;
+		color: #fff !important;
+	}
+	&:focus {
+		outline: -webkit-focus-ring-color auto 5px !important;
+	}
+	
 }
+
 #edd_checkout_login_register {
-    .edd-submit {
-        background: #24272a !important;
-        &.gray,
-        &:visited {
-            background: #24272a !important;
-        }
-        &:hover {
-            background: #000000 !important;
-        }
-    }
+	.edd-submit {
+		background: #24272A !important;
+
+		&.gray,
+		&:visited {
+			background: #24272A !important;
+		}
+
+		&:hover {
+			background: #000 !important;
+
+		}
+	}	
 }
+
 /* ---- 3.2 AJAX Add To Cart Button & Form ----- */
 fieldset#edd_register_account_fields,
 fieldset#edd_checkout_user_info {
-    position: relative;
-    margin-bottom: 1.5rem !important;
-    padding: 1rem 1rem 2rem !important;
-    border: 1px solid #eeeeee !important;
-    legend {
-        position: absolute;
-        top: -10px;
-        display: inline-block;
-        width: 250px;
-        text-indent: 1.2em;
-        border: none;
-        background: #ffffff;
-    }
+	position: relative;
+	border: 1px solid #eee !important;
+	padding: 1rem 1rem 2rem !important;
+	margin-bottom: 1.5rem !important;
+
+	legend {
+		position: absolute;
+		top: -10px;
+		border: none;
+		background: #FFF;
+		display: inline-block;
+		width: 250px;
+		text-indent: 1.2em;
+	}
 }
+
 fieldset#edd_register_account_fields {
-    #edd-user-login-wrap {
-        padding-top: 3rem !important;
-    }
+	#edd-user-login-wrap {
+		padding-top: 3rem !important;
+	}
 }
+
+
 #edd-email-wrap {
-    padding-top: 2em;
+	padding-top: 2em;
 }
+
 #edd-last-name-wrap {
-    padding-bottom: 1em;
+	padding-bottom: 1em;
 }
+
 .edd_cart_amount {
-    font-size: 1.5em;
-    letter-spacing: 1px;
-    color: #ff0000;
+	color: #f00;
+	font-size: 1.5em;
+	letter-spacing: 1px;
 }
+
 #edd_show_terms {
-    padding-left: 0;
-    a.edd_terms_links {
-        font-size: 0.875rem;
-        color: #333333;
-        border-radius: 35px;
-        background: #f2f2f2;
-    }
+	padding-left: 0;
+	
+	a.edd_terms_links {
+		background: #f2f2f2;
+		color: #333;
+		border-radius: 35px;
+		font-size: 0.875rem;
+	}
 }
+
 #edd_checkout_form_wrap .edd-payment-icons {
-    padding-bottom: 60px;
-    img.payment-icon {
-        max-height: 42px;
-        border: 1px solid #eeeeee;
-    }
+	padding-bottom: 60px;
+	
+	img.payment-icon {
+		max-height: 42px;
+		border: 1px solid #EEEEEE;
+	}
 }
+
 .edd-cart-added-alert {
-    padding-left: 1.25em;
+	padding-left: 1.25em;
 }
-.edd-terms-agreement,
+
+
+.edd-terms-agreement, 
 #edd_terms {
-    display: block;
-    padding: 1.25em;
-    padding-left: .5rem;
+	display: block;
+	padding: 1.25em;
+	padding-left: .5rem;
 }
-.edd_show_terms {
-}
+
+.edd_show_terms {}
+
 a.edd_terms_links {
-    padding: .5em 1em;
-    border: 1px solid #eeeeee;
-    background: #ececec;
+	padding: .5em 1em;
+	background: #ECECEC;
+	border: 1px solid #eee;
 }
+
 /* ---- 3.3 Purchase Summary Tables ----- */
+
 .edd_purchase_receipt_files_list {
-    padding-top: 1em;
-    a {
-        line-height: 1.7;
-        display: block;
-    }
+	padding-top: 1em;
+	
+	a {
+		display: block;
+		line-height: 1.7;
+	}
 }
+
 table.edd-table {
-    border: none !important;
-    thead th {
-        width: 150px;
-    }
-    td,
-    th {
-        border: none !important;
-    }
-    tr {
-        height: 4em;
-        border-bottom: 1px solid #e8e8e8 !important;
-    }
+	border: none  !important;
+	
+	thead th {
+		width: 150px;
+	}
+	
+	td, 
+	th {
+		border: none  !important;
+	}
+	tr {
+		border-bottom: 1px solid #E8E8E8 !important;
+		height: 4em;
+	}
 }
+
 a.edd_download_file_link {
-    display: inline-block;
-    margin: 1em 0;
-    padding: .3em 1em;
-    border: 1px solid #333333;
+	border: 1px solid #333;
+	padding: .3em 1em;
+	margin: 1em 0;
+	display: inline-block;
 }
+
 .edd_purchase_receipt_title {
-    padding-top: 2.5em;
-    color: #bbbbbb;
+	padding-top: 2.5em;
+	color: #BBBBBB;
 }
+
 .edd_purchase_receipt_title2 {
-    font-size: 14px;
-    font-weight: normal;
+	font-weight: normal;
+	font-size: 14px;
 }
+
 ul {
-    &.edd_bundled_product_files,
-    &.edd_purchase_receipt_files,
-    &.edd_bundled_product_files li,
-    &.edd_purchase_receipt_files li {
-        margin-left: 0 !important;
-        padding-left: 0 !important;
-    }
+	&.edd_bundled_product_files, 
+	&.edd_purchase_receipt_files, 
+	&.edd_bundled_product_files li, 
+	&.edd_purchase_receipt_files li {
+		margin-left: 0 !important;
+		padding-left: 0 !important;
+	}
 }
+
 /* ---- 3.4 Download Card ----- */
+
 .edd-custom-download-file {
-    position: relative;
-    width: 100%;
-    height: 36px;
-    margin: .3em 0;
-    border: 1px solid #4caf50;
-    background: #e4ffe5;
+	width: 100%;
+	height: 36px;
+	border: 1px solid #4CAF50;
+	position: relative;
+	background: #e4ffe5;
+	margin: .3em 0;
 }
+
 .edd-custom-download-text {
-    line-height: 36px;
-    margin-left: 45px;
-    transition: .1s ease-in-out;
-    color: #585858;
+	margin-left: 45px;
+	line-height: 36px;
+	color: #585858;
+	transition: .1s ease-in-out;
 }
+
 .edd-custom-download-file:hover .edd-custom-download-text {
-    color: #000000;
+	color: #000;
 }
+
 .edd-custom-download-text {
-    &:before {
-        font-family: 'Font Awesome 5 Free';
-        font-weight: 600;
-        position: absolute;
-        content: '\f15c';
-        transform: translate(-28px, 0);
-    }
-    &:after {
-        font-size: 0.875rem;
-        position: absolute;
-        margin-left: 8px;
-        content: '';
-        transform: translate(0, 10px);
-        color: #626262;
-    }
+	&:before {
+		content: '\f15c';
+		position: absolute;
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 600;
+		transform: translate(-28px, 0);
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		margin-left: 8px;
+		font-size: 0.875rem;
+		color: #626262;
+		transform: translate(0, 10px);
+	}
 }
+
 .edd-custom-download-field {
-    font: 16pt;
-    line-height: 36px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50px;
-    height: 36px;
-    cursor: pointer;
-    text-align: center;
-    color: #ffffff;
-    background: #4caf50;
-    &:hover {
-        background: #43a047;
-    }
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50px;
+	height: 36px;
+	color: #FFF;
+	background: #4CAF50;
+	font: 16pt;
+	text-align: center;
+	line-height: 36px;
+	cursor: pointer;
+	
+	&:hover {
+		background: #43A047;
+	}
 }
+
+
 /* ---- 3.5 Login & Register From ----- */
 .login-register-wrapper {
-    display: table;
-    max-width: 340px;
-    margin: 2.5rem auto;
-    padding: 1.5rem;
-    border-radius: 8px;
-    background: #ffffff;
-    box-shadow: 0 0.313rem 7.813rem rgba(42, 42, 100, 0.125), 0 0.063rem 2.5rem rgba(0, 0, 0, 0.03);
-    &:after {
-        display: table;
-        clear: both;
-        content: "";
-    }
-    legend {
-        font-size: 1.5rem !important;
-        margin-bottom: 45px !important;
-        text-align: center;
-    }
-    .edd-alert {
-        margin-bottom: 40px;
-    }
-    #edd_login_form {
-        width: 100%;
-    }
-    fieldset {
-        input,
-        label {
-            width: 100%;
-        }
-        input {
-            padding: 5px !important;
-            border: 1px solid #bfbfbf !important;
-            border-radius: 3px !important;
-            &:focus {
-                outline: -webkit-focus-ring-color auto 5px !important;
-            }
-        }
-    }
-    .edd-login-submit {
-        float: right;
-    }
-    .edd-reg-entrance a,
-    .edd-lost-password a {
-        font-size: 0.875rem;
-        font-weight: 200;
-        display: inline-block;
-        margin-top: 10px;
-        padding: 0;
-        letter-spacing: -.3px;
-        color: #6a7483;
-        border: none;
-        background: none;
-        box-shadow: none;
-        &:hover {
-            color: #2d53fe;
-        }
-    }
-    .edd-reg-entrance {
-        margin-bottom: 0;
-    }
-    .edd-login-entrance a {
-        font-size: 0.875rem;
-    }
-    input[type=submit] {
-        width: auto !important;
-        margin: 0 !important;
-        padding: 10px 25px !important;
-        color: #ffffff !important;
-        border: none !important;
-        border-radius: 35px !important;
-        background: #24272a !important;
-    }
-    .edd-login-remember {
-        input,
-        label {
-            width: auto;
-        }
-    }
+	display: table;
+	max-width: 340px;
+	margin: 2.5rem auto;
+	background: #fff;
+	padding: 1.5rem;
+	box-shadow: 0 0.313rem 7.813rem rgba(42, 42, 100, 0.125), 0 0.063rem 2.5rem rgba(0, 0, 0, 0.03);
+	border-radius: 8px;
+	
+	
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	legend {
+		font-size: 1.5rem !important;
+		margin-bottom: 45px !important;
+		text-align: center;
+	}
+	.edd-alert {
+		margin-bottom: 40px;
+	}
+	#edd_login_form {
+		width: 100%;
+	}
+	
+	fieldset {
+		input, 
+		label {
+			width: 100%;
+		}
+		
+		input {
+			border: 1px solid #BFBFBF !important;
+			border-radius: 3px!important;
+			padding: 5px !important;
+			
+			&:focus {
+			    outline: -webkit-focus-ring-color auto 5px !important;
+			}
+		}
+	}
+	.edd-login-submit {
+		float: right;
+	}
+	.edd-reg-entrance a,
+	.edd-lost-password a {
+		background: none;
+		box-shadow: none;
+		border: none;
+		padding: 0;
+		margin-top: 10px;
+		display: inline-block;
+		font-weight: 200;
+		color: #6a7483;
+		font-size: 0.875rem;
+		letter-spacing: -.3px;
+		&:hover {
+			color: #2d53fe;
+		}
+	}
+	
+	.edd-reg-entrance {
+		margin-bottom: 0;
+	}
+	
+	.edd-login-entrance a {
+		font-size: 0.875rem;
+	}
+	
+	
+	input[type=submit] {
+		padding: 10px 25px !important;
+		border: none !important;
+		border-radius: 35px !important;
+		background: #24272A !important;
+		color: #fff !important;
+		width: auto !important;
+		margin: 0 !important;
+	}
+	.edd-login-remember {
+		input, 
+		label {
+			width: auto;
+		}
+	}
+	
 }
+
 @media (max-width: 889px) {
-    .login-register-wrapper #edd_login_form {
-        width: 100%;
-        margin: 1.5rem auto;
-    }
+	.login-register-wrapper #edd_login_form {
+		width: 100%;
+		margin: 1.5rem auto;
+	}
 }
-#edd_login_form legend,
+
+#edd_login_form legend, 
 #edd_register_form legend {
-    font-size: 120%;
-    margin-bottom: 1em;
+	font-size: 120%;
+	margin-bottom: 1em;
 }
-#edd_login_form fieldset,
+
+#edd_login_form fieldset, 
 #edd_register_form fieldset {
-    border: none;
+	border: none;
 }
-#edd_login_form .edd-input,
+
+#edd_login_form .edd-input, 
 #edd_register_form .edd-input {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
-#edd_login_form label,
+
+#edd_login_form label, 
 #edd_register_form label {
-    cursor: pointer;
+	cursor: pointer;
 }
+
 #edd_register_fields {
-    #edd-captcha-wrap {
-        padding-top: 2rem;
-        input,
-        textarea {
-            margin-top: .5rem;
-        }
-    }
+	#edd-captcha-wrap {
+		padding-top: 2rem;
+		
+		input,
+		textarea {
+			margin-top: .5rem;
+		}
+	}
+	
 }
 #edd_login_fields {
-    #edd-captcha-wrap {
-        padding-top: 0;
-        input,
-        textarea {
-            margin-top: .5rem;
-        }
-    }
+	#edd-captcha-wrap {
+		padding-top: 0;
+		
+		input,
+		textarea {
+			margin-top: .5rem;
+		}
+	}
+	
 }
+
+
 /* ---- 3.6 Login & Register Button of Checkout ----- */
 #edd_checkout_login_register {
-    [type="submit"] {
-        width: auto;
-        margin: 0 !important;
-        padding: 10px 25px;
-        color: #ffffff;
-        border: none;
-        border-radius: 35px;
-        background: #24272a;
-    }
+
+	[type="submit"] {
+		padding: 10px 25px;
+		border: none;
+		border-radius: 35px;
+		background: #24272A;
+		color: #fff;
+		width: auto;
+		margin: 0 !important;
+
+	}
 }
+
 /* ---- 3.7 Easy Digital Downloads - Pricing Tables (Plugin)  ----- */
 .edd-pricing-table {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-right: -0.5rem;
-    margin-bottom: 2rem;
-    margin-left: -0.5rem;
-    .featured-text {
-        font-size: 0.75rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: inline-block;
-        padding: .75rem;
-        color: #ffffff;
-        border-radius: 10px 0 10px 0;
-        background: #222222;
-    }
-    .edd-pt-title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-align: center;
-    }
-    .edd-pt-description {
-        font-size: 0.875rem;
-        text-align: center;
-        opacity: .6;
-    }
-    sup {
-        font-size: 1rem;
-        line-height: 1;
-        position: relative;
-        top: -1.8rem;
-        left: -.5rem;
-        display: inline-block;
-        vertical-align: baseline;
-    }
-    ul {
-        margin: 0;
-        margin-right: -1rem;
-        margin-left: -1rem;
-        list-style-type: none;
-        li {
-            font-size: 0.875rem;
-            line-height: 1.5;
-            margin: 0;
-            padding: .5rem;
-            &.edd-pt-feature {
-                padding: .6rem 1rem;
-                opacity: .8;
-                color: #565656;
-                border-bottom: 1px solid #f5f5f5;
-                &::before {
-                    font-family: 'Font Awesome 5 Free';
-                    font-weight: 600;
-                    display: inline-block;
-                    margin-right: .4rem;
-                    content: "\f00c";
-                }
-            }
-            &.pricing {
-                text-align: center;
-                + .edd-pt-feature {
-                    border-top: 1px solid #f5f5f5;
-                }
-                .price {
-                    font-size: 3.5rem;
-                    font-weight: bold;
-                    display: inline-block;
-                }
-            }
-            .period {
-                display: inline-block;
-                margin-left: .2rem;
-                &::before {
-                    display: inline-block;
-                    content: '/';
-                }
-            }
-        }
-    }
-    .edd-price-option {
-        display: flex;
-        width: 33.33333333%;
-        padding: .5rem;
-        > div {
-            display: flex;
-            flex-flow: column;
-            width: 100%;
-            padding: 1rem;
-            text-align: left;
-            border: 2px solid #f5f5f5;
-            border-radius: 10px;
-            box-shadow: 0 22px 40px 0 #eef4fc;
-        }
-        &.featured > div {
-            position: relative;
-            background-color: rgba(210, 210, 210, 0.05);
-            li {
-                &.edd-pt-feature,
-                &.pricing .price {
-                    color: #333333;
-                }
-            }
-            .period,
-            .edd-pt-title,
-            .edd-pt-description,
-            .period::before {
-                color: #333333;
-            }
-        }
-    }
-    .footer {
-        margin-top: auto;
-        padding: 1.5rem;
-        text-align: center;
-        .edd-pt-button {
-            font-size: 1rem;
-            font-weight: 600;
-            padding: .8rem 1.5rem;
-            transition: .1s ease-in-out;
-            letter-spacing: .02rem;
-            color: #ffffff;
-            border: none;
-            border-radius: 35px;
-            background: linear-gradient(to right, $btn-gradient-color1 0%, $btn-gradient-color2 20%, $btn-gradient-color3 100%);
-            background-color: $btn-gradient-color1;
-            &:hover {
-                color: #ffffff !important;
-                background: linear-gradient(to right, $btn-gradient-color3 0%, $btn-gradient-color2 20%, $btn-gradient-color1 100%) !important;
-                background-color: $btn-gradient-color1 !important;
-            }
-            &:focus {
-                outline: -webkit-focus-ring-color auto 5px !important;
-            }
-        }
-    }
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-left: -0.5rem;
+	margin-right: -0.5rem;
+	margin-bottom: 2rem;
+
+
+	.featured-text {
+		padding: .75rem;
+		background: #222;
+		color: #fff;
+		display: inline-block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		border-radius: 10px 0 10px 0;
+		font-size: 0.75rem;
+	}
+	
+	.edd-pt-title {
+		font-size: 1.5rem;
+		font-weight: bold;
+		text-align: center;
+	}
+	.edd-pt-description {
+		font-size: 0.875rem;
+		text-align: center;
+		opacity: .6;
+	}
+	
+	sup {
+		display: inline-block;
+		font-size: 1rem;
+		line-height: 1;
+		top: -1.8rem;
+		left: -.5rem;
+		position: relative;
+		vertical-align: baseline;
+	}
+	ul {
+		list-style-type: none;
+		margin: 0;
+		margin-left: -1rem;
+		margin-right: -1rem;
+		li {
+			padding: .5rem;
+			line-height: 1.5;
+			font-size: 0.875rem;
+			margin: 0;
+			
+			&.edd-pt-feature {
+				padding: .6rem 1rem;
+				border-bottom: 1px solid #f5f5f5;
+				opacity: .8;
+				color: #565656;
+
+				&::before {
+					font-family: 'Font Awesome 5 Free';
+					font-weight: 600;
+					content: "\f00c";
+					display: inline-block;
+					margin-right: .4rem;
+				}
+			}
+
+			&.pricing {
+				text-align: center;
+
+				+ .edd-pt-feature {
+					border-top: 1px solid #f5f5f5;
+				}
+
+				.price {
+					font-size: 3.5rem;
+					display: inline-block;
+					font-weight: bold;
+				}
+			}
+
+			.period {
+				display: inline-block;
+				margin-left: .2rem;
+
+				&::before {
+					content: '/';
+					display: inline-block;
+				}
+			}
+	
+			
+		}
+	}
+	
+
+
+	.edd-price-option {
+		display: flex;
+		padding: .5rem;
+		width: 33.33333333%;		
+		
+		> div {
+			display: flex;
+			box-shadow: 0 22px 40px 0 #eef4fc;
+			border-radius: 10px;
+			width: 100%;
+			flex-flow: column;
+			text-align: left;
+			border: 2px solid #f5f5f5;
+			padding: 1rem;
+		}
+		
+		&.featured > div {
+			position: relative;
+			background-color: rgba(210, 210, 210, 0.05);
+
+			li {
+				&.edd-pt-feature, 
+				&.pricing .price {
+					color: #333;
+				}
+			}
+			.period, 
+			.edd-pt-title, 
+			.edd-pt-description, 
+			.period::before {
+				color: #333;
+			}
+		}
+
+
+	}
+	
+	.footer {
+		margin-top: auto;
+		text-align: center;
+		padding: 1.5rem;
+		
+		.edd-pt-button {
+			padding: .8rem 1.5rem;
+			border: none;
+			border-radius: 35px;
+			font-size: 1rem;
+			font-weight: 600;
+			letter-spacing: .02rem;
+			background-color: $btn-gradient-color1;
+			background: linear-gradient(to right, $btn-gradient-color1 0%, $btn-gradient-color2 20%, $btn-gradient-color3 100%);
+			color: #fff;
+			transition: .1s ease-in-out;
+
+			&:hover {
+				background-color: $btn-gradient-color1 !important;
+				background: linear-gradient(to right, $btn-gradient-color3 0%, $btn-gradient-color2 20%, $btn-gradient-color1 100%) !important;
+				color: #fff !important;
+			}
+			&:focus {
+			    outline: -webkit-focus-ring-color auto 5px !important;
+			}
+			
+		}	
+	}
+
 }
+
+
 @media all and (max-width: 768px) {
-    .edd-pricing-table {
-        .edd-price-option {
-            width: 100%;
-        }
-    }
+	.edd-pricing-table {
+		.edd-price-option {
+			width: 100%;
+		}
+	}
 }
+
 /* ---- 3.8 Downloads Page Pagination  ----- */
 #edd_download_history_pagination {
-    margin-top: 1.5rem;
-    &::before {
-        line-height: 0;
-        display: table;
-        content: "";
-    }
-    &::after {
-        line-height: 0;
-        display: table;
-        clear: both;
-        content: "";
-    }
-    > a,
-    > span {
-        font-size: 0.875rem;
-        line-height: 3.25;
-        display: inline-block;
-        width: 3.125rem;
-        height: 3.125rem;
-        margin-top: 0;
-        margin-bottom: 0;
-        margin-bottom: 2.06818181818rem;
-        padding-top: 0.25rem;
-        text-align: center;
-        /*Ligatures and contextual forms are ways of combining glyphs to produce more harmonized forms.*/
-        color: $primary-text-color;
-        border: none;
-        border-radius: 4px;
-        background: none;
-        font-variant-ligatures: common-ligatures;
-        &.prev,
-        &.next {
-            font-size: 0;
-            transform: translateY(0.25rem);
-        }
-        &.prev::before,
-        &.next::after {
-            font-family: 'Font Awesome 5 Free';
-            font-size: 1rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-right: .4rem;
-            transform: translateY(-0.25rem);
-        }
-        &.prev::before {
-            content: "\f104";
-        }
-        &.next::after {
-            content: "\f105";
-        }
-    }
-    a:hover {
-        color: #232323;
-        background: #efefef;
-    }
-    span.current {
-        font-style: italic;
-        color: #ffffff;
-        border-color: $btn-gradient-color1;
-        @include outer-shadow('highlight', $highlight-color1);
-        background-color: $btn-gradient-color1;
-        background-image: linear-gradient(to right, $btn-gradient-color1 0%, $btn-gradient-color2 20%, $btn-gradient-color3 100%);
-    }
+	margin-top: 1.5rem;
+	
+	&::before {
+		display: table;
+		content: "";
+		line-height: 0;
+	}
+	&::after {
+		display: table;
+		content: "";
+		line-height: 0;
+		clear: both;
+	}
+	
+	> a, 
+	> span {
+		display: inline-block;
+		width: 3.125rem;
+		height: 3.125rem;
+		padding-top: 0.25rem;
+		text-align: center;
+		background: none;
+		border: none;
+		color: $primary-text-color;
+		font-variant-ligatures: common-ligatures;
+		border-radius: 4px;
+		/*Ligatures and contextual forms are ways of combining glyphs to produce more harmonized forms.*/
+		margin-bottom: 0;
+		font-size: 0.875rem;
+		line-height: 3.25;
+		margin-top: 0;
+		margin-bottom: 2.06818181818rem;
+		
+		&.prev,
+		&.next {
+			font-size: 0;
+			transform: translateY(0.25rem);
+		}
+		
+		&.prev::before,
+		&.next::after {
+			font-family: 'Font Awesome 5 Free';
+			font-weight: 600;
+			display: inline-block;
+			margin-right: .4rem;
+			font-size: 1rem;
+			transform: translateY(-0.25rem);
+		}
+		
+		&.prev::before {
+			content: "\f104";
+
+		}
+		&.next::after {
+			content: "\f105";
+		}
+	
+	}	
+
+	a:hover {
+		background: #efefef;
+		color: #232323;	
+	}
+
+	span.current {
+		
+		border-color: $btn-gradient-color1;
+		background-color: $btn-gradient-color1;
+		background-image: linear-gradient(to right, $btn-gradient-color1 0%, $btn-gradient-color2 20%, $btn-gradient-color3 100%);
+		@include outer-shadow( 'highlight', $highlight-color1 );
+		color: #fff;
+		font-style: italic;
+	}	
+
+
 }

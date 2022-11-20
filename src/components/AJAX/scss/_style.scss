@@ -1,65 +1,81 @@
 /* ======================================================
-   <!--  异步加载页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)   -->
+   <!-- Ajax Page Loader (Loading A Page via Ajax Into Div)  -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
+
 .uix-ajax-load__container {
-    position: relative;
+	position: relative;
 }
-/* 用于整页 */
+
+
+/* Used for full page */
 .uix-ajax-load__fullpage-container {
-    position: relative;
-    overflow: hidden;
-    height: 100vh;
-    > section {
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-    }
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+
+	> section {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		z-index: 1;
+	}
 }
+
 .uix-ajax-load__loader {
-    position: fixed;
-    z-index: 99999;
-    top: 50%;
-    left: 50%;
-    display: none;
-    width: 100%;
-    height: 100%;
-    transform: translate(-50%, -50%);
+
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.8);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	position: fixed;
+	z-index: 99999;
+	display: none;
+	opacity: 0;
     text-align: center;
-    opacity: 0;
-    background-color: rgba(0, 0, 0, .8);
+    
     > em {
-        font-size: 0.75rem;
         position: absolute;
         top: calc(50% - 10px);
         margin-left: -15px;
+        font-size: 0.75rem;
+        
     }
-    > span {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        display: inline-block;
-        width: 200px;
-        height: 20px;
-        transform: translate(-50%, -50%);
-        border-radius: 100px;
-        background-color: #dddddd;
-        &::after {
-            position: absolute;
-            top: 2px;
-            right: 180px;
-            bottom: 2px;
-            left: 2px;
-            content: "";
-            animation: uix-cssAnim--loaderSlide 2s linear infinite;
-            border-radius: 100px;
-            background-color: #333333;
-        }
-    }
+
+
+	> span {
+		display: inline-block;
+		width: 200px;
+		height: 20px;
+		top: 50%;
+		left: 50%;
+		background-color: #ddd;
+		transform: translate(-50%, -50%);
+		position: absolute;
+		border-radius: 100px;
+
+		&::after {
+			border-radius: 100px;
+			content: "";
+			position: absolute;
+			background-color: #333;
+			left: 2px;
+			top: 2px;
+			bottom: 2px;
+			right: 180px;
+			animation: uix-cssAnim--loaderSlide 2s linear infinite;
+		}
+
+	}
+
+
+
 }
+
 @keyframes uix-cssAnim--loaderSlide {
     0% {
         right: 180px;

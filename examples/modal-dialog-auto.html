@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
 <head>
-    <meta charset="utf-8" />
-    <title>模态对话框自动打开 - Uix Kit</title>
-    	<!-- Compatibility Settings
+	<meta charset="utf-8" />
+	<title>Modal Dialog Auto-open - Uix Kit 中文</title>	
+		<!-- Compatibility Settings
 	============================================= -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,11 +30,11 @@
 
 
 	<!-- Theme  -->
-	<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=t7rvyX89iKfUAm9HsNui"/>
+	<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=lFKPNbgbaEPZc6wQN2iL"/>
 
 
 	<!--[if lt IE 10]>
-	<link rel="stylesheet" href="assets/css/IE.css?ver=t7rvyX89iKfUAm9HsNui" />
+	<link rel="stylesheet" href="assets/css/IE.css?ver=lFKPNbgbaEPZc6wQN2iL" />
 	<![endif]-->
 
 
@@ -57,9 +57,9 @@
 
 	<!-- SEO
 	============================================= -->
-	<meta name="description" content="A free web kits for fast web design and development, compatible with Bootstrap v5.">
+	<meta name="description" content="一个快速网页设计和开发的偏视觉交互的免费开发工具包，与 Bootstrap v5 兼容。">
 	<meta name="generator" content="Uix Kit" />  
-	<meta name="author" content="UIUX Lab"> 
+	<meta name="author" content="huikeyun"> 
 	<!-- SEO  end -->
 
 
@@ -72,9 +72,14 @@
 	<link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-touch-icon-114x114.png">
 	<!-- Favicons  end -->
 
-</head>
-<body class="page">
+</head>  
+
+     
+  <body class="page">
+  
+  
           
+              
     <!-- Loader
     ============================================= -->      
     <div class="uix-loader">
@@ -90,7 +95,7 @@
     <!-- .uix-loader end -->
     
 
-
+    
     <!-- Mobile Menu Toggle Trigger
     ============================================= -->    
 	<div class="uix-menu-mobile__toggle">
@@ -102,17 +107,25 @@
 	<!-- .uix-menu-mobile__toggle end -->
 
 			
-<div class="uix-wrapper">
-    <!-- 页眉区 -->
-    <header class="uix-header__container">
-        <div class="uix-header">
-            <!-- 容器 开始 -->
-            <div class="container">
-                                        <div class="uix-brand">
-                            <a href="index.html"><img src="assets/images/logo.png" alt="Uix Kit"></a>                       
+    
+    
+
+  
+    <div class="uix-wrapper">
+    
+        <!-- Header Area
+        ============================================= -->      
+        <header class="uix-header__container">
+            
+             <div class="uix-header">
+                 <div class="container">
+                 
+                                                <div class="uix-brand">
+                            <a href="index.html"><img src="assets/images/logo.png" alt="Uix Kit 中文"></a>                       
                         </div>
                         <!-- .uix-brand end -->
-                
+                        
+                        
                         
                         <!-- Navigation Start-->
                         
@@ -120,7 +133,7 @@
                                
                                <div class="uix-menu__inner">
                                
-									<span class="uix-brand--mobile"><img src="assets/images/logo-colorful.png" alt="Uix Kit"></span>
+									<span class="uix-brand--mobile"><img src="assets/images/logo-colorful.png" alt="Uix Kit 中文"></span>
 									<ul class="uix-menu"> 
 										<li class="multi-column current-menu-item is-active"><a href="index.html">Components</a>
 											<ul class="sub-menu">
@@ -396,85 +409,109 @@
                         
                  
                    
-            </div>
-            <!-- 容器 结束 -->
-            <div class="uix-clearfix"></div>
-        </div>
-    </header>
-    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-    <main id="uix-maincontent">
-        <!-- 内容 开始 -->
-        <section class="uix-spacing--s uix-spacing--no-bottom">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
-                        <h3>模态对话框自动打开</h3>
-                        <p>使用简单的 JavaScript 触发</p>
-                        <hr>
-                        <pre class="uix-precode"><label>HTML</label><code>&lt;template id=&quot;modal-open-1&quot;&gt;
+                        
+                        
+                        
+                        
+                  </div>
+                  <!-- .container end -->
+                  
+                  <div class="uix-clearfix"></div>
+             </div>
+        
+        </header>
+        <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+      
+    
+		<main id="uix-maincontent">
+			
+			<!-- Content   
+			====================================================== -->
+			<section class="uix-spacing--s uix-spacing--no-bottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h3>Modal Dialog Automatically Open</h3>
+							<p>Trigger with a simple JavaScript</p>
+	
+<pre class="uix-precode uix-t-l"><label>HTML</label><code>&lt;template id="modal-open-1"&gt;
     &lt;div class=&quot;uix-modal-box&quot; role=&quot;dialog&quot; tabindex=&quot;-1&quot; aria-hidden=&quot;true&quot;&gt;
-        &lt;button type=&quot;button&quot; class=&quot;uix-modal-box__close&quot; data-modal-close-trigger=&quot;true&quot;&gt;&lt;/button&gt;
-        &lt;div class=&quot;uix-modal-box__content&quot; role=&quot;document&quot;&gt;
+    &#x9;&lt;button type=&quot;button&quot; class=&quot;uix-modal-box__close&quot; data-modal-close-trigger=&quot;true&quot;&gt;&lt;/button&gt;
+    &#x9;&lt;div class=&quot;uix-modal-box__content&quot; role=&quot;document&quot;&gt;
             &lt;div class=&quot;uix-modal-box__head&quot;&gt;
                 &lt;!-- code here --&gt;
             &lt;/div&gt;
             &lt;div class=&quot;uix-modal-box__body&quot;&gt;
                 &lt;div role=&quot;note&quot;&gt;
                     &lt;!-- ////////  content  begin //////// --&gt;
+                    &lt;h2&gt;Holy Crap!!!&lt;/h2&gt;
+                    &lt;p&gt;p.s. Sorry for calling you a dingus earlier.&lt;/p&gt;&lt;p&gt;p.s. Sorry for calling you a dingus earlier.&lt;/p&gt;&lt;p&gt;p.s. Sorry for calling you a dingus earlier.&lt;/p&gt;
                     &lt;!-- ////////  content  end //////// --&gt;
                 &lt;/div&gt;
-            &lt;/div&gt;
+    &#x9;&lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/template&gt;</code></pre>
-                        <pre class="uix-precode"><label>JS</label><code>$(document).ready(function() {
-    $(document).UixFireModalDialog({
-        id: &#x27;modal-open-1&#x27;,
-        height: false,
-        width: false,
-        speed: 500,
-        lightbox: true,
-        autoClose: false
-    });
-});</code></pre>
-                    </div>
-                </div>
-                <!-- 行列 结束 -->
-            </div>
-            <!-- 容器 结束 -->
-        </section>
-        <!-- Modals
-        ============================================= -->
-        <template id="modal-open-1">
-            <div class="uix-modal-box" role="dialog" tabindex="-1" aria-hidden="true">
-                <button type="button" class="uix-modal-box__close" data-modal-close-trigger="true"></button>
-                <div class="uix-modal-box__content" role="document">
-                    <div class="uix-modal-box__head">
-                        <!-- code here -->
-                    </div>
-                    <div class="uix-modal-box__body">
-                        <div role="note">
-                            <!-- ////////  content  begin //////// -->
-                            <h2>Holy Crap!!!</h2>
-                            <p>p.s. Sorry for calling you a dingus earlier.</p>
-                            <p>p.s. Sorry for calling you a dingus earlier.</p>
-                            <p>p.s. Sorry for calling you a dingus earlier.</p>
-                            <p>p.s. Sorry for calling you a dingus earlier.</p>
-                            <p>p.s. Sorry for calling you a dingus earlier.</p>
-                            <p>p.s. Sorry for calling you a dingus earlier.</p>
-                            <p>p.s. Sorry for calling you a dingus earlier.</p>
-                            <p>p.s. Sorry for calling you a dingus earlier.</p>
-                            <p>p.s. Sorry for calling you a dingus earlier.</p>
-                            <!-- ////////  content  end //////// -->
+&lt;/template&gt;</code>
+</pre>	
+                            
+<pre class="uix-precode uix-t-l"><label>JS</label><code>$( document ).ready( function() {
+	$(document).UixFireModalDialog({
+		id: 'modal-open-1',
+		height: false,
+		width: false,
+		speed: 500,
+		lightbox  : true,
+		autoClose : false //If the value is 2000, it will automatically close after 2 seconds.
+	});
+
+} );</code>
+</pre>					
+							
+							<hr>
+							
+							
+						</div>
+					</div>
+					<!-- .row end -->
+
+				</div>
+				<!-- .container end -->
+
+			</section>
+			
+			
+		
+
+			<!-- Modals
+			============================================= --> 
+            <template id="modal-open-1">
+                <div class="uix-modal-box" role="dialog" tabindex="-1" aria-hidden="true">
+                    <button type="button" class="uix-modal-box__close" data-modal-close-trigger="true"></button>
+                    <div class="uix-modal-box__content" role="document">
+                        <div class="uix-modal-box__head">
+                            <!-- code here -->
                         </div>
+                        <div class="uix-modal-box__body">
+                            <div role="note">
+                                <!-- ////////  content  begin //////// -->
+                                <h2>Holy Crap!!!</h2>
+                                <p>p.s. Sorry for calling you a dingus earlier.</p><p>p.s. Sorry for calling you a dingus earlier.</p><p>p.s. Sorry for calling you a dingus earlier.</p><p>p.s. Sorry for calling you a dingus earlier.</p><p>p.s. Sorry for calling you a dingus earlier.</p><p>p.s. Sorry for calling you a dingus earlier.</p><p>p.s. Sorry for calling you a dingus earlier.</p><p>p.s. Sorry for calling you a dingus earlier.</p><p>p.s. Sorry for calling you a dingus earlier.</p>
+                                <!-- ////////  content  end //////// -->
+                            </div>
+                        </div>
+
+
                     </div>
-                </div>
-            </div>
-        </template>
-    </main>
-            <!-- Footer
+                </div>  
+            </template>
+			
+		</main>  
+        
+		   
+    
+
+
+                <!-- Footer
         ============================================= -->    
         <footer class="uix-footer__container">
             <div class="uix-footer">
@@ -525,24 +562,37 @@
         </footer>
 
 
-</div>
-<!-- uix-wrapper end -->
-<script>
-    (function($) {
-        'use strict';
-        $(document).ready(function() {
-            $(document).UixFireModalDialog({
-                id: 'modal-open-1',
-                height: false,
-                width: false,
-                speed: 500,
-                lightbox: true,
-                autoClose: false
-            });
-        });
-    })(jQuery);
-</script>
-  
+        
+        
+    </div>
+    <!-- .uix-wrapper end -->
+       
+       
+
+	<script>
+
+	( function( $ ) {
+	"use strict";
+
+		$( document ).ready( function() {
+
+			$(document).UixFireModalDialog({
+				id: 'modal-open-1',
+				height: false,
+				width: false,
+				speed: 500,
+				lightbox  : true,
+				autoClose : false
+			});
+
+		} );
+
+	} ) ( jQuery );
+	</script>	
+
+
+	  
+      
 
     <!-- Vendor -->
 	<script defer src="assets/js/min/axios.min.js?ver=0.19.2"></script>
@@ -581,7 +631,7 @@
         */
         window.$ = window.jQuery;
     </script>  
-    <script defer src="../dist/js/uix-kit.min.js?ver=t7rvyX89iKfUAm9HsNui"></script>
+    <script defer src="../dist/js/uix-kit.min.js?ver=lFKPNbgbaEPZc6wQN2iL"></script>
 	<!-- Your Plugins & Theme Scripts  end -->
     
 
