@@ -36,7 +36,7 @@
     14.高级滑块（特殊效果）Advanced Slider (Special Effects)
     15.按钮 Button
     16.卡片 Cards
-    17.Content Placeholder Animated
+    17.内容占位符动画 Content Placeholder Animated
     18.Dropdown Menu
     19.Flexslider (Third-party plugin)
     20.Form
@@ -990,17 +990,18 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
     <!-- 卡片 Cards -->
 /* ====================================================== */
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Content Placeholder Animated -->
+   <!-- 内容占位符动画 Content Placeholder Animated -->
 /* ====================================================== */
 .uix-content-placeholder .uix-content-placeholder__thumbSlot {
   float: right;
 }
 
 .uix-content-placeholder .uix-content-placeholder__thumbSlot ~ .uix-content-placeholder__textSlot {
-  margin-left: auto;
-  margin-right: 20px;
   float: right;
+  margin-right: 20px;
+  margin-left: auto;
 }
 
 /* ======================================================

@@ -100,7 +100,7 @@
     81.卡片 Cards
     82.圆形文字 Circle Text
     83.辅助标记 Coach Mark
-    84.Content Placeholder Animated
+    84.内容占位符动画 Content Placeholder Animated
     85.Dividing Line
     86.Dotted Line
     87.Equal-width Columns
@@ -19637,29 +19637,30 @@ ul.edd_purchase_receipt_files li {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Content Placeholder Animated -->
+   <!-- 内容占位符动画 Content Placeholder Animated -->
 /* ====================================================== */
 .uix-content-placeholder {
   width: 100%;
 }
 
 .uix-content-placeholder::after {
-  content: '';
   display: block;
   clear: both;
+  content: '';
 }
 
 .uix-content-placeholder ul {
-  list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .uix-content-placeholder li {
   overflow: hidden;
-  padding: 15px 0;
   margin: 0;
+  padding: 15px 0;
   border: 0;
   background: 0;
 }
@@ -19675,23 +19676,23 @@ ul.edd_purchase_receipt_files li {
 }
 
 .uix-content-placeholder .uix-content-placeholder__line--second {
-  margin-top: 8px;
   width: 70%;
+  margin-top: 8px;
   animation: uix-cssAnim--secondline 1s infinite linear;
 }
 
 .uix-content-placeholder .uix-content-placeholder__thumbSlot {
+  float: left;
   width: 80px;
   height: 60px;
-  float: left;
-  background-color: #f2f2f2;
   animation: uix-cssAnim--thumb 1s infinite linear;
+  background-color: #f2f2f2;
 }
 
 .uix-content-placeholder .uix-content-placeholder__thumbSlot ~ .uix-content-placeholder__textSlot {
+  float: left;
   width: calc(100% - 100px);
   margin-left: 20px;
-  float: left;
 }
 
 .uix-content-placeholder .uix-content-placeholder__textSlot {
