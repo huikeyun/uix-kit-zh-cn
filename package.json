@@ -80,7 +80,7 @@
     "webpack-cli": "^3.3.12",
     "webpack-concat-files-plugin": "^0.5.2",
     "webpack-dev-middleware": "^3.4.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {},
   "prettier": {
