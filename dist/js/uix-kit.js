@@ -2536,9 +2536,12 @@ var esm_typeof = __webpack_require__(2);
 ;// CONCATENATED MODULE: ./src/components/_global/js/index.js
 
 /**
- 目录
- ---------------------------
- 1.基础
+
+	TABLE OF CONTENTS
+	---------------------------
+
+
+	1.Base
     2.Body And Header
     3.Common Height
     4.Get all custom attributes of an element like "data-*"
@@ -2627,13 +2630,16 @@ var esm_typeof = __webpack_require__(2);
     87.Vertical Menu
     88.WordPress Core Scripts
 
- */
+
+*/
+
 /*
  *************************************
- * <!-- 基础 -->
+ * <!-- Base -->
  *************************************
  */
-/* !!! 构建目录（TOC）需要将此scss文件导入JS */
+/* !!! To build a table of contents (TOC), you need to import this scss file into JS */
+
 
 /*
  * Global variables from front pages
@@ -2657,6 +2663,7 @@ if (typeof APP_ROOTPATH === 'undefined') {
   homeUrl = APP_ROOTPATH.homeUrl.replace(/\/\s*$/, '');
   ajaxUrl = APP_ROOTPATH.ajaxUrl.replace(/\/\s*$/, '');
 }
+
 /*
  * Determine whether it is a special browser
  *
@@ -2665,7 +2672,7 @@ if (typeof APP_ROOTPATH === 'undefined') {
 // Add feature test for passive event listener support
 var supportsPassive = false;
 try {
-  document.addEventListener('test', null, {
+  document.addEventListener("test", null, {
     get passive() {
       supportsPassive = true;
     }
@@ -2677,10 +2684,11 @@ var browser = {
   isPC: !navigator.userAgent.match(/(iPhone|iPod|Android|ios|Mobile)/i),
   isSafari: !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/),
   /*Test to 9, 10. */
-  isIE: !!window.ActiveXObject || 'ActiveXObject' in window,
+  isIE: !!window.ActiveXObject || "ActiveXObject" in window,
   /*Test to 6 ~ 11 (not edge) */
   supportsPassive: supportsPassive
 };
+
 /*
  * Core scripts for current site
  *
@@ -2712,7 +2720,7 @@ var UixModuleInstance = function ($, window, document) {
     });
   }
   function pageLoaded(context) {
-    context = (0,esm_typeof/* default */.Z)(context) == 'object' ? $ : context;
+    context = (0,esm_typeof/* default */.Z)(context) == "object" ? $ : context;
     components.pageLoaded.forEach(function (component) {
       component(context);
     });
@@ -2731,6 +2739,7 @@ var UixModuleInstance = function ($, window, document) {
   _APP.pageLoaded = pageLoaded;
   return _APP;
 }($, window, document);
+
 /*
  * Create GUID / UUID
  *
@@ -2740,7 +2749,7 @@ var UixModuleInstance = function ($, window, document) {
  */
 var UixGUID = UixGUID || function () {
   function t() {}
-  return t.version = '0.0.1', t.create = function () {
+  return t.version = "0.0.1", t.create = function () {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
       var r = Math.random() * 16 | 0,
         v = c == 'x' ? r : r & 0x3 | 0x8;
@@ -2750,6 +2759,7 @@ var UixGUID = UixGUID || function () {
   //
   t;
 }();
+
 /*
  * Evaluating a string as a mathematical expression in JavaScript
  *
@@ -2759,40 +2769,42 @@ var UixGUID = UixGUID || function () {
  */
 var UixMath = UixMath || function () {
   function t() {}
-  return t.version = '0.0.1', t.evaluate = function (s) {
-    var chars = s.replace(/\s/g, '').split('');
+  return t.version = "0.0.1", t.evaluate = function (s) {
+    var chars = s.replace(/\s/g, '').split("");
     var n = [],
       op = [],
       index = 0,
       oplast = true;
-    n[index] = '';
+    n[index] = "";
+
     // Parse the expression
     for (var c = 0; c < chars.length; c++) {
-      if (isNaN(parseInt(chars[c])) && chars[c] !== '.' && !oplast) {
+      if (isNaN(parseInt(chars[c])) && chars[c] !== "." && !oplast) {
         op[index] = chars[c];
         index++;
-        n[index] = '';
+        n[index] = "";
         oplast = true;
       } else {
         n[index] += chars[c];
         oplast = false;
       }
     }
+
     // Calculate the expression
     s = parseFloat(n[0]);
     for (var o = 0; o < op.length; o++) {
       var num = parseFloat(n[o + 1]);
       switch (op[o]) {
-        case '+':
+        case "+":
           s = s + num;
           break;
-        case '-':
+        case "-":
           s = s - num;
           break;
-        case '*':
+        case "*":
           s = s * num;
           break;
-        case '/':
+        case "/":
           s = s / num;
           break;
       }
@@ -2802,6 +2814,7 @@ var UixMath = UixMath || function () {
   //
   t;
 }();
+
 /*
  * Get the CSS property
  *
@@ -2812,7 +2825,7 @@ var UixMath = UixMath || function () {
  */
 var UixCssProperty = UixCssProperty || function () {
   function t() {}
-  return t.version = '0.0.1', t.getTransitionDuration = function (el) {
+  return t.version = "0.0.1", t.getTransitionDuration = function (el) {
     if ((0,esm_typeof/* default */.Z)(el) === ( true ? "undefined" : 0)) {
       return 0;
     }
@@ -2821,8 +2834,8 @@ var UixCssProperty = UixCssProperty || function () {
       delay = style.webkitTransitionDelay;
     if ((0,esm_typeof/* default */.Z)(duration) != ( true ? "undefined" : 0)) {
       // fix miliseconds vs seconds
-      duration = duration.indexOf('ms') > -1 ? parseFloat(duration) : parseFloat(duration) * 1000;
-      delay = delay.indexOf('ms') > -1 ? parseFloat(delay) : parseFloat(delay) * 1000;
+      duration = duration.indexOf("ms") > -1 ? parseFloat(duration) : parseFloat(duration) * 1000;
+      delay = delay.indexOf("ms") > -1 ? parseFloat(delay) : parseFloat(delay) * 1000;
       return duration;
     } else {
       return 0;
@@ -2850,6 +2863,7 @@ var UixCssProperty = UixCssProperty || function () {
   //
   t;
 }();
+
 /*
 * Throttle
 *
@@ -2870,6 +2884,7 @@ var UixThrottle = function UixThrottle(fn) {
     }
   };
 };
+
 /*
 * Debounce
 *
@@ -2883,6 +2898,7 @@ var UixDebounce = function UixDebounce(fn) {
   return function () {
     //Every time this returned function is called, the timer is cleared to ensure that fn is not executed
     clearTimeout(timer);
+
     // When the returned function is called for the last time (that is the user stops a continuous operation)
     // Execute fn after another delay milliseconds
     timer = setTimeout(function () {
@@ -2934,6 +2950,7 @@ window.MAIN = null;
  * 
  */
 
+
 (function ($) {
   'use strict';
 
@@ -2950,17 +2967,19 @@ window.MAIN = null;
     }, options);
     this.each(function () {
       //remove a module
-      //-------------------------------------
+      //-------------------------------------	
       if (settings.destroy && Object.prototype.toString.call(settings.destroy) == '[object String]') {
         var moduleName = settings.destroy;
         if ((0,esm_typeof/* default */.Z)(UixModuleInstance[moduleName]) != ( true ? "undefined" : 0)) {
           delete UixModuleInstance[moduleName];
         }
       }
+
       //add or replace a module
-      //-------------------------------------
+      //-------------------------------------	
       if (settings.add && Object.prototype.toString.call(settings.add) == '[object Object]' && settings.add.hasOwnProperty('pageLoaded')) {
         var _moduleName2 = settings.add.moduleName;
+
         //delete the old module if exist
         if ((0,esm_typeof/* default */.Z)(UixModuleInstance[_moduleName2]) != ( true ? "undefined" : 0)) {
           console.log('The module already exists, please destroy the old module or change the new module name.');
@@ -2978,6 +2997,7 @@ window.MAIN = null;
             }(UixModuleInstance, jQuery, window, document);
             UixModuleInstance[_moduleName2].documentReady($);
           }
+
           //loading mode "pageLoaded"
           if (settings.add.pageLoaded || settings.add.pageLoaded == 1) {
             var _moduleName3 = function (module, $, window, document) {
@@ -3061,6 +3081,7 @@ window.MAIN = null;
       if (UixModuleInstance.TEXT_EFFECT) UixModuleInstance.TEXT_EFFECT.pageLoaded(); //Text effect
       if (UixModuleInstance.TIMELINE) UixModuleInstance.TIMELINE.pageLoaded(); //Timeline
       if (UixModuleInstance.HYBRID_CONTENT_SLIDER) UixModuleInstance.HYBRID_CONTENT_SLIDER.pageLoaded(); //Hybrid Content Slider
+
       //----
       if (UixModuleInstance.MAIN) UixModuleInstance.MAIN.documentReady($); //Theme Scripts
       if (UixModuleInstance.TABLE) UixModuleInstance.TABLE.documentReady($); //Responsive Table
@@ -3096,28 +3117,34 @@ window.MAIN = null;
       if (UixModuleInstance.THREE_BACKGROUND) UixModuleInstance.THREE_BACKGROUND.documentReady($); //3D Background
       if (UixModuleInstance.THREE_CAROUSEL) UixModuleInstance.THREE_CAROUSEL.documentReady($); //3D Carousel
       if (UixModuleInstance.THREE_LIQUID_SCROLLSPY_SLIDER) UixModuleInstance.THREE_LIQUID_SCROLLSPY_SLIDER.documentReady($); //3D Liquid Scrollspy Slider
+
       //---- Prevent overlay clicks on asynchronous requests
       //---- Commonly used for AJAX modules that are clicked by button
       //Scroll Reveal
       if (settings.scrollReveal) {
         if (UixModuleInstance.SCROLL_REVEAL) UixModuleInstance.SCROLL_REVEAL.documentReady($);
       }
+
       //Posts List With Ajax
       if (settings.ajaxPostList) {
         if (UixModuleInstance.POST_LIST_AJAX) UixModuleInstance.POST_LIST_AJAX.documentReady($);
       }
+
       //Cascading DropDown List
       if (settings.ajaxDDList) {
         if (UixModuleInstance.CASCADING_DD_LIST) UixModuleInstance.CASCADING_DD_LIST.documentReady($);
       }
+
       //Counter
       if (settings.counterAnim) {
         if (UixModuleInstance.COUNTER) UixModuleInstance.COUNTER.documentReady($);
       }
+
       //Custom Lightbox
       if (settings.lightBox) {
         if (UixModuleInstance.LIGHTBOX) UixModuleInstance.LIGHTBOX.pageLoaded();
       }
+
       //----Uix Shortcodes (WordPress Plugin)
       if ($.isFunction($.uix_sc_init)) {
         $.uix_sc_init();
@@ -3169,6 +3196,7 @@ window.MAIN = null;
           scipts_documentReady[j]($);
         }
       }
+
       //Uix Shortcodes
       if ($.isFunction($.uix_sc_init)) {
         $.uix_sc_init();
@@ -3203,7 +3231,7 @@ function _classCallCheck(instance, Constructor) {
 ;// CONCATENATED MODULE: ./src/components/_global/js/modules/body-and-header.js
 
 
-/*
+/* 
  *************************************
  * <!-- Body And Header -->
  *************************************
@@ -3218,6 +3246,7 @@ var BODY_AND_HEADER = function (module, $, window, document) {
     if ($('body').hasClass('onepage')) return false;
     var windowWidth = window.innerWidth,
       windowHeight = window.innerHeight;
+
     //-------- Header initialize
     headerInit(windowWidth);
     function headerInit(w) {
@@ -3235,15 +3264,18 @@ var BODY_AND_HEADER = function (module, $, window, document) {
       if (window.innerWidth != windowWidth) {
         // Update the window width for next time
         windowWidth = window.innerWidth;
+
         // Do stuff here
         headerInit(windowWidth);
       }
     }
+
     // Add function to the window that should be resized
     var debounceFuncWindow = UixDebounce(windowUpdate, 50);
     window.removeEventListener('resize', debounceFuncWindow);
     window.addEventListener('resize', debounceFuncWindow);
-    //-------- Sticky 页眉区
+
+    //-------- Sticky header area
     var $el = $('.uix-header__container, .uix-header__placeholder');
     function scrollUpdate() {
       var scrolled = $(window).scrollTop(),
@@ -3254,6 +3286,7 @@ var BODY_AND_HEADER = function (module, $, window, document) {
         $el.removeClass('is-fixed');
       }
     }
+
     // Add function to the element that should be used as the scrollable area.
     var throttleFunc = UixThrottle(scrollUpdate, 5);
     window.removeEventListener('scroll', throttleFunc);
@@ -3271,7 +3304,7 @@ var BODY_AND_HEADER = function (module, $, window, document) {
 ;// CONCATENATED MODULE: ./src/components/_global/js/modules/common-height.js
 
 
-/*
+/* 
  *************************************
  * <!-- Common Height -->
  
@@ -3297,10 +3330,12 @@ var COMMON_HEIGHT = function (module, $, window, document) {
       if (window.innerWidth != windowWidth) {
         // Update the window width for next time
         windowWidth = window.innerWidth;
+
         // Do stuff here
         commonHeightInit(windowWidth);
       }
     }
+
     // Add function to the window that should be resized
     var debounceFuncWindow = UixDebounce(windowUpdate, 50);
     window.removeEventListener('resize', debounceFuncWindow);
@@ -3311,9 +3346,11 @@ var COMMON_HEIGHT = function (module, $, window, document) {
         var element = $this;
         var selectors = '[class*=col-], [class*=uix-core-grid__col-]'; //Bootstrap grid system and Custom uix grid system
         var maxHeight = 0;
+
         // Select and loop the elements you want to equalise
         element.children(selectors).each(function () {
           var element = $(this);
+
           //Solve the problem that the image cannot be read accurately
           element.find('img').each(function () {
             var imgOuter = $(this).parent('a').css('display');
@@ -3331,7 +3368,8 @@ var COMMON_HEIGHT = function (module, $, window, document) {
             }
           }
         });
-        // Set the height of all those children to whichever was highest
+
+        // Set the height of all those children to whichever was highest 
         if (w > 768) {
           element.children(selectors).each(function () {
             $(this).css('height', maxHeight);
@@ -3355,7 +3393,7 @@ var attrExt = __webpack_require__(319);
 ;// CONCATENATED MODULE: ./src/components/_global/js/modules/custom-data-attrs.js
 
 
-/*
+/* 
  *************************************
  * <!-- Get all custom attributes of an element like "data-*" -->
  *************************************
@@ -3369,6 +3407,7 @@ var GET_CUSTOM_ATTRS = function (module, $, window, document) {
   module.GET_CUSTOM_ATTRS.documentReady = function ($) {
     $('[data-my-custom-datas]').each(function () {
       var $this = $(this);
+
       //Get all attributes of an element and push the new attributes like "data-*"
       var curAttrs = $this.attr(),
         customPostData = '';
@@ -3402,7 +3441,7 @@ var LOADER = function (module, $, window, document) {
   module.LOADER.version = '0.0.5';
   module.LOADER.documentReady = function ($) {
     // Disable devices scaling
-    //-------------------------------------
+    //-------------------------------------	
     document.addEventListener('touchstart', function (event) {
       if (event.touches.length > 1) {
         event.preventDefault();
@@ -3416,9 +3455,11 @@ var LOADER = function (module, $, window, document) {
       }
       lastTouchEnd = now;
     }, false);
+
     // Loader Process
-    //-------------------------------------
-    // Detect if video.load is successful or not
+    //-------------------------------------	
+
+    // Detect if video.load is successful or not 
     var videos = [];
     var videosTotal = 0;
     var videosLoaded = 0;
@@ -3427,6 +3468,7 @@ var LOADER = function (module, $, window, document) {
     });
     videosTotal = videos.length;
     console.log('videosTotal: ' + videosTotal + ', videosLoaded: ' + videosLoaded);
+
     // Loading progress event
     var loadedPercent = 0;
     var imgTotal = 0;
@@ -3439,18 +3481,23 @@ var LOADER = function (module, $, window, document) {
     $('body').waitForImages().progress(function (loaded, count, success) {
       imgTotal = count;
       var per = parseInt(loaded / (count - (1 - videosTotal)) * 100);
+
       //
       if ($('img').length <= 1) {
         per = 100;
       }
+
       //
       if (isNaN(per)) per = 100;
+
       //
       loadedPercent = per;
+
       //animation classes for loader
       for (var i = 1; i < 10; i++) {
         if (per < i * 10) $('body').addClass('loaded' + i);
       }
+
       //loading animation
       loadingAnim(per);
     }).done(function () {
@@ -3459,6 +3506,7 @@ var LOADER = function (module, $, window, document) {
       console.log('loadedPercent: ' + loadedPercent + ', imageTotal: ' + imgTotal);
       mainObjLoader(loadedPercent, imgTotal);
     });
+
     /*
      * Main Object Loader
      *
@@ -3471,8 +3519,10 @@ var LOADER = function (module, $, window, document) {
       var loadedFun = function loadedFun() {
         //loading animation
         loadingAnim(100);
+
         //animation classes for loader
         $('body').addClass('loaded10');
+
         // Remove loader
         TweenMax.to('.uix-loader, .uix-loader-progress, .uix-loader-progress__line', 0.5, {
           css: {
@@ -3480,9 +3530,11 @@ var LOADER = function (module, $, window, document) {
             display: 'none'
           }
         });
+
         //page animation when elements loaded
         //...
       };
+
       //
       if (loadedPercent < 100) {
         videos.forEach(function (element) {
@@ -3493,16 +3545,21 @@ var LOADER = function (module, $, window, document) {
           video.addEventListener('loadedmetadata', function (e) {
             //Video has started loading successfully
             videosLoaded++;
+
             //get remained percent
             remainedPercentComplete = (1 - videosLoaded / videosTotal) * (100 - loadedPercent);
+
             //current percent
             var currentPercent = loadedPercent + (100 - loadedPercent - remainedPercentComplete);
+
             //loading animation
             loadingAnim(currentPercent);
+
             // All videos loaded
             if (currentPercent == 100) {
               loadedFun();
             }
+
             //debug
             console.log('remainedPercentComplete: ' + remainedPercentComplete + ', currentPercent: ' + currentPercent);
             console.log('videosTotal: ' + videosTotal + ', videosLoaded: ' + videosLoaded);
@@ -3526,7 +3583,7 @@ var LOADER = function (module, $, window, document) {
 ;// CONCATENATED MODULE: ./src/components/_global/js/modules/mega-menu.js
 
 
-/*
+/* 
  *************************************
  * <!-- Mega Menu -->
  *************************************
@@ -3539,6 +3596,7 @@ var MEGA_MENU = function (module, $, window, document) {
   module.MEGA_MENU.pageLoaded = function () {
     var windowWidth = window.innerWidth,
       windowHeight = window.innerHeight;
+
     // Using delay is for more accurate calculation
     setTimeout(function () {
       megaMenuInit(windowWidth);
@@ -3548,25 +3606,32 @@ var MEGA_MENU = function (module, $, window, document) {
       if (window.innerWidth != windowWidth) {
         // Update the window width for next time
         windowWidth = window.innerWidth;
+
         // Do stuff here
         megaMenuInit(windowWidth);
       }
     }
+
     // Add function to the window that should be resized
     var debounceFuncWindow = UixDebounce(windowUpdate, 50);
     window.removeEventListener('resize', debounceFuncWindow);
     window.addEventListener('resize', debounceFuncWindow);
+
     // Initialize mega menu
     function megaMenuInit(w) {
       var $menuWrap = $('.uix-menu__container:not(.is-mobile)'),
         maxWidth = 1140,
         //The maximum width of the mega menu wrapper
+
         //This value is equal to the $nav-mega-li-w variable in the SCSS
         perDefaultW = 270; //Default width of each column
+
       //New XL container for Bootstrap 5.x
       if (w > 1430) maxWidth = 1278;
+
       //Full width container
       maxWidth = windowWidth - 15;
+
       // Remove the html tag for mega menu item
       $menuWrap.find('li.multi-column  > ul .multi-column-title').each(function () {
         var megaOldItem = $(this).html();
@@ -3582,22 +3647,28 @@ var MEGA_MENU = function (module, $, window, document) {
             $megaDiv = $rootLi.find('> ul.sub-menu');
           var megaPerWidth = null,
             rootLiLeft = null;
+
           // Get width or other style data of element when Not Visible (Display: None)
           var megaDivWidth = $megaDiv.width();
+
           // Add mega arrow
           if ($rootLi.find('.uix-menu__arrow-mega').length < 1) $rootLi.prepend('<span class="uix-menu__arrow-mega"></span>');
+
           // Detecting if the right or left of the div is touching the browser window edge.
           if (colTotal > 0) {
             rootLiLeft = UixCssProperty.getAbsoluteCoordinates($megaDiv[0]).left;
+
             //Determine the mega menu wrapper within document width, in order to limit the width of each column for mega menu
             if (maxWidth > w) maxWidth = w;
             if (megaDivWidth + 20 > maxWidth) {
               megaDivWidth = maxWidth;
               megaPerWidth = maxWidth / colTotal - 2.888;
+
               //Resetting the width of each column
               $megaDiv.find('> li').css({
                 'width': megaPerWidth + 'px'
               });
+
               //Resetting the width of each <li> tag
               $megaDiv.find('> li ul li').css({
                 'width': megaPerWidth + 'px'
@@ -3616,6 +3687,7 @@ var MEGA_MENU = function (module, $, window, document) {
               $megaDiv.find('> li').css({
                 'width': perDefaultW + 'px'
               });
+
               //Resetting the width of each <li> tag
               $megaDiv.find('> li ul li').css({
                 'width': perDefaultW + 'px'
@@ -3631,6 +3703,7 @@ var MEGA_MENU = function (module, $, window, document) {
                     'margin-right': -(chkWidth - w) + 'px'
                   });
                 }
+
                 //If the CSS sets the offset of ul::before
                 //								const $megaDiv_offset = megaDivWidth/2 - 0;
                 //								
@@ -3661,7 +3734,7 @@ var MEGA_MENU = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Mobile Menu -->
  *************************************
@@ -3674,6 +3747,7 @@ var MOBILE_MENU = function (module, $, window, document) {
   module.MOBILE_MENU.documentReady = function ($) {
     var windowWidth = window.innerWidth,
       windowHeight = window.innerHeight;
+
     //-------- Show Toolbar when viewing site for WordPress
     var $el = $('.admin-bar .uix-menu-mobile__toggle');
     function scrollUpdate() {
@@ -3685,6 +3759,7 @@ var MOBILE_MENU = function (module, $, window, document) {
         $el.removeClass('is-fixed');
       }
     }
+
     // Add function to the element that should be used as the scrollable area.
     var throttleFunc = UixThrottle(scrollUpdate, 5);
     window.removeEventListener('scroll', throttleFunc);
@@ -3692,15 +3767,18 @@ var MOBILE_MENU = function (module, $, window, document) {
     window.addEventListener('scroll', throttleFunc);
     window.addEventListener('touchmove', throttleFunc);
     throttleFunc();
+
     //-------- Mobile Menu
     var $toggle = $('.uix-menu-mobile__toggle'),
       $toggleBody = $('body');
+
     //-------- Add mobile menu to your website
     $('nav.uix-menu__container').clone().addClass('is-mobile').appendTo('body');
     //Wait until previous .appendTo() is complete
     $.when($('.uix-menu__container.is-mobile').length > 0).then(function () {
       $toggle.on('touchstart click', function (e) {
         e.preventDefault();
+
         //Prevents further propagation of the current event in the capturing and bubbling phases.
         e.stopPropagation();
         $(this).toggleClass('is-active');
@@ -3710,24 +3788,28 @@ var MOBILE_MENU = function (module, $, window, document) {
           if ((0,esm_typeof/* default */.Z)(logoURL) !== ( true ? "undefined" : 0) && logoURL != '') {
             if (logoURL.indexOf('blank.gif') >= 0) $('.mobile-inner').css('margin-top', '-70px');
           }
+
           //Toggle effect
           $toggleBody.addClass('js-uix-menu-opened');
         } else {
           $toggleBody.removeClass('js-uix-menu-opened');
         }
       });
+
       //Mobile menu mask event
       $('.uix-menu-mobile__mask').on('click', function () {
         $toggle.removeClass('is-active');
         $toggleBody.removeClass('js-uix-menu-opened');
       });
-      // Fires drop-menu event
+
+      // Fires drop-menu event 
       var $drMenuLi = $('.uix-menu__container.is-mobile ul li');
       $drMenuLi.find('> a').on('click', function (e) {
-        var arrowText = $(this).find('.uix-menu__arrow-mobile').text().replace(/(.).*\1/g, '$1'),
+        var arrowText = $(this).find('.uix-menu__arrow-mobile').text().replace(/(.).*\1/g, "$1"),
           $sub = $(this).next('ul');
         if ($sub.length > 0) {
           e.preventDefault();
+
           //Its value is not a boolean but a string
           var expanded = $(this).attr('aria-expanded') == 'true' ? false : true;
           if (expanded) {
@@ -3742,6 +3824,7 @@ var MOBILE_MENU = function (module, $, window, document) {
             TweenMax.to($e.next('ul'), 0.5, {
               height: 0
             });
+
             //to open
             // - temporarilty set height:auto
             // - tween from height:0
@@ -3755,6 +3838,7 @@ var MOBILE_MENU = function (module, $, window, document) {
             $(this).removeClass('is-opened').attr('aria-expanded', false);
             $(this).parent('li').find('.uix-menu__arrow-mobile').removeClass('is-opened');
             $(this).parent('li').removeClass('is-opened');
+
             //to close
             TweenMax.to($sub, 0.5, {
               height: 0
@@ -3769,17 +3853,20 @@ var MOBILE_MENU = function (module, $, window, document) {
         if (window.innerWidth != windowWidth) {
           // Update the window width for next time
           windowWidth = window.innerWidth;
+
           // Do stuff here
           $toggleBody.removeClass('js-uix-menu-opened');
           $toggle.removeClass('is-active');
           mobileMenuInit(windowWidth);
         }
       }
+
       // Add function to the window that should be resized
       var debounceFuncWindow = UixDebounce(windowUpdate, 50);
       window.removeEventListener('resize', debounceFuncWindow);
       window.addEventListener('resize', debounceFuncWindow);
     });
+
     /*
      * Initialize mobile menu
      *
@@ -3808,7 +3895,7 @@ var MOBILE_MENU = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Navigation -->
  *************************************
@@ -3820,11 +3907,13 @@ var NAVIGATION = function (module, $, window, document) {
   module.NAVIGATION.version = '0.1.0';
   module.NAVIGATION.documentReady = function ($) {
     var ulForDesktop = '.uix-menu__container:not(.is-mobile) ul.uix-menu';
+
     //-------- Menu selected (if it exists "data-current" property in <ul>)
     var curMenuIndex = $(ulForDesktop).data('current');
     if ((0,esm_typeof/* default */.Z)(curMenuIndex) !== ( true ? "undefined" : 0)) {
       $(ulForDesktop + ' > li:eq(' + curMenuIndex + ')').addClass('is-active');
     }
+
     //-------- Menu Hover
     var mTop = 15;
     $(ulForDesktop + ' > li.multi-column > ul li ul').addClass('multi');
@@ -3861,12 +3950,14 @@ var NAVIGATION = function (module, $, window, document) {
         }
       });
     });
+
     //-------- Add Sub-menu Arrow
     $(ulForDesktop + ' li').each(function () {
       if ($(this).find('ul').length > 0) {
         $(this).prepend('<span class="uix-menu__arrow"></span>');
       }
     });
+
     //-------- Sticky primary navigation
     var $el = $('.uix-menu__container:not(.is-mobile)');
     function scrollUpdate() {
@@ -3878,6 +3969,7 @@ var NAVIGATION = function (module, $, window, document) {
         $el.removeClass('is-fixed');
       }
     }
+
     // Add function to the element that should be used as the scrollable area.
     var throttleFunc = UixThrottle(scrollUpdate, 5);
     window.removeEventListener('scroll', throttleFunc);
@@ -3929,10 +4021,12 @@ var NAVIGATION = function (module, $, window, document) {
         bgEff = settings.bg.enable;
         bgXpos = settings.bg.xPos;
       }
+
       //Prohibit transition delay
       $this.css({
         'transition': 'none'
       });
+
       //Initialize the position of the background
       if (bgEff) {
         //background parallax
@@ -3965,12 +4059,14 @@ var NAVIGATION = function (module, $, window, document) {
           });
         }
       }
+
       // Add function to the element that should be used as the scrollable area.
       var throttleFunc = UixThrottle(scrollUpdate, 5);
       window.removeEventListener('scroll', throttleFunc);
       window.removeEventListener('touchmove', throttleFunc);
       window.addEventListener('scroll', throttleFunc);
       window.addEventListener('touchmove', throttleFunc);
+
       // Prevent calculation errors caused by unloaded completion
       if (document.readyState != 'loading') {
         throttleFunc();
@@ -3988,7 +4084,7 @@ var NAVIGATION = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Specify a background image -->
  *************************************
@@ -4002,6 +4098,7 @@ var SET_BG = function (module, $, window, document) {
   module.SET_BG.documentReady = function ($) {
     var windowWidth = window.innerWidth,
       windowHeight = window.innerHeight;
+
     //  Initialize
     setBGInit();
     function windowUpdate() {
@@ -4009,14 +4106,17 @@ var SET_BG = function (module, $, window, document) {
       if (window.innerWidth != windowWidth) {
         // Update the window width for next time
         windowWidth = window.innerWidth;
+
         // Do stuff here
         setBGInit();
       }
     }
+
     // Add function to the window that should be resized
     var debounceFuncWindow = UixDebounce(windowUpdate, 50);
     window.removeEventListener('resize', debounceFuncWindow);
     window.addEventListener('resize', debounceFuncWindow);
+
     /*
      * Initialize background using "data-bg" attribute.
      *
@@ -4028,15 +4128,15 @@ var SET_BG = function (module, $, window, document) {
         var config = $this.data('bg');
         if ((0,esm_typeof/* default */.Z)(config) === ( true ? "undefined" : 0)) {
           config = {
-            'src': 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
-            'position': 'top left',
-            'size': 'cover',
-            'repeat': 'no-repeat',
-            'offsetTop': 0,
-            'fill': false,
-            'parallax': 0,
-            'transition': 'none 0s ease 0s',
-            'move': false // {"dir":"left","duration":"10s","easing":"linear","loop":true}
+            "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+            "position": "top left",
+            "size": "cover",
+            "repeat": "no-repeat",
+            "offsetTop": 0,
+            "fill": false,
+            "parallax": 0,
+            "transition": "none 0s ease 0s",
+            "move": false // {"dir":"left","duration":"10s","easing":"linear","loop":true}
           };
         }
 
@@ -4055,10 +4155,12 @@ var SET_BG = function (module, $, window, document) {
           if ((0,esm_typeof/* default */.Z)(dataOffsetTop) === ( true ? "undefined" : 0)) dataOffsetTop = 0;
           if ((0,esm_typeof/* default */.Z)(dataEasing) === ( true ? "undefined" : 0)) dataEasing = 'none 0s ease 0s';
           if ((0,esm_typeof/* default */.Z)(dataMove) === ( true ? "undefined" : 0)) dataMove = false;
+
           //Using parallax
           if (dataParallax && (0,esm_typeof/* default */.Z)(dataParallax) != ( true ? "undefined" : 0) && dataParallax != 0) {
             dataPos = dataPos.replace('top', '50%');
           }
+
           //background animation
           var moveAnim = 'none',
             moveAnimLoop = 'infinite',
@@ -4084,6 +4186,7 @@ var SET_BG = function (module, $, window, document) {
                 moveAnim = 'js-uix-cssanim--move-r ' + parseInt(dataMove.speed) + 's ' + moveEasing + ' ' + moveAnimLoop;
                 break;
             }
+
             //  CSS3 animation keyframe attributes inline
             if ($('#js-uix-cssanim--move-t').length == 0) {
               $('<style id="js-uix-cssanim--move-t">').text(moveKeyframesTop).appendTo('head');
@@ -4098,6 +4201,7 @@ var SET_BG = function (module, $, window, document) {
               $('<style id="js-uix-cssanim--move-r">').text(moveKeyframesRight).appendTo('head');
             }
           }
+
           //-----
           if ((0,esm_typeof/* default */.Z)(dataImg) != ( true ? "undefined" : 0) && dataImg != '') {
             if (config.fill) {
@@ -4120,6 +4224,7 @@ var SET_BG = function (module, $, window, document) {
                 'animation': moveAnim
               });
             }
+
             //Using parallax
             if (dataParallax && (0,esm_typeof/* default */.Z)(dataParallax) != ( true ? "undefined" : 0) && dataParallax != 0) {
               $this.UixParallax({
@@ -4147,7 +4252,7 @@ var SET_BG = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Videos -->
  *************************************
@@ -4160,7 +4265,8 @@ var VIDEOS = function (module, $, window, document) {
   module.VIDEOS.documentReady = function ($) {
     var windowWidth = window.innerWidth,
       windowHeight = window.innerHeight;
-    /*
+
+    /* 
      ---------------------------
      Video Embed
      ---------------------------
@@ -4175,6 +4281,7 @@ var VIDEOS = function (module, $, window, document) {
         dataControls = $this.data('embed-video-controls'),
         dataW = $this.data('embed-video-width'),
         dataH = $this.data('embed-video-height');
+
       //Push a new ID to video
       //Solve the problem that ajax asynchronous loading does not play
       $this.find('.video-js').attr('id', curVideoID);
@@ -4193,6 +4300,7 @@ var VIDEOS = function (module, $, window, document) {
       if ((0,esm_typeof/* default */.Z)(dataH) === ( true ? "undefined" : 0) || dataH == 'auto') {
         dataH = videoWrapperW / 1.77777777777778;
       }
+
       //Display cover and play buttons when some mobile device browsers cannot automatically play video
       if ($('#' + coverPlayBtnID).length == 0) {
         $('<div id="' + coverPlayBtnID + '" class="uix-video__cover"><span class="uix-video__cover__placeholder" style="background-image:url(' + $this.find('video').attr('poster') + ')"></span><span class="uix-video__cover__playbtn"></span></div>').insertBefore($this);
@@ -4202,11 +4310,13 @@ var VIDEOS = function (module, $, window, document) {
           myPlayer.play();
           $('#' + coverPlayBtnID).hide();
         });
+
         //Prevent some devices from automatically playing video and trigger with buttons
         if (!dataAuto || browser.isAndroid) {
           $('#' + coverPlayBtnID + ' .uix-video__cover__playbtn').show();
         }
       }
+
       /* ---------  HTML5 video autoplay on mobile revisited  */
       if (windowWidth <= 768) {
         $this.find('.video-js').attr({
@@ -4226,31 +4336,38 @@ var VIDEOS = function (module, $, window, document) {
             newW = curW,
             newH = curH;
           newW = videoWrapperW;
-          //Scaled/Proportional Content
+
+          //Scaled/Proportional Content 
           newH = curH * (newW / curW);
           if (!isNaN(newW) && !isNaN(newH)) {
             obj.height(newH);
             obj.width(newW);
           }
+
           //Show this video wrapper
           $this.css('visibility', 'visible');
+
           //Hide loading effect
           $this.find('.vjs-loading-spinner, .vjs-big-play-button').hide();
         };
         initVideo(this);
+
         /* ---------  Video initialize */
         this.on('loadedmetadata', function () {
           initVideo(this);
         });
+
         /* ---------  Set, tell the player it's in fullscreen  */
         if (dataAuto) {
           this.muted(true); //Fix an error of Video auto play is not working in browser
           this.play();
         }
+
         /* ---------  Disable control bar play button click */
         if (!dataControls) {
           this.controls(false);
         }
+
         /* ---------  Determine if the video is auto played from mobile devices  */
         var autoPlayOK = false;
         this.on('timeupdate', function () {
@@ -4260,6 +4377,7 @@ var VIDEOS = function (module, $, window, document) {
             if (this.currentTime() > 0) {
               autoPlayOK = true;
               this.off('timeupdate');
+
               //Hide cover and play buttons when the video automatically played
               $('#' + coverPlayBtnID).hide();
             }
@@ -4267,12 +4385,14 @@ var VIDEOS = function (module, $, window, document) {
         });
       });
     });
-    /*
+
+    /* 
      ---------------------------
      Video Popup Interaction
      ---------------------------
      */
     var modalDialogTrigger = '[data-video-win]';
+
     //Add video container
     $(modalDialogTrigger).each(function () {
       var $this = $(this);
@@ -4295,6 +4415,7 @@ var VIDEOS = function (module, $, window, document) {
       if ($this.find('[data-video-iframe]').length > 0) {
         videoSrcIfm = $this.find('[data-video-iframe]').html();
       }
+
       //Add modal dialog
       if ($('#' + videoContainerMid).length == 0) {
         var v = '',
@@ -4328,10 +4449,12 @@ var VIDEOS = function (module, $, window, document) {
         v += '</div>';
         v += '</div>';
         v += '</div>';
+
         //Wait until previous .append() is complete
         $(v).appendTo('body');
       }
     });
+
     //Check out: http://docs.videojs.com/tutorial-player-workflows.html
     $(document).off('click.VIDEOS').on('click.VIDEOS', modalDialogTrigger, function () {
       var vid = $(this).data('modal-id') + '--videopush',
@@ -4341,6 +4464,7 @@ var VIDEOS = function (module, $, window, document) {
         $vLoader = $vContainer.prev('.uix-modal-box__video-waiting'),
         myPlayerInit = $vContainer.data('video-player-init');
       var $ifm = false;
+
       //----- Hidden/Display the wrapper of video
       var displayVC = function displayVC() {
         TweenMax.set($vContainer, {
@@ -4354,6 +4478,7 @@ var VIDEOS = function (module, $, window, document) {
         });
         $vLoader.addClass('is-active');
       };
+
       //----- Embed iframe
       if ($('#' + vid).find('iframe').length > 0) {
         $ifm = $('#' + vid).find('iframe');
@@ -4368,12 +4493,14 @@ var VIDEOS = function (module, $, window, document) {
             newH = curH;
           if (curH > newMaxH) {
             newH = newMaxH;
-            //Scaled/Proportional Content
+
+            //Scaled/Proportional Content 
             newW = curW * (newH / curH);
           }
           if (newW > newMaxW) {
             newW = newMaxW;
-            //Scaled/Proportional Content
+
+            //Scaled/Proportional Content 
             newH = curH * (newW / curW);
           }
           $ifm.css({
@@ -4392,12 +4519,14 @@ var VIDEOS = function (module, $, window, document) {
         }
         return false;
       }
+
       //----- HTML5 video autoplay on mobile revisited
       if (windowWidth <= 768) {
         $('#' + vid).attr({
           'playsinline': 'true'
         });
       }
+
       //----- Embed local video
       var myPlayer = videojs(vid, {
         width: 1,
@@ -4411,62 +4540,77 @@ var VIDEOS = function (module, $, window, document) {
             curH = obj.videoHeight(),
             newW = curW,
             newH = curH;
+
           //Resise modal
           if (curH > newMaxH) {
             newH = newMaxH;
-            //Scaled/Proportional Content
+
+            //Scaled/Proportional Content 
             newW = curW * (newH / curH);
           }
           if (newW > newMaxW) {
             newW = newMaxW;
-            //Scaled/Proportional Content
+
+            //Scaled/Proportional Content 
             newH = curH * (newW / curW);
           }
           obj.height(newH);
           obj.width(newW);
+
           //In order to allow CSS to support video centering
           $vContainer.find(' > div.video-js').css({
             'width': newW + 'px'
           });
+
           //Vertically center the video area
           var mt = parseFloat(windowHeight - newH) / 2 - 50;
           $vContainer.css({
             'transform': 'translateY(' + mt + 'px)'
           });
+
           //Display the wrapper of video
           displayVC();
         };
         initVideo(this);
+
         /* ---------  Video Modal initialize */
         this.on('loadedmetadata', function () {
           initVideo(this);
+
           //If a player instance has already been created for this variable.
           $vContainer.data('video-player-init', 1);
         });
+
         /* ---------  Set, tell the player it's in fullscreen  */
         //this.exitFullscreen();
         //this.requestFullscreen();
         this.play();
+
         /* ---------  Disable control bar play button click */
         //this.controls( false );
+
         /* ---------  Display video playback progress  */
         this.on('timeupdate', function () {
           var duration = this.duration(),
             progressAmount = '0%';
           if (duration > 0) {
-            progressAmount = this.currentTime() / duration * 100 + '%';
+            progressAmount = this.currentTime() / duration * 100 + "%";
           }
+
           //console.log( progressAmount );
         });
+
         /* ---------  Callback for when a video has ended */
         this.on('ended', function () {
           //console.log( 'video is done!' );
         });
       });
+
       /* ---------  Display the wrapper of video  */
       if (myPlayerInit === 1) {
         displayVC();
       }
+
       /* ---------  Close the modal  */
       $(document).off('click.VIDEOS_CLOSE').on('click.VIDEOS_CLOSE', '.uix-modal-box [data-modal-close-trigger], .uix-modal-mask:not(.js-uix-disabled)', function () {
         myPlayer.ready(function () {
@@ -4484,11 +4628,12 @@ var VIDEOS = function (module, $, window, document) {
 ;// CONCATENATED MODULE: ./src/components/_main/js/index.js
 
 
-/*
+/* 
  *************************************
  * <!-- Theme Scripts  -->
  *************************************
  */
+
 
 
 var MAIN = function (module, $, window, document) {
@@ -4496,7 +4641,8 @@ var MAIN = function (module, $, window, document) {
   module.MAIN = module.MAIN || {};
   module.MAIN.version = '0.0.1';
   module.MAIN.documentReady = function ($) {
-    /*
+
+    /* 
      ---------------------------
      Function Here
      ---------------------------
@@ -4504,7 +4650,8 @@ var MAIN = function (module, $, window, document) {
     //your code here...
   };
   module.MAIN.pageLoaded = function () {
-    /*
+
+    /* 
      ---------------------------
      Function Here
      ---------------------------
