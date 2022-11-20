@@ -2,7 +2,7 @@
 <html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
     <meta charset="@@{website_charset}" />
-    <title>Contact Form With Google Map - @@{website_title}</title>
+    <title>带谷歌地图的联系表格 Contact Form With Google Map - @@{website_title}</title>
     @@include('./src/components/_global/include-header.html')
 </head>
 <body class="page">
@@ -83,15 +83,20 @@
 <!-- Google Map API
 ============================================= -->
 <script>
-    function initMap() {
-        var mapDiv = document.getElementById('map');
-        var map = new google.maps.Map(mapDiv, {
-            center: { lat: 44.540, lng: -78.546 },
-            zoom: 8
-        });
+    function loadJScript() {
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = '//api.map.baidu.com/api?type=webgl&v=1.0&ak=shhqRrlcomhGxblQ8BnZL8TQI5jcM8ue&callback=init';
+        document.body.appendChild(script);
     }
+    function init() {
+        const map = new BMapGL.Map('map'); // 创建Map实例
+        const point = new BMapGL.Point(116.404, 39.915); // 创建点坐标
+        map.centerAndZoom(point, 10);
+        map.enableScrollWheelZoom(); // 启用滚轮放大缩小
+    }
+    window.onload = loadJScript; // 异步加载地图
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0kxSY0g5flUWptO4ggXpjhVB-ycdqsDk&ver=2.0&callback=initMap"></script>
 <!-- Google Map API  end -->
 @@include('./src/components/_global/include-footer.html')
 
