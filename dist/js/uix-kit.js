@@ -2626,6 +2626,7 @@ var esm_typeof = __webpack_require__(2);
     86.Timeline
     87.Vertical Menu
     88.WordPress Core Scripts
+    89.WordPress Core Scripts
 
  */
 /*
@@ -37780,6 +37781,228 @@ var VERTICAL_MENU = function (module, $, window, document) {
           }
         }
         if ($menuWrap.height() < winHeight) {
+          $menuWrap.css({
+            position: 'fixed',
+            height: winHeight + 'px',
+            marginTop: 0
+          });
+        }
+      }
+      // Add function to the element that should be used as the scrollable area.
+      var throttleFunc = UixThrottle(scrollUpdate, 5);
+      window.removeEventListener('scroll', throttleFunc);
+      window.removeEventListener('touchmove', throttleFunc);
+      window.addEventListener('scroll', throttleFunc);
+      window.addEventListener('touchmove', throttleFunc);
+      throttleFunc();
+    }
+  };
+  module.components.documentReady.push(module.VERTICAL_MENU.documentReady);
+  return /*#__PURE__*/_createClass(function VERTICAL_MENU() {
+    _classCallCheck(this, VERTICAL_MENU);
+    this.module = module;
+  });
+}(UixModuleInstance, jQuery, window, document);
+;// CONCATENATED MODULE: ./src/components/wordpress/js/index.js
+
+
+/*
+ *************************************
+ * <!-- WordPress Core Scripts -->
+ *************************************
+ */
+
+
+
+
+var WP_CORE = function (module, $, window, document) {
+  if (window.WP_CORE === null) return false;
+  module.WP_CORE = module.WP_CORE || {};
+  module.WP_CORE.version = '0.0.1';
+  module.WP_CORE.documentReady = function ($) {
+    /*
+     ---------------------------
+     Pagination
+     ---------------------------
+     */
+    $('.uix-pagination__container li > span.current').each(function () {
+      $(this).parent('li').addClass('is-active');
+    });
+    /*
+     ---------------------------
+     Dropdown Categories
+     ---------------------------
+     */
+    $('#cat').on('change', function () {
+      var cvalue = $(this).val();
+      if (cvalue) {
+        location.href = homeUrl + '/?cat=' + cvalue;
+      }
+      return false;
+    });
+  };
+  module.components.documentReady.push(module.WP_CORE.documentReady);
+  return /*#__PURE__*/_createClass(function WP_CORE() {
+    _classCallCheck(this, WP_CORE);
+    this.module = module;
+  });
+}(UixModuleInstance, jQuery, window, document);
+;// CONCATENATED MODULE: ./src/components/_app-load.js
+/*
+ * Common website functions, Can be called separately in HTML pages or custom JavaScript.
+ *    
+ */
+
+
+
+/*
+ * Import modules from components
+ *    
+ */
+/******/
+/******/
+/* base */
+/* Note: The CSS style file has been included by JavaScript files */
+
+
+
+
+
+
+
+
+
+/******/
+/******/
+/* pages */
+/* Note: The CSS style file has been included by JavaScript files */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/******/
+/******/
+/* pages */
+/* Note: These modules do not contain JavaScript */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;// CONCATENATED MODULE: ./src/index.js
+/*
+ * Import modules from components of ES6
+ * 
+ *        
+ */
+
+})();
+
+/******/ })()
+;
+//# sourceMappingURL=js/uix-kit.js.map       if ($menuWrap.height() < winHeight) {
           $menuWrap.css({
             position: 'fixed',
             height: winHeight + 'px',
