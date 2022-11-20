@@ -64,7 +64,7 @@ let globs = {
  *************************************
  */
 const charset                  = 'utf-8';
-const lang                     = 'en-US';
+const lang                     = 'zh-cn';
 const dirLTR                   = 'ltr';
 const dirRTL                   = 'rtl';
 const customWebsiteVersion     = json.version,
@@ -74,21 +74,20 @@ const customWebsiteVersion     = json.version,
 	  customWebsiteGenerator   = 'Uix Kit',
 	  customWebsiteHash        = randomString({length: 20}),
 	  customWebsiteComment     = `
-DO NOT OVERRIDE THIS FILE.
-Generated with "npm run build"
+不要覆盖此文件。
+使用“npm run build”生成
 
-## Project Name        :  ` + customWebsiteTitle + `
-## Project Description :  ` + customWebsiteDesc + `
-## Project URL         :  ` + json.projectURL + `
-## Version             :  ` + customWebsiteVersion + `
-## Based on            :  Uix Kit (` + json.homepage + `)
-## Last Update         :  ` + moment().format( "MMMM D, YYYY" ) + `
-## Created by          :  ` + json.createdInfo + ( json.email != '' ? ' (' + json.email + ')' : '' ) + `
-## Released under the ` + json.license + ` license.
+## 项目名称           :  ` + customWebsiteTitle + `
+## 项目描述           :  ` + customWebsiteDesc + `
+## 项目网址           :  ` + json.projectURL + `
+## 版本              :  ` + customWebsiteVersion + `
+## 汉化              :  慧科云 (` + json.homepage + `)
+## 最后更新日期        :  ` + moment().format('MMMM D, YYYY') + `
+## 基于 ` + json.createdInfo + (json.email != '' ? ' (' + json.email + ')' : '') + ` 汉化
+## 在 ` + json.license + ` 许可下发布。
 	`;
 
-
-// Get all the HTML template files
+// 获取所有 HTML 模板文件
 const tempPagesES6 = glob.sync( globs.pathCore + '/**/*.html' );
 const targetTempFilesName = [];
 const targetAllTempFilesName = [];
@@ -117,8 +116,7 @@ const targetFilesNameArrays = [
 ];
 const targetAllWatchFilesName = [].concat(...targetFilesNameArrays);
 
-
-// String replacement for page templates
+// 页面模板的字符串替换
 class ReplacePlaceholderForFile {
 	constructor( options ) {
 		this.options = options;
@@ -128,8 +126,8 @@ class ReplacePlaceholderForFile {
 			
 			const filepath = this.options.filepath;
 			
-			// When the Node module is running, this plugin may be executed 
-			// at the same time, which will result in incomplete content reading.
+			// 当 Node 模块运行时，这个插件可能会被执行
+            // 同时，会导致内容读取不完整。
 			/*
 			@Other method:
 			
@@ -165,8 +163,8 @@ class ReplacePlaceholderForFile {
 								console.log(colors.fg.Red, err, colors.Reset);
 								return;
 							}
-							//file written successfully
-							//console.log(colors.fg.Green, `${filepath} written successfully!`, colors.Reset);
+							//文件写入成功
+                            //console.log(colors.fg.Green, `${filepath} 写入成功！`, colors.Reset);
 
 						});		
 					}
@@ -185,14 +183,14 @@ class ReplacePlaceholderForFile {
 
 /*! 
  *************************************
- *  Run command after webpack build
+ *  webpack 构建后运行命令
  *************************************
  */
 	
  class MyPluginCompiledFunction {
-	// Define `apply` as its prototype method which is supplied with compiler as its argument
+	// 将`apply`定义为其原型方法，编译器作为其参数提供
 	apply(compiler) {
-		// Specify the event hook to attach to
+		// 指定要附加的事件钩子
 		compiler.hooks.done.tap('MyPluginCompiledFunction', (compilation) => {
 
 			const coreJSsFile = globs.pathCore + '/_app-load.js';
@@ -215,9 +213,9 @@ class ReplacePlaceholderForFile {
 					const tocBuildedTotal = tocBuildedFiles.length;
 					let tocBuildedIndex = 1;
 					
-					// Read all core css and js files and build a table of contents
-					//---------------------------------------------------------------------
-					// Build a table of contents (TOC)
+					// 读取所有核心 css 和 js 文件并构建目录
+                    //---------------------------------------------------------------------
+                    // 建立目录 (TOC)
 					tocBuildedFiles.forEach( ( filepath ) => {
 		
 						if ( fs.existsSync( filepath ) ) {
@@ -230,9 +228,7 @@ class ReplacePlaceholderForFile {
 								const curCon  = content.toString(),
 										newtext = curCon.match(/<\!\-\-.*?(?:>|\-\-\/>)/gi );
 		
-								
-		
-								//is the matched group if found
+								// 如果找到匹配组
 								if ( newtext && newtext.length > 0 ) {  
 		
 									let curToc = '';
@@ -250,7 +246,7 @@ class ReplacePlaceholderForFile {
 		
 									}
 		
-									//Replace a string in a file with nodejs
+									// 用nodejs替换文件中的字符串
 									const resultData = curCon.replace(/\$\{\{TOC\}\}/gi, curToc );
 		
 									fs.writeFile( filepath, resultData, 'utf8', function (err) {
@@ -259,8 +255,8 @@ class ReplacePlaceholderForFile {
 											console.log(colors.fg.Red, err, colors.Reset);
 											return;
 										}
-										//file written successfully	
-										console.log(colors.fg.Green, `${filepath}'s table of contents generated successfully! (${tocBuildedIndex}/${tocBuildedTotal})`, colors.Reset);
+										// 用nodejs替换文件中的字符串
+										console.log(colors.fg.Green, `${filepath} 文件生成成功！ (${tocBuildedIndex}/${tocBuildedTotal})`, colors.Reset);
 		
 										tocBuildedIndex++;
 		
@@ -293,7 +289,7 @@ class ReplacePlaceholderForFile {
 
 /*! 
  *************************************
- *  Main configuration
+ *  主要配置
  *************************************
  */
 const devMode = process.env.NODE_ENV !== 'production';
