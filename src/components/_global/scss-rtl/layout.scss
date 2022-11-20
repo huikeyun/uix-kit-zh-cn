@@ -1,44 +1,29 @@
 /* ====================================================== 
    <!-- Basic Layout Styles -->                                      
 /* ====================================================== */
-
-/* 
+/*
  ---------------------------
  4. Uix Grid
  ---------------------------
- */ 
-
+ */
 [class*='uix-core-grid__col-'] {
-	float: right;
+    float: right;
 }
-
 @mixin uixCoreGridGenerateRTL( $classname: '.uix-core-grid', $pad: 15px ) {
-	// @include uixCoreGridGenerate( '.uix-core-grid', 15px );
-	
-    @if ( $classname != '' ) {
-	
-		#{$classname} {
-
-			[class*='uix-core-grid__col-'] {
-				padding-right: auto;
-				padding-left: #{$pad};
-
-				.uix-core-grid__row &:last-of-type {
-					padding-left: 0;
-				}
-			}
-
-
-		}
-
-
-		
-	}
-	
+    // @include uixCoreGridGenerate( '.uix-core-grid', 15px );
+    @if ($classname != '') {
+        #{$classname} {
+            [class*='uix-core-grid__col-'] {
+                padding-right: auto;
+                padding-left: #{$pad};
+                .uix-core-grid__row &:last-of-type {
+                    padding-left: 0;
+                }
+            }
+        }
+    }
 }
-
-
-@include uixCoreGridGenerateRTL( '.uix-core-grid', 15px );
+@include uixCoreGridGenerateRTL('.uix-core-grid', 15px);
 
 
 

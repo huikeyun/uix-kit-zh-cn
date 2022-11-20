@@ -2,34 +2,28 @@
    <!-- Comments -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
-
-
 .comment-avatar {
     float: right;
     margin: 0 0 0 1.3125rem;
 }
-
 .comment .comment {
-	margin-left: auto;
-	margin-right: 2.625rem;
+    margin-right: 2.625rem;
+    margin-left: auto;
 }
-
 .comment-meta {
-	.comment-avatar {
-		margin: 0 0 0 1.3125rem;
-		float: right;
-	}
-	.comment-text {
-	    float: right;
-	}
+    .comment-avatar {
+        float: right;
+        margin: 0 0 0 1.3125rem;
+    }
+    .comment-text {
+        float: right;
+    }
 }
-
 .comment-content {
-	margin-left: auto;
-	margin-right: calc(2.8125rem + 1.3125rem);
-
-	a.respond {
-		right: auto;
-		left: 0;
-	}
+    margin-right: calc(2.8125rem + 1.3125rem);
+    margin-left: auto;
+    a.respond {
+        right: auto;
+        left: 0;
+    }
 }

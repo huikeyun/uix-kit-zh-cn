@@ -2,142 +2,109 @@
    <!-- Multiple Items Carousel -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
-
-
 /*
  * 1. Initialize the core style
  * 2. Next/Prev buttons
 */
-
-
 /*
  ---------------------------
  1. Initialize the core style
  ---------------------------
  */
 .uix-multi-carousel {
-	/* Required */
-	overflow: hidden;
+    /* 必需的 */
+    overflow: hidden;
     width: 100%;
-
-	.uix-multi-carousel__items {
-		height: 150px;
-		position: relative;
-
-		> .uix-multi-carousel__item {
-			position: absolute; /* required */
-			height: 100%;
-
+    .uix-multi-carousel__items {
+        position: relative;
+        height: 150px;
+        > .uix-multi-carousel__item {
+            font-size: 1.2rem;
+            position: absolute; /* 必需的 */
+            height: 100%;
+            /* 演示样式 */
+            text-align: center;
+            color: #ffffff;
+            background: #333333;
+            box-shadow: inset -1px 0px 0px 0px rgba(255, 255, 255, .5);
             img {
                 pointer-events: none;
             }
-            
-
-			/* Demo Style */
-			box-shadow: inset -1px 0px 0px 0px rgba(255,255,255,.5);
-			font-size: 1.2rem;
-			text-align: center;
-			color: #fff;
-			background: #333;
-            
             > span {
-                display: inline-block;
                 position: absolute;
-                transform: translateY(-50%);
                 top: 50%;
-                width: 100%;
                 left: 0;
-            }
-
-			&.is-active {
-				background: #000;
-				font-size: 3rem;
-			}
-
-
-		}
-	}
-    
-    
-
-    /*----- Vertical Carousel -----*/
-    &.is-vertical {
-        /* Required */
-        overflow: hidden;
-        width: 500px;
-        height: 450px;
-
-        .uix-multi-carousel__items {
-
-            width: 100%;
-            /* Required */
-            height: 100%;
-
-            > .uix-multi-carousel__item {
+                display: inline-block;
                 width: 100%;
-
-                /* Demo Style */
-                box-shadow: inset 0px -1px 0px 0px rgba(255,255,255,.5);
-
+                transform: translateY(-50%);
+            }
+            &.is-active {
+                font-size: 3rem;
+                background: #000000;
             }
         }
     }
- 
-    
-    
+    /*----- Vertical Carousel -----*/
+    &.is-vertical {
+        /* 必需的 */
+        overflow: hidden;
+        width: 500px;
+        height: 450px;
+        .uix-multi-carousel__items {
+            width: 100%;
+            /* 必需的 */
+            height: 100%;
+            > .uix-multi-carousel__item {
+                width: 100%;
+                /* 演示样式 */
+                box-shadow: inset 0px -1px 0px 0px rgba(255, 255, 255, .5);
+            }
+        }
+    }
 }
-
-
-
 /*
  ---------------------------
  2. Next/Prev buttons
  ---------------------------
  */
-
 .uix-multi-carousel__controls {
-	margin-top: 30px;
-	text-align: center;
-	pointer-events: none;
-
-	.uix-multi-carousel__controls--prev {
-	    padding-left: 2px;
-	}
-	.uix-multi-carousel__controls--next {
-	    padding-right: 2px;
-	}
-	a {
-		pointer-events: all;
-		margin-left: 10px;
-		margin-right: 10px;
-		outline: 0;
-		border: 0;
-		color: #000;
-		font-weight: bold;
-		border-radius: 50%;
-		height: 50px;
-		width: 50px;
-		font-size: 32px;
-		cursor: pointer;
-		opacity: 1;
-		text-decoration: none;
-		font-family: Arial, "sans-serif";
-
-		&.is-disabled {
-			opacity: .3;
+    margin-top: 30px;
+    text-align: center;
+    pointer-events: none;
+    .uix-multi-carousel__controls--prev {
+        padding-left: 2px;
+    }
+    .uix-multi-carousel__controls--next {
+        padding-right: 2px;
+    }
+    a {
+        font-family: Arial, "sans-serif";
+        font-size: 32px;
+        font-weight: bold;
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        margin-left: 10px;
+        cursor: pointer;
+        text-decoration: none;
+        pointer-events: all;
+        opacity: 1;
+        color: #000000;
+        border: 0;
+        border-radius: 50%;
+        outline: 0;
+        &.is-disabled {
             pointer-events: none;
-		}
-	}
-    
-    
+            opacity: .3;
+        }
+    }
     /*----- Vertical Carousel -----*/
     &.is-vertical {
-        width: 300px;
         position: absolute;
         top: 20%;
         left: 600px;
+        width: 300px;
     }
-    
 }
 
 

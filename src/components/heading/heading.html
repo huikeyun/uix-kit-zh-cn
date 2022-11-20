@@ -1,123 +1,72 @@
 <!DOCTYPE html>
 <html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-	<meta charset="@@{website_charset}" />
-	<title>Heading - @@{website_title}</title>	
-	@@include('./src/components/_global/include-header.html')
-</head>  
-
-     
-  <body class="page">
-  
-  
-          
-    @@include('./src/components/_global/include-loader.html')
-    @@include('./src/components/_global/include-toggle-trigger.html')
-    
-    
-
-  
-    <div class="uix-wrapper">
-    
-        <!-- Header Area
-        ============================================= -->      
-        <header class="uix-header__container">
-            
-             <div class="uix-header">
-                 <div class="container">
-                 
-                        @@include('./src/components/_global/include-brand.html')
-                        
-                        @@include('./src/components/_global/include-menu.html')
-                        
-                        
-                        
-                        
-                  </div>
-                  <!-- .container end -->
-                  
-                  <div class="uix-clearfix"></div>
-             </div>
-        
-        </header>
-        <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-      
-		<main id="uix-maincontent">
-			
-			
-		   <!-- Content 
-			====================================================== -->
-			<section class="uix-spacing--s">
-				<div class="container">
-						<div class="row">
-							<div class="col-12">
-
-
-								  <h3 class="uix-heading--pinline"><span>Header Pinline</span></h3>	
-								  <h3 class="uix-heading--pinline"><span>I'm a full-stack designer on the way of pursuing the dream. Focus on user interface, user experience</span></h3>	
-								  <h3 class="uix-heading--pinline uix-heading--pinline--left"><span>Header Pinline</span></h3>	
-								  <h3 class="uix-heading--pinline uix-heading--pinline--right"><span>Header Pinline</span></h3>
-
-								  <br><br>
-
-								  <h2 class="uix-heading--overlay" data-text="EFFECT"><em>Text Overlay 1</em></h2>
-
-								  <br><br>
-
-
-								  <h2 class="uix-heading--overlay uix-heading--overlay--bottom" data-text="EFFECT"><em>Text Overlay 2</em></h2>
-
-								  <br><br>
-
-
-								  <h2 class="uix-heading--overlay uix-heading--overlay--bottom uix-heading--overlay--sub" data-text="EFFECT"><em>Text Overlay 3</em></h2>
-
-								  <br><br>            
-
-
-								  <h2 class="uix-heading--fill" data-bg='{"src":"assets/images/demo/test-img-big-4.jpg","position":"top left","size":"cover","repeat":"no-repeat","fill":true,"offsetTop":0,"parallax":0}'>SHOW IMAGE UNDER TEXT</h2> 
-
-								  <br><br>
-
-								  <h2 class="uix-heading--underline"><span>My Custom Underline</span></h2> 
-
-								  <br><br>
-
-								  <h2 class="uix-heading--hybrid">Hybrid Heading<span>Should I make design before or after sobering?</span></h2>  
-
-
-								  <br><br>
-
-								  <h2 class="uix-heading--placeholder-line">Placeholder Line Heading</h2>  
-
-
-
-
-
-							</div>
-						</div>
-						<!-- .row end -->
-
-
-				</div>
-				<!-- .container end -->
-
-			</section>   
-
-
-			
-		</main>
-		
-		
-
-      
-        
-        @@include('./src/components/_global/include-copyright.html')
-        
-        
-    </div>
-    <!-- .uix-wrapper end -->
-       
-       
-    @@include('./src/components/_global/include-footer.html')
+    <meta charset="@@{website_charset}" />
+    <title>标题 - @@{website_title}</title>
+    @@include('./src/components/_global/include-header.html')
+</head>
+<body class="page">
+@@include('./src/components/_global/include-loader.html')
+@@include('./src/components/_global/include-toggle-trigger.html')
+<div class="uix-wrapper">
+    <!-- 页眉区 -->
+    <header class="uix-header__container">
+        <div class="uix-header">
+            <!-- 容器 开始 -->
+            <div class="container">
+                @@include('./src/components/_global/include-brand.html')
+                @@include('./src/components/_global/include-menu.html')
+            </div>
+            <!-- 容器 结束 -->
+            <div class="uix-clearfix"></div>
+        </div>
+    </header>
+    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+    <main id="uix-maincontent">
+        <!-- 内容 结束 -->
+        <section class="uix-spacing--s">
+            <!-- 容器 开始 -->
+            <div class="container">
+                <!-- 行列 开始 -->
+                <div class="row">
+                    <div class="col-12">
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;h3 class=&quot;uix-heading--pinline&quot;&gt;&lt;span&gt;标题引脚线&lt;/span&gt;&lt;/h3&gt;</code></pre>
+                        <h3 class="uix-heading--pinline"><span>标题引脚线</span></h3>
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;h3 class=&quot;uix-heading--pinline uix-heading--pinline--left&quot;&gt;&lt;span&gt;标题引脚线&lt;/span&gt;&lt;/h3&gt;</code></pre>
+                        <h3 class="uix-heading--pinline uix-heading--pinline--left"><span>标题引脚线</span></h3>
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;h3 class=&quot;uix-heading--pinline uix-heading--pinline--right&quot;&gt;&lt;span&gt;标题引脚线&lt;/span&gt;&lt;/h3&gt;</code></pre>
+                        <h3 class="uix-heading--pinline uix-heading--pinline--right"><span>标题引脚线</span></h3>
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;h2 class=&quot;uix-heading--overlay&quot; data-text=&quot;文本叠加 1&quot;&gt;&lt;em&gt;文本叠加 1&lt;/em&gt;&lt;/h2&gt;</code></pre>
+                        <h2 class="uix-heading--overlay" data-text="文本叠加 1"><em>文本叠加 1</em></h2>
+                        <hr>
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;h2 class=&quot;uix-heading--overlay uix-heading--overlay--bottom&quot; data-text=&quot;文本叠加 2&quot;&gt;&lt;em&gt;文本叠加 2&lt;/em&gt;&lt;/h2&gt;</code></pre>
+                        <h2 class="uix-heading--overlay uix-heading--overlay--bottom" data-text="文本叠加 2">
+                            <em>文本叠加 2</em></h2>
+                        <hr>
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;h2 class=&quot;uix-heading--overlay uix-heading--overlay--bottom uix-heading--overlay--sub&quot; data-text=&quot;文本叠加 3&quot;&gt;&lt;em&gt;文本叠加 3&lt;/em&gt;&lt;/h2&gt;</code></pre>
+                        <h2 class="uix-heading--overlay uix-heading--overlay--bottom uix-heading--overlay--sub" data-text="文本叠加 3">
+                            <em>文本叠加 3</em></h2>
+                        <hr>
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;h2 class=&quot;uix-heading--fill&quot; data-bg=&#x27;{&quot;src&quot;:&quot;assets/images/demo/test-img-big-4.jpg&quot;,&quot;position&quot;:&quot;top left&quot;,&quot;size&quot;:&quot;cover&quot;,&quot;repeat&quot;:&quot;no-repeat&quot;,&quot;fill&quot;:true,&quot;offsetTop&quot;:0,&quot;parallax&quot;:0}&#x27;&gt;在文本下显示图像&lt;/h2&gt;</code></pre>
+                        <h2 class="uix-heading--fill" data-bg='{"src":"assets/images/demo/test-img-big-4.jpg","position":"top left","size":"cover","repeat":"no-repeat","fill":true,"offsetTop":0,"parallax":0}'>在文本下显示图像</h2>
+                        <hr>
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;h2 class=&quot;uix-heading--underline&quot;&gt;&lt;span&gt;我的自定义下划线&lt;/span&gt;&lt;/h2&gt;</code></pre>
+                        <h2 class="uix-heading--underline"><span>我的自定义下划线</span></h2>
+                        <hr>
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;h2 class=&quot;uix-heading--hybrid&quot;&gt;混合标题&lt;span&gt;我应该在清醒之前还是之后进行设计？&lt;/span&gt;&lt;/h2&gt;</code></pre>
+                        <h2 class="uix-heading--hybrid">混合标题<span>我应该在清醒之前还是之后进行设计？</span></h2>
+                        <hr>
+                        <pre class="uix-precode"><label>HTML</label><code>&lt;h2 class=&quot;uix-heading--placeholder-line&quot;&gt;占位符行标题&lt;/h2&gt;</code></pre>
+                        <h2 class="uix-heading--placeholder-line">占位符行标题</h2>
+                    </div>
+                </div>
+                <!-- 行列 结束 -->
+            </div>
+            <!-- 容器 结束 -->
+        </section>
+    </main>
+    @@include('./src/components/_global/include-copyright.html')
+</div>
+<!-- uix-wrapper end -->
+@@include('./src/components/_global/include-footer.html')
 
