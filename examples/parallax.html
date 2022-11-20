@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
 <head>
-    <meta charset="utf-8" />
-    <title>视差 - Uix Kit 中文</title>
-    <!-- Compatibility Settings
+	<meta charset="utf-8" />
+	<title>Parallax - Uix Kit 中文</title>	
+	<!-- Compatibility Settings
 ============================================= -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,9 +21,9 @@
 <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css?ver=5.7.0">
 <link rel="stylesheet" href="assets/fonts/fontawesome/css/v4-shims.min.css?ver=5.7.0">
 <!-- Theme  -->
-<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=b5BsWJr7CLc6X8ucIcAa" />
+<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=0JHM9UH1pUJ8NWWBistM" />
 <!--[if lt IE 10]>
-<link rel="stylesheet" href="assets/css/IE.css?ver=b5BsWJr7CLc6X8ucIcAa" />
+<link rel="stylesheet" href="assets/css/IE.css?ver=0JHM9UH1pUJ8NWWBistM" />
 <![endif]-->
 <!-- Core & Theme CSS  end -->
 <!-- Vendor
@@ -49,9 +49,14 @@
 <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-touch-icon-114x114.png">
 <!-- Favicons  end -->
 
-</head>
-<body class="page">
-<!-- Loader
+</head>  
+
+     
+  <body class="page">
+  
+  
+          
+    <!-- Loader
 ============================================= -->
 <div class="uix-loader">
     <!--[if lt IE 10]>
@@ -66,7 +71,7 @@
 <!-- uix-loader end -->
     
 
-<!-- Mobile Menu Toggle Trigger
+    <!-- Mobile Menu Toggle Trigger
 ============================================= -->
 <div class="uix-menu-mobile__toggle">
     <span></span>
@@ -77,17 +82,26 @@
 <!-- uix-menu-mobile__toggle end -->
 
 			
-<div class="uix-wrapper">
-    <!-- 页眉区 -->
-    <header class="uix-header__container uix-header__container--overlay">
-        <div class="uix-header">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <div class="uix-brand">
+    
+    
+
+  
+  
+    <div class="uix-wrapper">
+    
+        <!-- Header Area
+        ============================================= -->      
+        <header class="uix-header__container uix-header__container--overlay">
+            
+             <div class="uix-header">
+                 <div class="container">
+                 
+                        <div class="uix-brand">
     <a href="index.html"><img src="assets/images/logo.png" alt="Uix Kit 中文"></a>
 </div>
 <!-- uix-brand end -->
-                <!-- Navigation Start-->
+                        
+                        <!-- Navigation Start-->
 <nav class="uix-menu__container">
     <div class="uix-menu__inner">
         <span class="uix-brand--mobile"><img src="assets/images/logo-colorful.png" alt="Uix Kit 中文"></span>
@@ -340,172 +354,146 @@
                         
                  
                    
-            </div>
-            <!-- 容器 结束 -->
-            <div class="uix-clearfix"></div>
-        </div>
-    </header>
-    <main id="uix-maincontent">
-        <!-- Parallax & Overlay
-        ============================================= -->
-        <section>
-            <div class="uix-parallax uix-height--100" data-fully-visible="false" data-offset-top="0" data-overlay-bg="false" data-skew="0" data-speed="0.1">
-                <img class="uix-parallax__img" src="https://pan.13aq.com/d/对象存储/必应壁纸（1920x1080）/NationalDay2022_ZH-CN3861603311_UHD.jpg" alt="">
-                <div class="uix-v-align--absolute">
-                    <h2>全屏+垂直居中文本</h2>
-                    <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-parallax uix-height--100&quot; data-fully-visible=&quot;false&quot; data-offset-top=&quot;0&quot; data-overlay-bg=&quot;false&quot; data-skew=&quot;0&quot; data-speed=&quot;0.1&quot;&gt;
-    &lt;img class=&quot;uix-parallax__img&quot; src=&quot;assets/images/demo/spiral-galaxy-1920x1080.jpg&quot; alt=&quot;&quot;&gt;
-    &lt;div class=&quot;uix-v-align--absolute uix-t-c&quot;&gt;
-        &lt;h2&gt;全屏+垂直居中文本&lt;/h2&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code>
-</pre>
-                </div>
-            </div>
-        </section>
-        <section class="uix-spacing--s">
-            <div class="uix-parallax uix-height--100" data-fully-visible="false" data-offset-top="150" data-overlay-bg="false" data-skew="0" data-speed="0.2">
-                <img class="uix-parallax__img" src="https://pan.13aq.com/d/对象存储/必应壁纸（1920x1080）/NaqsheRustam_ZH-CN9695151436_UHD.jpg" alt="">
-                <div class="uix-v-align--absolute uix-t-c">
-                    <h2>顶部偏移为 150px。</h2>
-                    <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-parallax uix-height--100&quot; data-fully-visible=&quot;false&quot; data-offset-top=&quot;150&quot; data-overlay-bg=&quot;false&quot; data-skew=&quot;0&quot; data-speed=&quot;0.2&quot;&gt;
-    &lt;img class=&quot;uix-parallax__img&quot; src=&quot;assets/images/demo/spiral-galaxy-1920x1080.jpg&quot; alt=&quot;&quot;&gt;
-    &lt;div class=&quot;uix-v-align--absolute uix-t-c&quot;&gt;
-        &lt;h2&gt;顶部偏移为 150px。&lt;/h2&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code>
-</pre>
-                </div>
-            </div>
-        </section>
-        <section class="uix-spacing--s">
-            <div class="uix-parallax uix-height--100 uix-typo--color-white" data-fully-visible="false" data-offset-top="0" data-overlay-bg="rgba(0,0,0,.6)" data-skew="0" data-speed="0.4">
-                <img class="uix-parallax__img" src="https://pan.13aq.com/d/对象存储/必应壁纸（1920x1080）/MarienburgZell_ZH-CN4562312386_UHD.jpg" alt="">
-                <div class="uix-v-align--absolute uix-t-c">
-                    <h2 class="uix-parallax--el" data-transition="all 0.4s cubic-bezier(0, 0, 0.34, 0.96) 0s" data-speed="-0.4">
-                        全屏 + 视差元素 <p class="uix-typo--h4">具有叠加背景</p>
-                    </h2>
-                    <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-parallax uix-height--100 uix-typo--color-white&quot; data-fully-visible=&quot;false&quot; data-offset-top=&quot;0&quot; data-overlay-bg=&quot;rgba(0,0,0,.6)&quot; data-skew=&quot;0&quot; data-speed=&quot;0.4&quot;&gt;
-    &lt;img class=&quot;uix-parallax__img&quot; src=&quot;assets/images/demo/spiral-galaxy-1920x1080.jpg&quot; alt=&quot;&quot;&gt;
-    &lt;div class=&quot;uix-v-align--absolute uix-t-c&quot;&gt;
-        &lt;h2 class=&quot;uix-parallax--el&quot; data-transition=&quot;all 0.4s cubic-bezier(0, 0, 0.34, 0.96) 0s&quot; data-speed=&quot;-0.4&quot;&gt;
-            全屏 + 视差元素 &lt;p class=&quot;uix-typo--h4&quot;&gt;具有叠加背景&lt;/p&gt;
-        &lt;/h2&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code>
-</pre>
-                </div>
-            </div>
-        </section>
-        <section class="uix-spacing--s">
-            <div class="uix-height--100 is-mobile-still" data-bg='{"src":"https://pan.13aq.com/d/对象存储/必应壁纸（1920x1080）/LacChesserys_ZH-CN4136691056_UHD.jpg","position":"top left","size":"cover","repeat":"no-repeat","fill":false,"offsetTop":0,"parallax":-0.3}'>
-                <div class="uix-v-align--absolute uix-t-c">
-                    <div class="row">
-                        <div class="col-12">
-                            <h2>使用 <code>data-bg</code> 属性来设置视差。</h2>
-                            <p>请勿在移动设备上更改高度。</p>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-height--100 is-mobile-still&quot; data-bg=&#x27;{&quot;src&quot;:&quot;assets/images/demo/spiral-galaxy-1920x1080.jpg&quot;,&quot;position&quot;:&quot;top left&quot;,&quot;size&quot;:&quot;cover&quot;,&quot;repeat&quot;:&quot;no-repeat&quot;,&quot;fill&quot;:false,&quot;offsetTop&quot;:0,&quot;parallax&quot;:-0.3}&#x27;&gt;
-    &lt;div class=&quot;uix-v-align--absolute uix-t-c&quot;&gt;
-        &lt;div class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
-                &lt;h2&gt;使用 &lt;code&gt;data-bg&lt;/code&gt; 属性来设置视差。&lt;/h2&gt;
-                &lt;p&gt;请勿在移动设备上更改高度。&lt;/p&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;!-- .row end --&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code>
-</pre>
-                        </div>
-                    </div>
-                    <!-- 行列 结束 -->
-                </div>
-            </div>
-        </section>
-        <section class="uix-spacing--s">
-            <div class="uix-parallax uix-height--30" data-fully-visible="false" data-offset-top="0" data-overlay-bg="false" data-skew="0" data-speed="0.1">
-                <img class="uix-parallax__img" src="https://pan.13aq.com/d/对象存储/必应壁纸（1920x1080）/KarstMountains_ZH-CN4719178982_UHD.jpg" alt="">
-                <div class="uix-v-align--absolute uix-t-c">
-                    <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-parallax uix-height--30&quot; data-fully-visible=&quot;false&quot; data-offset-top=&quot;0&quot; data-overlay-bg=&quot;false&quot; data-skew=&quot;0&quot; data-speed=&quot;0.1&quot;&gt;
-    &lt;img class=&quot;uix-parallax__img&quot; src=&quot;assets/images/demo/spiral-galaxy-1920x1080.jpg&quot; alt=&quot;&quot;&gt;
-    &lt;div class=&quot;uix-v-align--absolute uix-t-c&quot;&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code>
-</pre>
-                </div>
-            </div>
-        </section>
-        <section class="uix-spacing--s">
-            <div class="uix-height--30 uix-relative--inline uix-relative--inline-clip">
-                <img class="uix-parallax--el" data-transition="all 0.4s cubic-bezier(0, 0, 0.34, 0.96) 0s" data-speed="-0.07" src="https://pan.13aq.com/d/对象存储/必应壁纸（1920x1080）/JohnstonWater_ZH-CN3121890365_UHD.jpg" alt="" style="margin-top: -20px;">
-                <div class="uix-v-align--absolute uix-t-c">
-                    <div class="row">
-                        <div class="col-12">
-                            <h2>视差仅适用于内嵌图像 1920 x 600</h2>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-height--30 uix-relative--inline uix-relative--inline-clip&quot;&gt;
-    &lt;img class=&quot;uix-parallax--el&quot; data-transition=&quot;all 0.4s cubic-bezier(0, 0, 0.34, 0.96) 0s&quot; data-speed=&quot;-0.07&quot; src=&quot;assets/images/demo/spiral-galaxy-1920x600.jpg&quot; alt=&quot;&quot; style=&quot;margin-top: -20px;&quot;&gt;
-    &lt;div class=&quot;uix-v-align--absolute uix-t-c&quot;&gt;
-        &lt;div class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
-                &lt;h2&gt;视差仅适用于内嵌图像 1920 x 600&lt;/h2&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;!-- .row end --&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code>
-</pre>
-                        </div>
-                    </div>
-                    <!-- 行列 结束 -->
-                </div>
-            </div>
-        </section>
-        <section class="uix-spacing--s">
-            <div class="uix-parallax uix-typo--color-white" data-fully-visible="false" data-offset-top="0" data-overlay-bg="rgba(0,0,0,.6)" data-skew="0" data-speed="0.3">
-                <img class="uix-parallax__img" src="https://pan.13aq.com/d/对象存储/必应壁纸（1920x1080）/FosterCoveredBridge_ZH-CN2672988563_UHD.jpg" alt="">
-                <div class="uix-v-align--absolute uix-t-c">
-                    <div class="row">
-                        <div class="col-12">
-                            <h2>小图像 1920 x 309
-                                <p class="uix-typo--h4">有叠加背景</p>
-                            </h2>
-                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-parallax uix-typo--color-white&quot; data-fully-visible=&quot;false&quot; data-offset-top=&quot;0&quot; data-overlay-bg=&quot;rgba(0,0,0,.6)&quot; data-skew=&quot;0&quot; data-speed=&quot;0.3&quot;&gt;
-    &lt;img class=&quot;uix-parallax__img&quot; src=&quot;assets/images/demo/spiral-galaxy-1920x309.jpg&quot; alt=&quot;&quot;&gt;
-    &lt;div class=&quot;uix-v-align--absolute uix-t-c&quot;&gt;
-        &lt;div class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-12&quot;&gt;
-                &lt;h2&gt;小图像 1920 x 309
-                    &lt;p class=&quot;uix-typo--h4&quot;&gt;有叠加背景&lt;/p&gt;
-                &lt;/h2&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;!-- .row end --&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code>
-</pre>
-                        </div>
-                    </div>
-                    <!-- 行列 结束 -->
-                </div>
-            </div>
-        </section>
-        <section class="uix-spacing--s">
-            <div class="uix-parallax" data-fully-visible="false" data-offset-top="0" data-overlay-bg="false" data-skew="-3" data-speed="0.3">
-                <img class="uix-parallax__img" src="https://pan.13aq.com/d/对象存储/必应壁纸（1920x1080）/GeorgiaCypress_ZH-CN3705257154_UHD.jpg" alt="">
-                <div class="uix-v-align--absolute uix-t-c">
-                    <h2 class="uix-el--skew">倾斜视差效果</h2>
-                    <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-parallax&quot; data-fully-visible=&quot;false&quot; data-offset-top=&quot;0&quot; data-overlay-bg=&quot;false&quot; data-skew=&quot;-3&quot; data-speed=&quot;0.3&quot;&gt;
-    &lt;img class=&quot;uix-parallax__img&quot; src=&quot;assets/images/demo/spiral-galaxy-1920x309.jpg&quot; alt=&quot;&quot;&gt;
-    &lt;div class=&quot;uix-v-align--absolute uix-t-c&quot;&gt;
-        &lt;h2 class=&quot;uix-el--skew&quot;&gt;倾斜视差效果&lt;/h2&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code>
-</pre>
-                </div>
-            </div>
-        </section>
-    </main>
-    <!-- 版权部分
+                        
+                        
+                        
+                        
+                  </div>
+                  <!-- .container end -->
+                  
+                  <div class="uix-clearfix"></div>
+             </div>
+        
+        </header>
+        
+		<main id="uix-maincontent">
+			
+			<!-- Parallax & Overlay 
+			============================================= --> 
+			<section>
+				<div class="uix-parallax uix-height--100" data-fully-visible="false" data-offset-top="0" data-overlay-bg="false" data-skew="0" data-speed="0.1">
+					<img class="uix-parallax__img" src="assets/images/demo/spiral-galaxy-1920x1080.jpg" alt="">
+					<div class="uix-v-align--absolute uix-t-c">
+						<h2>Fulscreen + Vertically Centered Text</h2>
+					</div>
+				</div>
+			</section>
+			
+			
+			<section class="uix-spacing--s">
+				<div class="uix-parallax uix-height--100" data-fully-visible="false" data-offset-top="150" data-overlay-bg="false" data-skew="0" data-speed="0.2">
+					<img class="uix-parallax__img" src="assets/images/demo/spiral-galaxy-1920x1080.jpg" alt="">
+					<div class="uix-v-align--absolute uix-t-c">
+						<h2>The top offset is 150px.</h2>
+					</div>
+				</div>
+			</section>
+				
+			
+
+			<section class="uix-spacing--s">
+				<div class="uix-parallax uix-height--100 uix-typo--color-white" data-fully-visible="false" data-offset-top="0" data-overlay-bg="rgba(0,0,0,.6)" data-skew="0" data-speed="0.4">
+					<img class="uix-parallax__img" src="assets/images/demo/spiral-galaxy-1920x1080.jpg" alt="">
+
+					<div class="uix-v-align--absolute uix-t-c">
+						<h2 class="uix-parallax--el" data-transition="all 0.4s cubic-bezier(0, 0, 0.34, 0.96) 0s"  data-speed="-0.4">
+							Fulscreen + Parallax Element
+							<p class="uix-typo--h4">Has Overlay Background</p>
+						</h2>
+
+					</div>
+
+				</div>
+			</section>
+
+			<section class="uix-spacing--s">
+				<div class="uix-height--100 is-mobile-still" data-bg='{"src":"assets/images/demo/spiral-galaxy-1920x1080.jpg","position":"top left","size":"cover","repeat":"no-repeat","fill":false,"offsetTop":0,"parallax":-0.3}'>
+
+					<div class="uix-v-align--absolute uix-t-c">
+						<div class="row">
+							<div class="col-12">
+								<h2>
+									Use the <code>data-bg</code> attribute to set the parallax.
+								</h2>
+                                <p>Do not change height on mobile devices.</p>
+							</div>
+						</div>
+						<!-- .row end -->
+					</div>
+
+
+
+				</div>
+			</section>
+
+
+
+			<section class="uix-spacing--s">
+				<div class="uix-parallax uix-height--30" data-fully-visible="false" data-offset-top="0" data-overlay-bg="false" data-skew="0" data-speed="0.1">
+					<img class="uix-parallax__img" src="assets/images/demo/spiral-galaxy-1920x1080.jpg" alt="">
+					<div class="uix-v-align--absolute uix-t-c">
+						<h2>Has class "uix-height--30"</h2>
+					</div>
+				</div>
+			</section>
+
+
+
+			<section class="uix-spacing--s">
+				<div class="uix-height--30 uix-relative--inline uix-relative--inline-clip">
+					<img class="uix-parallax--el" data-transition="all 0.4s cubic-bezier(0, 0, 0.34, 0.96) 0s"  data-speed="-0.07" src="assets/images/demo/spiral-galaxy-1920x600.jpg" alt="" style="margin-top: -20px;">
+					<div class="uix-v-align--absolute uix-t-c">
+						<div class="row">
+							<div class="col-12">
+								<h2>
+									Parallax only works on inline image 1920 x 600
+								</h2>
+							</div>
+						</div>
+						<!-- .row end -->
+					</div>
+
+				</div>
+			</section>
+
+
+			<section class="uix-spacing--s">
+				<div class="uix-parallax uix-typo--color-white" data-fully-visible="false" data-offset-top="0" data-overlay-bg="rgba(0,0,0,.6)" data-skew="0" data-speed="0.3">
+					<img class="uix-parallax__img" src="assets/images/demo/spiral-galaxy-1920x309.jpg" alt="">
+					<div class="uix-v-align--absolute uix-t-c">
+						<div class="row">
+							<div class="col-12">
+								<h2>
+									Small Image 1920 x 309
+									<p class="uix-typo--h4">Has Overlay Background</p>
+								</h2>
+							</div>
+						</div>
+						<!-- .row end -->
+					</div>
+
+				</div>
+			</section>
+
+
+			<section class="uix-spacing--s">
+				<div class="uix-parallax" data-fully-visible="false" data-offset-top="0" data-overlay-bg="false" data-skew="-3" data-speed="0.3">
+					<img class="uix-parallax__img" src="assets/images/demo/spiral-galaxy-1920x309.jpg" alt="">
+					<div class="uix-v-align--absolute uix-t-c">
+						<h2 class="uix-el--skew">Skew Parallax Effect</h2>
+					</div>
+				</div>
+			</section>
+
+			
+		</main>
+
+  
+			
+        
+
+            
+        <!-- 版权部分
 ============================================= -->
 <footer class="uix-footer__container">
     <div class="uix-footer">
@@ -542,9 +530,13 @@
 </footer>
 
 
-</div>
-<!-- uix-wrapper end -->
-<!-- Vendor -->
+        
+        
+    </div>
+    <!-- .uix-wrapper end -->
+       
+       
+    <!-- Vendor -->
 <script defer src="assets/js/min/axios.min.js?ver=0.19.2"></script>
 <script defer src="assets/js/min/jquery.waitforimages.min.js?ver=1.0"></script>
 <script defer src="assets/js/min/video.min.js?ver=7.5.3"></script>
@@ -575,7 +567,7 @@
     */
     window.$ = window.jQuery;
 </script>
-<script defer src="../dist/js/uix-kit.min.js?ver=b5BsWJr7CLc6X8ucIcAa"></script>
+<script defer src="../dist/js/uix-kit.min.js?ver=0JHM9UH1pUJ8NWWBistM"></script>
 <!-- Your Plugins & Theme Scripts  end -->
 </body>
 </html>

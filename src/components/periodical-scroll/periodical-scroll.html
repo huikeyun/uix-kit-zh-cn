@@ -1,75 +1,117 @@
 <!DOCTYPE html>
 <html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-    <meta charset="@@{website_charset}" />
-    <title>Periodical Scroll - @@{website_title}</title>
-    @@include('./src/components/_global/include-header.html')
-</head>
-<body class="page">
-@@include('./src/components/_global/include-loader.html')
-@@include('./src/components/_global/include-toggle-trigger.html')
-<div class="uix-wrapper">
-    <!-- 页眉区 -->
-    <header class="uix-header__container">
-        <div class="uix-header">
-            <!-- 容器 开始 -->
-            <div class="container">
-                @@include('./src/components/_global/include-brand.html')
-                @@include('./src/components/_global/include-menu.html')
-            </div>
-            <!-- 容器 结束 -->
-            <div class="uix-clearfix"></div>
-        </div>
-    </header>
-    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-    <main id="uix-maincontent">
-        <!-- 内容 开始 -->
-        <section class="uix-spacing--s uix-spacing--no-bottom">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
-                        <h3>Periodical Scroll</h3>
-                        <p>Continuous vertical text scroll without break.</p>
-                        <hr>
-                    </div>
-                </div>
-                <!-- 行列 结束 -->
-            </div>
-            <!-- 容器 结束 -->
-        </section>
-        <!-- 内容 结束 -->
-        <section class="uix-spacing--s">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="uix-periodical-scroll" data-speed="600" data-timing="4000">
-                            <ul>
-                                <li>
-                                    <span>February 8, 2018</span><a href="#" target="_blank">An underlying front-end system that makes it easy to extend and modify core files.</a>
-                                </li>
-                                <li>
-                                    <span>February 3, 2018</span><a href="#" target="_blank">This spec is a living document that will be updated.</a>
-                                </li>
-                                <li>
-                                    <span>July 22, 2017</span><a href="#" target="_blank">We continue to develop the tenets and specifics of Uix Kit.</a>
-                                </li>
-                                <li><span>April 5, 2020</span><a href="#" target="_blank">Hello World! (Last)</a></li>
-                            </ul>
-                        </div>
-                        <!-- uix-periodical-scroll end -->
-                    </div>
-                </div>
-                <!-- 行列 结束 -->
-            </div>
-            <!-- 容器 结束 -->
-        </section>
-    </main>
-    @@include('./src/components/_global/include-copyright.html')
-</div>
-<!-- uix-wrapper end -->
-@@include('./src/components/_global/include-footer.html')
+	<meta charset="@@{website_charset}" />
+	<title>Periodical Scroll - @@{website_title}</title>	
+	@@include('./src/components/_global/include-header.html')
+</head>  
+
+     
+  <body class="page">
+  
+  
+          
+    @@include('./src/components/_global/include-loader.html')
+    @@include('./src/components/_global/include-toggle-trigger.html')
+    
+    
+
+    <div class="uix-wrapper">
+    
+        <!-- Header Area
+        ============================================= -->      
+        <header class="uix-header__container">
+            
+             <div class="uix-header">
+                 <div class="container">
+                 
+                        @@include('./src/components/_global/include-brand.html')
+                        
+                        @@include('./src/components/_global/include-menu.html')
+                        
+                        
+                        
+                        
+                  </div>
+                  <!-- .container end -->
+                  
+                  <div class="uix-clearfix"></div>
+             </div>
+        
+        </header>
+        <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+      
+       
+		<main id="uix-maincontent">
+			
+			<!-- Content 
+			====================================================== -->
+			<section class="uix-spacing--s uix-spacing--no-bottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h3>Periodical Scroll</h3>
+							<p>Continuous vertical text scroll without break.</p>
+							<hr>
+							
+							
+						</div>
+					</div>
+					<!-- .row end -->
+
+				</div>
+				<!-- .container end -->
+
+			</section>	
+			
+		
+
+		   <!-- Content 
+			====================================================== -->
+			<section class="uix-spacing--s">
+				<div class="container">
+						<div class="row">
+							<div class="col-12">
+
+
+								<div class="uix-periodical-scroll" data-speed="600" data-timing="4000">
+									<ul>
+										<li><span>February 8, 2018</span><a href="#" target="_blank">An underlying front-end system that makes it easy to extend and modify core files.</a></li>
+										<li><span>February 3, 2018</span><a href="#" target="_blank">This spec is a living document that will be updated.</a></li>
+										<li><span>July 22, 2017</span><a href="#" target="_blank">We continue to develop the tenets and specifics of Uix Kit.</a></li>
+                                        <li><span>April 5, 2020</span><a href="#" target="_blank">Hello World! (Last)</a></li>
+
+									</ul>
+
+
+								</div>
+								<!-- .uix-periodical-scroll end -->     
+
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+
+				</div>
+				<!-- .container end -->
+
+			</section>
+
+			
+		</main>
+        
+     
+			
+         
+        
+        
+        @@include('./src/components/_global/include-copyright.html')
+        
+        
+    </div>
+    <!-- .uix-wrapper end -->
+       
+       
+    @@include('./src/components/_global/include-footer.html')
 

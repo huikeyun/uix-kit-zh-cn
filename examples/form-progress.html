@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
 <head>
-    <meta charset="utf-8" />
-    <title>表格进度 - Uix Kit 中文</title>
-    <!-- Compatibility Settings
+	<meta charset="utf-8" />
+	<title>Form Progress - Uix Kit 中文</title>	
+	<!-- Compatibility Settings
 ============================================= -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,9 +21,9 @@
 <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css?ver=5.7.0">
 <link rel="stylesheet" href="assets/fonts/fontawesome/css/v4-shims.min.css?ver=5.7.0">
 <!-- Theme  -->
-<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=b5BsWJr7CLc6X8ucIcAa" />
+<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=0JHM9UH1pUJ8NWWBistM" />
 <!--[if lt IE 10]>
-<link rel="stylesheet" href="assets/css/IE.css?ver=b5BsWJr7CLc6X8ucIcAa" />
+<link rel="stylesheet" href="assets/css/IE.css?ver=0JHM9UH1pUJ8NWWBistM" />
 <![endif]-->
 <!-- Core & Theme CSS  end -->
 <!-- Vendor
@@ -49,9 +49,14 @@
 <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-touch-icon-114x114.png">
 <!-- Favicons  end -->
 
-</head>
-<body class="page">
-<!-- Loader
+</head>  
+
+     
+  <body class="page">
+  
+  
+          
+    <!-- Loader
 ============================================= -->
 <div class="uix-loader">
     <!--[if lt IE 10]>
@@ -66,7 +71,7 @@
 <!-- uix-loader end -->
     
 
-<!-- Mobile Menu Toggle Trigger
+    <!-- Mobile Menu Toggle Trigger
 ============================================= -->
 <div class="uix-menu-mobile__toggle">
     <span></span>
@@ -77,17 +82,24 @@
 <!-- uix-menu-mobile__toggle end -->
 
 			
-<div class="uix-wrapper">
-    <!-- 页眉区 -->
-    <header class="uix-header__container">
-        <div class="uix-header">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <div class="uix-brand">
+    
+    
+
+    <div class="uix-wrapper">
+    
+        <!-- Header Area
+        ============================================= -->      
+        <header class="uix-header__container">
+            
+             <div class="uix-header">
+                 <div class="container">
+                 
+                        <div class="uix-brand">
     <a href="index.html"><img src="assets/images/logo.png" alt="Uix Kit 中文"></a>
 </div>
 <!-- uix-brand end -->
-                <!-- Navigation Start-->
+                        
+                        <!-- Navigation Start-->
 <nav class="uix-menu__container">
     <div class="uix-menu__inner">
         <span class="uix-brand--mobile"><img src="assets/images/logo-colorful.png" alt="Uix Kit 中文"></span>
@@ -340,240 +352,231 @@
                         
                  
                    
-            </div>
-            <!-- container end -->
-            <div class="uix-clearfix"></div>
-        </div>
-    </header>
-    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-    <main id="uix-maincontent">
-        <!-- 内容 开始 -->
-        <section class="uix-spacing--s uix-spacing--no-bottom">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
-                        <h3>表格进度</h3>
-                        <p>进度步骤非常适合用户需要跨多个步骤输入数据的用户体验。
-                            <br>
-                            <strong>注意：</strong>如果要在页面第一次运行时将指标初始化到某个位置，需要调用如下函数：
-                        </p>
-                        <pre class="uix-precode uix-t-l"><label>JS</label><code>$(&#x27;body&#x27;).waitForImages().done(function() {
-    $(document).UixFormProgressToNext({
-        &#x27;selector&#x27;: $(&#x27;.uix-form-progress__target .uix-form-progress__target__step&#x27;),
-        &#x27;formTarget&#x27;: $(&#x27;.uix-form-progress__target&#x27;),
-        &#x27;indicator&#x27;: &#x27;.uix-form-progress .uix-form-progress__indicator&#x27;,
-        &#x27;index&#x27;: 0
-    });
+                        
+                        
+                        
+                        
+                  </div>
+                  <!-- .container end -->
+                  
+                  <div class="uix-clearfix"></div>
+             </div>
+        
+        </header>
+        <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+      
+       
+		<main id="uix-maincontent">
+			
+			<!-- Content 
+			====================================================== -->
+			<section class="uix-spacing--s uix-spacing--no-bottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h3>Form Progress</h3>
+							<p>Progress steps are great for user experience where the user needs to enter data across multiple steps.
+								<br>
+								<strong>Note: </strong>If you want to initialize the indicator to a location when the page is first run, you need to call the following function:</p>
+							
+<pre class="uix-precode uix-t-l"><label>JS</label><code>$( 'body' ).waitForImages().done(function() {
+	$( document ).UixFormProgressToNext({ 
+		'selector'         : $( '.uix-form-progress__target .uix-form-progress__target__step' ),
+		'formTarget'       : $( '.uix-form-progress__target' ),
+		'indicator'        : '.uix-form-progress .uix-form-progress__indicator',
+		'index'            : 0
+	});
 });</code>
-</pre>
-                        <pre class="uix-precode"><label>HTML</label><code>&lt;div class=&quot;uix-form-progress&quot;&gt;
-    &lt;div class=&quot;uix-form-progress__indicator&quot;&gt;&lt;span&gt;步骤 1&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;uix-form-progress__indicator&quot;&gt;&lt;span&gt;步骤 2&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;uix-form-progress__indicator&quot;&gt;&lt;span&gt;步骤 3&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;uix-form-progress__indicator&quot;&gt;&lt;span&gt;步骤 4&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;uix-form-progress__line&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- /.uix-form-progress --&gt;
-&lt;div class=&quot;uix-form-progress__target&quot; data-anime-speed=&quot;0.2s&quot;&gt;
-    &lt;form method=&quot;post&quot; action=&quot;#&quot;&gt;
-        &lt;!-- 步骤 --&gt;
-        &lt;div class=&quot;uix-form-progress__target__step&quot;&gt;
-            &lt;div class=&quot;uix-form-progress__content&quot;&gt;
-                &lt;!-- ////////////  内容开始  ////////////--&gt;
-                &lt;h4&gt;步骤 1&lt;/h4&gt;
-                &lt;div class=&quot;uix-controls is-fullwidth&quot;&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;label-1&quot;&gt;
-                    &lt;label&gt;标签 1&lt;/label&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;uix-controls is-fullwidth&quot;&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;label-2&quot;&gt;
-                    &lt;label&gt;标签 2&lt;/label&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;uix-controls&quot;&gt;
-                    &lt;a href=&quot;javascript:void(0);&quot; class=&quot;uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--primary go-step&quot;&gt;下一步&lt;/a&gt;
-                &lt;/div&gt;
-                &lt;!-- ////////////  内容结束  ////////////--&gt;
-            &lt;/div&gt;
-            &lt;!-- /.uix-form-progress__content --&gt;
-        &lt;/div&gt;
-        &lt;!-- 步骤 --&gt;
-        &lt;div class=&quot;uix-form-progress__target__step&quot;&gt;
-            &lt;div class=&quot;uix-form-progress__content&quot;&gt;
-                &lt;!-- ////////////  内容开始  ////////////--&gt;
-                &lt;h4&gt;步骤 2&lt;/h4&gt;
-                &lt;div class=&quot;uix-controls is-fullwidth&quot;&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;label-1&quot;&gt;
-                    &lt;label&gt;标签 1&lt;/label&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;uix-controls&quot;&gt;
-                    &lt;a href=&quot;javascript:void(0);&quot; class=&quot;uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--primary go-step&quot;&gt;下一步&lt;/a&gt;
-                &lt;/div&gt;
-                &lt;!-- ////////////  内容结束  ////////////--&gt;
-            &lt;/div&gt;
-            &lt;!-- /.uix-form-progress__content --&gt;
-        &lt;/div&gt;
-        &lt;!-- 步骤 --&gt;
-        &lt;div class=&quot;uix-form-progress__target__step&quot;&gt;
-            &lt;div class=&quot;uix-form-progress__content&quot;&gt;
-                &lt;!-- ////////////  内容开始  ////////////--&gt;
-                &lt;h4&gt;步骤 3&lt;/h4&gt;
-                &lt;div class=&quot;uix-controls is-fullwidth&quot;&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;label-1&quot;&gt;
-                    &lt;label&gt;标签 1&lt;/label&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;uix-controls is-fullwidth&quot;&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;label-2&quot;&gt;
-                    &lt;label&gt;标签 2&lt;/label&gt;
-                &lt;/div&gt;
-                &lt;p&gt;这是演示&lt;/p&gt;
-                &lt;p&gt;这是演示&lt;/p&gt;
-                &lt;div class=&quot;uix-controls&quot;&gt;
-                    &lt;a href=&quot;javascript:void(0);&quot; class=&quot;uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--primary go-step&quot;&gt;下一步&lt;/a&gt;
-                &lt;/div&gt;
-                &lt;!-- ////////////  内容结束  ////////////--&gt;
-            &lt;/div&gt;
-            &lt;!-- /.uix-form-progress__content --&gt;
-        &lt;/div&gt;
-        &lt;!-- 步骤 --&gt;
-        &lt;div class=&quot;uix-form-progress__target__step&quot;&gt;
-            &lt;div class=&quot;uix-form-progress__content&quot;&gt;
-                &lt;!-- ////////////  内容开始  ////////////--&gt;
-                &lt;h4&gt;步骤 4&lt;/h4&gt;
-                &lt;div class=&quot;uix-controls is-fullwidth&quot;&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;label-1&quot;&gt;
-                    &lt;label&gt;标签 1&lt;/label&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;uix-controls is-fullwidth&quot;&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;label-2&quot;&gt;
-                    &lt;label&gt;标签 2&lt;/label&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;uix-controls&quot;&gt;
-                    &lt;button type=&quot;submit&quot; class=&quot;uix-btn uix-btn__border--thin uix-btn__margin--r uix-btn__size--s uix-btn__bg--primary&quot;&gt;提交&lt;/button&gt;
-                    &lt;a href=&quot;javascript:void(0);&quot; class=&quot;go-reset&quot;&gt;重新提交&lt;/a&gt;
-                &lt;/div&gt;
-                &lt;!-- ////////////  内容结束  ////////////--&gt;
-            &lt;/div&gt;
-            &lt;!-- /.uix-form-progress__content --&gt;
-        &lt;/div&gt;
-    &lt;/form&gt;
-&lt;/div&gt;
-&lt;!-- /.uix-form-progress__target --&gt;</code></pre>
-                        <hr>
-                    </div>
-                </div>
-                <!-- row end -->
-            </div>
-            <!-- container end -->
-        </section>
-        <!-- 内容 结束 -->
-        <section class="uix-spacing--s">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="uix-form-progress">
-                            <div class="uix-form-progress__indicator"><span>步骤 1</span></div>
-                            <div class="uix-form-progress__indicator"><span>步骤 2</span></div>
-                            <div class="uix-form-progress__indicator"><span>步骤 3</span></div>
-                            <div class="uix-form-progress__indicator"><span>步骤 4</span></div>
-                            <div class="uix-form-progress__line"><span></span></div>
-                        </div>
-                        <!-- uix-form-progress -->
-                        <div class="uix-form-progress__target" data-anime-speed="0.2s">
-                            <form method="post" action="#">
-                                <!-- 步骤 -->
-                                <div class="uix-form-progress__target__step">
-                                    <div class="uix-form-progress__content">
-                                        <!-- ////////////  内容开始  ////////////-->
-                                        <h4>步骤 1</h4>
-                                        <div class="uix-controls is-fullwidth">
-                                            <input type="text" class="js-uix-float-label" name="label-1">
-                                            <label>标签 1</label>
-                                        </div>
-                                        <div class="uix-controls is-fullwidth">
-                                            <input type="text" class="js-uix-float-label" name="label-2">
-                                            <label>标签 2</label>
-                                        </div>
-                                        <div class="uix-controls">
-                                            <a href="javascript:void(0);" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--primary go-step">下一步</a>
-                                        </div>
-                                        <!-- ////////////  内容结束  ////////////-->
-                                    </div>
-                                    <!-- uix-form-progress__content -->
-                                </div>
-                                <!-- 步骤 -->
-                                <div class="uix-form-progress__target__step">
-                                    <div class="uix-form-progress__content">
-                                        <!-- ////////////  内容开始  ////////////-->
-                                        <h4>步骤 2</h4>
-                                        <div class="uix-controls is-fullwidth">
-                                            <input type="text" class="js-uix-float-label" name="label-1">
-                                            <label>标签 1</label>
-                                        </div>
-                                        <div class="uix-controls">
-                                            <a href="javascript:void(0);" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--primary go-step">下一步</a>
-                                        </div>
-                                        <!-- ////////////  内容结束  ////////////-->
-                                    </div>
-                                    <!-- uix-form-progress__content -->
-                                </div>
-                                <!-- 步骤 -->
-                                <div class="uix-form-progress__target__step">
-                                    <div class="uix-form-progress__content">
-                                        <!-- ////////////  内容开始  ////////////-->
-                                        <h4>步骤 3</h4>
-                                        <div class="uix-controls is-fullwidth">
-                                            <input type="text" class="js-uix-float-label" name="label-1">
-                                            <label>标签 1</label>
-                                        </div>
-                                        <div class="uix-controls is-fullwidth">
-                                            <input type="text" class="js-uix-float-label" name="label-2">
-                                            <label>标签 2</label>
-                                        </div>
-                                        <p>这是演示</p>
-                                        <p>这是演示</p>
-                                        <div class="uix-controls">
-                                            <a href="javascript:void(0);" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--primary go-step">下一步</a>
-                                        </div>
-                                        <!-- ////////////  内容结束  ////////////-->
-                                    </div>
-                                    <!-- uix-form-progress__content -->
-                                </div>
-                                <!-- 步骤 -->
-                                <div class="uix-form-progress__target__step">
-                                    <div class="uix-form-progress__content">
-                                        <!-- ////////////  内容开始  ////////////-->
-                                        <h4>步骤 4</h4>
-                                        <div class="uix-controls is-fullwidth">
-                                            <input type="text" class="js-uix-float-label" name="label-1">
-                                            <label>标签 1</label>
-                                        </div>
-                                        <div class="uix-controls is-fullwidth">
-                                            <input type="text" class="js-uix-float-label" name="label-2">
-                                            <label>标签 2</label>
-                                        </div>
-                                        <div class="uix-controls">
-                                            <button type="submit" class="uix-btn uix-btn__border--thin uix-btn__margin--r uix-btn__size--s uix-btn__bg--primary">提交</button>
-                                            <a href="javascript:void(0);" class="go-reset">重新提交</a>
-                                        </div>
-                                        <!-- ////////////  内容结束  ////////////-->
-                                    </div>
-                                    <!-- uix-form-progress__content -->
-                                </div>
-                            </form>
-                        </div>
-                        <!-- uix-form-progress__target -->
-                    </div>
-                </div>
-                <!-- row end -->
-            </div>
-            <!-- container end -->
-        </section>
-    </main>
-    <!-- 版权部分
+</pre>					
+							
+							<hr>
+							
+						</div>
+					</div>
+					<!-- .row end -->
+
+				</div>
+				<!-- .container end -->
+
+			</section>
+			
+		
+
+
+		   <!-- Content 
+			====================================================== -->
+			<section class="uix-spacing--s">
+				<div class="container">
+						<div class="row">
+							<div class="col-12">
+
+
+									<div class="uix-form-progress">
+										<div class="uix-form-progress__indicator"><span>Step 1</span></div>
+										<div class="uix-form-progress__indicator"><span>Step 2</span></div>
+										<div class="uix-form-progress__indicator"><span>Step 3</span></div>
+										<div class="uix-form-progress__indicator"><span>Step 4</span></div>
+										<div class="uix-form-progress__line"><span></span></div>
+									</div>
+									<!-- /.uix-form-progress -->
+
+
+									<div class="uix-form-progress__target" data-anime-speed="0.2s">
+
+										<form method="post" action="#">
+
+											<!-- Step -->
+											<div class="uix-form-progress__target__step">
+
+												<div class="uix-form-progress__content">
+
+													<!-- ////////////  content begin  ////////////-->
+													<h4>Step 1</h4>
+
+
+													<div class="uix-controls is-fullwidth">
+													  <input type="text" class="js-uix-float-label" name="label-1">
+													  <label>Label 1</label>
+													</div>
+
+													<div class="uix-controls is-fullwidth">
+													  <input type="text" class="js-uix-float-label" name="label-2">
+													  <label>Label 2</label>
+													</div>
+
+													<div class="uix-controls">
+													  <a href="javascript:void(0);" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--primary go-step">Next</a>
+													</div>  
+
+													<!-- ////////////  content end  ////////////-->
+
+
+												</div>
+												<!-- /.uix-form-progress__content -->
+
+
+
+											</div>
+
+											<!-- Step -->
+											<div class="uix-form-progress__target__step">
+
+												<div class="uix-form-progress__content">
+
+													<!-- ////////////  content begin  ////////////-->
+
+													<h4>Step 2</h4>
+
+													<div class="uix-controls is-fullwidth">
+													  <input type="text" class="js-uix-float-label" name="label-1">
+													  <label>Label 1</label>
+													</div>
+
+													<div class="uix-controls">
+													  <a href="javascript:void(0);" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--primary go-step">Next</a>
+													</div>     
+
+													<!-- ////////////  content end  ////////////-->
+
+												</div>
+												<!-- /.uix-form-progress__content -->
+
+
+
+											</div>
+
+											<!-- Step -->
+											<div class="uix-form-progress__target__step">
+
+												<div class="uix-form-progress__content">
+													<!-- ////////////  content begin  ////////////-->
+													<h4>Step 3</h4>
+
+													<div class="uix-controls is-fullwidth">
+													  <input type="text" class="js-uix-float-label" name="label-1">
+													  <label>Label 1</label>
+													</div>
+
+													<div class="uix-controls is-fullwidth">
+													  <input type="text" class="js-uix-float-label" name="label-2">
+													  <label>Label 2</label>
+													</div>
+
+													<p>This is demo.</p>
+													<p>This is demo.</p>
+
+													<div class="uix-controls">
+													  <a href="javascript:void(0);" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--primary go-step">Next</a>
+													</div>  
+													<!-- ////////////  content end  ////////////-->
+
+
+												</div>
+												<!-- /.uix-form-progress__content -->
+
+
+
+
+											</div>
+
+											<!-- Step -->
+											<div class="uix-form-progress__target__step">
+
+												<div class="uix-form-progress__content">
+
+													<!-- ////////////  content begin  ////////////-->
+													<h4>Step 4</h4>
+
+													<div class="uix-controls is-fullwidth">
+													  <input type="text" class="js-uix-float-label" name="label-1">
+													  <label>Label 1</label>
+													</div>
+
+													<div class="uix-controls is-fullwidth">
+													  <input type="text" class="js-uix-float-label" name="label-2">
+													  <label>Label 2</label>
+													</div>
+
+													<div class="uix-controls">
+													  <button type="submit" class="uix-btn uix-btn__border--thin uix-btn__margin--r uix-btn__size--s uix-btn__bg--primary">Submit</button>
+													  <a href="javascript:void(0);" class="go-reset">Reset</a>
+													</div>  
+													<!-- ////////////  content end  ////////////-->
+
+
+												</div>
+												<!-- /.uix-form-progress__content -->
+
+
+
+
+											</div>
+
+
+										</form>	
+
+									</div>
+									<!-- /.uix-form-progress__target -->
+
+
+
+							</div>
+						</div>
+						<!-- .row end -->
+
+
+				</div>
+				<!-- .container end -->
+
+			</section>
+
+
+			
+		</main>
+       
+
+        
+        <!-- 版权部分
 ============================================= -->
 <footer class="uix-footer__container">
     <div class="uix-footer">
@@ -610,9 +613,13 @@
 </footer>
 
 
-</div>
-<!-- uix-wrapper end -->
-<!-- Vendor -->
+        
+        
+    </div>
+    <!-- .uix-wrapper end -->
+       
+       
+    <!-- Vendor -->
 <script defer src="assets/js/min/axios.min.js?ver=0.19.2"></script>
 <script defer src="assets/js/min/jquery.waitforimages.min.js?ver=1.0"></script>
 <script defer src="assets/js/min/video.min.js?ver=7.5.3"></script>
@@ -643,7 +650,7 @@
     */
     window.$ = window.jQuery;
 </script>
-<script defer src="../dist/js/uix-kit.min.js?ver=b5BsWJr7CLc6X8ucIcAa"></script>
+<script defer src="../dist/js/uix-kit.min.js?ver=0JHM9UH1pUJ8NWWBistM"></script>
 <!-- Your Plugins & Theme Scripts  end -->
 </body>
 </html>

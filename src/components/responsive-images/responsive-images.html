@@ -1,63 +1,109 @@
 <!DOCTYPE html>
 <html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-    <meta charset="@@{website_charset}" />
-    <title>响应式图像 - @@{website_title}</title>
-    @@include('./src/components/_global/include-header.html')
-</head>
-<body class="page">
-@@include('./src/components/_global/include-loader.html')
-@@include('./src/components/_global/include-toggle-trigger.html')
-<div class="uix-wrapper">
-    <!-- 页眉区 -->
-    <header class="uix-header__container">
-        <div class="uix-header">
-            <!-- 容器 开始 -->
-            <div class="container">
-                @@include('./src/components/_global/include-brand.html')
-                @@include('./src/components/_global/include-menu.html')
-            </div>
-            <!-- 容器 结束 -->
-            <div class="uix-clearfix"></div>
-        </div>
-    </header>
-    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-    <main id="uix-maincontent">
-        <!-- 内容 开始 -->
-        <section class="uix-spacing--s uix-spacing--no-bottom">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
-                        <h3>响应式图片</h3>
-                        <p>调整浏览器大小以查看在不同视口大小下加载的不同版本的图片。<br>
-                            浏览器查找媒体查询与用户当前视口宽度匹配的第一个源元素，
-                            并获取 <code>srcset</code> 属性中指定的图像。</p>
-                        <p class="uix-striking-msg uix-striking-msg--info">注意：请使用手机预览</p>
-                        <hr>
-                    </div>
-                </div>
-                <!-- 行列 结束 -->
-            </div>
-            <!-- 容器 结束 -->
-        </section>
-        <!-- 内容 结束 -->
-        <section class="uix-spacing--s">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <img
-                    alt=""
-                    srcset="assets/images/placeholder/800x600.jpg 768w,
+	<meta charset="@@{website_charset}" />
+	<title>Responsive Images - @@{website_title}</title>	
+	@@include('./src/components/_global/include-header.html')
+</head>  
+
+     
+  <body class="page">
+  
+  
+          
+    @@include('./src/components/_global/include-loader.html')
+    @@include('./src/components/_global/include-toggle-trigger.html')
+    
+    
+
+  
+  
+    <div class="uix-wrapper">
+    
+        <!-- Header Area
+        ============================================= -->      
+        <header class="uix-header__container">
+            
+             <div class="uix-header">
+                 <div class="container">
+                 
+                        @@include('./src/components/_global/include-brand.html')
+                        
+                        @@include('./src/components/_global/include-menu.html')
+                        
+                        
+                        
+                        
+                  </div>
+                  <!-- .container end -->
+                  
+                  <div class="uix-clearfix"></div>
+             </div>
+        
+        </header>
+        <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+      
+		
+		<main id="uix-maincontent">
+			
+			<!-- Content 
+			====================================================== -->
+			<section class="uix-spacing--s uix-spacing--no-bottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h3>Responsive Images</h3>
+							<p>Resize the browser to see different versions of the picture loading at different viewport sizes.<br>
+	The browser looks for the first source element where the media query matches the user's current viewport width,
+	and fetches the image specified in the <code>srcset</code> attribute.</p>
+								<p class="uix-striking-msg uix-striking-msg--info">Note: Please use your phone to preview</p>
+							<hr>
+							
+							
+						</div>
+					</div>
+					<!-- .row end -->
+
+				</div>
+				<!-- .container end -->
+
+			</section>
+			
+		
+
+
+		   <!-- Content 
+			====================================================== -->
+			<section class="uix-spacing--s">
+				<div class="container">
+
+					<img
+					   alt=""
+					   srcset="assets/images/placeholder/800x600.jpg 768w,
 					   assets/images/placeholder/1440x900.jpg 1440w"
-                    size="(max-width: 768px) 100vw, 50vw"
-                    src="assets/images/placeholder/1440x900.jpg" />
-            </div>
-            <!-- 容器 结束 -->
-        </section>
-    </main>
-    @@include('./src/components/_global/include-copyright.html')
-</div>
-<!-- uix-wrapper end -->
-@@include('./src/components/_global/include-footer.html')
+					   size="(max-width: 768px) 100vw, 50vw"
+					   src="assets/images/placeholder/1440x900.jpg" />
+
+				</div>
+				<!-- .container end -->
+
+			</section>   
+
+			
+			
+		</main>
+		
+
+        
+     
+        
+        
+        @@include('./src/components/_global/include-copyright.html')
+        
+        
+    </div>
+    <!-- .uix-wrapper end -->
+       
+       
+    @@include('./src/components/_global/include-footer.html')
 

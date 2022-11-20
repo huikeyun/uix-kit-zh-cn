@@ -1,53 +1,76 @@
 /* ======================================================
-   <!-- 下拉菜单 2（多级下拉导航）Dropdown Menu 2 (Multi-level drop-down navigation) -->
+   <!-- Dropdown Menu 2 (Multi-level drop-down navigation) -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
+
+
 .uix-vertical-menu {
-    margin: 0;
-    padding: 0;
-    .uix-vertical-menu__arrow {
-        @include transition-default();
-        position: absolute;
-        top: .25rem;
-        right: 1rem;
-        display: inline-block;
-        width: 1rem;
-        height: 1rem;
-        text-align: center;
-        &::before {
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 600;
-            display: inline-block;
-            content: "\f105";
-            cursor: pointer;
-            color: #333333;
-        }
-    }
-    li {
-        position: relative;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        padding: .5rem 1rem;
-        > a {
-            display: block;
-            border-bottom: 1px solid #e5e5e5;
-            &:hover {
-                border-color: #333333;
-            }
-            &.is-active {
-                > .uix-vertical-menu__arrow {
-                    top: .5rem;
-                    transform: rotate(90deg);
-                }
-            }
-        }
-    }
-    > li {
-        ul {
-            position: relative;
-            overflow: hidden;
-            height: 0;
-        }
-    }
+
+	margin: 0;
+	padding: 0;
+
+	.uix-vertical-menu__arrow {
+		@include transition-default();
+		display: inline-block;
+		width: 1rem;
+		height: 1rem;
+		text-align: center;
+		position: absolute;
+		right: 1rem;
+		top: .25rem;
+
+		&::before {
+			display: inline-block;
+			content: "\f105";
+			font-family: 'Font Awesome 5 Free';
+			font-weight: 600;
+			color: #333;
+			cursor: pointer;
+
+
+		}
+
+	}
+
+	li {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		position: relative;
+		padding: .5rem 1rem;
+
+		> a {
+			display: block;
+			border-bottom: 1px solid #e5e5e5;
+
+			&:hover {
+				border-color: #333;
+
+			}
+
+			&.is-active {
+
+				 > .uix-vertical-menu__arrow {
+					transform: rotate(90deg);
+					top: .5rem;
+
+				}
+
+
+			}
+
+		}
+
+
+
+	}
+
+	> li {
+
+		ul {
+			overflow: hidden;
+			height: 0;
+			position: relative;
+		}
+	}
 }

@@ -2731,7 +2731,7 @@ var EventDispatcher = nonGlobals.events.EventDispatcher;
 /***/ 798:
 /***/ (() => {
 
-/*
+/* 
  *************************************
  * Count To
  *
@@ -2837,6 +2837,410 @@ var EventDispatcher = nonGlobals.events.EventDispatcher;
 
 /***/ }),
 
+/***/ 260:
+/***/ (() => {
+
+/*
+ * Disabled Controls
+ *
+ * @param  {String} controls                 - Wrapper of controls.
+ * @return {Void}
+ */
+(function ($) {
+  'use strict';
+
+  $.fn.UixRenderControlsDisable = function (options) {
+    // This is the easiest way to have default options.
+    var settings = $.extend({
+      controls: 'input.is-disabled'
+    }, options);
+    this.each(function () {
+      $(settings.controls).prop('disabled', true);
+    });
+  };
+})(jQuery);
+
+/***/ }),
+
+/***/ 366:
+/***/ (() => {
+
+/*
+ * Hover Effect
+ *
+ * @param  {String} controls                 - Wrapper of controls.
+ * @return {Void}
+ */
+(function ($) {
+  'use strict';
+
+  $.fn.UixRenderControlsHover = function (options) {
+    // This is the easiest way to have default options.
+    var settings = $.extend({
+      controls: '.js-uix-float-label'
+    }, options);
+    this.each(function () {
+      $(settings.controls).each(function () {
+        var $this = $(this); // on focus add cladd active to label
+
+        $this.on('focus', function () {
+          $(this).closest('div').find('label, .uix-controls__bar').addClass('is-active');
+        }); //on blur check field and remove class if needed
+
+        $this.on('blur change', function (e) {
+          if ($this.val() === '' || $this.val() === 'blank') {
+            $(this).closest('div').find('label').removeClass('is-active');
+          } //----
+
+
+          if ($this.val() === '' || $this.val() === 'blank' || $this.val() != '' && $this.val() != 'blank') {
+            $(this).closest('div').find('.uix-controls__bar').removeClass('is-active');
+          }
+        }); // if exist cookie value
+
+        if ($this.val() != '' && $this.val() != 'blank') {
+          $(this).closest('div').find('label').addClass('is-active');
+        }
+      });
+    });
+  };
+})(jQuery);
+
+/***/ }),
+
+/***/ 283:
+/***/ (() => {
+
+/*
+ * Render Custom File Dropzone
+ *
+ * @param  {String} controls                 - Wrapper of controls.
+ * @return {Void}
+ */
+(function ($) {
+  'use strict';
+
+  $.fn.UixRenderCustomFileDropzone = function (options) {
+    // This is the easiest way to have default options.
+    var settings = $.extend({
+      controls: '.uix-controls__file-field-container'
+    }, options);
+    this.each(function () {
+      $(settings.controls).each(function () {
+        var $dropZone = $(this).find('input[type="file"]');
+        $(document).on('dragover', function (e) {
+          var timeout = window.dropZoneTimeout;
+
+          if (!timeout) {
+            $dropZone.addClass('in');
+          } else {
+            clearTimeout(timeout);
+          }
+
+          var found = false,
+              node = e.target;
+
+          do {
+            if (node === $dropZone[0]) {
+              found = true;
+              break;
+            }
+
+            node = node.parentNode;
+          } while (node != null);
+
+          if (found) {
+            $dropZone.addClass('hover');
+          } else {
+            $dropZone.removeClass('hover');
+          }
+
+          window.dropZoneTimeout = setTimeout(function () {
+            window.dropZoneTimeout = null;
+            $dropZone.removeClass('in hover');
+          }, 100);
+        });
+        $dropZone.on('change', function (e) {
+          var input = $(this)[0];
+
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+              var imgData = e.target.result;
+              var imgName = input.files[0].name;
+              input.setAttribute('data-title', imgName); //console.log(e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+          }
+        });
+      });
+    });
+  };
+})(jQuery);
+
+/***/ }),
+
+/***/ 433:
+/***/ (() => {
+
+/*
+ * Render Custom File Type
+ *
+ * @param  {String} controls                 - Wrapper of controls.
+ * @return {Void}
+ */
+(function ($) {
+  'use strict';
+
+  $.fn.UixRenderCustomFile = function (options) {
+    // This is the easiest way to have default options.
+    var settings = $.extend({
+      controls: '.uix-controls__file-container'
+    }, options);
+    this.each(function () {
+      $(settings.controls).each(function () {
+        var $fileInput = $(this).find('input[type="file"]'),
+            $fileBtn = $(this).find('.uix-controls__file-trigger'),
+            $filePath = $(this).next('.uix-controls__file-return');
+        $fileBtn.off('click').on('click', function () {
+          $fileInput.focusin();
+        });
+        $fileInput.on('change', function () {
+          $filePath.text($(this).val());
+        });
+      });
+    });
+  };
+})(jQuery);
+
+/***/ }),
+
+/***/ 126:
+/***/ (() => {
+
+/*!
+ * jQuery Mousewheel 3.1.13
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license
+ * http://jquery.org/license
+ */
+(function ($) {
+  var toFix = ['wheel', 'mousewheel', 'DOMMouseScroll', 'MozMousePixelScroll'],
+      toBind = 'onwheel' in document || document.documentMode >= 9 ? ['wheel'] : ['mousewheel', 'DomMouseScroll', 'MozMousePixelScroll'],
+      slice = Array.prototype.slice,
+      nullLowestDeltaTimeout,
+      lowestDelta;
+
+  if ($.event.fixHooks) {
+    for (var i = toFix.length; i;) {
+      $.event.fixHooks[toFix[--i]] = $.event.mouseHooks;
+    }
+  }
+
+  var special = $.event.special.mousewheel = {
+    version: '3.1.12',
+    setup: function setup() {
+      if (this.addEventListener) {
+        for (var i = toBind.length; i;) {
+          this.addEventListener(toBind[--i], handler, false);
+        }
+      } else {
+        this.onmousewheel = handler;
+      } // Store the line height and page height for this particular element
+
+
+      $.data(this, 'mousewheel-line-height', special.getLineHeight(this));
+      $.data(this, 'mousewheel-page-height', special.getPageHeight(this));
+    },
+    teardown: function teardown() {
+      if (this.removeEventListener) {
+        for (var i = toBind.length; i;) {
+          this.removeEventListener(toBind[--i], handler, false);
+        }
+      } else {
+        this.onmousewheel = null;
+      } // Clean up the data we added to the element
+
+
+      $.removeData(this, 'mousewheel-line-height');
+      $.removeData(this, 'mousewheel-page-height');
+    },
+    getLineHeight: function getLineHeight(elem) {
+      var $elem = $(elem),
+          $parent = $elem['offsetParent' in $.fn ? 'offsetParent' : 'parent']();
+
+      if (!$parent.length) {
+        $parent = $('body');
+      }
+
+      return parseInt($parent.css('fontSize'), 10) || parseInt($elem.css('fontSize'), 10) || 16;
+    },
+    getPageHeight: function getPageHeight(elem) {
+      return $(elem).height();
+    },
+    settings: {
+      adjustOldDeltas: true,
+      // see shouldAdjustOldDeltas() below
+      normalizeOffset: true // calls getBoundingClientRect for each event
+
+    }
+  };
+  $.fn.extend({
+    mousewheel: function mousewheel(fn) {
+      return fn ? this.bind('mousewheel', fn) : this.trigger('mousewheel');
+    },
+    unmousewheel: function unmousewheel(fn) {
+      return this.unbind('mousewheel', fn);
+    }
+  });
+
+  function handler(event) {
+    var orgEvent = event || window.event,
+        args = slice.call(arguments, 1),
+        delta = 0,
+        deltaX = 0,
+        deltaY = 0,
+        absDelta = 0,
+        offsetX = 0,
+        offsetY = 0;
+    event = $.event.fix(orgEvent);
+    event.type = 'mousewheel'; // Old school scrollwheel delta
+
+    if ('detail' in orgEvent) {
+      deltaY = orgEvent.detail * -1;
+    }
+
+    if ('wheelDelta' in orgEvent) {
+      deltaY = orgEvent.wheelDelta;
+    }
+
+    if ('wheelDeltaY' in orgEvent) {
+      deltaY = orgEvent.wheelDeltaY;
+    }
+
+    if ('wheelDeltaX' in orgEvent) {
+      deltaX = orgEvent.wheelDeltaX * -1;
+    } // Firefox < 17 horizontal scrolling related to DOMMouseScroll event
+
+
+    if ('axis' in orgEvent && orgEvent.axis === orgEvent.HORIZONTAL_AXIS) {
+      deltaX = deltaY * -1;
+      deltaY = 0;
+    } // Set delta to be deltaY or deltaX if deltaY is 0 for backwards compatabilitiy
+
+
+    delta = deltaY === 0 ? deltaX : deltaY; // New school wheel delta (wheel event)
+
+    if ('deltaY' in orgEvent) {
+      deltaY = orgEvent.deltaY * -1;
+      delta = deltaY;
+    }
+
+    if ('deltaX' in orgEvent) {
+      deltaX = orgEvent.deltaX;
+
+      if (deltaY === 0) {
+        delta = deltaX * -1;
+      }
+    } // No change actually happened, no reason to go any further
+
+
+    if (deltaY === 0 && deltaX === 0) {
+      return;
+    } // Need to convert lines and pages to pixels if we aren't already in pixels
+    // There are three delta modes:
+    //   * deltaMode 0 is by pixels, nothing to do
+    //   * deltaMode 1 is by lines
+    //   * deltaMode 2 is by pages
+
+
+    if (orgEvent.deltaMode === 1) {
+      var lineHeight = $.data(this, 'mousewheel-line-height');
+      delta *= lineHeight;
+      deltaY *= lineHeight;
+      deltaX *= lineHeight;
+    } else if (orgEvent.deltaMode === 2) {
+      var pageHeight = $.data(this, 'mousewheel-page-height');
+      delta *= pageHeight;
+      deltaY *= pageHeight;
+      deltaX *= pageHeight;
+    } // Store lowest absolute delta to normalize the delta values
+
+
+    absDelta = Math.max(Math.abs(deltaY), Math.abs(deltaX));
+
+    if (!lowestDelta || absDelta < lowestDelta) {
+      lowestDelta = absDelta; // Adjust older deltas if necessary
+
+      if (shouldAdjustOldDeltas(orgEvent, absDelta)) {
+        lowestDelta /= 40;
+      }
+    } // Adjust older deltas if necessary
+
+
+    if (shouldAdjustOldDeltas(orgEvent, absDelta)) {
+      // Divide all the things by 40!
+      delta /= 40;
+      deltaX /= 40;
+      deltaY /= 40;
+    } // Get a whole, normalized value for the deltas
+
+
+    delta = Math[delta >= 1 ? 'floor' : 'ceil'](delta / lowestDelta);
+    deltaX = Math[deltaX >= 1 ? 'floor' : 'ceil'](deltaX / lowestDelta);
+    deltaY = Math[deltaY >= 1 ? 'floor' : 'ceil'](deltaY / lowestDelta); // Normalise offsetX and offsetY properties
+
+    if (special.settings.normalizeOffset && this.getBoundingClientRect) {
+      var boundingRect = this.getBoundingClientRect();
+      offsetX = event.clientX - boundingRect.left;
+      offsetY = event.clientY - boundingRect.top;
+    } // Add information to the event object
+
+
+    event.deltaX = deltaX;
+    event.deltaY = deltaY;
+    event.deltaFactor = lowestDelta;
+    event.offsetX = offsetX;
+    event.offsetY = offsetY; // Go ahead and set deltaMode to 0 since we converted to pixels
+    // Although this is a little odd since we overwrite the deltaX/Y
+    // properties with normalized deltas.
+
+    event.deltaMode = 0; // Add event and delta to the front of the arguments
+
+    args.unshift(event, delta, deltaX, deltaY); // Clearout lowestDelta after sometime to better
+    // handle multiple device types that give different
+    // a different lowestDelta
+    // Ex: trackpad = 3 and mouse wheel = 120
+
+    if (nullLowestDeltaTimeout) {
+      clearTimeout(nullLowestDeltaTimeout);
+    }
+
+    nullLowestDeltaTimeout = setTimeout(nullLowestDelta, 200);
+    return ($.event.dispatch || $.event.handle).apply(this, args);
+  }
+
+  function nullLowestDelta() {
+    lowestDelta = null;
+  }
+
+  function shouldAdjustOldDeltas(orgEvent, absDelta) {
+    // If this is an older event and the delta is divisable by 120,
+    // then we are assuming that the browser is treating this as an
+    // older mouse wheel event and that we should divide the deltas
+    // by 40 to try and get a more usable deltaFactor.
+    // Side note, this actually impacts the reported scroll distance
+    // in older browsers and can cause scrolling to be slower than native.
+    // Turn this off by setting $.event.special.mousewheel.settings.adjustOldDeltas to false.
+    return special.settings.adjustOldDeltas && orgEvent.type === 'mousewheel' && absDelta % 120 === 0;
+  }
+})(jQuery);
+
+/***/ }),
+
 /***/ 782:
 /***/ (() => {
 
@@ -2849,18 +3253,18 @@ var EventDispatcher = nonGlobals.events.EventDispatcher;
  * --------------
  * @param Function comparator:
  *   Exactly the same behaviour as [1,2,3].sort(comparator)
- *
+ *   
  * @param Function getSortable
  *   A function that should return the element that is
  *   to be sorted. The comparator will run on the
  *   current collection, but you may want the actual
  *   resulting sort to occur on a parent or another
  *   associated element.
- *
+ *   
  *   E.g. $('td').sortElements(comparator, function(){
  *      return this.parentNode; 
  *   })
- *
+ *   
  *   The <td>'s parent (<tr>) will be sorted instead
  *   of the <td> itself.
  */
@@ -2880,7 +3284,7 @@ jQuery.fn.sortElements = function () {
       nextSibling = parentNode.insertBefore(document.createTextNode(''), sortElement.nextSibling);
       return function () {
         if (parentNode === this) {
-          throw new Error('You can\'t sort elements if any one is a descendant of another.');
+          throw new Error("You can't sort elements if any one is a descendant of another.");
         } // Insert before flag:
 
 
@@ -3027,24 +3431,24 @@ var esm_typeof = __webpack_require__(2);
     18.回到顶部Back to Top
     19.圆形布局 Circle Layout
     20.Counter
-    21.下拉菜单 Dropdown Menu
-    22.下拉菜单 2（多级下拉导航）Dropdown Menu 2 (Multi-level drop-down navigation)
+    21.Dropdown Menu
+    22.Dropdown Menu 2 (Multi-level drop-down navigation)
     23.层叠的下拉列表 Cascading DropDown List
-    24.弹性滑块（第三方插件）Flexslider (Third-party plugin)
+    24.Flexslider (Third-party plugin)
     25.Floating Side Element
-    26.表单进度 Form Progress
-    27.表格 Form
-    28.画廊 Gallery
-    29.混合内容滑块 Hybrid Content Slider
-    30.悬停延迟交互 Hover Delay Interaction
-    31.图像形状 Image Shapes
-    32.无限滚动元素 Infinite Scrolling Element
-    33.Lava-Lamp 风格菜单 Lava-Lamp Style Menu
+    26.Form Progress
+    27.Form
+    28.Gallery
+    29.Hybrid Content Slider
+    30.Hover Delay Interaction
+    31.Image Shapes
+    32.Infinite Scrolling Element
+    33.Lava-Lamp Style Menu
     34.Custom Lightbox
-    35.项目符号列表 Bulleted List
+    35.Bulleted List
     36.Posts List With Ajax
-    37.全宽列到边缘 Full Width Column to Edge
-    38.登录模板 Login Templates
+    37.Full Width Column to Edge
+    38.Login Templates
     39.Modal Dialog
     40.Mousewheel Interaction
     41.Multiple Items Carousel
@@ -10172,7 +10576,7 @@ var count_to = __webpack_require__(798);
 
 
 
-/*
+/* 
  *************************************
  * <!-- Counter -->
  *************************************
@@ -10212,7 +10616,7 @@ var COUNTER = function (module, $, window, document) {
       window.addEventListener('scroll', throttleFunc);
       window.addEventListener('touchmove', throttleFunc);
       throttleFunc();
-    }); //end each
+    }); //end each        
   };
 
   module.components.documentReady.push(module.COUNTER.documentReady);
@@ -10227,9 +10631,9 @@ var COUNTER = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
- * <!-- 下拉菜单 Dropdown Menu -->
+ * <!-- Dropdown Menu -->
  *************************************
  */
 
@@ -10299,9 +10703,9 @@ var DROPDOWN_MENU = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
- * <!-- 下拉菜单 2（多级下拉导航）Dropdown Menu 2 (Multi-level drop-down navigation) -->
+ * <!-- Dropdown Menu 2 (Multi-level drop-down navigation) -->
  *************************************
  */
 
@@ -10760,19 +11164,19 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
     slider.vars = $.extend({}, $.flexslider.defaults, options);
     var namespace = slider.vars.namespace,
         msGesture = window.navigator && window.navigator.msPointerEnabled && window.MSGesture,
-        touch = ('ontouchstart' in window || msGesture || window.DocumentTouch && document instanceof DocumentTouch) && slider.vars.touch,
+        touch = ("ontouchstart" in window || msGesture || window.DocumentTouch && document instanceof DocumentTouch) && slider.vars.touch,
         // deprecating this idea, as devices are being released with both of these events
-    eventType = 'click touchend MSPointerUp keyup',
-        watchedEvent = '',
+    eventType = "click touchend MSPointerUp keyup",
+        watchedEvent = "",
         watchedEventClearTimer,
-        vertical = slider.vars.direction === 'vertical',
+        vertical = slider.vars.direction === "vertical",
         reverse = slider.vars.reverse,
         carousel = slider.vars.itemWidth > 0,
-        fade = slider.vars.animation === 'fade',
-        asNav = slider.vars.asNavFor !== '',
+        fade = slider.vars.animation === "fade",
+        asNav = slider.vars.asNavFor !== "",
         methods = {}; // Store a reference to the slider object
 
-    $.data(el, 'flexslider', slider); // Private slider methods
+    $.data(el, "flexslider", slider); // Private slider methods
 
     methods = {
       init: function init() {
@@ -10793,11 +11197,11 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
         slider.syncExists = $(slider.vars.sync).length > 0; // SLIDE:
 
-        if (slider.vars.animation === 'slide') {
-          slider.vars.animation = 'swing';
+        if (slider.vars.animation === "slide") {
+          slider.vars.animation = "swing";
         }
 
-        slider.prop = vertical ? 'top' : slider.vars.rtl ? 'marginRight' : 'marginLeft';
+        slider.prop = vertical ? "top" : slider.vars.rtl ? "marginRight" : "marginLeft";
         slider.args = {}; // SLIDESHOW:
 
         slider.manualPause = false;
@@ -10813,7 +11217,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           for (var i in props) {
             if (obj.style[props[i]] !== undefined) {
               slider.pfx = props[i].replace('Perspective', '').toLowerCase();
-              slider.prop = '-' + slider.pfx + '-transform';
+              slider.prop = "-" + slider.pfx + "-transform";
               return true;
             }
           }
@@ -10823,11 +11227,11 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
         slider.ensureAnimationEnd = ''; // CONTROLSCONTAINER:
 
-        if (slider.vars.controlsContainer !== '') slider.controlsContainer = $(slider.vars.controlsContainer).length > 0 && $(slider.vars.controlsContainer); // MANUAL:
+        if (slider.vars.controlsContainer !== "") slider.controlsContainer = $(slider.vars.controlsContainer).length > 0 && $(slider.vars.controlsContainer); // MANUAL:
 
-        if (slider.vars.manualControls !== '') slider.manualControls = $(slider.vars.manualControls).length > 0 && $(slider.vars.manualControls); // CUSTOM DIRECTION NAV:
+        if (slider.vars.manualControls !== "") slider.manualControls = $(slider.vars.manualControls).length > 0 && $(slider.vars.manualControls); // CUSTOM DIRECTION NAV:
 
-        if (slider.vars.customDirectionNav !== '') slider.customDirectionNav = $(slider.vars.customDirectionNav).length === 2 && $(slider.vars.customDirectionNav); // RANDOMIZE:
+        if (slider.vars.customDirectionNav !== "") slider.customDirectionNav = $(slider.vars.customDirectionNav).length === 2 && $(slider.vars.customDirectionNav); // RANDOMIZE:
 
         if (slider.vars.randomize) {
           slider.slides.sort(function () {
@@ -10838,7 +11242,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
         slider.doMath(); // INIT
 
-        slider.setup('init'); // CONTROLNAV:
+        slider.setup("init"); // CONTROLNAV:
 
         if (slider.vars.controlNav) {
           methods.controlNav.setup();
@@ -10913,10 +11317,10 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
 
         if (!fade || fade && slider.vars.smoothHeight) {
-          $(window).bind('resize orientationchange focus', methods.resize);
+          $(window).bind("resize orientationchange focus", methods.resize);
         }
 
-        slider.find('img').attr('draggable', 'false'); // API: start() Callback
+        slider.find("img").attr("draggable", "false"); // API: start() Callback
 
         setTimeout(function () {
           slider.vars.start(slider);
@@ -10927,7 +11331,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           slider.asNav = true;
           slider.animatingTo = Math.floor(slider.currentSlide / slider.move);
           slider.currentItem = slider.currentSlide;
-          slider.slides.removeClass(namespace + 'active-slide').eq(slider.currentItem).addClass(namespace + 'active-slide');
+          slider.slides.removeClass(namespace + "active-slide").eq(slider.currentItem).addClass(namespace + "active-slide");
 
           if (!msGesture) {
             slider.slides.on(eventType, function (e) {
@@ -10943,9 +11347,9 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
               }
 
               if (posFromX <= 0 && $slide.hasClass(namespace + 'active-slide')) {
-                slider.flexAnimate(slider.getTarget('prev'), true);
-              } else if (!$(slider.vars.asNavFor).data('flexslider').animating && !$slide.hasClass(namespace + 'active-slide')) {
-                slider.direction = slider.currentItem < target ? 'next' : 'prev';
+                slider.flexAnimate(slider.getTarget("prev"), true);
+              } else if (!$(slider.vars.asNavFor).data('flexslider').animating && !$slide.hasClass(namespace + "active-slide")) {
+                slider.direction = slider.currentItem < target ? "next" : "prev";
                 slider.flexAnimate(target, slider.vars.pauseOnAction, false, true, true);
               }
             });
@@ -10955,20 +11359,20 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
               var that = this;
               that._gesture = new MSGesture();
               that._gesture.target = that;
-              that.addEventListener('MSPointerDown', function (e) {
+              that.addEventListener("MSPointerDown", function (e) {
                 e.preventDefault();
 
                 if (e.currentTarget._gesture) {
                   e.currentTarget._gesture.addPointer(e.pointerId);
                 }
               }, false);
-              that.addEventListener('MSGestureTap', function (e) {
+              that.addEventListener("MSGestureTap", function (e) {
                 e.preventDefault();
                 var $slide = $(this),
                     target = $slide.index();
 
                 if (!$(slider.vars.asNavFor).data('flexslider').animating && !$slide.hasClass('active')) {
-                  slider.direction = slider.currentItem < target ? 'next' : 'prev';
+                  slider.direction = slider.currentItem < target ? "next" : "prev";
                   slider.flexAnimate(target, slider.vars.pauseOnAction, false, true, true);
                 }
               });
@@ -10986,7 +11390,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           }
         },
         setupPaging: function setupPaging() {
-          var type = slider.vars.controlNav === 'thumbnails' ? 'control-thumbs' : 'control-paging',
+          var type = slider.vars.controlNav === "thumbnails" ? 'control-thumbs' : 'control-paging',
               j = 1,
               item,
               slide;
@@ -11001,7 +11405,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
               }
 
               var altText = '' !== slide.attr('data-thumb-alt') ? altText = ' alt="' + slide.attr('data-thumb-alt') + '"' : '';
-              item = slider.vars.controlNav === 'thumbnails' ? '<img src="' + slide.attr('data-thumb') + '"' + altText + '/>' : '<a href="#">' + j + '</a>';
+              item = slider.vars.controlNav === "thumbnails" ? '<img src="' + slide.attr('data-thumb') + '"' + altText + '/>' : '<a href="#">' + j + '</a>';
 
               if ('thumbnails' === slider.vars.controlNav && true === slider.vars.thumbCaptions) {
                 var captn = slide.attr('data-thumbcaption');
@@ -11023,18 +11427,18 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           slider.controlNavScaffold.delegate('a, img', eventType, function (event) {
             event.preventDefault();
 
-            if (watchedEvent === '' || watchedEvent === event.type) {
+            if (watchedEvent === "" || watchedEvent === event.type) {
               var $this = $(this),
                   target = slider.controlNav.index($this);
 
               if (!$this.hasClass(namespace + 'active')) {
-                slider.direction = target > slider.currentSlide ? 'next' : 'prev';
+                slider.direction = target > slider.currentSlide ? "next" : "prev";
                 slider.flexAnimate(target, slider.vars.pauseOnAction);
               }
             } // setup flags to prevent event duplication
 
 
-            if (watchedEvent === '') {
+            if (watchedEvent === "") {
               watchedEvent = event.type;
             }
 
@@ -11047,18 +11451,18 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           slider.controlNav.bind(eventType, function (event) {
             event.preventDefault();
 
-            if (watchedEvent === '' || watchedEvent === event.type) {
+            if (watchedEvent === "" || watchedEvent === event.type) {
               var $this = $(this),
                   target = slider.controlNav.index($this);
 
               if (!$this.hasClass(namespace + 'active')) {
-                target > slider.currentSlide ? slider.direction = 'next' : slider.direction = 'prev';
+                target > slider.currentSlide ? slider.direction = "next" : slider.direction = "prev";
                 slider.flexAnimate(target, slider.vars.pauseOnAction);
               }
             } // setup flags to prevent event duplication
 
 
-            if (watchedEvent === '') {
+            if (watchedEvent === "") {
               watchedEvent = event.type;
             }
 
@@ -11066,14 +11470,14 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           });
         },
         set: function set() {
-          var selector = slider.vars.controlNav === 'thumbnails' ? 'img' : 'a';
+          var selector = slider.vars.controlNav === "thumbnails" ? 'img' : 'a';
           slider.controlNav = $('.' + namespace + 'control-nav li ' + selector, slider.controlsContainer ? slider.controlsContainer : slider);
         },
         active: function active() {
-          slider.controlNav.removeClass(namespace + 'active').eq(slider.animatingTo).addClass(namespace + 'active');
+          slider.controlNav.removeClass(namespace + "active").eq(slider.animatingTo).addClass(namespace + "active");
         },
         update: function update(action, pos) {
-          if (slider.pagingCount > 1 && action === 'add') {
+          if (slider.pagingCount > 1 && action === "add") {
             slider.controlNavScaffold.append($('<li><a href="#">' + slider.count + '</a></li>'));
           } else if (slider.pagingCount === 1) {
             slider.controlNavScaffold.find('li').remove();
@@ -11104,13 +11508,13 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
             event.preventDefault();
             var target;
 
-            if (watchedEvent === '' || watchedEvent === event.type) {
+            if (watchedEvent === "" || watchedEvent === event.type) {
               target = $(this).hasClass(namespace + 'next') ? slider.getTarget('next') : slider.getTarget('prev');
               slider.flexAnimate(target, slider.vars.pauseOnAction);
             } // setup flags to prevent event duplication
 
 
-            if (watchedEvent === '') {
+            if (watchedEvent === "") {
               watchedEvent = event.type;
             }
 
@@ -11124,9 +11528,9 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
             slider.directionNav.addClass(disabledClass).attr('tabindex', '-1');
           } else if (!slider.vars.animationLoop) {
             if (slider.animatingTo === 0) {
-              slider.directionNav.removeClass(disabledClass).filter('.' + namespace + 'prev').addClass(disabledClass).attr('tabindex', '-1');
+              slider.directionNav.removeClass(disabledClass).filter('.' + namespace + "prev").addClass(disabledClass).attr('tabindex', '-1');
             } else if (slider.animatingTo === slider.last) {
-              slider.directionNav.removeClass(disabledClass).filter('.' + namespace + 'next').addClass(disabledClass).attr('tabindex', '-1');
+              slider.directionNav.removeClass(disabledClass).filter('.' + namespace + "next").addClass(disabledClass).attr('tabindex', '-1');
             } else {
               slider.directionNav.removeClass(disabledClass).removeAttr('tabindex');
             }
@@ -11151,7 +11555,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           slider.pausePlay.bind(eventType, function (event) {
             event.preventDefault();
 
-            if (watchedEvent === '' || watchedEvent === event.type) {
+            if (watchedEvent === "" || watchedEvent === event.type) {
               if ($(this).hasClass(namespace + 'pause')) {
                 slider.manualPause = true;
                 slider.manualPlay = false;
@@ -11164,7 +11568,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
             } // setup flags to prevent event duplication
 
 
-            if (watchedEvent === '') {
+            if (watchedEvent === "") {
               watchedEvent = event.type;
             }
 
@@ -11172,7 +11576,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           });
         },
         update: function update(state) {
-          state === 'play' ? slider.pausePlay.removeClass(namespace + 'pause').addClass(namespace + 'play').html(slider.vars.playText) : slider.pausePlay.removeClass(namespace + 'play').addClass(namespace + 'pause').html(slider.vars.pauseText);
+          state === "play" ? slider.pausePlay.removeClass(namespace + 'pause').addClass(namespace + 'play').html(slider.vars.playText) : slider.pausePlay.removeClass(namespace + 'play').addClass(namespace + 'pause').html(slider.vars.pauseText);
         }
       },
       touch: function touch() {
@@ -11227,7 +11631,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
                   dx = dx / (slider.currentSlide === 0 && dx < 0 || slider.currentSlide === slider.last && dx > 0 ? Math.abs(dx) / cwidth + 2 : 1);
                 }
 
-                slider.setProps(offset + dx, 'setTouch');
+                slider.setProps(offset + dx, "setTouch");
               }
             }
           };
@@ -11306,7 +11710,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
                   dx = accDx / (slider.currentSlide === 0 && accDx < 0 || slider.currentSlide === slider.last && accDx > 0 ? Math.abs(accDx) / cwidth + 2 : 1);
                 }
 
-                slider.setProps(offset + dx, 'setTouch');
+                slider.setProps(offset + dx, "setTouch");
               }
             }
           };
@@ -11339,13 +11743,13 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
             accDx = 0;
           };
 
-          el.style.msTouchAction = 'none';
+          el.style.msTouchAction = "none";
           el._gesture = new MSGesture();
           el._gesture.target = el;
-          el.addEventListener('MSPointerDown', onMSPointerDown, false);
+          el.addEventListener("MSPointerDown", onMSPointerDown, false);
           el._slider = slider;
-          el.addEventListener('MSGestureChange', onMSGestureChange, false);
-          el.addEventListener('MSGestureEnd', onMSGestureEnd, false);
+          el.addEventListener("MSGestureChange", onMSGestureChange, false);
+          el.addEventListener("MSGestureEnd", onMSGestureEnd, false);
         }
       },
       resize: function resize() {
@@ -11365,7 +11769,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           } else if (vertical) {
             //VERTICAL:
             slider.viewport.height(slider.h);
-            slider.setProps(slider.h, 'setTotal');
+            slider.setProps(slider.h, "setTotal");
           } else {
             // SMOOTH HEIGHT:
             if (slider.vars.smoothHeight) {
@@ -11373,7 +11777,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
             }
 
             slider.newSlides.width(slider.computedW);
-            slider.setProps(slider.computedW, 'setTotal');
+            slider.setProps(slider.computedW, "setTotal");
           }
         }
       },
@@ -11381,27 +11785,27 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
         if (!vertical || fade) {
           var $obj = fade ? slider : slider.viewport;
           dur ? $obj.animate({
-            'height': slider.slides.eq(slider.animatingTo).innerHeight()
+            "height": slider.slides.eq(slider.animatingTo).innerHeight()
           }, dur) : $obj.innerHeight(slider.slides.eq(slider.animatingTo).innerHeight());
         }
       },
       sync: function sync(action) {
-        var $obj = $(slider.vars.sync).data('flexslider'),
+        var $obj = $(slider.vars.sync).data("flexslider"),
             target = slider.animatingTo;
 
         switch (action) {
-          case 'animate':
+          case "animate":
             $obj.flexAnimate(target, slider.vars.pauseOnAction, false, true);
             break;
 
-          case 'play':
+          case "play":
             if (!$obj.playing && !$obj.asNav) {
               $obj.play();
             }
 
             break;
 
-          case 'pause':
+          case "pause":
             $obj.pause();
             break;
         }
@@ -11472,33 +11876,33 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
       setToClearWatchedEvent: function setToClearWatchedEvent() {
         clearTimeout(watchedEventClearTimer);
         watchedEventClearTimer = setTimeout(function () {
-          watchedEvent = '';
+          watchedEvent = "";
         }, 3000);
       }
     }; // public methods
 
     slider.flexAnimate = function (target, pause, override, withSync, fromNav) {
       if (!slider.vars.animationLoop && target !== slider.currentSlide) {
-        slider.direction = target > slider.currentSlide ? 'next' : 'prev';
+        slider.direction = target > slider.currentSlide ? "next" : "prev";
       }
 
-      if (asNav && slider.pagingCount === 1) slider.direction = slider.currentItem < target ? 'next' : 'prev';
+      if (asNav && slider.pagingCount === 1) slider.direction = slider.currentItem < target ? "next" : "prev";
 
-      if (!slider.animating && (slider.canAdvance(target, fromNav) || override) && slider.is(':visible')) {
+      if (!slider.animating && (slider.canAdvance(target, fromNav) || override) && slider.is(":visible")) {
         if (asNav && withSync) {
           var master = $(slider.vars.asNavFor).data('flexslider');
           slider.atEnd = target === 0 || target === slider.count - 1;
           master.flexAnimate(target, true, false, true, fromNav);
-          slider.direction = slider.currentItem < target ? 'next' : 'prev';
+          slider.direction = slider.currentItem < target ? "next" : "prev";
           master.direction = slider.direction;
 
           if (Math.ceil((target + 1) / slider.visible) - 1 !== slider.currentSlide && target !== 0) {
             slider.currentItem = target;
-            slider.slides.removeClass(namespace + 'active-slide').eq(target).addClass(namespace + 'active-slide');
+            slider.slides.removeClass(namespace + "active-slide").eq(target).addClass(namespace + "active-slide");
             target = Math.floor(target / slider.visible);
           } else {
             slider.currentItem = target;
-            slider.slides.removeClass(namespace + 'active-slide').eq(target).addClass(namespace + 'active-slide');
+            slider.slides.removeClass(namespace + "active-slide").eq(target).addClass(namespace + "active-slide");
             return false;
           }
         }
@@ -11514,7 +11918,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
         slider.vars.before(slider); // SYNC:
 
         if (slider.syncExists && !fromNav) {
-          methods.sync('animate');
+          methods.sync("animate");
         } // CONTROLNAV
 
 
@@ -11556,15 +11960,15 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
             margin = slider.vars.itemMargin;
             calcNext = (slider.itemW + margin) * slider.move * slider.animatingTo;
             slideString = calcNext > slider.limit && slider.visible !== 1 ? slider.limit : calcNext;
-          } else if (slider.currentSlide === 0 && target === slider.count - 1 && slider.vars.animationLoop && slider.direction !== 'next') {
+          } else if (slider.currentSlide === 0 && target === slider.count - 1 && slider.vars.animationLoop && slider.direction !== "next") {
             slideString = reverse ? (slider.count + slider.cloneOffset) * dimension : 0;
-          } else if (slider.currentSlide === slider.last && target === 0 && slider.vars.animationLoop && slider.direction !== 'prev') {
+          } else if (slider.currentSlide === slider.last && target === 0 && slider.vars.animationLoop && slider.direction !== "prev") {
             slideString = reverse ? 0 : (slider.count + 1) * dimension;
           } else {
             slideString = reverse ? (slider.count - 1 - target + slider.cloneOffset) * dimension : (target + slider.cloneOffset) * dimension;
           }
 
-          slider.setProps(slideString, '', slider.vars.animationSpeed);
+          slider.setProps(slideString, "", slider.vars.animationSpeed);
 
           if (slider.transitions) {
             if (!slider.vars.animationLoop || !slider.atEnd) {
@@ -11573,8 +11977,8 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
             } // Unbind previous transitionEnd events and re-bind new transitionEnd event
 
 
-            slider.container.unbind('webkitTransitionEnd transitionend');
-            slider.container.bind('webkitTransitionEnd transitionend', function () {
+            slider.container.unbind("webkitTransitionEnd transitionend");
+            slider.container.bind("webkitTransitionEnd transitionend", function () {
               clearTimeout(slider.ensureAnimationEnd);
               slider.wrapup(dimension);
             }); // Insurance for the ever-so-fickle transitionEnd event
@@ -11592,23 +11996,23 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           // FADE:
           if (!touch) {
             slider.slides.eq(slider.currentSlide).css({
-              'zIndex': 1
+              "zIndex": 1
             }).animate({
-              'opacity': 0
+              "opacity": 0
             }, slider.vars.animationSpeed, slider.vars.easing);
             slider.slides.eq(target).css({
-              'zIndex': 2
+              "zIndex": 2
             }).animate({
-              'opacity': 1
+              "opacity": 1
             }, slider.vars.animationSpeed, slider.vars.easing, slider.wrapup);
           } else {
             slider.slides.eq(slider.currentSlide).css({
-              'opacity': 0,
-              'zIndex': 1
+              "opacity": 0,
+              "zIndex": 1
             });
             slider.slides.eq(target).css({
-              'opacity': 1,
-              'zIndex': 2
+              "opacity": 1,
+              "zIndex": 2
             });
             slider.wrapup(dimension);
           }
@@ -11625,9 +12029,9 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
       // SLIDE:
       if (!fade && !carousel) {
         if (slider.currentSlide === 0 && slider.animatingTo === slider.last && slider.vars.animationLoop) {
-          slider.setProps(dimension, 'jumpEnd');
+          slider.setProps(dimension, "jumpEnd");
         } else if (slider.currentSlide === slider.last && slider.animatingTo === 0 && slider.vars.animationLoop) {
-          slider.setProps(dimension, 'jumpStart');
+          slider.setProps(dimension, "jumpStart");
         }
       }
 
@@ -11640,7 +12044,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
     slider.animateSlides = function () {
       if (!slider.animating && focused) {
-        slider.flexAnimate(slider.getTarget('next'));
+        slider.flexAnimate(slider.getTarget("next"));
       }
     }; // SLIDESHOW:
 
@@ -11651,12 +12055,12 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
       slider.playing = false; // PAUSEPLAY:
 
       if (slider.vars.pausePlay) {
-        methods.pausePlay.update('play');
+        methods.pausePlay.update("play");
       } // SYNC:
 
 
       if (slider.syncExists) {
-        methods.sync('pause');
+        methods.sync("pause");
       }
     }; // SLIDESHOW:
 
@@ -11670,12 +12074,12 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
       slider.started = slider.playing = true; // PAUSEPLAY:
 
       if (slider.vars.pausePlay) {
-        methods.pausePlay.update('pause');
+        methods.pausePlay.update("pause");
       } // SYNC:
 
 
       if (slider.syncExists) {
-        methods.sync('play');
+        methods.sync("play");
       }
     }; // STOP:
 
@@ -11688,13 +12092,13 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
     slider.canAdvance = function (target, fromNav) {
       // ASNAV:
       var last = asNav ? slider.pagingCount - 1 : slider.last;
-      return fromNav ? true : asNav && slider.currentItem === slider.count - 1 && target === 0 && slider.direction === 'prev' ? true : asNav && slider.currentItem === 0 && target === slider.pagingCount - 1 && slider.direction !== 'next' ? false : target === slider.currentSlide && !asNav ? false : slider.vars.animationLoop ? true : slider.atEnd && slider.currentSlide === 0 && target === last && slider.direction !== 'next' ? false : slider.atEnd && slider.currentSlide === last && target === 0 && slider.direction === 'next' ? false : true;
+      return fromNav ? true : asNav && slider.currentItem === slider.count - 1 && target === 0 && slider.direction === "prev" ? true : asNav && slider.currentItem === 0 && target === slider.pagingCount - 1 && slider.direction !== "next" ? false : target === slider.currentSlide && !asNav ? false : slider.vars.animationLoop ? true : slider.atEnd && slider.currentSlide === 0 && target === last && slider.direction !== "next" ? false : slider.atEnd && slider.currentSlide === last && target === 0 && slider.direction === "next" ? false : true;
     };
 
     slider.getTarget = function (dir) {
       slider.direction = dir;
 
-      if (dir === 'next') {
+      if (dir === "next") {
         return slider.currentSlide === slider.last ? 0 : slider.currentSlide + 1;
       } else {
         return slider.currentSlide === 0 ? slider.last : slider.currentSlide - 1;
@@ -11707,19 +12111,19 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
         var posCheck = pos ? pos : (slider.itemW + slider.vars.itemMargin) * slider.move * slider.animatingTo,
             posCalc = function () {
           if (carousel) {
-            return special === 'setTouch' ? pos : reverse && slider.animatingTo === slider.last ? 0 : reverse ? slider.limit - (slider.itemW + slider.vars.itemMargin) * slider.move * slider.animatingTo : slider.animatingTo === slider.last ? slider.limit : posCheck;
+            return special === "setTouch" ? pos : reverse && slider.animatingTo === slider.last ? 0 : reverse ? slider.limit - (slider.itemW + slider.vars.itemMargin) * slider.move * slider.animatingTo : slider.animatingTo === slider.last ? slider.limit : posCheck;
           } else {
             switch (special) {
-              case 'setTotal':
+              case "setTotal":
                 return reverse ? (slider.count - 1 - slider.currentSlide + slider.cloneOffset) * pos : (slider.currentSlide + slider.cloneOffset) * pos;
 
-              case 'setTouch':
+              case "setTouch":
                 return reverse ? pos : pos;
 
-              case 'jumpEnd':
+              case "jumpEnd":
                 return reverse ? pos : slider.count * pos;
 
-              case 'jumpStart':
+              case "jumpStart":
                 return reverse ? slider.count * pos : pos;
 
               default:
@@ -11728,14 +12132,14 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           }
         }();
 
-        return posCalc * (slider.vars.rtl ? 1 : -1) + 'px';
+        return posCalc * (slider.vars.rtl ? 1 : -1) + "px";
       }();
 
       if (slider.transitions) {
-        target = vertical ? 'translate3d(0,' + target + ',0)' : 'translate3d(' + ((slider.vars.rtl ? -1 : 1) * parseInt(target) + 'px') + ',0,0)';
-        dur = dur !== undefined ? dur / 1000 + 's' : '0s';
-        slider.container.css('-' + slider.pfx + '-transition-duration', dur);
-        slider.container.css('transition-duration', dur);
+        target = vertical ? "translate3d(0," + target + ",0)" : "translate3d(" + ((slider.vars.rtl ? -1 : 1) * parseInt(target) + 'px') + ",0,0)";
+        dur = dur !== undefined ? dur / 1000 + "s" : "0s";
+        slider.container.css("-" + slider.pfx + "-transition-duration", dur);
+        slider.container.css("transition-duration", dur);
       }
 
       slider.args[slider.prop] = target;
@@ -11752,10 +12156,10 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
       if (!fade) {
         var sliderOffset, arr;
 
-        if (type === 'init') {
+        if (type === "init") {
           slider.viewport = $('<div class="' + namespace + 'viewport"></div>').css({
-            'overflow': 'hidden',
-            'position': 'relative'
+            "overflow": "hidden",
+            "position": "relative"
           }).appendTo(slider).append(slider.container); // INFINITE LOOP:
 
           slider.cloneCount = 0;
@@ -11773,7 +12177,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           slider.cloneCount = 2;
           slider.cloneOffset = 1; // clear out old clones
 
-          if (type !== 'init') {
+          if (type !== "init") {
             slider.container.find('.clone').remove();
           }
 
@@ -11784,34 +12188,34 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
         sliderOffset = reverse ? slider.count - 1 - slider.currentSlide + slider.cloneOffset : slider.currentSlide + slider.cloneOffset; // VERTICAL:
 
         if (vertical && !carousel) {
-          slider.container.height((slider.count + slider.cloneCount) * 200 + '%').css('position', 'absolute').width('100%');
+          slider.container.height((slider.count + slider.cloneCount) * 200 + "%").css("position", "absolute").width("100%");
           setTimeout(function () {
             slider.newSlides.css({
-              'display': 'block'
+              "display": "block"
             });
             slider.doMath();
             slider.viewport.height(slider.h);
-            slider.setProps(sliderOffset * slider.h, 'init');
-          }, type === 'init' ? 100 : 0);
+            slider.setProps(sliderOffset * slider.h, "init");
+          }, type === "init" ? 100 : 0);
         } else {
-          slider.container.width((slider.count + slider.cloneCount) * 200 + '%');
-          slider.setProps(sliderOffset * slider.computedW, 'init');
+          slider.container.width((slider.count + slider.cloneCount) * 200 + "%");
+          slider.setProps(sliderOffset * slider.computedW, "init");
           setTimeout(function () {
             slider.doMath();
 
             if (slider.vars.rtl) {
               slider.newSlides.css({
-                'width': slider.computedW,
-                'marginRight': slider.computedM,
-                'float': 'left',
-                'display': 'block'
+                "width": slider.computedW,
+                "marginRight": slider.computedM,
+                "float": "left",
+                "display": "block"
               });
             } else {
               slider.newSlides.css({
-                'width': slider.computedW,
-                'marginRight': slider.computedM,
-                'float': 'left',
-                'display': 'block'
+                "width": slider.computedW,
+                "marginRight": slider.computedM,
+                "float": "left",
+                "display": "block"
               });
             } // SMOOTH HEIGHT:
 
@@ -11819,59 +12223,59 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
             if (slider.vars.smoothHeight) {
               methods.smoothHeight();
             }
-          }, type === 'init' ? 100 : 0);
+          }, type === "init" ? 100 : 0);
         }
       } else {
         // FADE:
         if (slider.vars.rtl) {
           slider.slides.css({
-            'width': '100%',
-            'float': 'right',
-            'marginLeft': '-100%',
-            'position': 'relative'
+            "width": "100%",
+            "float": 'right',
+            "marginLeft": "-100%",
+            "position": "relative"
           });
         } else {
           slider.slides.css({
-            'width': '100%',
-            'float': 'left',
-            'marginRight': '-100%',
-            'position': 'relative'
+            "width": "100%",
+            "float": 'left',
+            "marginRight": "-100%",
+            "position": "relative"
           });
         }
 
-        if (type === 'init') {
+        if (type === "init") {
           if (!touch) {
             //slider.slides.eq(slider.currentSlide).fadeIn(slider.vars.animationSpeed, slider.vars.easing);
             if (slider.vars.fadeFirstSlide == false) {
               slider.slides.css({
-                'opacity': 0,
-                'display': 'block',
-                'zIndex': 1
+                "opacity": 0,
+                "display": "block",
+                "zIndex": 1
               }).eq(slider.currentSlide).css({
-                'zIndex': 2
+                "zIndex": 2
               }).css({
-                'opacity': 1
+                "opacity": 1
               });
             } else {
               slider.slides.css({
-                'opacity': 0,
-                'display': 'block',
-                'zIndex': 1
+                "opacity": 0,
+                "display": "block",
+                "zIndex": 1
               }).eq(slider.currentSlide).css({
-                'zIndex': 2
+                "zIndex": 2
               }).animate({
-                'opacity': 1
+                "opacity": 1
               }, slider.vars.animationSpeed, slider.vars.easing);
             }
           } else {
             slider.slides.css({
-              'opacity': 0,
-              'display': 'block',
-              'webkitTransition': 'opacity ' + slider.vars.animationSpeed / 1000 + 's ease',
-              'zIndex': 1
+              "opacity": 0,
+              "display": "block",
+              "webkitTransition": "opacity " + slider.vars.animationSpeed / 1000 + "s ease",
+              "zIndex": 1
             }).eq(slider.currentSlide).css({
-              'opacity': 1,
-              'zIndex': 2
+              "opacity": 1,
+              "zIndex": 2
             });
           }
         } // SMOOTH HEIGHT:
@@ -11885,7 +12289,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
 
       if (!carousel) {
-        slider.slides.removeClass(namespace + 'active-slide').eq(slider.currentSlide).addClass(namespace + 'active-slide');
+        slider.slides.removeClass(namespace + "active-slide").eq(slider.currentSlide).addClass(namespace + "active-slide");
       } //FlexSlider: init() Callback
 
 
@@ -11938,15 +12342,15 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
 
       if (slider.vars.controlNav && !slider.manualControls) {
-        if (action === 'add' && !carousel || slider.pagingCount > slider.controlNav.length) {
-          methods.controlNav.update('add');
-        } else if (action === 'remove' && !carousel || slider.pagingCount < slider.controlNav.length) {
+        if (action === "add" && !carousel || slider.pagingCount > slider.controlNav.length) {
+          methods.controlNav.update("add");
+        } else if (action === "remove" && !carousel || slider.pagingCount < slider.controlNav.length) {
           if (carousel && slider.currentSlide > slider.last) {
             slider.currentSlide -= 1;
             slider.animatingTo -= 1;
           }
 
-          methods.controlNav.update('remove', slider.last);
+          methods.controlNav.update("remove", slider.last);
         }
       } // update directionNav
 
@@ -11968,7 +12372,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
       } // update currentSlide, animatingTo, controlNav, and directionNav
 
 
-      slider.update(pos, 'add'); // update slider.slides
+      slider.update(pos, "add"); // update slider.slides
 
       slider.slides = $(slider.vars.selector + ':not(.clone)', slider); // re-setup the slider to accomdate new slide
 
@@ -11991,7 +12395,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
 
       slider.doMath();
-      slider.update(pos, 'remove'); // update slider.slides
+      slider.update(pos, "remove"); // update slider.slides
 
       slider.slides = $(slider.vars.selector + ':not(.clone)', slider); // re-setup the slider to accomdate new slide
 
@@ -12012,15 +12416,15 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
   }); //FlexSlider: Default Settings
 
   $.flexslider.defaults = {
-    namespace: 'flex-',
+    namespace: "flex-",
     //{NEW} String: Prefix string attached to the class of every element generated by the plugin
-    selector: '.slides > li',
+    selector: ".slides > li",
     //{NEW} Selector: Must match a simple pattern. '{container} > {slide}' -- Ignore pattern at your own peril
-    animation: 'fade',
+    animation: "fade",
     //String: Select your animation type, "fade" or "slide"
-    easing: 'swing',
+    easing: "swing",
     //{NEW} String: Determines the easing method used in jQuery transitions. jQuery easing plugin is supported!
-    direction: 'horizontal',
+    direction: "horizontal",
     //String: Select the sliding direction, "horizontal" or "vertical"
     reverse: false,
     //{NEW} Boolean: Reverse the animation direction
@@ -12062,9 +12466,9 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
     //Boolean: Create navigation for paging control of each slide? Note: Leave true for manualControls usage
     directionNav: true,
     //Boolean: Create navigation for previous/next navigation? (true/false)
-    prevText: 'Previous',
+    prevText: "Previous",
     //String: Set the text for the "previous" directionNav item
-    nextText: 'Next',
+    nextText: "Next",
     //String: Set the text for the "next" directionNav item
     // Secondary Navigation
     keyboard: true,
@@ -12075,20 +12479,20 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
     //{UPDATED} Boolean: Requires jquery.mousewheel.js (https://github.com/brandonaaron/jquery-mousewheel) - Allows slider navigating via mousewheel
     pausePlay: false,
     //Boolean: Create pause/play dynamic element
-    pauseText: 'Pause',
+    pauseText: "Pause",
     //String: Set the text for the "pause" pausePlay item
-    playText: 'Play',
+    playText: "Play",
     //String: Set the text for the "play" pausePlay item
     // Special properties
-    controlsContainer: '',
+    controlsContainer: "",
     //{UPDATED} jQuery Object/Selector: Declare which container the navigation elements should be appended too. Default container is the FlexSlider element. Example use would be $(".flexslider-container"). Property is ignored if given element is not found.
-    manualControls: '',
+    manualControls: "",
     //{UPDATED} jQuery Object/Selector: Declare custom control navigation. Examples would be $(".flex-control-nav li") or "#tabs-nav li img", etc. The number of elements in your controlNav should match the number of slides/tabs.
-    customDirectionNav: '',
+    customDirectionNav: "",
     //{NEW} jQuery Object/Selector: Custom prev / next button. Must be two jQuery elements. In order to make the events work they have to have the classes "prev" and "next" (plus namespace)
-    sync: '',
+    sync: "",
     //{NEW} Selector: Mirror the actions performed on this slider with another slider. Use with care.
-    asNavFor: '',
+    asNavFor: "",
     //{NEW} Selector: Internal property exposed for turning the slider into a thumbnail navigation for another slider
     // Carousel Options
     itemWidth: 0,
@@ -12127,10 +12531,10 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
       options = {};
     }
 
-    if ((0,esm_typeof/* default */.Z)(options) === 'object') {
+    if ((0,esm_typeof/* default */.Z)(options) === "object") {
       return this.each(function () {
         var $this = $(this),
-            selector = options.selector ? options.selector : '.slides > li',
+            selector = options.selector ? options.selector : ".slides > li",
             $slides = $this.find(selector);
 
         if ($slides.length === 1 && options.allowOneSlide === false || $slides.length === 0) {
@@ -12148,29 +12552,29 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
       var $slider = $(this).data('flexslider');
 
       switch (options) {
-        case 'play':
+        case "play":
           $slider.play();
           break;
 
-        case 'pause':
+        case "pause":
           $slider.pause();
           break;
 
-        case 'stop':
+        case "stop":
           $slider.stop();
           break;
 
-        case 'next':
-          $slider.flexAnimate($slider.getTarget('next'), true);
+        case "next":
+          $slider.flexAnimate($slider.getTarget("next"), true);
           break;
 
-        case 'prev':
-        case 'previous':
-          $slider.flexAnimate($slider.getTarget('prev'), true);
+        case "prev":
+        case "previous":
+          $slider.flexAnimate($slider.getTarget("prev"), true);
           break;
 
         default:
-          if (typeof options === 'number') {
+          if (typeof options === "number") {
             $slider.flexAnimate(options, true);
           }
 
@@ -12183,9 +12587,9 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
- * <!-- 弹性滑块（第三方插件）Flexslider (Third-party plugin) -->
+ * <!-- Flexslider (Third-party plugin) -->
  *************************************
  */
 
@@ -12250,7 +12654,7 @@ var FLEXSLIDER = function (module, $, window, document) {
       if ((0,esm_typeof/* default */.Z)(dataCountTotal) === ( true ? "undefined" : 0)) dataCountTotal = false;
       if ((0,esm_typeof/* default */.Z)(dataCountCur) === ( true ? "undefined" : 0)) dataCountCur = false;
       if ((0,esm_typeof/* default */.Z)(dataParallax) === ( true ? "undefined" : 0)) dataParallax = false;
-      if ((0,esm_typeof/* default */.Z)(dataShowItemsMove) === ( true ? "undefined" : 0)) dataShowItemsMove = 1; //Add disabled class to custom navigation
+      if ((0,esm_typeof/* default */.Z)(dataShowItemsMove) === ( true ? "undefined" : 0)) dataShowItemsMove = 1; //Add disabled class to custom navigation 
 
       if ((0,esm_typeof/* default */.Z)(dataCustomConID) != ( true ? "undefined" : 0) && dataCustomConID != '' && dataCustomConID != false) {
         var myCustomDirectionNav = $('.uix-flexslider__mycontrols' + dataCustomConID + ' a');
@@ -12283,7 +12687,7 @@ var FLEXSLIDER = function (module, $, window, document) {
         //Remove the slider loading
         //-------------------------------------
         thisSlider.removeClass(pluginNamespace + '-flexslider-loading'); //With Timeline
-        //-------------------------------------
+        //-------------------------------------	
 
         if (dataTimeline && dataTimeline != '') {
           var curPerMinWidth = curIndex / count * 100 + '%',
@@ -12295,7 +12699,7 @@ var FLEXSLIDER = function (module, $, window, document) {
             'transition': 'all ' + parseFloat(thisSlider.vars.slideshowSpeed - thisSlider.vars.animationSpeed) + 'ms linear'
           });
         } //Display Next/Prev image thumbnail in navigation
-        //-------------------------------------
+        //-------------------------------------		
 
 
         if (dataPNThumbs && dataPNThumbs != '') {
@@ -12368,8 +12772,8 @@ var FLEXSLIDER = function (module, $, window, document) {
         //-------------------------------------
 
         if ($.isFunction($.fn.lightbox)) {
-          thisSlider.slides.find('a[rel^=\'theme-slider-prettyPhoto\']').lightbox();
-        } //Return an event from callback function to each slider
+          thisSlider.slides.find("a[rel^='theme-slider-prettyPhoto']").lightbox();
+        } //Return an event from callback function to each slider 
         //with dynamic min/max ranges.
         //-------------------------------------
 
@@ -12413,12 +12817,12 @@ var FLEXSLIDER = function (module, $, window, document) {
 
       if (fireState == 'before') {
         //Common images style
-        //-------------------------------------
+        //-------------------------------------	
         $next.find('img').addClass('is-active');
         $current.find('img').removeClass('is-active');
         $prev.find('img').removeClass('is-active');
         $first.find('img').removeClass('is-active'); //With Timeline
-        //-------------------------------------
+        //-------------------------------------	
 
         if (dataTimeline && dataTimeline != '') {
           //Fires animation effect of an element width.
@@ -12432,7 +12836,7 @@ var FLEXSLIDER = function (module, $, window, document) {
 
       if (fireState == 'end') {
         //Common images style
-        //-------------------------------------
+        //-------------------------------------	
         $first.find('img').addClass('is-active');
       } // Fires asynchronously with each slider animation.
       // Fires when the slider loads the first slide.
@@ -12512,7 +12916,7 @@ var FLEXSLIDER = function (module, $, window, document) {
             myPlayer.play();
             $('#' + coverPlayBtnID).hide();
           });
-        } //Add replay button to video
+        } //Add replay button to video 
 
 
         if ($replayBtn.length == 0) {
@@ -12540,7 +12944,7 @@ var FLEXSLIDER = function (module, $, window, document) {
                 curH = obj.videoHeight(),
                 newW = curW,
                 newH = curH;
-            newW = videoWrapperW; //Scaled/Proportional Content
+            newW = videoWrapperW; //Scaled/Proportional Content 
 
             newH = curH * (newW / curW);
 
@@ -12571,7 +12975,7 @@ var FLEXSLIDER = function (module, $, window, document) {
 
           if (dataAuto) {
             //Fix an error of Video auto play is not working in browser
-            //this.muted( true );
+            //this.muted( true ); 
             //Prevent autoplay error: Uncaught (in promise) DOMException
             var promise = this.play();
 
@@ -12653,7 +13057,7 @@ var FLEXSLIDER = function (module, $, window, document) {
       });
     }
     /*
-     * Make slider image draggable
+     * Make slider image draggable 
      *
      * @param  {Element} $obj             - The current FlexSlider setup using custom selector.
      * @return {Void}
@@ -12668,7 +13072,7 @@ var FLEXSLIDER = function (module, $, window, document) {
       function nextMove() {
         $obj.flexslider('next');
       } //Added touch method to mobile device and desktop
-      //-------------------------------------
+      //-------------------------------------	
 
 
       var $dragTrigger = $obj.find('.uix-flexslider__inner');
@@ -12801,7 +13205,7 @@ var FLEXSLIDER = function (module, $, window, document) {
     /*
     * Method that updates children slides
     * fortunately, since all the children are not animating,
-    * they will only update if the main flexslider updates.
+    * they will only update if the main flexslider updates. 
      *
      * @param  {Number} slideNumber          - The current slider index.
      * @param  {Element} childrenSlidesObj    - Target slider.
@@ -12813,10 +13217,10 @@ var FLEXSLIDER = function (module, $, window, document) {
 
 
     function updateChildrenSlides(slideNumber, childrenSlidesObj, loop, speed, timing) {
-      /**
-       * Create the children flexsliders. Must be array of jquery objects with the
-       * flexslider data. Easiest way is to place selector group in a var.
-       */
+      /** 
+      * Create the children flexsliders. Must be array of jquery objects with the
+      * flexslider data. Easiest way is to place selector group in a var.
+      */
       var childrenSlides = $(childrenSlidesObj).flexslider({
         slideshow: false,
         // Remove the animations
@@ -12832,9 +13236,9 @@ var FLEXSLIDER = function (module, $, window, document) {
         $(childrenSlides[i]).data('flexslider').flexAnimate(slideNumber);
       }
     }
-    /*!
+    /*! 
      ---------------------------
-     Initialize slideshow
+           Initialize slideshow
      ---------------------------
      */
 
@@ -12883,8 +13287,8 @@ var FLEXSLIDER = function (module, $, window, document) {
       if ((0,esm_typeof/* default */.Z)(dataSpeed) === ( true ? "undefined" : 0)) dataSpeed = 600;
       if ((0,esm_typeof/* default */.Z)(dataTiming) === ( true ? "undefined" : 0)) dataTiming = 10000;
       if ((0,esm_typeof/* default */.Z)(dataLoop) === ( true ? "undefined" : 0)) dataLoop = true;
-      if ((0,esm_typeof/* default */.Z)(dataPrev) === ( true ? "undefined" : 0)) dataPrev = '<i class=\'fa fa-chevron-left\'></i>';
-      if ((0,esm_typeof/* default */.Z)(dataNext) === ( true ? "undefined" : 0)) dataNext = '<i class=\'fa fa-chevron-right\'></i>';
+      if ((0,esm_typeof/* default */.Z)(dataPrev) === ( true ? "undefined" : 0)) dataPrev = "<i class='fa fa-chevron-left'></i>";
+      if ((0,esm_typeof/* default */.Z)(dataNext) === ( true ? "undefined" : 0)) dataNext = "<i class='fa fa-chevron-right'></i>";
       if ((0,esm_typeof/* default */.Z)(dataAnim) === ( true ? "undefined" : 0)) dataAnim = 'slide';
       if ((0,esm_typeof/* default */.Z)(dataPaging) === ( true ? "undefined" : 0)) dataPaging = true;
       if ((0,esm_typeof/* default */.Z)(dataArrows) === ( true ? "undefined" : 0)) dataArrows = true;
@@ -12897,7 +13301,7 @@ var FLEXSLIDER = function (module, $, window, document) {
       if ((0,esm_typeof/* default */.Z)(dataCountTotal) === ( true ? "undefined" : 0)) dataCountTotal = false;
       if ((0,esm_typeof/* default */.Z)(dataCountCur) === ( true ? "undefined" : 0)) dataCountCur = false;
       if ((0,esm_typeof/* default */.Z)(dataParallax) === ( true ? "undefined" : 0)) dataParallax = false;
-      if ((0,esm_typeof/* default */.Z)(dataShowItemsMove) === ( true ? "undefined" : 0)) dataShowItemsMove = 1; //Make slider image draggable
+      if ((0,esm_typeof/* default */.Z)(dataShowItemsMove) === ( true ? "undefined" : 0)) dataShowItemsMove = 1; //Make slider image draggable 
 
       if (dataDrag) slidesExDraggable($this, dataSpeed); //Scroll The Slider With Mousewheel
 
@@ -12971,7 +13375,7 @@ var FLEXSLIDER = function (module, $, window, document) {
         },
         //Fires asynchronously with each slider animation.
         before: function before(slider) {
-          initslides($this, slider, 'before'); // Call the updateChildrenSlides which itterates through all children slides
+          initslides($this, slider, 'before'); // Call the updateChildrenSlides which itterates through all children slides 
 
           if ((0,esm_typeof/* default */.Z)(dataSync) != ( true ? "undefined" : 0) && dataSync != '' && dataSync != 0) {
             updateChildrenSlides(slider.animatingTo, dataSync, dataLoop, dataSpeed, dataTiming);
@@ -12987,9 +13391,9 @@ var FLEXSLIDER = function (module, $, window, document) {
         }
       });
     });
-    /*!
+    /*! 
      ---------------------------
-     Check grid size on resize event
+           Check grid size on resize event
      ---------------------------
      */
 
@@ -13033,7 +13437,7 @@ var FLEXSLIDER = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Floating Side Element -->
  *************************************
@@ -13245,9 +13649,9 @@ var FLOATING_SIDE_EL = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
- * <!-- 表单进度 Form Progress -->
+ * <!-- Form Progress -->
  *************************************
  */
 
@@ -13350,26 +13754,3888 @@ var FORM_PROGRESS = function (module, $, window, document) {
     this.module = module;
   });
 }(UixModuleInstance, jQuery, window, document);
-;// CONCATENATED MODULE: ./src/components/form/js/index.js
+;// CONCATENATED MODULE: ./src/components/form/js/fn/normal-radio.js
+
+
+/*
+ * Render Normal Radio
+ *
+ * @param  {String} controls                 - Wrapper of controls.
+ * @return {Void}
+ */
+(function ($) {
+  'use strict';
+
+  $.fn.UixRenderNormalRadio = function (options) {
+    // This is the easiest way to have default options.
+    var settings = $.extend({
+      controls: '.uix-controls__radio'
+    }, options);
+    this.each(function () {
+      $(settings.controls).each(function () {
+        var $this = $(this); // Initialize status
+        //------------------------------------------
+
+        $this.find('> label').each(function () {
+          var targetID = '#' + $(this).parent().attr("data-targetid");
+          var switchIDs = ''; //add switch IDs
+
+          $(this).parent().find('> label').each(function () {
+            if ((0,esm_typeof/* default */.Z)($(this).data("switchid")) != ( true ? "undefined" : 0)) {
+              switchIDs += $(this).data("switchid") + ',';
+            }
+          });
+          $(this).parent().attr("data-switchids", switchIDs.replace(/,\s*$/, '')); //Set actived style from their values
+
+          if ((0,esm_typeof/* default */.Z)($(this).data('value')) != ( true ? "undefined" : 0)) {
+            if ($(targetID).val() == $(this).data('value')) {
+              $(this).addClass('is-active').find('[type="radio"]').prop('checked', true);
+            } else {
+              $(this).removeClass('is-active').find('[type="radio"]').prop('checked', false);
+            }
+          }
+        }); // Mouse events
+        //------------------------------------------
+
+        var normalRadioItem = settings.controls + ' > label';
+        /*
+        * Initialize single switch
+        *
+        * @param  {Element} obj                 - Radio controls. 
+        * @return {Void}
+        */
+
+        var hideAllNormalRadioItems = function hideAllNormalRadioItems(obj) {
+          obj.each(function (index) {
+            var $sel = $(this),
+                defaultValue = $('#' + $sel.attr("data-targetid")).val(),
+                deffaultSwitchIndex = 0; //get default selected switch index
+
+            $sel.find('> label').each(function (index) {
+              if (defaultValue == $(this).data('value')) {
+                deffaultSwitchIndex = index;
+              }
+            });
+
+            if ((0,esm_typeof/* default */.Z)($sel.data('switchids')) != ( true ? "undefined" : 0) && $sel.data('switchids') != '') {
+              var _switchIDsArr = $sel.data('switchids').split(',');
+
+              _switchIDsArr.forEach(function (element, index) {
+                if (deffaultSwitchIndex != index) {
+                  $('#' + element).hide();
+                } else {
+                  $('#' + element).show();
+                }
+              });
+            }
+          });
+        };
+
+        hideAllNormalRadioItems($(settings.controls));
+        $(document).off('click.FORM_NORMAL_RADIO').on('click.FORM_NORMAL_RADIO', normalRadioItem, function (e) {
+          var $selector = $(this).parent(),
+              $option = $(this),
+              targetID = '#' + $selector.data("targetid"),
+              switchID = '#' + $option.data("switchid"),
+              curVal = $option.data('value'); //Radio Selector
+
+          $selector.find('> label').removeClass('is-active').find('[type="radio"]').prop('checked', false);
+          $(targetID).val(curVal);
+          $option.addClass('is-active').find('[type="radio"]').prop('checked', true); //Switch some options
+
+          if ((0,esm_typeof/* default */.Z)($option.data("switchid")) != ( true ? "undefined" : 0)) {
+            hideAllNormalRadioItems($selector);
+            $(switchID).show();
+          } //Dynamic listening for the latest value
+
+
+          $(targetID).focus().blur();
+        });
+      });
+    });
+  };
+})(jQuery);
+// EXTERNAL MODULE: ./src/components/form/js/third-party/jquery.mousewheel.esm.js
+var jquery_mousewheel_esm = __webpack_require__(126);
+;// CONCATENATED MODULE: ./src/components/form/js/third-party/jquery.datetimepicker.esm.js
+
+
+/*!
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2016
+ * @version 1.3.4
+ *
+ * Date formatter utility library that allows formatting date/time variables or Date objects using PHP DateTime format.
+ * @see http://php.net/manual/en/function.date.php
+ *
+ * For more JQuery plugins visit http://plugins.krajee.com
+ * For more Yii related demos visit http://demos.krajee.com
+ */
+
+var DateFormatter;
+!function () {
+  "use strict";
+
+  var t, _e, _r, n, a, u, i;
+
+  u = 864e5, i = 3600, t = function t(_t, e) {
+    return "string" == typeof _t && "string" == typeof e && _t.toLowerCase() === e.toLowerCase();
+  }, _e = function e(t, r, n) {
+    var a = n || "0",
+        u = t.toString();
+    return u.length < r ? _e(a + u, r) : u;
+  }, _r = function r(t) {
+    var e, n;
+
+    for (t = t || {}, e = 1; e < arguments.length; e++) {
+      if (n = arguments[e]) for (var a in n) {
+        n.hasOwnProperty(a) && ("object" == (0,esm_typeof/* default */.Z)(n[a]) ? _r(t[a], n[a]) : t[a] = n[a]);
+      }
+    }
+
+    return t;
+  }, n = function n(t, e) {
+    for (var r = 0; r < e.length; r++) {
+      if (e[r].toLowerCase() === t.toLowerCase()) return r;
+    }
+
+    return -1;
+  }, a = {
+    dateSettings: {
+      days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      meridiem: ["AM", "PM"],
+      ordinal: function ordinal(t) {
+        var e = t % 10,
+            r = {
+          1: "st",
+          2: "nd",
+          3: "rd"
+        };
+        return 1 !== Math.floor(t % 100 / 10) && r[e] ? r[e] : "th";
+      }
+    },
+    separators: /[ \-+\/\.T:@]/g,
+    validParts: /[dDjlNSwzWFmMntLoYyaABgGhHisueTIOPZcrU]/g,
+    intParts: /[djwNzmnyYhHgGis]/g,
+    tzParts: /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g,
+    tzClip: /[^-+\dA-Z]/g
+  }, DateFormatter = function DateFormatter(t) {
+    var e = this,
+        n = _r(a, t);
+
+    e.dateSettings = n.dateSettings, e.separators = n.separators, e.validParts = n.validParts, e.intParts = n.intParts, e.tzParts = n.tzParts, e.tzClip = n.tzClip;
+  }, DateFormatter.prototype = {
+    constructor: DateFormatter,
+    getMonth: function getMonth(t) {
+      var e,
+          r = this;
+      return e = n(t, r.dateSettings.monthsShort) + 1, 0 === e && (e = n(t, r.dateSettings.months) + 1), e;
+    },
+    parseDate: function parseDate(e, r) {
+      var n,
+          a,
+          u,
+          i,
+          s,
+          o,
+          c,
+          f,
+          l,
+          h,
+          d = this,
+          g = !1,
+          m = !1,
+          p = d.dateSettings,
+          y = {
+        date: null,
+        year: null,
+        month: null,
+        day: null,
+        hour: 0,
+        min: 0,
+        sec: 0
+      };
+      if (!e) return null;
+      if (e instanceof Date) return e;
+      if ("U" === r) return u = parseInt(e), u ? new Date(1e3 * u) : e;
+
+      switch ((0,esm_typeof/* default */.Z)(e)) {
+        case "number":
+          return new Date(e);
+
+        case "string":
+          break;
+
+        default:
+          return null;
+      }
+
+      if (n = r.match(d.validParts), !n || 0 === n.length) throw new Error("Invalid date format definition.");
+
+      for (a = e.replace(d.separators, "\x00").split("\x00"), u = 0; u < a.length; u++) {
+        switch (i = a[u], s = parseInt(i), n[u]) {
+          case "y":
+          case "Y":
+            if (!s) return null;
+            l = i.length, y.year = 2 === l ? parseInt((70 > s ? "20" : "19") + i) : s, g = !0;
+            break;
+
+          case "m":
+          case "n":
+          case "M":
+          case "F":
+            if (isNaN(s)) {
+              if (o = d.getMonth(i), !(o > 0)) return null;
+              y.month = o;
+            } else {
+              if (!(s >= 1 && 12 >= s)) return null;
+              y.month = s;
+            }
+
+            g = !0;
+            break;
+
+          case "d":
+          case "j":
+            if (!(s >= 1 && 31 >= s)) return null;
+            y.day = s, g = !0;
+            break;
+
+          case "g":
+          case "h":
+            if (c = n.indexOf("a") > -1 ? n.indexOf("a") : n.indexOf("A") > -1 ? n.indexOf("A") : -1, h = a[c], c > -1) f = t(h, p.meridiem[0]) ? 0 : t(h, p.meridiem[1]) ? 12 : -1, s >= 1 && 12 >= s && f > -1 ? y.hour = s + f - 1 : s >= 0 && 23 >= s && (y.hour = s);else {
+              if (!(s >= 0 && 23 >= s)) return null;
+              y.hour = s;
+            }
+            m = !0;
+            break;
+
+          case "G":
+          case "H":
+            if (!(s >= 0 && 23 >= s)) return null;
+            y.hour = s, m = !0;
+            break;
+
+          case "i":
+            if (!(s >= 0 && 59 >= s)) return null;
+            y.min = s, m = !0;
+            break;
+
+          case "s":
+            if (!(s >= 0 && 59 >= s)) return null;
+            y.sec = s, m = !0;
+        }
+      }
+
+      if (g === !0 && y.year && y.month && y.day) y.date = new Date(y.year, y.month - 1, y.day, y.hour, y.min, y.sec, 0);else {
+        if (m !== !0) return null;
+        y.date = new Date(0, 0, 0, y.hour, y.min, y.sec, 0);
+      }
+      return y.date;
+    },
+    guessDate: function guessDate(t, e) {
+      if ("string" != typeof t) return t;
+      var r,
+          n,
+          a,
+          u,
+          i,
+          s,
+          o = this,
+          c = t.replace(o.separators, "\x00").split("\x00"),
+          f = /^[djmn]/g,
+          l = e.match(o.validParts),
+          h = new Date(),
+          d = 0;
+      if (!f.test(l[0])) return t;
+
+      for (a = 0; a < c.length; a++) {
+        if (d = 2, i = c[a], s = parseInt(i.substr(0, 2)), isNaN(s)) return null;
+
+        switch (a) {
+          case 0:
+            "m" === l[0] || "n" === l[0] ? h.setMonth(s - 1) : h.setDate(s);
+            break;
+
+          case 1:
+            "m" === l[0] || "n" === l[0] ? h.setDate(s) : h.setMonth(s - 1);
+            break;
+
+          case 2:
+            if (n = h.getFullYear(), r = i.length, d = 4 > r ? r : 4, n = parseInt(4 > r ? n.toString().substr(0, 4 - r) + i : i.substr(0, 4)), !n) return null;
+            h.setFullYear(n);
+            break;
+
+          case 3:
+            h.setHours(s);
+            break;
+
+          case 4:
+            h.setMinutes(s);
+            break;
+
+          case 5:
+            h.setSeconds(s);
+        }
+
+        u = i.substr(d), u.length > 0 && c.splice(a + 1, 0, u);
+      }
+
+      return h;
+    },
+    parseFormat: function parseFormat(t, r) {
+      var n,
+          a = this,
+          s = a.dateSettings,
+          o = /\\?(.?)/gi,
+          _c = function c(t, e) {
+        return n[t] ? n[t]() : e;
+      };
+
+      return n = {
+        d: function d() {
+          return _e(n.j(), 2);
+        },
+        D: function D() {
+          return s.daysShort[n.w()];
+        },
+        j: function j() {
+          return r.getDate();
+        },
+        l: function l() {
+          return s.days[n.w()];
+        },
+        N: function N() {
+          return n.w() || 7;
+        },
+        w: function w() {
+          return r.getDay();
+        },
+        z: function z() {
+          var t = new Date(n.Y(), n.n() - 1, n.j()),
+              e = new Date(n.Y(), 0, 1);
+          return Math.round((t - e) / u);
+        },
+        W: function W() {
+          var t = new Date(n.Y(), n.n() - 1, n.j() - n.N() + 3),
+              r = new Date(t.getFullYear(), 0, 4);
+          return _e(1 + Math.round((t - r) / u / 7), 2);
+        },
+        F: function F() {
+          return s.months[r.getMonth()];
+        },
+        m: function m() {
+          return _e(n.n(), 2);
+        },
+        M: function M() {
+          return s.monthsShort[r.getMonth()];
+        },
+        n: function n() {
+          return r.getMonth() + 1;
+        },
+        t: function t() {
+          return new Date(n.Y(), n.n(), 0).getDate();
+        },
+        L: function L() {
+          var t = n.Y();
+          return t % 4 === 0 && t % 100 !== 0 || t % 400 === 0 ? 1 : 0;
+        },
+        o: function o() {
+          var t = n.n(),
+              e = n.W(),
+              r = n.Y();
+          return r + (12 === t && 9 > e ? 1 : 1 === t && e > 9 ? -1 : 0);
+        },
+        Y: function Y() {
+          return r.getFullYear();
+        },
+        y: function y() {
+          return n.Y().toString().slice(-2);
+        },
+        a: function a() {
+          return n.A().toLowerCase();
+        },
+        A: function A() {
+          var t = n.G() < 12 ? 0 : 1;
+          return s.meridiem[t];
+        },
+        B: function B() {
+          var t = r.getUTCHours() * i,
+              n = 60 * r.getUTCMinutes(),
+              a = r.getUTCSeconds();
+          return _e(Math.floor((t + n + a + i) / 86.4) % 1e3, 3);
+        },
+        g: function g() {
+          return n.G() % 12 || 12;
+        },
+        G: function G() {
+          return r.getHours();
+        },
+        h: function h() {
+          return _e(n.g(), 2);
+        },
+        H: function H() {
+          return _e(n.G(), 2);
+        },
+        i: function i() {
+          return _e(r.getMinutes(), 2);
+        },
+        s: function s() {
+          return _e(r.getSeconds(), 2);
+        },
+        u: function u() {
+          return _e(1e3 * r.getMilliseconds(), 6);
+        },
+        e: function e() {
+          var t = /\((.*)\)/.exec(String(r))[1];
+          return t || "Coordinated Universal Time";
+        },
+        I: function I() {
+          var t = new Date(n.Y(), 0),
+              e = Date.UTC(n.Y(), 0),
+              r = new Date(n.Y(), 6),
+              a = Date.UTC(n.Y(), 6);
+          return t - e !== r - a ? 1 : 0;
+        },
+        O: function O() {
+          var t = r.getTimezoneOffset(),
+              n = Math.abs(t);
+          return (t > 0 ? "-" : "+") + _e(100 * Math.floor(n / 60) + n % 60, 4);
+        },
+        P: function P() {
+          var t = n.O();
+          return t.substr(0, 3) + ":" + t.substr(3, 2);
+        },
+        T: function T() {
+          var t = (String(r).match(a.tzParts) || [""]).pop().replace(a.tzClip, "");
+          return t || "UTC";
+        },
+        Z: function Z() {
+          return 60 * -r.getTimezoneOffset();
+        },
+        c: function c() {
+          return "Y-m-d\\TH:i:sP".replace(o, _c);
+        },
+        r: function r() {
+          return "D, d M Y H:i:s O".replace(o, _c);
+        },
+        U: function U() {
+          return r.getTime() / 1e3 || 0;
+        }
+      }, _c(t, t);
+    },
+    formatDate: function formatDate(t, e) {
+      var r,
+          n,
+          a,
+          u,
+          i,
+          s = this,
+          o = "",
+          c = "\\";
+      if ("string" == typeof t && (t = s.parseDate(t, e), !t)) return null;
+
+      if (t instanceof Date) {
+        for (a = e.length, r = 0; a > r; r++) {
+          i = e.charAt(r), "S" !== i && i !== c && (r > 0 && e.charAt(r - 1) === c ? o += i : (u = s.parseFormat(i, t), r !== a - 1 && s.intParts.test(i) && "S" === e.charAt(r + 1) && (n = parseInt(u) || 0, u += s.dateSettings.ordinal(n)), o += u));
+        }
+
+        return o;
+      }
+
+      return "";
+    }
+  };
+}();
+/**
+* @preserve jQuery DateTimePicker
+* @homepage http://xdsoft.net/jqplugins/datetimepicker/
+* @author Chupurnov Valeriy (<chupurnov@gmail.com>)
+*/
+
+(function ($) {
+  'use strict';
+
+  var default_options = {
+    i18n: {
+      ar: {
+        // Arabic
+        months: ["كانون الثاني", "شباط", "آذار", "نيسان", "مايو", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول"],
+        dayOfWeekShort: ["ن", "ث", "ع", "خ", "ج", "س", "ح"],
+        dayOfWeek: ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت", "الأحد"]
+      },
+      ro: {
+        // Romanian
+        months: ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"],
+        dayOfWeekShort: ["Du", "Lu", "Ma", "Mi", "Jo", "Vi", "Sâ"],
+        dayOfWeek: ["Duminică", "Luni", "Marţi", "Miercuri", "Joi", "Vineri", "Sâmbătă"]
+      },
+      id: {
+        // Indonesian
+        months: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+        dayOfWeekShort: ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
+        dayOfWeek: ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+      },
+      is: {
+        // Icelandic
+        months: ["Janúar", "Febrúar", "Mars", "Apríl", "Maí", "Júní", "Júlí", "Ágúst", "September", "Október", "Nóvember", "Desember"],
+        dayOfWeekShort: ["Sun", "Mán", "Þrið", "Mið", "Fim", "Fös", "Lau"],
+        dayOfWeek: ["Sunnudagur", "Mánudagur", "Þriðjudagur", "Miðvikudagur", "Fimmtudagur", "Föstudagur", "Laugardagur"]
+      },
+      bg: {
+        // Bulgarian
+        months: ["Януари", "Февруари", "Март", "Април", "Май", "Юни", "Юли", "Август", "Септември", "Октомври", "Ноември", "Декември"],
+        dayOfWeekShort: ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+        dayOfWeek: ["Неделя", "Понеделник", "Вторник", "Сряда", "Четвъртък", "Петък", "Събота"]
+      },
+      fa: {
+        // Persian/Farsi
+        months: ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'],
+        dayOfWeekShort: ['یکشنبه', 'دوشنبه', 'سه شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'],
+        dayOfWeek: ["یک‌شنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنج‌شنبه", "جمعه", "شنبه", "یک‌شنبه"]
+      },
+      ru: {
+        // Russian
+        months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+        dayOfWeekShort: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+        dayOfWeek: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
+      },
+      uk: {
+        // Ukrainian
+        months: ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'],
+        dayOfWeekShort: ["Ндл", "Пнд", "Втр", "Срд", "Чтв", "Птн", "Сбт"],
+        dayOfWeek: ["Неділя", "Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота"]
+      },
+      en: {
+        // English
+        months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        dayOfWeekShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+      },
+      el: {
+        // Ελληνικά
+        months: ["Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάιος", "Ιούνιος", "Ιούλιος", "Αύγουστος", "Σεπτέμβριος", "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος"],
+        dayOfWeekShort: ["Κυρ", "Δευ", "Τρι", "Τετ", "Πεμ", "Παρ", "Σαβ"],
+        dayOfWeek: ["Κυριακή", "Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο"]
+      },
+      de: {
+        // German
+        months: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+        dayOfWeekShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+        dayOfWeek: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
+      },
+      nl: {
+        // Dutch
+        months: ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"],
+        dayOfWeekShort: ["zo", "ma", "di", "wo", "do", "vr", "za"],
+        dayOfWeek: ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"]
+      },
+      tr: {
+        // Turkish
+        months: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
+        dayOfWeekShort: ["Paz", "Pts", "Sal", "Çar", "Per", "Cum", "Cts"],
+        dayOfWeek: ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"]
+      },
+      fr: {
+        //French
+        months: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+        dayOfWeekShort: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
+        dayOfWeek: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"]
+      },
+      es: {
+        // Spanish
+        months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+        dayOfWeekShort: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
+        dayOfWeek: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
+      },
+      th: {
+        // Thai
+        months: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'],
+        dayOfWeekShort: ['อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.'],
+        dayOfWeek: ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัส", "ศุกร์", "เสาร์", "อาทิตย์"]
+      },
+      pl: {
+        // Polish
+        months: ["styczeń", "luty", "marzec", "kwiecień", "maj", "czerwiec", "lipiec", "sierpień", "wrzesień", "październik", "listopad", "grudzień"],
+        dayOfWeekShort: ["nd", "pn", "wt", "śr", "cz", "pt", "sb"],
+        dayOfWeek: ["niedziela", "poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota"]
+      },
+      pt: {
+        // Portuguese
+        months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+        dayOfWeekShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
+        dayOfWeek: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+      },
+      ch: {
+        // Simplified Chinese
+        months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        dayOfWeekShort: ["日", "一", "二", "三", "四", "五", "六"]
+      },
+      se: {
+        // Swedish
+        months: ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"],
+        dayOfWeekShort: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"]
+      },
+      km: {
+        // Khmer (ភាសាខ្មែរ)
+        months: ["មករា​", "កុម្ភៈ", "មិនា​", "មេសា​", "ឧសភា​", "មិថុនា​", "កក្កដា​", "សីហា​", "កញ្ញា​", "តុលា​", "វិច្ឆិកា", "ធ្នូ​"],
+        dayOfWeekShort: ["អាទិ​", "ច័ន្ទ​", "អង្គារ​", "ពុធ​", "ព្រហ​​", "សុក្រ​", "សៅរ៍"],
+        dayOfWeek: ["អាទិត្យ​", "ច័ន្ទ​", "អង្គារ​", "ពុធ​", "ព្រហស្បតិ៍​", "សុក្រ​", "សៅរ៍"]
+      },
+      kr: {
+        // Korean
+        months: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+        dayOfWeekShort: ["일", "월", "화", "수", "목", "금", "토"],
+        dayOfWeek: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"]
+      },
+      it: {
+        // Italian
+        months: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"],
+        dayOfWeekShort: ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
+        dayOfWeek: ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"]
+      },
+      da: {
+        // Dansk
+        months: ["Januar", "Februar", "Marts", "April", "Maj", "Juni", "Juli", "August", "September", "Oktober", "November", "December"],
+        dayOfWeekShort: ["Søn", "Man", "Tir", "Ons", "Tor", "Fre", "Lør"],
+        dayOfWeek: ["søndag", "mandag", "tirsdag", "onsdag", "torsdag", "fredag", "lørdag"]
+      },
+      no: {
+        // Norwegian
+        months: ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"],
+        dayOfWeekShort: ["Søn", "Man", "Tir", "Ons", "Tor", "Fre", "Lør"],
+        dayOfWeek: ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag']
+      },
+      ja: {
+        // Japanese
+        months: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+        dayOfWeekShort: ["日", "月", "火", "水", "木", "金", "土"],
+        dayOfWeek: ["日曜", "月曜", "火曜", "水曜", "木曜", "金曜", "土曜"]
+      },
+      vi: {
+        // Vietnamese
+        months: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+        dayOfWeekShort: ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
+        dayOfWeek: ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"]
+      },
+      sl: {
+        // Slovenščina
+        months: ["Januar", "Februar", "Marec", "April", "Maj", "Junij", "Julij", "Avgust", "September", "Oktober", "November", "December"],
+        dayOfWeekShort: ["Ned", "Pon", "Tor", "Sre", "Čet", "Pet", "Sob"],
+        dayOfWeek: ["Nedelja", "Ponedeljek", "Torek", "Sreda", "Četrtek", "Petek", "Sobota"]
+      },
+      cs: {
+        // Čeština
+        months: ["Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"],
+        dayOfWeekShort: ["Ne", "Po", "Út", "St", "Čt", "Pá", "So"]
+      },
+      hu: {
+        // Hungarian
+        months: ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"],
+        dayOfWeekShort: ["Va", "Hé", "Ke", "Sze", "Cs", "Pé", "Szo"],
+        dayOfWeek: ["vasárnap", "hétfő", "kedd", "szerda", "csütörtök", "péntek", "szombat"]
+      },
+      az: {
+        //Azerbaijanian (Azeri)
+        months: ["Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul", "Avqust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr"],
+        dayOfWeekShort: ["B", "Be", "Ça", "Ç", "Ca", "C", "Ş"],
+        dayOfWeek: ["Bazar", "Bazar ertəsi", "Çərşənbə axşamı", "Çərşənbə", "Cümə axşamı", "Cümə", "Şənbə"]
+      },
+      bs: {
+        //Bosanski
+        months: ["Januar", "Februar", "Mart", "April", "Maj", "Jun", "Jul", "Avgust", "Septembar", "Oktobar", "Novembar", "Decembar"],
+        dayOfWeekShort: ["Ned", "Pon", "Uto", "Sri", "Čet", "Pet", "Sub"],
+        dayOfWeek: ["Nedjelja", "Ponedjeljak", "Utorak", "Srijeda", "Četvrtak", "Petak", "Subota"]
+      },
+      ca: {
+        //Català
+        months: ["Gener", "Febrer", "Març", "Abril", "Maig", "Juny", "Juliol", "Agost", "Setembre", "Octubre", "Novembre", "Desembre"],
+        dayOfWeekShort: ["Dg", "Dl", "Dt", "Dc", "Dj", "Dv", "Ds"],
+        dayOfWeek: ["Diumenge", "Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte"]
+      },
+      'en-GB': {
+        //English (British)
+        months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        dayOfWeekShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+      },
+      et: {
+        //"Eesti"
+        months: ["Jaanuar", "Veebruar", "Märts", "Aprill", "Mai", "Juuni", "Juuli", "August", "September", "Oktoober", "November", "Detsember"],
+        dayOfWeekShort: ["P", "E", "T", "K", "N", "R", "L"],
+        dayOfWeek: ["Pühapäev", "Esmaspäev", "Teisipäev", "Kolmapäev", "Neljapäev", "Reede", "Laupäev"]
+      },
+      eu: {
+        //Euskara
+        months: ["Urtarrila", "Otsaila", "Martxoa", "Apirila", "Maiatza", "Ekaina", "Uztaila", "Abuztua", "Iraila", "Urria", "Azaroa", "Abendua"],
+        dayOfWeekShort: ["Ig.", "Al.", "Ar.", "Az.", "Og.", "Or.", "La."],
+        dayOfWeek: ['Igandea', 'Astelehena', 'Asteartea', 'Asteazkena', 'Osteguna', 'Ostirala', 'Larunbata']
+      },
+      fi: {
+        //Finnish (Suomi)
+        months: ["Tammikuu", "Helmikuu", "Maaliskuu", "Huhtikuu", "Toukokuu", "Kesäkuu", "Heinäkuu", "Elokuu", "Syyskuu", "Lokakuu", "Marraskuu", "Joulukuu"],
+        dayOfWeekShort: ["Su", "Ma", "Ti", "Ke", "To", "Pe", "La"],
+        dayOfWeek: ["sunnuntai", "maanantai", "tiistai", "keskiviikko", "torstai", "perjantai", "lauantai"]
+      },
+      gl: {
+        //Galego
+        months: ["Xan", "Feb", "Maz", "Abr", "Mai", "Xun", "Xul", "Ago", "Set", "Out", "Nov", "Dec"],
+        dayOfWeekShort: ["Dom", "Lun", "Mar", "Mer", "Xov", "Ven", "Sab"],
+        dayOfWeek: ["Domingo", "Luns", "Martes", "Mércores", "Xoves", "Venres", "Sábado"]
+      },
+      hr: {
+        //Hrvatski
+        months: ["Siječanj", "Veljača", "Ožujak", "Travanj", "Svibanj", "Lipanj", "Srpanj", "Kolovoz", "Rujan", "Listopad", "Studeni", "Prosinac"],
+        dayOfWeekShort: ["Ned", "Pon", "Uto", "Sri", "Čet", "Pet", "Sub"],
+        dayOfWeek: ["Nedjelja", "Ponedjeljak", "Utorak", "Srijeda", "Četvrtak", "Petak", "Subota"]
+      },
+      ko: {
+        //Korean (한국어)
+        months: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+        dayOfWeekShort: ["일", "월", "화", "수", "목", "금", "토"],
+        dayOfWeek: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"]
+      },
+      lt: {
+        //Lithuanian (lietuvių)
+        months: ["Sausio", "Vasario", "Kovo", "Balandžio", "Gegužės", "Birželio", "Liepos", "Rugpjūčio", "Rugsėjo", "Spalio", "Lapkričio", "Gruodžio"],
+        dayOfWeekShort: ["Sek", "Pir", "Ant", "Tre", "Ket", "Pen", "Šeš"],
+        dayOfWeek: ["Sekmadienis", "Pirmadienis", "Antradienis", "Trečiadienis", "Ketvirtadienis", "Penktadienis", "Šeštadienis"]
+      },
+      lv: {
+        //Latvian (Latviešu)
+        months: ["Janvāris", "Februāris", "Marts", "Aprīlis ", "Maijs", "Jūnijs", "Jūlijs", "Augusts", "Septembris", "Oktobris", "Novembris", "Decembris"],
+        dayOfWeekShort: ["Sv", "Pr", "Ot", "Tr", "Ct", "Pk", "St"],
+        dayOfWeek: ["Svētdiena", "Pirmdiena", "Otrdiena", "Trešdiena", "Ceturtdiena", "Piektdiena", "Sestdiena"]
+      },
+      mk: {
+        //Macedonian (Македонски)
+        months: ["јануари", "февруари", "март", "април", "мај", "јуни", "јули", "август", "септември", "октомври", "ноември", "декември"],
+        dayOfWeekShort: ["нед", "пон", "вто", "сре", "чет", "пет", "саб"],
+        dayOfWeek: ["Недела", "Понеделник", "Вторник", "Среда", "Четврток", "Петок", "Сабота"]
+      },
+      mn: {
+        //Mongolian (Монгол)
+        months: ["1-р сар", "2-р сар", "3-р сар", "4-р сар", "5-р сар", "6-р сар", "7-р сар", "8-р сар", "9-р сар", "10-р сар", "11-р сар", "12-р сар"],
+        dayOfWeekShort: ["Дав", "Мяг", "Лха", "Пүр", "Бсн", "Бям", "Ням"],
+        dayOfWeek: ["Даваа", "Мягмар", "Лхагва", "Пүрэв", "Баасан", "Бямба", "Ням"]
+      },
+      'pt-BR': {
+        //Português(Brasil)
+        months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+        dayOfWeekShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
+        dayOfWeek: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+      },
+      sk: {
+        //Slovenčina
+        months: ["Január", "Február", "Marec", "Apríl", "Máj", "Jún", "Júl", "August", "September", "Október", "November", "December"],
+        dayOfWeekShort: ["Ne", "Po", "Ut", "St", "Št", "Pi", "So"],
+        dayOfWeek: ["Nedeľa", "Pondelok", "Utorok", "Streda", "Štvrtok", "Piatok", "Sobota"]
+      },
+      sq: {
+        //Albanian (Shqip)
+        months: ["Janar", "Shkurt", "Mars", "Prill", "Maj", "Qershor", "Korrik", "Gusht", "Shtator", "Tetor", "Nëntor", "Dhjetor"],
+        dayOfWeekShort: ["Die", "Hën", "Mar", "Mër", "Enj", "Pre", "Shtu"],
+        dayOfWeek: ["E Diel", "E Hënë", "E Martē", "E Mërkurë", "E Enjte", "E Premte", "E Shtunë"]
+      },
+      'sr-YU': {
+        //Serbian (Srpski)
+        months: ["Januar", "Februar", "Mart", "April", "Maj", "Jun", "Jul", "Avgust", "Septembar", "Oktobar", "Novembar", "Decembar"],
+        dayOfWeekShort: ["Ned", "Pon", "Uto", "Sre", "čet", "Pet", "Sub"],
+        dayOfWeek: ["Nedelja", "Ponedeljak", "Utorak", "Sreda", "Četvrtak", "Petak", "Subota"]
+      },
+      sr: {
+        //Serbian Cyrillic (Српски)
+        months: ["јануар", "фебруар", "март", "април", "мај", "јун", "јул", "август", "септембар", "октобар", "новембар", "децембар"],
+        dayOfWeekShort: ["нед", "пон", "уто", "сре", "чет", "пет", "суб"],
+        dayOfWeek: ["Недеља", "Понедељак", "Уторак", "Среда", "Четвртак", "Петак", "Субота"]
+      },
+      sv: {
+        //Svenska
+        months: ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"],
+        dayOfWeekShort: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
+        dayOfWeek: ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"]
+      },
+      'zh-TW': {
+        //Traditional Chinese (繁體中文)
+        months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        dayOfWeekShort: ["日", "一", "二", "三", "四", "五", "六"],
+        dayOfWeek: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+      },
+      zh: {
+        //Simplified Chinese (简体中文)
+        months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        dayOfWeekShort: ["日", "一", "二", "三", "四", "五", "六"],
+        dayOfWeek: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+      },
+      ug: {
+        // Uyghur(ئۇيغۇرچە)
+        months: ["1-ئاي", "2-ئاي", "3-ئاي", "4-ئاي", "5-ئاي", "6-ئاي", "7-ئاي", "8-ئاي", "9-ئاي", "10-ئاي", "11-ئاي", "12-ئاي"],
+        dayOfWeek: ["يەكشەنبە", "دۈشەنبە", "سەيشەنبە", "چارشەنبە", "پەيشەنبە", "جۈمە", "شەنبە"]
+      },
+      he: {
+        //Hebrew (עברית)
+        months: ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי', 'אוגוסט', 'ספטמבר', 'אוקטובר', 'נובמבר', 'דצמבר'],
+        dayOfWeekShort: ['א\'', 'ב\'', 'ג\'', 'ד\'', 'ה\'', 'ו\'', 'שבת'],
+        dayOfWeek: ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת", "ראשון"]
+      },
+      hy: {
+        // Armenian
+        months: ["Հունվար", "Փետրվար", "Մարտ", "Ապրիլ", "Մայիս", "Հունիս", "Հուլիս", "Օգոստոս", "Սեպտեմբեր", "Հոկտեմբեր", "Նոյեմբեր", "Դեկտեմբեր"],
+        dayOfWeekShort: ["Կի", "Երկ", "Երք", "Չոր", "Հնգ", "Ուրբ", "Շբթ"],
+        dayOfWeek: ["Կիրակի", "Երկուշաբթի", "Երեքշաբթի", "Չորեքշաբթի", "Հինգշաբթի", "Ուրբաթ", "Շաբաթ"]
+      },
+      kg: {
+        // Kyrgyz
+        months: ['Үчтүн айы', 'Бирдин айы', 'Жалган Куран', 'Чын Куран', 'Бугу', 'Кулжа', 'Теке', 'Баш Оона', 'Аяк Оона', 'Тогуздун айы', 'Жетинин айы', 'Бештин айы'],
+        dayOfWeekShort: ["Жек", "Дүй", "Шей", "Шар", "Бей", "Жум", "Ише"],
+        dayOfWeek: ["Жекшемб", "Дүйшөмб", "Шейшемб", "Шаршемб", "Бейшемби", "Жума", "Ишенб"]
+      },
+      rm: {
+        // Romansh
+        months: ["Schaner", "Favrer", "Mars", "Avrigl", "Matg", "Zercladur", "Fanadur", "Avust", "Settember", "October", "November", "December"],
+        dayOfWeekShort: ["Du", "Gli", "Ma", "Me", "Gie", "Ve", "So"],
+        dayOfWeek: ["Dumengia", "Glindesdi", "Mardi", "Mesemna", "Gievgia", "Venderdi", "Sonda"]
+      },
+      ka: {
+        // Georgian
+        months: ['იანვარი', 'თებერვალი', 'მარტი', 'აპრილი', 'მაისი', 'ივნისი', 'ივლისი', 'აგვისტო', 'სექტემბერი', 'ოქტომბერი', 'ნოემბერი', 'დეკემბერი'],
+        dayOfWeekShort: ["კვ", "ორშ", "სამშ", "ოთხ", "ხუთ", "პარ", "შაბ"],
+        dayOfWeek: ["კვირა", "ორშაბათი", "სამშაბათი", "ოთხშაბათი", "ხუთშაბათი", "პარასკევი", "შაბათი"]
+      }
+    },
+    ownerDocument: document,
+    contentWindow: window,
+    value: '',
+    rtl: false,
+    format: 'Y/m/d H:i',
+    formatTime: 'H:i',
+    formatDate: 'Y/m/d',
+    startDate: false,
+    // new Date(), '1986/12/08', '-1970/01/05','-1970/01/05',
+    step: 60,
+    monthChangeSpinner: true,
+    closeOnDateSelect: false,
+    closeOnTimeSelect: true,
+    closeOnWithoutClick: true,
+    closeOnInputClick: true,
+    openOnFocus: true,
+    timepicker: true,
+    datepicker: true,
+    weeks: false,
+    defaultTime: false,
+    // use formatTime format (ex. '10:00' for formatTime:	'H:i')
+    defaultDate: false,
+    // use formatDate format (ex new Date() or '1986/12/08' or '-1970/01/05' or '-1970/01/05')
+    minDate: false,
+    maxDate: false,
+    minTime: false,
+    maxTime: false,
+    minDateTime: false,
+    maxDateTime: false,
+    allowTimes: [],
+    opened: false,
+    initTime: true,
+    inline: false,
+    theme: '',
+    touchMovedThreshold: 5,
+    onSelectDate: function onSelectDate() {},
+    onSelectTime: function onSelectTime() {},
+    onChangeMonth: function onChangeMonth() {},
+    onGetWeekOfYear: function onGetWeekOfYear() {},
+    onChangeYear: function onChangeYear() {},
+    onChangeDateTime: function onChangeDateTime() {},
+    onShow: function onShow() {},
+    onClose: function onClose() {},
+    onGenerate: function onGenerate() {},
+    withoutCopyright: true,
+    inverseButton: false,
+    hours12: false,
+    next: 'xdsoft_next',
+    prev: 'xdsoft_prev',
+    dayOfWeekStart: 0,
+    parentID: 'body',
+    timeHeightInTimePicker: 25,
+    timepickerScrollbar: true,
+    todayButton: true,
+    prevButton: true,
+    nextButton: true,
+    defaultSelect: true,
+    scrollMonth: true,
+    scrollTime: true,
+    scrollInput: true,
+    lazyInit: false,
+    mask: false,
+    validateOnBlur: true,
+    allowBlank: true,
+    yearStart: 1950,
+    yearEnd: 2050,
+    monthStart: 0,
+    monthEnd: 11,
+    style: '',
+    id: '',
+    fixed: false,
+    roundTime: 'round',
+    // ceil, floor
+    className: '',
+    weekends: [],
+    highlightedDates: [],
+    highlightedPeriods: [],
+    allowDates: [],
+    allowDateRe: null,
+    disabledDates: [],
+    disabledWeekDays: [],
+    yearOffset: 0,
+    beforeShowDay: null,
+    enterLikeTab: true,
+    showApplyButton: false,
+    insideParent: false
+  };
+  var dateHelper = null,
+      defaultDateHelper = null,
+      globalLocaleDefault = 'en',
+      globalLocale = 'en';
+  var dateFormatterOptionsDefault = {
+    meridiem: ['AM', 'PM']
+  };
+
+  var initDateFormatter = function initDateFormatter() {
+    var locale = default_options.i18n[globalLocale],
+        opts = {
+      days: locale.dayOfWeek,
+      daysShort: locale.dayOfWeekShort,
+      months: locale.months,
+      monthsShort: $.map(locale.months, function (n) {
+        return n.substring(0, 3);
+      })
+    };
+
+    if (typeof DateFormatter === 'function') {
+      dateHelper = defaultDateHelper = new DateFormatter({
+        dateSettings: $.extend({}, dateFormatterOptionsDefault, opts)
+      });
+    }
+  };
+
+  var dateFormatters = {
+    moment: {
+      default_options: {
+        format: 'YYYY/MM/DD HH:mm',
+        formatDate: 'YYYY/MM/DD',
+        formatTime: 'HH:mm'
+      },
+      formatter: {
+        parseDate: function parseDate(date, format) {
+          if (isFormatStandard(format)) {
+            return defaultDateHelper.parseDate(date, format);
+          }
+
+          var d = moment(date, format);
+          return d.isValid() ? d.toDate() : false;
+        },
+        formatDate: function formatDate(date, format) {
+          if (isFormatStandard(format)) {
+            return defaultDateHelper.formatDate(date, format);
+          }
+
+          return moment(date).format(format);
+        },
+        formatMask: function formatMask(format) {
+          return format.replace(/Y{4}/g, '9999').replace(/Y{2}/g, '99').replace(/M{2}/g, '19').replace(/D{2}/g, '39').replace(/H{2}/g, '29').replace(/m{2}/g, '59').replace(/s{2}/g, '59');
+        }
+      }
+    }
+  }; // for locale settings
+
+  $.datetimepicker = {
+    setLocale: function setLocale(locale) {
+      var newLocale = default_options.i18n[locale] ? locale : globalLocaleDefault;
+
+      if (globalLocale !== newLocale) {
+        globalLocale = newLocale; // reinit date formatter
+
+        initDateFormatter();
+      }
+    },
+    setDateFormatter: function setDateFormatter(dateFormatter) {
+      if (typeof dateFormatter === 'string' && dateFormatters.hasOwnProperty(dateFormatter)) {
+        var df = dateFormatters[dateFormatter];
+        $.extend(default_options, df.default_options);
+        dateHelper = df.formatter;
+      } else {
+        dateHelper = dateFormatter;
+      }
+    }
+  };
+  var standardFormats = {
+    RFC_2822: 'D, d M Y H:i:s O',
+    ATOM: 'Y-m-d\TH:i:sP',
+    ISO_8601: 'Y-m-d\TH:i:sO',
+    RFC_822: 'D, d M y H:i:s O',
+    RFC_850: 'l, d-M-y H:i:s T',
+    RFC_1036: 'D, d M y H:i:s O',
+    RFC_1123: 'D, d M Y H:i:s O',
+    RSS: 'D, d M Y H:i:s O',
+    W3C: 'Y-m-d\TH:i:sP'
+  };
+
+  var isFormatStandard = function isFormatStandard(format) {
+    return Object.values(standardFormats).indexOf(format) === -1 ? false : true;
+  };
+
+  $.extend($.datetimepicker, standardFormats); // first init date formatter
+
+  initDateFormatter(); // fix for ie8
+
+  if (!window.getComputedStyle) {
+    window.getComputedStyle = function (el) {
+      this.el = el;
+
+      this.getPropertyValue = function (prop) {
+        var re = /(-([a-z]))/g;
+
+        if (prop === 'float') {
+          prop = 'styleFloat';
+        }
+
+        if (re.test(prop)) {
+          prop = prop.replace(re, function (a, b, c) {
+            return c.toUpperCase();
+          });
+        }
+
+        return el.currentStyle[prop] || null;
+      };
+
+      return this;
+    };
+  }
+
+  if (!Array.prototype.indexOf) {
+    Array.prototype.indexOf = function (obj, start) {
+      var i, j;
+
+      for (i = start || 0, j = this.length; i < j; i += 1) {
+        if (this[i] === obj) {
+          return i;
+        }
+      }
+
+      return -1;
+    };
+  }
+
+  Date.prototype.countDaysInMonth = function () {
+    return new Date(this.getFullYear(), this.getMonth() + 1, 0).getDate();
+  };
+
+  $.fn.xdsoftScroller = function (options, percent) {
+    return this.each(function () {
+      var timeboxparent = $(this),
+          pointerEventToXY = function pointerEventToXY(e) {
+        var out = {
+          x: 0,
+          y: 0
+        },
+            touch;
+
+        if (e.type === 'touchstart' || e.type === 'touchmove' || e.type === 'touchend' || e.type === 'touchcancel') {
+          touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+          out.x = touch.clientX;
+          out.y = touch.clientY;
+        } else if (e.type === 'mousedown' || e.type === 'mouseup' || e.type === 'mousemove' || e.type === 'mouseover' || e.type === 'mouseout' || e.type === 'mouseenter' || e.type === 'mouseleave') {
+          out.x = e.clientX;
+          out.y = e.clientY;
+        }
+
+        return out;
+      },
+          timebox,
+          parentHeight,
+          height,
+          scrollbar,
+          scroller,
+          maximumOffset = 100,
+          start = false,
+          startY = 0,
+          startTop = 0,
+          h1 = 0,
+          touchStart = false,
+          startTopScroll = 0,
+          calcOffset = function calcOffset() {};
+
+      if (percent === 'hide') {
+        timeboxparent.find('.xdsoft_scrollbar').hide();
+        return;
+      }
+
+      if (!$(this).hasClass('xdsoft_scroller_box')) {
+        timebox = timeboxparent.children().eq(0);
+        parentHeight = timeboxparent[0].clientHeight;
+        height = timebox[0].offsetHeight;
+        scrollbar = $('<div class="xdsoft_scrollbar"></div>');
+        scroller = $('<div class="xdsoft_scroller"></div>');
+        scrollbar.append(scroller);
+        timeboxparent.addClass('xdsoft_scroller_box').append(scrollbar);
+
+        calcOffset = function calcOffset(event) {
+          var offset = pointerEventToXY(event).y - startY + startTopScroll;
+
+          if (offset < 0) {
+            offset = 0;
+          }
+
+          if (offset + scroller[0].offsetHeight > h1) {
+            offset = h1 - scroller[0].offsetHeight;
+          }
+
+          timeboxparent.trigger('scroll_element.xdsoft_scroller', [maximumOffset ? offset / maximumOffset : 0]);
+        };
+
+        scroller.on('touchstart.xdsoft_scroller mousedown.xdsoft_scroller', function (event) {
+          if (!parentHeight) {
+            timeboxparent.trigger('resize_scroll.xdsoft_scroller', [percent]);
+          }
+
+          startY = pointerEventToXY(event).y;
+          startTopScroll = parseInt(scroller.css('margin-top'), 10);
+          h1 = scrollbar[0].offsetHeight;
+
+          if (event.type === 'mousedown' || event.type === 'touchstart') {
+            if (options.ownerDocument) {
+              $(options.ownerDocument.body).addClass('xdsoft_noselect');
+            }
+
+            $([options.ownerDocument.body, options.contentWindow]).on('touchend mouseup.xdsoft_scroller', function arguments_callee() {
+              $([options.ownerDocument.body, options.contentWindow]).off('touchend mouseup.xdsoft_scroller', arguments_callee).off('mousemove.xdsoft_scroller', calcOffset).removeClass('xdsoft_noselect');
+            });
+            $(options.ownerDocument.body).on('mousemove.xdsoft_scroller', calcOffset);
+          } else {
+            touchStart = true;
+            event.stopPropagation();
+            event.preventDefault();
+          }
+        }).on('touchmove', function (event) {
+          if (touchStart) {
+            event.preventDefault();
+            calcOffset(event);
+          }
+        }).on('touchend touchcancel', function () {
+          touchStart = false;
+          startTopScroll = 0;
+        });
+        timeboxparent.on('scroll_element.xdsoft_scroller', function (event, percentage) {
+          if (!parentHeight) {
+            timeboxparent.trigger('resize_scroll.xdsoft_scroller', [percentage, true]);
+          }
+
+          percentage = percentage > 1 ? 1 : percentage < 0 || isNaN(percentage) ? 0 : percentage;
+          scroller.css('margin-top', maximumOffset * percentage);
+          setTimeout(function () {
+            timebox.css('marginTop', -parseInt((timebox[0].offsetHeight - parentHeight) * percentage, 10));
+          }, 10);
+        }).on('resize_scroll.xdsoft_scroller', function (event, percentage, noTriggerScroll) {
+          var percent, sh;
+          parentHeight = timeboxparent[0].clientHeight;
+          height = timebox[0].offsetHeight;
+          percent = parentHeight / height;
+          sh = percent * scrollbar[0].offsetHeight;
+
+          if (percent > 1) {
+            scroller.hide();
+          } else {
+            scroller.show();
+            scroller.css('height', parseInt(sh > 10 ? sh : 10, 10));
+            maximumOffset = scrollbar[0].offsetHeight - scroller[0].offsetHeight;
+
+            if (noTriggerScroll !== true) {
+              timeboxparent.trigger('scroll_element.xdsoft_scroller', [percentage || Math.abs(parseInt(timebox.css('marginTop'), 10)) / (height - parentHeight)]);
+            }
+          }
+        });
+        timeboxparent.on('mousewheel', function (event) {
+          var top = Math.abs(parseInt(timebox.css('marginTop'), 10));
+          top = top - event.deltaY * 20;
+
+          if (top < 0) {
+            top = 0;
+          }
+
+          timeboxparent.trigger('scroll_element.xdsoft_scroller', [top / (height - parentHeight)]);
+          event.stopPropagation();
+          return false;
+        });
+        timeboxparent.on('touchstart', function (event) {
+          start = pointerEventToXY(event);
+          startTop = Math.abs(parseInt(timebox.css('marginTop'), 10));
+        });
+        timeboxparent.on('touchmove', function (event) {
+          if (start) {
+            event.preventDefault();
+            var coord = pointerEventToXY(event);
+            timeboxparent.trigger('scroll_element.xdsoft_scroller', [(startTop - (coord.y - start.y)) / (height - parentHeight)]);
+          }
+        });
+        timeboxparent.on('touchend touchcancel', function () {
+          start = false;
+          startTop = 0;
+        });
+      }
+
+      timeboxparent.trigger('resize_scroll.xdsoft_scroller', [percent]);
+    });
+  };
+
+  $.fn.datetimepicker = function (opt, opt2) {
+    var result = this,
+        KEY0 = 48,
+        KEY9 = 57,
+        _KEY0 = 96,
+        _KEY9 = 105,
+        CTRLKEY = 17,
+        CMDKEY = 91,
+        DEL = 46,
+        ENTER = 13,
+        ESC = 27,
+        BACKSPACE = 8,
+        ARROWLEFT = 37,
+        ARROWUP = 38,
+        ARROWRIGHT = 39,
+        ARROWDOWN = 40,
+        TAB = 9,
+        F5 = 116,
+        AKEY = 65,
+        CKEY = 67,
+        VKEY = 86,
+        ZKEY = 90,
+        YKEY = 89,
+        ctrlDown = false,
+        cmdDown = false,
+        options = $.isPlainObject(opt) || !opt ? $.extend(true, {}, default_options, opt) : $.extend(true, {}, default_options),
+        lazyInitTimer = 0,
+        createDateTimePicker,
+        destroyDateTimePicker,
+        lazyInit = function lazyInit(input) {
+      input.on('open.xdsoft focusin.xdsoft mousedown.xdsoft touchstart', function initOnActionCallback() {
+        if (input.is(':disabled') || input.data('xdsoft_datetimepicker')) {
+          return;
+        }
+
+        clearTimeout(lazyInitTimer);
+        lazyInitTimer = setTimeout(function () {
+          if (!input.data('xdsoft_datetimepicker')) {
+            createDateTimePicker(input);
+          }
+
+          input.off('open.xdsoft focusin.xdsoft mousedown.xdsoft touchstart', initOnActionCallback).trigger('open.xdsoft');
+        }, 100);
+      });
+    };
+
+    createDateTimePicker = function createDateTimePicker(input) {
+      var datetimepicker = $('<div class="xdsoft_datetimepicker xdsoft_noselect"></div>'),
+          xdsoft_copyright = $('<div class="xdsoft_copyright"><a target="_blank" href="http://xdsoft.net/jqplugins/datetimepicker/">xdsoft.net</a></div>'),
+          datepicker = $('<div class="xdsoft_datepicker active"></div>'),
+          month_picker = $('<div class="xdsoft_monthpicker"><button type="button" class="xdsoft_prev"></button><button type="button" class="xdsoft_today_button"></button>' + '<div class="xdsoft_label xdsoft_month"><span></span><i></i></div>' + '<div class="xdsoft_label xdsoft_year"><span></span><i></i></div>' + '<button type="button" class="xdsoft_next"></button></div>'),
+          calendar = $('<div class="xdsoft_calendar"></div>'),
+          timepicker = $('<div class="xdsoft_timepicker active"><button type="button" class="xdsoft_prev"></button><div class="xdsoft_time_box"></div><button type="button" class="xdsoft_next"></button></div>'),
+          timeboxparent = timepicker.find('.xdsoft_time_box').eq(0),
+          timebox = $('<div class="xdsoft_time_variant"></div>'),
+          applyButton = $('<button type="button" class="xdsoft_save_selected blue-gradient-button">Save Selected</button>'),
+          monthselect = $('<div class="xdsoft_select xdsoft_monthselect"><div></div></div>'),
+          yearselect = $('<div class="xdsoft_select xdsoft_yearselect"><div></div></div>'),
+          triggerAfterOpen = false,
+          XDSoft_datetime,
+          xchangeTimer,
+          timerclick,
+          current_time_index,
+          setPos,
+          timer = 0,
+          _xdsoft_datetime,
+          forEachAncestorOf;
+
+      if (options.id) {
+        datetimepicker.attr('id', options.id);
+      }
+
+      if (options.style) {
+        datetimepicker.attr('style', options.style);
+      }
+
+      if (options.weeks) {
+        datetimepicker.addClass('xdsoft_showweeks');
+      }
+
+      if (options.rtl) {
+        datetimepicker.addClass('xdsoft_rtl');
+      }
+
+      datetimepicker.addClass('xdsoft_' + options.theme);
+      datetimepicker.addClass(options.className);
+      month_picker.find('.xdsoft_month span').after(monthselect);
+      month_picker.find('.xdsoft_year span').after(yearselect);
+      month_picker.find('.xdsoft_month,.xdsoft_year').on('touchstart mousedown.xdsoft', function (event) {
+        var select = $(this).find('.xdsoft_select').eq(0),
+            val = 0,
+            top = 0,
+            visible = select.is(':visible'),
+            items,
+            i;
+        month_picker.find('.xdsoft_select').hide();
+
+        if (_xdsoft_datetime.currentTime) {
+          val = _xdsoft_datetime.currentTime[$(this).hasClass('xdsoft_month') ? 'getMonth' : 'getFullYear']();
+        }
+
+        select[visible ? 'hide' : 'show']();
+
+        for (items = select.find('div.xdsoft_option'), i = 0; i < items.length; i += 1) {
+          if (items.eq(i).data('value') === val) {
+            break;
+          } else {
+            top += items[0].offsetHeight;
+          }
+        }
+
+        select.xdsoftScroller(options, top / (select.children()[0].offsetHeight - select[0].clientHeight));
+        event.stopPropagation();
+        return false;
+      });
+
+      var handleTouchMoved = function handleTouchMoved(event) {
+        var evt = event.originalEvent;
+        var touchPosition = evt.touches ? evt.touches[0] : evt;
+        this.touchStartPosition = this.touchStartPosition || touchPosition;
+        var xMovement = Math.abs(this.touchStartPosition.clientX - touchPosition.clientX);
+        var yMovement = Math.abs(this.touchStartPosition.clientY - touchPosition.clientY);
+        var distance = Math.sqrt(xMovement * xMovement + yMovement * yMovement);
+
+        if (distance > options.touchMovedThreshold) {
+          this.touchMoved = true;
+        }
+      };
+
+      month_picker.find('.xdsoft_select').xdsoftScroller(options).on('touchstart mousedown.xdsoft', function (event) {
+        var evt = event.originalEvent;
+        this.touchMoved = false;
+        this.touchStartPosition = evt.touches ? evt.touches[0] : evt;
+        event.stopPropagation();
+        event.preventDefault();
+      }).on('touchmove', '.xdsoft_option', handleTouchMoved).on('touchend mousedown.xdsoft', '.xdsoft_option', function () {
+        if (!this.touchMoved) {
+          if (_xdsoft_datetime.currentTime === undefined || _xdsoft_datetime.currentTime === null) {
+            _xdsoft_datetime.currentTime = _xdsoft_datetime.now();
+          }
+
+          var year = _xdsoft_datetime.currentTime.getFullYear();
+
+          if (_xdsoft_datetime && _xdsoft_datetime.currentTime) {
+            _xdsoft_datetime.currentTime[$(this).parent().parent().hasClass('xdsoft_monthselect') ? 'setMonth' : 'setFullYear']($(this).data('value'));
+          }
+
+          $(this).parent().parent().hide();
+          datetimepicker.trigger('xchange.xdsoft');
+
+          if (options.onChangeMonth && $.isFunction(options.onChangeMonth)) {
+            options.onChangeMonth.call(datetimepicker, _xdsoft_datetime.currentTime, datetimepicker.data('input'));
+          }
+
+          if (year !== _xdsoft_datetime.currentTime.getFullYear() && $.isFunction(options.onChangeYear)) {
+            options.onChangeYear.call(datetimepicker, _xdsoft_datetime.currentTime, datetimepicker.data('input'));
+          }
+        }
+      });
+
+      datetimepicker.getValue = function () {
+        return _xdsoft_datetime.getCurrentTime();
+      };
+
+      datetimepicker.setOptions = function (_options) {
+        var highlightedDates = {};
+        options = $.extend(true, {}, options, _options);
+
+        if (_options.allowTimes && $.isArray(_options.allowTimes) && _options.allowTimes.length) {
+          options.allowTimes = $.extend(true, [], _options.allowTimes);
+        }
+
+        if (_options.weekends && $.isArray(_options.weekends) && _options.weekends.length) {
+          options.weekends = $.extend(true, [], _options.weekends);
+        }
+
+        if (_options.allowDates && $.isArray(_options.allowDates) && _options.allowDates.length) {
+          options.allowDates = $.extend(true, [], _options.allowDates);
+        }
+
+        if (_options.allowDateRe && Object.prototype.toString.call(_options.allowDateRe) === "[object String]") {
+          options.allowDateRe = new RegExp(_options.allowDateRe);
+        }
+
+        if (_options.highlightedDates && $.isArray(_options.highlightedDates) && _options.highlightedDates.length) {
+          $.each(_options.highlightedDates, function (index, value) {
+            var splitData = $.map(value.split(','), $.trim),
+                exDesc,
+                hDate = new HighlightedDate(dateHelper.parseDate(splitData[0], options.formatDate), splitData[1], splitData[2]),
+                // date, desc, style
+            keyDate = dateHelper.formatDate(hDate.date, options.formatDate);
+
+            if (highlightedDates[keyDate] !== undefined) {
+              exDesc = highlightedDates[keyDate].desc;
+
+              if (exDesc && exDesc.length && hDate.desc && hDate.desc.length) {
+                highlightedDates[keyDate].desc = exDesc + "\n" + hDate.desc;
+              }
+            } else {
+              highlightedDates[keyDate] = hDate;
+            }
+          });
+          options.highlightedDates = $.extend(true, [], highlightedDates);
+        }
+
+        if (_options.highlightedPeriods && $.isArray(_options.highlightedPeriods) && _options.highlightedPeriods.length) {
+          highlightedDates = $.extend(true, [], options.highlightedDates);
+          $.each(_options.highlightedPeriods, function (index, value) {
+            var dateTest, // start date
+            dateEnd, desc, hDate, keyDate, exDesc, style;
+
+            if ($.isArray(value)) {
+              dateTest = value[0];
+              dateEnd = value[1];
+              desc = value[2];
+              style = value[3];
+            } else {
+              var splitData = $.map(value.split(','), $.trim);
+              dateTest = dateHelper.parseDate(splitData[0], options.formatDate);
+              dateEnd = dateHelper.parseDate(splitData[1], options.formatDate);
+              desc = splitData[2];
+              style = splitData[3];
+            }
+
+            while (dateTest <= dateEnd) {
+              hDate = new HighlightedDate(dateTest, desc, style);
+              keyDate = dateHelper.formatDate(dateTest, options.formatDate);
+              dateTest.setDate(dateTest.getDate() + 1);
+
+              if (highlightedDates[keyDate] !== undefined) {
+                exDesc = highlightedDates[keyDate].desc;
+
+                if (exDesc && exDesc.length && hDate.desc && hDate.desc.length) {
+                  highlightedDates[keyDate].desc = exDesc + "\n" + hDate.desc;
+                }
+              } else {
+                highlightedDates[keyDate] = hDate;
+              }
+            }
+          });
+          options.highlightedDates = $.extend(true, [], highlightedDates);
+        }
+
+        if (_options.disabledDates && $.isArray(_options.disabledDates) && _options.disabledDates.length) {
+          options.disabledDates = $.extend(true, [], _options.disabledDates);
+        }
+
+        if (_options.disabledWeekDays && $.isArray(_options.disabledWeekDays) && _options.disabledWeekDays.length) {
+          options.disabledWeekDays = $.extend(true, [], _options.disabledWeekDays);
+        }
+
+        if ((options.open || options.opened) && !options.inline) {
+          input.trigger('open.xdsoft');
+        }
+
+        if (options.inline) {
+          triggerAfterOpen = true;
+          datetimepicker.addClass('xdsoft_inline');
+          input.after(datetimepicker).hide();
+        }
+
+        if (options.inverseButton) {
+          options.next = 'xdsoft_prev';
+          options.prev = 'xdsoft_next';
+        }
+
+        if (options.datepicker) {
+          datepicker.addClass('active');
+        } else {
+          datepicker.removeClass('active');
+        }
+
+        if (options.timepicker) {
+          timepicker.addClass('active');
+        } else {
+          timepicker.removeClass('active');
+        }
+
+        if (options.value) {
+          _xdsoft_datetime.setCurrentTime(options.value);
+
+          if (input && input.val) {
+            input.val(_xdsoft_datetime.str);
+          }
+        }
+
+        if (isNaN(options.dayOfWeekStart)) {
+          options.dayOfWeekStart = 0;
+        } else {
+          options.dayOfWeekStart = parseInt(options.dayOfWeekStart, 10) % 7;
+        }
+
+        if (!options.timepickerScrollbar) {
+          timeboxparent.xdsoftScroller(options, 'hide');
+        }
+
+        if (options.minDate && /^[\+\-](.*)$/.test(options.minDate)) {
+          options.minDate = dateHelper.formatDate(_xdsoft_datetime.strToDateTime(options.minDate), options.formatDate);
+        }
+
+        if (options.maxDate && /^[\+\-](.*)$/.test(options.maxDate)) {
+          options.maxDate = dateHelper.formatDate(_xdsoft_datetime.strToDateTime(options.maxDate), options.formatDate);
+        }
+
+        if (options.minDateTime && /^\+(.*)$/.test(options.minDateTime)) {
+          options.minDateTime = _xdsoft_datetime.strToDateTime(options.minDateTime).dateFormat(options.formatDate);
+        }
+
+        if (options.maxDateTime && /^\+(.*)$/.test(options.maxDateTime)) {
+          options.maxDateTime = _xdsoft_datetime.strToDateTime(options.maxDateTime).dateFormat(options.formatDate);
+        }
+
+        applyButton.toggle(options.showApplyButton);
+        month_picker.find('.xdsoft_today_button').css('visibility', !options.todayButton ? 'hidden' : 'visible');
+        month_picker.find('.' + options.prev).css('visibility', !options.prevButton ? 'hidden' : 'visible');
+        month_picker.find('.' + options.next).css('visibility', !options.nextButton ? 'hidden' : 'visible');
+        setMask(options);
+
+        if (options.validateOnBlur) {
+          input.off('blur.xdsoft').on('blur.xdsoft', function () {
+            if (options.allowBlank && (!$.trim($(this).val()).length || typeof options.mask === "string" && $.trim($(this).val()) === options.mask.replace(/[0-9]/g, '_'))) {
+              $(this).val(null);
+              datetimepicker.data('xdsoft_datetime').empty();
+            } else {
+              var d = dateHelper.parseDate($(this).val(), options.format);
+
+              if (d) {
+                // parseDate() may skip some invalid parts like date or time, so make it clear for user: show parsed date/time
+                $(this).val(dateHelper.formatDate(d, options.format));
+              } else {
+                var splittedHours = +[$(this).val()[0], $(this).val()[1]].join(''),
+                    splittedMinutes = +[$(this).val()[2], $(this).val()[3]].join(''); // parse the numbers as 0312 => 03:12
+
+                if (!options.datepicker && options.timepicker && splittedHours >= 0 && splittedHours < 24 && splittedMinutes >= 0 && splittedMinutes < 60) {
+                  $(this).val([splittedHours, splittedMinutes].map(function (item) {
+                    return item > 9 ? item : '0' + item;
+                  }).join(':'));
+                } else {
+                  $(this).val(dateHelper.formatDate(_xdsoft_datetime.now(), options.format));
+                }
+              }
+
+              datetimepicker.data('xdsoft_datetime').setCurrentTime($(this).val());
+            }
+
+            datetimepicker.trigger('changedatetime.xdsoft');
+            datetimepicker.trigger('close.xdsoft');
+          });
+        }
+
+        options.dayOfWeekStartPrev = options.dayOfWeekStart === 0 ? 6 : options.dayOfWeekStart - 1;
+        datetimepicker.trigger('xchange.xdsoft').trigger('afterOpen.xdsoft');
+      };
+
+      datetimepicker.data('options', options).on('touchstart mousedown.xdsoft', function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+        yearselect.hide();
+        monthselect.hide();
+        return false;
+      }); //scroll_element = timepicker.find('.xdsoft_time_box');
+
+      timeboxparent.append(timebox);
+      timeboxparent.xdsoftScroller(options);
+      datetimepicker.on('afterOpen.xdsoft', function () {
+        timeboxparent.xdsoftScroller(options);
+      });
+      datetimepicker.append(datepicker).append(timepicker);
+
+      if (options.withoutCopyright !== true) {
+        datetimepicker.append(xdsoft_copyright);
+      }
+
+      datepicker.append(month_picker).append(calendar).append(applyButton);
+
+      if (options.insideParent) {
+        $(input).parent().append(datetimepicker);
+      } else {
+        $(options.parentID).append(datetimepicker);
+      }
+
+      XDSoft_datetime = function XDSoft_datetime() {
+        var _this = this;
+
+        _this.now = function (norecursion) {
+          var d = new Date(),
+              date,
+              time;
+
+          if (!norecursion && options.defaultDate) {
+            date = _this.strToDateTime(options.defaultDate);
+            d.setFullYear(date.getFullYear());
+            d.setMonth(date.getMonth());
+            d.setDate(date.getDate());
+          }
+
+          d.setFullYear(d.getFullYear());
+
+          if (!norecursion && options.defaultTime) {
+            time = _this.strtotime(options.defaultTime);
+            d.setHours(time.getHours());
+            d.setMinutes(time.getMinutes());
+            d.setSeconds(time.getSeconds());
+            d.setMilliseconds(time.getMilliseconds());
+          }
+
+          return d;
+        };
+
+        _this.isValidDate = function (d) {
+          if (Object.prototype.toString.call(d) !== "[object Date]") {
+            return false;
+          }
+
+          return !isNaN(d.getTime());
+        };
+
+        _this.setCurrentTime = function (dTime, requireValidDate) {
+          if (typeof dTime === 'string') {
+            _this.currentTime = _this.strToDateTime(dTime);
+          } else if (_this.isValidDate(dTime)) {
+            _this.currentTime = dTime;
+          } else if (!dTime && !requireValidDate && options.allowBlank && !options.inline) {
+            _this.currentTime = null;
+          } else {
+            _this.currentTime = _this.now();
+          }
+
+          datetimepicker.trigger('xchange.xdsoft');
+        };
+
+        _this.empty = function () {
+          _this.currentTime = null;
+        };
+
+        _this.getCurrentTime = function () {
+          return _this.currentTime;
+        };
+
+        _this.nextMonth = function () {
+          if (_this.currentTime === undefined || _this.currentTime === null) {
+            _this.currentTime = _this.now();
+          }
+
+          var month = _this.currentTime.getMonth() + 1,
+              year;
+
+          if (month === 12) {
+            _this.currentTime.setFullYear(_this.currentTime.getFullYear() + 1);
+
+            month = 0;
+          }
+
+          year = _this.currentTime.getFullYear();
+
+          _this.currentTime.setDate(Math.min(new Date(_this.currentTime.getFullYear(), month + 1, 0).getDate(), _this.currentTime.getDate()));
+
+          _this.currentTime.setMonth(month);
+
+          if (options.onChangeMonth && $.isFunction(options.onChangeMonth)) {
+            options.onChangeMonth.call(datetimepicker, _xdsoft_datetime.currentTime, datetimepicker.data('input'));
+          }
+
+          if (year !== _this.currentTime.getFullYear() && $.isFunction(options.onChangeYear)) {
+            options.onChangeYear.call(datetimepicker, _xdsoft_datetime.currentTime, datetimepicker.data('input'));
+          }
+
+          datetimepicker.trigger('xchange.xdsoft');
+          return month;
+        };
+
+        _this.prevMonth = function () {
+          if (_this.currentTime === undefined || _this.currentTime === null) {
+            _this.currentTime = _this.now();
+          }
+
+          var month = _this.currentTime.getMonth() - 1;
+
+          if (month === -1) {
+            _this.currentTime.setFullYear(_this.currentTime.getFullYear() - 1);
+
+            month = 11;
+          }
+
+          _this.currentTime.setDate(Math.min(new Date(_this.currentTime.getFullYear(), month + 1, 0).getDate(), _this.currentTime.getDate()));
+
+          _this.currentTime.setMonth(month);
+
+          if (options.onChangeMonth && $.isFunction(options.onChangeMonth)) {
+            options.onChangeMonth.call(datetimepicker, _xdsoft_datetime.currentTime, datetimepicker.data('input'));
+          }
+
+          datetimepicker.trigger('xchange.xdsoft');
+          return month;
+        };
+
+        _this.getWeekOfYear = function (datetime) {
+          if (options.onGetWeekOfYear && $.isFunction(options.onGetWeekOfYear)) {
+            var week = options.onGetWeekOfYear.call(datetimepicker, datetime);
+
+            if (typeof week !== 'undefined') {
+              return week;
+            }
+          }
+
+          var onejan = new Date(datetime.getFullYear(), 0, 1); //First week of the year is th one with the first Thursday according to ISO8601
+
+          if (onejan.getDay() !== 4) {
+            onejan.setMonth(0, 1 + (4 - onejan.getDay() + 7) % 7);
+          }
+
+          return Math.ceil(((datetime - onejan) / 86400000 + onejan.getDay() + 1) / 7);
+        };
+
+        _this.strToDateTime = function (sDateTime) {
+          var tmpDate = [],
+              timeOffset,
+              currentTime;
+
+          if (sDateTime && sDateTime instanceof Date && _this.isValidDate(sDateTime)) {
+            return sDateTime;
+          }
+
+          tmpDate = /^([+-]{1})(.*)$/.exec(sDateTime);
+
+          if (tmpDate) {
+            tmpDate[2] = dateHelper.parseDate(tmpDate[2], options.formatDate);
+          }
+
+          if (tmpDate && tmpDate[2]) {
+            timeOffset = tmpDate[2].getTime() - tmpDate[2].getTimezoneOffset() * 60000;
+            currentTime = new Date(_this.now(true).getTime() + parseInt(tmpDate[1] + '1', 10) * timeOffset);
+          } else {
+            currentTime = sDateTime ? dateHelper.parseDate(sDateTime, options.format) : _this.now();
+          }
+
+          if (!_this.isValidDate(currentTime)) {
+            currentTime = _this.now();
+          }
+
+          return currentTime;
+        };
+
+        _this.strToDate = function (sDate) {
+          if (sDate && sDate instanceof Date && _this.isValidDate(sDate)) {
+            return sDate;
+          }
+
+          var currentTime = sDate ? dateHelper.parseDate(sDate, options.formatDate) : _this.now(true);
+
+          if (!_this.isValidDate(currentTime)) {
+            currentTime = _this.now(true);
+          }
+
+          return currentTime;
+        };
+
+        _this.strtotime = function (sTime) {
+          if (sTime && sTime instanceof Date && _this.isValidDate(sTime)) {
+            return sTime;
+          }
+
+          var currentTime = sTime ? dateHelper.parseDate(sTime, options.formatTime) : _this.now(true);
+
+          if (!_this.isValidDate(currentTime)) {
+            currentTime = _this.now(true);
+          }
+
+          return currentTime;
+        };
+
+        _this.str = function () {
+          var format = options.format;
+
+          if (options.yearOffset) {
+            format = format.replace('Y', _this.currentTime.getFullYear() + options.yearOffset);
+            format = format.replace('y', String(_this.currentTime.getFullYear() + options.yearOffset).substring(2, 4));
+          }
+
+          return dateHelper.formatDate(_this.currentTime, format);
+        };
+
+        _this.currentTime = this.now();
+      };
+
+      _xdsoft_datetime = new XDSoft_datetime();
+      applyButton.on('touchend click', function (e) {
+        //pathbrite
+        e.preventDefault();
+        datetimepicker.data('changed', true);
+
+        _xdsoft_datetime.setCurrentTime(getCurrentValue());
+
+        input.val(_xdsoft_datetime.str());
+        datetimepicker.trigger('close.xdsoft');
+      });
+      month_picker.find('.xdsoft_today_button').on('touchend mousedown.xdsoft', function () {
+        datetimepicker.data('changed', true);
+
+        _xdsoft_datetime.setCurrentTime(0, true);
+
+        datetimepicker.trigger('afterOpen.xdsoft');
+      }).on('dblclick.xdsoft', function () {
+        var currentDate = _xdsoft_datetime.getCurrentTime(),
+            minDate,
+            maxDate;
+
+        currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+        minDate = _xdsoft_datetime.strToDate(options.minDate);
+        minDate = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate());
+
+        if (currentDate < minDate) {
+          return;
+        }
+
+        maxDate = _xdsoft_datetime.strToDate(options.maxDate);
+        maxDate = new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate());
+
+        if (currentDate > maxDate) {
+          return;
+        }
+
+        input.val(_xdsoft_datetime.str());
+        input.trigger('change');
+        datetimepicker.trigger('close.xdsoft');
+      });
+      month_picker.find('.xdsoft_prev,.xdsoft_next').on('touchend mousedown.xdsoft', function () {
+        var $this = $(this),
+            timer = 0,
+            stop = false;
+
+        (function arguments_callee1(v) {
+          if ($this.hasClass(options.next)) {
+            _xdsoft_datetime.nextMonth();
+          } else if ($this.hasClass(options.prev)) {
+            _xdsoft_datetime.prevMonth();
+          }
+
+          if (options.monthChangeSpinner) {
+            if (!stop) {
+              timer = setTimeout(arguments_callee1, v || 100);
+            }
+          }
+        })(500);
+
+        $([options.ownerDocument.body, options.contentWindow]).on('touchend mouseup.xdsoft', function arguments_callee2() {
+          clearTimeout(timer);
+          stop = true;
+          $([options.ownerDocument.body, options.contentWindow]).off('touchend mouseup.xdsoft', arguments_callee2);
+        });
+      });
+      timepicker.find('.xdsoft_prev,.xdsoft_next').on('touchend mousedown.xdsoft', function () {
+        var $this = $(this),
+            timer = 0,
+            stop = false,
+            period = 110;
+
+        (function arguments_callee4(v) {
+          var pheight = timeboxparent[0].clientHeight,
+              height = timebox[0].offsetHeight,
+              top = Math.abs(parseInt(timebox.css('marginTop'), 10));
+
+          if ($this.hasClass(options.next) && height - pheight - options.timeHeightInTimePicker >= top) {
+            timebox.css('marginTop', '-' + (top + options.timeHeightInTimePicker) + 'px');
+          } else if ($this.hasClass(options.prev) && top - options.timeHeightInTimePicker >= 0) {
+            timebox.css('marginTop', '-' + (top - options.timeHeightInTimePicker) + 'px');
+          }
+          /**
+           * Fixed bug:
+           * When using css3 transition, it will cause a bug that you cannot scroll the timepicker list.
+           * The reason is that the transition-duration time, if you set it to 0, all things fine, otherwise, this
+           * would cause a bug when you use jquery.css method.
+           * Let's say: * { transition: all .5s ease; }
+           * jquery timebox.css('marginTop') will return the original value which is before you clicking the next/prev button,
+           * meanwhile the timebox[0].style.marginTop will return the right value which is after you clicking the
+           * next/prev button.
+           *
+           * What we should do:
+           * Replace timebox.css('marginTop') with timebox[0].style.marginTop.
+           */
+
+
+          timeboxparent.trigger('scroll_element.xdsoft_scroller', [Math.abs(parseInt(timebox[0].style.marginTop, 10) / (height - pheight))]);
+          period = period > 10 ? 10 : period - 10;
+
+          if (!stop) {
+            timer = setTimeout(arguments_callee4, v || period);
+          }
+        })(500);
+
+        $([options.ownerDocument.body, options.contentWindow]).on('touchend mouseup.xdsoft', function arguments_callee5() {
+          clearTimeout(timer);
+          stop = true;
+          $([options.ownerDocument.body, options.contentWindow]).off('touchend mouseup.xdsoft', arguments_callee5);
+        });
+      });
+      xchangeTimer = 0; // base handler - generating a calendar and timepicker
+
+      datetimepicker.on('xchange.xdsoft', function (event) {
+        clearTimeout(xchangeTimer);
+        xchangeTimer = setTimeout(function () {
+          if (_xdsoft_datetime.currentTime === undefined || _xdsoft_datetime.currentTime === null) {
+            _xdsoft_datetime.currentTime = _xdsoft_datetime.now();
+          }
+
+          var table = '',
+              start = new Date(_xdsoft_datetime.currentTime.getFullYear(), _xdsoft_datetime.currentTime.getMonth(), 1, 12, 0, 0),
+              i = 0,
+              j,
+              today = _xdsoft_datetime.now(),
+              maxDate = false,
+              minDate = false,
+              minDateTime = false,
+              maxDateTime = false,
+              hDate,
+              day,
+              d,
+              y,
+              m,
+              w,
+              classes = [],
+              customDateSettings,
+              newRow = true,
+              time = '',
+              h,
+              line_time,
+              description;
+
+          while (start.getDay() !== options.dayOfWeekStart) {
+            start.setDate(start.getDate() - 1);
+          }
+
+          table += '<table><thead><tr>';
+
+          if (options.weeks) {
+            table += '<th></th>';
+          }
+
+          for (j = 0; j < 7; j += 1) {
+            table += '<th>' + options.i18n[globalLocale].dayOfWeekShort[(j + options.dayOfWeekStart) % 7] + '</th>';
+          }
+
+          table += '</tr></thead>';
+          table += '<tbody>';
+
+          if (options.maxDate !== false) {
+            maxDate = _xdsoft_datetime.strToDate(options.maxDate);
+            maxDate = new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate(), 23, 59, 59, 999);
+          }
+
+          if (options.minDate !== false) {
+            minDate = _xdsoft_datetime.strToDate(options.minDate);
+            minDate = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate());
+          }
+
+          if (options.minDateTime !== false) {
+            minDateTime = _xdsoft_datetime.strToDate(options.minDateTime);
+            minDateTime = new Date(minDateTime.getFullYear(), minDateTime.getMonth(), minDateTime.getDate(), minDateTime.getHours(), minDateTime.getMinutes(), minDateTime.getSeconds());
+          }
+
+          if (options.maxDateTime !== false) {
+            maxDateTime = _xdsoft_datetime.strToDate(options.maxDateTime);
+            maxDateTime = new Date(maxDateTime.getFullYear(), maxDateTime.getMonth(), maxDateTime.getDate(), maxDateTime.getHours(), maxDateTime.getMinutes(), maxDateTime.getSeconds());
+          }
+
+          var maxDateTimeDay;
+
+          if (maxDateTime !== false) {
+            maxDateTimeDay = (maxDateTime.getFullYear() * 12 + maxDateTime.getMonth()) * 31 + maxDateTime.getDate();
+          }
+
+          while (i < _xdsoft_datetime.currentTime.countDaysInMonth() || start.getDay() !== options.dayOfWeekStart || _xdsoft_datetime.currentTime.getMonth() === start.getMonth()) {
+            classes = [];
+            i += 1;
+            day = start.getDay();
+            d = start.getDate();
+            y = start.getFullYear();
+            m = start.getMonth();
+            w = _xdsoft_datetime.getWeekOfYear(start);
+            description = '';
+            classes.push('xdsoft_date');
+
+            if (options.beforeShowDay && $.isFunction(options.beforeShowDay.call)) {
+              customDateSettings = options.beforeShowDay.call(datetimepicker, start);
+            } else {
+              customDateSettings = null;
+            }
+
+            if (options.allowDateRe && Object.prototype.toString.call(options.allowDateRe) === "[object RegExp]") {
+              if (!options.allowDateRe.test(dateHelper.formatDate(start, options.formatDate))) {
+                classes.push('xdsoft_disabled');
+              }
+            }
+
+            if (options.allowDates && options.allowDates.length > 0) {
+              if (options.allowDates.indexOf(dateHelper.formatDate(start, options.formatDate)) === -1) {
+                classes.push('xdsoft_disabled');
+              }
+            }
+
+            var currentDay = (start.getFullYear() * 12 + start.getMonth()) * 31 + start.getDate();
+
+            if (maxDate !== false && start > maxDate || minDateTime !== false && start < minDateTime || minDate !== false && start < minDate || maxDateTime !== false && currentDay > maxDateTimeDay || customDateSettings && customDateSettings[0] === false) {
+              classes.push('xdsoft_disabled');
+            }
+
+            if (options.disabledDates.indexOf(dateHelper.formatDate(start, options.formatDate)) !== -1) {
+              classes.push('xdsoft_disabled');
+            }
+
+            if (options.disabledWeekDays.indexOf(day) !== -1) {
+              classes.push('xdsoft_disabled');
+            }
+
+            if (input.is('[disabled]')) {
+              classes.push('xdsoft_disabled');
+            }
+
+            if (customDateSettings && customDateSettings[1] !== "") {
+              classes.push(customDateSettings[1]);
+            }
+
+            if (_xdsoft_datetime.currentTime.getMonth() !== m) {
+              classes.push('xdsoft_other_month');
+            }
+
+            if ((options.defaultSelect || datetimepicker.data('changed')) && dateHelper.formatDate(_xdsoft_datetime.currentTime, options.formatDate) === dateHelper.formatDate(start, options.formatDate)) {
+              classes.push('xdsoft_current');
+            }
+
+            if (dateHelper.formatDate(today, options.formatDate) === dateHelper.formatDate(start, options.formatDate)) {
+              classes.push('xdsoft_today');
+            }
+
+            if (start.getDay() === 0 || start.getDay() === 6 || options.weekends.indexOf(dateHelper.formatDate(start, options.formatDate)) !== -1) {
+              classes.push('xdsoft_weekend');
+            }
+
+            if (options.highlightedDates[dateHelper.formatDate(start, options.formatDate)] !== undefined) {
+              hDate = options.highlightedDates[dateHelper.formatDate(start, options.formatDate)];
+              classes.push(hDate.style === undefined ? 'xdsoft_highlighted_default' : hDate.style);
+              description = hDate.desc === undefined ? '' : hDate.desc;
+            }
+
+            if (options.beforeShowDay && $.isFunction(options.beforeShowDay)) {
+              classes.push(options.beforeShowDay(start));
+            }
+
+            if (newRow) {
+              table += '<tr>';
+              newRow = false;
+
+              if (options.weeks) {
+                table += '<th>' + w + '</th>';
+              }
+            }
+
+            table += '<td data-date="' + d + '" data-month="' + m + '" data-year="' + y + '"' + ' class="xdsoft_date xdsoft_day_of_week' + start.getDay() + ' ' + classes.join(' ') + '" title="' + description + '">' + '<div>' + d + '</div>' + '</td>';
+
+            if (start.getDay() === options.dayOfWeekStartPrev) {
+              table += '</tr>';
+              newRow = true;
+            }
+
+            start.setDate(d + 1);
+          }
+
+          table += '</tbody></table>';
+          calendar.html(table);
+          month_picker.find('.xdsoft_label span').eq(0).text(options.i18n[globalLocale].months[_xdsoft_datetime.currentTime.getMonth()]);
+          month_picker.find('.xdsoft_label span').eq(1).text(_xdsoft_datetime.currentTime.getFullYear() + options.yearOffset); // generate timebox
+
+          time = '';
+          h = '';
+          m = '';
+          var minTimeMinutesOfDay = 0;
+
+          if (options.minTime !== false) {
+            var t = _xdsoft_datetime.strtotime(options.minTime);
+
+            minTimeMinutesOfDay = 60 * t.getHours() + t.getMinutes();
+          }
+
+          var maxTimeMinutesOfDay = 24 * 60;
+
+          if (options.maxTime !== false) {
+            var t = _xdsoft_datetime.strtotime(options.maxTime);
+
+            maxTimeMinutesOfDay = 60 * t.getHours() + t.getMinutes();
+          }
+
+          if (options.minDateTime !== false) {
+            var t = _xdsoft_datetime.strToDateTime(options.minDateTime);
+
+            var currentDayIsMinDateTimeDay = dateHelper.formatDate(_xdsoft_datetime.currentTime, options.formatDate) === dateHelper.formatDate(t, options.formatDate);
+
+            if (currentDayIsMinDateTimeDay) {
+              var m = 60 * t.getHours() + t.getMinutes();
+              if (m > minTimeMinutesOfDay) minTimeMinutesOfDay = m;
+            }
+          }
+
+          if (options.maxDateTime !== false) {
+            var t = _xdsoft_datetime.strToDateTime(options.maxDateTime);
+
+            var currentDayIsMaxDateTimeDay = dateHelper.formatDate(_xdsoft_datetime.currentTime, options.formatDate) === dateHelper.formatDate(t, options.formatDate);
+
+            if (currentDayIsMaxDateTimeDay) {
+              var m = 60 * t.getHours() + t.getMinutes();
+              if (m < maxTimeMinutesOfDay) maxTimeMinutesOfDay = m;
+            }
+          }
+
+          line_time = function line_time(h, m) {
+            var now = _xdsoft_datetime.now(),
+                current_time,
+                isALlowTimesInit = options.allowTimes && $.isArray(options.allowTimes) && options.allowTimes.length;
+
+            now.setHours(h);
+            h = parseInt(now.getHours(), 10);
+            now.setMinutes(m);
+            m = parseInt(now.getMinutes(), 10);
+            classes = [];
+            var currentMinutesOfDay = 60 * h + m;
+
+            if (input.is('[disabled]') || currentMinutesOfDay >= maxTimeMinutesOfDay || currentMinutesOfDay < minTimeMinutesOfDay) {
+              classes.push('xdsoft_disabled');
+            }
+
+            current_time = new Date(_xdsoft_datetime.currentTime);
+            current_time.setHours(parseInt(_xdsoft_datetime.currentTime.getHours(), 10));
+
+            if (!isALlowTimesInit) {
+              current_time.setMinutes(Math[options.roundTime](_xdsoft_datetime.currentTime.getMinutes() / options.step) * options.step);
+            }
+
+            if ((options.initTime || options.defaultSelect || datetimepicker.data('changed')) && current_time.getHours() === parseInt(h, 10) && (!isALlowTimesInit && options.step > 59 || current_time.getMinutes() === parseInt(m, 10))) {
+              if (options.defaultSelect || datetimepicker.data('changed')) {
+                classes.push('xdsoft_current');
+              } else if (options.initTime) {
+                classes.push('xdsoft_init_time');
+              }
+            }
+
+            if (parseInt(today.getHours(), 10) === parseInt(h, 10) && parseInt(today.getMinutes(), 10) === parseInt(m, 10)) {
+              classes.push('xdsoft_today');
+            }
+
+            time += '<div class="xdsoft_time ' + classes.join(' ') + '" data-hour="' + h + '" data-minute="' + m + '">' + dateHelper.formatDate(now, options.formatTime) + '</div>';
+          };
+
+          if (!options.allowTimes || !$.isArray(options.allowTimes) || !options.allowTimes.length) {
+            for (i = 0, j = 0; i < (options.hours12 ? 12 : 24); i += 1) {
+              for (j = 0; j < 60; j += options.step) {
+                var currentMinutesOfDay = i * 60 + j;
+                if (currentMinutesOfDay < minTimeMinutesOfDay) continue;
+                if (currentMinutesOfDay >= maxTimeMinutesOfDay) continue;
+                h = (i < 10 ? '0' : '') + i;
+                m = (j < 10 ? '0' : '') + j;
+                line_time(h, m);
+              }
+            }
+          } else {
+            for (i = 0; i < options.allowTimes.length; i += 1) {
+              h = _xdsoft_datetime.strtotime(options.allowTimes[i]).getHours();
+              m = _xdsoft_datetime.strtotime(options.allowTimes[i]).getMinutes();
+              line_time(h, m);
+            }
+          }
+
+          timebox.html(time);
+          opt = '';
+
+          for (i = parseInt(options.yearStart, 10); i <= parseInt(options.yearEnd, 10); i += 1) {
+            opt += '<div class="xdsoft_option ' + (_xdsoft_datetime.currentTime.getFullYear() === i ? 'xdsoft_current' : '') + '" data-value="' + i + '">' + (i + options.yearOffset) + '</div>';
+          }
+
+          yearselect.children().eq(0).html(opt);
+
+          for (i = parseInt(options.monthStart, 10), opt = ''; i <= parseInt(options.monthEnd, 10); i += 1) {
+            opt += '<div class="xdsoft_option ' + (_xdsoft_datetime.currentTime.getMonth() === i ? 'xdsoft_current' : '') + '" data-value="' + i + '">' + options.i18n[globalLocale].months[i] + '</div>';
+          }
+
+          monthselect.children().eq(0).html(opt);
+          $(datetimepicker).trigger('generate.xdsoft');
+        }, 10);
+        event.stopPropagation();
+      }).on('afterOpen.xdsoft', function () {
+        if (options.timepicker) {
+          var classType, pheight, height, top;
+
+          if (timebox.find('.xdsoft_current').length) {
+            classType = '.xdsoft_current';
+          } else if (timebox.find('.xdsoft_init_time').length) {
+            classType = '.xdsoft_init_time';
+          }
+
+          if (classType) {
+            pheight = timeboxparent[0].clientHeight;
+            height = timebox[0].offsetHeight;
+            top = timebox.find(classType).index() * options.timeHeightInTimePicker + 1;
+
+            if (height - pheight < top) {
+              top = height - pheight;
+            }
+
+            timeboxparent.trigger('scroll_element.xdsoft_scroller', [parseInt(top, 10) / (height - pheight)]);
+          } else {
+            timeboxparent.trigger('scroll_element.xdsoft_scroller', [0]);
+          }
+        }
+      });
+      timerclick = 0;
+      calendar.on('touchend click.xdsoft', 'td', function (xdevent) {
+        xdevent.stopPropagation(); // Prevents closing of Pop-ups, Modals and Flyouts in Bootstrap
+
+        timerclick += 1;
+        var $this = $(this),
+            currentTime = _xdsoft_datetime.currentTime;
+
+        if (currentTime === undefined || currentTime === null) {
+          _xdsoft_datetime.currentTime = _xdsoft_datetime.now();
+          currentTime = _xdsoft_datetime.currentTime;
+        }
+
+        if ($this.hasClass('xdsoft_disabled')) {
+          return false;
+        }
+
+        currentTime.setDate(1);
+        currentTime.setFullYear($this.data('year'));
+        currentTime.setMonth($this.data('month'));
+        currentTime.setDate($this.data('date'));
+        datetimepicker.trigger('select.xdsoft', [currentTime]);
+        input.val(_xdsoft_datetime.str());
+
+        if (options.onSelectDate && $.isFunction(options.onSelectDate)) {
+          options.onSelectDate.call(datetimepicker, _xdsoft_datetime.currentTime, datetimepicker.data('input'), xdevent);
+        }
+
+        datetimepicker.data('changed', true);
+        datetimepicker.trigger('xchange.xdsoft');
+        datetimepicker.trigger('changedatetime.xdsoft');
+
+        if ((timerclick > 1 || options.closeOnDateSelect === true || options.closeOnDateSelect === false && !options.timepicker) && !options.inline) {
+          datetimepicker.trigger('close.xdsoft');
+        }
+
+        setTimeout(function () {
+          timerclick = 0;
+        }, 200);
+      });
+      timebox.on('touchstart', 'div', function (xdevent) {
+        this.touchMoved = false;
+      }).on('touchmove', 'div', handleTouchMoved).on('touchend click.xdsoft', 'div', function (xdevent) {
+        if (!this.touchMoved) {
+          xdevent.stopPropagation();
+          var $this = $(this),
+              currentTime = _xdsoft_datetime.currentTime;
+
+          if (currentTime === undefined || currentTime === null) {
+            _xdsoft_datetime.currentTime = _xdsoft_datetime.now();
+            currentTime = _xdsoft_datetime.currentTime;
+          }
+
+          if ($this.hasClass('xdsoft_disabled')) {
+            return false;
+          }
+
+          currentTime.setHours($this.data('hour'));
+          currentTime.setMinutes($this.data('minute'));
+          datetimepicker.trigger('select.xdsoft', [currentTime]);
+          datetimepicker.data('input').val(_xdsoft_datetime.str());
+
+          if (options.onSelectTime && $.isFunction(options.onSelectTime)) {
+            options.onSelectTime.call(datetimepicker, _xdsoft_datetime.currentTime, datetimepicker.data('input'), xdevent);
+          }
+
+          datetimepicker.data('changed', true);
+          datetimepicker.trigger('xchange.xdsoft');
+          datetimepicker.trigger('changedatetime.xdsoft');
+
+          if (options.inline !== true && options.closeOnTimeSelect === true) {
+            datetimepicker.trigger('close.xdsoft');
+          }
+        }
+      });
+      datepicker.on('mousewheel.xdsoft', function (event) {
+        if (!options.scrollMonth) {
+          return true;
+        }
+
+        if (event.deltaY < 0) {
+          _xdsoft_datetime.nextMonth();
+        } else {
+          _xdsoft_datetime.prevMonth();
+        }
+
+        return false;
+      });
+      input.on('mousewheel.xdsoft', function (event) {
+        if (!options.scrollInput) {
+          return true;
+        }
+
+        if (!options.datepicker && options.timepicker) {
+          current_time_index = timebox.find('.xdsoft_current').length ? timebox.find('.xdsoft_current').eq(0).index() : 0;
+
+          if (current_time_index + event.deltaY >= 0 && current_time_index + event.deltaY < timebox.children().length) {
+            current_time_index += event.deltaY;
+          }
+
+          if (timebox.children().eq(current_time_index).length) {
+            timebox.children().eq(current_time_index).trigger('mousedown');
+          }
+
+          return false;
+        }
+
+        if (options.datepicker && !options.timepicker) {
+          datepicker.trigger(event, [event.deltaY, event.deltaX, event.deltaY]);
+
+          if (input.val) {
+            input.val(_xdsoft_datetime.str());
+          }
+
+          datetimepicker.trigger('changedatetime.xdsoft');
+          return false;
+        }
+      });
+      datetimepicker.on('changedatetime.xdsoft', function (event) {
+        if (options.onChangeDateTime && $.isFunction(options.onChangeDateTime)) {
+          var $input = datetimepicker.data('input');
+          options.onChangeDateTime.call(datetimepicker, _xdsoft_datetime.currentTime, $input, event);
+          delete options.value;
+          $input.trigger('change');
+        }
+      }).on('generate.xdsoft', function () {
+        if (options.onGenerate && $.isFunction(options.onGenerate)) {
+          options.onGenerate.call(datetimepicker, _xdsoft_datetime.currentTime, datetimepicker.data('input'));
+        }
+
+        if (triggerAfterOpen) {
+          datetimepicker.trigger('afterOpen.xdsoft');
+          triggerAfterOpen = false;
+        }
+      }).on('click.xdsoft', function (xdevent) {
+        xdevent.stopPropagation();
+      });
+      current_time_index = 0;
+      /**
+       * Runs the callback for each of the specified node's ancestors.
+       *
+       * Return FALSE from the callback to stop ascending.
+       *
+       * @param {DOMNode} node
+       * @param {Function} callback
+       * @returns {undefined}
+       */
+
+      forEachAncestorOf = function forEachAncestorOf(node, callback) {
+        do {
+          node = node.parentNode;
+
+          if (!node || callback(node) === false) {
+            break;
+          }
+        } while (node.nodeName !== 'HTML');
+      };
+      /**
+       * Sets the position of the picker.
+       *
+       * @returns {undefined}
+       */
+
+
+      setPos = function setPos() {
+        var dateInputOffset, dateInputElem, verticalPosition, left, position, datetimepickerElem, dateInputHasFixedAncestor, $dateInput, windowWidth, verticalAnchorEdge, datetimepickerCss, windowHeight, windowScrollTop;
+        $dateInput = datetimepicker.data('input');
+        dateInputOffset = $dateInput.offset();
+        dateInputElem = $dateInput[0];
+        verticalAnchorEdge = 'top';
+        verticalPosition = dateInputOffset.top + dateInputElem.offsetHeight - 1;
+        left = dateInputOffset.left;
+        position = "absolute";
+        windowWidth = $(options.contentWindow).width();
+        windowHeight = $(options.contentWindow).height();
+        windowScrollTop = $(options.contentWindow).scrollTop();
+
+        if (options.ownerDocument.documentElement.clientWidth - dateInputOffset.left < datepicker.parent().outerWidth(true)) {
+          var diff = datepicker.parent().outerWidth(true) - dateInputElem.offsetWidth;
+          left = left - diff;
+        }
+
+        if ($dateInput.parent().css('direction') === 'rtl') {
+          left -= datetimepicker.outerWidth() - $dateInput.outerWidth();
+        }
+
+        if (options.fixed) {
+          verticalPosition -= windowScrollTop;
+          left -= $(options.contentWindow).scrollLeft();
+          position = "fixed";
+        } else {
+          dateInputHasFixedAncestor = false;
+          forEachAncestorOf(dateInputElem, function (ancestorNode) {
+            if (ancestorNode === null) {
+              return false;
+            }
+
+            if (options.contentWindow.getComputedStyle(ancestorNode).getPropertyValue('position') === 'fixed') {
+              dateInputHasFixedAncestor = true;
+              return false;
+            }
+          });
+
+          if (dateInputHasFixedAncestor && !options.insideParent) {
+            position = 'fixed'; //If the picker won't fit entirely within the viewport then display it above the date input.
+
+            if (verticalPosition + datetimepicker.outerHeight() > windowHeight + windowScrollTop) {
+              verticalAnchorEdge = 'bottom';
+              verticalPosition = windowHeight + windowScrollTop - dateInputOffset.top;
+            } else {
+              verticalPosition -= windowScrollTop;
+            }
+          } else {
+            if (verticalPosition + datetimepicker[0].offsetHeight > windowHeight + windowScrollTop) {
+              verticalPosition = dateInputOffset.top - datetimepicker[0].offsetHeight + 1;
+            }
+          }
+
+          if (verticalPosition < 0) {
+            verticalPosition = 0;
+          }
+
+          if (left + dateInputElem.offsetWidth > windowWidth) {
+            left = windowWidth - dateInputElem.offsetWidth;
+          }
+        }
+
+        datetimepickerElem = datetimepicker[0];
+        forEachAncestorOf(datetimepickerElem, function (ancestorNode) {
+          var ancestorNodePosition;
+          ancestorNodePosition = options.contentWindow.getComputedStyle(ancestorNode).getPropertyValue('position');
+
+          if (ancestorNodePosition === 'relative' && windowWidth >= ancestorNode.offsetWidth) {
+            left = left - (windowWidth - ancestorNode.offsetWidth) / 2;
+            return false;
+          }
+        });
+        datetimepickerCss = {
+          position: position,
+          left: options.insideParent ? dateInputElem.offsetLeft : left,
+          top: '',
+          //Initialize to prevent previous values interfering with new ones.
+          bottom: '' //Initialize to prevent previous values interfering with new ones.
+
+        };
+
+        if (options.insideParent) {
+          datetimepickerCss[verticalAnchorEdge] = dateInputElem.offsetTop + dateInputElem.offsetHeight;
+        } else {
+          datetimepickerCss[verticalAnchorEdge] = verticalPosition;
+        }
+
+        datetimepicker.css(datetimepickerCss);
+      };
+
+      datetimepicker.on('open.xdsoft', function (event) {
+        var onShow = true;
+
+        if (options.onShow && $.isFunction(options.onShow)) {
+          onShow = options.onShow.call(datetimepicker, _xdsoft_datetime.currentTime, datetimepicker.data('input'), event);
+        }
+
+        if (onShow !== false) {
+          datetimepicker.show();
+          setPos();
+          $(options.contentWindow).off('resize.xdsoft', setPos).on('resize.xdsoft', setPos);
+
+          if (options.closeOnWithoutClick) {
+            $([options.ownerDocument.body, options.contentWindow]).on('touchstart mousedown.xdsoft', function arguments_callee6() {
+              datetimepicker.trigger('close.xdsoft');
+              $([options.ownerDocument.body, options.contentWindow]).off('touchstart mousedown.xdsoft', arguments_callee6);
+            });
+          }
+        }
+      }).on('close.xdsoft', function (event) {
+        var onClose = true;
+        month_picker.find('.xdsoft_month,.xdsoft_year').find('.xdsoft_select').hide();
+
+        if (options.onClose && $.isFunction(options.onClose)) {
+          onClose = options.onClose.call(datetimepicker, _xdsoft_datetime.currentTime, datetimepicker.data('input'), event);
+        }
+
+        if (onClose !== false && !options.opened && !options.inline) {
+          datetimepicker.hide();
+        }
+
+        event.stopPropagation();
+      }).on('toggle.xdsoft', function () {
+        if (datetimepicker.is(':visible')) {
+          datetimepicker.trigger('close.xdsoft');
+        } else {
+          datetimepicker.trigger('open.xdsoft');
+        }
+      }).data('input', input);
+      timer = 0;
+      datetimepicker.data('xdsoft_datetime', _xdsoft_datetime);
+      datetimepicker.setOptions(options);
+
+      function getCurrentValue() {
+        var ct = false,
+            time;
+
+        if (options.startDate) {
+          ct = _xdsoft_datetime.strToDate(options.startDate);
+        } else {
+          ct = options.value || (input && input.val && input.val() ? input.val() : '');
+
+          if (ct) {
+            ct = _xdsoft_datetime.strToDateTime(ct);
+
+            if (options.yearOffset) {
+              ct = new Date(ct.getFullYear() - options.yearOffset, ct.getMonth(), ct.getDate(), ct.getHours(), ct.getMinutes(), ct.getSeconds(), ct.getMilliseconds());
+            }
+          } else if (options.defaultDate) {
+            ct = _xdsoft_datetime.strToDateTime(options.defaultDate);
+
+            if (options.defaultTime) {
+              time = _xdsoft_datetime.strtotime(options.defaultTime);
+              ct.setHours(time.getHours());
+              ct.setMinutes(time.getMinutes());
+            }
+          }
+        }
+
+        if (ct && _xdsoft_datetime.isValidDate(ct)) {
+          datetimepicker.data('changed', true);
+        } else {
+          ct = '';
+        }
+
+        return ct || 0;
+      }
+
+      function setMask(options) {
+        var isValidValue = function isValidValue(mask, value) {
+          var reg = mask.replace(/([\[\]\/\{\}\(\)\-\.\+]{1})/g, '\\$1').replace(/_/g, '{digit+}').replace(/([0-9]{1})/g, '{digit$1}').replace(/\{digit([0-9]{1})\}/g, '[0-$1_]{1}').replace(/\{digit[\+]\}/g, '[0-9_]{1}');
+          return new RegExp(reg).test(value);
+        },
+            getCaretPos = function getCaretPos(input) {
+          try {
+            if (options.ownerDocument.selection && options.ownerDocument.selection.createRange) {
+              var range = options.ownerDocument.selection.createRange();
+              return range.getBookmark().charCodeAt(2) - 2;
+            }
+
+            if (input.setSelectionRange) {
+              return input.selectionStart;
+            }
+          } catch (e) {
+            return 0;
+          }
+        },
+            setCaretPos = function setCaretPos(node, pos) {
+          node = typeof node === "string" || node instanceof String ? options.ownerDocument.getElementById(node) : node;
+
+          if (!node) {
+            return false;
+          }
+
+          if (node.createTextRange) {
+            var textRange = node.createTextRange();
+            textRange.collapse(true);
+            textRange.moveEnd('character', pos);
+            textRange.moveStart('character', pos);
+            textRange.select();
+            return true;
+          }
+
+          if (node.setSelectionRange) {
+            node.setSelectionRange(pos, pos);
+            return true;
+          }
+
+          return false;
+        };
+
+        if (options.mask) {
+          input.off('keydown.xdsoft');
+        }
+
+        if (options.mask === true) {
+          if (dateHelper.formatMask) {
+            options.mask = dateHelper.formatMask(options.format);
+          } else {
+            options.mask = options.format.replace(/Y/g, '9999').replace(/F/g, '9999').replace(/m/g, '19').replace(/d/g, '39').replace(/H/g, '29').replace(/i/g, '59').replace(/s/g, '59');
+          }
+        }
+
+        if ($.type(options.mask) === 'string') {
+          if (!isValidValue(options.mask, input.val())) {
+            input.val(options.mask.replace(/[0-9]/g, '_'));
+            setCaretPos(input[0], 0);
+          }
+
+          input.on('paste.xdsoft', function (event) {
+            // couple options here
+            // 1. return false - tell them they can't paste
+            // 2. insert over current characters - minimal validation
+            // 3. full fledged parsing and validation
+            // let's go option 2 for now
+            // fires multiple times for some reason
+            // https://stackoverflow.com/a/30496488/1366033
+            var clipboardData = event.clipboardData || event.originalEvent.clipboardData || window.clipboardData,
+                pastedData = clipboardData.getData('text'),
+                val = this.value,
+                pos = this.selectionStart;
+            var valueBeforeCursor = val.substr(0, pos);
+            var valueAfterPaste = val.substr(pos + pastedData.length);
+            val = valueBeforeCursor + pastedData + valueAfterPaste;
+            pos += pastedData.length;
+
+            if (isValidValue(options.mask, val)) {
+              this.value = val;
+              setCaretPos(this, pos);
+            } else if ($.trim(val) === '') {
+              this.value = options.mask.replace(/[0-9]/g, '_');
+            } else {
+              input.trigger('error_input.xdsoft');
+            }
+
+            event.preventDefault();
+            return false;
+          });
+          input.on('keydown.xdsoft', function (event) {
+            var val = this.value,
+                key = event.which,
+                pos = this.selectionStart,
+                selEnd = this.selectionEnd,
+                hasSel = pos !== selEnd,
+                digit; // only alow these characters
+
+            if (key >= KEY0 && key <= KEY9 || key >= _KEY0 && key <= _KEY9 || key === BACKSPACE || key === DEL) {
+              // get char to insert which is new character or placeholder ('_')
+              digit = key === BACKSPACE || key === DEL ? '_' : String.fromCharCode(_KEY0 <= key && key <= _KEY9 ? key - KEY0 : key); // we're deleting something, we're not at the start, and have normal cursor, move back one
+              // if we have a selection length, cursor actually sits behind deletable char, not in front
+
+              if (key === BACKSPACE && pos && !hasSel) {
+                pos -= 1;
+              } // don't stop on a separator, continue whatever direction you were going
+              //   value char - keep incrementing position while on separator char and we still have room
+              //   del char   - keep decrementing position while on separator char and we still have room
+
+
+              while (true) {
+                var maskValueAtCurPos = options.mask.substr(pos, 1);
+                var posShorterThanMaskLength = pos < options.mask.length;
+                var posGreaterThanZero = pos > 0;
+                var notNumberOrPlaceholder = /[^0-9_]/;
+                var curPosOnSep = notNumberOrPlaceholder.test(maskValueAtCurPos);
+                var continueMovingPosition = curPosOnSep && posShorterThanMaskLength && posGreaterThanZero; // if we hit a real char, stay where we are
+
+                if (!continueMovingPosition) break; // hitting backspace in a selection, you can possibly go back any further - go forward
+
+                pos += key === BACKSPACE && !hasSel ? -1 : 1;
+              }
+
+              if (event.metaKey) {
+                // cmd has been pressed
+                pos = 0;
+                hasSel = true;
+              }
+
+              if (hasSel) {
+                // pos might have moved so re-calc length
+                var selLength = selEnd - pos; // if we have a selection length we will wipe out entire selection and replace with default template for that range
+
+                var defaultBlank = options.mask.replace(/[0-9]/g, '_');
+                var defaultBlankSelectionReplacement = defaultBlank.substr(pos, selLength);
+                var selReplacementRemainder = defaultBlankSelectionReplacement.substr(1); // might be empty
+
+                var valueBeforeSel = val.substr(0, pos);
+                var insertChars = digit + selReplacementRemainder;
+                var charsAfterSelection = val.substr(pos + selLength);
+                val = valueBeforeSel + insertChars + charsAfterSelection;
+              } else {
+                var valueBeforeCursor = val.substr(0, pos);
+                var insertChar = digit;
+                var valueAfterNextChar = val.substr(pos + 1);
+                val = valueBeforeCursor + insertChar + valueAfterNextChar;
+              }
+
+              if ($.trim(val) === '') {
+                // if empty, set to default
+                val = defaultBlank;
+              } else {
+                // if at the last character don't need to do anything
+                if (pos === options.mask.length) {
+                  event.preventDefault();
+                  return false;
+                }
+              } // resume cursor location
+
+
+              pos += key === BACKSPACE ? 0 : 1; // don't stop on a separator, continue whatever direction you were going
+
+              while (/[^0-9_]/.test(options.mask.substr(pos, 1)) && pos < options.mask.length && pos > 0) {
+                pos += key === BACKSPACE ? 0 : 1;
+              }
+
+              if (isValidValue(options.mask, val)) {
+                this.value = val;
+                setCaretPos(this, pos);
+              } else if ($.trim(val) === '') {
+                this.value = options.mask.replace(/[0-9]/g, '_');
+              } else {
+                input.trigger('error_input.xdsoft');
+              }
+            } else {
+              if ([AKEY, CKEY, VKEY, ZKEY, YKEY].indexOf(key) !== -1 && ctrlDown || [ESC, ARROWUP, ARROWDOWN, ARROWLEFT, ARROWRIGHT, F5, CTRLKEY, TAB, ENTER].indexOf(key) !== -1) {
+                return true;
+              }
+            }
+
+            event.preventDefault();
+            return false;
+          });
+        }
+      }
+
+      _xdsoft_datetime.setCurrentTime(getCurrentValue());
+
+      input.data('xdsoft_datetimepicker', datetimepicker).on('open.xdsoft focusin.xdsoft mousedown.xdsoft touchstart', function () {
+        if (input.is(':disabled') || input.data('xdsoft_datetimepicker').is(':visible') && options.closeOnInputClick) {
+          return;
+        }
+
+        if (!options.openOnFocus) {
+          return;
+        }
+
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          if (input.is(':disabled')) {
+            return;
+          }
+
+          triggerAfterOpen = true;
+
+          _xdsoft_datetime.setCurrentTime(getCurrentValue(), true);
+
+          if (options.mask) {
+            setMask(options);
+          }
+
+          datetimepicker.trigger('open.xdsoft');
+        }, 100);
+      }).on('keydown.xdsoft', function (event) {
+        var elementSelector,
+            key = event.which;
+
+        if ([ENTER].indexOf(key) !== -1 && options.enterLikeTab) {
+          elementSelector = $("input:visible,textarea:visible,button:visible,a:visible");
+          datetimepicker.trigger('close.xdsoft');
+          elementSelector.eq(elementSelector.index(this) + 1).focus();
+          return false;
+        }
+
+        if ([TAB].indexOf(key) !== -1) {
+          datetimepicker.trigger('close.xdsoft');
+          return true;
+        }
+      }).on('blur.xdsoft', function () {
+        datetimepicker.trigger('close.xdsoft');
+      });
+    };
+
+    destroyDateTimePicker = function destroyDateTimePicker(input) {
+      var datetimepicker = input.data('xdsoft_datetimepicker');
+
+      if (datetimepicker) {
+        datetimepicker.data('xdsoft_datetime', null);
+        datetimepicker.remove();
+        input.data('xdsoft_datetimepicker', null).off('.xdsoft');
+        $(options.contentWindow).off('resize.xdsoft');
+        $([options.contentWindow, options.ownerDocument.body]).off('mousedown.xdsoft touchstart');
+
+        if (input.unmousewheel) {
+          input.unmousewheel();
+        }
+      }
+    };
+
+    $(options.ownerDocument).off('keydown.xdsoftctrl keyup.xdsoftctrl').off('keydown.xdsoftcmd keyup.xdsoftcmd').on('keydown.xdsoftctrl', function (e) {
+      if (e.keyCode === CTRLKEY) {
+        ctrlDown = true;
+      }
+    }).on('keyup.xdsoftctrl', function (e) {
+      if (e.keyCode === CTRLKEY) {
+        ctrlDown = false;
+      }
+    }).on('keydown.xdsoftcmd', function (e) {
+      if (e.keyCode === CMDKEY) {
+        cmdDown = true;
+      }
+    }).on('keyup.xdsoftcmd', function (e) {
+      if (e.keyCode === CMDKEY) {
+        cmdDown = false;
+      }
+    });
+    this.each(function () {
+      var datetimepicker = $(this).data('xdsoft_datetimepicker'),
+          $input;
+
+      if (datetimepicker) {
+        if ($.type(opt) === 'string') {
+          switch (opt) {
+            case 'show':
+              $(this).select().focus();
+              datetimepicker.trigger('open.xdsoft');
+              break;
+
+            case 'hide':
+              datetimepicker.trigger('close.xdsoft');
+              break;
+
+            case 'toggle':
+              datetimepicker.trigger('toggle.xdsoft');
+              break;
+
+            case 'destroy':
+              destroyDateTimePicker($(this));
+              break;
+
+            case 'reset':
+              this.value = this.defaultValue;
+
+              if (!this.value || !datetimepicker.data('xdsoft_datetime').isValidDate(dateHelper.parseDate(this.value, options.format))) {
+                datetimepicker.data('changed', false);
+              }
+
+              datetimepicker.data('xdsoft_datetime').setCurrentTime(this.value);
+              break;
+
+            case 'validate':
+              $input = datetimepicker.data('input');
+              $input.trigger('blur.xdsoft');
+              break;
+
+            default:
+              if (datetimepicker[opt] && $.isFunction(datetimepicker[opt])) {
+                result = datetimepicker[opt](opt2);
+              }
+
+          }
+        } else {
+          datetimepicker.setOptions(opt);
+        }
+
+        return 0;
+      }
+
+      if ($.type(opt) !== 'string') {
+        if (!options.lazyInit || options.open || options.inline) {
+          createDateTimePicker($(this));
+        } else {
+          lazyInit($(this));
+        }
+      }
+    });
+    return result;
+  };
+
+  $.fn.datetimepicker.defaults = default_options;
+
+  function HighlightedDate(date, desc, style) {
+    "use strict";
+
+    this.date = date;
+    this.desc = desc;
+    this.style = style;
+  }
+})(jQuery);
+;// CONCATENATED MODULE: ./src/components/form/js/fn/datepicker.js
+
+
+/*
+ * Render Date Picker
+ *
+ * @param  {String} controls                 - Wrapper of controls.
+ * @return {Void}
+ */
+
+
+(function ($) {
+  'use strict';
+
+  $.fn.UixRenderDatePicker = function (options) {
+    // This is the easiest way to have default options.
+    var settings = $.extend({
+      controls: '[data-picker]'
+    }, options);
+    this.each(function () {
+      if ($.isFunction($.fn.datetimepicker)) {
+        $(settings.controls).each(function () {
+          var $this = $(this);
+          var dateFormat = $this.data('picker-format'),
+              timeEnabled = $this.data('picker-timepicker'),
+              lang = $this.data('picker-lang'),
+              myminDate = $this.data('picker-min-date'),
+              mymaxDate = $this.data('picker-max-date'),
+              rtlEnabled = false; // If there is no data-xxx, save current source to it
+
+          if ((0,esm_typeof/* default */.Z)(dateFormat) === ( true ? "undefined" : 0)) dateFormat = 'M d, Y'; //Y-m-d H:i:s
+
+          if ((0,esm_typeof/* default */.Z)(timeEnabled) === ( true ? "undefined" : 0)) timeEnabled = false;
+          if ((0,esm_typeof/* default */.Z)(lang) === ( true ? "undefined" : 0)) lang = 'en';
+          if ((0,esm_typeof/* default */.Z)(myminDate) === ( true ? "undefined" : 0)) myminDate = false; //yesterday is minimum date(for today use 0 or -1970/01/01)
+
+          if ((0,esm_typeof/* default */.Z)(mymaxDate) === ( true ? "undefined" : 0)) mymaxDate = false; //tomorrow is maximum date calendar, such as '+2050/01/01'
+
+          if ((0,esm_typeof/* default */.Z)(rtlEnabled) === ( true ? "undefined" : 0)) rtlEnabled = false;
+          $.datetimepicker.setLocale(lang); //RTL 
+
+          if ($('body').hasClass('rtl')) {
+            rtlEnabled = true;
+          } //hide or display time selector
+
+
+          if (timeEnabled) {
+            $(document).on('mouseenter', 'td.xdsoft_date[data-date]', function () {
+              if ($(this).hasClass('xdsoft_disabled')) {
+                $(this).closest('.xdsoft_datepicker').next('.xdsoft_timepicker.active').hide();
+              } else {
+                $(this).closest('.xdsoft_datepicker').next('.xdsoft_timepicker.active').show();
+              }
+            });
+          }
+
+          $this.datetimepicker({
+            rtl: rtlEnabled,
+            timepicker: timeEnabled,
+            format: dateFormat,
+            formatTime: 'H:i',
+            formatDate: 'Y/m/d',
+            minDate: myminDate,
+            maxDate: mymaxDate
+          });
+        }); //Dynamic listening for the latest value
+
+        $(document).on('mouseleave', '[data-handler]', function () {
+          $('[data-picker]').each(function () {
+            $(this).closest('div').find('label, .uix-controls__bar').addClass('is-active');
+          });
+        });
+      } // function datetimepicker is exist
+
+    });
+  };
+})(jQuery);
+// EXTERNAL MODULE: ./src/components/form/js/fn/controls-hover.js
+var controls_hover = __webpack_require__(366);
+;// CONCATENATED MODULE: ./src/components/form/js/fn/single-seletor.js
+
+
+/*
+ * Render Single Selector
+ *
+ * @param  {String} controls                 - Wrapper of controls.
+ * @return {Void}
+ */
+(function ($) {
+  'use strict';
+
+  $.fn.UixRenderCustomSingleSel = function (options) {
+    // This is the easiest way to have default options.
+    var settings = $.extend({
+      controls: '.uix-controls__single-sel'
+    }, options);
+    this.each(function () {
+      $(settings.controls).each(function () {
+        var $this = $(this);
+        var actived = $this.data('activated');
+
+        if ((0,esm_typeof/* default */.Z)(actived) === ( true ? "undefined" : 0)) {
+          // Initialize status
+          //------------------------------------------
+          $(this).find('> span').each(function () {
+            var targetID = '#' + $(this).parent().attr('data-targetid');
+            var switchIDs = ''; //add switch IDs
+
+            $(this).parent().find('> span').each(function () {
+              if ((0,esm_typeof/* default */.Z)($(this).data("switchid")) != ( true ? "undefined" : 0)) {
+                switchIDs += $(this).data("switchid") + ',';
+              }
+            });
+            $(this).parent().attr("data-switchids", switchIDs.replace(/,\s*$/, '')); //Set actived style from their values
+
+            if ($(targetID).val() == $(this).data('value')) {
+              $(this).addClass('is-active').attr('aria-checked', true);
+            } else {
+              $(this).removeClass('is-active').attr('aria-checked', false);
+            }
+          }); // Mouse events
+          //------------------------------------------
+
+          var singleSelItem = settings.controls + ' > span';
+          /*
+          * Initialize single switch
+          *
+          * @param  {Element} obj                 - Radio controls. 
+          * @return {Void}
+          */
+
+          var hideAllSingleSelItems = function hideAllSingleSelItems(obj) {
+            obj.each(function (index) {
+              var $sel = $(this),
+                  defaultValue = $('#' + $sel.attr('data-targetid')).val(),
+                  deffaultSwitchIndex = 0; //get default selected switch index
+
+              $sel.find('> span').each(function (index) {
+                if (defaultValue == $(this).data('value')) {
+                  deffaultSwitchIndex = index;
+                }
+              });
+
+              if ((0,esm_typeof/* default */.Z)($sel.data('switchids')) != ( true ? "undefined" : 0) && $sel.data('switchids') != '') {
+                var _switchIDsArr = $sel.data('switchids').split(',');
+
+                _switchIDsArr.forEach(function (element, index) {
+                  if (deffaultSwitchIndex != index) {
+                    $('#' + element).hide();
+                  } else {
+                    $('#' + element).show();
+                  }
+                });
+              }
+            });
+          };
+
+          hideAllSingleSelItems($this);
+          $(document).off('click.FORM_SINGLE_SEL').on('click.FORM_SINGLE_SEL', singleSelItem, function (e) {
+            e.preventDefault();
+            var $selector = $(this).parent(),
+                $option = $(this),
+                targetID = '#' + $selector.data("targetid"),
+                switchID = '#' + $option.data("switchid"),
+                curVal = $option.data('value'); //Radio Selector
+
+            $selector.find('> span').removeClass('is-active').attr('aria-checked', false);
+            $(targetID).val(curVal);
+            $option.addClass('is-active').attr('aria-checked', true); //Switch some options
+
+            if ((0,esm_typeof/* default */.Z)($option.data("switchid")) != ( true ? "undefined" : 0)) {
+              hideAllSingleSelItems($selector);
+              $(switchID).show();
+            } //Dynamic listening for the latest value
+
+
+            $(targetID).focus().blur();
+          }); //------------------------------------------
+          //Prevents front-end javascripts that are activated in the background to repeat loading.
+
+          $this.data('activated', 1);
+        } //endif actived			
+
+      });
+      $(settings.controls).each(function () {});
+    });
+  };
+})(jQuery);
+;// CONCATENATED MODULE: ./src/components/form/js/fn/multi-seletor.js
+
+
+/*
+ * Render Multiple Selector
+ *
+ * @param  {String} controls                 - Wrapper of controls.
+ * @return {Void}
+ */
+(function ($) {
+  'use strict';
+
+  $.fn.UixRenderCustomMultiSel = function (options) {
+    // This is the easiest way to have default options.
+    var settings = $.extend({
+      controls: '.uix-controls__multi-sel'
+    }, options);
+    this.each(function () {
+      $(settings.controls).each(function () {
+        var $this = $(this);
+        var actived = $this.data('activated');
+
+        if ((0,esm_typeof/* default */.Z)(actived) === ( true ? "undefined" : 0)) {
+          // Initialize status
+          //------------------------------------------
+          $(this).find('> span').each(function () {
+            var targetID = '#' + $(this).parent().attr('data-targetid');
+
+            if ($(targetID).val().indexOf($(this).data('value')) >= 0) {
+              $(this).addClass('is-active').attr('aria-checked', true);
+            } else {
+              $(this).removeClass('is-active').attr('aria-checked', false);
+            }
+          }); // Click Event of Multiple Selector
+          //------------------------------------------
+
+          var multiSel = '.uix-controls__multi-sel',
+              multiSelItem = multiSel + ' > span';
+          $(document).off('click.FORM_MULTI_SEL').on('click.FORM_MULTI_SEL', multiSelItem, function (e) {
+            e.preventDefault();
+            var $selector = $(this).parent(),
+                $option = $(this),
+                targetID = '#' + $selector.data("targetid"),
+                curVal = $option.data('value'),
+                tarVal = $(targetID).val() + ',',
+                resVal = '';
+            $option.toggleClass('is-active').attr('aria-checked', function (index, attr) {
+              return attr == 'true' ? false : true;
+            });
+
+            if (tarVal.indexOf(curVal + ',') < 0) {
+              resVal = tarVal + curVal + ',';
+            } else {
+              resVal = tarVal.replace(curVal + ',', '');
+            }
+
+            resVal = resVal.replace(/,\s*$/, '').replace(/^,/, '');
+            $(targetID).val(resVal); //Dynamic listening for the latest value
+
+            $(targetID).focus().blur();
+          }); //------------------------------------------
+          //Prevents front-end javascripts that are activated in the background to repeat loading.
+
+          $this.data('activated', 1);
+        } //endif actived			
+
+      });
+    });
+  };
+})(jQuery);
+// EXTERNAL MODULE: ./src/components/form/js/fn/file-dropzone.js
+var file_dropzone = __webpack_require__(283);
+// EXTERNAL MODULE: ./src/components/form/js/fn/upload.js
+var upload = __webpack_require__(433);
+// EXTERNAL MODULE: ./src/components/form/js/fn/controls-disable.js
+var controls_disable = __webpack_require__(260);
+;// CONCATENATED MODULE: ./src/components/form/js/fn/controls-line.js
+
+
+/*
+ * Create Line Effect on Click
+ *
+ * @param  {String} controls                 - Wrapper of controls.
+ * @return {Void}
+ */
+(function ($) {
+  'use strict';
+
+  $.fn.UixRenderControlsLineEff = function (options) {
+    // This is the easiest way to have default options.
+    var settings = $.extend({
+      controls: '.uix-controls.uix-controls--line'
+    }, options);
+    this.each(function () {
+      var $this = $(this);
+      var customControls = settings.controls;
+      $(customControls).each(function () {
+        var dataExist = $(this).data('exist');
+
+        if ((0,esm_typeof/* default */.Z)(dataExist) === ( true ? "undefined" : 0) && dataExist != 1) {
+          $('<ins class="uix-controls__bar"></ins><ins class="uix-controls__basic-bar"></ins>').insertAfter($(this).find('label')); //Multiple Selector or Single Selector
+
+          if ($(this).hasClass('uix-controls__multi-sel') || $(this).hasClass('uix-controls__single-sel')) {
+            $(this).find('> span').each(function () {
+              $(this).prepend('<ins class="uix-controls__bar"></ins><ins class="uix-controls__basic-bar"></ins>');
+            });
+          } //Custom Input Number
+
+
+          if ($(this).hasClass('uix-controls__number')) {
+            $(this).prepend('<ins class="uix-controls__bar"></ins><ins class="uix-controls__basic-bar"></ins>');
+          } //Prevent the form from being initialized again
+
+
+          $(this).data('exist', 1);
+        }
+      });
+    });
+  };
+})(jQuery);
+;// CONCATENATED MODULE: ./src/components/form/js/fn/radio-and-checkbox.js
+
+
+/*
+ * Render Custom Radio, Checkbox and Toggle 
+ *
+ * @param  {String} radioWrapper             - Wrapper of the radio.
+ * @param  {String} toggle                   - Toggle of the checkbox.
+ * @param  {String} checkboxWrapper          - Wrapper of the checkbox.
+ * @return {Void}
+ */
+(function ($) {
+  'use strict';
+
+  $.fn.UixRenderCustomRadioCheckbox = function (options) {
+    // This is the easiest way to have default options.
+    var settings = $.extend({
+      radioWrapper: '.uix-controls__radio',
+      toggle: '.uix-controls__toggle',
+      checkboxWrapper: '.uix-controls__checkbox'
+    }, options);
+    this.each(function () {
+      $(settings.checkboxWrapper).each(function () {
+        var $this = $(this);
+        var actived = $this.data('activated');
+
+        if ((0,esm_typeof/* default */.Z)(actived) === ( true ? "undefined" : 0)) {
+          // Initialize status
+          //------------------------------------------  
+          $(settings.checkboxWrapper).find('input[type="checkbox"]').each(function () {
+            var dataExist = $(this).data('exist'),
+                $obj = $(this).closest('.uix-controls');
+
+            if ((0,esm_typeof/* default */.Z)(dataExist) === ( true ? "undefined" : 0) && dataExist != 1) {
+              $('<span class="uix-controls__checkbox-trigger"></span>').insertAfter($(this)); //hide or display a associated div
+
+              var targetID = '#' + $obj.attr('data-targetid');
+
+              if ($(this).is(':checked')) {
+                $obj.addClass('is-active').attr('aria-checked', true);
+                $(targetID).show();
+              } else {
+                $obj.removeClass('is-active').attr('aria-checked', false);
+                $(targetID).hide();
+              } //Prevent the form from being initialized again
+
+
+              $(this).data('exist', 1);
+            }
+          }); // Mouse events
+          //------------------------------------------
+
+          $(document).on('change', settings.toggle + ' [type="checkbox"]', function (e) {
+            //hide or display a associated div
+            var $obj = $(this).closest('.uix-controls'),
+                targetID = '#' + $obj.attr('data-targetid');
+
+            if (this.checked) {
+              $obj.addClass('is-active').attr('aria-checked', true);
+              $(targetID).show();
+            } else {
+              $obj.removeClass('is-active').attr('aria-checked', false);
+              $(targetID).hide();
+            }
+          }); //------------------------------------------
+          //Prevents front-end javascripts that are activated in the background to repeat loading.
+
+          $this.data('activated', 1);
+        } //endif actived			
+
+      });
+      $(settings.toggle).each(function () {
+        var $this = $(this);
+        var actived = $this.data('activated');
+
+        if ((0,esm_typeof/* default */.Z)(actived) === ( true ? "undefined" : 0)) {
+          // Initialize status
+          //------------------------------------------  
+          $(settings.toggle).find('input[type="checkbox"]').each(function () {
+            var dataExist = $(this).data('exist'),
+                $obj = $(this).closest('.uix-controls'),
+                offText = $obj.data('off-text'),
+                onText = $obj.data('on-text');
+
+            if ((0,esm_typeof/* default */.Z)(dataExist) === ( true ? "undefined" : 0) && dataExist != 1) {
+              $('<span class="uix-controls__toggle-trigger" data-off-text="' + offText + '" data-on-text="' + onText + '"></span>').insertAfter($(this)); //hide or display a associated div
+
+              var targetID = '#' + $obj.attr('data-targetid');
+
+              if ($(this).is(':checked')) {
+                $obj.addClass('is-active').attr('aria-checked', true);
+                $(targetID).show();
+              } else {
+                $obj.removeClass('is-active').attr('aria-checked', false);
+                $(targetID).hide();
+              } //Prevent the form from being initialized again
+
+
+              $(this).data('exist', 1);
+            }
+          }); // Mouse events
+          //------------------------------------------
+
+          $(document).on('change', settings.checkboxWrapper + ' [type="checkbox"]', function (e) {
+            //hide or display a associated div
+            var $obj = $(this).closest('.uix-controls'),
+                targetID = '#' + $obj.attr('data-targetid');
+
+            if (this.checked) {
+              $obj.addClass('is-active').attr('aria-checked', true);
+              $(targetID).show();
+            } else {
+              $obj.removeClass('is-active').attr('aria-checked', false);
+              $(targetID).hide();
+            }
+          }); //------------------------------------------
+          //Prevents front-end javascripts that are activated in the background to repeat loading.
+
+          $this.data('activated', 1);
+        } //endif actived			
+
+      });
+      $(settings.radioWrapper).each(function () {
+        var $this = $(this);
+        var actived = $this.data('activated');
+
+        if ((0,esm_typeof/* default */.Z)(actived) === ( true ? "undefined" : 0)) {
+          // Initialize status
+          //------------------------------------------  
+          $(settings.radioWrapper).find('input[type="radio"]').each(function () {
+            var dataExist = $(this).data('exist');
+
+            if ((0,esm_typeof/* default */.Z)(dataExist) === ( true ? "undefined" : 0) && dataExist != 1) {
+              $('<span class="uix-controls__radio-trigger"></span>').insertAfter($(this)); //Prevent the form from being initialized again
+
+              $(this).data('exist', 1);
+            }
+          }); //------------------------------------------
+          //Prevents front-end javascripts that are activated in the background to repeat loading.
+
+          $this.data('activated', 1);
+        } //endif actived			
+
+      });
+    });
+  };
+})(jQuery);
+;// CONCATENATED MODULE: ./src/components/form/js/fn/select.js
+
+
+/*
+ * Render Custom Select
+ *
+ * @param  {String} selector             - The current selector.
+ * @param  {String} targetWrapper        - Wrapper of the selector.
+ * @param  {String} trigger              - Trigger of the selector.
+ * @param  {String} itemsWrapper         - Selector's options container.
+ * @param  {Element} item                 - Each option of the selector.
+ * @return {Void}
+ */
+(function ($) {
+  'use strict';
+
+  $.fn.UixRenderCustomSelect = function (options) {
+    // This is the easiest way to have default options.
+    var settings = $.extend({
+      selector: '.uix-controls__select',
+      targetWrapper: '.uix-controls__select-wrapper',
+      trigger: '.uix-controls__select-trigger',
+      itemsWrapper: '.uix-controls__select__option-container',
+      item: '.uix-controls__select__option'
+    }, options);
+    this.each(function () {
+      $(settings.selector).not('.js-uix-new').each(function () {
+        var $this = $(this);
+        var classes = $this.attr('class'),
+            id = $this.attr('id'),
+            name = $this.attr('name'),
+            labelText = $this.find('> span').html(),
+            dataExist = $this.data('exist');
+        var template = '';
+
+        if ((0,esm_typeof/* default */.Z)(dataExist) === ( true ? "undefined" : 0) && dataExist != 1) {
+          template = '<div class="' + classes + ' js-uix-new">';
+          template += '<span class="uix-controls__select-trigger">' + $this.find('select').attr('placeholder') + '</span><ins class="uix-controls__bar"></ins><ins class="uix-controls__basic-bar"></ins>';
+          template += '<div role="presentation" class="uix-controls__select__option-container">';
+          $this.find('select option').each(function (index) {
+            var selected = '';
+
+            if ($(this).is(':selected')) {
+              selected = 'is-active';
+            }
+
+            template += '<span role="option" class="uix-controls__select__option ' + selected + '" data-value="' + $(this).attr('value') + '">' + $(this).html() + '</span>';
+          });
+          template += '</div></div>';
+
+          if ((0,esm_typeof/* default */.Z)(labelText) != ( true ? "undefined" : 0) && labelText != '') {
+            template += '<span class="uix-controls__select-label">' + labelText + '</span>';
+          }
+
+          $this.wrap('<div class="' + settings.targetWrapper.replace('.', '') + ' ' + ($this.hasClass('uix-controls--line') ? 'uix-controls--line' : '') + ' ' + ($this.hasClass('is-fullwidth') ? 'is-fullwidth' : '') + ' ' + ($this.hasClass('is-disabled') ? 'is-disabled' : '') + '"></div>');
+          $this.hide();
+          $this.after(template); //Prevent the form from being initialized again
+
+          $(this).data('exist', 1);
+        }
+      }); //Show/Hide Selector
+
+      $(document).off('click.FORM_CUSTOM_SELECT').on('click.FORM_CUSTOM_SELECT', settings.trigger, function (e) {
+        e.preventDefault();
+        var $selectWrapper = $(this).closest(settings.targetWrapper),
+            $selectCurWrapper = $selectWrapper.find(settings.selector + '.js-uix-new');
+        $selectCurWrapper.addClass('is-opened');
+      }); //Do not add off() to this
+
+      $(document.body).on('click', function (e) {
+        if (e.target.className != '' && (0,esm_typeof/* default */.Z)(e.target.className) != ( true ? "undefined" : 0) && Object.prototype.toString.call(e.target.className) != '[object SVGAnimatedString]') {
+          if (e.target.className.indexOf('uix-controls__select__option') < 0) {
+            $(settings.selector + '.js-uix-new').removeClass('is-opened');
+          }
+        }
+      }); //Set the default selector text
+
+      $(settings.selector + '.js-uix-new').each(function (index) {
+        $(this).find(settings.trigger).text($(this).find(settings.item + '.is-active').html());
+      }); //Change Event Here
+      //Prevents the triggering of multiple change events
+
+      $(document).off('click.FORM_CUSTOM_SELECT_ITEM').on('click.FORM_CUSTOM_SELECT_ITEM', settings.item, function (e) {
+        e.preventDefault();
+        var $selectWrapper = $(this).closest(settings.targetWrapper),
+            $selectCurWrapper = $selectWrapper.find(settings.selector + '.js-uix-new'),
+            curVal = $(this).data('value'); //Close the selector
+
+        $selectCurWrapper.removeClass('is-opened'); //Set the selector text
+
+        $selectCurWrapper.find(settings.trigger).text($(this).html()).addClass('is-active'); //Activate this option
+
+        $selectCurWrapper.find(settings.item).removeClass('is-active');
+        $(this).addClass('is-active'); //Set select option 'selected', by value
+
+        $selectWrapper.find('select').val(curVal);
+        $selectWrapper.find('select option').removeAttr('selected');
+        $selectWrapper.find('select option[value="' + curVal + '"]').attr('selected', 'selected').change();
+      }); //Synchronize to the original select change event
+
+      $(settings.selector).not('.js-uix-new').each(function () {
+        var $this = $(this).find('select'),
+            $cusSelect = $this.closest(settings.targetWrapper).find(settings.selector + '.js-uix-new');
+        var newOptions = '';
+        $this.closest(settings.targetWrapper).find('select option').each(function (index) {
+          var selected = '';
+
+          if ($(this).is(':selected')) {
+            selected = 'is-active';
+          }
+
+          newOptions += '<span role="option" class="uix-controls__select__option ' + selected + '" data-value="' + $(this).attr('value') + '">' + $(this).html() + '</span>';
+        });
+        $cusSelect.find(settings.itemsWrapper).html('<div>' + newOptions + '</div>'); //Set the default selector text
+
+        $cusSelect.each(function (index) {
+          $(this).find(settings.trigger).text($(this).find(settings.item + '.is-active').html());
+        });
+      });
+    });
+  };
+})(jQuery);
+;// CONCATENATED MODULE: ./src/components/form/js/fn/tag-input.js
+
+
+/*
+ * Render Tag Input
+ *
+ * @param  {String} controls                 - Wrapper of controls.
+ * @return {Void}
+ */
+(function ($) {
+  'use strict';
+
+  $.fn.UixRenderTagInput = function (options) {
+    // This is the easiest way to have default options.
+    var settings = $.extend({
+      controls: '.uix-controls__tags-wrapper'
+    }, options);
+    this.each(function () {
+      $(settings.controls).each(function () {
+        var $this = $(this);
+        var actived = $this.data('activated');
+
+        if ((0,esm_typeof/* default */.Z)(actived) === ( true ? "undefined" : 0)) {
+          // Initialize status
+          //------------------------------------------
+          var taginputTip = $this.data('placeholder');
+          var $tagInputUserArea = $("<div><ul class=\"uix-controls__tags__list\"></ul><div class=\"uix-controls__tags\"><input type=\"text\" autoComplete=\"off\" placeholder=\"".concat(taginputTip, "\" value=\"\"></div></div>")); //init tag input
+
+          $this.append($tagInputUserArea); //
+
+          var lastId = -1;
+          var defaultTagsVal = [];
+          var maxTags = (0,esm_typeof/* default */.Z)($this.data('max-tags')) != ( true ? "undefined" : 0) ? $this.data('max-tags') : 10;
+          var dVal = $this.find('> input').attr('type', 'hidden').val(); //get default value
+
+          if (dVal) {
+            dVal.trim().replace(/^\,|\,$/g, '').split(',').forEach(function (item, index) {
+              defaultTagsVal.push({
+                content: item,
+                id: index
+              });
+            });
+          } //
+          // What the user has entered
+
+
+          var defaultItems = dVal !== '' && dVal !== null ? defaultTagsVal : []; //init data
+
+          $this.data({
+            'data': defaultItems,
+            'user-input': '',
+            'already-in-items': false,
+            'max': maxTags
+          });
+
+          var updateTagResult = function updateTagResult(el, data) {
+            var tagList = '';
+            var resArr = [];
+            data.forEach(function (listitem, index) {
+              resArr.push(listitem.content);
+              tagList += "<li data-item=\"".concat(listitem.id, "\">").concat(listitem.content, "</li>");
+            }); //update value
+
+            el.find('> input').val(resArr.join(',')); //create list
+
+            el.find('.uix-controls__tags__list').html(tagList);
+          };
+
+          updateTagResult($this, defaultItems); // Mouse events
+          //------------------------------------------
+
+          $(document).off('click.FORM_TAG_INPUT_DELETE').on('click.FORM_TAG_INPUT_DELETE', settings.controls + ' .uix-controls__tags__list > li', function (e) {
+            var $obj = $(this).closest(settings.controls);
+            var currentItems = $obj.data('data');
+            var idToRemove = Number(e.target.dataset["item"]);
+            var newArray = currentItems.filter(function (listitem) {
+              return listitem.id !== idToRemove;
+            });
+            currentItems = newArray; //update data
+
+            $obj.data({
+              'data': currentItems
+            }); //
+
+            updateTagResult($obj, currentItems);
+          });
+          $(document).on('change input', settings.controls + ' .uix-controls__tags input', function (e) {
+            var $obj = $(this).closest(settings.controls);
+            var currentItems = $obj.data('data');
+            var _userInput = e.currentTarget.value;
+            var _alreadyInItems = false;
+
+            if (currentItems && currentItems.length > 0) {
+              var alreadyIn = currentItems.some(function (obj) {
+                return obj.content.toLowerCase() == _userInput.toLowerCase();
+              });
+
+              if (alreadyIn) {
+                _alreadyInItems = true;
+              } else {
+                _alreadyInItems = false;
+              }
+            } //update data
+
+
+            $obj.data({
+              'user-input': e.currentTarget.value,
+              'already-in-items': _alreadyInItems
+            });
+          });
+          $(document).on('keypress', settings.controls + ' .uix-controls__tags input', function (e) {
+            var $obj = $(this).closest(settings.controls);
+            var currentItems = $obj.data('data');
+            var userInput = $obj.data('user-input');
+            var alreadyInItems = $obj.data('already-in-items');
+
+            if (e.which == 13) {
+              e.preventDefault();
+              if (alreadyInItems) return false; //
+
+              var newArray = currentItems;
+              var currentcontent = userInput.trim();
+
+              if (!currentcontent) {
+                return;
+              } //Limit the total number of tags added
+
+
+              if ($obj.data('max') - 1 < newArray.length) {
+                return;
+              }
+
+              newArray.push({
+                content: currentcontent,
+                id: ++lastId
+              });
+              currentItems = newArray; //update data
+
+              $obj.data({
+                'data': currentItems,
+                'user-input': ''
+              }); //
+
+              $(this).val('');
+              updateTagResult($obj, currentItems);
+            }
+          });
+          $(document).on('focus', settings.controls + ' .uix-controls__tags input', function (e) {
+            var $obj = $(this).closest(settings.controls);
+            $obj.addClass('is-active');
+          });
+          $(document).on('blur', settings.controls + ' .uix-controls__tags input', function (e) {
+            var $obj = $(this).closest(settings.controls);
+            $obj.removeClass('is-active');
+          }); //------------------------------------------
+          //Prevents front-end javascripts that are activated in the background to repeat loading.
+
+          $this.data('activated', 1);
+        } //endif actived			
+
+      });
+    });
+  };
+})(jQuery);
+;// CONCATENATED MODULE: ./src/components/form/js/fn/number-input.js
+
+
+/*
+ * Render Number Input
+ *
+ * @param  {String} controls                 - Wrapper of controls.
+ * @return {Void}
+ */
+(function ($) {
+  'use strict';
+
+  $.fn.UixRenderNumberInput = function (options) {
+    // This is the easiest way to have default options.
+    var settings = $.extend({
+      controls: '.uix-controls__number'
+    }, options);
+    this.each(function () {
+      $(settings.controls).each(function () {
+        var $this = $(this);
+        var actived = $this.data('activated');
+
+        if ((0,esm_typeof/* default */.Z)(actived) === ( true ? "undefined" : 0)) {
+          // Mouse events
+          //------------------------------------------
+          $(document).off('click.FORM_NUMBER_BTN_ADD').on('click.FORM_NUMBER_BTN_ADD', settings.controls + ' .uix-controls__number__btn--add', function (e) {
+            var step = parseFloat($(this).data('step')),
+                decimals = $(this).data('decimals'),
+                $numberInput = $(this).closest('.uix-controls__number').find('input[type="number"]'),
+                numberInputVal = parseFloat($numberInput.val()),
+                max = $numberInput.attr('max');
+            if ((0,esm_typeof/* default */.Z)(step) === ( true ? "undefined" : 0) || isNaN(step)) step = 1;
+            if ((0,esm_typeof/* default */.Z)(decimals) === ( true ? "undefined" : 0)) decimals = 0;
+
+            if ((0,esm_typeof/* default */.Z)(max) != ( true ? "undefined" : 0) && parseFloat(numberInputVal + step) > max) {
+              step = 0;
+            }
+
+            numberInputVal = parseFloat(numberInputVal + step);
+            $numberInput.val(numberInputVal.toFixed(decimals));
+          });
+          $(document).off('click.FORM_NUMBER_BTN_REMOVE').on('click.FORM_NUMBER_BTN_REMOVE', settings.controls + ' .uix-controls__number__btn--remove', function (e) {
+            var step = $(this).data('step'),
+                decimals = $(this).data('decimals'),
+                $numberInput = $(this).closest('.uix-controls__number').find('input[type="number"]'),
+                numberInputVal = parseFloat($numberInput.val()),
+                min = $numberInput.attr('min');
+            if ((0,esm_typeof/* default */.Z)(step) === ( true ? "undefined" : 0) || isNaN(step)) step = 1;
+            if ((0,esm_typeof/* default */.Z)(decimals) === ( true ? "undefined" : 0)) decimals = 0;
+
+            if ((0,esm_typeof/* default */.Z)(min) != ( true ? "undefined" : 0) && parseFloat(numberInputVal - step) < min) {
+              step = 0;
+            }
+
+            numberInputVal -= step;
+            $numberInput.val(numberInputVal.toFixed(decimals));
+          }); //------------------------------------------
+          //Prevents front-end javascripts that are activated in the background to repeat loading.
+
+          $this.data('activated', 1);
+        } //endif actived			
+
+      });
+    });
+  };
+})(jQuery);
+;// CONCATENATED MODULE: ./src/components/form/js/fn/dynamic-fields.js
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 /*
+ * Render Dynamic Fields
+ *
+ * @param  {String} controls                 - Wrapper of controls.
+ * @return {Void}
+ */
+
+(function ($) {
+  'use strict';
+
+  $.fn.UixRenderDynamicFields = function (options) {
+    // This is the easiest way to have default options.
+    var settings = $.extend({
+      controls: '.uix-controls__dynamic-fields-container'
+    }, options);
+    this.each(function () {
+      $(settings.controls).each(function () {
+        var $this = $(this);
+        var actived = $this.data('activated');
+
+        if ((0,esm_typeof/* default */.Z)(actived) === ( true ? "undefined" : 0)) {
+          // Mouse events
+          //------------------------------------------
+          var $addButton = $this.find('.uix-controls__dynamic-fields__addbtn'),
+              //The add button
+          $appendWrapper = $this.find('.uix-controls__dynamic-fields__append'),
+              //The field wrapper ID or class 
+          loopCls = '.uix-controls__dynamic-fields__tmpl__wrapper',
+              defaultItems = $appendWrapper.find(loopCls).length;
+          var x = defaultItems == 0 ? 1 : defaultItems + 1,
+              maxField = $this.data('max-fields'),
+              fieldHTML = ''; //Maximum number of forms added
+
+          if ((0,esm_typeof/* default */.Z)(maxField) === ( true ? "undefined" : 0)) {
+            maxField = 5;
+          } //Add a field
+
+
+          var addOne = function addOne(fieldCode) {
+            //replace the index of field name
+            fieldCode = fieldCode.replace(/___GUID___/gi, UixGUID.create()); //hide add button
+
+            if (x == maxField) $addButton.hide();
+
+            if (x <= maxField) {
+              $appendWrapper.append(fieldCode); //Initialize Form
+
+              $(document).UixRenderCustomSelect(); //Render Custom Select
+
+              $(document).UixRenderCustomRadioCheckbox(); //Render Custom Radio, Toggle And Checkbox
+
+              $(document).UixRenderControlsLineEff(); //Create Line Effect on Click
+
+              $(document).UixRenderControlsDisable(); //Disabled Controls
+
+              $(document).UixRenderCustomFile(); //Render Custom File Type
+
+              $(document).UixRenderCustomFileDropzone(); //Render Custom File Dropzone
+
+              $(document).UixRenderControlsHover(); //Hover Effect
+
+              $(document).UixRenderCustomMultiSel(); //Render Multiple Selector
+
+              $(document).UixRenderCustomSingleSel(); //Render Single Selector
+
+              $(document).UixRenderNormalRadio(); //Render Normal Radio
+
+              $(document).UixRenderDatePicker(); //Render Date Picker	
+
+              $(document).UixRenderTagInput(); //Render Tag Input
+
+              $(document).UixRenderNumberInput(); //Render Number Input
+
+              x++;
+            }
+          }; // default item
+
+
+          if (defaultItems == 0) {
+            addOne($this.find('.uix-controls__dynamic-fields__tmpl').html());
+          } //Prevent duplicate function assigned
+
+
+          $addButton.off('click').off('click').on('click', function (e) {
+            e.preventDefault(); //template init
+
+            addOne($this.find('.uix-controls__dynamic-fields__tmpl').html()); //Remove per item
+            //Prevent duplicate function assigned
+
+            $this.find('.uix-controls__dynamic-fields__removebtn').off('click').on('click', function (e) {
+              e.preventDefault(); //display add button
+
+              $addButton.show(); //remove current item
+
+              $(this).closest(loopCls).remove();
+              x--;
+            });
+            return false;
+          }); //------------------------------------------
+          //Prevents front-end javascripts that are activated in the background to repeat loading.
+
+          $this.data('activated', 1);
+        } //endif actived			
+
+      });
+    });
+  };
+})(jQuery);
+;// CONCATENATED MODULE: ./src/components/form/js/index.js
+
+
+
+/* 
  *************************************
- * <!-- 表格 Form -->
+ * <!-- Form -->
  *************************************
  */
 
 /*
     Note:
-
-	If you use the "change" event to asynchronously change a custom control of select, radio or checkbox,
+	
+	If you use the "change" event to asynchronously change a custom control of select, radio or checkbox, 
 	you need add a callback function that initializes the style:
-
+	
 	$( document ).UixRenderXXXXXXXXX();
 
-
+	
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -13383,7 +17649,7 @@ var FORM = function (module, $, window, document) {
   module.FORM.documentReady = function ($) {
     /*
      * Callbacks for special forms (supports asynchronous)
-     * Add this code to initialize the style when calling
+     * Add this code to initialize the style when calling 
      * the form externally with other scripts
      *
      * @return {Void}
@@ -13408,7 +17674,7 @@ var FORM = function (module, $, window, document) {
 
     $(document).UixRenderNormalRadio(); //Render Normal Radio
 
-    $(document).UixRenderDatePicker(); //Render Date Picker
+    $(document).UixRenderDatePicker(); //Render Date Picker	
 
     $(document).UixRenderTagInput(); //Render Tag Input
 
@@ -13416,7 +17682,7 @@ var FORM = function (module, $, window, document) {
 
     $(document).UixRenderNumberInput(); //Render Number Input
 
-    /*
+    /* 
      ---------------------------
      Click Event of Submit Button
      ---------------------------
@@ -13439,9 +17705,9 @@ var FORM = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
- * <!-- 画廊 Gallery -->
+ * <!-- Gallery -->
  *************************************
  */
 
@@ -13454,7 +17720,7 @@ var GALLERY = function (module, $, window, document) {
   module.GALLERY.documentReady = function ($) {
     $('.uix-gallery').each(function () {
       var galleryType = $(this).data('show-type');
-      /*
+      /* 
        ---------------------------
        Add a tagname to each list item
        ---------------------------
@@ -13518,7 +17784,7 @@ var GALLERY = function (module, $, window, document) {
 
           $('body').addClass('images-loaded');
         });
-        /*
+        /* 
          ---------------------------
          Function of Filterable and Masonry
          ---------------------------
@@ -13566,9 +17832,9 @@ var GALLERY = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
- * <!-- 混合内容滑块 Hybrid Content Slider -->
+ * <!-- Hybrid Content Slider -->
  *************************************
  */
 
@@ -13642,7 +17908,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
       $sliderItem.addClass('js-is-ready'); // Activate the current item from carouse
 
       setItemState(0);
-      /*
+      /* 
        ---------------------------
        Initialize slider
        ---------------------------
@@ -13659,7 +17925,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
       sliderReOrder(); //default button status
 
       $(sliderPrev).addClass('is-disabled').data('disabled', 1);
-      /*
+      /* 
        ---------------------------
        Re-order all items
        ---------------------------
@@ -13697,7 +17963,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
           });
         }
       }
-      /*
+      /* 
        ---------------------------
        Next/Prev buttons
        ---------------------------
@@ -13754,7 +18020,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
 
         clearInterval($sliderWrapper[0].animatedSlides);
       }
-      /*
+      /* 
        ---------------------------
        Pagination
        ---------------------------
@@ -13796,7 +18062,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
           clearInterval($sliderWrapper[0].animatedSlides);
         }
       }); //Drag and Drop
-      //-------------------------------------
+      //-------------------------------------	
 
       var $dragDropTrigger = $sliderWrapper;
       var hammerProps = {}; //Make the cursor a move icon when a user hovers over an item
@@ -13845,7 +18111,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
           case 'pandown':
             targetIndex = targetIndex;
             break;
-        } //Determine whether it is the first or the last
+        } //Determine whether it is the first or the last    
 
 
         var currentIsFirstOrLast = false;
@@ -13994,7 +18260,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
       function sliderAutoPlay(playTimes, timing, loop) {
         $sliderWrapper[0].animatedSlides = setInterval(function () {
           var autoMove = function autoMove(indexGo) {
-            // Retrieve the position (X,Y) of an element
+            // Retrieve the position (X,Y) of an element 
             var moveX = eachItemNewWidth * indexGo;
             var moveYIncrement = 0;
 
@@ -14030,13 +18296,13 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
        *
        * @param  {Element} wrapper                  - Wrapper of slider.
        * @param  {?Element|String|Boolean} curBtn   - The button that currently triggers the move.
-       * @param  {Number|Array} delta               - The value returned will need to be adjusted according
-       *                                              to the offset  * rate.
-       * @param  {?Number} speed                     - Sliding speed. Please set to 0 when rebounding.
-       * @param  {Boolean} dragging                  - Determine if the object is being dragged.
-       * @param  {!Number} indexGo                   - The target item index.
-       * @param  {String|Array} itemsHeight          - Return all items height (the string type is
-       *                                               used when a drag event is triggered).
+                * @param  {Number|Array} delta               - The value returned will need to be adjusted according 
+                *                                              to the offset  * rate.
+                * @param  {?Number} speed                     - Sliding speed. Please set to 0 when rebounding.
+                * @param  {Boolean} dragging                  - Determine if the object is being dragged.
+                * @param  {!Number} indexGo                   - The target item index.
+                * @param  {String|Array} itemsHeight          - Return all items height (the string type is 
+                *                                               used when a drag event is triggered).
        * @return {Void}
        */
 
@@ -14068,7 +18334,8 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
         } //Check next or previous event ( Autoplay )
 
 
-        if (curBtn === 'auto') btnType = 'next'; //Clone the first element to the last position
+        if (curBtn === 'auto') btnType = 'next';
+        ; //Clone the first element to the last position
 
         if (sliderDir === 'horizontal') {
           var boxWidth = eachItemNewWidth;
@@ -14083,7 +18350,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
               }
 
               if (Array.isArray(delta)) {
-                //Rebound effect of drag offset
+                //Rebound effect of drag offset 
                 return delta.length == 0 ? xIncrement : delta[i];
               } else {
                 if (!dragging) {
@@ -14136,7 +18403,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
               }
 
               if (Array.isArray(delta)) {
-                //Rebound effect of drag offset
+                //Rebound effect of drag offset 
                 return delta.length == 0 ? yIncrement : delta[i];
               } else {
                 if (!dragging) {
@@ -14182,7 +18449,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
        *
        * @param  {Boolean} paginationEnabled   - Determine whether it is triggered by pagination
        * @param  {Element} $btn               - The button that currently triggers the move.
-       * @param  {String} type                - Move next or previous.
+                * @param  {String} type                - Move next or previous.
        * @return {Void}
        */
 
@@ -14191,7 +18458,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
         var //Protection button is not triggered multiple times.
         btnDisabled = $btn.data('disabled'),
             //Get current button index
-        tIndex = parseFloat($btn.attr('data-target-index')); // Retrieve the position (X,Y) of an element
+        tIndex = parseFloat($btn.attr('data-target-index')); // Retrieve the position (X,Y) of an element 
 
         var moveX = eachItemNewWidth,
             moveY = (0,esm_typeof/* default */.Z)(eachItemNewHeight[tIndex - 1]) === ( true ? "undefined" : 0) ? 0 : eachItemNewHeight[tIndex - 1];
@@ -14227,7 +18494,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
       /*
        * Activate the currently selected Pagination
        *
-       * @param  {Number} index          - Get index of current element.
+                * @param  {Number} index          - Get index of current element.
        * @return {Void}
        */
 
@@ -14239,7 +18506,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
       /*
        * Activate the current item from carouse
        *
-       * @param  {Number} index          - Get index of current element.
+                * @param  {Number} index          - Get index of current element.
        * @return {Void}
        */
 
@@ -14266,7 +18533,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
       /*
        * Initialize the height of container
        *
-       * @param  {Number} index          - Get index of current element.
+                * @param  {Number} index          - Get index of current element.
        * @return {Void}
        */
 
@@ -14285,8 +18552,8 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
        *
        * @param  {Element} nextBtn      - The next move button.
        * @param  {Element} prevBtn      - The previous move button.
-       * @param  {String} type          - The type of button is triggered. Values: next, prev, init
-       * @param  {?Number} indexGo      - The target item index.
+                * @param  {String} type          - The type of button is triggered. Values: next, prev, init
+                * @param  {?Number} indexGo      - The target item index.
        * @return {Void}
        */
 
@@ -14340,8 +18607,8 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
       /*
        * The state of the control button
        *
-       * @param  {Number} firstOffset          - Get the computed Translate X or Y values of a given first DOM element.
-       * @param  {Number} lastOffset           - Get the computed Translate X or Y values of a given last DOM element.
+                * @param  {Number} firstOffset          - Get the computed Translate X or Y values of a given first DOM element.
+                * @param  {Number} lastOffset           - Get the computed Translate X or Y values of a given last DOM element.
        * @return {Void}
        */
 
@@ -14372,9 +18639,9 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
- * <!-- 悬停延迟交互 Hover Delay Interaction -->
+ * <!-- Hover Delay Interaction -->
  *************************************
  */
 
@@ -14419,9 +18686,9 @@ var HOVER_DELAY_INTERACTION = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
- * <!-- 图像形状 Image Shapes -->
+ * <!-- Image Shapes -->
  *************************************
  */
 
@@ -14520,7 +18787,7 @@ var IMAGE_SHAPES = function (module, $, window, document) {
 
 /* 
  *************************************
- * <!-- 无限滚动元素 Infinite Scrolling Element -->
+ * <!-- Infinite Scrolling Element -->
  *************************************
  */
 
@@ -14598,14 +18865,14 @@ var INFINITE_SCROLLING_EL = function (module, $, window, document) {
       });
       tl.to($items, speed / 1000, {
         ease: Linear.easeNone,
-        x: '-=' + allWidthOriginal,
+        x: "-=" + allWidthOriginal,
         //move each box "allWidthOriginal" to left
         modifiers: {
           x: function x(_x, target) {
             return _x % allWidth; //force x value to be between 0 and "allWidth" using modulus
           }
         }
-      }).progress(1).progress(0).play(); //Pause/Play
+      }).progress(1).progress(0).play(); //Pause/Play		
 
       $this.on('mouseenter', function () {
         tl.pause();
@@ -14626,9 +18893,9 @@ var INFINITE_SCROLLING_EL = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
- * <!-- Lava-Lamp 风格菜单 Lava-Lamp Style Menu -->
+ * <!-- Lava-Lamp Style Menu -->
  *************************************
  */
 
@@ -14658,7 +18925,7 @@ var LAVA_LAMP_STYLE_MENU = function (module, $, window, document) {
     function mouseFollowEv(index) {
       var $this = $(menu + ' > li').eq(index).find('a'),
           offset = $this.offset(),
-          offsetBody = $('.uix-lavalamp-menu__container').offset(); //find the offset of the wrapping div
+          offsetBody = $('.uix-lavalamp-menu__container').offset(); //find the offset of the wrapping div  
       //Activate navigation style
 
       $(menu + ' > li').removeClass('is-active');
@@ -14694,7 +18961,7 @@ var scrollLock = __webpack_require__(111);
 
 
 
-/*
+/* 
  *************************************
  * <!-- Custom Lightbox -->
  *************************************
@@ -14710,7 +18977,7 @@ var LIGHTBOX = function (module, $, window, document) {
 
   module.LIGHTBOX.pageLoaded = function () {
     if ($('.uix-lightbox__container').length == 0) {
-      $('body').prepend('<div class="uix-lightbox__loading is-loaded uix-t-c"><i class="fa fa-spinner fa-spin"></i> 正在加载中.........</div><a class="uix-lightbox__original__close" href="javascript:void(0);"></a><div class="uix-lightbox__container"><div class="uix-lightbox__inner"><div class="uix-lightbox__html"></div><p class="title"></p></div></div><div class="uix-lightbox__container-mask"></div><div class="uix-lightbox__close"><button type="button"></button></div>');
+      $('body').prepend('<div class="uix-lightbox__loading is-loaded uix-t-c"><i class="fa fa-spinner fa-spin"></i> Loading...</div><a class="uix-lightbox__original__close" href="javascript:void(0);"></a><div class="uix-lightbox__container"><div class="uix-lightbox__inner"><div class="uix-lightbox__html"></div><p class="title"></p></div></div><div class="uix-lightbox__container-mask"></div><div class="uix-lightbox__close"><button type="button"></button></div>');
     } // To display the template tag content.
 
 
@@ -14744,7 +19011,7 @@ var LIGHTBOX = function (module, $, window, document) {
     window.addEventListener('popstate', function (e) {
       var eleTarget = null;
       $('[data-lb-ajax]').each(function () {
-        var prevURL = decodeURIComponent(document.cookie.replace(new RegExp('(?:(?:^|.*;)\\s*' + encodeURIComponent('uix-lightbox-ajaxURL').replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=\\s*([^;]*).*$)|^.*$'), '$1')) || null;
+        var prevURL = decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent('uix-lightbox-ajaxURL').replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
 
         if ($(this).attr('href') === prevURL) {
           eleTarget = this;
@@ -15211,7 +19478,7 @@ var LIGHTBOX = function (module, $, window, document) {
             TweenMax.to(_cur, 0.5, {
               alpha: 1
             });
-          }; //imgClick.onload
+          }; //imgClick.onload       
 
         }
       });
@@ -15259,9 +19526,9 @@ var LIGHTBOX = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
- * <!-- 项目符号列表 Bulleted List -->
+ * <!-- Bulleted List -->
  *************************************
  */
 
@@ -15291,7 +19558,7 @@ var BULLETED_LIST = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Posts List With Ajax -->
  *************************************
@@ -15443,7 +19710,7 @@ var POST_LIST_AJAX = function (module, $, window, document) {
           }; // Add function to the element that should be used as the scrollable area.
 
 
-          /*
+          /* 
            ---------------------------
            Infinite scroll
            ---------------------------
@@ -15451,7 +19718,7 @@ var POST_LIST_AJAX = function (module, $, window, document) {
           var $button = $(trigger),
               btnTop = $button.offset().top; //Add default page number to the button
 
-          $button.attr('data-cur-page', initCurPage); //Hide the next button
+          $button.attr('data-cur-page', initCurPage); //Hide the next button 
 
           if (totalPage == 1) {
             $button.addClass('is-hide');
@@ -15464,7 +19731,7 @@ var POST_LIST_AJAX = function (module, $, window, document) {
           window.addEventListener('touchmove', throttleFunc);
           throttleFunc();
         } else {
-          /*
+          /* 
            ---------------------------
            Ajax with JSON data
            ---------------------------
@@ -15483,7 +19750,7 @@ var POST_LIST_AJAX = function (module, $, window, document) {
                 nextTrigger = triggerStr[1].next; //Add default page number to the button
 
             $(nextTrigger).parent().attr('data-cur-page', initCurPage); //--------------- Next Button ------------------
-            //Hide the next button
+            //Hide the next button 
 
             if (totalPage == 1) {
               $(nextTrigger).addClass('is-hide');
@@ -15513,7 +19780,7 @@ var POST_LIST_AJAX = function (module, $, window, document) {
               ajaxLoadInit($this, defaultPostData, $button, curPage, totalPage, perShow, template7ID, jsonFile, triggerActive, pushContainer, method, render, noneInfo);
               return false;
             }); //----------------- Previous Button ----------------
-            //Hide the prev button
+            //Hide the prev button 
 
             $(prevTrigger).addClass('is-hide'); //Avoid using $( document ) to cause an asynchronous load without counting from 1
 
@@ -15543,7 +19810,7 @@ var POST_LIST_AJAX = function (module, $, window, document) {
           } else {
             //----------------- More Button ----------------
             //Add default page number to the button
-            $(trigger).attr('data-cur-page', initCurPage); //Hide the next button
+            $(trigger).attr('data-cur-page', initCurPage); //Hide the next button 
 
             if (totalPage == 1) {
               $(trigger).addClass('is-hide');
@@ -15602,26 +19869,26 @@ var POST_LIST_AJAX = function (module, $, window, document) {
 
       /*
       compiledTemplate({
-          comments: [
-              {
-                  author: 'John Doe',
-                  text: 'Lorem ipsum dolor',
-                  comments: [
-                      {
-                          author: 'Mike Doe',
-                          text: 'Aliquam erat volutpat'
-                      },
-                      {
-                          author: 'Kate Doe',
-                          text: 'Donec eget fringilla turpis'
-                      }
-                  ]
-              },
-              {
-                  author: 'Jane Doe',
-                  text: 'Donec sodales euismod augue'
-              }
-          ]
+      	comments: [
+      		{
+      			author: 'John Doe',
+      			text: 'Lorem ipsum dolor',
+      			comments: [
+      				{
+      					author: 'Mike Doe',
+      					text: 'Aliquam erat volutpat'
+      				},
+      				{
+      					author: 'Kate Doe',
+      					text: 'Donec eget fringilla turpis'
+      				}
+      			]
+      		},
+      		{
+      			author: 'Jane Doe',
+      			text: 'Donec sodales euismod augue'
+      		}
+      	]
       });
       */
 
@@ -15756,9 +20023,9 @@ var POST_LIST_AJAX = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
- * <!-- 全宽列到边缘 Full Width Column to Edge -->
+ * <!-- Full Width Column to Edge -->
  *************************************
  */
 
@@ -15826,9 +20093,9 @@ var FULL_WIDTH_COLUMN_TO_EDGE = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
- * <!-- 登录模板 Login Templates -->
+ * <!-- Login Templates -->
  *************************************
  */
 
@@ -16053,7 +20320,7 @@ var LOGIN_UI = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Modal Dialog -->
  *************************************
@@ -16089,9 +20356,11 @@ var MODAL_DIALOG = function (module, $, window, document) {
     /*
       * Unbind that one in a safe way that won't accidentally unbind other click handlers.
       * In order to trigger other custom Modal Dialog events.
-          $( '#element' ).off( 'click.MODAL_DIALOG' );
-        $( '#element' ).off( 'click.MODAL_DIALOG_CLOSE' );
-      */
+    	
+    	$( '#element' ).off( 'click.MODAL_DIALOG' );
+    	$( '#element' ).off( 'click.MODAL_DIALOG_CLOSE' );
+    	
+    */
     //Add modal mask to stage
 
     if ($('.uix-modal-mask').length == 0) {
@@ -16159,7 +20428,7 @@ var MODAL_DIALOG = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Mousewheel Interaction -->
  *************************************
@@ -16239,7 +20508,7 @@ var MOUSEWHEEL_INTERACTION = function (module, $, window, document) {
     /*
      * Scroll initialize
      *
-     * @param  {Event} event        - The wheel event is fired when a wheel button of a pointing device (usually a mouse) is rotated.
+     * @param  {Event} event        - The wheel event is fired when a wheel button of a pointing device (usually a mouse) is rotated. 
      * @param  {String} dir          - Gets a value that indicates the amount that the mouse wheel has changed.
      * @return {Void}
      */
@@ -16509,7 +20778,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
       if (window.innerWidth <= 768) amountVisible = 3; // Returns the value of a number rounded to the nearest integer.
 
       var midIndex = Math.round(amountVisible / 2) - 1;
-      /*
+      /* 
        ---------------------------
        Initialize slider
        ---------------------------
@@ -16533,7 +20802,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
       if (!sliderLoop) {
         $(sliderPrev).addClass('is-disabled').data('disabled', 1);
       }
-      /*
+      /* 
        ---------------------------
        Re-order all items
        ---------------------------
@@ -16549,7 +20818,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
               //Active the center item
               if (i === midIndex && sliderLoop) {
                 TweenMax.set(target, {
-                  className: '+=is-active'
+                  className: "+=is-active"
                 });
               } //Add index to each item
 
@@ -16566,7 +20835,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
               //Active the center item
               if (i === midIndex && sliderLoop) {
                 TweenMax.set(target, {
-                  className: '+=is-active'
+                  className: "+=is-active"
                 });
               } //Add index to each item
 
@@ -16577,7 +20846,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
           });
         }
       }
-      /*
+      /* 
        ---------------------------
        Next/Prev buttons
        ---------------------------
@@ -16630,7 +20899,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
 
         movePositionWithButton(_next, 'next');
       } //Drag and Drop
-      //-------------------------------------
+      //-------------------------------------	
 
 
       var $dragDropTrigger = $sliderWrapper;
@@ -16657,7 +20926,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
       });
       dragDropMC.on('press panright panleft panup pandown', function (ev) {
         //Set the direction in here
-        direction = ev.type; //Determine whether it is the first or the last
+        direction = ev.type; //Determine whether it is the first or the last    
 
         var currentIsFirstOrLast = false;
 
@@ -16674,7 +20943,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
             //last item
             currentIsFirstOrLast = true;
           }
-        } //Rebound effect of drag offset
+        } //Rebound effect of drag offset 
 
 
         switch (direction) {
@@ -16745,9 +21014,9 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
        * Transition Between Items
        *
        * @param  {Element} wrapper        - Wrapper of slider.
-       * @param  {Number} delta           - The value returned will need to be adjusted according to the offset rate.
-       * @param  {?Number} speed          - Sliding speed. Please set to 0 when rebounding.
-       * @param  {Boolean} dragging       - Determine if the object is being dragged.
+                * @param  {Number} delta           - The value returned will need to be adjusted according to the offset rate.
+                * @param  {?Number} speed          - Sliding speed. Please set to 0 when rebounding.
+                * @param  {Boolean} dragging       - Determine if the object is being dragged.
        * @return {Void}
        */
 
@@ -16772,11 +21041,11 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
                   //Active the center item
                   if (_x === midIndex * boxWidth) {
                     TweenMax.set(target, {
-                      className: '+=is-active'
+                      className: "+=is-active"
                     });
                   } else {
                     TweenMax.set(target, {
-                      className: '-=is-active'
+                      className: "-=is-active"
                     });
                   }
 
@@ -16807,11 +21076,11 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
                   //Active the center item
                   if (_y === midIndex * boxHeight) {
                     TweenMax.set(target, {
-                      className: '+=is-active'
+                      className: "+=is-active"
                     });
                   } else {
                     TweenMax.set(target, {
-                      className: '-=is-active'
+                      className: "-=is-active"
                     });
                   }
 
@@ -16834,7 +21103,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
        * Move function with buttons
        *
        * @param  {Element} $btn               - The button that currently triggers the move.
-       * @param  {String} type                - Move next or previous.
+                * @param  {String} type                - Move next or previous.
        * @return {Void}
        */
 
@@ -16857,8 +21126,8 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
       /*
        * The state of the control button
        *
-       * @param  {Number} firstOffset          - Get the computed Translate X or Y values of a given first DOM element.
-       * @param  {Number} lastOffset           - Get the computed Translate X or Y values of a given last DOM element.
+                * @param  {Number} firstOffset          - Get the computed Translate X or Y values of a given first DOM element.
+                * @param  {Number} lastOffset           - Get the computed Translate X or Y values of a given last DOM element.
        * @return {Void}
        */
 
@@ -16988,7 +21257,7 @@ var ONEPAGE = function (module, $, window, document) {
     /*
      * Scroll initialize
      *
-     * @param  {Event} event        - The wheel event is fired when a wheel button of a pointing device (usually a mouse) is rotated.
+     * @param  {Event} event        - The wheel event is fired when a wheel button of a pointing device (usually a mouse) is rotated. 
      * @param  {String} dir          - Gets a value that indicates the amount that the mouse wheel has changed.
      * @return {Void}
      */
@@ -17068,7 +21337,7 @@ var ONEPAGE = function (module, $, window, document) {
         }
       }
     }
-    /*
+    /* 
      ====================================================
      *  Navigation Interaction
      ====================================================
@@ -17144,7 +21413,7 @@ var ONEPAGE = function (module, $, window, document) {
           maxTop = $('[data-highlight-section="true"]').last().offset().top + $('[data-highlight-section="true"]').last().height();
       $('[data-highlight-section="true"]').each(function () {
         var $block = $(this),
-            eleTop = $block.offset().top; // The 1 pixel in order to solve inaccurate value of outerHeight()
+            eleTop = $block.offset().top; // The 1 pixel in order to solve inaccurate value of outerHeight() 
         // in Safari and Firefox browsers.
 
         if (eleTop < spyTop + 1) {
@@ -17155,7 +21424,7 @@ var ONEPAGE = function (module, $, window, document) {
           getRelatedNavigation($block, $sidefixedMenu, false).addClass('is-active');
         }
       }); //Cancel the current highlight element
-      // The 1 pixel in order to solve inaccurate value of outerHeight()
+      // The 1 pixel in order to solve inaccurate value of outerHeight() 
       // in Safari and Firefox browsers.
 
       if (spyTop > maxTop || spyTop < minTop - 1) {
@@ -17178,7 +21447,7 @@ var ONEPAGE = function (module, $, window, document) {
     window.addEventListener('scroll', throttleFunc);
     window.addEventListener('touchmove', throttleFunc);
     throttleFunc();
-    /*
+    /* 
      ====================================================
      *  Mouse Wheel & Touch Method
      ====================================================
@@ -17366,7 +21635,7 @@ var ONEPAGE2 = function (module, $, window, document) {
     /*
      * Scroll initialize
      *
-     * @param  {Event} event        - The wheel event is fired when a wheel button of a pointing device (usually a mouse) is rotated.
+     * @param  {Event} event        - The wheel event is fired when a wheel button of a pointing device (usually a mouse) is rotated. 
      * @param  {String} dir          - Gets a value that indicates the amount that the mouse wheel has changed.
      * @return {Void}
      */
@@ -17467,7 +21736,7 @@ var ONEPAGE2 = function (module, $, window, document) {
         }
       }
     }
-    /*
+    /* 
      ====================================================
      *  Navigation Interaction
      ====================================================
@@ -17521,7 +21790,7 @@ var ONEPAGE2 = function (module, $, window, document) {
         moveTo($sectionsContainer, dir, $(this).parent('li').index() + 1);
       });
     }
-    /*
+    /* 
      ====================================================
      *  Mouse Wheel & Touch Method
      ====================================================
@@ -17597,7 +21866,7 @@ var ONEPAGE2 = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Parallax -->
  *************************************
@@ -17735,7 +22004,7 @@ var PARALLAX = function (module, $, window, document) {
           } else {
             curSize = 'cover';
           } //Determine image height and parallax container height
-          //If the height is the same, higher or lower than the height of the container height,
+          //If the height is the same, higher or lower than the height of the container height, 
           //be sure to use the cover attribute
           //*** Must be placed before the "dataFullyVisible" condition
 
@@ -18056,7 +22325,7 @@ var PROGRESS_BAR = function (module, $, window, document) {
       window.addEventListener('scroll', throttleFunc);
       window.addEventListener('touchmove', throttleFunc);
       throttleFunc();
-    }); //end each
+    }); //end each        
   };
 
   module.components.documentReady.push(module.PROGRESS_BAR.documentReady);
@@ -18131,7 +22400,7 @@ var PROGRESS_LINE = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Retina Graphics for Website -->
  *************************************
@@ -18244,7 +22513,7 @@ var ROTATING_EL = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Scroll Reveal -->
  *************************************
@@ -18269,19 +22538,19 @@ var SCROLL_REVEAL = function (module, $, window, document) {
 
       if ((0,esm_typeof/* default */.Z)(config) === ( true ? "undefined" : 0) || config == '' || config === false) {
         config = {
-          'from': {
-            'opacity': 0,
-            'x': 70
+          "from": {
+            "opacity": 0,
+            "x": 70
           },
-          'to': {
-            'opacity': 1,
-            'x': 0
+          "to": {
+            "opacity": 1,
+            "x": 0
           },
-          'ease': 'Power2.easeOut',
-          'duration': 0.4,
-          'delay': 0,
-          'infinite': false,
-          'viewport': '100%' //A percentage of the viewport's height.
+          "ease": "Power2.easeOut",
+          "duration": 0.4,
+          "delay": 0,
+          "infinite": false,
+          "viewport": '100%' //A percentage of the viewport's height.
 
         };
       } //get attributes to tweenMax
@@ -18377,14 +22646,14 @@ var SCROLL_REVEAL = function (module, $, window, document) {
       * The transition effect of each group of images
       *
       * @return {Void}
-      * #Usage:
-           <ul data-uix-anim='{"viewport":"90%","from":{"y":0},"to":{"y":0},"ease":"Power2.easeOut","duration":0.8,"delay":0.2,"infinite":true}' data-img-ids='["[data-imgshow]"]'>
-             <li data-imgshow="1"><img src="logo-1.jpg" alt=""></li>
-             <li data-imgshow="1"><img src="logo-2.jpg" alt=""></li>
-             <li data-imgshow="1"><img src="logo-3.jpg" alt=""></li>
-             <li data-imgshow="1"><img src="logo-4.jpg" alt=""></li>
-         <ul>
-          */
+      * #Usage: 
+      <ul data-uix-anim='{"viewport":"90%","from":{"y":0},"to":{"y":0},"ease":"Power2.easeOut","duration":0.8,"delay":0.2,"infinite":true}' data-img-ids='["[data-imgshow]"]'>
+      <li data-imgshow="1"><img src="logo-1.jpg" alt=""></li>
+      <li data-imgshow="1"><img src="logo-2.jpg" alt=""></li>
+      <li data-imgshow="1"><img src="logo-3.jpg" alt=""></li>
+      <li data-imgshow="1"><img src="logo-4.jpg" alt=""></li>
+      <ul>
+             */
 
       function spyImageTrans(type) {
         var _imgIds = $el.data('img-ids');
@@ -18401,14 +22670,14 @@ var SCROLL_REVEAL = function (module, $, window, document) {
               });
             });
           } else {
-            //remove
+            //remove 
             _imgIds.forEach(function (element) {
               $(element).removeClass('is-active');
             });
           }
         }
       }
-    }); //end each
+    }); //end each        
   };
 
   module.components.documentReady.push(module.SCROLL_REVEAL.documentReady);
@@ -18422,7 +22691,7 @@ var SCROLL_REVEAL = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Scrollspy Animate -->
  *************************************
@@ -18470,7 +22739,7 @@ var SCROLLSPY_ANIM = function (module, $, window, document) {
         dropShadow: true,
         dropShadowAngle: Math.PI / 6,
         dropShadowAlpha: 0.5,
-        dropShadowColor: '#333333',
+        dropShadowColor: '#333',
         dropShadowBlur: 1,
         fill: 'white',
         fontFamily: 'Arial Black',
@@ -18557,7 +22826,7 @@ var SCROLLSPY_ANIM = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Show More Less -->
  *************************************
@@ -18620,7 +22889,7 @@ var SHOW_MORELESS = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Skew Based On Velocity of Scroll -->
  *************************************
@@ -18638,7 +22907,7 @@ var SKEW_ON_SCROLL = function (module, $, window, document) {
           ease = 0.15;
       var followY = 0;
       TweenMax.set($animObj, {
-        transformOrigin: 'center left'
+        transformOrigin: "center left"
       });
       TweenMax.ticker.addEventListener('tick', function () {
         followY += (window.scrollY - followY) * ease;
@@ -18662,7 +22931,7 @@ var SKEW_ON_SCROLL = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Smooth Scrolling When Clicking An Anchor Link -->
  *************************************
@@ -18771,7 +23040,7 @@ var SMOOTH_SCROLLING_ANCHORLINK = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Smooth Scrolling Page -->
  *************************************
@@ -18873,7 +23142,7 @@ var SMOOTH_SCROLLING_PAGE = function (module, $, window, document) {
 
       if (resized) {
         var height = $(scroller.target).height();
-        body.style.height = parseFloat(height + elTop) + 'px';
+        body.style.height = parseFloat(height + elTop) + "px";
         scroller.resizeRequest = 0;
       }
 
@@ -18898,11 +23167,11 @@ var SMOOTH_SCROLLING_PAGE = function (module, $, window, document) {
       //+++++++++++++++++++++++++++++++++++++++++++++++++
 
       var scrolled = scroller.y,
-          topSpacing = window.innerWidth <= 768 ? 0 : $('.uix-header__container').outerHeight(true); //with margin
+          topSpacing = window.innerWidth <= 768 ? 0 : $('.uix-header__container').outerHeight(true); //with margin 
       //----------------------------------------------------------------------------------
       //--------------------------------- Scrollspy Animate -------------------------------	
       //----------------------------------------------------------------------------------   
-      // Parallax
+      // Parallax 
       //-------------------------------------	
 
       $('.uix-scrollspy-animate--parallax__wrapper').each(function () {
@@ -19051,7 +23320,7 @@ var SMOOTH_SCROLLING_PAGE = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  *  <!-- Sticky Elements -->
  *************************************
@@ -19182,7 +23451,7 @@ var STICKY_EL = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- SVG Map (China) -->
  *************************************
@@ -19277,7 +23546,7 @@ var SVG_MAP_CHINA = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- SVG Map (World) -->
  *************************************
@@ -19370,7 +23639,7 @@ var SVG_MAP_WORLD = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- SVG Mask Slider -->
  *************************************
@@ -19452,11 +23721,11 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
           if ((0,esm_typeof/* default */.Z)(dataSpeed) != ( true ? "undefined" : 0) && dataSpeed != false) {
             animSpeed = dataSpeed;
           } //Get the duration of the animation
-          //-------------------------------------
+          //-------------------------------------	
 
 
           animDelay = animSpeed; //Get timeline elements
-          //-------------------------------------
+          //-------------------------------------	
 
           var txtTimeline = new TimelineMax({
             delay: 0
@@ -19481,14 +23750,14 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
             }
           }).to($items.find('.uix-svgMask-slider__txt__content'), 0.1, {
             opacity: 1
-          }, '-=0.1').to($items.find('svg image'), 0.2, {
+          }, "-=0.1").to($items.find('svg image'), 0.2, {
             scale: 1
           }, '-=0.1').to($items.find('.uix-svgMask-slider__txt__mask'), 0.6, {
             css: {
               marginLeft: '-100vw'
             }
           }); //Initialize the properties of each Item
-          //-------------------------------------
+          //-------------------------------------	
 
           $items.each(function (index) {
             var _id = UixGUID.create();
@@ -19611,7 +23880,7 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
       var $this = slider,
           $items = $this.find('.uix-svgMask-slider__item'),
           $first = $items.first(),
-          itemsTotal = $items.length; //If arrows does not exist on the page, it will be added by default,
+          itemsTotal = $items.length; //If arrows does not exist on the page, it will be added by default, 
       //and the drag and drop function will be activated.
 
       if ($(arrowsID).length == 0) {
@@ -19625,8 +23894,8 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
       if (itemsTotal == 1) {
         $(paginationID).hide();
         $(arrowsID).hide();
-      } //Pagination dots
-      //-------------------------------------
+      } //Pagination dots 
+      //-------------------------------------	
 
 
       var _dot = '',
@@ -19670,7 +23939,7 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
           clearInterval($this[0].animatedSlides);
         }
       }); //Next/Prev buttons
-      //-------------------------------------
+      //-------------------------------------		
 
       var _prev = $(arrowsID).find('.uix-svgMask-slider__arrows--prev'),
           _next = $(arrowsID).find('.uix-svgMask-slider__arrows--next');
@@ -19745,7 +24014,7 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
 
         sliderUpdates(parseFloat($items.filter('.is-active').index()) + 1, $this, 'next', countTotalID, countCurID, paginationID, arrowsID, loop);
       } //Added touch method to mobile device and desktop
-      //-------------------------------------
+      //-------------------------------------	
 
 
       var $dragTrigger = $this.find('.uix-svgMask-slider__inner');
@@ -19837,11 +24106,11 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
      * @param  {Number} elementIndex           - Index of current slider.
      * @param  {Element} slider                 - Selector of the slider .
      * @param  {String} dir                    - Switching direction indicator.
-     * @param  {String} countTotalID           - Total number ID or class of counter.
-     * @param  {String} countCurID             - Current number ID or class of counter.
-     * @param  {String} paginationID           - Navigation ID for paging control of each slide.
-     * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
-     * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
+           * @param  {String} countTotalID           - Total number ID or class of counter.
+           * @param  {String} countCurID             - Current number ID or class of counter.
+           * @param  {String} paginationID           - Navigation ID for paging control of each slide.
+           * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
+           * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
      * @return {Void}
      */
 
@@ -19925,26 +24194,26 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
 
         /*
         TweenMax.set( $current.find('polygon')[0], {
-            attr: {
-                      points: path1
-                  },
-            onComplete: function() {
-                  TweenMax.to( this.target, animSpeed/1000, {
-                    morphSVG: path2,
-                    delay: 0,
-                    ease: Power2.easeOut,
-                    onComplete: function() {
-                          TweenMax.to( this.target, animSpeed/1000, {
-                            morphSVG: path3,
-                            delay: 0,
-                            ease: Power2.easeInOut,
-                            onComplete: function() {
-                                svgAnimating = false;
-                            }
-                        });
-                        }
-                });
-              }
+        	attr: {
+        			  points: path1
+        		  },
+        	onComplete: function() {
+        			TweenMax.to( this.target, animSpeed/1000, {
+        			morphSVG: path2,
+        			delay: 0,
+        			ease: Power2.easeOut,
+        			onComplete: function() {
+        					TweenMax.to( this.target, animSpeed/1000, {
+        					morphSVG: path3,
+        					delay: 0,
+        					ease: Power2.easeInOut,
+        					onComplete: function() {
+        						svgAnimating = false;
+        					}
+        				});	
+        					}
+        		});	
+        		}
         });
         */
 
@@ -19962,14 +24231,14 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
                 value: path2
               }],
               duration: animSpeed,
-              easing: 'easeOutExpo'
+              easing: "easeOutExpo"
             }).add({
               targets: $current.find('polygon')[0],
               points: [{
                 value: path3
               }],
               duration: animSpeed,
-              easing: 'easeOutExpo',
+              easing: "easeOutExpo",
               complete: function complete() {
                 svgAnimating = false;
               }
@@ -19983,14 +24252,14 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
 
       $(countTotalID).text(total);
       $(countCurID).text(parseFloat(elementIndex) + 1); //Reset the default height of item
-      //-------------------------------------
+      //-------------------------------------	
 
       itemDefaultInit(slider, $current);
     }
     /*
      * Initialize the default height of item
      *
-     * @param  {Element} slider                 - Selector of the slider .
+           * @param  {Element} slider                 - Selector of the slider .
      * @param  {Element} currentLlement         - Current selector of each slider.
      * @return {Void}
      */
@@ -20230,9 +24499,9 @@ function _setPrototypeOf(o, p) {
 }
 
 function _isNativeReflectConstruct() {
-  if (typeof Reflect === 'undefined' || !Reflect.construct) return false;
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
   if (Reflect.construct.sham) return false;
-  if (typeof Proxy === 'function') return true;
+  if (typeof Proxy === "function") return true;
 
   try {
     Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
@@ -20260,20 +24529,20 @@ function _construct(Parent, args, Class) {
 }
 
 function _isNativeFunction(fn) {
-  return Function.toString.call(fn).indexOf('[native code]') !== -1;
+  return Function.toString.call(fn).indexOf("[native code]") !== -1;
 }
 
 function _wrapNativeSuper(Class) {
-  var _cache = typeof Map === 'function' ? new Map() : undefined;
+  var _cache = typeof Map === "function" ? new Map() : undefined;
 
   _wrapNativeSuper = function _wrapNativeSuper(Class) {
     if (Class === null || !_isNativeFunction(Class)) return Class;
 
-    if (typeof Class !== 'function') {
-      throw new TypeError('Super expression must either be null or a function');
+    if (typeof Class !== "function") {
+      throw new TypeError("Super expression must either be null or a function");
     }
 
-    if (typeof _cache !== 'undefined') {
+    if (typeof _cache !== "undefined") {
       if (_cache.has(Class)) return _cache.get(Class);
 
       _cache.set(Class, Wrapper);
@@ -20299,7 +24568,7 @@ function _wrapNativeSuper(Class) {
 
 function _assertThisInitialized(self) {
   if (self === void 0) {
-    throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   }
 
   return self;
@@ -20558,7 +24827,7 @@ function data(key, value) {
       return el.dom7ElementDataStorage[key];
     }
 
-    var dataKey = el.getAttribute('data-' + key);
+    var dataKey = el.getAttribute("data-" + key);
 
     if (dataKey) {
       return dataKey;
@@ -20663,7 +24932,7 @@ function transform(transform) {
 
 function transition(duration) {
   for (var i = 0; i < this.length; i += 1) {
-    this[i].style.transitionDuration = typeof duration !== 'string' ? duration + 'ms' : duration;
+    this[i].style.transitionDuration = typeof duration !== 'string' ? duration + "ms" : duration;
   }
 
   return this;
@@ -26094,6 +30363,11 @@ var Swiper = /*#__PURE__*/function () {
       return null;
     }
   }], [{
+    key: "extendDefaults",
+    value: function extendDefaults(newDefaults) {
+      utils_extend(extendedDefaults, newDefaults);
+    }
+  }, {
     key: "extendedDefaults",
     get: function get() {
       return extendedDefaults;
@@ -26102,11 +30376,6 @@ var Swiper = /*#__PURE__*/function () {
     key: "defaults",
     get: function get() {
       return defaults;
-    }
-  }, {
-    key: "extendDefaults",
-    value: function extendDefaults(newDefaults) {
-      utils_extend(extendedDefaults, newDefaults);
     }
   }, {
     key: "installModule",
@@ -30651,7 +34920,7 @@ core_class.use(components); //EXPORT
 
 
 
-/*
+/* 
  *************************************
  * <!-- Swiper -->
  *************************************
@@ -30764,7 +35033,7 @@ var SWIPER = function (module, $, window, document) {
                   var slideProgress = thisSwiper.slides[i].progress;
                   var innerOffset = thisSwiper.width * interleaveOffset;
                   var innerTranslate = slideProgress * innerOffset;
-                  thisSwiper.slides[i].querySelector('.slide-inner').style.transform = 'translate3d(' + innerTranslate + 'px, 0, 0)'; //console.log( e.passedParams );
+                  thisSwiper.slides[i].querySelector(".slide-inner").style.transform = "translate3d(" + innerTranslate + "px, 0, 0)"; //console.log( e.passedParams );
                 }
               },
               touchStart: function touchStart(e) {
@@ -30772,7 +35041,7 @@ var SWIPER = function (module, $, window, document) {
                 var thisSwiper = this;
 
                 for (var i = 0; i < thisSwiper.slides.length; i++) {
-                  thisSwiper.slides[i].style.transition = '';
+                  thisSwiper.slides[i].style.transition = "";
                 }
               },
               setTransition: function setTransition(e) {
@@ -30780,14 +35049,14 @@ var SWIPER = function (module, $, window, document) {
                 var thisSwiper = this;
 
                 for (var i = 0; i < thisSwiper.slides.length; i++) {
-                  thisSwiper.slides[i].style.transition = passedParams.speed + 'ms';
-                  thisSwiper.slides[i].querySelector('.slide-inner').style.transition = passedParams.speed + 'ms';
+                  thisSwiper.slides[i].style.transition = passedParams.speed + "ms";
+                  thisSwiper.slides[i].querySelector(".slide-inner").style.transition = passedParams.speed + "ms";
                 }
               }
             }
           }); //AutoPlay
 
-          swiper3.autoplay.start(); //swiper3.autoplay.stop();
+          swiper3.autoplay.start(); //swiper3.autoplay.stop();			
         } //Swiper custom slides transform effect (Scale Effect without left/right swipe)
         //------------------------------------------
 
@@ -30804,7 +35073,7 @@ var SWIPER = function (module, $, window, document) {
             keyboardControl: false,
             virtualTranslate: true,
 
-            /* 必需的 */
+            /* Required */
             pagination: {
               el: '.swiper-pagination',
               clickable: true,
@@ -30855,11 +35124,11 @@ var SWIPER = function (module, $, window, document) {
 
                 var getDirection = function getDirection(animationProgress) {
                   if (animationProgress === 0) {
-                    return 'NONE';
+                    return "NONE";
                   } else if (animationProgress > 0) {
-                    return 'NEXT';
+                    return "NEXT";
                   } else {
-                    return 'BACK';
+                    return "BACK";
                   }
                 };
 
@@ -30869,7 +35138,7 @@ var SWIPER = function (module, $, window, document) {
 
                 var originIndex = getActiveIndexBeforeTransitionStart(thisSwiper, slides); // get information about animation progress from the active slide - the active slide's value is always -1 to 1.
 
-                /*
+                /* 
                 every slide has a progress attribute equal to the "distance" from the current active index.
                 */
 
@@ -30913,9 +35182,9 @@ var SWIPER = function (module, $, window, document) {
             }
           }); //AutoPlay
 
-          swiper4.autoplay.start(); //swiper4.autoplay.stop();
+          swiper4.autoplay.start(); //swiper4.autoplay.stop();			
         } //Centered Slides
-        //------------------------------------------
+        //------------------------------------------	
 
 
         if ($el.find('#app-slider5').length > 0) {
@@ -30938,7 +35207,7 @@ var SWIPER = function (module, $, window, document) {
             }
           });
         } //Display half on both sides
-        //------------------------------------------
+        //------------------------------------------		
 
 
         if ($el.find('#app-slider6').length > 0) {
@@ -31061,7 +35330,7 @@ var SWIPER = function (module, $, window, document) {
           var swiper8Thumbs = new swiper('#app-slider8-thumbs', {
             spaceBetween: 10,
             centeredSlides: true,
-            slidesPerView: 'auto',
+            slidesPerView: "auto",
             //If you use it with "auto" value and along with loop: true then you need to specify loopedSlides parameter with amount of slides to loop (duplicate)
             touchRatio: 0.4,
             slideToClickedSlide: true,
@@ -31506,7 +35775,7 @@ var THREE_BACKGROUND_THREE = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-background-three-canvas'; // Generate one plane geometries mesh to scene
-      //-------------------------------------
+      //-------------------------------------	
 
       var camera,
           scene,
@@ -31545,7 +35814,7 @@ var THREE_BACKGROUND_THREE = function (module, $, window, document) {
         scene.add(new THREE.AmbientLight(0x555555));
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 500, 2000);
-        scene.add(light); //WebGL Renderer
+        scene.add(light); //WebGL Renderer		
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -31603,14 +35872,14 @@ var THREE_BACKGROUND_THREE = function (module, $, window, document) {
 
         /*
         @Usage: 
-              function CustomObj( scene ) {
-                  const elements = new THREE...;
+             function CustomObj( scene ) {
+                 const elements = new THREE...;
                 scene.add( elements );
-                  this.update = function( time ) {
+                 this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -31681,16 +35950,16 @@ var THREE_BACKGROUND_THREE = function (module, $, window, document) {
           var geom = void 0;
           var color = new THREE.Color();
 
-          if (objectType == 'cube') {
+          if (objectType == "cube") {
             geom = new THREE.BoxGeometry(1, 1, 1);
             scale.y = Math.random() * 200 + 100;
             scale.z = Math.random() * 200 + 100;
             color.setRGB(0, 0, Math.random() + 0.1);
-          } else if (objectType == 'sphere') {
+          } else if (objectType == "sphere") {
             geom = new THREE.IcosahedronGeometry(1, 1);
             scale.y = scale.z = scale.x;
             color.setRGB(0.35, getRandomFloat(0.12, 0.3), 0.2);
-          } else if (objectType == 'poly') {
+          } else if (objectType == "poly") {
             geom = new THREE.CylinderGeometry(3, 6, 3, 5, 1);
             scale.y = Math.random() * 30;
             scale.z = Math.random() * 30;
@@ -31713,8 +35982,8 @@ var THREE_BACKGROUND_THREE = function (module, $, window, document) {
 
       function getRandomFloat(min, max) {
         return Math.random() * (max - min) + min;
-      } //
-      //-------------------------------------
+      } // 
+      //-------------------------------------	
 
 
       return {
@@ -31773,7 +36042,7 @@ var THREE_BACKGROUND_THREE2 = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-background-three-canvas2'; // Generate one plane geometries mesh to scene
-      //-------------------------------------
+      //-------------------------------------	
 
       var camera,
           scene,
@@ -31790,7 +36059,7 @@ var THREE_BACKGROUND_THREE2 = function (module, $, window, document) {
         camera = new THREE.PerspectiveCamera(50, windowWidth / windowHeight, .01, 1000);
         camera.position.set(0, 0, 1.8); //Scene
 
-        scene = new THREE.Scene(); //WebGL Renderer
+        scene = new THREE.Scene(); //WebGL Renderer	
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -31802,10 +36071,10 @@ var THREE_BACKGROUND_THREE2 = function (module, $, window, document) {
 
         material = new THREE.ShaderMaterial({
           uniforms: {
-            'time': {
+            "time": {
               value: 1.0
             },
-            'texture': {
+            "texture": {
               value: new THREE.TextureLoader().load($('#' + rendererCanvasID).data('filter-texture'))
             }
           },
@@ -31834,14 +36103,14 @@ var THREE_BACKGROUND_THREE2 = function (module, $, window, document) {
 
         /*
         @Usage: 
-              function CustomObj( scene ) {
-                  const elements = new THREE...;
+             function CustomObj( scene ) {
+                 const elements = new THREE...;
                 scene.add( elements );
-                  this.update = function( time ) {
+                 this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -31882,8 +36151,8 @@ var THREE_BACKGROUND_THREE2 = function (module, $, window, document) {
 
       function round(n, digits) {
         return Number(n.toFixed(digits));
-      } //
-      //-------------------------------------
+      } // 
+      //-------------------------------------	
 
 
       return {
@@ -31936,7 +36205,7 @@ var THREE_BACKGROUND_THREE3 = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-background-three-canvas3'; // Generate one plane geometries mesh to scene
-      //-------------------------------------
+      //-------------------------------------	
 
       var camera,
           scene,
@@ -31953,7 +36222,7 @@ var THREE_BACKGROUND_THREE3 = function (module, $, window, document) {
         camera = new THREE.PerspectiveCamera(50, windowWidth / windowHeight, .01, 1000);
         camera.position.set(0, 0, 1.8); //Scene
 
-        scene = new THREE.Scene(); //WebGL Renderer
+        scene = new THREE.Scene(); //WebGL Renderer	
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -31986,14 +36255,14 @@ var THREE_BACKGROUND_THREE3 = function (module, $, window, document) {
 
         /*
         @Usage: 
-              function CustomObj( scene ) {
-                  const elements = new THREE...;
+             function CustomObj( scene ) {
+                 const elements = new THREE...;
                 scene.add( elements );
-                  this.update = function( time ) {
+                 this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -32028,8 +36297,8 @@ var THREE_BACKGROUND_THREE3 = function (module, $, window, document) {
             object[prop] = destination;
           }
         }
-      } //
-      //-------------------------------------
+      } // 
+      //-------------------------------------	
 
 
       return {
@@ -32124,7 +36393,7 @@ var THREE_BACKGROUND = function (module, $, window, document) {
 
       var mouseX, mouseY, offsetX, offsetY;
       var touches = e.touches; //get the absolute position of a mouse
-      //!!! Important: If you do not use window.pageXOffset or window.pageYOffset,
+      //!!! Important: If you do not use window.pageXOffset or window.pageYOffset, 
       //              the mouse coordinates are relative to the parent element
 
       if (touches && touches.length) {
@@ -32218,7 +36487,7 @@ var THREE_BACKGROUND = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- 3D Carousel -->
  *************************************
@@ -32247,10 +36516,10 @@ var THREE_CAROUSEL = function (module, $, window, document) {
           leftpos = itemCount,
           resetCount = itemCount;
       if ((0,esm_typeof/* default */.Z)(dataTiming) === ( true ? "undefined" : 0)) dataTiming = 5000;
-      if ((0,esm_typeof/* default */.Z)(dataPrevBtn) === ( true ? "undefined" : 0)) dataPrevBtn = '.my-carousel-3d-prev';
-      if ((0,esm_typeof/* default */.Z)(dataNextBtn) === ( true ? "undefined" : 0)) dataNextBtn = '.my-carousel-3d-next';
+      if ((0,esm_typeof/* default */.Z)(dataPrevBtn) === ( true ? "undefined" : 0)) dataPrevBtn = ".my-carousel-3d-prev";
+      if ((0,esm_typeof/* default */.Z)(dataNextBtn) === ( true ? "undefined" : 0)) dataNextBtn = ".my-carousel-3d-next";
       if ((0,esm_typeof/* default */.Z)(dataDraggable) === ( true ? "undefined" : 0)) dataDraggable = false; //Avoid problems caused by insufficient quantity
-      //-------------------------------------
+      //-------------------------------------		
 
       if (itemCount == 3) {
         var $clone3 = $items.eq(1).clone();
@@ -32276,23 +36545,23 @@ var THREE_CAROUSEL = function (module, $, window, document) {
       itemCount = $items.length;
       leftpos = itemCount;
       resetCount = itemCount; //Adding an index to an element makes it easy to query
-      //-------------------------------------
+      //-------------------------------------	
 
       $items.each(function (index) {
         items[index] = $(this).text();
         $(this).attr('id', index + 1);
       }); //Pause slideshow and reinstantiate on mouseout
-      //-------------------------------------
+      //-------------------------------------	
 
       $wrapper.on('mouseenter', function () {
         clearInterval(autoSwap);
       }).on('mouseleave', function () {
         autoSwap = setInterval(itemUpdates, dataTiming);
       }); //Initialize the default effect
-      //-------------------------------------
+      //-------------------------------------	
 
       itemUpdates('clockwise'); //The matched click events for the element.
-      //-------------------------------------
+      //-------------------------------------	
 
       $(dataPrevBtn).on('click', function (e) {
         e.preventDefault();
@@ -32313,7 +36582,7 @@ var THREE_CAROUSEL = function (module, $, window, document) {
           itemUpdates('clockwise');
         }
       }); //Drag and Drop
-      //-------------------------------------
+      //-------------------------------------	
 
       var $dragDropTrigger = $wrapper;
       var hammerProps = {};
@@ -33153,7 +37422,7 @@ var THREE_GALLERY = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-gallery-three-canvas'; // Generate one plane geometries mesh to scene
-      //-------------------------------------
+      //-------------------------------------	
 
       var camera,
           controls,
@@ -33198,7 +37467,7 @@ var THREE_GALLERY = function (module, $, window, document) {
         scene.add(new THREE.AmbientLight(0x555555));
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 500, 2000);
-        scene.add(light); //WebGL Renderer
+        scene.add(light); //WebGL Renderer	
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -33273,14 +37542,14 @@ var THREE_GALLERY = function (module, $, window, document) {
 
         /*
         @Usage: 
-              function CustomObj( scene ) {
-                  const elements = new THREE...;
+             function CustomObj( scene ) {
+                 const elements = new THREE...;
                 scene.add( elements );
-                  this.update = function( time ) {
+                 this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -33308,8 +37577,8 @@ var THREE_GALLERY = function (module, $, window, document) {
        * @param  {Element} imgLoader       - A loader for loading all images from array.
        * @param  {String} src             - URL of image.
        * @param  {Number} index           - Index of image.
-       * @param  {Number} w               - The width of an image, in pixels.
-       * @param  {Number} h               - The height of an image, in pixels.
+       * @param  {Number} w               - The width of an image, in pixels. 
+       * @param  {Number} h               - The height of an image, in pixels. 
        * @param  {Number} total           - Total number of preload images.
        * @param  {Number} itemRadAngle    - An equal radian angle of a sphere for each element.
        * @param  {Number} radius          - Radius length of the sphere (circumference).
@@ -33328,10 +37597,10 @@ var THREE_GALLERY = function (module, $, window, document) {
             map: texture
           });
           var geometry = new THREE.PlaneGeometry(w, h);
-          var mesh = new THREE.Mesh(geometry, material); //LinearFilter, which takes the four closest texels and bilinearly interpolates among them.
+          var mesh = new THREE.Mesh(geometry, material); //LinearFilter, which takes the four closest texels and bilinearly interpolates among them. 
 
           mesh.minFilter = THREE.LinearFilter;
-          mesh.overdraw = true; //Calculate the position of the image
+          mesh.overdraw = true; //Calculate the position of the image 
           //X axis: a = sinA * c = Math.sin( rad ) * radius
           //Z axis: b = cosA * c = Math.cos( rad ) * radius
 
@@ -33354,8 +37623,8 @@ var THREE_GALLERY = function (module, $, window, document) {
         function (err) {
           console.error('An error happened.');
         });
-      } //
-      //-------------------------------------
+      } // 
+      //-------------------------------------	
 
 
       return {
@@ -33415,7 +37684,7 @@ var THREE_IMAGE_TRANSITION = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-imagetransition-three-canvas'; // Generate one plane geometries mesh to scene
-      //-------------------------------------
+      //-------------------------------------	
 
       var camera,
           controls,
@@ -33455,7 +37724,7 @@ var THREE_IMAGE_TRANSITION = function (module, $, window, document) {
         scene.add(new THREE.AmbientLight(0x555555));
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 500, 2000);
-        scene.add(light); //WebGL Renderer
+        scene.add(light); //WebGL Renderer	
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -33484,23 +37753,23 @@ var THREE_IMAGE_TRANSITION = function (module, $, window, document) {
         filterMaterial = new THREE.ShaderMaterial({
           uniforms: {
             effectFactor: {
-              type: 'f',
+              type: "f",
               value: intensity
             },
             dispFactor: {
-              type: 'f',
+              type: "f",
               value: 0.0
             },
             texture: {
-              type: 't',
+              type: "t",
               value: texture1
             },
             texture2: {
-              type: 't',
+              type: "t",
               value: texture2
             },
             disp: {
-              type: 't',
+              type: "t",
               value: disp
             }
           },
@@ -33522,21 +37791,21 @@ var THREE_IMAGE_TRANSITION = function (module, $, window, document) {
       function render() {
         requestAnimationFrame(render);
         theta += 0.1; //To set a background color.
-        //renderer.setClearColor( 0x000000 );
+        //renderer.setClearColor( 0x000000 );	
         //update camera and controls
 
         controls.update(); //push objects
 
         /*
         @Usage: 
-              function CustomObj( scene ) {
-                  const elements = new THREE...;
+             function CustomObj( scene ) {
+                 const elements = new THREE...;
                 scene.add( elements );
-                  this.update = function( time ) {
+                 this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -33565,8 +37834,8 @@ var THREE_IMAGE_TRANSITION = function (module, $, window, document) {
           value: 0,
           ease: Expo.easeOut
         });
-      } //
-      //-------------------------------------
+      } // 
+      //-------------------------------------	
 
 
       return {
@@ -35880,7 +40149,7 @@ var THREE_MODEL = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-model-canvas'; // Generate one plane geometries mesh to scene
-      //-------------------------------------
+      //-------------------------------------	
 
       var camera,
           scene,
@@ -35913,7 +40182,7 @@ var THREE_MODEL = function (module, $, window, document) {
         scene.add(lights[0]);
         scene.add(lights[1]);
         scene.add(lights[2]); //=================
-        //WebGL Renderer
+        //WebGL Renderer	
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -35969,22 +40238,24 @@ var THREE_MODEL = function (module, $, window, document) {
           });
           /*
           If you can not use `object.scene.children[ 0 ]`, use the following code:
-              const gltfMesh = object.scene;
-          object.scene.traverse( function( child ) {
-             if ( ( child instanceof THREE.Mesh ) ) {
-                      child.material = new THREE.MeshPhongMaterial( {
-                                      color: 0xdddddd,
-                                      shininess: 80,
-                                      wireframe: true,
-                                      map: mainSceneImgTexture,
-                                      side: THREE.DoubleSide,
-                                      fog : false //Excluding objects from fog
-                                  } );
-                    // set castShadow to object
-                  child.castShadow = true;
-                }
+          
+          	const gltfMesh = object.scene;
+          object.scene.traverse( function( child ) {            
+             if ( ( child instanceof THREE.Mesh ) ) { 
+          				child.material = new THREE.MeshPhongMaterial( {
+          							color: 0xdddddd,
+          							shininess: 80,
+          							wireframe: true,
+          							map: mainSceneImgTexture,
+          							side: THREE.DoubleSide,
+          							fog : false //Excluding objects from fog
+          						} );
+          			// set castShadow to object
+          		child.castShadow = true;
+          		}
           });
-              */
+          	
+          */
 
           displacementSprite.add(gltfMesh);
           displacementSprite.scale.set(1.2, 1.2, 1.2);
@@ -36036,19 +40307,19 @@ var THREE_MODEL = function (module, $, window, document) {
           //const delta  clock.getDelta();
           //mixerGLTF.update( delta );
         } //To set a background color.
-        //renderer.setClearColor( 0x000000 );
+        //renderer.setClearColor( 0x000000 );	
         //push objects
 
         /*
         @Usage: 
-              function CustomObj( scene ) {
-                  const elements = new THREE...;
+             function CustomObj( scene ) {
+                 const elements = new THREE...;
                 scene.add( elements );
-                  this.update = function( time ) {
+                 this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
 
@@ -36078,8 +40349,8 @@ var THREE_MODEL = function (module, $, window, document) {
 
       function getRadian(deg) {
         return deg * Math.PI / 180;
-      } //
-      //-------------------------------------
+      } // 
+      //-------------------------------------	
 
 
       return {
@@ -36322,7 +40593,7 @@ THREE.CSS3DRenderer = function () {
 
 /**
  * module.THREE_PAGES
- *
+ * 
  * @requires ./examples/assets/js/min/three.min.js
  * @requires ./src/plugins/THREE
  */
@@ -36343,7 +40614,7 @@ var THREE_PAGES = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var viewRenderer = '3D-renderer'; // Generate one plane geometries mesh to scene
-      //-------------------------------------
+      //-------------------------------------	
 
       var camera,
           controls,
@@ -36414,14 +40685,14 @@ var THREE_PAGES = function (module, $, window, document) {
 
         /*
         @Usage: 
-              function CustomObj( scene ) {
-                  const elements = new THREE...;
+             function CustomObj( scene ) {
+                 const elements = new THREE...;
                 scene.add( elements );
-                  this.update = function( time ) {
+                 this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -36436,8 +40707,8 @@ var THREE_PAGES = function (module, $, window, document) {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
-      } //
-      //-------------------------------------
+      } // 
+      //-------------------------------------	
 
 
       return {
@@ -36479,7 +40750,7 @@ var THREE_PAGES = function (module, $, window, document) {
 
 /**
  * module.THREE_PARTICLE
- *
+ * 
  * @requires ./examples/assets/js/min/three.min.js
  * @requires ./src/plugins/THREE
  */
@@ -36555,7 +40826,7 @@ var THREE_PARTICLE = function (module, $, window, document) {
 
         visibleHeight = 2 * Math.tan(vFOV / 2) * dist; // visible height
 
-        visibleWidth = visibleHeight * camera.aspect; // visible width
+        visibleWidth = visibleHeight * camera.aspect; // visible width   
         //console.log( 'visibleWidth:' + visibleWidth + ', visibleHeight: ' + visibleHeight + ', xLimit: ' + xLimit + ', yLimit: ' + yLimit );
         //==================================
         //==================================
@@ -36566,7 +40837,7 @@ var THREE_PARTICLE = function (module, $, window, document) {
         //==================================
         //==================================
         //Light from scene ready
-        // Light plane
+        // Light plane  
 
         sceneForLightPlane = new THREE.Mesh(new THREE.CircleGeometry(1000, 32), new THREE.MeshPhongMaterial({
           emissive: backgroundPlane,
@@ -36602,7 +40873,7 @@ var THREE_PARTICLE = function (module, $, window, document) {
         sceneForAmbientLight = new THREE.AmbientLight(0xffffff, 0.08);
         scene.add(sceneForAmbientLight); //==================================
         //==================================
-        //WebGL Renderer
+        //WebGL Renderer		
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -36757,14 +41028,14 @@ var THREE_PARTICLE = function (module, $, window, document) {
 
         /*
         @Usage: 
-              function CustomObj( scene ) {
-                  const elements = new THREE...;
+             function CustomObj( scene ) {
+                 const elements = new THREE...;
                 scene.add( elements );
-                  this.update = function( time ) {
+                 this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var _i = 0; _i < sceneSubjects.length; _i++) {
@@ -36853,7 +41124,7 @@ var THREE_PARTICLE = function (module, $, window, document) {
        * @return {JSON}
        */
 
-      /* @usage:
+      /* @usage: 
          const screenPos = nestedObjectToScreenXYZAndWH( displacementSprite , camera, renderer.domElement.width, renderer.domElement.height );
         */
 
@@ -36933,8 +41204,8 @@ var THREE_PARTICLE = function (module, $, window, document) {
             nz = Math.cos(x) * Math.sin(y) * z,
             ny = Math.sin(x) * z;
         return new THREE.Vector3(nx, ny, nz);
-      } //
-      //-------------------------------------
+      } // 
+      //-------------------------------------	
 
 
       return {
@@ -36975,7 +41246,7 @@ var THREE_PARTICLE = function (module, $, window, document) {
 
 /**
  * module.THREE_SPHERE_THREE
- *
+ * 
  * @requires ./examples/assets/js/min/three.min.js
  * @requires ./src/plugins/THREE
  */
@@ -36995,7 +41266,7 @@ var THREE_SPHERE_THREE = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-sphere-three-canvas'; // Generate one plane geometries mesh to scene
-      //-------------------------------------
+      //-------------------------------------	
 
       var camera, controls, scene, light, renderer, displacementSprite;
 
@@ -37013,7 +41284,7 @@ var THREE_SPHERE_THREE = function (module, $, window, document) {
         scene.add(new THREE.AmbientLight(0x555555));
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 500, 2000);
-        scene.add(light); //WebGL Renderer
+        scene.add(light); //WebGL Renderer		
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -37068,14 +41339,14 @@ var THREE_SPHERE_THREE = function (module, $, window, document) {
 
         /*
         @Usage: 
-              function CustomObj( scene ) {
-                  const elements = new THREE...;
+             function CustomObj( scene ) {
+                 const elements = new THREE...;
                 scene.add( elements );
-                  this.update = function( time ) {
+                 this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -37090,8 +41361,8 @@ var THREE_SPHERE_THREE = function (module, $, window, document) {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
-      } //
-      //-------------------------------------
+      } // 
+      //-------------------------------------	
 
 
       return {
@@ -37151,7 +41422,7 @@ var THREE_OBJ_ANIM_INTERACTION = function (module, $, window, document) {
           segments = 200; //segments must be even
 
       function init() {
-        // Create a camera, which defines where we're looking at.
+        // Create a camera, which defines where we're looking at.		
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
           //canvas
@@ -37234,14 +41505,14 @@ var THREE_OBJ_ANIM_INTERACTION = function (module, $, window, document) {
 
         /*
         @Usage: 
-              function CustomObj( scene ) {
-                  const elements = new THREE...;
+             function CustomObj( scene ) {
+                 const elements = new THREE...;
                 scene.add( elements );
-                  this.update = function( time ) {
+                 this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -37299,8 +41570,8 @@ var THREE_OBJ_ANIM_INTERACTION = function (module, $, window, document) {
           ease: Power0.easeNone,
           onUpdate: function onUpdate() {}
         });
-      }); //
-      //-------------------------------------
+      }); // 
+      //-------------------------------------	
 
       return {
         init: init,
@@ -37353,7 +41624,7 @@ var THREE_MOUSE_INTERACTION = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-mouseinteraction-three-canvas'; // Generate one plane geometries mesh to scene
-      //-------------------------------------
+      //-------------------------------------	
 
       var camera,
           controls,
@@ -37403,7 +41674,7 @@ var THREE_MOUSE_INTERACTION = function (module, $, window, document) {
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 500, 2000);
         scene.add(light); //=================
-        //WebGL Renderer
+        //WebGL Renderer	
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -37457,14 +41728,14 @@ var THREE_MOUSE_INTERACTION = function (module, $, window, document) {
 
         /*
         @Usage: 
-              function CustomObj( scene ) {
-                  const elements = new THREE...;
+             function CustomObj( scene ) {
+                 const elements = new THREE...;
                 scene.add( elements );
-                  this.update = function( time ) {
+                 this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -37509,11 +41780,11 @@ var THREE_MOUSE_INTERACTION = function (module, $, window, document) {
           //						x: '+=' + ( 200 - obj.scale.x ) * 0.05,
           //						y: '+=' + ( 200 - obj.scale.y ) * 0.05,
           //						z: '+=' + ( 200 - obj.scale.z ) * 0.05
-          //					});
+          //					});	
           //
           //
-          //					obj.updateMatrix();
-          //
+          //					obj.updateMatrix();	
+          //	
           //				}
           //---Change object position
 
@@ -37584,11 +41855,11 @@ var THREE_MOUSE_INTERACTION = function (module, $, window, document) {
         for (var i = 0; i < numObjects; i++) {
           var geometry = void 0;
 
-          if (objectType == 'cube') {
+          if (objectType == "cube") {
             geometry = new THREE.BoxGeometry(1, 1, 1);
-          } else if (objectType == 'sphere') {
+          } else if (objectType == "sphere") {
             geometry = new THREE.IcosahedronGeometry(1, 1);
-          } else if (objectType == 'poly') {
+          } else if (objectType == "poly") {
             geometry = new THREE.CylinderGeometry(3, 6, 3, 5, 1);
           }
 
@@ -37638,7 +41909,7 @@ var THREE_MOUSE_INTERACTION = function (module, $, window, document) {
        * @return {JSON}
        */
 
-      /* @usage:
+      /* @usage: 
          const screenPos = nestedObjectToScreenXYZAndWH( displacementSprite , camera, renderer.domElement.width, renderer.domElement.height );
         */
 
@@ -37718,8 +41989,8 @@ var THREE_MOUSE_INTERACTION = function (module, $, window, document) {
             nz = Math.cos(x) * Math.sin(y) * z,
             ny = Math.sin(x) * z;
         return new THREE.Vector3(nx, ny, nz);
-      } //
-      //-------------------------------------
+      } // 
+      //-------------------------------------	
 
 
       return {
@@ -37772,7 +42043,7 @@ var THREE_MOUSE_INTERACTION2 = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-mouseinteraction2-three-canvas'; // Generate one plane geometries mesh to scene
-      //-------------------------------------
+      //-------------------------------------	
 
       var camera,
           scene,
@@ -37783,7 +42054,7 @@ var THREE_MOUSE_INTERACTION2 = function (module, $, window, document) {
           clickEnabled = false; // controls
 
       var scroller = new CameraScroller({
-        direction: 'y'
+        direction: "y"
       }); // mouse
 
       var mouseVector = new THREE.Vector2();
@@ -37803,7 +42074,7 @@ var THREE_MOUSE_INTERACTION2 = function (module, $, window, document) {
         scene.add(new THREE.AmbientLight(0x555555));
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 500, 2000);
-        scene.add(light); //WebGL Renderer
+        scene.add(light); //WebGL Renderer		
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -37851,14 +42122,14 @@ var THREE_MOUSE_INTERACTION2 = function (module, $, window, document) {
 
         /*
         @Usage: 
-              function CustomObj( scene ) {
-                  const elements = new THREE...;
+             function CustomObj( scene ) {
+                 const elements = new THREE...;
                 scene.add( elements );
-                  this.update = function( time ) {
+                 this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
 
@@ -38098,7 +42369,7 @@ var THREE_MOUSE_INTERACTION2 = function (module, $, window, document) {
        * @return {JSON}
        */
 
-      /* @usage:
+      /* @usage: 
          const screenPos = nestedObjectToScreenXYZAndWH( displacementSprite , camera, renderer.domElement.width, renderer.domElement.height );
         */
 
@@ -38178,8 +42449,8 @@ var THREE_MOUSE_INTERACTION2 = function (module, $, window, document) {
             nz = Math.cos(x) * Math.sin(y) * z,
             ny = Math.sin(x) * z;
         return new THREE.Vector3(nx, ny, nz);
-      } //
-      //-------------------------------------
+      } // 
+      //-------------------------------------	
 
 
       return {
@@ -38254,7 +42525,7 @@ THREE.ExplodeModifier.prototype.modify = function (geometry) {
 
 /**
  * module.THREE_SHATTER_SLIDER
- *
+ * 
  * @requires ./examples/assets/js/min/three.min.js
  * @requires ./src/plugins/THREE
  */
@@ -38276,12 +42547,12 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var $sliderWrapper = $('.uix-3d-slider--shatter'),
-          //Basic webGL renderers
+          //Basic webGL renderers 
       renderLoaderID = 'uix-3d-slider--shatter__loader',
           rendererOuterID = 'uix-3d-slider--shatter__canvas-container',
           rendererCanvasID = 'uix-3d-slider--shatter__canvas';
       var animSpeed = 1000; // Generate one plane geometries mesh to scene
-      //-------------------------------------
+      //-------------------------------------	
 
       var camera,
           controls,
@@ -38337,7 +42608,7 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
 
             var playTimes; //A function called "timer" once every second (like a digital watch).
 
-            $this[0].animatedSlides; //If arrows does not exist on the page, it will be added by default,
+            $this[0].animatedSlides; //If arrows does not exist on the page, it will be added by default, 
             //and the drag and drop function will be activated.
 
             if ($(dataControlsArrows).length == 0) {
@@ -38391,9 +42662,9 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
 
                 if ((0,esm_typeof/* default */.Z)(videoURL) != ( true ? "undefined" : 0)) {
                   sources.push({
-                    'url': videoURL,
-                    'id': _item.find('video').attr('id'),
-                    'type': 'video'
+                    "url": videoURL,
+                    "id": _item.find('video').attr('id'),
+                    "type": 'video'
                   });
                 }
               } else {
@@ -38401,13 +42672,13 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
 
                 if ((0,esm_typeof/* default */.Z)(imgURL) != ( true ? "undefined" : 0)) {
                   sources.push({
-                    'url': imgURL,
-                    'id': 'img-' + UixGUID.create(),
-                    'type': 'img'
+                    "url": imgURL,
+                    "id": 'img-' + UixGUID.create(),
+                    "type": 'img'
                   });
                 }
               }
-            }); //Pagination dots
+            }); //Pagination dots 
             //-------------------------------------	
 
             var _dot = '',
@@ -38522,12 +42793,12 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
             $this.data('activated', 1);
           } //endif activated
 
-        }); // end each
+        }); // end each				
       }
 
       function init() {
         //Core 3D stage begin
-        //-------------------------------------
+        //-------------------------------------		
         //camera
         camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 10, 2500); // FlyCamera // FlyControls
 
@@ -38541,7 +42812,7 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
         scene.add(new THREE.AmbientLight(0x555555));
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 0, 2000);
-        scene.add(light); //WebGL Renderer
+        scene.add(light); //WebGL Renderer	
         // create a render and set the size
 
         renderer = new THREE.WebGLRenderer({
@@ -38599,7 +42870,7 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
       function render() {
         requestAnimationFrame(render);
         theta += 0.1; //To set a background color.
-        //renderer.setClearColor( 0x000000 );
+        //renderer.setClearColor( 0x000000 );	
         //Animating Three.js vertices
 
         allSources.forEach(function (element, index) {
@@ -38651,14 +42922,14 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
 
         /*
         @Usage: 
-              function CustomObj( scene ) {
-                  const elements = new THREE...;
+             function CustomObj( scene ) {
+                 const elements = new THREE...;
                 scene.add( elements );
-                  this.update = function( time ) {
+                 this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -38679,8 +42950,8 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
        *
        * @param  {Three.MeshBasicMaterial.map} texture         - Returns a new texture object which can directly be used for material creation.
        * @param  {Number} index           - Index of image or video.
-       * @param  {Number} w               - The width of an image or video, in pixels.
-       * @param  {Number} h               - The height of an image or video, in pixels.
+       * @param  {Number} w               - The width of an image or video, in pixels. 
+       * @param  {Number} h               - The height of an image or video, in pixels. 
        * @param  {Number} total           - Total number of preload images or video.
        * @param  {Element|String} loading         - Progress bar display control.
        * @return {Void}
@@ -38778,12 +43049,12 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
        *
        * @param  {Number} slideCurId             - Index of current slider.
        * @param  {Number} slideNextId            - Index of next slider.
-       * @param  {String} dir                    - Switching direction indicator.
-       * @param  {String} countTotalID           - Total number ID or class of counter.
-       * @param  {String} countCurID             - Current number ID or class of counter.
-       * @param  {String} paginationID           - Navigation ID for paging control of each slide.
-       * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
-       * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
+       * @param  {String} dir                    - Switching direction indicator.	 
+                * @param  {String} countTotalID           - Total number ID or class of counter.
+                * @param  {String} countCurID             - Current number ID or class of counter.
+                * @param  {String} paginationID           - Navigation ID for paging control of each slide.
+                * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
+                * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
        * @return {Void}
        */
 
@@ -38826,7 +43097,7 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
           var dirIndicatorClass = '';
           if (dir == 'prev') dirIndicatorClass = 'prev';
           if (dir == 'next') dirIndicatorClass = 'next'; //Add transition class to each item
-          //-------------------------------------
+          //-------------------------------------	
 
           $items.removeClass('is-active leave prev next').addClass(dirIndicatorClass);
           $current.addClass('leave');
@@ -38836,7 +43107,7 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
           $(paginationID).find('ul > li').removeClass('is-active leave prev next').addClass(dirIndicatorClass);
           $(paginationID).find('ul > li').eq(slideCurId).addClass('leave');
           $(paginationID).find('ul > li').eq(slideNextId).addClass('is-active'); //Add transition class to Arrows
-          //-------------------------------------
+          //-------------------------------------		
 
           if (!loop) {
             $(arrowsID).find('a').removeClass('is-disabled');
@@ -38873,7 +43144,7 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
                 x: fragment[i].origPos.x,
                 y: fragment[i].origPos.y,
                 z: fragment[i].origPos.z,
-                ease: 'Expo.easeInOut'
+                ease: "Expo.easeInOut"
               });
             }
           } // play the video
@@ -38905,7 +43176,7 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
                 x: pos.x,
                 y: pos.y,
                 z: pos.z,
-                ease: 'Expo.easeInOut',
+                ease: "Expo.easeInOut",
                 onComplete: function onComplete() {
                   //reset the trigger
                   isAnimating = false;
@@ -38915,8 +43186,8 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
           }
         } // end isAnimating
 
-      } //
-      //-------------------------------------
+      } // 
+      //-------------------------------------	
 
 
       return {
@@ -38974,12 +43245,12 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var $sliderWrapper = $('.uix-3d-slider--expParticle'),
-          //Basic webGL renderers
+          //Basic webGL renderers 
       renderLoaderID = 'uix-3d-slider--expParticle__loader',
           rendererOuterID = 'uix-3d-slider--expParticle__canvas-container',
           rendererCanvasID = 'uix-3d-slider--expParticle__canvas';
       var animSpeed = 1000; // Generate one plane geometries mesh to scene
-      //-------------------------------------
+      //-------------------------------------	
 
       var camera,
           controls,
@@ -39041,7 +43312,7 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
 
             var playTimes; //A function called "timer" once every second (like a digital watch).
 
-            $this[0].animatedSlides; //If arrows does not exist on the page, it will be added by default,
+            $this[0].animatedSlides; //If arrows does not exist on the page, it will be added by default, 
             //and the drag and drop function will be activated.
 
             if ($(dataControlsArrows).length == 0) {
@@ -39095,9 +43366,9 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
 
                 if ((0,esm_typeof/* default */.Z)(videoURL) != ( true ? "undefined" : 0)) {
                   sources.push({
-                    'url': videoURL,
-                    'id': _item.find('video').attr('id'),
-                    'type': 'video'
+                    "url": videoURL,
+                    "id": _item.find('video').attr('id'),
+                    "type": 'video'
                   });
                 }
               } else {
@@ -39105,13 +43376,13 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
 
                 if ((0,esm_typeof/* default */.Z)(imgURL) != ( true ? "undefined" : 0)) {
                   sources.push({
-                    'url': imgURL,
-                    'id': 'img-' + UixGUID.create(),
-                    'type': 'img'
+                    "url": imgURL,
+                    "id": 'img-' + UixGUID.create(),
+                    "type": 'img'
                   });
                 }
               }
-            }); //Pagination dots
+            }); //Pagination dots 
             //-------------------------------------	
 
             var _dot = '',
@@ -39226,12 +43497,12 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
             $this.data('activated', 1);
           } //endif activated
 
-        }); // end each
+        }); // end each				
       }
 
       function init() {
         //Core 3D stage begin
-        //-------------------------------------
+        //-------------------------------------		
         //camera
         camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 10, 2500); // FlyCamera // FlyControls
 
@@ -39245,7 +43516,7 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
         scene.add(new THREE.AmbientLight(0x555555));
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 0, 2000);
-        scene.add(light); //WebGL Renderer
+        scene.add(light); //WebGL Renderer	
         // create a render and set the size
 
         renderer = new THREE.WebGLRenderer({
@@ -39303,7 +43574,7 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
       function render() {
         requestAnimationFrame(render);
         var elapsed = clock.getElapsedTime(); //To set a background color.
-        //renderer.setClearColor( 0x000000 );
+        //renderer.setClearColor( 0x000000 );	
         //Display the destination object
 
         if ((0,esm_typeof/* default */.Z)(allSources[activeSlider]) != ( true ? "undefined" : 0)) {
@@ -39353,14 +43624,14 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
 
         /*
         @Usage: 
-              function CustomObj( scene ) {
-                  const elements = new THREE...;
+             function CustomObj( scene ) {
+                 const elements = new THREE...;
                 scene.add( elements );
-                  this.update = function( time ) {
+                 this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var _i2 = 0; _i2 < sceneSubjects.length; _i2++) {
@@ -39381,8 +43652,8 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
        *
        * @param  {Three.MeshBasicMaterial.map} texture         - Returns a new texture object which can directly be used for material creation.
        * @param  {Number} index           - Index of image or video.
-       * @param  {Number} w               - The width of an image or video, in pixels.
-       * @param  {Number} h               - The height of an image or video, in pixels.
+       * @param  {Number} w               - The width of an image or video, in pixels. 
+       * @param  {Number} h               - The height of an image or video, in pixels. 
        * @param  {Number} total           - Total number of preload images or video.
        * @param  {Element|String} loading         - Progress bar display control.
        * @return {Void}
@@ -39512,12 +43783,12 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
        *
        * @param  {Number} slideCurId             - Index of current slider.
        * @param  {Number} slideNextId            - Index of next slider.
-       * @param  {String} dir                    - Switching direction indicator.
-       * @param  {String} countTotalID           - Total number ID or class of counter.
-       * @param  {String} countCurID             - Current number ID or class of counter.
-       * @param  {String} paginationID           - Navigation ID for paging control of each slide.
-       * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
-       * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
+       * @param  {String} dir                    - Switching direction indicator.	 
+                * @param  {String} countTotalID           - Total number ID or class of counter.
+                * @param  {String} countCurID             - Current number ID or class of counter.
+                * @param  {String} paginationID           - Navigation ID for paging control of each slide.
+                * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
+                * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
        * @return {Void}
        */
 
@@ -39560,7 +43831,7 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
           var dirIndicatorClass = '';
           if (dir == 'prev') dirIndicatorClass = 'prev';
           if (dir == 'next') dirIndicatorClass = 'next'; //Add transition class to each item
-          //-------------------------------------
+          //-------------------------------------	
 
           $items.removeClass('is-active leave prev next').addClass(dirIndicatorClass);
           $current.addClass('leave');
@@ -39570,7 +43841,7 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
           $(paginationID).find('ul > li').removeClass('is-active leave prev next').addClass(dirIndicatorClass);
           $(paginationID).find('ul > li').eq(slideCurId).addClass('leave');
           $(paginationID).find('ul > li').eq(slideNextId).addClass('is-active'); //Add transition class to Arrows
-          //-------------------------------------
+          //-------------------------------------		
 
           if (!loop) {
             $(arrowsID).find('a').removeClass('is-disabled');
@@ -39592,8 +43863,8 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
           isAnimating = false;
         } // end isAnimating
 
-      } //
-      //-------------------------------------
+      } // 
+      //-------------------------------------	
 
 
       return {
@@ -39656,12 +43927,12 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var $sliderWrapper = $('.uix-3d-slider--liquid-scrollspy'),
-          //Basic webGL renderers
+          //Basic webGL renderers 
       renderLoaderID = 'uix-3d-slider--liquid-scrollspy__loader',
           rendererOuterID = 'uix-3d-slider--liquid-scrollspy__canvas-container',
           rendererCanvasID = 'uix-3d-slider--liquid-scrollspy__canvas';
       var animSpeed = 1000; // Generate one plane geometries mesh to scene
-      //-------------------------------------
+      //-------------------------------------	
 
       var camera,
           controls,
@@ -39734,7 +44005,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
             scrollspyConfigCountCur = dataCountCur;
             scrollspyConfigControlsPagination = dataControlsPagination;
             scrollspyConfigControlsArrows = dataControlsArrows;
-            scrollspyConfigLoop = dataLoop; //If arrows does not exist on the page, it will be added by default,
+            scrollspyConfigLoop = dataLoop; //If arrows does not exist on the page, it will be added by default, 
             //and the drag and drop function will be activated.
 
             if ($(dataControlsArrows).length == 0) {
@@ -39788,9 +44059,9 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
 
                 if ((0,esm_typeof/* default */.Z)(videoURL) != ( true ? "undefined" : 0)) {
                   sources.push({
-                    'url': videoURL,
-                    'id': _item.find('video').attr('id'),
-                    'type': 'video'
+                    "url": videoURL,
+                    "id": _item.find('video').attr('id'),
+                    "type": 'video'
                   });
                 }
               } else {
@@ -39798,13 +44069,13 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
 
                 if ((0,esm_typeof/* default */.Z)(imgURL) != ( true ? "undefined" : 0)) {
                   sources.push({
-                    'url': imgURL,
-                    'id': 'img-' + UixGUID.create(),
-                    'type': 'img'
+                    "url": imgURL,
+                    "id": 'img-' + UixGUID.create(),
+                    "type": 'img'
                   });
                 }
               }
-            }); //Pagination dots
+            }); //Pagination dots 
             //-------------------------------------	
 
             var _dot = '',
@@ -39919,7 +44190,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
             $this.data('activated', 1);
           } //endif activated
 
-        }); // end each
+        }); // end each				
       }
 
       function loadImages() {
@@ -39931,12 +44202,12 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
             // IMAGE //
             ///////////   
             promises.push(new Promise(function (resolve, reject) {
-              var img = document.createElement('img');
+              var img = document.createElement("img");
               img.src = sources[i].url;
 
               img.onload = function (image) {
                 //loading
-                TweenMax.to('#' + renderLoaderID, 0.5, {
+                TweenMax.to("#" + renderLoaderID, 0.5, {
                   width: Math.round(100 * (i / sources.length)) + '%'
                 }); //Compatible with safari and firefox
 
@@ -39953,7 +44224,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
             ///////////    
             promises.push(new Promise(function (resolve, reject) {
               //loading
-              TweenMax.to('#' + renderLoaderID, 0.5, {
+              TweenMax.to("#" + renderLoaderID, 0.5, {
                 width: Math.round(100 * (i / sources.length)) + '%'
               });
               $('#' + sources[i].id).one('loadedmetadata', resolve);
@@ -40002,7 +44273,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
         //Must be placed behind the loadImages()
         loadImages().then(function (images) {
           //remove loading
-          TweenMax.to($('#' + renderLoaderID), 0.5, {
+          TweenMax.to($("#" + renderLoaderID), 0.5, {
             alpha: 0
           });
           init(images);
@@ -40012,7 +44283,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
 
       function init(allTextures) {
         textures = allTextures; //Core 3D stage begin
-        //-------------------------------------
+        //-------------------------------------		
         //camera
 
         camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 10000); // FlyCamera // FlyControls
@@ -40026,7 +44297,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
             // convert vertical fov to radians
         objHeight = 2 * Math.tan(vFOV / 2) * dist,
             // visible height
-        objWidth = objHeight * camera.aspect; // visible width
+        objWidth = objHeight * camera.aspect; // visible width   
         //Scene
 
         scene = new THREE.Scene(); //HemisphereLight
@@ -40034,7 +44305,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
         scene.add(new THREE.AmbientLight(0x555555));
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 0, 2000);
-        scene.add(light); //WebGL Renderer
+        scene.add(light); //WebGL Renderer	
         // create a render and set the size
 
         renderer = new THREE.WebGLRenderer({
@@ -40062,23 +44333,23 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
         material = new THREE.ShaderMaterial({
           uniforms: {
             effectFactor: {
-              type: 'f',
+              type: "f",
               value: intensity
             },
             dispFactor: {
-              type: 'f',
+              type: "f",
               value: 0.0
             },
             texture: {
-              type: 't',
+              type: "t",
               value: texture1
             },
             texture2: {
-              type: 't',
+              type: "t",
               value: texture2
             },
             disp: {
-              type: 't',
+              type: "t",
               value: disp
             }
           },
@@ -40106,19 +44377,19 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
       function render() {
         requestAnimationFrame(render);
         theta += 0.1; //To set a background color.
-        //renderer.setClearColor( 0x000000 );
+        //renderer.setClearColor( 0x000000 );	
         //push objects
 
         /*
         @Usage: 
-              function CustomObj( scene ) {
-                  const elements = new THREE...;
+             function CustomObj( scene ) {
+                 const elements = new THREE...;
                 scene.add( elements );
-                  this.update = function( time ) {
+                 this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -40242,12 +44513,12 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
        *
        * @param  {Number} slideCurId             - Index of current slider.
        * @param  {Number} slideNextId            - Index of next slider.
-       * @param  {String} dir                    - Switching direction indicator.
-       * @param  {String} countTotalID           - Total number ID or class of counter.
-       * @param  {String} countCurID             - Current number ID or class of counter.
-       * @param  {String} paginationID           - Navigation ID for paging control of each slide.
-       * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
-       * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
+       * @param  {String} dir                    - Switching direction indicator.	 
+                * @param  {String} countTotalID           - Total number ID or class of counter.
+                * @param  {String} countCurID             - Current number ID or class of counter.
+                * @param  {String} paginationID           - Navigation ID for paging control of each slide.
+                * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
+                * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
        * @return {Void}
        */
 
@@ -40290,7 +44561,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
           var dirIndicatorClass = '';
           if (dir == 'prev') dirIndicatorClass = 'prev';
           if (dir == 'next') dirIndicatorClass = 'next'; //Add transition class to each item
-          //-------------------------------------
+          //-------------------------------------	
 
           $items.removeClass('is-active leave prev next').addClass(dirIndicatorClass);
           $current.addClass('leave');
@@ -40300,7 +44571,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
           $(paginationID).find('ul > li').removeClass('is-active leave prev next').addClass(dirIndicatorClass);
           $(paginationID).find('ul > li').eq(slideCurId).addClass('leave');
           $(paginationID).find('ul > li').eq(slideNextId).addClass('is-active'); //Add transition class to Arrows
-          //-------------------------------------
+          //-------------------------------------		
 
           if (!loop) {
             $(arrowsID).find('a').removeClass('is-disabled');
@@ -40365,8 +44636,8 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
           //-------------------------------------
         } // end isAnimating
 
-      } //
-      //-------------------------------------
+      } // 
+      //-------------------------------------	
 
 
       return {
@@ -41091,7 +45362,7 @@ var THREE_FILMIC_EFF = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-filmic-effects-canvas'; // Generate one plane geometries mesh to scene
-      //-------------------------------------
+      //-------------------------------------	
 
       var camera,
           scene,
@@ -41122,7 +45393,7 @@ var THREE_FILMIC_EFF = function (module, $, window, document) {
         scene.add(lights[0]);
         scene.add(lights[1]);
         scene.add(lights[2]); //=================
-        //WebGL Renderer
+        //WebGL Renderer		
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -41138,14 +45409,12 @@ var THREE_FILMIC_EFF = function (module, $, window, document) {
         bloomPass = new THREE.BloomPass(1, // strength
         25, // kernel size
         4, // sigma ?
-        256 // blur render target resolution
-        ); //add film effect
+        256); //add film effect
 
         filmPass = new THREE.FilmPass(0.35, // noise intensity
         0.025, // scanline intensity
         648, // scanline count
-        false // grayscale
-        ); //-----
+        false); //-----
 
         var renderPass = new THREE.RenderPass(scene, camera);
         var effectCopy = new THREE.ShaderPass(THREE.CopyShader);
@@ -41188,14 +45457,14 @@ var THREE_FILMIC_EFF = function (module, $, window, document) {
 
         /*
         @Usage: 
-              function CustomObj( scene ) {
-                  const elements = new THREE...;
+             function CustomObj( scene ) {
+                 const elements = new THREE...;
                 scene.add( elements );
-                  this.update = function( time ) {
+                 this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -41210,8 +45479,8 @@ var THREE_FILMIC_EFF = function (module, $, window, document) {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
-      } //
-      //-------------------------------------
+      } // 
+      //-------------------------------------	
 
 
       return {
@@ -41227,7 +45496,7 @@ var THREE_FILMIC_EFF = function (module, $, window, document) {
           return camera;
         }
       };
-    }(); //
+    }(); // 
 
 
     MainStage.init();
@@ -41246,11 +45515,11 @@ var THREE_FILMIC_EFF = function (module, $, window, document) {
       }
 
       var textureLoader = new THREE.TextureLoader();
-      textureLoader.setCrossOrigin('anonymous');
+      textureLoader.setCrossOrigin("anonymous");
       var texture = textureLoader.load('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QAAAACAAIUyQ49AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3AUUFhoiw1VdsQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAIQUlEQVR42u1baW/bRhB9u6Qkx1fiOFGcNCiaAGn//+9pG7RxTie1Y8u2TnL65a0xmcxSlCxbaWECCx6iyZ03b86lgbvtblvbJiKFiBTrnENcMwY9jjsA1rWVt0z54ADgXUcIQf7zADiCBXPc5XEBQDjS394KIOUNCx4ygmsTLAjERP0m5vgKkFUDUd6g4J7wHhgdAJsAppnHBgWIrBqI8hYE935L50n7mwDOtQlYk7CArAqI8gaE985zIBQ0g66JSFp4aQBDRCRcB4RyBcI3CW1/j4YVyQd0uIcStHYAsEBcsWFZEMoVaz2q82iuefcnBkQDgHWCtQJFzDVcx0mWS2hbGrQdG469vyk5Otx7mq7Ne615ZE2ijXm0BiCEICISAewwZE0c4aMR3u5hmFGoURpN63AoCojaMRMLQjKrKYBqlSZQ86E/8fjQCB/nnFszKc0Qh/I6DNaO5i0IDwnoOZXUuBVLmEAFYAZgjy87NQIXmREppL52nxGgAnCRAS7nUL3tCYBdKmkQQqhW4gNMShsAXAL4BOA5gN8AnAD4qgCwgFgTCer9hdrDsKDm31RzANiiaW5ybscAZiv1AU64uwTwkSD0AewDeGNAKBwAogGgQ0Z1jNevlb0HBYLdHlPwgiw64vNCJndYrBw2sd6OCwAfeNwD8Mo4NX1cGq/fUd7fnuvhPS+B+5Rm2AUwBvCZ9L+ao1dpLtsP0NrXNjqkOSQbf+UIUToC2uNew72l4z+e0Q9FCn+khMccX9HOBDKZXlR5fDoeKnMoAPzKa5/VxK0/0FEAAO5RkET7Stm/nu8ugA0CJjTFL4r20SZTTZliuYT27SgUCMkxBjqlXQDvjD/QjjBpOdKOKxPzrd0/pvCiIscXJycJJodY3ASU9uEI7yU6BTX4SYXYLoCXGcp3lG13yICciZS09/u8Ho3N58Lm1dxzviAuoX00mEOkNo4UhTsEwXOG3YwPsOHxgMKnUDmk5msn05zXj1jYBOZVetEZFZnwSGVmv1Bjuhm6p9piJQUbq+ZI5DM2eE2Y4R2rHCEquudKcLluHuA5Qc8cbKw/UxlaQSZ0yJJN0joBcKr+5lz1CUoCWjPhOqNAUYFQm/lIG+GzADTU+cgA4bGgUGHyhM7xIbW+w98eK1qfkxXHBOhSsWHG66NMUhUUENYMGqNBuUQegBZABOMc0/FTAnAAYJspbFQM2KSg50ywjgnCiYrxMVN2t5nvtavB0KLVZUFJtr5LAZ8TgC2CkLYdOrrPzCkmFP6dET73Ti8MXhuANq2ueaGyR8H69AX7dGyb5v09ldMnk3iXabCEOUpp7QiXaYlFE7p0KOuaNHaDdt8n/fsUfov32DWClPwMyYhUcgvtf0Y2pDHh/VPVpJl6LbPWDGDXpzRZms7Be0xaNlQ48xKdgvf1lfb3SPtOprRNawTbBOpE9QmGStiZGuk8mcyI905U7wLcVyIyBVCFEOrvAKD37yoH1TONjKBA6ahrIdPP013fxJiiYcFEFMg6W4yZDrH2OR2z0FITgEqlzmMCeiEi4xCClM7620hExvTA1psX1PwWX7KpihI9mUq1sOpMA3NuJa5aXloYfa5NYszQeUkhx/xdd5LlOmEwTSY9+CJDfX28RSpu0/ntA3hAlolhQZpYpeL/B/Yd3/N9U4f69lhrvZVDW1Qj9lrttLHS+ZQaOac9J/ucZhY89P1nZNulub923ikt59sOANJEMr34JsFrQ9EpNXdCQc5UojNR2qp4fsoa4oT3DciYqaF/3QKI7+bv9QTKBbUvplWtX+wBEKl1ofDvlSndY36QzGBAoQ8Z/08ISGrD/5kRvjYsqhsWTpbKAyTj5a32gxE+OdBtVbunxuUp4/y+mkPS/t8sp9+QNR2+52cAb1XXyGOBFyVk1QDAYYP2+pXqCO3RjpMD+0JKf1QO8R7vHwD4i/cccQz4+0M++wmjzgf1rjb0X6jA8apCu5wVzWJHNA2PfQqfkqRUzXVZE+ySGem4w3WFQ5pKKomT3aeMMp1fEKx0PlOA6P3VgmquJ9gWANsDtAsgpdr3KXxKnqq0UKFA2uDosiTuUeA3KuWtTLzf4LOTsCMAr9W5BUCa4n/rkrGBBcFZ+jogrZPwEzqzmWmI6q7wAYU7V9SWjEYLApZq/wmAP5yMr5X2F02E7Eqt7sSkju22KlxGqiMUTQsrqvx8zGfMjDZrR7Njan2L7wtstf2+TARoBQCXxT0wdBTo0+mJalhOFTvqzNJY4H2lSmm9pbHKsOErtf+Ez3upQGhF/WUZAMMCGOEvGe5mzgKFtzgaTCqby/gqhxGnBOGAz31Bc/ASt+sBQBYEh1r79OIVhf/HEd42MG2zQufvsxYJlh4DvjctkL5gwqQz2tW0xBxTeEThh5zIRSZpqk273LKgcgCoTSUomQwwhcBD+oVn9Amv234rtFA1qEB4QIc3IuUnjn2L4zhhogmc5gZMCV037HUWOGAWecDU+e1NNEWhmhoD2uEM336+EhTt7fpcMGmzNYEK/kdSkinArNO7ZILUFZGdEMJgpQDQD4gSHEbj3hpChP9lWdpsLe/l8k2fyX1zPz+LGYpIEJGYWl8rY0AIYWwAsQ0Tb3U296EkTBpbod2HknNLXVXSr9YHZHyC193x2tPiZJ8jFjyV+hYg96msZLS+nk9lTYiUhuwxt7wGRo8txYKmiu67Bs3aP5bWk8iwwUuk9HZBFjQ1UFcu+EoBmAOEzCm6Zsqhenn8N9d+6H+YyACBzHK1jQQwqznS5H9+aABykzaZpD4Z2mv/i3+amgeIAmZ0m0KvDYCGbYK77W6729ax/Qsf5ETUur8sQgAAAABJRU5ErkJggg==');
       var starMaterial = new THREE.PointsMaterial({
         map: texture,
-        color: '#ffffff',
+        color: "#fff",
         size: 20,
         blending: THREE.AdditiveBlending,
         transparent: false
@@ -41313,7 +45582,7 @@ var THREE_SIMULATE_HTML_LAYOUT = function (module, $, window, document) {
     };
     var scrollTrigger = document.getElementById('app-3D-page-container');
     var maxHeight = (scrollTrigger.clientHeight || scrollTrigger.offsetHeight) - window.innerHeight; // THREE PARAMS
-    //-------------------------------------
+    //-------------------------------------	
 
     var camera = null,
         scene = null,
@@ -41347,7 +45616,7 @@ var THREE_SIMULATE_HTML_LAYOUT = function (module, $, window, document) {
       //Scene
 
       scene = new THREE.Scene(); //=================
-      //WebGL Renderer
+      //WebGL Renderer		
 
       renderer = new THREE.WebGLRenderer({
         alpha: true,
@@ -41431,7 +45700,7 @@ var THREE_SIMULATE_HTML_LAYOUT = function (module, $, window, document) {
 
     function SubStageRender() {
       requestAnimationFrame(SubStageRender); //To set a background color.
-      //renderer.setClearColor( 0x000000 );
+      //renderer.setClearColor( 0x000000 );	
 
       var delta = clock.getDelta(); //objects animation
 
@@ -41515,18 +45784,20 @@ var THREE_SIMULATE_HTML_LAYOUT = function (module, $, window, document) {
       scrollY = scrollTrigger.scrollTop;
       console.log(scrollTrigger.scrollTop);
     }
+
+    ;
     /*
     mobile example
     function onTouchStart (e) {
-        var t = (e.targetTouches) ? e.targetTouches[0] : e;
-        touchStartY = t.pageY;
+    	var t = (e.targetTouches) ? e.targetTouches[0] : e;
+    	touchStartY = t.pageY;
     };
-      function onTouchMove (e) {
-        var evt = _event;
-        var t = (e.targetTouches) ? e.targetTouches[0] : e;
-        evt.deltaY = (t.pageY - touchStartY) * 5;
-        touchStartY = t.pageY;
-      };*/
+    	function onTouchMove (e) {
+    	var evt = _event;
+    	var t = (e.targetTouches) ? e.targetTouches[0] : e;
+    	evt.deltaY = (t.pageY - touchStartY) * 5;
+    	touchStartY = t.pageY;
+    	};*/
     //=====================================================================================
     //=====================================================================================
     //===================================IMAGES LOADER====================================
@@ -41534,13 +45805,12 @@ var THREE_SIMULATE_HTML_LAYOUT = function (module, $, window, document) {
     //=====================================================================================
     //=====================================================================================
 
-
     var sources = []; //Push all images from page
 
     $('section').find('img').each(function () {
       sources.push({
-        'url': this.src,
-        'type': 'img'
+        "url": this.src,
+        "type": 'img'
       }); //
 
       dataBGSources.push({
@@ -41561,7 +45831,7 @@ var THREE_SIMULATE_HTML_LAYOUT = function (module, $, window, document) {
         if (sources[i].type == 'img') {
           ///////////
           // IMAGE //
-          ///////////
+          ///////////   
           promises.push(new Promise(function (resolve, reject) {
             var img = new Image();
             img.src = sources[i].url;
@@ -41666,7 +45936,7 @@ var TABLE = function (module, $, window, document) {
   module.TABLE.documentReady = function ($) {
     var windowWidth = window.innerWidth,
         windowHeight = window.innerHeight;
-    /*
+    /* 
      ---------------------------
      Duplicate title
      ---------------------------
@@ -41688,7 +45958,7 @@ var TABLE = function (module, $, window, document) {
         });
       });
     });
-    /*
+    /* 
      ---------------------------
      With scroll bars
      ---------------------------
@@ -41782,7 +46052,7 @@ var TABLE_SORTER = function (module, $, window, document) {
     $('.js-uix-table-sorter').each(function () {
       var $sortTable = $(this).find('table'); //add arrows
 
-      $sortTable.find('[data-sort-type]').each(function () {
+      $sortTable.find("[data-sort-type]").each(function () {
         if ($(this).find('.uix-table-sorter').length == 0) {
           $(this).wrapInner('<span class="uix-table-sorter" />');
         }
@@ -41847,7 +46117,7 @@ var TABLE_SORTER = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Tabs -->
  *************************************
@@ -41934,7 +46204,7 @@ var TABS = function (module, $, window, document) {
               y = rotationRadius * Math.sin(angle) - liHeight / 2;
           el.css({
             'transform': 'translate(' + parseFloat(x) + 'px,' + parseFloat(pad / 2 + y) + 'px)',
-            'transition-delay': transitionDelay + 's'
+            'transition-delay': transitionDelay + "s"
           }).find('> a').css({
             'transform': 'rotate(' + parseFloat(-rotationWapperDeg) + 'deg)'
           });
@@ -42068,7 +46338,7 @@ var TEAM_FOCUS = function (module, $, window, document) {
       var total = 0;
       var hoverWidth = $this.data('hover-width'),
           targetWidth = $this.data('target-width'),
-          // Div over width as a percentage
+          // Div over width as a percentage 
       targetInfo = $this.data('target-info'),
           // Corresponding character details display
       closeBtn = $this.data('close-btn');
@@ -42232,7 +46502,7 @@ var TEAM_FOCUS = function (module, $, window, document) {
 
 
       if ($this.length > 1) return false;
-      $this.html($this.text().replace(/([^\x00-\x80]|\w|((?=[\x21-\x7e]+)[^A-Za-z0-9]))/g, '<span class=\'uix-letter\'>$&</span>')); //--------------
+      $this.html($this.text().replace(/([^\x00-\x80]|\w|((?=[\x21-\x7e]+)[^A-Za-z0-9]))/g, "<span class='uix-letter'>$&</span>")); //--------------
 
       if (customControls.indexOf('fadeInRight') >= 0) {
         txtEff = anime.timeline({
@@ -42242,7 +46512,7 @@ var TEAM_FOCUS = function (module, $, window, document) {
           translateX: [40, 0],
           translateZ: 0,
           opacity: [0, 1],
-          easing: 'easeOutExpo',
+          easing: "easeOutExpo",
           duration: speed,
           delay: function delay(el, i) {
             return 500 + 30 * i;
@@ -42274,7 +46544,7 @@ var TEAM_FOCUS = function (module, $, window, document) {
           translateX: [40, 0],
           translateZ: 0,
           opacity: [0, 1],
-          easing: 'easeOutExpo',
+          easing: "easeOutExpo",
           duration: speed,
           delay: function delay(el, i) {
             return 500 + 30 * i;
@@ -42289,7 +46559,7 @@ var TEAM_FOCUS = function (module, $, window, document) {
         }).add({
           targets: customControls + ' .uix-letter',
           opacity: [0, 1],
-          easing: 'easeInOutQuad',
+          easing: "easeInOutQuad",
           duration: speed,
           delay: function delay(el, i) {
             return 150 * (i + 1);
@@ -42303,7 +46573,7 @@ var TEAM_FOCUS = function (module, $, window, document) {
           loop: false
         }).add({
           targets: customControls + ' .uix-letter',
-          translateY: ['1.1em', 0],
+          translateY: ["1.1em", 0],
           translateZ: 0,
           duration: speed,
           delay: function delay(el, i) {
@@ -42370,7 +46640,7 @@ var TEAM_FOCUS = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Text effect -->
  *************************************
@@ -42378,16 +46648,16 @@ var TEAM_FOCUS = function (module, $, window, document) {
 
 /**
  * module.TEXT_EFFECT
- *
+ * 
  * @requires ./examples/assets/js/min/anime.min.js
- * @example
+ * @example 
 
  //The data-text-eff attribute on the same page cannot be duplicated.
 
- <h3 data-text-eff="letters-eff-flyInOut1" data-text-eff-speed="800">Text Text</h3>
- <h3 data-text-eff="letters-eff-flyInOut2" data-text-eff-speed="800">Text Text</h3>
- <h3 data-text-eff="letters-eff-flyInOut3" data-text-eff-speed="800">Text Text</h3>
-
+<h3 data-text-eff="letters-eff-flyInOut1" data-text-eff-speed="800">Text Text</h3>
+<h3 data-text-eff="letters-eff-flyInOut2" data-text-eff-speed="800">Text Text</h3>
+<h3 data-text-eff="letters-eff-flyInOut3" data-text-eff-speed="800">Text Text</h3>
+ 
  */
 
 
@@ -42418,7 +46688,7 @@ var TEXT_EFFECT = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Timeline -->
  *************************************
@@ -42433,9 +46703,9 @@ var TIMELINE = function (module, $, window, document) {
   module.TIMELINE.pageLoaded = function () {
     var windowWidth = window.innerWidth,
         windowHeight = window.innerHeight;
-    /*!
+    /*! 
      ---------------------------
-     Horizontal Timeline
+           Horizontal Timeline
      ---------------------------
      */
 
@@ -42507,7 +46777,7 @@ var TIMELINE = function (module, $, window, document) {
      * @param  {?Element} iscur              - The current item.
      * @param  {String} showEle              - Element ID or class name that push the current text.
      * @param  {Boolean} prev                - Whether to slide forward.
-     * @param  {String} dir                  - Timeline direction.
+           * @param  {String} dir                  - Timeline direction.
      * @return {Void}
      */
 
@@ -42577,7 +46847,7 @@ var TIMELINE = function (module, $, window, document) {
         obj.find('.uix-timeline__container > .uix-timeline').css({
           'margin-top': -parseFloat(moveHeight) + 'px'
         });
-      } //Push the current text to element
+      } //Push the current text to element 
 
 
       $(showEle).text(obj.find('.uix-timeline__item:eq(' + tarIndex + ')').find('.uix-timeline__item__date').text());
@@ -42595,7 +46865,7 @@ var TIMELINE = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- Vertical Menu -->
  *************************************
@@ -42754,7 +47024,7 @@ var VERTICAL_MENU = function (module, $, window, document) {
 
 
 
-/*
+/* 
  *************************************
  * <!-- WordPress Core Scripts -->
  *************************************
@@ -42769,7 +47039,7 @@ var WP_CORE = function (module, $, window, document) {
   module.WP_CORE.version = '0.0.1';
 
   module.WP_CORE.documentReady = function ($) {
-    /*
+    /* 
      ---------------------------
      Pagination
      ---------------------------
@@ -42777,7 +47047,7 @@ var WP_CORE = function (module, $, window, document) {
     $('.uix-pagination__container li > span.current').each(function () {
       $(this).parent('li').addClass('is-active');
     });
-    /*
+    /* 
      ---------------------------
      Dropdown Categories
      ---------------------------
@@ -42787,7 +47057,7 @@ var WP_CORE = function (module, $, window, document) {
       var cvalue = $(this).val();
 
       if (cvalue) {
-        location.href = homeUrl + '/?cat=' + cvalue;
+        location.href = homeUrl + "/?cat=" + cvalue;
       }
 
       return false;

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
 <head>
-    <meta charset="utf-8" />
-    <title>等宽列 - Uix Kit 中文</title>
-    <!-- Compatibility Settings
+	<meta charset="utf-8" />
+	<title>Equal-width Columns - Uix Kit 中文</title>	
+	<!-- Compatibility Settings
 ============================================= -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,9 +21,9 @@
 <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css?ver=5.7.0">
 <link rel="stylesheet" href="assets/fonts/fontawesome/css/v4-shims.min.css?ver=5.7.0">
 <!-- Theme  -->
-<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=b5BsWJr7CLc6X8ucIcAa" />
+<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=0JHM9UH1pUJ8NWWBistM" />
 <!--[if lt IE 10]>
-<link rel="stylesheet" href="assets/css/IE.css?ver=b5BsWJr7CLc6X8ucIcAa" />
+<link rel="stylesheet" href="assets/css/IE.css?ver=0JHM9UH1pUJ8NWWBistM" />
 <![endif]-->
 <!-- Core & Theme CSS  end -->
 <!-- Vendor
@@ -49,9 +49,14 @@
 <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-touch-icon-114x114.png">
 <!-- Favicons  end -->
 
-</head>
-<body class="page">
-<!-- Loader
+</head>  
+
+     
+  <body class="page">
+  
+  
+          
+    <!-- Loader
 ============================================= -->
 <div class="uix-loader">
     <!--[if lt IE 10]>
@@ -66,7 +71,7 @@
 <!-- uix-loader end -->
     
 
-<!-- Mobile Menu Toggle Trigger
+    <!-- Mobile Menu Toggle Trigger
 ============================================= -->
 <div class="uix-menu-mobile__toggle">
     <span></span>
@@ -77,17 +82,26 @@
 <!-- uix-menu-mobile__toggle end -->
 
 			
-<div class="uix-wrapper">
-    <!-- 页眉区 -->
-    <header class="uix-header__container">
-        <div class="uix-header">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <div class="uix-brand">
+    
+    
+
+  
+  
+    <div class="uix-wrapper">
+    
+        <!-- Header Area
+        ============================================= -->      
+        <header class="uix-header__container">
+            
+             <div class="uix-header">
+                 <div class="container">
+                 
+                        <div class="uix-brand">
     <a href="index.html"><img src="assets/images/logo.png" alt="Uix Kit 中文"></a>
 </div>
 <!-- uix-brand end -->
-                <!-- Navigation Start-->
+                        
+                        <!-- Navigation Start-->
 <nav class="uix-menu__container">
     <div class="uix-menu__inner">
         <span class="uix-brand--mobile"><img src="assets/images/logo-colorful.png" alt="Uix Kit 中文"></span>
@@ -340,65 +354,92 @@
                         
                  
                    
-            </div>
-            <!-- 容器 结束 -->
-            <div class="uix-clearfix"></div>
-        </div>
-    </header>
-    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-    <main id="uix-maincontent">
-        <!-- 内容 开始 -->
-        <section class="uix-spacing--s uix-spacing--no-bottom">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
-                        <h3>等宽列</h3>
-                        <p>仅使用 CSS，我们可以创建一个选项卡式导航，其选项卡始终占据可用宽度的相等份额。 没有 JS 来询问 DOM，没有服务器端逻辑来计算项目，没有内联样式。</p>
-                        <hr>
-                    </div>
-                </div>
-                <!-- 行列 结束 -->
-            </div>
-            <!-- 容器 结束 -->
-        </section>
-        <!-- 内容 结束 -->
-        <section class="uix-spacing--s">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-equal-width-divs uix-t-c&quot;&gt;
-    &lt;ul&gt;
-        &lt;li&gt;&lt;h3&gt;223&lt;/h3&gt;&lt;span&gt;Web Design&lt;/span&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;h3&gt;13&lt;/h3&gt;&lt;span&gt;UI&lt;/span&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;h3&gt;5&lt;/h3&gt;&lt;span&gt;SEO&lt;/span&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;h3&gt;567&lt;/h3&gt;&lt;span&gt;Interaction&lt;/span&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/div&gt;</code>
-</pre>
-                <div class="uix-equal-width-divs uix-t-c">
-                    <ul>
-                        <li><h3>223</h3><span>Web Design</span></li>
-                        <li><h3>13</h3><span>UI</span></li>
-                        <li><h3>5</h3><span>SEO</span></li>
-                        <li><h3>567</h3><span>Interaction</span></li>
-                    </ul>
-                </div>
-                <!-- uix-equal-width-divs  end -->
-                <div class="uix-equal-width-divs uix-equal-width-divs--no-break uix-t-c">
-                    <ul>
-                        <li><h3>223</h3><span>No Break</span></li>
-                        <li><h3>13</h3><span>No Break</span></li>
-                        <li><h3>5</h3><span>No Break</span></li>
-                        <li><h3>567</h3><span>No Break</span></li>
-                    </ul>
-                </div>
-                <!-- uix-equal-width-divs  end -->
-            </div>
-            <!-- 容器 结束 -->
-        </section>
-    </main>
-    <!-- 版权部分
+                        
+                        
+                        
+                        
+                  </div>
+                  <!-- .container end -->
+                  
+                  <div class="uix-clearfix"></div>
+             </div>
+        
+        </header>
+        <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+      
+      
+		<main id="uix-maincontent">
+			
+			
+			<!-- Content 
+			====================================================== -->
+			<section class="uix-spacing--s uix-spacing--no-bottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h3>Equal Width Columns</h3>
+							<p>Using only CSS, we can make a tabbed navigation whose tabs always occupy an equal share of the available width. No JS to interrogate the DOM, no server-side logic to count through items, no inline styles.</p>
+							<hr>
+							
+							
+						</div>
+					</div>
+					<!-- .row end -->
+
+				</div>
+				<!-- .container end -->
+
+			</section>
+			
+			
+
+
+		   <!-- Content 
+			====================================================== -->
+			<section class="uix-spacing--s">
+				<div class="container">
+
+
+						<div class="uix-equal-width-divs uix-t-c">
+							<ul>
+								<li><h3>223</h3><span>Web Design</span></li>
+								<li><h3>13</h3><span>UI</span></li>
+								<li><h3>5</h3><span>SEO</span></li>  
+								<li><h3>567</h3><span>Interaction</span></li>  
+							</ul>
+						</div>
+						<!-- .uix-equal-width-divs  end -->
+
+					
+						<div class="uix-equal-width-divs uix-equal-width-divs--no-break uix-t-c">
+							<ul>
+								<li><h3>223</h3><span>No Break</span></li>
+								<li><h3>13</h3><span>No Break</span></li>
+								<li><h3>5</h3><span>No Break</span></li>  
+								<li><h3>567</h3><span>No Break</span></li>  
+							</ul>
+						</div>
+						<!-- .uix-equal-width-divs  end -->
+
+
+
+					
+					
+					
+
+				</div>
+				<!-- .container end -->
+
+
+			</section>
+			
+		</main>
+		
+
+     
+        
+        
+        <!-- 版权部分
 ============================================= -->
 <footer class="uix-footer__container">
     <div class="uix-footer">
@@ -435,9 +476,13 @@
 </footer>
 
 
-</div>
-<!-- uix-wrapper end -->
-<!-- Vendor -->
+        
+        
+    </div>
+    <!-- .uix-wrapper end -->
+       
+       
+    <!-- Vendor -->
 <script defer src="assets/js/min/axios.min.js?ver=0.19.2"></script>
 <script defer src="assets/js/min/jquery.waitforimages.min.js?ver=1.0"></script>
 <script defer src="assets/js/min/video.min.js?ver=7.5.3"></script>
@@ -468,7 +513,7 @@
     */
     window.$ = window.jQuery;
 </script>
-<script defer src="../dist/js/uix-kit.min.js?ver=b5BsWJr7CLc6X8ucIcAa"></script>
+<script defer src="../dist/js/uix-kit.min.js?ver=0JHM9UH1pUJ8NWWBistM"></script>
 <!-- Your Plugins & Theme Scripts  end -->
 </body>
 </html>
