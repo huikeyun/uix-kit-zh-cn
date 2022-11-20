@@ -1,14 +1,23 @@
 /**
-	目录
+
+	TABLE OF CONTENTS
 	---------------------------
+	
+	
 	${{TOC}}
+
 */
-/******/
-/* 必须放在首位 */
-@import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
+
 
 /******/
-/* 基础 */
+/******/
+/* must be placed in the first place */
+@import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
+
+
+/******/
+/******/
+/* base */
 @import './basic.scss';
 @import './brand.scss';
 @import './bullet-list.scss';

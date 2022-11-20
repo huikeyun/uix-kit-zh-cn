@@ -1,42 +1,56 @@
 /* ====================================================== 
-   <!-- 品牌 brand -->
+   <!-- Brand -->                         
 /* ====================================================== */
 .uix-brand {
-    font-size: 1.3125rem;
-    font-weight: 700;
-    float: left;
-    overflow: hidden;
-    max-width: 95%;
-    white-space: nowrap;
-    text-transform: uppercase;
-    text-overflow: ellipsis;
-    img {
-        max-height: 50px;
-        margin-top: 0.75rem;
-    }
-    .uix-brand__description {
-        font-size: 0.75rem;
-        @include ellipsis();
-        font-weight: 100;
-        line-height: 1.2;
-        width: 90%;
-        padding: 0;
-    }
+	float: left;
+	font-size: 1.3125rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	white-space: nowrap;
+	max-width: 95%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	
+	img {
+		max-height: 50px;
+		margin-top: 0.75rem;
+	}
+	
+
+	.uix-brand__description {
+		padding: 0;
+		@include ellipsis();
+		width: 90%;
+		line-height: 1.2;
+		font-weight: 100;
+		font-size: 0.75rem;
+	}
+
+	
 }
+
+
+
 .uix-brand--mobile {
     display: none;
 }
+
 @media all and (max-width: 768px) {
-    .uix-brand--mobile {
-        display: block;
-        text-align: center;
-        img {
-            max-width: 90%;
-            max-height: 100px;
-            margin: 20px auto;
-        }
-    }
-    .uix-brand img {
-        margin-bottom: 0.75rem;
-    }
+
+	.uix-brand--mobile {
+		display: block;
+	    text-align: center;
+		
+	    img {
+			max-width: 90%;
+			max-height: 100px;
+			margin: 20px auto;
+	    }	
+		
+	}
+	
+	.uix-brand img {
+		margin-bottom: 0.75rem;
+	}
+	
 }

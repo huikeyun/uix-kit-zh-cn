@@ -1,347 +1,444 @@
-//  @description 用于 ./src/components/[__]/scss 中的所有模块
 //
-//	  字体大小层次结构
+//   @description Used for all modules from ./src/components/[__]/scss
+// 
+//
+//
+//	  FONT SIZE HIERARCHY
 //	  ---------------------------
 //	
-//    HTML 的默认字体大小      --> 16px
-//    blockquote               --> 1rem
-//    body                     --> 1rem
-//    form                     --> 0.875rem
-//    h1                       --> 3.5rem
-//    h2                       --> 2.5rem
-//    h3                       --> 1.75rem
-//    h4                       --> 1.25rem
-//    h5                       --> 1rem
-//    h6                       --> 0.75rem
+//    Default font-size for HTML :    16px
+//    blockquote                 :    1rem
+//    body                       :    1rem
+//    form                       :    0.875rem
+//    h1                         :    3.5rem
+//    h2                         :    2.5rem
+//    h3                         :    1.75rem
+//    h4                         :    1.25rem
+//    h5                         :    1rem
+//    h6                         :    0.75rem
 //
 //
-//	  带有 <section> 的全局空间层次结构
+//	  GLOBAL SPACING HIERARCHY WITH <section>
 //	  ---------------------------
 //	
-//    大                       --> 11.375rem
-//    中                       --> 6.5625rem
-//    小                       --> 3rem
-//    默认（移动）             --> 4.265625rem
-//    大（移动）               --> 4.265625rem
-//    小型（移动）             --> 1.5rem
+//    Large                      :    11.375rem
+//    Medium                     :    6.5625rem
+//    Small                      :    3rem
+//    Default (mobile)           :    4.265625rem
+//    Large (mobile)             :    4.265625rem
+//    Small (mobile)             :    1.5rem
 //
 //
-//	  调色板
+//
+//	  COLOR PALETTE
 //	  ---------------------------
-//    占位符文本颜色           --> #E6E6E8
-//    主要背景颜色             --> 透明
-//    高亮颜色                 --> #CE3A3E, #DE510E
-//    主要文本颜色             --> #212121, #474747
-//    标题文本颜色             --> #212121
-//    从属文本颜色             --> #AEAEAE
-//    分割线颜色               --> #F4F4F4
-//    按钮渐变颜色             --> #CE3A3E, #C04645, #DE510E
 //
-//
-//	  模块中的常见样式属性
+//    Placeholder Text Color     :    #E6E6E8
+//	  Primary Background Color   :    transparent
+//	  Highlight Color            :    #CE3A3E, #DE510E
+//	  Primary Text Color         :    #212121, #474747
+//    Heading Text Color         :    #212121
+//	  Subordinate Text Color     :    #AEAEAE
+//	  Dividing Line Color        :    #F4F4F4
+//    Button Gradient Color      :    #CE3A3E, #C04645, #DE510E
+
+
+
+
+
+//	COMMON STYLE ATTRIBUTES IN THE MODULE
 //	---------------------------
-//  注意：仅对某些特殊模块有效
-//    .is-active                --> 激活当前元素
-//    .is-waiting               --> 等待或加载过程
-//    .is-dragging              --> 正在拖动的元素
-//    .is-responsive            --> 让当前元素使用响应式布局
-//    .is-horizontal            --> 让元素水平布局
-//    .is-vertical              --> 让元素垂直布局
-//    .is-fixed                 --> 让它处于固定位置
-//    .is-mobile                --> 使用移动设备时执行
-//    .is-mobile-still          --> 不要更改移动设备上的任何样式属性
-//    .is-fill-white            --> 填充白色背景
-//    .is-fullscreen            --> 全屏显示
-//    .is-fullwidth             --> 全宽显示
-//    .is-video                 --> 确定元素是否包含视频类型
-//    .is-pill                  --> 使用胶囊样式显示元素
-//    .is-rounded               --> 给元素“圆角”
-//    .is-circle                --> 使用圆形样式显示元素
-//    .is-transparent           --> 使元素的背景或其他属性透明
-//    .is-animating             --> 包含动画效果
-//    .is-reversed              --> 将元素的布局方向更改为相反的位置
-//    .is-loaded                --> 确定元素是否已加载
-//    .is-opened                --> 确定元素是否已打开
-//    .is-bordered              --> 为元素添加边框
-//    .is-iconic                --> 元素和图标一起使用
-//    .is-success               --> 返回一种成功的风格，通常用在表单中
-//    .is-error                 --> 返回错误样式，通常用于表单
-//    .is-hide-IE               --> 在旧 IE (10-) 中隐藏此元素 只有 IE 有效
-//    .is-hide                  --> 隐藏此元素
-//    .is-disabled              --> 禁用此元素
-//    .is-drop-target           --> 表的行放置区
+//  Note: Valid only on certain special modules
 //
-//
-// 字体
-// -------------
-// @使用的文件：
+//    .is-active                --> Activate current element.
+//    .is-waiting               --> Waiting or loading process.
+//    .is-dragging              --> The element being dragged.
+//    .is-responsive            --> Let the current element use a responsive layout.
+//    .is-horizontal            --> Let the elements be laid out horizontally.
+//    .is-vertical              --> Let the elements be laid out vertically.
+//    .is-fixed                 --> Let it be in a fixed position.
+//    .is-mobile                --> Execute when using a mobile device.
+//    .is-mobile-still          --> Do not change any style properties on mobile devices.
+//    .is-fill-white            --> Fill a white background.
+//    .is-fullscreen            --> Display in full screen.
+//    .is-fullwidth             --> Display in full width.
+//    .is-video                 --> Determine if the element contains a video type.
+//    .is-pill                  --> Display elements using pill style.
+//    .is-rounded               --> Give the element "rounded corners".
+//    .is-circle                --> Display elements using circle style.
+//    .is-transparent           --> Make the background or other properties of the element transparent.
+//    .is-animating             --> Contains animation effects.
+//    .is-reversed              --> Change the layout direction of the elements to the opposite position.
+//    .is-loaded                --> Determine if the element has been loaded.
+//    .is-opened                --> Determine if the element has been opened.
+//    .is-bordered              --> Add a border to the element.
+//    .is-iconic                --> Elements and icons are used together.
+//    .is-success               --> Returns a style of success, often used in forms.
+//    .is-error                 --> Returns a style of error, often used in forms.
+//    .is-hide-IE               --> Hide this element in old IE (10-). Only IE is valid.
+//    .is-hide                  --> Hide this element.
+//    .is-disabled              --> Disable this element.
+//    .is-drop-target           --> Row Dropzone of Table.
+
+
+
+
+// FONTS
+// ---------------------------
+// @Files used: 
 // ./src/components/_global/scss/basic.scss
 // ./src/components/_global/scss/mobile-menu.scss
 // ./src/components/_global/scss/typography.scss
 // ./src/components/form/scss/_basic.scss
 //
-//HTML的默认字体大小
-//英文（兼容中文） --> 'Helvetica Neue', Helvetica, 'Microsoft YaHei', STXihei, 'PingFang SC','Hiragino Sans GB', Arial, sans-serif;
-//中文 --> -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
-$basic-font-size: 16px;
-$font-stack: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
-$font-mobile-stack: "lucida grande", tahoma, verdana, arial, sans-serif;
-$font-code: "Inconsolata", "Monaco", "Consolas", "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
-$font-size-body: 1rem;
-$font-size-blockquote: 1rem;
-$font-size-form: 0.875rem;
-$font-size-h1: 3.5rem;
-$font-size-h2: 2.5rem;
-$font-size-h3: 1.75rem;
-$font-size-h4: 1.25rem;
-$font-size-h5: 1rem;
-$font-size-h6: 0.75rem;
-// 带有 <section> 的全局间距层次结构
+//Default font-size for HTML
+//English (compatible with Chinese)  --> 'Helvetica Neue', Helvetica, 'Microsoft YaHei', STXihei, 'PingFang SC','Hiragino Sans GB', Arial, sans-serif;
+//Chinese  --> -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+
+$basic-font-size       : 16px;
+$font-stack            : 'Helvetica Neue', Helvetica, 'Microsoft YaHei', STXihei, 'PingFang SC','Hiragino Sans GB', Arial, sans-serif;
+$font-mobile-stack     : "lucida grande", tahoma, verdana, arial, sans-serif;
+$font-code             : "Inconsolata","Monaco","Consolas","Andale Mono","Bitstream Vera Sans Mono","Courier New",Courier,monospace;
+$font-size-body        : 1rem;
+$font-size-blockquote  : 1rem;
+$font-size-form        : 0.875rem;
+$font-size-h1          : 3.5rem;
+$font-size-h2          : 2.5rem;
+$font-size-h3          : 1.75rem;
+$font-size-h4          : 1.25rem;
+$font-size-h5          : 1rem;
+$font-size-h6          : 0.75rem;	
+
+
+// GLOBAL SPACING HIERARCHY WITH <section>
 // ---------------------------
-// @使用的文件：
+// @Files used: 
 // ./src/components/_global/scss/spacing.scss
 // ./src/components/_global/scss/footer.scss
 //
-$spacing-large: 11.375rem;
-$spacing-medium: 6.5625rem;
-$spacing-small: 3rem;
-$spacing-large-mobile: $spacing-large/2;
-$spacing-medium-mobile: $spacing-medium/2;
-$spacing-small-mobile: $spacing-small/2;
-// 调色板
-// --------------
-// @使用的文件：
+$spacing-large          : 11.375rem;
+$spacing-medium         : 6.5625rem;
+$spacing-small          : 3rem;
+$spacing-large-mobile   : $spacing-large/2;
+$spacing-medium-mobile  : $spacing-medium/2;
+$spacing-small-mobile   : $spacing-small/2;
+
+
+// COLOR PALETTE
+// ---------------------------
+// @Files used: 
 // ./src/components/*
 //
-// 占位符文本颜色
-$placeholder-text-color: #e6e6e8;
-// 高亮颜色
-$highlight-color1: #ce3a3e; //rgba($highlight-color1, 1)
-$highlight-color2: #de510e; //rgba($highlight-color2, 1)
-// 主文本颜色
-$primary-text-color: #212121;
-$primary-link-color: #474747;
-// 标题文字颜色
-$heading-text-color: #212121;
-// 从属文本颜色
-$sub-text-color: #aeaeae;
-// 分割线颜色
-$dividing-line-color: #dcdcdc; //rgba($dividing-line-color, 1)
-// 按钮渐变色
-$btn-gradient-color1: #ce3a3e;
-$btn-gradient-color2: #c04645;
-$btn-gradient-color3: #de510e;
-// 主要背景颜色
-$primary-bg-color: transparent;
-// 缓动过渡
+
+//Placeholder Text Color
+$placeholder-text-color: #E6E6E8;
+
+//Highlight Color
+$highlight-color1      : #CE3A3E; //rgba($highlight-color1, 1)
+$highlight-color2      : #DE510E; //rgba($highlight-color2, 1)
+
+//Primary Text Color
+$primary-text-color    : #212121;
+$primary-link-color    : #474747;
+
+//Heading Text Color
+$heading-text-color    : #212121;
+
+//Subordinate Text Color
+$sub-text-color        : #AEAEAE;
+
+//Dividing Line Color
+$dividing-line-color   : #DCDCDC; //rgba($dividing-line-color, 1)
+
+//Button Gradient Color
+$btn-gradient-color1   : #CE3A3E;
+$btn-gradient-color2   : #C04645;
+$btn-gradient-color3   : #DE510E;
+
+
+//Primary Background Color
+$primary-bg-color      : transparent;
+
+
+// Easing Transition
 // ---------------------------
 //
 @mixin transition-cubic-bezier() {
-    // @include transition-cubic-bezier();
-    transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+	// @include transition-cubic-bezier();
+	transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
-// 默认转换
+
+
+
+// Default Transition
 // ---------------------------
 //
 @mixin transition-default() {
-    // @include transition-default();
-    transition: all 0.3s ease;
+	// @include transition-default(); 
+	transition: all 0.3s ease;
 }
-// 没有过渡
+
+
+
+// None Of Transition
 // ---------------------------
 //
 @mixin transition-none() {
-    // @include transition-none();
-    transition: none;
+	// @include transition-none();
+	transition: none; 
 }
-// 背景渐变
+
+
+// Background Gradient
 // ---------------------------
 //
 @mixin bg-gradient( $direction: 'to right' ) {
-    // @include bg-gradient( 'to bottom' );
-    // Compatible with ie9+
-    background: $highlight-color1;
-    background: linear-gradient(#{$direction}, $highlight-color1 0%, $highlight-color2 100%);
+	// @include bg-gradient( 'to bottom' );
+	// Compatible with ie9+
+	background: $highlight-color1; 
+	background: linear-gradient(#{$direction}, $highlight-color1 0%,$highlight-color2 100%);
 }
-// 图标和文字渐变
+
+
+// Icon & Text Gradient
 // ---------------------------
 //
 @mixin icontxt-gradient( $direction: 'to right' ) {
-    // @include icontxt-gradient( 'to bottom' );
-    // The font is the default color when the browser is IE
-    background: linear-gradient(#{$direction}, $highlight-color1 0%, $highlight-color2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+	// @include icontxt-gradient( 'to bottom' );
+	// The font is the default color when the browser is IE
+	background: linear-gradient(#{$direction}, $highlight-color1 0%,$highlight-color2 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	
 }
-// 渐变边框
+
+
+// Gradient Border
 // ---------------------------
 //
 @mixin border-gradient( $color1, $color2, $border-width, $direction, $bg ) {
-    // @include border-gradient( $highlight-color1, $highlight-color2, 3px, 'to right', #fff );
-    // Compatible with ie9+
-    background: #{$bg};
-    &::after {
-        /* 请不要将其转换为块元素并设置宽度和高度 */
-        content: '';
-        background: #{$color1};
-        background: linear-gradient(#{$direction}, #{$color1} 0%, #{$color2} 100%), linear-gradient(#{$direction}, #{$color1} 0%, #{$color2} 100%);
-        position: absolute;
-        top: -#{$border-width};
-        bottom: -#{$border-width};
-        right: -#{$border-width};
-        left: -#{$border-width};
-        z-index: -1;
-        border-radius: inherit;
-    }
+	// @include border-gradient( $highlight-color1, $highlight-color2, 3px, 'to right', #fff );
+	// Compatible with ie9+
+	background: #{$bg};
+   
+	
+	&::after {
+		/* Please do not convert it to block elements and set width and height. */
+		content: '';
+		background: #{$color1};
+		background: linear-gradient(#{$direction}, #{$color1} 0%, #{$color2} 100%), linear-gradient(#{$direction}, #{$color1} 0%, #{$color2} 100%);
+		position: absolute;
+		top: -#{$border-width};
+		bottom: -#{$border-width};
+		right: -#{$border-width};
+		left: -#{$border-width};
+		z-index: -1;
+		border-radius: inherit;
+	}
+	
 }
-// 外阴影效果
+
+
+// Outer Shadow Effect
 // ---------------------------
-// 可选值：thick、highlight、regular、light
+// Optional values: thick, highlight, regular, light
 //
 @mixin outer-shadow( $type: 'thick', $color: '' ) {
-    // @include outer-shadow( 'thick' );
-    // thick
-    @if ($type == 'thick') {
-        box-shadow: rgba(0, 0, 0, 0.18) 0 19px 38px,
-        rgba(0, 0, 0, 0.08) 0 15px 12px;
-    }
-    // highlight
-    @if ($type == 'highlight') {
-        @if ($color == '') {
-            $color: $highlight-color1;
-        }
-        box-shadow: rgba(0, 0, 0, 0.07) 0px 5px 15px 0px,
-        rgba($color, 0.2) 0px 15px 35px 0px;
-    }
-    // regular
-    @if ($type == 'regular') {
-        box-shadow: rgba(0, 0, 0, 0.07) 0px 5px 15px 0px,
-        rgba(50, 50, 93, 0.1) 0px 15px 35px 0px;
-    }
-    // light
-    @if ($type == 'light') {
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px;
-    }
+	// @include outer-shadow( 'thick' );
+	
+	// thick
+	@if ( $type == 'thick' ) {
+		box-shadow: rgba(0, 0, 0, 0.18) 0 19px 38px, 
+			        rgba(0, 0, 0, 0.08) 0 15px 12px;
+	}
+	
+	// highlight
+	@if ( $type == 'highlight' ) {
+		
+		@if ( $color == '' ) {
+			$color: $highlight-color1;
+		}
+		
+		box-shadow: rgba(0, 0, 0, 0.07) 0px 5px 15px 0px, 
+			        rgba($color, 0.2) 0px 15px 35px 0px;
+	}
+
+	// regular
+	@if ( $type == 'regular' ) {
+		box-shadow: rgba(0, 0, 0, 0.07) 0px 5px 15px 0px, 
+			        rgba(50, 50, 93, 0.1) 0px 15px 35px 0px;
+	}
+	
+	// light
+	@if ( $type == 'light' ) {
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px;
+	}
+	
+	
 }
-// 带省略号的文本
+
+
+
+// Text wWith Ellipsis
 // ---------------------------
 //
-@mixin ellipsis() {
-    // @include ellipsis();
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-    white-space: nowrap;
+@mixin ellipsis(){
+	// @include ellipsis();
+	overflow: hidden;
+	text-overflow: ellipsis;	
+	width: 100%;
+	white-space: nowrap;
+	
 }
-// 将笔画添加到 Web 文本
+
+// Adding Stroke to Web Text
 // ---------------------------
 //
-@mixin stroke-text( $color, $width: 1px, $fill: white ) {
-    // @include stroke-text( $highlight-color1, 1px, white );
-    text-fill-color: #{$fill}; /* Will override color (regardless of order) */
-    text-stroke-width: #{$width};
-    text-stroke-color: #{$color};
+@mixin stroke-text( $color, $width: 1px, $fill: white ){
+	// @include stroke-text( $highlight-color1, 1px, white );
+	text-fill-color: #{$fill}; /* Will override color (regardless of order) */
+	text-stroke-width: #{$width};
+	text-stroke-color: #{$color};
 }
-//  当用户将鼠标悬停在项目上时，使光标成为手
+
+
+//  Make the cursor a hand when a user hovers over an item
 // ---------------------------
 //
-@mixin cursor-img( $img: '../../assets/images/demo/cursorhand.png' ) {
-    // @include cursor-img( '../../assets/images/demo/cursorhand.png' );
-    cursor: url(#{$img}), auto;
+@mixin cursor-img( $img: '../../assets/images/demo/cursorhand.png' ){
+	// @include cursor-img( '../../assets/images/demo/cursorhand.png' );
+	cursor: url(#{$img}), auto;
+	
 }
-//  调整背景图像的大小以覆盖整个容器
+
+//  Resize the background image to cover the entire container
 // ---------------------------
 //
 @mixin background-cover() {
-    // @include background-cover();
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+	// @include background-cover();
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
-// 自定义滚动条
+
+
+// Custom Scrollbar
 // ---------------------------
 //
-@mixin customScrollbar( $dir, $classname, $w: 8px ) {
-    // @include customScrollbar( 'vertical', '.classname' );
-    #{$classname}::-webkit-scrollbar-track {
-        border-radius: 0px;
-        background-color: #e9ecee;
-    }
-    #{$classname}::-webkit-scrollbar-corner {
-        background-color: transparent;
-    }
-    #{$classname}::-webkit-scrollbar-button {
-        width: 0;
-        height: 0;
-        display: none;
-    }
-    @if ($dir == 'vertical') {
-        #{$classname}::-webkit-scrollbar {
-            width: #{$w};
-        }
-    } @else {
-        #{$classname}::-webkit-scrollbar {
-            height: #{$w};
-        }
-    }
-    #{$classname}::-webkit-scrollbar-thumb {
-        border-radius: 0px;
-        background-color: rgba(0, 0, 0, 0.2);
-        box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.10), inset 0 -1px 0 rgba(0, 0, 0, 0.07);
-    }
-    #{$classname}::-webkit-scrollbar-thumb:hover {
-        background-color: rgba(0, 0, 0, 0.3);
-    }
+@mixin customScrollbar( $dir, $classname, $w: 8px ){
+	// @include customScrollbar( 'vertical', '.classname' );
+	#{$classname}::-webkit-scrollbar-track {
+		border-radius: 0px;
+		background-color: #e9ecee;
+	}
+	
+	#{$classname}::-webkit-scrollbar-corner {
+		background-color: transparent;
+	}
+
+	#{$classname}::-webkit-scrollbar-button {
+		width: 0;
+		height: 0;
+		display: none;
+	}
+
+
+	@if ( $dir == 'vertical' ) {
+		#{$classname}::-webkit-scrollbar {
+			width: #{$w};
+		}
+	} @else {
+		#{$classname}::-webkit-scrollbar {
+			height: #{$w};
+		}
+
+	}
+
+	#{$classname}::-webkit-scrollbar-thumb {
+		border-radius: 0px;
+		background-color: rgba(0,0,0,0.2);
+		box-shadow: inset 1px 1px 0 rgba(0,0,0,0.10), inset 0 -1px 0 rgba(0,0,0,0.07);
+	}
+	
+	
+	#{$classname}::-webkit-scrollbar-thumb:hover {
+		background-color: rgba(0,0,0,0.3);
+	}
+
+	
+	
 }
-// 绝对元素的安全宽度设置
-// -------------
-// 注意：一般用于不能使用“.container”的元素，比如绝对不能确定安全宽度的元素
-@mixin securityWidthForElement( $classname: '.demo', $mouseEvents: false ) {
-    // @include securityWidthForElement( '.txt', false );
-    @if ($classname != '') {
-        /* New XL container for Bootstrap 5.x */
-        #{$classname} {
-            width: 1140px;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            padding-left: 15px;
-            padding-right: 15px;
-            /* 防止图层隐藏底层元素 */
-            @if ($mouseEvents) {
-                pointer-events: auto;
-            } @else {
-                pointer-events: none;
-            }
-            > div {
-                pointer-events: auto;
-            }
-        }
-        @media all and (max-width: 1141px) {
-            #{$classname} {
-                width: calc(100% - 15px);
-            }
-        }
-        @media all and (min-width: 1430px) {
-            #{$classname} {
-                width: 1278px;
-            }
-        }
-    }
+
+
+
+// Security Width Setting for Absolute Element 
+// ---------------------------
+// Note: Generally used for elements that cannot use ".container", such as 
+//       absolutely elements whose security width cannot be determined
+//
+@mixin securityWidthForElement( $classname: '.demo', $mouseEvents: false ){
+	// @include securityWidthForElement( '.txt', false );
+
+
+	@if ( $classname != '' ) {
+		/* New XL container for Bootstrap 5.x */
+		#{$classname} {
+			width: 1140px;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			padding-left: 15px;
+			padding-right: 15px;
+
+			/* Prevent layers from hiding the underlying elements */
+			@if ( $mouseEvents ) { 
+				pointer-events: auto;
+			} @else {
+				pointer-events: none;
+			}
+			
+			> div {
+				pointer-events: auto;
+			}
+		}
+
+		@media all and (max-width: 1141px) {
+			#{$classname} {
+				width: calc( 100% - 15px);
+			}
+		}
+
+		@media all and (min-width: 1430px) {
+			#{$classname} {
+				width: 1278px;
+			}
+		}
+
+
+	}
+	
 }
-// 垂直对齐元素
-// -------------
-// 要将内联元素的盒子垂直对齐在其包含的行框内，它可以用于在一行文本中垂直定位 <img>。
+
+
+
+
+// Vertically Align Element 
+// ---------------------------
+// To vertically align an inline element's box inside its containing line box, 
+// it could be used to vertically position an <img> in a line of text.
 //
 @mixin center-vertically( $pseudo-el: 'before' ) {
-    //@include center-vertically();
+	//@include center-vertically();
+	
     position: relative;
+
     &:#{$pseudo-el} {
         content: '';
         position: relative;
         height: 100%;
         width: 0;
     }
+
     &:#{$pseudo-el},
     > * {
         vertical-align: middle;
