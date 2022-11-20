@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
 <head>
-	<meta charset="utf-8" />
-	<title>SVG Mask Slider - Uix Kit 中文</title>	
-	<!-- Compatibility Settings
+    <meta charset="utf-8" />
+    <title>SVG Mask Slider - Uix Kit 中文</title>
+    <!-- Compatibility Settings
 ============================================= -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,9 +21,9 @@
 <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css?ver=5.7.0">
 <link rel="stylesheet" href="assets/fonts/fontawesome/css/v4-shims.min.css?ver=5.7.0">
 <!-- Theme  -->
-<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=8nZh1k7AbLDUh0NBYQnt" />
+<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=b5BsWJr7CLc6X8ucIcAa" />
 <!--[if lt IE 10]>
-<link rel="stylesheet" href="assets/css/IE.css?ver=8nZh1k7AbLDUh0NBYQnt" />
+<link rel="stylesheet" href="assets/css/IE.css?ver=b5BsWJr7CLc6X8ucIcAa" />
 <![endif]-->
 <!-- Core & Theme CSS  end -->
 <!-- Vendor
@@ -49,14 +49,9 @@
 <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-touch-icon-114x114.png">
 <!-- Favicons  end -->
 
-</head>  
-
-     
-  <body class="page">
-  
-  
-          
-    <!-- Loader
+</head>
+<body class="page">
+<!-- Loader
 ============================================= -->
 <div class="uix-loader">
     <!--[if lt IE 10]>
@@ -71,7 +66,7 @@
 <!-- uix-loader end -->
     
 
-    <!-- Mobile Menu Toggle Trigger
+<!-- Mobile Menu Toggle Trigger
 ============================================= -->
 <div class="uix-menu-mobile__toggle">
     <span></span>
@@ -82,24 +77,17 @@
 <!-- uix-menu-mobile__toggle end -->
 
 			
-    
-    
-
-    <div class="uix-wrapper">
-    
-        <!-- Header Area
-        ============================================= -->      
-        <header class="uix-header__container">
-            
-             <div class="uix-header">
-                 <div class="container">
-                 
-                        <div class="uix-brand">
+<div class="uix-wrapper">
+    <!-- 页眉区 -->
+    <header class="uix-header__container">
+        <div class="uix-header">
+            <!-- 容器 开始 -->
+            <div class="container">
+                <div class="uix-brand">
     <a href="index.html"><img src="assets/images/logo.png" alt="Uix Kit 中文"></a>
 </div>
 <!-- uix-brand end -->
-                        
-                        <!-- Navigation Start-->
+                <!-- Navigation Start-->
 <nav class="uix-menu__container">
     <div class="uix-menu__inner">
         <span class="uix-brand--mobile"><img src="assets/images/logo-colorful.png" alt="Uix Kit 中文"></span>
@@ -352,187 +340,133 @@
                         
                  
                    
-                        
-                        
-                        
-                        
-                  </div>
-                  <!-- .container end -->
-                  
-                  <div class="uix-clearfix"></div>
-             </div>
-        
-        </header>
-        <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-      
-       
-		<main id="uix-maincontent">
-			
-			
-			<!-- Title 
-			====================================================== -->
-			<section class="uix-spacing--s">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<h3>SVG Mask Slider</h3>
-							<p>Use <strong>Adobe Illustrator</strong> to make SVG file and copy its code. <strong>File &gt; Export &gt; Export for Screens</strong>.<br>
-							If you want to modify the transition-duration property, please directly modify the <code>.uix-svgMask-slider__item</code> in the CSS file. It is not on the <code>data-</code> attribute of the HTML tag.</p>
-							
-         
-							<br>
-							
-								step 1: <svg viewBox="0 0 1920 1080" width="100px" style="outline: 1px solid #f00;"><polygon fill="#000" points="1 0.5 1 540.5 1 1080.5 0 1080.5 4 1080.5 4 540.5 4 0.5 0 0.5 1 0.5"/></svg>
-							    &nbsp;&nbsp;
-								step 2: <svg viewBox="0 0 1920 1080" width="100px" style="outline: 1px solid #f00;"><polygon fill="#000" points="0.5 0.5 0.5 540.5 0.5 1080.5 1519.5 1080.5 1531.5 1080.5 1066.5 525.5 601.5 1.5 589.5 1.5 0.5 0.5"/></svg>
-							    &nbsp;&nbsp;
-								step 3: <svg viewBox="0 0 1920 1080" width="100px" style="outline: 1px solid #f00;"><polygon fill="#000" points="0.5 0.5 0.5 540.5 0.5 1080.5 960.5 1080.5 1920.5 1080.5 1920.5 540.5 1920.5 0.5 960.5 0.5 0.5 0.5"/></svg>
-
-							&nbsp;&nbsp;
-
-							path svg example: 
-							<svg viewBox="0 0 400 300" width="100" style="outline: 1px solid #f00;"><path fill="#000" class="cls-1" d="M381.5,86.5s-22,47-27,52-25-81-25-81l63-58Z"/></svg>
-
-
-							
-							
-							<hr>
-							
-							
-							
-							
-						</div>
-					</div>
-					<!-- .row end -->
-
-				</div>
-				<!-- .container end -->
-
-			</section>
-			
-			
-
-		   <!-- Content 
-			====================================================== -->
-		   <div role="banner" class="uix-svgMask-slider__wrapper">
-			   <div class="uix-svgMask-slider__outline uix-svgMask-slider" 
-				  data-draggable="false"
-				  data-draggable-cursor="move"	   
-				  data-auto="false"
-				  data-loop="true"
-				  data-speed="1000"
-				  data-timing="10000" 
-				  data-controls-pagination=".my-a-slider-pagination-1" 
-				  data-controls-arrows=".my-a-slider-arrows-1">
-				   <div class="uix-svgMask-slider__inner">
-
-
-
-					   <div class="uix-svgMask-slider__item">
-						   
-						   <img src="assets/images/demo/cool-slider-1.jpg" alt="null">
-						   
-							<svg viewBox="0 0 1920 1080">
-								<defs>
-									<clipPath id="img-default">
-										<polygon fill="#000" id="changing-path-1" points="0.5 0.5 0.5 540.5 0.5 1080.5 960.5 1080.5 1920.5 1080.5 1920.5 540.5 1920.5 0.5 960.5 0.5 0.5 0.5"/>
-									</clipPath>							
-								</defs>						
-								<image clip-path="url(#img-default)" href="assets/images/demo/cool-slider-1.jpg"></image>
-							</svg>
-						   
-							<div class="uix-svgMask-slider__txt">
-								<div class="uix-svgMask-slider__txt__mask"></div>
-								<div class="uix-svgMask-slider__txt__content uix-core-grid__col-7 uix-typo--color-white">
-									<h3>Beautiful Free &amp; Premium Responsive WordPress Themes</h3>
-									<p>Uix Responsive Web UI Frameworks</p>
-									<a href="#" class="uix-btn uix-btn__border--thin uix-btn__margin--b uix-btn__size--s uix-btn__bg--secondary is-pill is-fill-white">Link To</a>
-								</div>
-
-							</div>
-					   </div>
-
-					   <div class="uix-svgMask-slider__item">
-						   
-						   <img src="assets/images/demo/cool-slider-2.jpg" alt="null">
-						   
-							<svg viewBox="0 0 1920 1080">
-								<defs>
-									<clipPath id="img-default">
-										<polygon fill="#000" id="changing-path-2" points="0.5 0.5 0.5 540.5 0.5 1080.5 960.5 1080.5 1920.5 1080.5 1920.5 540.5 1920.5 0.5 960.5 0.5 0.5 0.5"/>
-									</clipPath>							
-								</defs>						
-								<image clip-path="url(#img-default)" href="assets/images/demo/cool-slider-2.jpg"></image>
-							</svg>
-						   
-							<div class="uix-svgMask-slider__txt">
-								<div class="uix-svgMask-slider__txt__mask"></div>
-								<div class="uix-svgMask-slider__txt__content uix-core-grid__col-7 uix-typo--color-white">
-									<h3>Hello World</h3>
-									<p>UIUX Lab carefully crafts original design assets and publishes articles about UI/UX trends!</p>
-									<a href="#" class="uix-btn uix-btn__border--thin uix-btn__margin--b uix-btn__size--s uix-btn__bg--secondary is-pill is-fill-white">Link To</a>
-								</div>
-
-							</div>   
-					   </div>
-
-					   <div class="uix-svgMask-slider__item">
-						   
-						   <img src="assets/images/demo/cool-slider-3.jpg" alt="null">
-						   
-							<svg viewBox="0 0 1920 1080">
-								<defs>
-									<clipPath id="img-default">
-										<polygon fill="#000" id="changing-path-3" points="0.5 0.5 0.5 540.5 0.5 1080.5 960.5 1080.5 1920.5 1080.5 1920.5 540.5 1920.5 0.5 960.5 0.5 0.5 0.5"/>
-									</clipPath>							
-								</defs>						
-								<image clip-path="url(#img-default)" href="assets/images/demo/cool-slider-3.jpg"></image>
-							</svg>
-						   
-						   
-							<div class="uix-svgMask-slider__txt">
-								<div class="uix-svgMask-slider__txt__mask"></div>
-								<div class="uix-svgMask-slider__txt__content uix-core-grid__col-7 uix-typo--color-white">
-									<h3>Title 3</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-								</div>
-
-							</div>
-					   </div> 
-
-
-
-				   </div>
-				  <!-- /.uix-svgMask-slider__inner -->
-
-				</div>
-			   <!-- /.uix-svgMask-slider__outline -->
-
-		   </div>
-		   <!-- /.uix-svgMask-slider__wrapper -->
-
-
-
-
-		   <div class="uix-svgMask-slider__pagination my-a-slider-pagination-1"></div>
-		   <div class="uix-svgMask-slider__arrows my-a-slider-arrows-1">
-				<a href="#" class="uix-svgMask-slider__arrows--prev"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-				<a href="#" class="uix-svgMask-slider__arrows--next"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-		   </div>
-            
-            
-
-			
-		</main>
-        
-        
-
-         
-         
-  
-        
-        
-        <!-- 版权部分
+            </div>
+            <!-- 容器 结束 -->
+            <div class="uix-clearfix"></div>
+        </div>
+    </header>
+    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+    <main id="uix-maincontent">
+        <section class="uix-spacing--s">
+            <!-- 容器 开始 -->
+            <div class="container">
+                <!-- 行列 开始 -->
+                <div class="row">
+                    <div class="col-12">
+                        <h3>SVG Mask Slider</h3>
+                        <p>Use <strong>Adobe Illustrator</strong> to make SVG file and copy its code.
+                            <strong>File &gt; Export &gt; Export for Screens</strong>.<br>
+                            If you want to modify the transition-duration property, please directly modify the
+                            <code>.uix-svgMask-slider__item</code> in the CSS file. It is not on the
+                            <code>data-</code> attribute of the HTML tag.</p>
+                        <br>
+                        step 1:
+                        <svg viewBox="0 0 1920 1080" width="100px" style="outline: 1px solid #ff0000;">
+                            <polygon fill="#000" points="1 0.5 1 540.5 1 1080.5 0 1080.5 4 1080.5 4 540.5 4 0.5 0 0.5 1 0.5" />
+                        </svg>
+                        &nbsp;&nbsp;
+                        step 2:
+                        <svg viewBox="0 0 1920 1080" width="100px" style="outline: 1px solid #ff0000;">
+                            <polygon fill="#000" points="0.5 0.5 0.5 540.5 0.5 1080.5 1519.5 1080.5 1531.5 1080.5 1066.5 525.5 601.5 1.5 589.5 1.5 0.5 0.5" />
+                        </svg>
+                        &nbsp;&nbsp;
+                        step 3:
+                        <svg viewBox="0 0 1920 1080" width="100px" style="outline: 1px solid #ff0000;">
+                            <polygon fill="#000" points="0.5 0.5 0.5 540.5 0.5 1080.5 960.5 1080.5 1920.5 1080.5 1920.5 540.5 1920.5 0.5 960.5 0.5 0.5 0.5" />
+                        </svg>
+                        &nbsp;&nbsp;
+                        path svg example:
+                        <svg viewBox="0 0 400 300" width="100" style="outline: 1px solid #ff0000;">
+                            <path fill="#000" class="cls-1" d="M381.5,86.5s-22,47-27,52-25-81-25-81l63-58Z" />
+                        </svg>
+                        <hr>
+                    </div>
+                </div>
+                <!-- 行列 结束 -->
+            </div>
+            <!-- 容器 结束 -->
+        </section>
+        <!-- 内容 结束 -->
+        <div role="banner" class="uix-svgMask-slider__wrapper">
+            <div class="uix-svgMask-slider__outline uix-svgMask-slider"
+                data-draggable="false"
+                data-draggable-cursor="move"
+                data-auto="false"
+                data-loop="true"
+                data-speed="1000"
+                data-timing="10000"
+                data-controls-pagination=".my-a-slider-pagination-1"
+                data-controls-arrows=".my-a-slider-arrows-1">
+                <div class="uix-svgMask-slider__inner">
+                    <div class="uix-svgMask-slider__item">
+                        <img src="assets/images/demo/cool-slider-1.jpg" alt="null">
+                        <svg viewBox="0 0 1920 1080">
+                            <defs>
+                                <clipPath id="img-default">
+                                    <polygon fill="#000" id="changing-path-1" points="0.5 0.5 0.5 540.5 0.5 1080.5 960.5 1080.5 1920.5 1080.5 1920.5 540.5 1920.5 0.5 960.5 0.5 0.5 0.5" />
+                                </clipPath>
+                            </defs>
+                            <image clip-path="url(#img-default)" href="assets/images/demo/cool-slider-1.jpg"></image>
+                        </svg>
+                        <div class="uix-svgMask-slider__txt">
+                            <div class="uix-svgMask-slider__txt__mask"></div>
+                            <div class="uix-svgMask-slider__txt__content uix-core-grid__col-7 uix-typo--color-white">
+                                <h3>美丽的自由 &amp; 高级响应式 WordPress 主题</h3>
+                                <p>UIx 响应式 Web UI 框架</p>
+                                <a href="#" class="uix-btn uix-btn__border--thin uix-btn__margin--b uix-btn__size--s uix-btn__bg--secondary is-pill is-fill-white">链接</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uix-svgMask-slider__item">
+                        <img src="assets/images/demo/cool-slider-2.jpg" alt="null">
+                        <svg viewBox="0 0 1920 1080">
+                            <defs>
+                                <clipPath id="img-default">
+                                    <polygon fill="#000" id="changing-path-2" points="0.5 0.5 0.5 540.5 0.5 1080.5 960.5 1080.5 1920.5 1080.5 1920.5 540.5 1920.5 0.5 960.5 0.5 0.5 0.5" />
+                                </clipPath>
+                            </defs>
+                            <image clip-path="url(#img-default)" href="assets/images/demo/cool-slider-2.jpg"></image>
+                        </svg>
+                        <div class="uix-svgMask-slider__txt">
+                            <div class="uix-svgMask-slider__txt__mask"></div>
+                            <div class="uix-svgMask-slider__txt__content uix-core-grid__col-7 uix-typo--color-white">
+                                <h3>你好世界</h3>
+                                <p>UIUX Lab 精心打造原创设计资产并发表有关 UI/UX 趋势的文章！</p>
+                                <a href="#" class="uix-btn uix-btn__border--thin uix-btn__margin--b uix-btn__size--s uix-btn__bg--secondary is-pill is-fill-white">链接</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uix-svgMask-slider__item">
+                        <img src="assets/images/demo/cool-slider-3.jpg" alt="null">
+                        <svg viewBox="0 0 1920 1080">
+                            <defs>
+                                <clipPath id="img-default">
+                                    <polygon fill="#000" id="changing-path-3" points="0.5 0.5 0.5 540.5 0.5 1080.5 960.5 1080.5 1920.5 1080.5 1920.5 540.5 1920.5 0.5 960.5 0.5 0.5 0.5" />
+                                </clipPath>
+                            </defs>
+                            <image clip-path="url(#img-default)" href="assets/images/demo/cool-slider-3.jpg"></image>
+                        </svg>
+                        <div class="uix-svgMask-slider__txt">
+                            <div class="uix-svgMask-slider__txt__mask"></div>
+                            <div class="uix-svgMask-slider__txt__content uix-core-grid__col-7 uix-typo--color-white">
+                               <h3>标题 3</h3>
+                                 <p>Lorem ipsum dolor sit amet，consectetur adipiscing elit。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- uix-svgMask-slider__inner -->
+            </div>
+            <!-- uix-svgMask-slider__outline -->
+        </div>
+        <!-- uix-svgMask-slider__wrapper -->
+        <div class="uix-svgMask-slider__pagination my-a-slider-pagination-1"></div>
+        <div class="uix-svgMask-slider__arrows my-a-slider-arrows-1">
+            <a href="#" class="uix-svgMask-slider__arrows--prev"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+            <a href="#" class="uix-svgMask-slider__arrows--next"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+        </div>
+    </main>
+    <!-- 版权部分
 ============================================= -->
 <footer class="uix-footer__container">
     <div class="uix-footer">
@@ -569,13 +503,9 @@
 </footer>
 
 
-        
-        
-    </div>
-    <!-- .uix-wrapper end -->
-       
-       
-    <!-- Vendor -->
+</div>
+<!-- uix-wrapper end -->
+<!-- Vendor -->
 <script defer src="assets/js/min/axios.min.js?ver=0.19.2"></script>
 <script defer src="assets/js/min/jquery.waitforimages.min.js?ver=1.0"></script>
 <script defer src="assets/js/min/video.min.js?ver=7.5.3"></script>
@@ -606,7 +536,7 @@
     */
     window.$ = window.jQuery;
 </script>
-<script defer src="../dist/js/uix-kit.min.js?ver=8nZh1k7AbLDUh0NBYQnt"></script>
+<script defer src="../dist/js/uix-kit.min.js?ver=b5BsWJr7CLc6X8ucIcAa"></script>
 <!-- Your Plugins & Theme Scripts  end -->
 </body>
 </html>

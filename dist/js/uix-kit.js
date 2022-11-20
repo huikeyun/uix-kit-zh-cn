@@ -2849,18 +2849,18 @@ var EventDispatcher = nonGlobals.events.EventDispatcher;
  * --------------
  * @param Function comparator:
  *   Exactly the same behaviour as [1,2,3].sort(comparator)
- *   
+ *
  * @param Function getSortable
  *   A function that should return the element that is
  *   to be sorted. The comparator will run on the
  *   current collection, but you may want the actual
  *   resulting sort to occur on a parent or another
  *   associated element.
- *   
+ *
  *   E.g. $('td').sortElements(comparator, function(){
  *      return this.parentNode; 
  *   })
- *   
+ *
  *   The <td>'s parent (<tr>) will be sorted instead
  *   of the <td> itself.
  */
@@ -2880,7 +2880,7 @@ jQuery.fn.sortElements = function () {
       nextSibling = parentNode.insertBefore(document.createTextNode(''), sortElement.nextSibling);
       return function () {
         if (parentNode === this) {
-          throw new Error("You can't sort elements if any one is a descendant of another.");
+          throw new Error('You can\'t sort elements if any one is a descendant of another.');
         } // Insert before flag:
 
 
@@ -3035,16 +3035,16 @@ var esm_typeof = __webpack_require__(2);
     26.表单进度 Form Progress
     27.表格 Form
     28.画廊 Gallery
-    29.Hybrid Content Slider
-    30.Hover Delay Interaction
-    31.Image Shapes
-    32.Infinite Scrolling Element
-    33.Lava-Lamp Style Menu
+    29.混合内容滑块 Hybrid Content Slider
+    30.悬停延迟交互 Hover Delay Interaction
+    31.图像形状 Image Shapes
+    32.无限滚动元素 Infinite Scrolling Element
+    33.Lava-Lamp 风格菜单 Lava-Lamp Style Menu
     34.Custom Lightbox
-    35.Bulleted List
+    35.项目符号列表 Bulleted List
     36.Posts List With Ajax
     37.全宽列到边缘 Full Width Column to Edge
-    38.Login Templates
+    38.登录模板 Login Templates
     39.Modal Dialog
     40.Mousewheel Interaction
     41.Multiple Items Carousel
@@ -13566,9 +13566,9 @@ var GALLERY = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
- * <!-- Hybrid Content Slider -->
+ * <!-- 混合内容滑块 Hybrid Content Slider -->
  *************************************
  */
 
@@ -13642,7 +13642,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
       $sliderItem.addClass('js-is-ready'); // Activate the current item from carouse
 
       setItemState(0);
-      /* 
+      /*
        ---------------------------
        Initialize slider
        ---------------------------
@@ -13659,7 +13659,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
       sliderReOrder(); //default button status
 
       $(sliderPrev).addClass('is-disabled').data('disabled', 1);
-      /* 
+      /*
        ---------------------------
        Re-order all items
        ---------------------------
@@ -13697,7 +13697,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
           });
         }
       }
-      /* 
+      /*
        ---------------------------
        Next/Prev buttons
        ---------------------------
@@ -13754,7 +13754,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
 
         clearInterval($sliderWrapper[0].animatedSlides);
       }
-      /* 
+      /*
        ---------------------------
        Pagination
        ---------------------------
@@ -13796,7 +13796,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
           clearInterval($sliderWrapper[0].animatedSlides);
         }
       }); //Drag and Drop
-      //-------------------------------------	
+      //-------------------------------------
 
       var $dragDropTrigger = $sliderWrapper;
       var hammerProps = {}; //Make the cursor a move icon when a user hovers over an item
@@ -13845,7 +13845,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
           case 'pandown':
             targetIndex = targetIndex;
             break;
-        } //Determine whether it is the first or the last    
+        } //Determine whether it is the first or the last
 
 
         var currentIsFirstOrLast = false;
@@ -13994,7 +13994,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
       function sliderAutoPlay(playTimes, timing, loop) {
         $sliderWrapper[0].animatedSlides = setInterval(function () {
           var autoMove = function autoMove(indexGo) {
-            // Retrieve the position (X,Y) of an element 
+            // Retrieve the position (X,Y) of an element
             var moveX = eachItemNewWidth * indexGo;
             var moveYIncrement = 0;
 
@@ -14030,13 +14030,13 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
        *
        * @param  {Element} wrapper                  - Wrapper of slider.
        * @param  {?Element|String|Boolean} curBtn   - The button that currently triggers the move.
-                * @param  {Number|Array} delta               - The value returned will need to be adjusted according 
-                *                                              to the offset  * rate.
-                * @param  {?Number} speed                     - Sliding speed. Please set to 0 when rebounding.
-                * @param  {Boolean} dragging                  - Determine if the object is being dragged.
-                * @param  {!Number} indexGo                   - The target item index.
-                * @param  {String|Array} itemsHeight          - Return all items height (the string type is 
-                *                                               used when a drag event is triggered).
+       * @param  {Number|Array} delta               - The value returned will need to be adjusted according
+       *                                              to the offset  * rate.
+       * @param  {?Number} speed                     - Sliding speed. Please set to 0 when rebounding.
+       * @param  {Boolean} dragging                  - Determine if the object is being dragged.
+       * @param  {!Number} indexGo                   - The target item index.
+       * @param  {String|Array} itemsHeight          - Return all items height (the string type is
+       *                                               used when a drag event is triggered).
        * @return {Void}
        */
 
@@ -14068,8 +14068,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
         } //Check next or previous event ( Autoplay )
 
 
-        if (curBtn === 'auto') btnType = 'next';
-        ; //Clone the first element to the last position
+        if (curBtn === 'auto') btnType = 'next'; //Clone the first element to the last position
 
         if (sliderDir === 'horizontal') {
           var boxWidth = eachItemNewWidth;
@@ -14084,7 +14083,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
               }
 
               if (Array.isArray(delta)) {
-                //Rebound effect of drag offset 
+                //Rebound effect of drag offset
                 return delta.length == 0 ? xIncrement : delta[i];
               } else {
                 if (!dragging) {
@@ -14137,7 +14136,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
               }
 
               if (Array.isArray(delta)) {
-                //Rebound effect of drag offset 
+                //Rebound effect of drag offset
                 return delta.length == 0 ? yIncrement : delta[i];
               } else {
                 if (!dragging) {
@@ -14183,7 +14182,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
        *
        * @param  {Boolean} paginationEnabled   - Determine whether it is triggered by pagination
        * @param  {Element} $btn               - The button that currently triggers the move.
-                * @param  {String} type                - Move next or previous.
+       * @param  {String} type                - Move next or previous.
        * @return {Void}
        */
 
@@ -14192,7 +14191,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
         var //Protection button is not triggered multiple times.
         btnDisabled = $btn.data('disabled'),
             //Get current button index
-        tIndex = parseFloat($btn.attr('data-target-index')); // Retrieve the position (X,Y) of an element 
+        tIndex = parseFloat($btn.attr('data-target-index')); // Retrieve the position (X,Y) of an element
 
         var moveX = eachItemNewWidth,
             moveY = (0,esm_typeof/* default */.Z)(eachItemNewHeight[tIndex - 1]) === ( true ? "undefined" : 0) ? 0 : eachItemNewHeight[tIndex - 1];
@@ -14228,7 +14227,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
       /*
        * Activate the currently selected Pagination
        *
-                * @param  {Number} index          - Get index of current element.
+       * @param  {Number} index          - Get index of current element.
        * @return {Void}
        */
 
@@ -14240,7 +14239,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
       /*
        * Activate the current item from carouse
        *
-                * @param  {Number} index          - Get index of current element.
+       * @param  {Number} index          - Get index of current element.
        * @return {Void}
        */
 
@@ -14267,7 +14266,7 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
       /*
        * Initialize the height of container
        *
-                * @param  {Number} index          - Get index of current element.
+       * @param  {Number} index          - Get index of current element.
        * @return {Void}
        */
 
@@ -14286,8 +14285,8 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
        *
        * @param  {Element} nextBtn      - The next move button.
        * @param  {Element} prevBtn      - The previous move button.
-                * @param  {String} type          - The type of button is triggered. Values: next, prev, init
-                * @param  {?Number} indexGo      - The target item index.
+       * @param  {String} type          - The type of button is triggered. Values: next, prev, init
+       * @param  {?Number} indexGo      - The target item index.
        * @return {Void}
        */
 
@@ -14341,8 +14340,8 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
       /*
        * The state of the control button
        *
-                * @param  {Number} firstOffset          - Get the computed Translate X or Y values of a given first DOM element.
-                * @param  {Number} lastOffset           - Get the computed Translate X or Y values of a given last DOM element.
+       * @param  {Number} firstOffset          - Get the computed Translate X or Y values of a given first DOM element.
+       * @param  {Number} lastOffset           - Get the computed Translate X or Y values of a given last DOM element.
        * @return {Void}
        */
 
@@ -14373,9 +14372,9 @@ var HYBRID_CONTENT_SLIDER = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
- * <!-- Hover Delay Interaction -->
+ * <!-- 悬停延迟交互 Hover Delay Interaction -->
  *************************************
  */
 
@@ -14420,9 +14419,9 @@ var HOVER_DELAY_INTERACTION = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
- * <!-- Image Shapes -->
+ * <!-- 图像形状 Image Shapes -->
  *************************************
  */
 
@@ -14521,7 +14520,7 @@ var IMAGE_SHAPES = function (module, $, window, document) {
 
 /* 
  *************************************
- * <!-- Infinite Scrolling Element -->
+ * <!-- 无限滚动元素 Infinite Scrolling Element -->
  *************************************
  */
 
@@ -14599,14 +14598,14 @@ var INFINITE_SCROLLING_EL = function (module, $, window, document) {
       });
       tl.to($items, speed / 1000, {
         ease: Linear.easeNone,
-        x: "-=" + allWidthOriginal,
+        x: '-=' + allWidthOriginal,
         //move each box "allWidthOriginal" to left
         modifiers: {
           x: function x(_x, target) {
             return _x % allWidth; //force x value to be between 0 and "allWidth" using modulus
           }
         }
-      }).progress(1).progress(0).play(); //Pause/Play		
+      }).progress(1).progress(0).play(); //Pause/Play
 
       $this.on('mouseenter', function () {
         tl.pause();
@@ -14627,9 +14626,9 @@ var INFINITE_SCROLLING_EL = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
- * <!-- Lava-Lamp Style Menu -->
+ * <!-- Lava-Lamp 风格菜单 Lava-Lamp Style Menu -->
  *************************************
  */
 
@@ -14659,7 +14658,7 @@ var LAVA_LAMP_STYLE_MENU = function (module, $, window, document) {
     function mouseFollowEv(index) {
       var $this = $(menu + ' > li').eq(index).find('a'),
           offset = $this.offset(),
-          offsetBody = $('.uix-lavalamp-menu__container').offset(); //find the offset of the wrapping div  
+          offsetBody = $('.uix-lavalamp-menu__container').offset(); //find the offset of the wrapping div
       //Activate navigation style
 
       $(menu + ' > li').removeClass('is-active');
@@ -14695,7 +14694,7 @@ var scrollLock = __webpack_require__(111);
 
 
 
-/* 
+/*
  *************************************
  * <!-- Custom Lightbox -->
  *************************************
@@ -14711,7 +14710,7 @@ var LIGHTBOX = function (module, $, window, document) {
 
   module.LIGHTBOX.pageLoaded = function () {
     if ($('.uix-lightbox__container').length == 0) {
-      $('body').prepend('<div class="uix-lightbox__loading is-loaded uix-t-c"><i class="fa fa-spinner fa-spin"></i> Loading...</div><a class="uix-lightbox__original__close" href="javascript:void(0);"></a><div class="uix-lightbox__container"><div class="uix-lightbox__inner"><div class="uix-lightbox__html"></div><p class="title"></p></div></div><div class="uix-lightbox__container-mask"></div><div class="uix-lightbox__close"><button type="button"></button></div>');
+      $('body').prepend('<div class="uix-lightbox__loading is-loaded uix-t-c"><i class="fa fa-spinner fa-spin"></i> 正在加载中.........</div><a class="uix-lightbox__original__close" href="javascript:void(0);"></a><div class="uix-lightbox__container"><div class="uix-lightbox__inner"><div class="uix-lightbox__html"></div><p class="title"></p></div></div><div class="uix-lightbox__container-mask"></div><div class="uix-lightbox__close"><button type="button"></button></div>');
     } // To display the template tag content.
 
 
@@ -14745,7 +14744,7 @@ var LIGHTBOX = function (module, $, window, document) {
     window.addEventListener('popstate', function (e) {
       var eleTarget = null;
       $('[data-lb-ajax]').each(function () {
-        var prevURL = decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent('uix-lightbox-ajaxURL').replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
+        var prevURL = decodeURIComponent(document.cookie.replace(new RegExp('(?:(?:^|.*;)\\s*' + encodeURIComponent('uix-lightbox-ajaxURL').replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=\\s*([^;]*).*$)|^.*$'), '$1')) || null;
 
         if ($(this).attr('href') === prevURL) {
           eleTarget = this;
@@ -15212,7 +15211,7 @@ var LIGHTBOX = function (module, $, window, document) {
             TweenMax.to(_cur, 0.5, {
               alpha: 1
             });
-          }; //imgClick.onload       
+          }; //imgClick.onload
 
         }
       });
@@ -15260,9 +15259,9 @@ var LIGHTBOX = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
- * <!-- Bulleted List -->
+ * <!-- 项目符号列表 Bulleted List -->
  *************************************
  */
 
@@ -15292,7 +15291,7 @@ var BULLETED_LIST = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- Posts List With Ajax -->
  *************************************
@@ -15444,7 +15443,7 @@ var POST_LIST_AJAX = function (module, $, window, document) {
           }; // Add function to the element that should be used as the scrollable area.
 
 
-          /* 
+          /*
            ---------------------------
            Infinite scroll
            ---------------------------
@@ -15452,7 +15451,7 @@ var POST_LIST_AJAX = function (module, $, window, document) {
           var $button = $(trigger),
               btnTop = $button.offset().top; //Add default page number to the button
 
-          $button.attr('data-cur-page', initCurPage); //Hide the next button 
+          $button.attr('data-cur-page', initCurPage); //Hide the next button
 
           if (totalPage == 1) {
             $button.addClass('is-hide');
@@ -15465,7 +15464,7 @@ var POST_LIST_AJAX = function (module, $, window, document) {
           window.addEventListener('touchmove', throttleFunc);
           throttleFunc();
         } else {
-          /* 
+          /*
            ---------------------------
            Ajax with JSON data
            ---------------------------
@@ -15484,7 +15483,7 @@ var POST_LIST_AJAX = function (module, $, window, document) {
                 nextTrigger = triggerStr[1].next; //Add default page number to the button
 
             $(nextTrigger).parent().attr('data-cur-page', initCurPage); //--------------- Next Button ------------------
-            //Hide the next button 
+            //Hide the next button
 
             if (totalPage == 1) {
               $(nextTrigger).addClass('is-hide');
@@ -15514,7 +15513,7 @@ var POST_LIST_AJAX = function (module, $, window, document) {
               ajaxLoadInit($this, defaultPostData, $button, curPage, totalPage, perShow, template7ID, jsonFile, triggerActive, pushContainer, method, render, noneInfo);
               return false;
             }); //----------------- Previous Button ----------------
-            //Hide the prev button 
+            //Hide the prev button
 
             $(prevTrigger).addClass('is-hide'); //Avoid using $( document ) to cause an asynchronous load without counting from 1
 
@@ -15544,7 +15543,7 @@ var POST_LIST_AJAX = function (module, $, window, document) {
           } else {
             //----------------- More Button ----------------
             //Add default page number to the button
-            $(trigger).attr('data-cur-page', initCurPage); //Hide the next button 
+            $(trigger).attr('data-cur-page', initCurPage); //Hide the next button
 
             if (totalPage == 1) {
               $(trigger).addClass('is-hide');
@@ -15603,26 +15602,26 @@ var POST_LIST_AJAX = function (module, $, window, document) {
 
       /*
       compiledTemplate({
-      	comments: [
-      		{
-      			author: 'John Doe',
-      			text: 'Lorem ipsum dolor',
-      			comments: [
-      				{
-      					author: 'Mike Doe',
-      					text: 'Aliquam erat volutpat'
-      				},
-      				{
-      					author: 'Kate Doe',
-      					text: 'Donec eget fringilla turpis'
-      				}
-      			]
-      		},
-      		{
-      			author: 'Jane Doe',
-      			text: 'Donec sodales euismod augue'
-      		}
-      	]
+          comments: [
+              {
+                  author: 'John Doe',
+                  text: 'Lorem ipsum dolor',
+                  comments: [
+                      {
+                          author: 'Mike Doe',
+                          text: 'Aliquam erat volutpat'
+                      },
+                      {
+                          author: 'Kate Doe',
+                          text: 'Donec eget fringilla turpis'
+                      }
+                  ]
+              },
+              {
+                  author: 'Jane Doe',
+                  text: 'Donec sodales euismod augue'
+              }
+          ]
       });
       */
 
@@ -15827,9 +15826,9 @@ var FULL_WIDTH_COLUMN_TO_EDGE = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
- * <!-- Login Templates -->
+ * <!-- 登录模板 Login Templates -->
  *************************************
  */
 
@@ -16054,7 +16053,7 @@ var LOGIN_UI = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- Modal Dialog -->
  *************************************
@@ -16090,11 +16089,9 @@ var MODAL_DIALOG = function (module, $, window, document) {
     /*
       * Unbind that one in a safe way that won't accidentally unbind other click handlers.
       * In order to trigger other custom Modal Dialog events.
-    	
-    	$( '#element' ).off( 'click.MODAL_DIALOG' );
-    	$( '#element' ).off( 'click.MODAL_DIALOG_CLOSE' );
-    	
-    */
+          $( '#element' ).off( 'click.MODAL_DIALOG' );
+        $( '#element' ).off( 'click.MODAL_DIALOG_CLOSE' );
+      */
     //Add modal mask to stage
 
     if ($('.uix-modal-mask').length == 0) {
@@ -16162,7 +16159,7 @@ var MODAL_DIALOG = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- Mousewheel Interaction -->
  *************************************
@@ -16242,7 +16239,7 @@ var MOUSEWHEEL_INTERACTION = function (module, $, window, document) {
     /*
      * Scroll initialize
      *
-     * @param  {Event} event        - The wheel event is fired when a wheel button of a pointing device (usually a mouse) is rotated. 
+     * @param  {Event} event        - The wheel event is fired when a wheel button of a pointing device (usually a mouse) is rotated.
      * @param  {String} dir          - Gets a value that indicates the amount that the mouse wheel has changed.
      * @return {Void}
      */
@@ -16512,7 +16509,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
       if (window.innerWidth <= 768) amountVisible = 3; // Returns the value of a number rounded to the nearest integer.
 
       var midIndex = Math.round(amountVisible / 2) - 1;
-      /* 
+      /*
        ---------------------------
        Initialize slider
        ---------------------------
@@ -16536,7 +16533,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
       if (!sliderLoop) {
         $(sliderPrev).addClass('is-disabled').data('disabled', 1);
       }
-      /* 
+      /*
        ---------------------------
        Re-order all items
        ---------------------------
@@ -16552,7 +16549,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
               //Active the center item
               if (i === midIndex && sliderLoop) {
                 TweenMax.set(target, {
-                  className: "+=is-active"
+                  className: '+=is-active'
                 });
               } //Add index to each item
 
@@ -16569,7 +16566,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
               //Active the center item
               if (i === midIndex && sliderLoop) {
                 TweenMax.set(target, {
-                  className: "+=is-active"
+                  className: '+=is-active'
                 });
               } //Add index to each item
 
@@ -16580,7 +16577,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
           });
         }
       }
-      /* 
+      /*
        ---------------------------
        Next/Prev buttons
        ---------------------------
@@ -16633,7 +16630,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
 
         movePositionWithButton(_next, 'next');
       } //Drag and Drop
-      //-------------------------------------	
+      //-------------------------------------
 
 
       var $dragDropTrigger = $sliderWrapper;
@@ -16660,7 +16657,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
       });
       dragDropMC.on('press panright panleft panup pandown', function (ev) {
         //Set the direction in here
-        direction = ev.type; //Determine whether it is the first or the last    
+        direction = ev.type; //Determine whether it is the first or the last
 
         var currentIsFirstOrLast = false;
 
@@ -16677,7 +16674,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
             //last item
             currentIsFirstOrLast = true;
           }
-        } //Rebound effect of drag offset 
+        } //Rebound effect of drag offset
 
 
         switch (direction) {
@@ -16748,9 +16745,9 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
        * Transition Between Items
        *
        * @param  {Element} wrapper        - Wrapper of slider.
-                * @param  {Number} delta           - The value returned will need to be adjusted according to the offset rate.
-                * @param  {?Number} speed          - Sliding speed. Please set to 0 when rebounding.
-                * @param  {Boolean} dragging       - Determine if the object is being dragged.
+       * @param  {Number} delta           - The value returned will need to be adjusted according to the offset rate.
+       * @param  {?Number} speed          - Sliding speed. Please set to 0 when rebounding.
+       * @param  {Boolean} dragging       - Determine if the object is being dragged.
        * @return {Void}
        */
 
@@ -16775,11 +16772,11 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
                   //Active the center item
                   if (_x === midIndex * boxWidth) {
                     TweenMax.set(target, {
-                      className: "+=is-active"
+                      className: '+=is-active'
                     });
                   } else {
                     TweenMax.set(target, {
-                      className: "-=is-active"
+                      className: '-=is-active'
                     });
                   }
 
@@ -16810,11 +16807,11 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
                   //Active the center item
                   if (_y === midIndex * boxHeight) {
                     TweenMax.set(target, {
-                      className: "+=is-active"
+                      className: '+=is-active'
                     });
                   } else {
                     TweenMax.set(target, {
-                      className: "-=is-active"
+                      className: '-=is-active'
                     });
                   }
 
@@ -16837,7 +16834,7 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
        * Move function with buttons
        *
        * @param  {Element} $btn               - The button that currently triggers the move.
-                * @param  {String} type                - Move next or previous.
+       * @param  {String} type                - Move next or previous.
        * @return {Void}
        */
 
@@ -16860,8 +16857,8 @@ var MULTI_ITEMS_CAROUSEL = function (module, $, window, document) {
       /*
        * The state of the control button
        *
-                * @param  {Number} firstOffset          - Get the computed Translate X or Y values of a given first DOM element.
-                * @param  {Number} lastOffset           - Get the computed Translate X or Y values of a given last DOM element.
+       * @param  {Number} firstOffset          - Get the computed Translate X or Y values of a given first DOM element.
+       * @param  {Number} lastOffset           - Get the computed Translate X or Y values of a given last DOM element.
        * @return {Void}
        */
 
@@ -16991,7 +16988,7 @@ var ONEPAGE = function (module, $, window, document) {
     /*
      * Scroll initialize
      *
-     * @param  {Event} event        - The wheel event is fired when a wheel button of a pointing device (usually a mouse) is rotated. 
+     * @param  {Event} event        - The wheel event is fired when a wheel button of a pointing device (usually a mouse) is rotated.
      * @param  {String} dir          - Gets a value that indicates the amount that the mouse wheel has changed.
      * @return {Void}
      */
@@ -17071,7 +17068,7 @@ var ONEPAGE = function (module, $, window, document) {
         }
       }
     }
-    /* 
+    /*
      ====================================================
      *  Navigation Interaction
      ====================================================
@@ -17147,7 +17144,7 @@ var ONEPAGE = function (module, $, window, document) {
           maxTop = $('[data-highlight-section="true"]').last().offset().top + $('[data-highlight-section="true"]').last().height();
       $('[data-highlight-section="true"]').each(function () {
         var $block = $(this),
-            eleTop = $block.offset().top; // The 1 pixel in order to solve inaccurate value of outerHeight() 
+            eleTop = $block.offset().top; // The 1 pixel in order to solve inaccurate value of outerHeight()
         // in Safari and Firefox browsers.
 
         if (eleTop < spyTop + 1) {
@@ -17158,7 +17155,7 @@ var ONEPAGE = function (module, $, window, document) {
           getRelatedNavigation($block, $sidefixedMenu, false).addClass('is-active');
         }
       }); //Cancel the current highlight element
-      // The 1 pixel in order to solve inaccurate value of outerHeight() 
+      // The 1 pixel in order to solve inaccurate value of outerHeight()
       // in Safari and Firefox browsers.
 
       if (spyTop > maxTop || spyTop < minTop - 1) {
@@ -17181,7 +17178,7 @@ var ONEPAGE = function (module, $, window, document) {
     window.addEventListener('scroll', throttleFunc);
     window.addEventListener('touchmove', throttleFunc);
     throttleFunc();
-    /* 
+    /*
      ====================================================
      *  Mouse Wheel & Touch Method
      ====================================================
@@ -17369,7 +17366,7 @@ var ONEPAGE2 = function (module, $, window, document) {
     /*
      * Scroll initialize
      *
-     * @param  {Event} event        - The wheel event is fired when a wheel button of a pointing device (usually a mouse) is rotated. 
+     * @param  {Event} event        - The wheel event is fired when a wheel button of a pointing device (usually a mouse) is rotated.
      * @param  {String} dir          - Gets a value that indicates the amount that the mouse wheel has changed.
      * @return {Void}
      */
@@ -17470,7 +17467,7 @@ var ONEPAGE2 = function (module, $, window, document) {
         }
       }
     }
-    /* 
+    /*
      ====================================================
      *  Navigation Interaction
      ====================================================
@@ -17524,7 +17521,7 @@ var ONEPAGE2 = function (module, $, window, document) {
         moveTo($sectionsContainer, dir, $(this).parent('li').index() + 1);
       });
     }
-    /* 
+    /*
      ====================================================
      *  Mouse Wheel & Touch Method
      ====================================================
@@ -17600,7 +17597,7 @@ var ONEPAGE2 = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- Parallax -->
  *************************************
@@ -17738,7 +17735,7 @@ var PARALLAX = function (module, $, window, document) {
           } else {
             curSize = 'cover';
           } //Determine image height and parallax container height
-          //If the height is the same, higher or lower than the height of the container height, 
+          //If the height is the same, higher or lower than the height of the container height,
           //be sure to use the cover attribute
           //*** Must be placed before the "dataFullyVisible" condition
 
@@ -18059,7 +18056,7 @@ var PROGRESS_BAR = function (module, $, window, document) {
       window.addEventListener('scroll', throttleFunc);
       window.addEventListener('touchmove', throttleFunc);
       throttleFunc();
-    }); //end each        
+    }); //end each
   };
 
   module.components.documentReady.push(module.PROGRESS_BAR.documentReady);
@@ -18134,7 +18131,7 @@ var PROGRESS_LINE = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- Retina Graphics for Website -->
  *************************************
@@ -18247,7 +18244,7 @@ var ROTATING_EL = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- Scroll Reveal -->
  *************************************
@@ -18272,19 +18269,19 @@ var SCROLL_REVEAL = function (module, $, window, document) {
 
       if ((0,esm_typeof/* default */.Z)(config) === ( true ? "undefined" : 0) || config == '' || config === false) {
         config = {
-          "from": {
-            "opacity": 0,
-            "x": 70
+          'from': {
+            'opacity': 0,
+            'x': 70
           },
-          "to": {
-            "opacity": 1,
-            "x": 0
+          'to': {
+            'opacity': 1,
+            'x': 0
           },
-          "ease": "Power2.easeOut",
-          "duration": 0.4,
-          "delay": 0,
-          "infinite": false,
-          "viewport": '100%' //A percentage of the viewport's height.
+          'ease': 'Power2.easeOut',
+          'duration': 0.4,
+          'delay': 0,
+          'infinite': false,
+          'viewport': '100%' //A percentage of the viewport's height.
 
         };
       } //get attributes to tweenMax
@@ -18380,14 +18377,14 @@ var SCROLL_REVEAL = function (module, $, window, document) {
       * The transition effect of each group of images
       *
       * @return {Void}
-      * #Usage: 
-      <ul data-uix-anim='{"viewport":"90%","from":{"y":0},"to":{"y":0},"ease":"Power2.easeOut","duration":0.8,"delay":0.2,"infinite":true}' data-img-ids='["[data-imgshow]"]'>
-      <li data-imgshow="1"><img src="logo-1.jpg" alt=""></li>
-      <li data-imgshow="1"><img src="logo-2.jpg" alt=""></li>
-      <li data-imgshow="1"><img src="logo-3.jpg" alt=""></li>
-      <li data-imgshow="1"><img src="logo-4.jpg" alt=""></li>
-      <ul>
-             */
+      * #Usage:
+           <ul data-uix-anim='{"viewport":"90%","from":{"y":0},"to":{"y":0},"ease":"Power2.easeOut","duration":0.8,"delay":0.2,"infinite":true}' data-img-ids='["[data-imgshow]"]'>
+             <li data-imgshow="1"><img src="logo-1.jpg" alt=""></li>
+             <li data-imgshow="1"><img src="logo-2.jpg" alt=""></li>
+             <li data-imgshow="1"><img src="logo-3.jpg" alt=""></li>
+             <li data-imgshow="1"><img src="logo-4.jpg" alt=""></li>
+         <ul>
+          */
 
       function spyImageTrans(type) {
         var _imgIds = $el.data('img-ids');
@@ -18404,14 +18401,14 @@ var SCROLL_REVEAL = function (module, $, window, document) {
               });
             });
           } else {
-            //remove 
+            //remove
             _imgIds.forEach(function (element) {
               $(element).removeClass('is-active');
             });
           }
         }
       }
-    }); //end each        
+    }); //end each
   };
 
   module.components.documentReady.push(module.SCROLL_REVEAL.documentReady);
@@ -18425,7 +18422,7 @@ var SCROLL_REVEAL = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- Scrollspy Animate -->
  *************************************
@@ -18473,7 +18470,7 @@ var SCROLLSPY_ANIM = function (module, $, window, document) {
         dropShadow: true,
         dropShadowAngle: Math.PI / 6,
         dropShadowAlpha: 0.5,
-        dropShadowColor: '#333',
+        dropShadowColor: '#333333',
         dropShadowBlur: 1,
         fill: 'white',
         fontFamily: 'Arial Black',
@@ -18560,7 +18557,7 @@ var SCROLLSPY_ANIM = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- Show More Less -->
  *************************************
@@ -18623,7 +18620,7 @@ var SHOW_MORELESS = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- Skew Based On Velocity of Scroll -->
  *************************************
@@ -18641,7 +18638,7 @@ var SKEW_ON_SCROLL = function (module, $, window, document) {
           ease = 0.15;
       var followY = 0;
       TweenMax.set($animObj, {
-        transformOrigin: "center left"
+        transformOrigin: 'center left'
       });
       TweenMax.ticker.addEventListener('tick', function () {
         followY += (window.scrollY - followY) * ease;
@@ -18665,7 +18662,7 @@ var SKEW_ON_SCROLL = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- Smooth Scrolling When Clicking An Anchor Link -->
  *************************************
@@ -18774,7 +18771,7 @@ var SMOOTH_SCROLLING_ANCHORLINK = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- Smooth Scrolling Page -->
  *************************************
@@ -18876,7 +18873,7 @@ var SMOOTH_SCROLLING_PAGE = function (module, $, window, document) {
 
       if (resized) {
         var height = $(scroller.target).height();
-        body.style.height = parseFloat(height + elTop) + "px";
+        body.style.height = parseFloat(height + elTop) + 'px';
         scroller.resizeRequest = 0;
       }
 
@@ -18901,11 +18898,11 @@ var SMOOTH_SCROLLING_PAGE = function (module, $, window, document) {
       //+++++++++++++++++++++++++++++++++++++++++++++++++
 
       var scrolled = scroller.y,
-          topSpacing = window.innerWidth <= 768 ? 0 : $('.uix-header__container').outerHeight(true); //with margin 
+          topSpacing = window.innerWidth <= 768 ? 0 : $('.uix-header__container').outerHeight(true); //with margin
       //----------------------------------------------------------------------------------
       //--------------------------------- Scrollspy Animate -------------------------------	
       //----------------------------------------------------------------------------------   
-      // Parallax 
+      // Parallax
       //-------------------------------------	
 
       $('.uix-scrollspy-animate--parallax__wrapper').each(function () {
@@ -19054,7 +19051,7 @@ var SMOOTH_SCROLLING_PAGE = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  *  <!-- Sticky Elements -->
  *************************************
@@ -19185,7 +19182,7 @@ var STICKY_EL = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- SVG Map (China) -->
  *************************************
@@ -19280,7 +19277,7 @@ var SVG_MAP_CHINA = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- SVG Map (World) -->
  *************************************
@@ -19373,7 +19370,7 @@ var SVG_MAP_WORLD = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- SVG Mask Slider -->
  *************************************
@@ -19455,11 +19452,11 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
           if ((0,esm_typeof/* default */.Z)(dataSpeed) != ( true ? "undefined" : 0) && dataSpeed != false) {
             animSpeed = dataSpeed;
           } //Get the duration of the animation
-          //-------------------------------------	
+          //-------------------------------------
 
 
           animDelay = animSpeed; //Get timeline elements
-          //-------------------------------------	
+          //-------------------------------------
 
           var txtTimeline = new TimelineMax({
             delay: 0
@@ -19484,14 +19481,14 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
             }
           }).to($items.find('.uix-svgMask-slider__txt__content'), 0.1, {
             opacity: 1
-          }, "-=0.1").to($items.find('svg image'), 0.2, {
+          }, '-=0.1').to($items.find('svg image'), 0.2, {
             scale: 1
           }, '-=0.1').to($items.find('.uix-svgMask-slider__txt__mask'), 0.6, {
             css: {
               marginLeft: '-100vw'
             }
           }); //Initialize the properties of each Item
-          //-------------------------------------	
+          //-------------------------------------
 
           $items.each(function (index) {
             var _id = UixGUID.create();
@@ -19614,7 +19611,7 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
       var $this = slider,
           $items = $this.find('.uix-svgMask-slider__item'),
           $first = $items.first(),
-          itemsTotal = $items.length; //If arrows does not exist on the page, it will be added by default, 
+          itemsTotal = $items.length; //If arrows does not exist on the page, it will be added by default,
       //and the drag and drop function will be activated.
 
       if ($(arrowsID).length == 0) {
@@ -19628,8 +19625,8 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
       if (itemsTotal == 1) {
         $(paginationID).hide();
         $(arrowsID).hide();
-      } //Pagination dots 
-      //-------------------------------------	
+      } //Pagination dots
+      //-------------------------------------
 
 
       var _dot = '',
@@ -19673,7 +19670,7 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
           clearInterval($this[0].animatedSlides);
         }
       }); //Next/Prev buttons
-      //-------------------------------------		
+      //-------------------------------------
 
       var _prev = $(arrowsID).find('.uix-svgMask-slider__arrows--prev'),
           _next = $(arrowsID).find('.uix-svgMask-slider__arrows--next');
@@ -19748,7 +19745,7 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
 
         sliderUpdates(parseFloat($items.filter('.is-active').index()) + 1, $this, 'next', countTotalID, countCurID, paginationID, arrowsID, loop);
       } //Added touch method to mobile device and desktop
-      //-------------------------------------	
+      //-------------------------------------
 
 
       var $dragTrigger = $this.find('.uix-svgMask-slider__inner');
@@ -19840,11 +19837,11 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
      * @param  {Number} elementIndex           - Index of current slider.
      * @param  {Element} slider                 - Selector of the slider .
      * @param  {String} dir                    - Switching direction indicator.
-           * @param  {String} countTotalID           - Total number ID or class of counter.
-           * @param  {String} countCurID             - Current number ID or class of counter.
-           * @param  {String} paginationID           - Navigation ID for paging control of each slide.
-           * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
-           * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
+     * @param  {String} countTotalID           - Total number ID or class of counter.
+     * @param  {String} countCurID             - Current number ID or class of counter.
+     * @param  {String} paginationID           - Navigation ID for paging control of each slide.
+     * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
+     * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
      * @return {Void}
      */
 
@@ -19928,26 +19925,26 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
 
         /*
         TweenMax.set( $current.find('polygon')[0], {
-        	attr: {
-        			  points: path1
-        		  },
-        	onComplete: function() {
-        			TweenMax.to( this.target, animSpeed/1000, {
-        			morphSVG: path2,
-        			delay: 0,
-        			ease: Power2.easeOut,
-        			onComplete: function() {
-        					TweenMax.to( this.target, animSpeed/1000, {
-        					morphSVG: path3,
-        					delay: 0,
-        					ease: Power2.easeInOut,
-        					onComplete: function() {
-        						svgAnimating = false;
-        					}
-        				});	
-        					}
-        		});	
-        		}
+            attr: {
+                      points: path1
+                  },
+            onComplete: function() {
+                  TweenMax.to( this.target, animSpeed/1000, {
+                    morphSVG: path2,
+                    delay: 0,
+                    ease: Power2.easeOut,
+                    onComplete: function() {
+                          TweenMax.to( this.target, animSpeed/1000, {
+                            morphSVG: path3,
+                            delay: 0,
+                            ease: Power2.easeInOut,
+                            onComplete: function() {
+                                svgAnimating = false;
+                            }
+                        });
+                        }
+                });
+              }
         });
         */
 
@@ -19965,14 +19962,14 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
                 value: path2
               }],
               duration: animSpeed,
-              easing: "easeOutExpo"
+              easing: 'easeOutExpo'
             }).add({
               targets: $current.find('polygon')[0],
               points: [{
                 value: path3
               }],
               duration: animSpeed,
-              easing: "easeOutExpo",
+              easing: 'easeOutExpo',
               complete: function complete() {
                 svgAnimating = false;
               }
@@ -19986,14 +19983,14 @@ var SVG_MASK_SLIDER = function (module, $, window, document) {
 
       $(countTotalID).text(total);
       $(countCurID).text(parseFloat(elementIndex) + 1); //Reset the default height of item
-      //-------------------------------------	
+      //-------------------------------------
 
       itemDefaultInit(slider, $current);
     }
     /*
      * Initialize the default height of item
      *
-           * @param  {Element} slider                 - Selector of the slider .
+     * @param  {Element} slider                 - Selector of the slider .
      * @param  {Element} currentLlement         - Current selector of each slider.
      * @return {Void}
      */
@@ -20233,9 +20230,9 @@ function _setPrototypeOf(o, p) {
 }
 
 function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (typeof Reflect === 'undefined' || !Reflect.construct) return false;
   if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
+  if (typeof Proxy === 'function') return true;
 
   try {
     Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
@@ -20263,20 +20260,20 @@ function _construct(Parent, args, Class) {
 }
 
 function _isNativeFunction(fn) {
-  return Function.toString.call(fn).indexOf("[native code]") !== -1;
+  return Function.toString.call(fn).indexOf('[native code]') !== -1;
 }
 
 function _wrapNativeSuper(Class) {
-  var _cache = typeof Map === "function" ? new Map() : undefined;
+  var _cache = typeof Map === 'function' ? new Map() : undefined;
 
   _wrapNativeSuper = function _wrapNativeSuper(Class) {
     if (Class === null || !_isNativeFunction(Class)) return Class;
 
-    if (typeof Class !== "function") {
-      throw new TypeError("Super expression must either be null or a function");
+    if (typeof Class !== 'function') {
+      throw new TypeError('Super expression must either be null or a function');
     }
 
-    if (typeof _cache !== "undefined") {
+    if (typeof _cache !== 'undefined') {
       if (_cache.has(Class)) return _cache.get(Class);
 
       _cache.set(Class, Wrapper);
@@ -20302,7 +20299,7 @@ function _wrapNativeSuper(Class) {
 
 function _assertThisInitialized(self) {
   if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');
   }
 
   return self;
@@ -20561,7 +20558,7 @@ function data(key, value) {
       return el.dom7ElementDataStorage[key];
     }
 
-    var dataKey = el.getAttribute("data-" + key);
+    var dataKey = el.getAttribute('data-' + key);
 
     if (dataKey) {
       return dataKey;
@@ -20666,7 +20663,7 @@ function transform(transform) {
 
 function transition(duration) {
   for (var i = 0; i < this.length; i += 1) {
-    this[i].style.transitionDuration = typeof duration !== 'string' ? duration + "ms" : duration;
+    this[i].style.transitionDuration = typeof duration !== 'string' ? duration + 'ms' : duration;
   }
 
   return this;
@@ -26097,11 +26094,6 @@ var Swiper = /*#__PURE__*/function () {
       return null;
     }
   }], [{
-    key: "extendDefaults",
-    value: function extendDefaults(newDefaults) {
-      utils_extend(extendedDefaults, newDefaults);
-    }
-  }, {
     key: "extendedDefaults",
     get: function get() {
       return extendedDefaults;
@@ -26110,6 +26102,11 @@ var Swiper = /*#__PURE__*/function () {
     key: "defaults",
     get: function get() {
       return defaults;
+    }
+  }, {
+    key: "extendDefaults",
+    value: function extendDefaults(newDefaults) {
+      utils_extend(extendedDefaults, newDefaults);
     }
   }, {
     key: "installModule",
@@ -30654,7 +30651,7 @@ core_class.use(components); //EXPORT
 
 
 
-/* 
+/*
  *************************************
  * <!-- Swiper -->
  *************************************
@@ -30767,7 +30764,7 @@ var SWIPER = function (module, $, window, document) {
                   var slideProgress = thisSwiper.slides[i].progress;
                   var innerOffset = thisSwiper.width * interleaveOffset;
                   var innerTranslate = slideProgress * innerOffset;
-                  thisSwiper.slides[i].querySelector(".slide-inner").style.transform = "translate3d(" + innerTranslate + "px, 0, 0)"; //console.log( e.passedParams );
+                  thisSwiper.slides[i].querySelector('.slide-inner').style.transform = 'translate3d(' + innerTranslate + 'px, 0, 0)'; //console.log( e.passedParams );
                 }
               },
               touchStart: function touchStart(e) {
@@ -30775,7 +30772,7 @@ var SWIPER = function (module, $, window, document) {
                 var thisSwiper = this;
 
                 for (var i = 0; i < thisSwiper.slides.length; i++) {
-                  thisSwiper.slides[i].style.transition = "";
+                  thisSwiper.slides[i].style.transition = '';
                 }
               },
               setTransition: function setTransition(e) {
@@ -30783,14 +30780,14 @@ var SWIPER = function (module, $, window, document) {
                 var thisSwiper = this;
 
                 for (var i = 0; i < thisSwiper.slides.length; i++) {
-                  thisSwiper.slides[i].style.transition = passedParams.speed + "ms";
-                  thisSwiper.slides[i].querySelector(".slide-inner").style.transition = passedParams.speed + "ms";
+                  thisSwiper.slides[i].style.transition = passedParams.speed + 'ms';
+                  thisSwiper.slides[i].querySelector('.slide-inner').style.transition = passedParams.speed + 'ms';
                 }
               }
             }
           }); //AutoPlay
 
-          swiper3.autoplay.start(); //swiper3.autoplay.stop();			
+          swiper3.autoplay.start(); //swiper3.autoplay.stop();
         } //Swiper custom slides transform effect (Scale Effect without left/right swipe)
         //------------------------------------------
 
@@ -30807,7 +30804,7 @@ var SWIPER = function (module, $, window, document) {
             keyboardControl: false,
             virtualTranslate: true,
 
-            /* Required */
+            /* 必需的 */
             pagination: {
               el: '.swiper-pagination',
               clickable: true,
@@ -30858,11 +30855,11 @@ var SWIPER = function (module, $, window, document) {
 
                 var getDirection = function getDirection(animationProgress) {
                   if (animationProgress === 0) {
-                    return "NONE";
+                    return 'NONE';
                   } else if (animationProgress > 0) {
-                    return "NEXT";
+                    return 'NEXT';
                   } else {
-                    return "BACK";
+                    return 'BACK';
                   }
                 };
 
@@ -30872,7 +30869,7 @@ var SWIPER = function (module, $, window, document) {
 
                 var originIndex = getActiveIndexBeforeTransitionStart(thisSwiper, slides); // get information about animation progress from the active slide - the active slide's value is always -1 to 1.
 
-                /* 
+                /*
                 every slide has a progress attribute equal to the "distance" from the current active index.
                 */
 
@@ -30916,9 +30913,9 @@ var SWIPER = function (module, $, window, document) {
             }
           }); //AutoPlay
 
-          swiper4.autoplay.start(); //swiper4.autoplay.stop();			
+          swiper4.autoplay.start(); //swiper4.autoplay.stop();
         } //Centered Slides
-        //------------------------------------------	
+        //------------------------------------------
 
 
         if ($el.find('#app-slider5').length > 0) {
@@ -30941,7 +30938,7 @@ var SWIPER = function (module, $, window, document) {
             }
           });
         } //Display half on both sides
-        //------------------------------------------		
+        //------------------------------------------
 
 
         if ($el.find('#app-slider6').length > 0) {
@@ -31064,7 +31061,7 @@ var SWIPER = function (module, $, window, document) {
           var swiper8Thumbs = new swiper('#app-slider8-thumbs', {
             spaceBetween: 10,
             centeredSlides: true,
-            slidesPerView: "auto",
+            slidesPerView: 'auto',
             //If you use it with "auto" value and along with loop: true then you need to specify loopedSlides parameter with amount of slides to loop (duplicate)
             touchRatio: 0.4,
             slideToClickedSlide: true,
@@ -31509,7 +31506,7 @@ var THREE_BACKGROUND_THREE = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-background-three-canvas'; // Generate one plane geometries mesh to scene
-      //-------------------------------------	
+      //-------------------------------------
 
       var camera,
           scene,
@@ -31548,7 +31545,7 @@ var THREE_BACKGROUND_THREE = function (module, $, window, document) {
         scene.add(new THREE.AmbientLight(0x555555));
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 500, 2000);
-        scene.add(light); //WebGL Renderer		
+        scene.add(light); //WebGL Renderer
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -31606,14 +31603,14 @@ var THREE_BACKGROUND_THREE = function (module, $, window, document) {
 
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -31684,16 +31681,16 @@ var THREE_BACKGROUND_THREE = function (module, $, window, document) {
           var geom = void 0;
           var color = new THREE.Color();
 
-          if (objectType == "cube") {
+          if (objectType == 'cube') {
             geom = new THREE.BoxGeometry(1, 1, 1);
             scale.y = Math.random() * 200 + 100;
             scale.z = Math.random() * 200 + 100;
             color.setRGB(0, 0, Math.random() + 0.1);
-          } else if (objectType == "sphere") {
+          } else if (objectType == 'sphere') {
             geom = new THREE.IcosahedronGeometry(1, 1);
             scale.y = scale.z = scale.x;
             color.setRGB(0.35, getRandomFloat(0.12, 0.3), 0.2);
-          } else if (objectType == "poly") {
+          } else if (objectType == 'poly') {
             geom = new THREE.CylinderGeometry(3, 6, 3, 5, 1);
             scale.y = Math.random() * 30;
             scale.z = Math.random() * 30;
@@ -31716,8 +31713,8 @@ var THREE_BACKGROUND_THREE = function (module, $, window, document) {
 
       function getRandomFloat(min, max) {
         return Math.random() * (max - min) + min;
-      } // 
-      //-------------------------------------	
+      } //
+      //-------------------------------------
 
 
       return {
@@ -31776,7 +31773,7 @@ var THREE_BACKGROUND_THREE2 = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-background-three-canvas2'; // Generate one plane geometries mesh to scene
-      //-------------------------------------	
+      //-------------------------------------
 
       var camera,
           scene,
@@ -31793,7 +31790,7 @@ var THREE_BACKGROUND_THREE2 = function (module, $, window, document) {
         camera = new THREE.PerspectiveCamera(50, windowWidth / windowHeight, .01, 1000);
         camera.position.set(0, 0, 1.8); //Scene
 
-        scene = new THREE.Scene(); //WebGL Renderer	
+        scene = new THREE.Scene(); //WebGL Renderer
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -31805,10 +31802,10 @@ var THREE_BACKGROUND_THREE2 = function (module, $, window, document) {
 
         material = new THREE.ShaderMaterial({
           uniforms: {
-            "time": {
+            'time': {
               value: 1.0
             },
-            "texture": {
+            'texture': {
               value: new THREE.TextureLoader().load($('#' + rendererCanvasID).data('filter-texture'))
             }
           },
@@ -31837,14 +31834,14 @@ var THREE_BACKGROUND_THREE2 = function (module, $, window, document) {
 
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -31885,8 +31882,8 @@ var THREE_BACKGROUND_THREE2 = function (module, $, window, document) {
 
       function round(n, digits) {
         return Number(n.toFixed(digits));
-      } // 
-      //-------------------------------------	
+      } //
+      //-------------------------------------
 
 
       return {
@@ -31939,7 +31936,7 @@ var THREE_BACKGROUND_THREE3 = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-background-three-canvas3'; // Generate one plane geometries mesh to scene
-      //-------------------------------------	
+      //-------------------------------------
 
       var camera,
           scene,
@@ -31956,7 +31953,7 @@ var THREE_BACKGROUND_THREE3 = function (module, $, window, document) {
         camera = new THREE.PerspectiveCamera(50, windowWidth / windowHeight, .01, 1000);
         camera.position.set(0, 0, 1.8); //Scene
 
-        scene = new THREE.Scene(); //WebGL Renderer	
+        scene = new THREE.Scene(); //WebGL Renderer
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -31989,14 +31986,14 @@ var THREE_BACKGROUND_THREE3 = function (module, $, window, document) {
 
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -32031,8 +32028,8 @@ var THREE_BACKGROUND_THREE3 = function (module, $, window, document) {
             object[prop] = destination;
           }
         }
-      } // 
-      //-------------------------------------	
+      } //
+      //-------------------------------------
 
 
       return {
@@ -32127,7 +32124,7 @@ var THREE_BACKGROUND = function (module, $, window, document) {
 
       var mouseX, mouseY, offsetX, offsetY;
       var touches = e.touches; //get the absolute position of a mouse
-      //!!! Important: If you do not use window.pageXOffset or window.pageYOffset, 
+      //!!! Important: If you do not use window.pageXOffset or window.pageYOffset,
       //              the mouse coordinates are relative to the parent element
 
       if (touches && touches.length) {
@@ -32221,7 +32218,7 @@ var THREE_BACKGROUND = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- 3D Carousel -->
  *************************************
@@ -32250,10 +32247,10 @@ var THREE_CAROUSEL = function (module, $, window, document) {
           leftpos = itemCount,
           resetCount = itemCount;
       if ((0,esm_typeof/* default */.Z)(dataTiming) === ( true ? "undefined" : 0)) dataTiming = 5000;
-      if ((0,esm_typeof/* default */.Z)(dataPrevBtn) === ( true ? "undefined" : 0)) dataPrevBtn = ".my-carousel-3d-prev";
-      if ((0,esm_typeof/* default */.Z)(dataNextBtn) === ( true ? "undefined" : 0)) dataNextBtn = ".my-carousel-3d-next";
+      if ((0,esm_typeof/* default */.Z)(dataPrevBtn) === ( true ? "undefined" : 0)) dataPrevBtn = '.my-carousel-3d-prev';
+      if ((0,esm_typeof/* default */.Z)(dataNextBtn) === ( true ? "undefined" : 0)) dataNextBtn = '.my-carousel-3d-next';
       if ((0,esm_typeof/* default */.Z)(dataDraggable) === ( true ? "undefined" : 0)) dataDraggable = false; //Avoid problems caused by insufficient quantity
-      //-------------------------------------		
+      //-------------------------------------
 
       if (itemCount == 3) {
         var $clone3 = $items.eq(1).clone();
@@ -32279,23 +32276,23 @@ var THREE_CAROUSEL = function (module, $, window, document) {
       itemCount = $items.length;
       leftpos = itemCount;
       resetCount = itemCount; //Adding an index to an element makes it easy to query
-      //-------------------------------------	
+      //-------------------------------------
 
       $items.each(function (index) {
         items[index] = $(this).text();
         $(this).attr('id', index + 1);
       }); //Pause slideshow and reinstantiate on mouseout
-      //-------------------------------------	
+      //-------------------------------------
 
       $wrapper.on('mouseenter', function () {
         clearInterval(autoSwap);
       }).on('mouseleave', function () {
         autoSwap = setInterval(itemUpdates, dataTiming);
       }); //Initialize the default effect
-      //-------------------------------------	
+      //-------------------------------------
 
       itemUpdates('clockwise'); //The matched click events for the element.
-      //-------------------------------------	
+      //-------------------------------------
 
       $(dataPrevBtn).on('click', function (e) {
         e.preventDefault();
@@ -32316,7 +32313,7 @@ var THREE_CAROUSEL = function (module, $, window, document) {
           itemUpdates('clockwise');
         }
       }); //Drag and Drop
-      //-------------------------------------	
+      //-------------------------------------
 
       var $dragDropTrigger = $wrapper;
       var hammerProps = {};
@@ -33156,7 +33153,7 @@ var THREE_GALLERY = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-gallery-three-canvas'; // Generate one plane geometries mesh to scene
-      //-------------------------------------	
+      //-------------------------------------
 
       var camera,
           controls,
@@ -33201,7 +33198,7 @@ var THREE_GALLERY = function (module, $, window, document) {
         scene.add(new THREE.AmbientLight(0x555555));
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 500, 2000);
-        scene.add(light); //WebGL Renderer	
+        scene.add(light); //WebGL Renderer
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -33276,14 +33273,14 @@ var THREE_GALLERY = function (module, $, window, document) {
 
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -33311,8 +33308,8 @@ var THREE_GALLERY = function (module, $, window, document) {
        * @param  {Element} imgLoader       - A loader for loading all images from array.
        * @param  {String} src             - URL of image.
        * @param  {Number} index           - Index of image.
-       * @param  {Number} w               - The width of an image, in pixels. 
-       * @param  {Number} h               - The height of an image, in pixels. 
+       * @param  {Number} w               - The width of an image, in pixels.
+       * @param  {Number} h               - The height of an image, in pixels.
        * @param  {Number} total           - Total number of preload images.
        * @param  {Number} itemRadAngle    - An equal radian angle of a sphere for each element.
        * @param  {Number} radius          - Radius length of the sphere (circumference).
@@ -33331,10 +33328,10 @@ var THREE_GALLERY = function (module, $, window, document) {
             map: texture
           });
           var geometry = new THREE.PlaneGeometry(w, h);
-          var mesh = new THREE.Mesh(geometry, material); //LinearFilter, which takes the four closest texels and bilinearly interpolates among them. 
+          var mesh = new THREE.Mesh(geometry, material); //LinearFilter, which takes the four closest texels and bilinearly interpolates among them.
 
           mesh.minFilter = THREE.LinearFilter;
-          mesh.overdraw = true; //Calculate the position of the image 
+          mesh.overdraw = true; //Calculate the position of the image
           //X axis: a = sinA * c = Math.sin( rad ) * radius
           //Z axis: b = cosA * c = Math.cos( rad ) * radius
 
@@ -33357,8 +33354,8 @@ var THREE_GALLERY = function (module, $, window, document) {
         function (err) {
           console.error('An error happened.');
         });
-      } // 
-      //-------------------------------------	
+      } //
+      //-------------------------------------
 
 
       return {
@@ -33418,7 +33415,7 @@ var THREE_IMAGE_TRANSITION = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-imagetransition-three-canvas'; // Generate one plane geometries mesh to scene
-      //-------------------------------------	
+      //-------------------------------------
 
       var camera,
           controls,
@@ -33458,7 +33455,7 @@ var THREE_IMAGE_TRANSITION = function (module, $, window, document) {
         scene.add(new THREE.AmbientLight(0x555555));
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 500, 2000);
-        scene.add(light); //WebGL Renderer	
+        scene.add(light); //WebGL Renderer
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -33487,23 +33484,23 @@ var THREE_IMAGE_TRANSITION = function (module, $, window, document) {
         filterMaterial = new THREE.ShaderMaterial({
           uniforms: {
             effectFactor: {
-              type: "f",
+              type: 'f',
               value: intensity
             },
             dispFactor: {
-              type: "f",
+              type: 'f',
               value: 0.0
             },
             texture: {
-              type: "t",
+              type: 't',
               value: texture1
             },
             texture2: {
-              type: "t",
+              type: 't',
               value: texture2
             },
             disp: {
-              type: "t",
+              type: 't',
               value: disp
             }
           },
@@ -33525,21 +33522,21 @@ var THREE_IMAGE_TRANSITION = function (module, $, window, document) {
       function render() {
         requestAnimationFrame(render);
         theta += 0.1; //To set a background color.
-        //renderer.setClearColor( 0x000000 );	
+        //renderer.setClearColor( 0x000000 );
         //update camera and controls
 
         controls.update(); //push objects
 
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -33568,8 +33565,8 @@ var THREE_IMAGE_TRANSITION = function (module, $, window, document) {
           value: 0,
           ease: Expo.easeOut
         });
-      } // 
-      //-------------------------------------	
+      } //
+      //-------------------------------------
 
 
       return {
@@ -35883,7 +35880,7 @@ var THREE_MODEL = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-model-canvas'; // Generate one plane geometries mesh to scene
-      //-------------------------------------	
+      //-------------------------------------
 
       var camera,
           scene,
@@ -35916,7 +35913,7 @@ var THREE_MODEL = function (module, $, window, document) {
         scene.add(lights[0]);
         scene.add(lights[1]);
         scene.add(lights[2]); //=================
-        //WebGL Renderer	
+        //WebGL Renderer
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -35972,24 +35969,22 @@ var THREE_MODEL = function (module, $, window, document) {
           });
           /*
           If you can not use `object.scene.children[ 0 ]`, use the following code:
-          
-          	const gltfMesh = object.scene;
-          object.scene.traverse( function( child ) {            
-             if ( ( child instanceof THREE.Mesh ) ) { 
-          				child.material = new THREE.MeshPhongMaterial( {
-          							color: 0xdddddd,
-          							shininess: 80,
-          							wireframe: true,
-          							map: mainSceneImgTexture,
-          							side: THREE.DoubleSide,
-          							fog : false //Excluding objects from fog
-          						} );
-          			// set castShadow to object
-          		child.castShadow = true;
-          		}
+              const gltfMesh = object.scene;
+          object.scene.traverse( function( child ) {
+             if ( ( child instanceof THREE.Mesh ) ) {
+                      child.material = new THREE.MeshPhongMaterial( {
+                                      color: 0xdddddd,
+                                      shininess: 80,
+                                      wireframe: true,
+                                      map: mainSceneImgTexture,
+                                      side: THREE.DoubleSide,
+                                      fog : false //Excluding objects from fog
+                                  } );
+                    // set castShadow to object
+                  child.castShadow = true;
+                }
           });
-          	
-          */
+              */
 
           displacementSprite.add(gltfMesh);
           displacementSprite.scale.set(1.2, 1.2, 1.2);
@@ -36041,19 +36036,19 @@ var THREE_MODEL = function (module, $, window, document) {
           //const delta  clock.getDelta();
           //mixerGLTF.update( delta );
         } //To set a background color.
-        //renderer.setClearColor( 0x000000 );	
+        //renderer.setClearColor( 0x000000 );
         //push objects
 
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
 
@@ -36083,8 +36078,8 @@ var THREE_MODEL = function (module, $, window, document) {
 
       function getRadian(deg) {
         return deg * Math.PI / 180;
-      } // 
-      //-------------------------------------	
+      } //
+      //-------------------------------------
 
 
       return {
@@ -36327,7 +36322,7 @@ THREE.CSS3DRenderer = function () {
 
 /**
  * module.THREE_PAGES
- * 
+ *
  * @requires ./examples/assets/js/min/three.min.js
  * @requires ./src/plugins/THREE
  */
@@ -36348,7 +36343,7 @@ var THREE_PAGES = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var viewRenderer = '3D-renderer'; // Generate one plane geometries mesh to scene
-      //-------------------------------------	
+      //-------------------------------------
 
       var camera,
           controls,
@@ -36419,14 +36414,14 @@ var THREE_PAGES = function (module, $, window, document) {
 
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -36441,8 +36436,8 @@ var THREE_PAGES = function (module, $, window, document) {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
-      } // 
-      //-------------------------------------	
+      } //
+      //-------------------------------------
 
 
       return {
@@ -36484,7 +36479,7 @@ var THREE_PAGES = function (module, $, window, document) {
 
 /**
  * module.THREE_PARTICLE
- * 
+ *
  * @requires ./examples/assets/js/min/three.min.js
  * @requires ./src/plugins/THREE
  */
@@ -36560,7 +36555,7 @@ var THREE_PARTICLE = function (module, $, window, document) {
 
         visibleHeight = 2 * Math.tan(vFOV / 2) * dist; // visible height
 
-        visibleWidth = visibleHeight * camera.aspect; // visible width   
+        visibleWidth = visibleHeight * camera.aspect; // visible width
         //console.log( 'visibleWidth:' + visibleWidth + ', visibleHeight: ' + visibleHeight + ', xLimit: ' + xLimit + ', yLimit: ' + yLimit );
         //==================================
         //==================================
@@ -36571,7 +36566,7 @@ var THREE_PARTICLE = function (module, $, window, document) {
         //==================================
         //==================================
         //Light from scene ready
-        // Light plane  
+        // Light plane
 
         sceneForLightPlane = new THREE.Mesh(new THREE.CircleGeometry(1000, 32), new THREE.MeshPhongMaterial({
           emissive: backgroundPlane,
@@ -36607,7 +36602,7 @@ var THREE_PARTICLE = function (module, $, window, document) {
         sceneForAmbientLight = new THREE.AmbientLight(0xffffff, 0.08);
         scene.add(sceneForAmbientLight); //==================================
         //==================================
-        //WebGL Renderer		
+        //WebGL Renderer
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -36762,14 +36757,14 @@ var THREE_PARTICLE = function (module, $, window, document) {
 
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var _i = 0; _i < sceneSubjects.length; _i++) {
@@ -36858,7 +36853,7 @@ var THREE_PARTICLE = function (module, $, window, document) {
        * @return {JSON}
        */
 
-      /* @usage: 
+      /* @usage:
          const screenPos = nestedObjectToScreenXYZAndWH( displacementSprite , camera, renderer.domElement.width, renderer.domElement.height );
         */
 
@@ -36938,8 +36933,8 @@ var THREE_PARTICLE = function (module, $, window, document) {
             nz = Math.cos(x) * Math.sin(y) * z,
             ny = Math.sin(x) * z;
         return new THREE.Vector3(nx, ny, nz);
-      } // 
-      //-------------------------------------	
+      } //
+      //-------------------------------------
 
 
       return {
@@ -36980,7 +36975,7 @@ var THREE_PARTICLE = function (module, $, window, document) {
 
 /**
  * module.THREE_SPHERE_THREE
- * 
+ *
  * @requires ./examples/assets/js/min/three.min.js
  * @requires ./src/plugins/THREE
  */
@@ -37000,7 +36995,7 @@ var THREE_SPHERE_THREE = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-sphere-three-canvas'; // Generate one plane geometries mesh to scene
-      //-------------------------------------	
+      //-------------------------------------
 
       var camera, controls, scene, light, renderer, displacementSprite;
 
@@ -37018,7 +37013,7 @@ var THREE_SPHERE_THREE = function (module, $, window, document) {
         scene.add(new THREE.AmbientLight(0x555555));
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 500, 2000);
-        scene.add(light); //WebGL Renderer		
+        scene.add(light); //WebGL Renderer
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -37073,14 +37068,14 @@ var THREE_SPHERE_THREE = function (module, $, window, document) {
 
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -37095,8 +37090,8 @@ var THREE_SPHERE_THREE = function (module, $, window, document) {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
-      } // 
-      //-------------------------------------	
+      } //
+      //-------------------------------------
 
 
       return {
@@ -37156,7 +37151,7 @@ var THREE_OBJ_ANIM_INTERACTION = function (module, $, window, document) {
           segments = 200; //segments must be even
 
       function init() {
-        // Create a camera, which defines where we're looking at.		
+        // Create a camera, which defines where we're looking at.
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
           //canvas
@@ -37239,14 +37234,14 @@ var THREE_OBJ_ANIM_INTERACTION = function (module, $, window, document) {
 
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -37304,8 +37299,8 @@ var THREE_OBJ_ANIM_INTERACTION = function (module, $, window, document) {
           ease: Power0.easeNone,
           onUpdate: function onUpdate() {}
         });
-      }); // 
-      //-------------------------------------	
+      }); //
+      //-------------------------------------
 
       return {
         init: init,
@@ -37358,7 +37353,7 @@ var THREE_MOUSE_INTERACTION = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-mouseinteraction-three-canvas'; // Generate one plane geometries mesh to scene
-      //-------------------------------------	
+      //-------------------------------------
 
       var camera,
           controls,
@@ -37408,7 +37403,7 @@ var THREE_MOUSE_INTERACTION = function (module, $, window, document) {
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 500, 2000);
         scene.add(light); //=================
-        //WebGL Renderer	
+        //WebGL Renderer
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -37462,14 +37457,14 @@ var THREE_MOUSE_INTERACTION = function (module, $, window, document) {
 
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -37514,11 +37509,11 @@ var THREE_MOUSE_INTERACTION = function (module, $, window, document) {
           //						x: '+=' + ( 200 - obj.scale.x ) * 0.05,
           //						y: '+=' + ( 200 - obj.scale.y ) * 0.05,
           //						z: '+=' + ( 200 - obj.scale.z ) * 0.05
-          //					});	
+          //					});
           //
           //
-          //					obj.updateMatrix();	
-          //	
+          //					obj.updateMatrix();
+          //
           //				}
           //---Change object position
 
@@ -37589,11 +37584,11 @@ var THREE_MOUSE_INTERACTION = function (module, $, window, document) {
         for (var i = 0; i < numObjects; i++) {
           var geometry = void 0;
 
-          if (objectType == "cube") {
+          if (objectType == 'cube') {
             geometry = new THREE.BoxGeometry(1, 1, 1);
-          } else if (objectType == "sphere") {
+          } else if (objectType == 'sphere') {
             geometry = new THREE.IcosahedronGeometry(1, 1);
-          } else if (objectType == "poly") {
+          } else if (objectType == 'poly') {
             geometry = new THREE.CylinderGeometry(3, 6, 3, 5, 1);
           }
 
@@ -37643,7 +37638,7 @@ var THREE_MOUSE_INTERACTION = function (module, $, window, document) {
        * @return {JSON}
        */
 
-      /* @usage: 
+      /* @usage:
          const screenPos = nestedObjectToScreenXYZAndWH( displacementSprite , camera, renderer.domElement.width, renderer.domElement.height );
         */
 
@@ -37723,8 +37718,8 @@ var THREE_MOUSE_INTERACTION = function (module, $, window, document) {
             nz = Math.cos(x) * Math.sin(y) * z,
             ny = Math.sin(x) * z;
         return new THREE.Vector3(nx, ny, nz);
-      } // 
-      //-------------------------------------	
+      } //
+      //-------------------------------------
 
 
       return {
@@ -37777,7 +37772,7 @@ var THREE_MOUSE_INTERACTION2 = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-mouseinteraction2-three-canvas'; // Generate one plane geometries mesh to scene
-      //-------------------------------------	
+      //-------------------------------------
 
       var camera,
           scene,
@@ -37788,7 +37783,7 @@ var THREE_MOUSE_INTERACTION2 = function (module, $, window, document) {
           clickEnabled = false; // controls
 
       var scroller = new CameraScroller({
-        direction: "y"
+        direction: 'y'
       }); // mouse
 
       var mouseVector = new THREE.Vector2();
@@ -37808,7 +37803,7 @@ var THREE_MOUSE_INTERACTION2 = function (module, $, window, document) {
         scene.add(new THREE.AmbientLight(0x555555));
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 500, 2000);
-        scene.add(light); //WebGL Renderer		
+        scene.add(light); //WebGL Renderer
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -37856,14 +37851,14 @@ var THREE_MOUSE_INTERACTION2 = function (module, $, window, document) {
 
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
 
@@ -38103,7 +38098,7 @@ var THREE_MOUSE_INTERACTION2 = function (module, $, window, document) {
        * @return {JSON}
        */
 
-      /* @usage: 
+      /* @usage:
          const screenPos = nestedObjectToScreenXYZAndWH( displacementSprite , camera, renderer.domElement.width, renderer.domElement.height );
         */
 
@@ -38183,8 +38178,8 @@ var THREE_MOUSE_INTERACTION2 = function (module, $, window, document) {
             nz = Math.cos(x) * Math.sin(y) * z,
             ny = Math.sin(x) * z;
         return new THREE.Vector3(nx, ny, nz);
-      } // 
-      //-------------------------------------	
+      } //
+      //-------------------------------------
 
 
       return {
@@ -38259,7 +38254,7 @@ THREE.ExplodeModifier.prototype.modify = function (geometry) {
 
 /**
  * module.THREE_SHATTER_SLIDER
- * 
+ *
  * @requires ./examples/assets/js/min/three.min.js
  * @requires ./src/plugins/THREE
  */
@@ -38281,12 +38276,12 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var $sliderWrapper = $('.uix-3d-slider--shatter'),
-          //Basic webGL renderers 
+          //Basic webGL renderers
       renderLoaderID = 'uix-3d-slider--shatter__loader',
           rendererOuterID = 'uix-3d-slider--shatter__canvas-container',
           rendererCanvasID = 'uix-3d-slider--shatter__canvas';
       var animSpeed = 1000; // Generate one plane geometries mesh to scene
-      //-------------------------------------	
+      //-------------------------------------
 
       var camera,
           controls,
@@ -38342,7 +38337,7 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
 
             var playTimes; //A function called "timer" once every second (like a digital watch).
 
-            $this[0].animatedSlides; //If arrows does not exist on the page, it will be added by default, 
+            $this[0].animatedSlides; //If arrows does not exist on the page, it will be added by default,
             //and the drag and drop function will be activated.
 
             if ($(dataControlsArrows).length == 0) {
@@ -38396,9 +38391,9 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
 
                 if ((0,esm_typeof/* default */.Z)(videoURL) != ( true ? "undefined" : 0)) {
                   sources.push({
-                    "url": videoURL,
-                    "id": _item.find('video').attr('id'),
-                    "type": 'video'
+                    'url': videoURL,
+                    'id': _item.find('video').attr('id'),
+                    'type': 'video'
                   });
                 }
               } else {
@@ -38406,13 +38401,13 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
 
                 if ((0,esm_typeof/* default */.Z)(imgURL) != ( true ? "undefined" : 0)) {
                   sources.push({
-                    "url": imgURL,
-                    "id": 'img-' + UixGUID.create(),
-                    "type": 'img'
+                    'url': imgURL,
+                    'id': 'img-' + UixGUID.create(),
+                    'type': 'img'
                   });
                 }
               }
-            }); //Pagination dots 
+            }); //Pagination dots
             //-------------------------------------	
 
             var _dot = '',
@@ -38527,12 +38522,12 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
             $this.data('activated', 1);
           } //endif activated
 
-        }); // end each				
+        }); // end each
       }
 
       function init() {
         //Core 3D stage begin
-        //-------------------------------------		
+        //-------------------------------------
         //camera
         camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 10, 2500); // FlyCamera // FlyControls
 
@@ -38546,7 +38541,7 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
         scene.add(new THREE.AmbientLight(0x555555));
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 0, 2000);
-        scene.add(light); //WebGL Renderer	
+        scene.add(light); //WebGL Renderer
         // create a render and set the size
 
         renderer = new THREE.WebGLRenderer({
@@ -38604,7 +38599,7 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
       function render() {
         requestAnimationFrame(render);
         theta += 0.1; //To set a background color.
-        //renderer.setClearColor( 0x000000 );	
+        //renderer.setClearColor( 0x000000 );
         //Animating Three.js vertices
 
         allSources.forEach(function (element, index) {
@@ -38656,14 +38651,14 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
 
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -38684,8 +38679,8 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
        *
        * @param  {Three.MeshBasicMaterial.map} texture         - Returns a new texture object which can directly be used for material creation.
        * @param  {Number} index           - Index of image or video.
-       * @param  {Number} w               - The width of an image or video, in pixels. 
-       * @param  {Number} h               - The height of an image or video, in pixels. 
+       * @param  {Number} w               - The width of an image or video, in pixels.
+       * @param  {Number} h               - The height of an image or video, in pixels.
        * @param  {Number} total           - Total number of preload images or video.
        * @param  {Element|String} loading         - Progress bar display control.
        * @return {Void}
@@ -38783,12 +38778,12 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
        *
        * @param  {Number} slideCurId             - Index of current slider.
        * @param  {Number} slideNextId            - Index of next slider.
-       * @param  {String} dir                    - Switching direction indicator.	 
-                * @param  {String} countTotalID           - Total number ID or class of counter.
-                * @param  {String} countCurID             - Current number ID or class of counter.
-                * @param  {String} paginationID           - Navigation ID for paging control of each slide.
-                * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
-                * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
+       * @param  {String} dir                    - Switching direction indicator.
+       * @param  {String} countTotalID           - Total number ID or class of counter.
+       * @param  {String} countCurID             - Current number ID or class of counter.
+       * @param  {String} paginationID           - Navigation ID for paging control of each slide.
+       * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
+       * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
        * @return {Void}
        */
 
@@ -38831,7 +38826,7 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
           var dirIndicatorClass = '';
           if (dir == 'prev') dirIndicatorClass = 'prev';
           if (dir == 'next') dirIndicatorClass = 'next'; //Add transition class to each item
-          //-------------------------------------	
+          //-------------------------------------
 
           $items.removeClass('is-active leave prev next').addClass(dirIndicatorClass);
           $current.addClass('leave');
@@ -38841,7 +38836,7 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
           $(paginationID).find('ul > li').removeClass('is-active leave prev next').addClass(dirIndicatorClass);
           $(paginationID).find('ul > li').eq(slideCurId).addClass('leave');
           $(paginationID).find('ul > li').eq(slideNextId).addClass('is-active'); //Add transition class to Arrows
-          //-------------------------------------		
+          //-------------------------------------
 
           if (!loop) {
             $(arrowsID).find('a').removeClass('is-disabled');
@@ -38878,7 +38873,7 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
                 x: fragment[i].origPos.x,
                 y: fragment[i].origPos.y,
                 z: fragment[i].origPos.z,
-                ease: "Expo.easeInOut"
+                ease: 'Expo.easeInOut'
               });
             }
           } // play the video
@@ -38910,7 +38905,7 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
                 x: pos.x,
                 y: pos.y,
                 z: pos.z,
-                ease: "Expo.easeInOut",
+                ease: 'Expo.easeInOut',
                 onComplete: function onComplete() {
                   //reset the trigger
                   isAnimating = false;
@@ -38920,8 +38915,8 @@ var THREE_SHATTER_SLIDER = function (module, $, window, document) {
           }
         } // end isAnimating
 
-      } // 
-      //-------------------------------------	
+      } //
+      //-------------------------------------
 
 
       return {
@@ -38979,12 +38974,12 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var $sliderWrapper = $('.uix-3d-slider--expParticle'),
-          //Basic webGL renderers 
+          //Basic webGL renderers
       renderLoaderID = 'uix-3d-slider--expParticle__loader',
           rendererOuterID = 'uix-3d-slider--expParticle__canvas-container',
           rendererCanvasID = 'uix-3d-slider--expParticle__canvas';
       var animSpeed = 1000; // Generate one plane geometries mesh to scene
-      //-------------------------------------	
+      //-------------------------------------
 
       var camera,
           controls,
@@ -39046,7 +39041,7 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
 
             var playTimes; //A function called "timer" once every second (like a digital watch).
 
-            $this[0].animatedSlides; //If arrows does not exist on the page, it will be added by default, 
+            $this[0].animatedSlides; //If arrows does not exist on the page, it will be added by default,
             //and the drag and drop function will be activated.
 
             if ($(dataControlsArrows).length == 0) {
@@ -39100,9 +39095,9 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
 
                 if ((0,esm_typeof/* default */.Z)(videoURL) != ( true ? "undefined" : 0)) {
                   sources.push({
-                    "url": videoURL,
-                    "id": _item.find('video').attr('id'),
-                    "type": 'video'
+                    'url': videoURL,
+                    'id': _item.find('video').attr('id'),
+                    'type': 'video'
                   });
                 }
               } else {
@@ -39110,13 +39105,13 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
 
                 if ((0,esm_typeof/* default */.Z)(imgURL) != ( true ? "undefined" : 0)) {
                   sources.push({
-                    "url": imgURL,
-                    "id": 'img-' + UixGUID.create(),
-                    "type": 'img'
+                    'url': imgURL,
+                    'id': 'img-' + UixGUID.create(),
+                    'type': 'img'
                   });
                 }
               }
-            }); //Pagination dots 
+            }); //Pagination dots
             //-------------------------------------	
 
             var _dot = '',
@@ -39231,12 +39226,12 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
             $this.data('activated', 1);
           } //endif activated
 
-        }); // end each				
+        }); // end each
       }
 
       function init() {
         //Core 3D stage begin
-        //-------------------------------------		
+        //-------------------------------------
         //camera
         camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 10, 2500); // FlyCamera // FlyControls
 
@@ -39250,7 +39245,7 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
         scene.add(new THREE.AmbientLight(0x555555));
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 0, 2000);
-        scene.add(light); //WebGL Renderer	
+        scene.add(light); //WebGL Renderer
         // create a render and set the size
 
         renderer = new THREE.WebGLRenderer({
@@ -39308,7 +39303,7 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
       function render() {
         requestAnimationFrame(render);
         var elapsed = clock.getElapsedTime(); //To set a background color.
-        //renderer.setClearColor( 0x000000 );	
+        //renderer.setClearColor( 0x000000 );
         //Display the destination object
 
         if ((0,esm_typeof/* default */.Z)(allSources[activeSlider]) != ( true ? "undefined" : 0)) {
@@ -39358,14 +39353,14 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
 
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var _i2 = 0; _i2 < sceneSubjects.length; _i2++) {
@@ -39386,8 +39381,8 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
        *
        * @param  {Three.MeshBasicMaterial.map} texture         - Returns a new texture object which can directly be used for material creation.
        * @param  {Number} index           - Index of image or video.
-       * @param  {Number} w               - The width of an image or video, in pixels. 
-       * @param  {Number} h               - The height of an image or video, in pixels. 
+       * @param  {Number} w               - The width of an image or video, in pixels.
+       * @param  {Number} h               - The height of an image or video, in pixels.
        * @param  {Number} total           - Total number of preload images or video.
        * @param  {Element|String} loading         - Progress bar display control.
        * @return {Void}
@@ -39517,12 +39512,12 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
        *
        * @param  {Number} slideCurId             - Index of current slider.
        * @param  {Number} slideNextId            - Index of next slider.
-       * @param  {String} dir                    - Switching direction indicator.	 
-                * @param  {String} countTotalID           - Total number ID or class of counter.
-                * @param  {String} countCurID             - Current number ID or class of counter.
-                * @param  {String} paginationID           - Navigation ID for paging control of each slide.
-                * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
-                * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
+       * @param  {String} dir                    - Switching direction indicator.
+       * @param  {String} countTotalID           - Total number ID or class of counter.
+       * @param  {String} countCurID             - Current number ID or class of counter.
+       * @param  {String} paginationID           - Navigation ID for paging control of each slide.
+       * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
+       * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
        * @return {Void}
        */
 
@@ -39565,7 +39560,7 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
           var dirIndicatorClass = '';
           if (dir == 'prev') dirIndicatorClass = 'prev';
           if (dir == 'next') dirIndicatorClass = 'next'; //Add transition class to each item
-          //-------------------------------------	
+          //-------------------------------------
 
           $items.removeClass('is-active leave prev next').addClass(dirIndicatorClass);
           $current.addClass('leave');
@@ -39575,7 +39570,7 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
           $(paginationID).find('ul > li').removeClass('is-active leave prev next').addClass(dirIndicatorClass);
           $(paginationID).find('ul > li').eq(slideCurId).addClass('leave');
           $(paginationID).find('ul > li').eq(slideNextId).addClass('is-active'); //Add transition class to Arrows
-          //-------------------------------------		
+          //-------------------------------------
 
           if (!loop) {
             $(arrowsID).find('a').removeClass('is-disabled');
@@ -39597,8 +39592,8 @@ var THREE_EXP_PARTICLE_SLIDER = function (module, $, window, document) {
           isAnimating = false;
         } // end isAnimating
 
-      } // 
-      //-------------------------------------	
+      } //
+      //-------------------------------------
 
 
       return {
@@ -39661,12 +39656,12 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var $sliderWrapper = $('.uix-3d-slider--liquid-scrollspy'),
-          //Basic webGL renderers 
+          //Basic webGL renderers
       renderLoaderID = 'uix-3d-slider--liquid-scrollspy__loader',
           rendererOuterID = 'uix-3d-slider--liquid-scrollspy__canvas-container',
           rendererCanvasID = 'uix-3d-slider--liquid-scrollspy__canvas';
       var animSpeed = 1000; // Generate one plane geometries mesh to scene
-      //-------------------------------------	
+      //-------------------------------------
 
       var camera,
           controls,
@@ -39739,7 +39734,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
             scrollspyConfigCountCur = dataCountCur;
             scrollspyConfigControlsPagination = dataControlsPagination;
             scrollspyConfigControlsArrows = dataControlsArrows;
-            scrollspyConfigLoop = dataLoop; //If arrows does not exist on the page, it will be added by default, 
+            scrollspyConfigLoop = dataLoop; //If arrows does not exist on the page, it will be added by default,
             //and the drag and drop function will be activated.
 
             if ($(dataControlsArrows).length == 0) {
@@ -39793,9 +39788,9 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
 
                 if ((0,esm_typeof/* default */.Z)(videoURL) != ( true ? "undefined" : 0)) {
                   sources.push({
-                    "url": videoURL,
-                    "id": _item.find('video').attr('id'),
-                    "type": 'video'
+                    'url': videoURL,
+                    'id': _item.find('video').attr('id'),
+                    'type': 'video'
                   });
                 }
               } else {
@@ -39803,13 +39798,13 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
 
                 if ((0,esm_typeof/* default */.Z)(imgURL) != ( true ? "undefined" : 0)) {
                   sources.push({
-                    "url": imgURL,
-                    "id": 'img-' + UixGUID.create(),
-                    "type": 'img'
+                    'url': imgURL,
+                    'id': 'img-' + UixGUID.create(),
+                    'type': 'img'
                   });
                 }
               }
-            }); //Pagination dots 
+            }); //Pagination dots
             //-------------------------------------	
 
             var _dot = '',
@@ -39924,7 +39919,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
             $this.data('activated', 1);
           } //endif activated
 
-        }); // end each				
+        }); // end each
       }
 
       function loadImages() {
@@ -39936,12 +39931,12 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
             // IMAGE //
             ///////////   
             promises.push(new Promise(function (resolve, reject) {
-              var img = document.createElement("img");
+              var img = document.createElement('img');
               img.src = sources[i].url;
 
               img.onload = function (image) {
                 //loading
-                TweenMax.to("#" + renderLoaderID, 0.5, {
+                TweenMax.to('#' + renderLoaderID, 0.5, {
                   width: Math.round(100 * (i / sources.length)) + '%'
                 }); //Compatible with safari and firefox
 
@@ -39958,7 +39953,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
             ///////////    
             promises.push(new Promise(function (resolve, reject) {
               //loading
-              TweenMax.to("#" + renderLoaderID, 0.5, {
+              TweenMax.to('#' + renderLoaderID, 0.5, {
                 width: Math.round(100 * (i / sources.length)) + '%'
               });
               $('#' + sources[i].id).one('loadedmetadata', resolve);
@@ -40007,7 +40002,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
         //Must be placed behind the loadImages()
         loadImages().then(function (images) {
           //remove loading
-          TweenMax.to($("#" + renderLoaderID), 0.5, {
+          TweenMax.to($('#' + renderLoaderID), 0.5, {
             alpha: 0
           });
           init(images);
@@ -40017,7 +40012,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
 
       function init(allTextures) {
         textures = allTextures; //Core 3D stage begin
-        //-------------------------------------		
+        //-------------------------------------
         //camera
 
         camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 10000); // FlyCamera // FlyControls
@@ -40031,7 +40026,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
             // convert vertical fov to radians
         objHeight = 2 * Math.tan(vFOV / 2) * dist,
             // visible height
-        objWidth = objHeight * camera.aspect; // visible width   
+        objWidth = objHeight * camera.aspect; // visible width
         //Scene
 
         scene = new THREE.Scene(); //HemisphereLight
@@ -40039,7 +40034,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
         scene.add(new THREE.AmbientLight(0x555555));
         light = new THREE.SpotLight(0xffffff, 1.5);
         light.position.set(0, 0, 2000);
-        scene.add(light); //WebGL Renderer	
+        scene.add(light); //WebGL Renderer
         // create a render and set the size
 
         renderer = new THREE.WebGLRenderer({
@@ -40067,23 +40062,23 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
         material = new THREE.ShaderMaterial({
           uniforms: {
             effectFactor: {
-              type: "f",
+              type: 'f',
               value: intensity
             },
             dispFactor: {
-              type: "f",
+              type: 'f',
               value: 0.0
             },
             texture: {
-              type: "t",
+              type: 't',
               value: texture1
             },
             texture2: {
-              type: "t",
+              type: 't',
               value: texture2
             },
             disp: {
-              type: "t",
+              type: 't',
               value: disp
             }
           },
@@ -40111,19 +40106,19 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
       function render() {
         requestAnimationFrame(render);
         theta += 0.1; //To set a background color.
-        //renderer.setClearColor( 0x000000 );	
+        //renderer.setClearColor( 0x000000 );
         //push objects
 
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -40247,12 +40242,12 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
        *
        * @param  {Number} slideCurId             - Index of current slider.
        * @param  {Number} slideNextId            - Index of next slider.
-       * @param  {String} dir                    - Switching direction indicator.	 
-                * @param  {String} countTotalID           - Total number ID or class of counter.
-                * @param  {String} countCurID             - Current number ID or class of counter.
-                * @param  {String} paginationID           - Navigation ID for paging control of each slide.
-                * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
-                * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
+       * @param  {String} dir                    - Switching direction indicator.
+       * @param  {String} countTotalID           - Total number ID or class of counter.
+       * @param  {String} countCurID             - Current number ID or class of counter.
+       * @param  {String} paginationID           - Navigation ID for paging control of each slide.
+       * @param  {String} arrowsID               - Previous/Next arrow navigation ID.
+       * @param  {Boolean} loop                  - Gives the slider a seamless infinite loop.
        * @return {Void}
        */
 
@@ -40295,7 +40290,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
           var dirIndicatorClass = '';
           if (dir == 'prev') dirIndicatorClass = 'prev';
           if (dir == 'next') dirIndicatorClass = 'next'; //Add transition class to each item
-          //-------------------------------------	
+          //-------------------------------------
 
           $items.removeClass('is-active leave prev next').addClass(dirIndicatorClass);
           $current.addClass('leave');
@@ -40305,7 +40300,7 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
           $(paginationID).find('ul > li').removeClass('is-active leave prev next').addClass(dirIndicatorClass);
           $(paginationID).find('ul > li').eq(slideCurId).addClass('leave');
           $(paginationID).find('ul > li').eq(slideNextId).addClass('is-active'); //Add transition class to Arrows
-          //-------------------------------------		
+          //-------------------------------------
 
           if (!loop) {
             $(arrowsID).find('a').removeClass('is-disabled');
@@ -40370,8 +40365,8 @@ var THREE_LIQUID_SCROLLSPY_SLIDER = function (module, $, window, document) {
           //-------------------------------------
         } // end isAnimating
 
-      } // 
-      //-------------------------------------	
+      } //
+      //-------------------------------------
 
 
       return {
@@ -41096,7 +41091,7 @@ var THREE_FILMIC_EFF = function (module, $, window, document) {
       var windowWidth = window.innerWidth,
           windowHeight = window.innerHeight;
       var rendererCanvasID = '3D-filmic-effects-canvas'; // Generate one plane geometries mesh to scene
-      //-------------------------------------	
+      //-------------------------------------
 
       var camera,
           scene,
@@ -41127,7 +41122,7 @@ var THREE_FILMIC_EFF = function (module, $, window, document) {
         scene.add(lights[0]);
         scene.add(lights[1]);
         scene.add(lights[2]); //=================
-        //WebGL Renderer		
+        //WebGL Renderer
 
         renderer = new THREE.WebGLRenderer({
           canvas: document.getElementById(rendererCanvasID),
@@ -41143,12 +41138,14 @@ var THREE_FILMIC_EFF = function (module, $, window, document) {
         bloomPass = new THREE.BloomPass(1, // strength
         25, // kernel size
         4, // sigma ?
-        256); //add film effect
+        256 // blur render target resolution
+        ); //add film effect
 
         filmPass = new THREE.FilmPass(0.35, // noise intensity
         0.025, // scanline intensity
         648, // scanline count
-        false); //-----
+        false // grayscale
+        ); //-----
 
         var renderPass = new THREE.RenderPass(scene, camera);
         var effectCopy = new THREE.ShaderPass(THREE.CopyShader);
@@ -41191,14 +41188,14 @@ var THREE_FILMIC_EFF = function (module, $, window, document) {
 
         /*
         @Usage: 
-             function CustomObj( scene ) {
-                 const elements = new THREE...;
+              function CustomObj( scene ) {
+                  const elements = new THREE...;
                 scene.add( elements );
-                 this.update = function( time ) {
+                  this.update = function( time ) {
                     elements.rotation.y = time*0.003;
                 }
             }       
-             sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
+              sceneSubjects.push( new CustomObj( MainStage.getScene() ) );  
         */
 
         for (var i = 0; i < sceneSubjects.length; i++) {
@@ -41213,8 +41210,8 @@ var THREE_FILMIC_EFF = function (module, $, window, document) {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
-      } // 
-      //-------------------------------------	
+      } //
+      //-------------------------------------
 
 
       return {
@@ -41230,7 +41227,7 @@ var THREE_FILMIC_EFF = function (module, $, window, document) {
           return camera;
         }
       };
-    }(); // 
+    }(); //
 
 
     MainStage.init();
@@ -41249,11 +41246,11 @@ var THREE_FILMIC_EFF = function (module, $, window, document) {
       }
 
       var textureLoader = new THREE.TextureLoader();
-      textureLoader.setCrossOrigin("anonymous");
+      textureLoader.setCrossOrigin('anonymous');
       var texture = textureLoader.load('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QAAAACAAIUyQ49AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3AUUFhoiw1VdsQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAIQUlEQVR42u1baW/bRhB9u6Qkx1fiOFGcNCiaAGn//+9pG7RxTie1Y8u2TnL65a0xmcxSlCxbaWECCx6iyZ03b86lgbvtblvbJiKFiBTrnENcMwY9jjsA1rWVt0z54ADgXUcIQf7zADiCBXPc5XEBQDjS394KIOUNCx4ygmsTLAjERP0m5vgKkFUDUd6g4J7wHhgdAJsAppnHBgWIrBqI8hYE935L50n7mwDOtQlYk7CArAqI8gaE985zIBQ0g66JSFp4aQBDRCRcB4RyBcI3CW1/j4YVyQd0uIcStHYAsEBcsWFZEMoVaz2q82iuefcnBkQDgHWCtQJFzDVcx0mWS2hbGrQdG469vyk5Otx7mq7Ne615ZE2ijXm0BiCEICISAewwZE0c4aMR3u5hmFGoURpN63AoCojaMRMLQjKrKYBqlSZQ86E/8fjQCB/nnFszKc0Qh/I6DNaO5i0IDwnoOZXUuBVLmEAFYAZgjy87NQIXmREppL52nxGgAnCRAS7nUL3tCYBdKmkQQqhW4gNMShsAXAL4BOA5gN8AnAD4qgCwgFgTCer9hdrDsKDm31RzANiiaW5ybscAZiv1AU64uwTwkSD0AewDeGNAKBwAogGgQ0Z1jNevlb0HBYLdHlPwgiw64vNCJndYrBw2sd6OCwAfeNwD8Mo4NX1cGq/fUd7fnuvhPS+B+5Rm2AUwBvCZ9L+ao1dpLtsP0NrXNjqkOSQbf+UIUToC2uNew72l4z+e0Q9FCn+khMccX9HOBDKZXlR5fDoeKnMoAPzKa5/VxK0/0FEAAO5RkET7Stm/nu8ugA0CJjTFL4r20SZTTZliuYT27SgUCMkxBjqlXQDvjD/QjjBpOdKOKxPzrd0/pvCiIscXJycJJodY3ASU9uEI7yU6BTX4SYXYLoCXGcp3lG13yICciZS09/u8Ho3N58Lm1dxzviAuoX00mEOkNo4UhTsEwXOG3YwPsOHxgMKnUDmk5msn05zXj1jYBOZVetEZFZnwSGVmv1Bjuhm6p9piJQUbq+ZI5DM2eE2Y4R2rHCEquudKcLluHuA5Qc8cbKw/UxlaQSZ0yJJN0joBcKr+5lz1CUoCWjPhOqNAUYFQm/lIG+GzADTU+cgA4bGgUGHyhM7xIbW+w98eK1qfkxXHBOhSsWHG66NMUhUUENYMGqNBuUQegBZABOMc0/FTAnAAYJspbFQM2KSg50ywjgnCiYrxMVN2t5nvtavB0KLVZUFJtr5LAZ8TgC2CkLYdOrrPzCkmFP6dET73Ti8MXhuANq2ueaGyR8H69AX7dGyb5v09ldMnk3iXabCEOUpp7QiXaYlFE7p0KOuaNHaDdt8n/fsUfov32DWClPwMyYhUcgvtf0Y2pDHh/VPVpJl6LbPWDGDXpzRZms7Be0xaNlQ48xKdgvf1lfb3SPtOprRNawTbBOpE9QmGStiZGuk8mcyI905U7wLcVyIyBVCFEOrvAKD37yoH1TONjKBA6ahrIdPP013fxJiiYcFEFMg6W4yZDrH2OR2z0FITgEqlzmMCeiEi4xCClM7620hExvTA1psX1PwWX7KpihI9mUq1sOpMA3NuJa5aXloYfa5NYszQeUkhx/xdd5LlOmEwTSY9+CJDfX28RSpu0/ntA3hAlolhQZpYpeL/B/Yd3/N9U4f69lhrvZVDW1Qj9lrttLHS+ZQaOac9J/ucZhY89P1nZNulub923ikt59sOANJEMr34JsFrQ9EpNXdCQc5UojNR2qp4fsoa4oT3DciYqaF/3QKI7+bv9QTKBbUvplWtX+wBEKl1ofDvlSndY36QzGBAoQ8Z/08ISGrD/5kRvjYsqhsWTpbKAyTj5a32gxE+OdBtVbunxuUp4/y+mkPS/t8sp9+QNR2+52cAb1XXyGOBFyVk1QDAYYP2+pXqCO3RjpMD+0JKf1QO8R7vHwD4i/cccQz4+0M++wmjzgf1rjb0X6jA8apCu5wVzWJHNA2PfQqfkqRUzXVZE+ySGem4w3WFQ5pKKomT3aeMMp1fEKx0PlOA6P3VgmquJ9gWANsDtAsgpdr3KXxKnqq0UKFA2uDosiTuUeA3KuWtTLzf4LOTsCMAr9W5BUCa4n/rkrGBBcFZ+jogrZPwEzqzmWmI6q7wAYU7V9SWjEYLApZq/wmAP5yMr5X2F02E7Eqt7sSkju22KlxGqiMUTQsrqvx8zGfMjDZrR7Njan2L7wtstf2+TARoBQCXxT0wdBTo0+mJalhOFTvqzNJY4H2lSmm9pbHKsOErtf+Ez3upQGhF/WUZAMMCGOEvGe5mzgKFtzgaTCqby/gqhxGnBOGAz31Bc/ASt+sBQBYEh1r79OIVhf/HEd42MG2zQufvsxYJlh4DvjctkL5gwqQz2tW0xBxTeEThh5zIRSZpqk273LKgcgCoTSUomQwwhcBD+oVn9Amv234rtFA1qEB4QIc3IuUnjn2L4zhhogmc5gZMCV037HUWOGAWecDU+e1NNEWhmhoD2uEM336+EhTt7fpcMGmzNYEK/kdSkinArNO7ZILUFZGdEMJgpQDQD4gSHEbj3hpChP9lWdpsLe/l8k2fyX1zPz+LGYpIEJGYWl8rY0AIYWwAsQ0Tb3U296EkTBpbod2HknNLXVXSr9YHZHyC193x2tPiZJ8jFjyV+hYg96msZLS+nk9lTYiUhuwxt7wGRo8txYKmiu67Bs3aP5bWk8iwwUuk9HZBFjQ1UFcu+EoBmAOEzCm6Zsqhenn8N9d+6H+YyACBzHK1jQQwqznS5H9+aABykzaZpD4Z2mv/i3+amgeIAmZ0m0KvDYCGbYK77W6729ax/Qsf5ETUur8sQgAAAABJRU5ErkJggg==');
       var starMaterial = new THREE.PointsMaterial({
         map: texture,
-        color: "#fff",
+        color: '#ffffff',
         size: 20,
         blending: THREE.AdditiveBlending,
         transparent: false
@@ -41316,7 +41313,7 @@ var THREE_SIMULATE_HTML_LAYOUT = function (module, $, window, document) {
     };
     var scrollTrigger = document.getElementById('app-3D-page-container');
     var maxHeight = (scrollTrigger.clientHeight || scrollTrigger.offsetHeight) - window.innerHeight; // THREE PARAMS
-    //-------------------------------------	
+    //-------------------------------------
 
     var camera = null,
         scene = null,
@@ -41350,7 +41347,7 @@ var THREE_SIMULATE_HTML_LAYOUT = function (module, $, window, document) {
       //Scene
 
       scene = new THREE.Scene(); //=================
-      //WebGL Renderer		
+      //WebGL Renderer
 
       renderer = new THREE.WebGLRenderer({
         alpha: true,
@@ -41434,7 +41431,7 @@ var THREE_SIMULATE_HTML_LAYOUT = function (module, $, window, document) {
 
     function SubStageRender() {
       requestAnimationFrame(SubStageRender); //To set a background color.
-      //renderer.setClearColor( 0x000000 );	
+      //renderer.setClearColor( 0x000000 );
 
       var delta = clock.getDelta(); //objects animation
 
@@ -41518,20 +41515,18 @@ var THREE_SIMULATE_HTML_LAYOUT = function (module, $, window, document) {
       scrollY = scrollTrigger.scrollTop;
       console.log(scrollTrigger.scrollTop);
     }
-
-    ;
     /*
     mobile example
     function onTouchStart (e) {
-    	var t = (e.targetTouches) ? e.targetTouches[0] : e;
-    	touchStartY = t.pageY;
+        var t = (e.targetTouches) ? e.targetTouches[0] : e;
+        touchStartY = t.pageY;
     };
-    	function onTouchMove (e) {
-    	var evt = _event;
-    	var t = (e.targetTouches) ? e.targetTouches[0] : e;
-    	evt.deltaY = (t.pageY - touchStartY) * 5;
-    	touchStartY = t.pageY;
-    	};*/
+      function onTouchMove (e) {
+        var evt = _event;
+        var t = (e.targetTouches) ? e.targetTouches[0] : e;
+        evt.deltaY = (t.pageY - touchStartY) * 5;
+        touchStartY = t.pageY;
+      };*/
     //=====================================================================================
     //=====================================================================================
     //===================================IMAGES LOADER====================================
@@ -41539,12 +41534,13 @@ var THREE_SIMULATE_HTML_LAYOUT = function (module, $, window, document) {
     //=====================================================================================
     //=====================================================================================
 
+
     var sources = []; //Push all images from page
 
     $('section').find('img').each(function () {
       sources.push({
-        "url": this.src,
-        "type": 'img'
+        'url': this.src,
+        'type': 'img'
       }); //
 
       dataBGSources.push({
@@ -41565,7 +41561,7 @@ var THREE_SIMULATE_HTML_LAYOUT = function (module, $, window, document) {
         if (sources[i].type == 'img') {
           ///////////
           // IMAGE //
-          ///////////   
+          ///////////
           promises.push(new Promise(function (resolve, reject) {
             var img = new Image();
             img.src = sources[i].url;
@@ -41670,7 +41666,7 @@ var TABLE = function (module, $, window, document) {
   module.TABLE.documentReady = function ($) {
     var windowWidth = window.innerWidth,
         windowHeight = window.innerHeight;
-    /* 
+    /*
      ---------------------------
      Duplicate title
      ---------------------------
@@ -41692,7 +41688,7 @@ var TABLE = function (module, $, window, document) {
         });
       });
     });
-    /* 
+    /*
      ---------------------------
      With scroll bars
      ---------------------------
@@ -41786,7 +41782,7 @@ var TABLE_SORTER = function (module, $, window, document) {
     $('.js-uix-table-sorter').each(function () {
       var $sortTable = $(this).find('table'); //add arrows
 
-      $sortTable.find("[data-sort-type]").each(function () {
+      $sortTable.find('[data-sort-type]').each(function () {
         if ($(this).find('.uix-table-sorter').length == 0) {
           $(this).wrapInner('<span class="uix-table-sorter" />');
         }
@@ -41851,7 +41847,7 @@ var TABLE_SORTER = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- Tabs -->
  *************************************
@@ -41938,7 +41934,7 @@ var TABS = function (module, $, window, document) {
               y = rotationRadius * Math.sin(angle) - liHeight / 2;
           el.css({
             'transform': 'translate(' + parseFloat(x) + 'px,' + parseFloat(pad / 2 + y) + 'px)',
-            'transition-delay': transitionDelay + "s"
+            'transition-delay': transitionDelay + 's'
           }).find('> a').css({
             'transform': 'rotate(' + parseFloat(-rotationWapperDeg) + 'deg)'
           });
@@ -42072,7 +42068,7 @@ var TEAM_FOCUS = function (module, $, window, document) {
       var total = 0;
       var hoverWidth = $this.data('hover-width'),
           targetWidth = $this.data('target-width'),
-          // Div over width as a percentage 
+          // Div over width as a percentage
       targetInfo = $this.data('target-info'),
           // Corresponding character details display
       closeBtn = $this.data('close-btn');
@@ -42236,7 +42232,7 @@ var TEAM_FOCUS = function (module, $, window, document) {
 
 
       if ($this.length > 1) return false;
-      $this.html($this.text().replace(/([^\x00-\x80]|\w|((?=[\x21-\x7e]+)[^A-Za-z0-9]))/g, "<span class='uix-letter'>$&</span>")); //--------------
+      $this.html($this.text().replace(/([^\x00-\x80]|\w|((?=[\x21-\x7e]+)[^A-Za-z0-9]))/g, '<span class=\'uix-letter\'>$&</span>')); //--------------
 
       if (customControls.indexOf('fadeInRight') >= 0) {
         txtEff = anime.timeline({
@@ -42246,7 +42242,7 @@ var TEAM_FOCUS = function (module, $, window, document) {
           translateX: [40, 0],
           translateZ: 0,
           opacity: [0, 1],
-          easing: "easeOutExpo",
+          easing: 'easeOutExpo',
           duration: speed,
           delay: function delay(el, i) {
             return 500 + 30 * i;
@@ -42278,7 +42274,7 @@ var TEAM_FOCUS = function (module, $, window, document) {
           translateX: [40, 0],
           translateZ: 0,
           opacity: [0, 1],
-          easing: "easeOutExpo",
+          easing: 'easeOutExpo',
           duration: speed,
           delay: function delay(el, i) {
             return 500 + 30 * i;
@@ -42293,7 +42289,7 @@ var TEAM_FOCUS = function (module, $, window, document) {
         }).add({
           targets: customControls + ' .uix-letter',
           opacity: [0, 1],
-          easing: "easeInOutQuad",
+          easing: 'easeInOutQuad',
           duration: speed,
           delay: function delay(el, i) {
             return 150 * (i + 1);
@@ -42307,7 +42303,7 @@ var TEAM_FOCUS = function (module, $, window, document) {
           loop: false
         }).add({
           targets: customControls + ' .uix-letter',
-          translateY: ["1.1em", 0],
+          translateY: ['1.1em', 0],
           translateZ: 0,
           duration: speed,
           delay: function delay(el, i) {
@@ -42374,7 +42370,7 @@ var TEAM_FOCUS = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- Text effect -->
  *************************************
@@ -42382,16 +42378,16 @@ var TEAM_FOCUS = function (module, $, window, document) {
 
 /**
  * module.TEXT_EFFECT
- * 
+ *
  * @requires ./examples/assets/js/min/anime.min.js
- * @example 
+ * @example
 
  //The data-text-eff attribute on the same page cannot be duplicated.
 
-<h3 data-text-eff="letters-eff-flyInOut1" data-text-eff-speed="800">Text Text</h3>
-<h3 data-text-eff="letters-eff-flyInOut2" data-text-eff-speed="800">Text Text</h3>
-<h3 data-text-eff="letters-eff-flyInOut3" data-text-eff-speed="800">Text Text</h3>
- 
+ <h3 data-text-eff="letters-eff-flyInOut1" data-text-eff-speed="800">Text Text</h3>
+ <h3 data-text-eff="letters-eff-flyInOut2" data-text-eff-speed="800">Text Text</h3>
+ <h3 data-text-eff="letters-eff-flyInOut3" data-text-eff-speed="800">Text Text</h3>
+
  */
 
 
@@ -42422,7 +42418,7 @@ var TEXT_EFFECT = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- Timeline -->
  *************************************
@@ -42437,9 +42433,9 @@ var TIMELINE = function (module, $, window, document) {
   module.TIMELINE.pageLoaded = function () {
     var windowWidth = window.innerWidth,
         windowHeight = window.innerHeight;
-    /*! 
+    /*!
      ---------------------------
-           Horizontal Timeline
+     Horizontal Timeline
      ---------------------------
      */
 
@@ -42511,7 +42507,7 @@ var TIMELINE = function (module, $, window, document) {
      * @param  {?Element} iscur              - The current item.
      * @param  {String} showEle              - Element ID or class name that push the current text.
      * @param  {Boolean} prev                - Whether to slide forward.
-           * @param  {String} dir                  - Timeline direction.
+     * @param  {String} dir                  - Timeline direction.
      * @return {Void}
      */
 
@@ -42581,7 +42577,7 @@ var TIMELINE = function (module, $, window, document) {
         obj.find('.uix-timeline__container > .uix-timeline').css({
           'margin-top': -parseFloat(moveHeight) + 'px'
         });
-      } //Push the current text to element 
+      } //Push the current text to element
 
 
       $(showEle).text(obj.find('.uix-timeline__item:eq(' + tarIndex + ')').find('.uix-timeline__item__date').text());
@@ -42599,7 +42595,7 @@ var TIMELINE = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- Vertical Menu -->
  *************************************
@@ -42758,7 +42754,7 @@ var VERTICAL_MENU = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
  * <!-- WordPress Core Scripts -->
  *************************************
@@ -42773,7 +42769,7 @@ var WP_CORE = function (module, $, window, document) {
   module.WP_CORE.version = '0.0.1';
 
   module.WP_CORE.documentReady = function ($) {
-    /* 
+    /*
      ---------------------------
      Pagination
      ---------------------------
@@ -42781,7 +42777,7 @@ var WP_CORE = function (module, $, window, document) {
     $('.uix-pagination__container li > span.current').each(function () {
       $(this).parent('li').addClass('is-active');
     });
-    /* 
+    /*
      ---------------------------
      Dropdown Categories
      ---------------------------
@@ -42791,7 +42787,7 @@ var WP_CORE = function (module, $, window, document) {
       var cvalue = $(this).val();
 
       if (cvalue) {
-        location.href = homeUrl + "/?cat=" + cvalue;
+        location.href = homeUrl + '/?cat=' + cvalue;
       }
 
       return false;

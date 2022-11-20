@@ -5,14 +5,10 @@
  * !!! Note 2: These RTL modules do not need JavaScript.
  *    
  */
-
 /******/
 /******/
 /* base */
 import '@uixkit/core/_global/scss-rtl/_style.scss';
-
-
-
 /******/
 /******/
 /* pages */

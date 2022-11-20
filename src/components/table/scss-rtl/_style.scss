@@ -2,15 +2,11 @@
    <!-- Table -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
-
-
 /*
  * 1. Generic
  * 2. Table Sorter
 */
-
 $table-border-color: #d6d5d5;
-
 /*
  ---------------------------
  1. Generic
@@ -18,166 +14,111 @@ $table-border-color: #d6d5d5;
  */
 table.uix-table,
 .uix-table table {
-
-	th,
-	td {
-		border-left: none;
-		border-right: 1px solid $table-border-color;
-
-
-	}
-
-	thead {
-
-		th {
-
-			&.uix-t-r {
-				text-align: left;
-			}
-
-			&.uix-t-l {
-				text-align: right;
-			}
-
-
-			/* The breakpoint is the same as bootstrap 5 */
-			/*
-			--breakpoint-xs:0;
-			--breakpoint-sm:576px;
-			--breakpoint-md:768px;
-			--breakpoint-lg:992px;
-			--breakpoint-xl:1200px;
-			--breakpoint-xxl:1400px;
-			*/
-			@media all and (max-width: 576px) {
-				&.uix-t-r--sm {
-					text-align: left;
-				}
-
-				&.uix-t-l--sm {
-					text-align: right;
-				}
-			}
-
-			@media all and (max-width: 768px) {
-				&.uix-t-r--md {
-					text-align: left;
-				}
-
-				&.uix-t-l--md {
-					text-align: right;
-				}
-			}
-
-			@media all and (max-width: 992px) {
-				&.uix-t-r--lg {
-					text-align: left;
-				}
-
-				&.uix-t-l--lg {
-					text-align: right;
-				}
-			}
-
-
-			@media all and (max-width: 1200px) {
-				&.uix-t-r--xl {
-					text-align: left;
-				}
-
-				&.uix-t-l--xl {
-					text-align: right;
-				}
-			}
-
-
-			@media all and (max-width: 1400px) {
-				&.uix-t-r--xxl {
-					text-align: left;
-				}
-
-				&.uix-t-l--xxl {
-					text-align: right;
-				}
-			}
-
-
-		}
-	}
-
-
-
-
+    th,
+    td {
+        border-right: 1px solid $table-border-color;
+        border-left: none;
+    }
+    thead {
+        th {
+            &.uix-t-r {
+                text-align: left;
+            }
+            &.uix-t-l {
+                text-align: right;
+            }
+            /* The breakpoint is the same as bootstrap 5 */
+            /*
+            --breakpoint-xs:0;
+            --breakpoint-sm:576px;
+            --breakpoint-md:768px;
+            --breakpoint-lg:992px;
+            --breakpoint-xl:1200px;
+            --breakpoint-xxl:1400px;
+            */
+            @media all and (max-width: 576px) {
+                &.uix-t-r--sm {
+                    text-align: left;
+                }
+                &.uix-t-l--sm {
+                    text-align: right;
+                }
+            }
+            @media all and (max-width: 768px) {
+                &.uix-t-r--md {
+                    text-align: left;
+                }
+                &.uix-t-l--md {
+                    text-align: right;
+                }
+            }
+            @media all and (max-width: 992px) {
+                &.uix-t-r--lg {
+                    text-align: left;
+                }
+                &.uix-t-l--lg {
+                    text-align: right;
+                }
+            }
+            @media all and (max-width: 1200px) {
+                &.uix-t-r--xl {
+                    text-align: left;
+                }
+                &.uix-t-l--xl {
+                    text-align: right;
+                }
+            }
+            @media all and (max-width: 1400px) {
+                &.uix-t-r--xxl {
+                    text-align: left;
+                }
+                &.uix-t-l--xxl {
+                    text-align: right;
+                }
+            }
+        }
+    }
 }
-
-
-
 @media all and (max-width: 768px) {
-
-	table.uix-table.is-responsive,
-	.uix-table.is-responsive table {
-
-		tbody {
-
-			td {
-
-				&::before {
-					float: right;
-					border-left: 1px solid $table-border-color;
-					margin-right: auto;
-					margin-left: 0.5rem;
-
-				}
-
-			}
-
-		}
-
-
-	}
-
-
-	/* With scroll bars */
-	.js-uix-table--responsive-scrolled table,
-	table.js-uix-table--responsive-scrolled {
-
-
-		thead {
-			float: right;
-
-
-		}
-		tbody {
-			float: right;
-			border-left: 1px solid $table-border-color;
-		}
-
-		th,
-		tbody td {
-
-			&:not(last-child) {
-				border-left: 0;
-			}
-
-		}
-
-
-	}
-
-
+    table.uix-table.is-responsive,
+    .uix-table.is-responsive table {
+        tbody {
+            td {
+                &::before {
+                    float: right;
+                    margin-right: auto;
+                    margin-left: 0.5rem;
+                    border-left: 1px solid $table-border-color;
+                }
+            }
+        }
+    }
+    /* With scroll bars */
+    .js-uix-table--responsive-scrolled table,
+    table.js-uix-table--responsive-scrolled {
+        thead {
+            float: right;
+        }
+        tbody {
+            float: right;
+            border-left: 1px solid $table-border-color;
+        }
+        th,
+        tbody td {
+            &:not(last-child) {
+                border-left: 0;
+            }
+        }
+    }
 }
-
 /*
  ---------------------------
  2. Table Sorter
  ---------------------------
  */
-
 .uix-table-sorter {
-
-	&::after {
-		margin-left: auto;
-		margin-right: .5rem;
-	}
-
+    &::after {
+        margin-right: .5rem;
+        margin-left: auto;
+    }
 }
