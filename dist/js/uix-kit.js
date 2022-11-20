@@ -2731,7 +2731,7 @@ var EventDispatcher = nonGlobals.events.EventDispatcher;
 /***/ 798:
 /***/ (() => {
 
-/* 
+/*
  *************************************
  * Count To
  *
@@ -3431,8 +3431,8 @@ var esm_typeof = __webpack_require__(2);
     18.回到顶部Back to Top
     19.圆形布局 Circle Layout
     20.Counter
-    21.Dropdown Menu
-    22.Dropdown Menu 2 (Multi-level drop-down navigation)
+    21.下拉菜单 Dropdown Menu
+    22.下拉菜单 2（多级下拉导航）Dropdown Menu 2 (Multi-level drop-down navigation)
     23.层叠的下拉列表 Cascading DropDown List
     24.Flexslider (Third-party plugin)
     25.Floating Side Element
@@ -10576,7 +10576,7 @@ var count_to = __webpack_require__(798);
 
 
 
-/* 
+/*
  *************************************
  * <!-- Counter -->
  *************************************
@@ -10616,7 +10616,7 @@ var COUNTER = function (module, $, window, document) {
       window.addEventListener('scroll', throttleFunc);
       window.addEventListener('touchmove', throttleFunc);
       throttleFunc();
-    }); //end each        
+    }); //end each
   };
 
   module.components.documentReady.push(module.COUNTER.documentReady);
@@ -10631,9 +10631,9 @@ var COUNTER = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
- * <!-- Dropdown Menu -->
+ * <!-- 下拉菜单 Dropdown Menu -->
  *************************************
  */
 
@@ -10703,9 +10703,9 @@ var DROPDOWN_MENU = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
- * <!-- Dropdown Menu 2 (Multi-level drop-down navigation) -->
+ * <!-- 下拉菜单 2（多级下拉导航）Dropdown Menu 2 (Multi-level drop-down navigation) -->
  *************************************
  */
 

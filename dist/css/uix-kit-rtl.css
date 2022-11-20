@@ -37,7 +37,7 @@
     15.按钮 Button
     16.卡片 Cards
     17.内容占位符动画 Content Placeholder Animated
-    18.Dropdown Menu
+    18.下拉菜单 Dropdown Menu
     19.Flexslider (Third-party plugin)
     20.Form
     21.Form ( Layout )-
@@ -1004,18 +1004,19 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
   margin-left: auto;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Dropdown Menu -->
+   <!-- 下拉菜单 Dropdown Menu -->
 /* ====================================================== */
-/* Do not use <a> tag */
+/* 不要使用 <a> 标签 */
 .uix-dropdown-menu > ul {
-  left: auto;
   right: 0;
+  left: auto;
 }
 
 .uix-dropdown-menu > ul::before {
-  left: auto;
   right: 20px;
+  left: auto;
 }
 
 /* ======================================================
