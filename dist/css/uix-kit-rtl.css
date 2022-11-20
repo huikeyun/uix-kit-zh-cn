@@ -13,7 +13,6 @@
  * ## 在 MIT 许可下发布。
  *
  */
-@charset "UTF-8";
 /**
 
 	TABLE OF CONTENTS
@@ -24,7 +23,7 @@
     2.Brand
     3.Bullet List
     4.Entry
-    5.页眉区
+    5.Header Area
     6.Helper Classes
     7.Basic Layout Styles
     8.Mobile Menu
@@ -91,10 +90,10 @@ td {
 
 .wp-block-quote,
 blockquote {
-  border-right-width: 5px !important;
-  border-right-color: #ce3a3e !important;
   border-left-width: 1px !important;
-  border-left-color: #f8f8f8 !important;
+  border-right-width: 5px !important;
+  border-left-color: #F8F8F8 !important;
+  border-right-color: #CE3A3E !important;
 }
 
 .wp-block-quote::before,
@@ -104,14 +103,14 @@ blockquote::before {
 }
 
 pre.uix-precode label {
-  right: -5px;
   left: auto;
+  right: -5px;
 }
 
 pre.uix-precode code {
   margin: 0 3rem 0 0;
-  border-right: 1px solid #d9d9d9;
   border-left: none;
+  border-right: 1px solid #d9d9d9;
 }
 
 /* ====================================================== 
@@ -131,7 +130,7 @@ pre.uix-precode code {
  * 4. Big Numbers Ordered List
  * 5. Step Timeline By Numbers
 */
-/*
+/* 
  ---------------------------
  1. Normal List Styling
  ---------------------------
@@ -140,36 +139,36 @@ ol.uix-list--normal,
 ul.uix-list--normal,
 .uix-list--normal ul,
 .uix-list--normal ol {
-  padding-right: 0.875rem;
   padding-left: auto;
+  padding-right: 0.875rem;
 }
 
-/*
+/* 
  ---------------------------
  2. Normal Numbers Ordered List
  ---------------------------
  */
 ol.uix-list--numbered,
 .uix-list--numbered ol {
-  margin-right: 1rem;
   margin-left: auto;
+  margin-right: 1rem;
 }
 
 ol.uix-list--numbered > li,
 .uix-list--numbered ol > li {
-  margin-right: .5rem;
   margin-left: auto;
+  margin-right: .5rem;
 }
 
 ol.uix-list--numbered > li::before,
 .uix-list--numbered ol > li::before {
-  right: -2.25em;
   left: auto;
+  right: -2.25em;
   margin-right: auto;
   margin-left: 0.5em;
 }
 
-/*
+/* 
  ---------------------------
  3. Custom Circle Icons Ordered List
  ---------------------------
@@ -178,43 +177,43 @@ ol.uix-list--circle,
 ul.uix-list--circle,
 .uix-list--circle ol,
 .uix-list--circle ul {
-  margin-right: 1rem;
   margin-left: auto;
+  margin-right: 1rem;
 }
 
 ol.uix-list--circle > li,
 ul.uix-list--circle > li,
 .uix-list--circle ol > li,
 .uix-list--circle ul > li {
-  margin-right: 1rem;
   margin-left: auto;
+  margin-right: 1rem;
 }
 
 ol.uix-list--circle > li::before,
 ul.uix-list--circle > li::before,
 .uix-list--circle ol > li::before,
 .uix-list--circle ul > li::before {
-  right: -1.5em;
   left: auto;
+  right: -1.5em;
 }
 
-/*
+/* 
  ---------------------------
  4. Big Numbers Ordered List
  ---------------------------
  */
 ol.uix-list--numbered-large li,
 .uix-list--numbered-large ol li {
-  margin-right: 1.2rem;
-  margin-left: auto;
-  padding-right: 2.5rem;
   padding-left: auto;
+  padding-right: 2.5rem;
+  margin-left: auto;
+  margin-right: 1.2rem;
 }
 
 ol.uix-list--numbered-large li::before,
 .uix-list--numbered-large ol li::before {
-  margin-right: -3.5rem;
   margin-left: auto;
+  margin-right: -3.5rem;
 }
 
 ol.uix-list--numbered-large.uix-list--numbered-bg li,
@@ -234,25 +233,25 @@ ol.uix-list--numbered-large.uix-list--numbered-bg li::before,
   margin-right: -4rem;
 }
 
-/*
+/* 
  ---------------------------
  5. Step Timeline By Numbers
  ---------------------------
  */
 .uix-list--numbered-step {
-  margin-right: 1rem;
   margin-left: auto;
+  margin-right: 1rem;
 }
 
 .uix-list--numbered-step li {
   padding: 0 3.75rem 1.5rem 0;
-  border-right: 2px solid #333333;
   border-left: none;
+  border-right: 2px solid #333;
 }
 
 .uix-list--numbered-step li::before {
-  right: -26px;
   left: auto;
+  right: -26px;
 }
 
 .uix-list--numbered-step li:last-child {
@@ -272,17 +271,17 @@ ol.uix-list--numbered-large.uix-list--numbered-bg li::before,
  * 4. Main Content
  * 5. Meta Info
 */
-/*
+/* 
  ---------------------------
  4. Main Content
  ---------------------------
  */
 .uix-entry__content pre:not(.uix-precode) {
-  border-right: 5px solid #ce3a3e;
   border-left: 1px solid #d9d9d9;
+  border-right: 5px solid #CE3A3E;
 }
 
-/*
+/* 
  ---------------------------
  5. Meta Info
  ---------------------------
@@ -293,11 +292,11 @@ ul.uix-entry__meta.uix-entry__meta--wrap li strong {
 }
 
 /* ====================================================== 
-   <!-- 页眉区 -->
+   <!-- Header Area -->                                          
 /* ====================================================== */
 .uix-header__container {
-  right: 0;
   left: auto;
+  right: 0;
 }
 
 /* ====================================================== 
@@ -309,7 +308,7 @@ ul.uix-entry__meta.uix-entry__meta--wrap li strong {
  * 12. Tip Bubble
  * 14. Position
 */
-/*
+/* 
  ---------------------------
  5. Element Floating
  ---------------------------
@@ -389,16 +388,16 @@ ul.uix-entry__meta.uix-entry__meta--wrap li strong {
   }
 }
 
-/*
+/* 
  ---------------------------
  12. Tip Bubble
  ---------------------------
  */
 .uix-bubble {
+  margin-left: auto;
+  margin-right: .5rem;
   right: auto;
   left: 2.3rem;
-  margin-right: .5rem;
-  margin-left: auto;
 }
 
 @media all and (max-width: 768px) {
@@ -408,46 +407,46 @@ ul.uix-entry__meta.uix-entry__meta--wrap li strong {
   }
 }
 
-/*
+/* 
  ---------------------------
  14. Position
  ---------------------------
  */
 /* Don't use `width: 100%` because it is wrong if the parent has padding. */
 .uix-dir--left {
-  right: 0 !important;
   left: auto !important;
+  right: 0 !important;
 }
 
 .uix-dir--right {
-  right: auto !important;
   left: 0 !important;
+  right: auto !important;
 }
 
 .uix-dir--top-left {
-  right: 0 !important;
   left: auto !important;
+  right: 0 !important;
 }
 
 .uix-dir--top-right {
-  right: auto !important;
   left: 0 !important;
+  right: auto !important;
 }
 
 .uix-dir--bottom-left {
-  right: 0 !important;
   left: auto !important;
+  right: 0 !important;
 }
 
 .uix-dir--bottom-right {
-  right: auto !important;
   left: 0 !important;
+  right: auto !important;
 }
 
 /* ====================================================== 
    <!-- Basic Layout Styles -->                                      
 /* ====================================================== */
-/*
+/* 
  ---------------------------
  4. Uix Grid
  ---------------------------
@@ -475,8 +474,8 @@ ul.uix-entry__meta.uix-entry__meta--wrap li strong {
 }
 
 .uix-menu-mobile__toggle span {
-  right: 12px;
   left: auto;
+  right: 12px;
 }
 
 body.js-uix-menu-opened .uix-menu-mobile__toggle span {
@@ -485,8 +484,8 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
 
 /* Mobile Menu Container */
 .uix-menu__container.is-mobile {
-  right: 0;
   left: auto;
+  right: 0;
   transform: translateX(300px);
 }
 
@@ -496,18 +495,18 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
 }
 
 .uix-menu__container.is-mobile ul li ul li a, .uix-menu__container.is-mobile ul li ul li span {
-  padding-right: 0;
   padding-left: auto;
+  padding-right: 0;
 }
 
 .uix-menu__container.is-mobile li:not(.multi-column) ul ul {
-  padding-right: .825em;
   padding-left: auto;
+  padding-right: .825em;
 }
 
 .uix-menu__container.is-mobile > .uix-menu__inner > .uix-menu__right-box {
-  padding-right: .5rem;
   padding-left: auto;
+  padding-right: .5rem;
 }
 
 .uix-menu__container.is-mobile > .uix-menu__inner > .uix-menu__right-box a {
@@ -529,31 +528,31 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
 /* ====================================================== */
 .uix-menu__container:not(.is-mobile) {
   float: left;
-  /*
-     ---------------------------
-     1. Primary Menu
-     ---------------------------
-     */
-  /*
-     ---------------------------
-     3. Mega/Dropdown Menu
-     ---------------------------
-     */
+  /* 
+	 ---------------------------
+	 1. Primary Menu
+	 ---------------------------
+	 */
+  /* 
+	 ---------------------------
+	 3. Mega/Dropdown Menu
+	 ---------------------------
+	 */
   /* Multi-column */
-  /*
-     ---------------------------
-     4. Dropdown Arrow
-     ---------------------------
-     */
+  /* 
+	 ---------------------------
+	 4. Dropdown Arrow
+	 ---------------------------
+	 */
 }
 
 .uix-menu__container:not(.is-mobile) ul.uix-menu {
   float: right;
-  /*
-         ---------------------------
-         2. Sub Menu (Using WordPress default class name )
-         ---------------------------
-         */
+  /* 
+		 ---------------------------
+		 2. Sub Menu (Using WordPress default class name )
+		 ---------------------------
+		 */
 }
 
 .uix-menu__container:not(.is-mobile) ul.uix-menu > li {
@@ -567,8 +566,8 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
 }
 
 .uix-menu__container:not(.is-mobile) ul.uix-menu > li:not(.multi-column) > ul ul {
-  margin-right: -0.071875rem;
   margin-left: auto;
+  margin-right: -0.071875rem;
 }
 
 .uix-menu__container:not(.is-mobile) ul.uix-menu > li:not(.multi-column) > ul ul ul {
@@ -576,30 +575,30 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
 }
 
 .uix-menu__container:not(.is-mobile) ul.uix-menu > li > ul::before {
-  right: 0;
   left: auto;
+  right: 0;
 }
 
 .uix-menu__container:not(.is-mobile) ul.uix-menu > li > ul::after {
-  right: 3.5rem;
   left: auto;
-  margin-right: -0.15625rem;
+  right: 3.5rem;
   margin-left: auto;
+  margin-right: -0.15625rem;
 }
 
 .uix-menu__container:not(.is-mobile) ul.uix-menu > li li {
-  padding-right: 0.875rem;
   padding-left: auto;
+  padding-right: 0.875rem;
 }
 
 .uix-menu__container:not(.is-mobile) ul.uix-menu > li ul li {
-  padding-right: 2.034375rem;
   padding-left: auto;
+  padding-right: 2.034375rem;
 }
 
 .uix-menu__container:not(.is-mobile) ul.uix-menu ul.sub-menu {
-  right: 0;
   left: auto;
+  right: 0;
 }
 
 .uix-menu__container:not(.is-mobile) ul.uix-menu > li:not(.multi-column) > ul {
@@ -607,18 +606,18 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
 }
 
 .uix-menu__container:not(.is-mobile) ul.uix-menu > li:not(.multi-column) > ul ul {
-  right: 100%;
   left: auto;
+  right: 100%;
 }
 
 .uix-menu__container:not(.is-mobile) li.multi-column span.multi-column-title {
-  padding-right: 1.159375rem;
   padding-left: auto;
+  padding-right: 1.159375rem;
 }
 
 .uix-menu__container:not(.is-mobile) li.multi-column > ul li {
-  padding-right: 1.159375rem !important;
   padding-left: auto !important;
+  padding-right: 1.159375rem !important;
 }
 
 .uix-menu__container:not(.is-mobile) li.multi-column > ul li .uix-bubble {
@@ -651,16 +650,16 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
  * 5. Dropdown
 */
 .uix-nav {
-  /*
-     ---------------------------
-     1. Base Nav
-     ---------------------------
-     */
-  /*
-     ---------------------------
-     5. Dropdown
-     ---------------------------
-     */
+  /* 
+	 ---------------------------
+	 1. Base Nav
+	 ---------------------------
+	 */
+  /* 
+	 ---------------------------
+	 5. Dropdown	
+	 ---------------------------
+	 */
 }
 
 .uix-nav.uix-t-r ul li {
@@ -672,8 +671,8 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
 }
 
 .uix-nav ul li ul {
-  right: 0;
   left: auto;
+  right: 0;
 }
 
 /* ====================================================== 
@@ -686,14 +685,14 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
  * 4. Tag cloud from sidebar            - Synchronize to WordPress's class name
  * 6. Post List with Featured Image
 */
-/*
+/* 
  ---------------------------
  1. Basic
  ---------------------------
  */
 .uix-sidebar__container {
-  padding-right: 2.1875rem;
   padding-left: auto;
+  padding-right: 2.1875rem;
 }
 
 @media all and (max-width: 768px) {
@@ -702,7 +701,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
   }
 }
 
-/*
+/* 
  ---------------------------
  2. Calendar Widget
  ---------------------------
@@ -711,7 +710,7 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
   text-align: left;
 }
 
-/*
+/* 
  ---------------------------
  3. Link List
  ---------------------------
@@ -719,8 +718,8 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
 .widget_categories ul,
 .widget_nav_menu ul,
 .widget_pages ul {
-  margin-right: 1.25rem;
   margin-left: auto;
+  margin-right: 1.25rem;
 }
 
 .widget_categories ul li a::before,
@@ -737,17 +736,17 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
   left: 0;
 }
 
-/*
+/* 
  ---------------------------
  4. Tag cloud from sidebar
  ---------------------------
  */
 .tagcloud > a::after {
-  margin-right: 0.546875rem;
   margin-left: auto;
+  margin-right: 0.546875rem;
 }
 
-/*
+/* 
  ---------------------------
  6. Post List with Featured Image
  ---------------------------
@@ -769,14 +768,14 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
 /*
  * 6. Vertical Text
 */
-/*
+/* 
  ---------------------------
  6. Vertical Text
  ---------------------------
  */
 .uix-typo--vertical:not(.uix-typo--vertical-characters-line) {
-  transform: translateX(-0.5rem);
   writing-mode: vertical-lr;
+  transform: translateX(-0.5rem);
 }
 
 @charset "UTF-8";
@@ -1671,7 +1670,7 @@ dl.uix-list-abreast dd {
   right: 0.25rem;
   left: auto;
   transform: rotate(-315deg);
-  border-right: 40px solid #ce3a3e;
+  border-right: 40px solid #CE3A3E;
   border-left: inherit;
 }
 
