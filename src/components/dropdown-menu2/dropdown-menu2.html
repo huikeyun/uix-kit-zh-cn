@@ -2,7 +2,7 @@
 <html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
     <meta charset="@@{website_charset}" />
-    <title>下拉菜单 2（多级） - @@{website_title}</title>
+    <title>下拉菜单 2（多级下拉导航）Dropdown Menu 2 (Multi-level drop-down navigation) - @@{website_title}</title>
     @@include('./src/components/_global/include-header.html')
 </head>
 <body class="page">
@@ -46,6 +46,30 @@
                 <!-- 行列 开始 -->
                 <div class="row">
                     <div class="col-12">
+                        <pre class="uix-precode uix-t-l"><label>HTML</label><code>&lt;ul class=&quot;uix-vertical-menu&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1 级&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1 级&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1 级&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2级&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2级&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2级&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3 级&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3 级&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3 级&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1 级&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2级&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2级&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1 级&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
                         <ul class="uix-vertical-menu">
                             <li><a href="#">1 级</a></li>
                             <li><a href="#">1 级</a></li>
