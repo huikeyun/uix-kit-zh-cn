@@ -1,273 +1,189 @@
 <!DOCTYPE html>
 <html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-	<meta charset="@@{website_charset}" />
-	<title>Form Layout - @@{website_title}</title>	
-	@@include('./src/components/_global/include-header.html')
-</head>  
-
-     
-  <body class="page">
-  
-  
-          
-    @@include('./src/components/_global/include-loader.html')
-    @@include('./src/components/_global/include-toggle-trigger.html')
-    
-    
-
-  
-  
-    <div class="uix-wrapper">
-    
-        <!-- Header Area
-        ============================================= -->      
-        <header class="uix-header__container">
-            
-             <div class="uix-header">
-                 <div class="container">
-                 
-                        @@include('./src/components/_global/include-brand.html')
-                        
-                        @@include('./src/components/_global/include-menu.html')
-                        
-                        
-                        
-                        
-                  </div>
-                  <!-- .container end -->
-                  
-                  <div class="uix-clearfix"></div>
-             </div>
-        
-        </header>
-        <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-      
-     
-		<main id="uix-maincontent">
-			
-			<!-- Content 
-			====================================================== -->
-			<section class="uix-spacing--s uix-spacing--no-bottom">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<h3>Form Layout</h3>
-							<hr>
-							
-							
-						</div>
-					</div>
-					<!-- .row end -->
-
-				</div>
-				<!-- .container end -->
-
-			</section>
-			
-			
-
-
-		   <!-- Content 
-			====================================================== -->
-			<section class="uix-spacing--s">
-				<div class="container">
-
-
-						<div class="row">
-							<div class="col-12">
-
-
-
-									 <form method="post" action="#" id="app-my-form">
-
-
-                                        <div class="uix-controls-layout">
-                                            <div class="uix-controls-layout__content">
-                                                <div class="uix-controls-layout__content__inner">
-                                                    <div>
-                                                        <!-- // -->
-                                                        <h3 class="uix-typo--color-sub uix-typo--h6 uix-spacing--no uix-typo--style-uppercase">Left Title</h3>
-                                                        <!-- // -->
-                                                    </div>
-                                                    <div>
-                                                        <!-- // -->
-                                                        <div class="uix-controls is-fullwidth is-rounded">
-                                                          <input type="text" class="js-uix-float-label" name="field-name">
-                                                          <label>Field Name</label>
-                                                        </div>                      
-                                                        <!-- // -->
-                                                    </div>
-                                                </div>
+    <meta charset="@@{website_charset}" />
+    <title>表单布局 - @@{website_title}</title>
+    @@include('./src/components/_global/include-header.html')
+</head>
+<body class="page">
+@@include('./src/components/_global/include-loader.html')
+@@include('./src/components/_global/include-toggle-trigger.html')
+<div class="uix-wrapper">
+    <!-- 页眉区 -->
+    <header class="uix-header__container">
+        <div class="uix-header">
+            <!-- 容器 开始 -->
+            <div class="container">
+                @@include('./src/components/_global/include-brand.html')
+                @@include('./src/components/_global/include-menu.html')
+            </div>
+            <!-- 容器 结束 -->
+            <div class="uix-clearfix"></div>
+        </div>
+    </header>
+    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+    <main id="uix-maincontent">
+        <!-- 内容 开始 -->
+        <section class="uix-spacing--s uix-spacing--no-bottom">
+            <!-- 容器 开始 -->
+            <div class="container">
+                <!-- 行列 开始 -->
+                <div class="row">
+                    <div class="col-12">
+                        <h3>表单布局</h3>
+                    </div>
+                </div>
+                <!-- 行列 结束 -->
+            </div>
+            <!-- 容器 结束 -->
+        </section>
+        <!-- 内容 结束 -->
+        <section class="uix-spacing--s">
+            <!-- 容器 开始 -->
+            <div class="container">
+                <!-- 行列 开始 -->
+                <div class="row">
+                    <div class="col-12">
+                        <form method="post" action="#" id="app-my-form">
+                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls-layout&quot;&gt;
+    &lt;div class=&quot;uix-controls-layout__content&quot;&gt;
+        &lt;div class=&quot;uix-controls-layout__content__inner&quot;&gt;
+            &lt;div&gt;
+                &lt;!-- // --&gt;
+                &lt;h3 class=&quot;uix-typo--color-sub uix-typo--h6 uix-spacing--no uix-typo--style-uppercase&quot;&gt;左标题&lt;/h3&gt;
+                &lt;!-- // --&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;!-- // --&gt;
+                &lt;div class=&quot;uix-controls is-fullwidth is-rounded&quot;&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;field-name&quot;&gt;
+                    &lt;label&gt;字段名称&lt;/label&gt;
+                &lt;/div&gt;
+                &lt;!-- // --&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;uix-controls-layout__icon&quot;&gt;
+        &lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+                            <div class="uix-controls-layout">
+                                <div class="uix-controls-layout__content">
+                                    <div class="uix-controls-layout__content__inner">
+                                        <div>
+                                            <!-- // -->
+                                            <h3 class="uix-typo--color-sub uix-typo--h6 uix-spacing--no uix-typo--style-uppercase">左标题</h3>
+                                            <!-- // -->
+                                        </div>
+                                        <div>
+                                            <!-- // -->
+                                            <div class="uix-controls is-fullwidth is-rounded">
+                                                <input type="text" class="js-uix-float-label" name="field-name">
+                                                <label>字段名称</label>
                                             </div>
-                                            <div class="uix-controls-layout__icon">
-                                                <i class="fa fa-angle-right"></i>
+                                            <!-- // -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uix-controls-layout__icon">
+                                    <i class="fa fa-angle-right"></i>
+                                </div>
+                            </div>
+                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls-layout&quot;&gt;
+    &lt;div class=&quot;uix-controls-layout__content&quot;&gt;
+        &lt;div class=&quot;uix-controls-layout__content__inner&quot;&gt;
+            &lt;div class=&quot;uix-t-r&quot;&gt;
+                &lt;!-- // --&gt;
+                &lt;h3 class=&quot;uix-typo--color-sub uix-typo--h6 uix-spacing--no uix-typo--style-uppercase&quot;&gt;右标题&lt;/h3&gt;
+                &lt;!-- // --&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;!-- // --&gt;
+                &lt;div class=&quot;uix-controls is-fullwidth is-rounded&quot;&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;field-name&quot;&gt;
+                    &lt;label&gt;字段名称&lt;/label&gt;
+                &lt;/div&gt;
+                &lt;!-- // --&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;uix-controls-layout__icon&quot;&gt;
+        &lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+                            <div class="uix-controls-layout">
+                                <div class="uix-controls-layout__content">
+                                    <div class="uix-controls-layout__content__inner">
+                                        <div class="uix-t-r">
+                                            <!-- // -->
+                                            <h3 class="uix-typo--color-sub uix-typo--h6 uix-spacing--no uix-typo--style-uppercase">右标题</h3>
+                                            <!-- // -->
+                                        </div>
+                                        <div>
+                                            <!-- // -->
+                                            <div class="uix-controls is-fullwidth is-rounded">
+                                                <input type="text" class="js-uix-float-label" name="field-name">
+                                                <label>字段名称</label>
                                             </div>
-                                        </div>     
-                                         
-                                         
-                                         <div class="uix-controls-layout">
-                                            <div class="uix-controls-layout__content">
-                                                <div class="uix-controls-layout__content__inner">
-                                                    <div>
-                                                        <!-- // -->
-                                                        <h3 class="uix-typo--color-sub uix-typo--h6 uix-spacing--no uix-typo--style-uppercase">Left Title</h3>
-                                                        <!-- // -->
-                                                    </div>
-                                                    <div>
-                                                        <!-- // -->
-                                                        <div class="uix-controls is-fullwidth is-rounded">
-                                                          <input type="text" class="js-uix-float-label" name="field-name">
-                                                          <label>Field Name</label>
-                                                        </div>                      
-                                                        <!-- // -->
-                                                    </div>
-                                                </div>
+                                            <!-- // -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uix-controls-layout__icon">
+                                    <i class="fa fa-angle-right"></i>
+                                </div>
+                            </div>
+                            <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-controls-layout&quot;&gt;
+    &lt;div class=&quot;uix-controls-layout__content&quot;&gt;
+        &lt;div class=&quot;uix-controls-layout__content__inner&quot;&gt;
+            &lt;div&gt;
+                &lt;!-- // --&gt;
+                &lt;h3 class=&quot;uix-typo--color-sub uix-typo--h6 uix-spacing--no uix-typo--style-uppercase&quot;&gt;没有图标&lt;/h3&gt;
+                &lt;!-- // --&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;!-- // --&gt;
+                &lt;div class=&quot;uix-controls is-fullwidth is-rounded&quot;&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;js-uix-float-label&quot; name=&quot;field-name&quot;&gt;
+                    &lt;label&gt;字段名称&lt;/label&gt;
+                &lt;/div&gt;
+                &lt;!-- // --&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+                            <div class="uix-controls-layout">
+                                <div class="uix-controls-layout__content">
+                                    <div class="uix-controls-layout__content__inner">
+                                        <div>
+                                            <!-- // -->
+                                            <h3 class="uix-typo--color-sub uix-typo--h6 uix-spacing--no uix-typo--style-uppercase">没有图标</h3>
+                                            <!-- // -->
+                                        </div>
+                                        <div>
+                                            <!-- // -->
+                                            <div class="uix-controls is-fullwidth is-rounded">
+                                                <input type="text" class="js-uix-float-label" name="field-name">
+                                                <label>字段名称</label>
                                             </div>
-                                            <div class="uix-controls-layout__icon">
-                                                <i class="fa fa-angle-right"></i>
-                                            </div>
-                                        </div>     
-                                         
-                                        <div class="uix-controls-layout">
-                                            <div class="uix-controls-layout__content">
-                                                <div class="uix-controls-layout__content__inner">
-                                                    <div class="uix-t-r">
-                                                        <!-- // -->
-                                                        <h3 class="uix-typo--color-sub uix-typo--h6 uix-spacing--no uix-typo--style-uppercase">Right Title</h3>
-                                                        <!-- // -->
-                                                    </div>
-                                                    <div>
-                                                        <!-- // -->
-                                                        <div class="uix-controls is-fullwidth is-rounded">
-                                                          <input type="text" class="js-uix-float-label" name="field-name">
-                                                          <label>Field Name</label>
-                                                        </div>                      
-                                                        <!-- // -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uix-controls-layout__icon">
-                                                <i class="fa fa-angle-right"></i>
-                                            </div>
-                                        </div>     
-                                         
-                                         
-                                        <div class="uix-controls-layout">
-                                            <div class="uix-controls-layout__content">
-                                                <div class="uix-controls-layout__content__inner">
-                                                    <div class="uix-t-r">
-                                                        <!-- // -->
-                                                        <h3 class="uix-typo--color-sub uix-typo--h6 uix-spacing--no uix-typo--style-uppercase">Right Title</h3>
-                                                        <!-- // -->
-                                                    </div>
-                                                    <div>
-                                                        <!-- // -->
-                                                        <div class="uix-controls is-fullwidth is-rounded">
-                                                          <input type="text" class="js-uix-float-label" name="field-name">
-                                                          <label>Field Name</label>
-                                                        </div>                      
-                                                        <!-- // -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uix-controls-layout__icon">
-                                                <i class="fa fa-angle-right"></i>
-                                            </div>
-                                        </div>     
-                                                                           
-                                         
-                                        <div class="uix-controls-layout">
-                                            <div class="uix-controls-layout__content">
-                                                <div class="uix-controls-layout__content__inner">
-                                                    <div>
-                                                        <!-- // -->
-                                                        <h3 class="uix-typo--color-sub uix-typo--h6 uix-spacing--no uix-typo--style-uppercase">No Icon</h3>
-                                                        <!-- // -->
-                                                    </div>
-                                                    <div>
-                                                        <!-- // -->
-                                                        <div class="uix-controls is-fullwidth is-rounded">
-                                                          <input type="text" class="js-uix-float-label" name="field-name">
-                                                          <label>Field Name</label>
-                                                        </div>                      
-                                                        <!-- // -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>     
-                                         
-                                         
-                                         <div class="uix-controls-layout">
-                                            <div class="uix-controls-layout__content">
-                                                <div class="uix-controls-layout__content__inner">
-                                                    <div>
-                                                        <!-- // -->
-                                                        <h3 class="uix-typo--color-sub uix-typo--h6 uix-spacing--no uix-typo--style-uppercase">No Icon</h3>
-                                                        <!-- // -->
-                                                    </div>
-                                                    <div>
-                                                        <!-- // -->
-                                                        <div class="uix-controls is-fullwidth is-rounded">
-                                                          <input type="text" class="js-uix-float-label" name="field-name">
-                                                          <label>Field Name</label>
-                                                        </div>                      
-                                                        <!-- // -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>          
-                                         
-                                         
-                                         <div class="uix-controls-layout">
-                                            <div class="uix-controls-layout__content">
-                                                <div class="uix-controls-layout__content__inner">
-                                                    <div>
-                                                        <!-- // -->
-                                                       
-                                                        <!-- // -->
-                                                    </div>
-                                                    <div>
-                                                        <!-- // -->
-                                                        <button type="submit" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--primary">Submit Your Info</button>   
-                                                        <!-- // -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>          
-                                                                 
-							
-
-									</form>
-
-
-							</div>     
-
-
-						</div>
-						<!-- .row end -->  
-
-
-				</div>
-				<!-- .container end -->
-
-
-
-			</section>
-			
-		</main>
-		
-		
-			
-        
-
-        
-        @@include('./src/components/_global/include-copyright.html')
-        
-        
-    </div>
-    <!-- .uix-wrapper end -->
-       
-       
-    @@include('./src/components/_global/include-footer.html')
+                                            <!-- // -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- 行列 结束 -->
+            </div>
+            <!-- 容器 结束 -->
+        </section>
+    </main>
+    @@include('./src/components/_global/include-copyright.html')
+</div>
+<!-- uix-wrapper end -->
+@@include('./src/components/_global/include-footer.html')
 
