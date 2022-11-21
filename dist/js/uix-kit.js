@@ -3430,7 +3430,7 @@ var esm_typeof = __webpack_require__(2);
     17.异步加载页面加载器（通过 Ajax 将页面加载到 Div 中）Ajax Page Loader (Loading A Page via Ajax Into Div)
     18.回到顶部Back to Top
     19.圆形布局 Circle Layout
-    20.Counter
+    20.计数器 Counter
     21.下拉菜单 Dropdown Menu
     22.下拉菜单 2（多级下拉导航）Dropdown Menu 2 (Multi-level drop-down navigation)
     23.层叠的下拉列表 Cascading DropDown List
@@ -10578,7 +10578,7 @@ var count_to = __webpack_require__(798);
 
 /*
  *************************************
- * <!-- Counter -->
+ * <!-- 计数器 Counter -->
  *************************************
  */
 
