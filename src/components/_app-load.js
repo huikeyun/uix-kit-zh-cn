@@ -1,18 +1,16 @@
 /*
- * Common website functions, Can be called separately in HTML pages or custom JavaScript.
- *    
- */
+  * 常用网站功能，可在HTML页面或自定义JavaScript中单独调用。
+  */
 import UixModuleFilter from '@uixkit/core/_global/js/fn/UixModuleFilter';
 import UixApplyAsyncScripts from '@uixkit/core/_global/js/fn/UixApplyAsyncScripts';
 import UixApplyAsyncAllScripts from '@uixkit/core/_global/js/fn/UixApplyAsyncAllScripts';
 /*
- * Import modules from components
- *    
+ * 从组件导入模块
  */
 /******/
 /******/
-/* base */
-/* Note: The CSS style file has been included by JavaScript files */
+/* 基础 */
+/* 注意：CSS 样式文件已经被 JavaScript 文件包含 */
 import BODY_AND_HEADER from '@uixkit/core/_global/js/modules/body-and-header';
 import COMMON_HEIGHT from '@uixkit/core/_global/js/modules/common-height';
 import GET_CUSTOM_ATTRS from '@uixkit/core/_global/js/modules/custom-data-attrs';
@@ -24,8 +22,8 @@ import SET_BG from '@uixkit/core/_global/js/modules/set-background';
 import VIDEOS from '@uixkit/core/_global/js/modules/videos';
 /******/
 /******/
-/* pages */
-/* Note: The CSS style file has been included by JavaScript files */
+/* 页面 */
+/* 注意：CSS 样式文件已经被 JavaScript 文件包含 */
 import MAIN from '@uixkit/core/_main/js';
 import ACCORDION_BG from '@uixkit/core/accordion-img/js';
 import ACCORDION from '@uixkit/core/accordion/js';
@@ -106,8 +104,8 @@ import VERTICAL_MENU from '@uixkit/core/vertical-menu/js';
 import WP_CORE from '@uixkit/core/wordpress/js';
 /******/
 /******/
-/* pages */
-/* Note: These modules do not contain JavaScript */
+/* 页面 */
+/* 注意：这些模块不包含 JavaScript */
 import '@uixkit/core/badges/scss/_style.scss';
 import '@uixkit/core/blended-grid-layout/scss/_style.scss';
 import '@uixkit/core/breadcrumbs/scss/_style.scss';

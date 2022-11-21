@@ -1,1 +1,1 @@
-{"version":3,"file":"uix-kit-rtl.js","mappings":";;;;;;;;;;;;;;;;;;AAAA;AACA;AACA;AACA;AACA","sources":["webpack:///./src/index-rtl.js"],"sourcesContent":["/*\n * Import RTL modules from components of ES6\n * \n *        \n */\nimport '@uixkit/core/_app-load-rtl';"],"names":[],"sourceRoot":""}
+{"version":3,"file":"uix-kit-rtl.js","mappings":";;;;;;;;;;;;;;;;;;AAAA;AACA;AACA","sources":["webpack:///./src/index-rtl.js"],"sourcesContent":["/*\n * 从 ES6 组件导入 RTL 模块\n */\nimport '@uixkit/core/_app-load-rtl';"],"names":[],"sourceRoot":""}
