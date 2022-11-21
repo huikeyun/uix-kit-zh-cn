@@ -2,7 +2,7 @@
 <html lang="zh-cn" dir="ltr">
 <head>
     <meta charset="utf-8" />
-    <title>下拉菜单 - Uix Kit 中文</title>
+    <title>下拉菜单 Dropdown Menu - Uix Kit 中文</title>
     <!-- Compatibility Settings
 ============================================= -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -21,9 +21,9 @@
 <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css?ver=5.7.0">
 <link rel="stylesheet" href="assets/fonts/fontawesome/css/v4-shims.min.css?ver=5.7.0">
 <!-- Theme  -->
-<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=JktivFYmAdFt2Ecej2hE" />
+<link rel="stylesheet" href="../dist/css/uix-kit.min.css?ver=Q7lPmWHIs7IyQUS8lnww" />
 <!--[if lt IE 10]>
-<link rel="stylesheet" href="assets/css/IE.css?ver=JktivFYmAdFt2Ecej2hE" />
+<link rel="stylesheet" href="assets/css/IE.css?ver=Q7lPmWHIs7IyQUS8lnww" />
 <![endif]-->
 <!-- Core & Theme CSS  end -->
 <!-- Vendor
@@ -370,6 +370,16 @@
                 <!-- 行列 开始 -->
                 <div class="row">
                     <div class="col-12">
+                        <pre class="uix-precode uix-t-l"><label>HTML</label><code>&lt;details class=&quot;uix-details-reset uix-dropdown-menu&quot;&gt;
+    &lt;summary&gt;&lt;i class=&quot;fa fa-cog&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; &lt;span&gt;单击我&lt;/span&gt;&lt;/summary&gt;
+    &lt;input type=&quot;hidden&quot; value=&quot;男孩&quot;&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a data-value=&quot;男孩&quot; data-display-text=&quot;男孩(选中)&quot; href=&quot;#1&quot;&gt;男孩&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a data-value=&quot;女孩&quot; data-display-text=&quot;女孩(选中)&quot; href=&quot;#2&quot;&gt;女孩&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a data-value=&quot;&quot; data-display-text=&quot;&quot; href=&quot;#3&quot; 不改变文字&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/details&gt;</code></pre>
+                        <!-- uix-dropdown-menu 开始 -->
                         <details class="uix-details-reset uix-dropdown-menu">
                             <summary><i class="fa fa-cog" aria-hidden="true"></i> <span>单击我</span></summary>
                             <input type="hidden" value="男孩">
@@ -378,7 +388,8 @@
                                 <li><a data-value="女孩" data-display-text="女孩(选中)" href="#2">女孩</a></li>
                                 <li><a data-value="" data-display-text="" href="#3" 不改变文字</a></li>
                             </ul>
-                        </details><!-- uix-dropdown-menu -->
+                        </details>
+                        <!-- uix-dropdown-menu 结束 -->
                     </div>
                 </div>
                 <!-- 行列 结束 -->
@@ -454,7 +465,7 @@
      */
     window.$ = window.jQuery;
 </script>
-<script defer src="../dist/js/uix-kit.min.js?ver=JktivFYmAdFt2Ecej2hE"></script>
+<script defer src="../dist/js/uix-kit.min.js?ver=Q7lPmWHIs7IyQUS8lnww"></script>
 <!-- 你的插件和主题脚本 结束 -->
 </body>
 </html>
