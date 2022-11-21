@@ -1,607 +1,383 @@
 /* ======================================================
-    <!-- Form -->
+    <!-- 表格 Form -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
 @import '_variable-and-mixin.scss';
-
-
 /*
- * 1. Controls
- * 2. Upload
- * 3. Group
- * 4. Custom Select
- * 5. Custom Radio, Toggle And Checkbox
- * 6. Custom Input Number
- * 7. Multiple Selector
- * 8. Single Selector
- * 9. Search of Widget
+ * 1. 控件
+ * 2. 上传
+ * 3. 组
+ * 4. 自定义选择
+ * 5. 自定义单选、切换和复选框
+ * 6. 自定义输入数字
+ * 7. 多重选择器
+ * 8. 单一选择器
+ * 9. 搜索小工具
 */
-
 $control-sub-color: #dce4e8;
-
-@mixin select-arrow-rtl( $top, $left ){
-	border-left: 0;
-	right: auto;
-	left: $left;
+@mixin select-arrow-rtl( $top, $left ) {
+    border-left: 0;
+    right: auto;
+    left: $left;
 }
-
-
-
 /*
  ---------------------------
- 1. Controls
+ 1. 控件
  ---------------------------
  */
-
-/* Default Controls */
+/* 默认控件 */
 .uix-controls:not(.uix-controls__toggle):not(.uix-controls__checkbox):not(.uix-controls__radio):not(.uix-controls__select) {
-
-	text-align: right;
-
-
-	&.uix-controls__side {
-		margin-left: auto;
-		margin-right: .2rem;
-	}
-
-
-	&.uix-controls__short-s {
-
-		input:not([type="checkbox"]):not([type="radio"]) {
-			margin-right: auto;
-			margin-left: .5rem;
-		}
-
-
-	}
-
-	&.uix-controls__short-m {
-
-		input:not([type="checkbox"]):not([type="radio"]) {
-			margin-right: auto;
-			margin-left: .5rem;
-		}
-	}
-
-
-	&.uix-controls__short-l {
-		input:not([type="checkbox"]):not([type="radio"]) {
-			margin-right: auto;
-			margin-left: .5rem;
-		}
-
-	}
-
-
-	label {
-		left: auto;
-		right: 0.875rem;
+    text-align: right;
+    &.uix-controls__side {
+        margin-right: .2rem;
+        margin-left: auto;
+    }
+    &.uix-controls__short-s {
+        input:not([type="checkbox"]):not([type="radio"]) {
+            margin-right: auto;
+            margin-left: .5rem;
+        }
+    }
+    &.uix-controls__short-m {
+        input:not([type="checkbox"]):not([type="radio"]) {
+            margin-right: auto;
+            margin-left: .5rem;
+        }
+    }
+    &.uix-controls__short-l {
+        input:not([type="checkbox"]):not([type="radio"]) {
+            margin-right: auto;
+            margin-left: .5rem;
+        }
+    }
+    label {
+        right: 0.875rem;
+        left: auto;
         transform-origin: right top;
-
-	}
-
-
-
-	/*-- Select Arrow --*/
-	.uix-controls__arrow {
-		right: auto;
-		left: 0.875rem;
-	}
-
-	/*-- Radio --*/
-	&.uix-controls__normal-radio {
-
-		label {
-			padding-left: auto !important;
-			padding-right: 1.25rem !important;
-			right: auto !important;
-		}
-
-	}
-
-	/*-- Select --*/
-	&.uix-controls__normal-select {
-
-		margin-right: auto;
-		margin-left: 1.65rem;
-
-
-
-		.uix-controls__arrow {
-			left: -1rem;
-		}
-
-	}
-
-
-
-
-    /*-- Form With Icon --*/
-	&.is-iconic {
-		label {
-		    left: auto;
-			right: #{$control-padding-side + $control-icon-placeholder};
-		}
-
-		i {
-			left: auto;
-			right: 1rem;
-
-			&::after {
-				left: auto;
-				right: 1.2rem;
-			}
-
-		}
-
-		input:not([type="checkbox"]):not([type="radio"]) {
-			padding-left: auto;
-			padding-right: #{$control-padding-side + $control-icon-placeholder};
-
-
-		}
-
-		textarea,
-		button:not(.uix-btn),
-		select {
-			padding-left: auto;
-			padding-right: #{$control-padding-side + $control-icon-placeholder};
-		}
-
-
-
-		&.is-reversed {
-
-			label {
-				left: auto;
-				right: $control-padding-side;
-
-			}
-
-			i {
-				left: 1rem;
-				right: auto;
-
-				&::after {
-					left: 1.2rem;
-					right: auto;
-				}
-
-			}
-
-
-			input:not([type="checkbox"]):not([type="radio"]) {
-				padding-right: $control-padding-side;
+    }
+   /*-- 选择箭头 --*/
+    .uix-controls__arrow {
+        right: auto;
+        left: 0.875rem;
+    }
+    /*-- Radio --*/
+    &.uix-controls__normal-radio {
+        label {
+            right: auto !important;
+            padding-right: 1.25rem !important;
+            padding-left: auto !important;
+        }
+    }
+    /*-- 选择 --*/
+    &.uix-controls__normal-select {
+        margin-right: auto;
+        margin-left: 1.65rem;
+        .uix-controls__arrow {
+            left: -1rem;
+        }
+    }
+    /*-- 带图标的表单 --*/
+    &.is-iconic {
+        label {
+            right: #{$control-padding-side + $control-icon-placeholder};
+            left: auto;
+        }
+        i {
+            right: 1rem;
+            left: auto;
+            &::after {
+                right: 1.2rem;
+                left: auto;
+            }
+        }
+        input:not([type="checkbox"]):not([type="radio"]) {
+            padding-right: #{$control-padding-side + $control-icon-placeholder};
+            padding-left: auto;
+        }
+        textarea,
+        button:not(.uix-btn),
+        select {
+            padding-right: #{$control-padding-side + $control-icon-placeholder};
+            padding-left: auto;
+        }
+        &.is-reversed {
+            label {
+                right: $control-padding-side;
+                left: auto;
+            }
+            i {
+                right: auto;
+                left: 1rem;
+                &::after {
+                    right: auto;
+                    left: 1.2rem;
+                }
+            }
+            input:not([type="checkbox"]):not([type="radio"]) {
+                padding-right: $control-padding-side;
                 padding-left: #{$control-padding-side + $control-icon-placeholder};
-
-			}
-
-			textarea,
-			button:not(.uix-btn),
-			select {
-				padding-right: $control-padding-side;
+            }
+            textarea,
+            button:not(.uix-btn),
+            select {
+                padding-right: $control-padding-side;
                 padding-left: #{$control-padding-side + $control-icon-placeholder};
-			}
-
-		}
-
-
-
-	}
-
-
-
-	/*-- WordPress Style --*/
-	.req-icon {
-		right: auto;
-		left: 0.721875rem;
-	}
-
-
-
+            }
+        }
+    }
+    /*-- WordPress 风格 --*/
+    .req-icon {
+        right: auto;
+        left: 0.721875rem;
+    }
 }
-
-
-
-
 /*
  ---------------------------
- 2. Upload
+ 2. 上传
  ---------------------------
  */
-
 .uix-controls__file-container {
-
-	.uix-controls__file-trigger {
-
-		i {
-			margin-right: auto;
-			margin-left: .5rem;
-		}
-	}
-
-
-	input[type="file"] {
-		left: auto;
-		right: 0;
-	}
-
-
+    .uix-controls__file-trigger {
+        i {
+            margin-right: auto;
+            margin-left: .5rem;
+        }
+    }
+    input[type="file"] {
+        right: 0;
+        left: auto;
+    }
 }
-
-
-
-/* HTML5 drag and drop upload control */
+/* HTML5 拖拽上传控件 */
 .uix-controls__file-field-container {
-
-	.uix-controls__file-field-trigger {
-
-		> div {
-
-			input {
-				left: auto;
-				right: 0;
-
-				&::before {
-					left: auto;
-					right: 0;
-				}
-
-			}
-
-
-		}
-
-
-	}
-
+    .uix-controls__file-field-trigger {
+        > div {
+            input {
+                right: 0;
+                left: auto;
+                &::before {
+                    right: 0;
+                    left: auto;
+                }
+            }
+        }
+    }
 }
-
-
-
 /*
  ---------------------------
- 3. Group
+ 3. 组
  ---------------------------
  */
-
-
 .uix-controls__merge {
-
-
-	i {
-		margin-right: auto;
-		margin-left: .5rem;
-
-	}
-
-
-	button {
-		margin-left: auto;
-		margin-right: -5px;
-	}
-
-
-	&.is-pill {
-		input {
-			border-radius: 0 50px 50px 0;
-		}
-
-		button {
-			border-radius: 50px 0 0 50px;
-		}
-
-	}
-
-    /*-- Form With Icon --*/
-	&.is-iconic {
-
-		input {
-			padding-left: auto;
-			padding-right: #{$control-padding-side + $control-icon-placeholder};
-
-		}
-
-
-		i {
-			left: auto;
-			right: 1rem;
-
-			&::after {
-				left: auto;
-				right: 1.2rem;
-			}
-
-		}
-
-
-		&.is-reversed {
-			input {
-				padding-left: auto;
-				padding-right: calc(3rem - #{$control-padding-side});
-
-			}
-
-
-			i {
-				right: auto;
-				left: 1rem;
-
-				&::after {
-					right: auto;
-					left: 1.2rem;
-				}
-
-			}
-
-		}
-
-
-	}
-
+    i {
+        margin-right: auto;
+        margin-left: .5rem;
+    }
+    button {
+        margin-right: -5px;
+        margin-left: auto;
+    }
+    &.is-pill {
+        input {
+            border-radius: 0 50px 50px 0;
+        }
+        button {
+            border-radius: 50px 0 0 50px;
+        }
+    }
+    /*-- 带图标的表单 --*/
+    &.is-iconic {
+        input {
+            padding-right: #{$control-padding-side + $control-icon-placeholder};
+            padding-left: auto;
+        }
+        i {
+            right: 1rem;
+            left: auto;
+            &::after {
+                right: 1.2rem;
+                left: auto;
+            }
+        }
+        &.is-reversed {
+            input {
+                padding-right: calc(3rem - #{$control-padding-side});
+                padding-left: auto;
+            }
+            i {
+                right: auto;
+                left: 1rem;
+                &::after {
+                    right: auto;
+                    left: 1.2rem;
+                }
+            }
+        }
+    }
 }
-
-
-
 /*
  ---------------------------
- 4. Custom Select
+ 4. 自定义选择
  ---------------------------
  */
 .uix-controls__select {
-	margin-right: auto;
-	margin-left: .3rem;
-
-	&.js-uix-new {
-		text-align: right; /* Required */
-	}
-
-
+    margin-right: auto;
+    margin-left: .3rem;
+    &.js-uix-new {
+        text-align: right; /* 必需的 */
+    }
 }
-
 .uix-controls__select-wrapper {
-
-
-	&:not(.uix-controls--line).is-disabled {
-
-		/* Mask used to prohibit selection */
-		&::before {
-			left: auto;
-			right: 0;
-
-		}
-
-	}
-
-
-	.uix-controls__select-trigger {
-		padding: #{$control-padding-height} $control-padding-side $control-padding-height #{$control-padding-side+1.5};
-
-		&::after {
-			@include select-arrow-rtl( -.275rem, 1rem );
-		}
-
-
-	}
-
-
-
-	.uix-controls__select__option-container {
-		left: auto;
-		right: 0;
-
-
-		&::before {
-			left: auto;
-			right: 25px;
-			border-left: 1px solid transparent;
-			border-right: 1px solid $control-sub-color;
-		}
-
-	}
-
-
-	.uix-controls__select--top {
-		/* Shown from above */
-		.uix-controls__select__option-container {
-
-
-			&::after {
-				right: auto;
-				left: 25px;
-				border-left: 1px solid $control-sub-color;
-				border-right: 1px solid transparent;
-
-			}
-
-
-		}
-
-	}
-
-	.uix-controls__select__option {
-
-		&:first-of-type {
-		    border-radius:  0 0 2px 2px;
-		}
-		&:last-of-type {
-			border-radius: 2px 2px 0 0;
-		}
-
-	}
-
-
+    &:not(.uix-controls--line).is-disabled {
+        /* 用于禁止选择的遮罩 */
+        &::before {
+            right: 0;
+            left: auto;
+        }
+    }
+    .uix-controls__select-trigger {
+        padding: #{$control-padding-height} $control-padding-side $control-padding-height #{$control-padding-side+1.5};
+        &::after {
+            @include select-arrow-rtl(-.275rem, 1rem);
+        }
+    }
+    .uix-controls__select__option-container {
+        right: 0;
+        left: auto;
+        &::before {
+            right: 25px;
+            left: auto;
+            border-right: 1px solid $control-sub-color;
+            border-left: 1px solid transparent;
+        }
+    }
+    .uix-controls__select--top {
+        /* Shown from above */
+        .uix-controls__select__option-container {
+            &::after {
+                right: auto;
+                left: 25px;
+                border-right: 1px solid transparent;
+                border-left: 1px solid $control-sub-color;
+            }
+        }
+    }
+    .uix-controls__select__option {
+        &:first-of-type {
+            border-radius: 0 0 2px 2px;
+        }
+        &:last-of-type {
+            border-radius: 2px 2px 0 0;
+        }
+    }
 }
-
-
-
 /*
  ---------------------------
- 5. Custom Radio, Toggle And Checkbox
+ 5. 自定义单选、切换和复选框
  ---------------------------
  */
 .uix-controls__radio {
-
-	text-align: right;
-
-	label {
-		right: auto;
-	}
-
-
-	.uix-controls__radio-trigger {
-		margin-right: auto;
-		margin-left: 5px;
-
-		&::before {
-			left: auto;
-			margin-left: auto;
-			right: 50%;
-			margin-right: -3px;
-		}
-	}
+    text-align: right;
+    label {
+        right: auto;
+    }
+    .uix-controls__radio-trigger {
+        margin-right: auto;
+        margin-left: 5px;
+        &::before {
+            right: 50%;
+            left: auto;
+            margin-right: -3px;
+            margin-left: auto;
+        }
+    }
 }
-
-
-
 .uix-controls__toggle {
-
-	label {
-		text-align: right; /* Required */
-	}
-
-
-
-	input[type="checkbox"] {
-		display: none;
-
-		&:checked + .uix-controls__toggle-trigger {
-			margin-left: auto;
-			margin-right: 8px;
-		}
-	}
-
-	.uix-controls__toggle-trigger {
-		margin: 0.5rem 0 0.5rem .5rem;
-
-		&::before {
-			left: auto;
-			right: -50px;
-
-		}
-
-		&::after {
-			right: auto;
-			left: -50px;
-
-		}
-
-	}
+    label {
+        text-align: right; /* 必需的 */
+    }
+    input[type="checkbox"] {
+        display: none;
+        &:checked + .uix-controls__toggle-trigger {
+            margin-right: 8px;
+            margin-left: auto;
+        }
+    }
+    .uix-controls__toggle-trigger {
+        margin: 0.5rem 0 0.5rem .5rem;
+        &::before {
+            right: -50px;
+            left: auto;
+        }
+        &::after {
+            right: auto;
+            left: -50px;
+        }
+    }
 }
-
 .uix-controls__checkbox {
-
-	label {
-		text-align: right; /* Required */
-	}
-
-
-	.uix-controls__checkbox-trigger {
-		margin: #{$control-padding-height} 0 #{$control-padding-height} .5rem;
-
-		&::before,
-		&::after {
-			left: auto;
-			right: 4px;
-
-
-		}
-
-	}
+    label {
+        text-align: right; /* 必需的 */
+    }
+    .uix-controls__checkbox-trigger {
+        margin: #{$control-padding-height} 0 #{$control-padding-height} .5rem;
+        &::before,
+        &::after {
+            right: 4px;
+            left: auto;
+        }
+    }
 }
-
-
-
 /*
  ---------------------------
- 6. Custom Input Number
+ 6. 自定义输入数字
  ---------------------------
  */
 .uix-controls__number {
-
-
-	.uix-controls__number__btn {
-		border-left: none;
-		border-right: 1px solid $control-sub-color;
-		right: auto;
-		left: 1px;
-
-	}
-
+    .uix-controls__number__btn {
+        right: auto;
+        left: 1px;
+        border-right: 1px solid $control-sub-color;
+        border-left: none;
+    }
 }
-
-
-
-
 /*
  ---------------------------
- 7. Multiple Selector
+ 7. 多重选择器
  ---------------------------
  */
 .uix-controls__multi-sel {
-
-	float: right;
-
-	> span {
-		margin-right: auto;
-		margin-left: 1rem;
-
-		i {
-			right: auto;
-			left: -8px;
-		}
-
-
-	}
-
-
+    float: right;
+    > span {
+        margin-right: auto;
+        margin-left: 1rem;
+        i {
+            right: auto;
+            left: -8px;
+        }
+    }
 }
-
-
-
-
 /*
  ---------------------------
- 8. Single Selector
+ 8. 单一选择器
  ---------------------------
  */
-
 .uix-controls__single-sel {
-
-	float: right;
-
-	> span {
-		margin-right: auto;
-		margin-left: 1rem;
-
-	}
-
+    float: right;
+    > span {
+        margin-right: auto;
+        margin-left: 1rem;
+    }
 }
-
-
-
-
 /*
  ---------------------------
- 9. Search of Widget
+ 9. 搜索小工具
  ---------------------------
  */
 .uix-search-box {
-
-	.uix-search-box__submit {
-		right: auto;
-		left: 0.875rem;
-	}
-
+    .uix-search-box__submit {
+        right: auto;
+        left: 0.875rem;
+    }
 }
 
