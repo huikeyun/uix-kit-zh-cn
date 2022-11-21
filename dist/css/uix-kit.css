@@ -104,7 +104,7 @@
     85.分割线 Dividing Line
     86.虚线 Dotted Line
     87.等宽列 Equal-width Columns
-    88.Features
+    88.特性 Features
     89.Footer Templates
     90.Gallery Grid Layout
     91.Heading
@@ -19944,29 +19944,29 @@ ul.edd_purchase_receipt_files li {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Features -->
+   <!-- 特性 Features -->
 /* ====================================================== */
 /*
- * 1. Features with Grid System
- * 2. Features with Dividing Line
-
+ * 1. 网格系统的特点
+ * 2. 带分割线的功能
 */
 /*
  ---------------------------
- 1. Features with Grid System
+ 1. 网格系统的特点
  ---------------------------
  */
 .uix-feature {
-  /* Horizontal Icons */
-  /* Vertical Icons */
+  /* 水平图标 */
+  /* 垂直图标 */
 }
 
 .uix-feature .uix-feature__icon {
+  line-height: 4.5rem;
   display: inline-block;
   width: 4.5rem;
   height: 4.5rem;
-  line-height: 4.5rem;
   transition: all 0.3s ease;
 }
 
@@ -19984,21 +19984,21 @@ ul.edd_purchase_receipt_files li {
 }
 
 .uix-feature .uix-feature__icon:hover {
-  background: #212121;
   border-color: #212121;
+  background: #212121;
 }
 
 .uix-feature .uix-feature__icon:hover i {
-  color: #fff;
   transform: rotate(30deg);
+  color: #ffffff;
 }
 
 .uix-feature .uix-feature__icon--side {
+  line-height: 3rem;
   position: relative;
   display: inline-block;
   width: 3rem;
   height: 3rem;
-  line-height: 3rem;
   transition: all 0.3s ease;
 }
 
@@ -20018,8 +20018,8 @@ ul.edd_purchase_receipt_files li {
 }
 
 .uix-feature .uix-feature__icon--side.is-bordered {
-  text-align: center;
   margin-right: 1rem;
+  text-align: center;
 }
 
 .uix-feature .uix-feature__icon--side.is-bordered i {
@@ -20032,17 +20032,17 @@ ul.edd_purchase_receipt_files li {
 }
 
 .uix-feature .uix-feature__icon--side.is-bordered::before {
-  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
   display: block;
   width: 3rem;
   height: 3rem;
-  position: absolute;
-  z-index: 0;
-  left: 0;
-  top: 0;
-  border: 1px #212121 solid;
-  text-align: center;
   margin-right: 1rem;
+  content: '';
+  text-align: center;
+  border: 1px #212121 solid;
 }
 
 .uix-feature .uix-feature__icon--side.is-bordered.uix-border--circle::before {
@@ -20063,10 +20063,10 @@ ul.edd_purchase_receipt_files li {
 }
 
 .uix-feature .uix-feature__desc {
-  margin: 0;
-  padding: 0;
   font-size: 0.75rem;
   line-height: 1.6;
+  margin: 0;
+  padding: 0;
   padding: .175em 0 1.2rem;
 }
 
@@ -20075,27 +20075,27 @@ ul.edd_purchase_receipt_files li {
 }
 
 .uix-feature .uix-feature__desc.uix-feature__desc--sep-col-side {
-  padding-bottom: 1.2rem;
   display: table-cell;
+  padding-bottom: 1.2rem;
   vertical-align: top;
 }
 
 .uix-typo--color-white .uix-feature {
-  /* Horizontal Icons */
-  /* Vertical Icons */
+  /* 水平图标 */
+  /* 垂直图标 */
 }
 
 .uix-typo--color-white .uix-feature .uix-feature__icon.is-bordered {
-  border-color: #fff;
+  border-color: #ffffff;
 }
 
 .uix-typo--color-white .uix-feature .uix-feature__icon--side.is-bordered::before {
-  border-color: #fff;
+  border-color: #ffffff;
 }
 
 /*
  ---------------------------
- 2. Features with Dividing Line
+ 2. 带分割线的功能
  ---------------------------
  */
 .uix-feature.uix-feature--line {
@@ -20104,13 +20104,13 @@ ul.edd_purchase_receipt_files li {
 }
 
 .uix-feature.uix-feature--line .uix-feature--line__box {
-  border: 1px solid #e3e3ec;
   flex: 0 0 33.3333%;
   width: 33.3333%;
-  padding-left: 35px;
-  padding-right: 35px;
-  transition: box-shadow .3s ease-out;
   margin-top: -1px;
+  padding-right: 35px;
+  padding-left: 35px;
+  transition: box-shadow .3s ease-out;
+  border: 1px solid #e3e3ec;
 }
 
 .uix-feature.uix-feature--line .uix-feature--line__box > div {
@@ -20118,9 +20118,9 @@ ul.edd_purchase_receipt_files li {
 }
 
 .uix-feature.uix-feature--line .uix-feature--line__box:hover {
-  background: #fff;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 5px 15px 0px, rgba(50, 50, 93, 0.1) 0px 15px 35px 0px;
   border: 1px solid #e3e3ec;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 5px 15px 0px, rgba(50, 50, 93, 0.1) 0px 15px 35px 0px;
+  background: #ffffff;
 }
 
 .uix-feature.uix-feature--line .uix-feature--line__box:nth-child(3n+1) {
@@ -20132,13 +20132,13 @@ ul.edd_purchase_receipt_files li {
 }
 
 .uix-feature.uix-feature--line .uix-feature--line__box:first-child, .uix-feature.uix-feature--line .uix-feature--line__box:nth-child(2), .uix-feature.uix-feature--line .uix-feature--line__box:nth-child(3) {
-  border-top: 1px solid transparent;
   margin-top: 0;
+  border-top: 1px solid transparent;
 }
 
 .uix-feature.uix-feature--line .uix-feature--line__box:nth-child(3n) {
-  border-right: 1px solid transparent;
   margin-left: -1px;
+  border-right: 1px solid transparent;
 }
 
 .uix-feature.uix-feature--line .uix-feature--line__box:last-child, .uix-feature.uix-feature--line .uix-feature--line__box:nth-last-child(2), .uix-feature.uix-feature--line .uix-feature--line__box:nth-last-child(3) {
@@ -20147,10 +20147,10 @@ ul.edd_purchase_receipt_files li {
 
 @media all and (max-width: 768px) {
   .uix-feature.uix-feature--line .uix-feature--line__box {
-    border: none;
-    border-bottom: 1px solid #e3e3ec;
     flex: none;
     width: 100%;
+    border: none;
+    border-bottom: 1px solid #e3e3ec;
   }
   .uix-feature.uix-feature--line .uix-feature--line__box:last-child, .uix-feature.uix-feature--line .uix-feature--line__box:nth-last-child(2), .uix-feature.uix-feature--line .uix-feature--line__box:nth-last-child(3) {
     border-bottom: 1px solid #e3e3ec;
