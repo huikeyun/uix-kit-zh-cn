@@ -103,7 +103,7 @@
     84.内容占位符动画 Content Placeholder Animated
     85.分割线 Dividing Line
     86.虚线 Dotted Line
-    87.Equal-width Columns
+    87.等宽列 Equal-width Columns
     88.Features
     89.Footer Templates
     90.Gallery Grid Layout
@@ -19890,33 +19890,32 @@ ul.edd_purchase_receipt_files li {
   background-size: 12px 6px;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Equal-width Columns -->
+   <!-- 等宽列 Equal-width Columns -->
 /* ====================================================== */
 /**
- * Using only CSS, we can make a tabbed navigation whose tabs always
- * occupy an equal share of the available width. No JS to interrogate
- * the DOM, no server-side logic to count through items, no inline styles.
- *
+ * 仅使用 CSS，我们可以制作标签式导航，其标签始终占据可用宽度的相等份额。
+ * 没有 JS 来查询 DOM，没有服务器端逻辑来计算项目，没有内联样式。
  */
 .uix-equal-width-divs ul {
-  list-style: none;
   font-size: 0;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: table;
   /* [1] */
-  table-layout: fixed;
-  /* [2] */
   width: 100%;
   /* [3] */
+  table-layout: fixed;
+  /* [2] */
+  list-style: none;
 }
 
 .uix-equal-width-divs ul li {
   font-size: 1rem;
-  /*Fighting the Space Between Inline Block Elements*/
+  /* 争夺内联块元素之间的空间 */
   display: table-cell;
   /* [4] */
-  box-shadow: 1px 0px 0px 0px #aeaeae;
+  box-shadow: 1px 0 0 0 #aeaeae;
 }
 
 .uix-equal-width-divs ul li:last-child {
@@ -19924,8 +19923,8 @@ ul.edd_purchase_receipt_files li {
 }
 
 .uix-equal-width-divs ul li span {
-  display: block;
   font-size: 0.75rem;
+  display: block;
 }
 
 @media all and (max-width: 768px) {
