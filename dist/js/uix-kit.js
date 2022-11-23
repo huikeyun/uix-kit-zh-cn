@@ -3435,7 +3435,7 @@ var esm_typeof = __webpack_require__(2);
     22.下拉菜单 2（多级下拉导航）Dropdown Menu 2 (Multi-level drop-down navigation)
     23.层叠的下拉列表 Cascading DropDown List
     24.弹性滑块（第三方插件）Flexslider (Third-party plugin)
-    25.Floating Side Element
+    25.浮动侧元素 Floating Side Element
     26.Form Progress
     27.Form
     28.Gallery
@@ -3499,6 +3499,7 @@ var esm_typeof = __webpack_require__(2);
     86.Timeline
     87.Vertical Menu
     88.WordPress Core Scripts
+    89.WordPress Core Scripts
 
 
 */
@@ -13437,9 +13438,9 @@ var FLEXSLIDER = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
- * <!-- Floating Side Element -->
+ * <!-- 浮动侧元素 Floating Side Element -->
  *************************************
  */
 
@@ -46997,6 +46998,245 @@ var VERTICAL_MENU = function (module, $, window, document) {
         if ($menuWrap.height() < winHeight) {
           $menuWrap.css({
             position: 'fixed',
+            height: winHeight + 'px',
+            marginTop: 0
+          });
+        }
+      } // Add function to the element that should be used as the scrollable area.
+
+
+      var throttleFunc = UixThrottle(scrollUpdate, 5);
+      window.removeEventListener('scroll', throttleFunc);
+      window.removeEventListener('touchmove', throttleFunc);
+      window.addEventListener('scroll', throttleFunc);
+      window.addEventListener('touchmove', throttleFunc);
+      throttleFunc();
+    }
+  };
+
+  module.components.documentReady.push(module.VERTICAL_MENU.documentReady);
+  return /*#__PURE__*/_createClass(function VERTICAL_MENU() {
+    _classCallCheck(this, VERTICAL_MENU);
+
+    this.module = module;
+  });
+}(UixModuleInstance, jQuery, window, document);
+;// CONCATENATED MODULE: ./src/components/wordpress/js/index.js
+
+
+
+/* 
+ *************************************
+ * <!-- WordPress Core Scripts -->
+ *************************************
+ */
+
+
+
+
+var WP_CORE = function (module, $, window, document) {
+  if (window.WP_CORE === null) return false;
+  module.WP_CORE = module.WP_CORE || {};
+  module.WP_CORE.version = '0.0.1';
+
+  module.WP_CORE.documentReady = function ($) {
+    /* 
+     ---------------------------
+     Pagination
+     ---------------------------
+     */
+    $('.uix-pagination__container li > span.current').each(function () {
+      $(this).parent('li').addClass('is-active');
+    });
+    /* 
+     ---------------------------
+     Dropdown Categories
+     ---------------------------
+     */
+
+    $('#cat').on('change', function () {
+      var cvalue = $(this).val();
+
+      if (cvalue) {
+        location.href = homeUrl + "/?cat=" + cvalue;
+      }
+
+      return false;
+    });
+  };
+
+  module.components.documentReady.push(module.WP_CORE.documentReady);
+  return /*#__PURE__*/_createClass(function WP_CORE() {
+    _classCallCheck(this, WP_CORE);
+
+    this.module = module;
+  });
+}(UixModuleInstance, jQuery, window, document);
+;// CONCATENATED MODULE: ./src/components/_app-load.js
+/*
+  * 常用网站功能，可在HTML页面或自定义JavaScript中单独调用。
+  */
+
+
+
+/*
+ * 从组件导入模块
+ */
+
+/******/
+
+/******/
+
+/* 基础 */
+
+/* 注意：CSS 样式文件已经被 JavaScript 文件包含 */
+
+
+
+
+
+
+
+
+
+
+/******/
+
+/******/
+
+/* 页面 */
+
+/* 注意：CSS 样式文件已经被 JavaScript 文件包含 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/******/
+
+/******/
+
+/* 页面 */
+
+/* 注意：这些模块不包含 JavaScript */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;// CONCATENATED MODULE: ./src/index.js
+/*
+ * 从 ES6 的组件导入模块
+ */
+
+})();
+
+/******/ })()
+;
+//# sourceMappingURL=js/uix-kit.js.map: 'fixed',
             height: winHeight + 'px',
             marginTop: 0
           });

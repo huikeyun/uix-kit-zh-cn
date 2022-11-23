@@ -50,7 +50,7 @@
     31.下拉菜单 2（多级下拉导航）Dropdown Menu 2 (Multi-level drop-down navigation)
     32.层叠的下拉列表 Cascading DropDown List
     33.弹性滑块（第三方插件）Flexslider (Third-party plugin)
-    34.Floating Side Element
+    34.浮动侧边栏 Floating Side Element
     35.Form Progress
     36.Form
     37.Form ( Layout )-
@@ -6622,17 +6622,18 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
   transform: translate(50px, -50%);
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Floating Side Element -->
+   <!-- 浮动侧边栏 Floating Side Element -->
 /* ====================================================== */
 .uix-floating-side-el {
   position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
   z-index: 25;
+  top: 50%;
+  right: 20px;
   width: 138px;
   height: 428px;
+  transform: translateY(-50%);
   background: #ce3a3e;
   background: linear-gradient(to bottom, #ce3a3e 0%, #de510e 100%);
   box-shadow: rgba(0, 0, 0, 0.07) 0px 5px 15px 0px, rgba(50, 50, 93, 0.1) 0px 15px 35px 0px;
@@ -6640,14 +6641,14 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
 
 .uix-floating-side-el a {
   font-size: 0.875rem;
-  color: #fff;
   display: block;
   width: 75px;
   margin-left: 30px;
-  text-align: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: .5rem;
   padding-top: .5rem;
+  padding-bottom: .5rem;
+  text-align: center;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .uix-floating-side-el a:last-child {
@@ -6667,8 +6668,8 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
 }
 
 .uix-floating-side-el a span i {
-  color: #fff;
   font-size: 30px;
+  color: #ffffff;
 }
 
 /* ======================================================
