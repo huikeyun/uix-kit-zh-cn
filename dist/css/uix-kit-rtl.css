@@ -38,7 +38,7 @@
     16.卡片 Cards
     17.内容占位符动画 Content Placeholder Animated
     18.下拉菜单 Dropdown Menu
-    19.Flexslider (Third-party plugin)
+    19.弹性滑块（第三方插件）Flexslider (Third-party plugin)
     20.Form
     21.Form ( Layout )-
     22.Form  ( Material Design Theme )
@@ -1019,8 +1019,9 @@ body.js-uix-menu-opened .uix-menu-mobile__toggle span {
   left: auto;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Flexslider (Third-party plugin) -->
+   <!-- 弹性滑块（第三方插件）Flexslider (Third-party plugin) -->
 /* ====================================================== */
 .flexslider,
 .uix-flexslider {

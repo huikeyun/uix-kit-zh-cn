@@ -3434,7 +3434,7 @@ var esm_typeof = __webpack_require__(2);
     21.下拉菜单 Dropdown Menu
     22.下拉菜单 2（多级下拉导航）Dropdown Menu 2 (Multi-level drop-down navigation)
     23.层叠的下拉列表 Cascading DropDown List
-    24.Flexslider (Third-party plugin)
+    24.弹性滑块（第三方插件）Flexslider (Third-party plugin)
     25.Floating Side Element
     26.Form Progress
     27.Form
@@ -11164,19 +11164,19 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
     slider.vars = $.extend({}, $.flexslider.defaults, options);
     var namespace = slider.vars.namespace,
         msGesture = window.navigator && window.navigator.msPointerEnabled && window.MSGesture,
-        touch = ("ontouchstart" in window || msGesture || window.DocumentTouch && document instanceof DocumentTouch) && slider.vars.touch,
+        touch = ('ontouchstart' in window || msGesture || window.DocumentTouch && document instanceof DocumentTouch) && slider.vars.touch,
         // deprecating this idea, as devices are being released with both of these events
-    eventType = "click touchend MSPointerUp keyup",
-        watchedEvent = "",
+    eventType = 'click touchend MSPointerUp keyup',
+        watchedEvent = '',
         watchedEventClearTimer,
-        vertical = slider.vars.direction === "vertical",
+        vertical = slider.vars.direction === 'vertical',
         reverse = slider.vars.reverse,
         carousel = slider.vars.itemWidth > 0,
-        fade = slider.vars.animation === "fade",
-        asNav = slider.vars.asNavFor !== "",
+        fade = slider.vars.animation === 'fade',
+        asNav = slider.vars.asNavFor !== '',
         methods = {}; // Store a reference to the slider object
 
-    $.data(el, "flexslider", slider); // Private slider methods
+    $.data(el, 'flexslider', slider); // Private slider methods
 
     methods = {
       init: function init() {
@@ -11197,11 +11197,11 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
         slider.syncExists = $(slider.vars.sync).length > 0; // SLIDE:
 
-        if (slider.vars.animation === "slide") {
-          slider.vars.animation = "swing";
+        if (slider.vars.animation === 'slide') {
+          slider.vars.animation = 'swing';
         }
 
-        slider.prop = vertical ? "top" : slider.vars.rtl ? "marginRight" : "marginLeft";
+        slider.prop = vertical ? 'top' : slider.vars.rtl ? 'marginRight' : 'marginLeft';
         slider.args = {}; // SLIDESHOW:
 
         slider.manualPause = false;
@@ -11217,7 +11217,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           for (var i in props) {
             if (obj.style[props[i]] !== undefined) {
               slider.pfx = props[i].replace('Perspective', '').toLowerCase();
-              slider.prop = "-" + slider.pfx + "-transform";
+              slider.prop = '-' + slider.pfx + '-transform';
               return true;
             }
           }
@@ -11227,11 +11227,11 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
         slider.ensureAnimationEnd = ''; // CONTROLSCONTAINER:
 
-        if (slider.vars.controlsContainer !== "") slider.controlsContainer = $(slider.vars.controlsContainer).length > 0 && $(slider.vars.controlsContainer); // MANUAL:
+        if (slider.vars.controlsContainer !== '') slider.controlsContainer = $(slider.vars.controlsContainer).length > 0 && $(slider.vars.controlsContainer); // MANUAL:
 
-        if (slider.vars.manualControls !== "") slider.manualControls = $(slider.vars.manualControls).length > 0 && $(slider.vars.manualControls); // CUSTOM DIRECTION NAV:
+        if (slider.vars.manualControls !== '') slider.manualControls = $(slider.vars.manualControls).length > 0 && $(slider.vars.manualControls); // CUSTOM DIRECTION NAV:
 
-        if (slider.vars.customDirectionNav !== "") slider.customDirectionNav = $(slider.vars.customDirectionNav).length === 2 && $(slider.vars.customDirectionNav); // RANDOMIZE:
+        if (slider.vars.customDirectionNav !== '') slider.customDirectionNav = $(slider.vars.customDirectionNav).length === 2 && $(slider.vars.customDirectionNav); // RANDOMIZE:
 
         if (slider.vars.randomize) {
           slider.slides.sort(function () {
@@ -11242,7 +11242,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
         slider.doMath(); // INIT
 
-        slider.setup("init"); // CONTROLNAV:
+        slider.setup('init'); // CONTROLNAV:
 
         if (slider.vars.controlNav) {
           methods.controlNav.setup();
@@ -11317,10 +11317,10 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
 
         if (!fade || fade && slider.vars.smoothHeight) {
-          $(window).bind("resize orientationchange focus", methods.resize);
+          $(window).bind('resize orientationchange focus', methods.resize);
         }
 
-        slider.find("img").attr("draggable", "false"); // API: start() Callback
+        slider.find('img').attr('draggable', 'false'); // API: start() Callback
 
         setTimeout(function () {
           slider.vars.start(slider);
@@ -11331,7 +11331,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           slider.asNav = true;
           slider.animatingTo = Math.floor(slider.currentSlide / slider.move);
           slider.currentItem = slider.currentSlide;
-          slider.slides.removeClass(namespace + "active-slide").eq(slider.currentItem).addClass(namespace + "active-slide");
+          slider.slides.removeClass(namespace + 'active-slide').eq(slider.currentItem).addClass(namespace + 'active-slide');
 
           if (!msGesture) {
             slider.slides.on(eventType, function (e) {
@@ -11347,9 +11347,9 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
               }
 
               if (posFromX <= 0 && $slide.hasClass(namespace + 'active-slide')) {
-                slider.flexAnimate(slider.getTarget("prev"), true);
-              } else if (!$(slider.vars.asNavFor).data('flexslider').animating && !$slide.hasClass(namespace + "active-slide")) {
-                slider.direction = slider.currentItem < target ? "next" : "prev";
+                slider.flexAnimate(slider.getTarget('prev'), true);
+              } else if (!$(slider.vars.asNavFor).data('flexslider').animating && !$slide.hasClass(namespace + 'active-slide')) {
+                slider.direction = slider.currentItem < target ? 'next' : 'prev';
                 slider.flexAnimate(target, slider.vars.pauseOnAction, false, true, true);
               }
             });
@@ -11359,20 +11359,20 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
               var that = this;
               that._gesture = new MSGesture();
               that._gesture.target = that;
-              that.addEventListener("MSPointerDown", function (e) {
+              that.addEventListener('MSPointerDown', function (e) {
                 e.preventDefault();
 
                 if (e.currentTarget._gesture) {
                   e.currentTarget._gesture.addPointer(e.pointerId);
                 }
               }, false);
-              that.addEventListener("MSGestureTap", function (e) {
+              that.addEventListener('MSGestureTap', function (e) {
                 e.preventDefault();
                 var $slide = $(this),
                     target = $slide.index();
 
                 if (!$(slider.vars.asNavFor).data('flexslider').animating && !$slide.hasClass('active')) {
-                  slider.direction = slider.currentItem < target ? "next" : "prev";
+                  slider.direction = slider.currentItem < target ? 'next' : 'prev';
                   slider.flexAnimate(target, slider.vars.pauseOnAction, false, true, true);
                 }
               });
@@ -11390,7 +11390,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           }
         },
         setupPaging: function setupPaging() {
-          var type = slider.vars.controlNav === "thumbnails" ? 'control-thumbs' : 'control-paging',
+          var type = slider.vars.controlNav === 'thumbnails' ? 'control-thumbs' : 'control-paging',
               j = 1,
               item,
               slide;
@@ -11405,7 +11405,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
               }
 
               var altText = '' !== slide.attr('data-thumb-alt') ? altText = ' alt="' + slide.attr('data-thumb-alt') + '"' : '';
-              item = slider.vars.controlNav === "thumbnails" ? '<img src="' + slide.attr('data-thumb') + '"' + altText + '/>' : '<a href="#">' + j + '</a>';
+              item = slider.vars.controlNav === 'thumbnails' ? '<img src="' + slide.attr('data-thumb') + '"' + altText + '/>' : '<a href="#">' + j + '</a>';
 
               if ('thumbnails' === slider.vars.controlNav && true === slider.vars.thumbCaptions) {
                 var captn = slide.attr('data-thumbcaption');
@@ -11427,18 +11427,18 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           slider.controlNavScaffold.delegate('a, img', eventType, function (event) {
             event.preventDefault();
 
-            if (watchedEvent === "" || watchedEvent === event.type) {
+            if (watchedEvent === '' || watchedEvent === event.type) {
               var $this = $(this),
                   target = slider.controlNav.index($this);
 
               if (!$this.hasClass(namespace + 'active')) {
-                slider.direction = target > slider.currentSlide ? "next" : "prev";
+                slider.direction = target > slider.currentSlide ? 'next' : 'prev';
                 slider.flexAnimate(target, slider.vars.pauseOnAction);
               }
             } // setup flags to prevent event duplication
 
 
-            if (watchedEvent === "") {
+            if (watchedEvent === '') {
               watchedEvent = event.type;
             }
 
@@ -11451,18 +11451,18 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           slider.controlNav.bind(eventType, function (event) {
             event.preventDefault();
 
-            if (watchedEvent === "" || watchedEvent === event.type) {
+            if (watchedEvent === '' || watchedEvent === event.type) {
               var $this = $(this),
                   target = slider.controlNav.index($this);
 
               if (!$this.hasClass(namespace + 'active')) {
-                target > slider.currentSlide ? slider.direction = "next" : slider.direction = "prev";
+                target > slider.currentSlide ? slider.direction = 'next' : slider.direction = 'prev';
                 slider.flexAnimate(target, slider.vars.pauseOnAction);
               }
             } // setup flags to prevent event duplication
 
 
-            if (watchedEvent === "") {
+            if (watchedEvent === '') {
               watchedEvent = event.type;
             }
 
@@ -11470,14 +11470,14 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           });
         },
         set: function set() {
-          var selector = slider.vars.controlNav === "thumbnails" ? 'img' : 'a';
+          var selector = slider.vars.controlNav === 'thumbnails' ? 'img' : 'a';
           slider.controlNav = $('.' + namespace + 'control-nav li ' + selector, slider.controlsContainer ? slider.controlsContainer : slider);
         },
         active: function active() {
-          slider.controlNav.removeClass(namespace + "active").eq(slider.animatingTo).addClass(namespace + "active");
+          slider.controlNav.removeClass(namespace + 'active').eq(slider.animatingTo).addClass(namespace + 'active');
         },
         update: function update(action, pos) {
-          if (slider.pagingCount > 1 && action === "add") {
+          if (slider.pagingCount > 1 && action === 'add') {
             slider.controlNavScaffold.append($('<li><a href="#">' + slider.count + '</a></li>'));
           } else if (slider.pagingCount === 1) {
             slider.controlNavScaffold.find('li').remove();
@@ -11508,13 +11508,13 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
             event.preventDefault();
             var target;
 
-            if (watchedEvent === "" || watchedEvent === event.type) {
+            if (watchedEvent === '' || watchedEvent === event.type) {
               target = $(this).hasClass(namespace + 'next') ? slider.getTarget('next') : slider.getTarget('prev');
               slider.flexAnimate(target, slider.vars.pauseOnAction);
             } // setup flags to prevent event duplication
 
 
-            if (watchedEvent === "") {
+            if (watchedEvent === '') {
               watchedEvent = event.type;
             }
 
@@ -11528,9 +11528,9 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
             slider.directionNav.addClass(disabledClass).attr('tabindex', '-1');
           } else if (!slider.vars.animationLoop) {
             if (slider.animatingTo === 0) {
-              slider.directionNav.removeClass(disabledClass).filter('.' + namespace + "prev").addClass(disabledClass).attr('tabindex', '-1');
+              slider.directionNav.removeClass(disabledClass).filter('.' + namespace + 'prev').addClass(disabledClass).attr('tabindex', '-1');
             } else if (slider.animatingTo === slider.last) {
-              slider.directionNav.removeClass(disabledClass).filter('.' + namespace + "next").addClass(disabledClass).attr('tabindex', '-1');
+              slider.directionNav.removeClass(disabledClass).filter('.' + namespace + 'next').addClass(disabledClass).attr('tabindex', '-1');
             } else {
               slider.directionNav.removeClass(disabledClass).removeAttr('tabindex');
             }
@@ -11555,7 +11555,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           slider.pausePlay.bind(eventType, function (event) {
             event.preventDefault();
 
-            if (watchedEvent === "" || watchedEvent === event.type) {
+            if (watchedEvent === '' || watchedEvent === event.type) {
               if ($(this).hasClass(namespace + 'pause')) {
                 slider.manualPause = true;
                 slider.manualPlay = false;
@@ -11568,7 +11568,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
             } // setup flags to prevent event duplication
 
 
-            if (watchedEvent === "") {
+            if (watchedEvent === '') {
               watchedEvent = event.type;
             }
 
@@ -11576,7 +11576,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           });
         },
         update: function update(state) {
-          state === "play" ? slider.pausePlay.removeClass(namespace + 'pause').addClass(namespace + 'play').html(slider.vars.playText) : slider.pausePlay.removeClass(namespace + 'play').addClass(namespace + 'pause').html(slider.vars.pauseText);
+          state === 'play' ? slider.pausePlay.removeClass(namespace + 'pause').addClass(namespace + 'play').html(slider.vars.playText) : slider.pausePlay.removeClass(namespace + 'play').addClass(namespace + 'pause').html(slider.vars.pauseText);
         }
       },
       touch: function touch() {
@@ -11631,7 +11631,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
                   dx = dx / (slider.currentSlide === 0 && dx < 0 || slider.currentSlide === slider.last && dx > 0 ? Math.abs(dx) / cwidth + 2 : 1);
                 }
 
-                slider.setProps(offset + dx, "setTouch");
+                slider.setProps(offset + dx, 'setTouch');
               }
             }
           };
@@ -11710,7 +11710,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
                   dx = accDx / (slider.currentSlide === 0 && accDx < 0 || slider.currentSlide === slider.last && accDx > 0 ? Math.abs(accDx) / cwidth + 2 : 1);
                 }
 
-                slider.setProps(offset + dx, "setTouch");
+                slider.setProps(offset + dx, 'setTouch');
               }
             }
           };
@@ -11743,13 +11743,13 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
             accDx = 0;
           };
 
-          el.style.msTouchAction = "none";
+          el.style.msTouchAction = 'none';
           el._gesture = new MSGesture();
           el._gesture.target = el;
-          el.addEventListener("MSPointerDown", onMSPointerDown, false);
+          el.addEventListener('MSPointerDown', onMSPointerDown, false);
           el._slider = slider;
-          el.addEventListener("MSGestureChange", onMSGestureChange, false);
-          el.addEventListener("MSGestureEnd", onMSGestureEnd, false);
+          el.addEventListener('MSGestureChange', onMSGestureChange, false);
+          el.addEventListener('MSGestureEnd', onMSGestureEnd, false);
         }
       },
       resize: function resize() {
@@ -11769,7 +11769,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           } else if (vertical) {
             //VERTICAL:
             slider.viewport.height(slider.h);
-            slider.setProps(slider.h, "setTotal");
+            slider.setProps(slider.h, 'setTotal');
           } else {
             // SMOOTH HEIGHT:
             if (slider.vars.smoothHeight) {
@@ -11777,7 +11777,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
             }
 
             slider.newSlides.width(slider.computedW);
-            slider.setProps(slider.computedW, "setTotal");
+            slider.setProps(slider.computedW, 'setTotal');
           }
         }
       },
@@ -11785,27 +11785,27 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
         if (!vertical || fade) {
           var $obj = fade ? slider : slider.viewport;
           dur ? $obj.animate({
-            "height": slider.slides.eq(slider.animatingTo).innerHeight()
+            'height': slider.slides.eq(slider.animatingTo).innerHeight()
           }, dur) : $obj.innerHeight(slider.slides.eq(slider.animatingTo).innerHeight());
         }
       },
       sync: function sync(action) {
-        var $obj = $(slider.vars.sync).data("flexslider"),
+        var $obj = $(slider.vars.sync).data('flexslider'),
             target = slider.animatingTo;
 
         switch (action) {
-          case "animate":
+          case 'animate':
             $obj.flexAnimate(target, slider.vars.pauseOnAction, false, true);
             break;
 
-          case "play":
+          case 'play':
             if (!$obj.playing && !$obj.asNav) {
               $obj.play();
             }
 
             break;
 
-          case "pause":
+          case 'pause':
             $obj.pause();
             break;
         }
@@ -11876,33 +11876,33 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
       setToClearWatchedEvent: function setToClearWatchedEvent() {
         clearTimeout(watchedEventClearTimer);
         watchedEventClearTimer = setTimeout(function () {
-          watchedEvent = "";
+          watchedEvent = '';
         }, 3000);
       }
     }; // public methods
 
     slider.flexAnimate = function (target, pause, override, withSync, fromNav) {
       if (!slider.vars.animationLoop && target !== slider.currentSlide) {
-        slider.direction = target > slider.currentSlide ? "next" : "prev";
+        slider.direction = target > slider.currentSlide ? 'next' : 'prev';
       }
 
-      if (asNav && slider.pagingCount === 1) slider.direction = slider.currentItem < target ? "next" : "prev";
+      if (asNav && slider.pagingCount === 1) slider.direction = slider.currentItem < target ? 'next' : 'prev';
 
-      if (!slider.animating && (slider.canAdvance(target, fromNav) || override) && slider.is(":visible")) {
+      if (!slider.animating && (slider.canAdvance(target, fromNav) || override) && slider.is(':visible')) {
         if (asNav && withSync) {
           var master = $(slider.vars.asNavFor).data('flexslider');
           slider.atEnd = target === 0 || target === slider.count - 1;
           master.flexAnimate(target, true, false, true, fromNav);
-          slider.direction = slider.currentItem < target ? "next" : "prev";
+          slider.direction = slider.currentItem < target ? 'next' : 'prev';
           master.direction = slider.direction;
 
           if (Math.ceil((target + 1) / slider.visible) - 1 !== slider.currentSlide && target !== 0) {
             slider.currentItem = target;
-            slider.slides.removeClass(namespace + "active-slide").eq(target).addClass(namespace + "active-slide");
+            slider.slides.removeClass(namespace + 'active-slide').eq(target).addClass(namespace + 'active-slide');
             target = Math.floor(target / slider.visible);
           } else {
             slider.currentItem = target;
-            slider.slides.removeClass(namespace + "active-slide").eq(target).addClass(namespace + "active-slide");
+            slider.slides.removeClass(namespace + 'active-slide').eq(target).addClass(namespace + 'active-slide');
             return false;
           }
         }
@@ -11918,7 +11918,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
         slider.vars.before(slider); // SYNC:
 
         if (slider.syncExists && !fromNav) {
-          methods.sync("animate");
+          methods.sync('animate');
         } // CONTROLNAV
 
 
@@ -11960,15 +11960,15 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
             margin = slider.vars.itemMargin;
             calcNext = (slider.itemW + margin) * slider.move * slider.animatingTo;
             slideString = calcNext > slider.limit && slider.visible !== 1 ? slider.limit : calcNext;
-          } else if (slider.currentSlide === 0 && target === slider.count - 1 && slider.vars.animationLoop && slider.direction !== "next") {
+          } else if (slider.currentSlide === 0 && target === slider.count - 1 && slider.vars.animationLoop && slider.direction !== 'next') {
             slideString = reverse ? (slider.count + slider.cloneOffset) * dimension : 0;
-          } else if (slider.currentSlide === slider.last && target === 0 && slider.vars.animationLoop && slider.direction !== "prev") {
+          } else if (slider.currentSlide === slider.last && target === 0 && slider.vars.animationLoop && slider.direction !== 'prev') {
             slideString = reverse ? 0 : (slider.count + 1) * dimension;
           } else {
             slideString = reverse ? (slider.count - 1 - target + slider.cloneOffset) * dimension : (target + slider.cloneOffset) * dimension;
           }
 
-          slider.setProps(slideString, "", slider.vars.animationSpeed);
+          slider.setProps(slideString, '', slider.vars.animationSpeed);
 
           if (slider.transitions) {
             if (!slider.vars.animationLoop || !slider.atEnd) {
@@ -11977,8 +11977,8 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
             } // Unbind previous transitionEnd events and re-bind new transitionEnd event
 
 
-            slider.container.unbind("webkitTransitionEnd transitionend");
-            slider.container.bind("webkitTransitionEnd transitionend", function () {
+            slider.container.unbind('webkitTransitionEnd transitionend');
+            slider.container.bind('webkitTransitionEnd transitionend', function () {
               clearTimeout(slider.ensureAnimationEnd);
               slider.wrapup(dimension);
             }); // Insurance for the ever-so-fickle transitionEnd event
@@ -11996,23 +11996,23 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           // FADE:
           if (!touch) {
             slider.slides.eq(slider.currentSlide).css({
-              "zIndex": 1
+              'zIndex': 1
             }).animate({
-              "opacity": 0
+              'opacity': 0
             }, slider.vars.animationSpeed, slider.vars.easing);
             slider.slides.eq(target).css({
-              "zIndex": 2
+              'zIndex': 2
             }).animate({
-              "opacity": 1
+              'opacity': 1
             }, slider.vars.animationSpeed, slider.vars.easing, slider.wrapup);
           } else {
             slider.slides.eq(slider.currentSlide).css({
-              "opacity": 0,
-              "zIndex": 1
+              'opacity': 0,
+              'zIndex': 1
             });
             slider.slides.eq(target).css({
-              "opacity": 1,
-              "zIndex": 2
+              'opacity': 1,
+              'zIndex': 2
             });
             slider.wrapup(dimension);
           }
@@ -12029,9 +12029,9 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
       // SLIDE:
       if (!fade && !carousel) {
         if (slider.currentSlide === 0 && slider.animatingTo === slider.last && slider.vars.animationLoop) {
-          slider.setProps(dimension, "jumpEnd");
+          slider.setProps(dimension, 'jumpEnd');
         } else if (slider.currentSlide === slider.last && slider.animatingTo === 0 && slider.vars.animationLoop) {
-          slider.setProps(dimension, "jumpStart");
+          slider.setProps(dimension, 'jumpStart');
         }
       }
 
@@ -12044,7 +12044,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
     slider.animateSlides = function () {
       if (!slider.animating && focused) {
-        slider.flexAnimate(slider.getTarget("next"));
+        slider.flexAnimate(slider.getTarget('next'));
       }
     }; // SLIDESHOW:
 
@@ -12055,12 +12055,12 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
       slider.playing = false; // PAUSEPLAY:
 
       if (slider.vars.pausePlay) {
-        methods.pausePlay.update("play");
+        methods.pausePlay.update('play');
       } // SYNC:
 
 
       if (slider.syncExists) {
-        methods.sync("pause");
+        methods.sync('pause');
       }
     }; // SLIDESHOW:
 
@@ -12074,12 +12074,12 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
       slider.started = slider.playing = true; // PAUSEPLAY:
 
       if (slider.vars.pausePlay) {
-        methods.pausePlay.update("pause");
+        methods.pausePlay.update('pause');
       } // SYNC:
 
 
       if (slider.syncExists) {
-        methods.sync("play");
+        methods.sync('play');
       }
     }; // STOP:
 
@@ -12092,13 +12092,13 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
     slider.canAdvance = function (target, fromNav) {
       // ASNAV:
       var last = asNav ? slider.pagingCount - 1 : slider.last;
-      return fromNav ? true : asNav && slider.currentItem === slider.count - 1 && target === 0 && slider.direction === "prev" ? true : asNav && slider.currentItem === 0 && target === slider.pagingCount - 1 && slider.direction !== "next" ? false : target === slider.currentSlide && !asNav ? false : slider.vars.animationLoop ? true : slider.atEnd && slider.currentSlide === 0 && target === last && slider.direction !== "next" ? false : slider.atEnd && slider.currentSlide === last && target === 0 && slider.direction === "next" ? false : true;
+      return fromNav ? true : asNav && slider.currentItem === slider.count - 1 && target === 0 && slider.direction === 'prev' ? true : asNav && slider.currentItem === 0 && target === slider.pagingCount - 1 && slider.direction !== 'next' ? false : target === slider.currentSlide && !asNav ? false : slider.vars.animationLoop ? true : slider.atEnd && slider.currentSlide === 0 && target === last && slider.direction !== 'next' ? false : slider.atEnd && slider.currentSlide === last && target === 0 && slider.direction === 'next' ? false : true;
     };
 
     slider.getTarget = function (dir) {
       slider.direction = dir;
 
-      if (dir === "next") {
+      if (dir === 'next') {
         return slider.currentSlide === slider.last ? 0 : slider.currentSlide + 1;
       } else {
         return slider.currentSlide === 0 ? slider.last : slider.currentSlide - 1;
@@ -12111,19 +12111,19 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
         var posCheck = pos ? pos : (slider.itemW + slider.vars.itemMargin) * slider.move * slider.animatingTo,
             posCalc = function () {
           if (carousel) {
-            return special === "setTouch" ? pos : reverse && slider.animatingTo === slider.last ? 0 : reverse ? slider.limit - (slider.itemW + slider.vars.itemMargin) * slider.move * slider.animatingTo : slider.animatingTo === slider.last ? slider.limit : posCheck;
+            return special === 'setTouch' ? pos : reverse && slider.animatingTo === slider.last ? 0 : reverse ? slider.limit - (slider.itemW + slider.vars.itemMargin) * slider.move * slider.animatingTo : slider.animatingTo === slider.last ? slider.limit : posCheck;
           } else {
             switch (special) {
-              case "setTotal":
+              case 'setTotal':
                 return reverse ? (slider.count - 1 - slider.currentSlide + slider.cloneOffset) * pos : (slider.currentSlide + slider.cloneOffset) * pos;
 
-              case "setTouch":
+              case 'setTouch':
                 return reverse ? pos : pos;
 
-              case "jumpEnd":
+              case 'jumpEnd':
                 return reverse ? pos : slider.count * pos;
 
-              case "jumpStart":
+              case 'jumpStart':
                 return reverse ? slider.count * pos : pos;
 
               default:
@@ -12132,14 +12132,14 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           }
         }();
 
-        return posCalc * (slider.vars.rtl ? 1 : -1) + "px";
+        return posCalc * (slider.vars.rtl ? 1 : -1) + 'px';
       }();
 
       if (slider.transitions) {
-        target = vertical ? "translate3d(0," + target + ",0)" : "translate3d(" + ((slider.vars.rtl ? -1 : 1) * parseInt(target) + 'px') + ",0,0)";
-        dur = dur !== undefined ? dur / 1000 + "s" : "0s";
-        slider.container.css("-" + slider.pfx + "-transition-duration", dur);
-        slider.container.css("transition-duration", dur);
+        target = vertical ? 'translate3d(0,' + target + ',0)' : 'translate3d(' + ((slider.vars.rtl ? -1 : 1) * parseInt(target) + 'px') + ',0,0)';
+        dur = dur !== undefined ? dur / 1000 + 's' : '0s';
+        slider.container.css('-' + slider.pfx + '-transition-duration', dur);
+        slider.container.css('transition-duration', dur);
       }
 
       slider.args[slider.prop] = target;
@@ -12156,10 +12156,10 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
       if (!fade) {
         var sliderOffset, arr;
 
-        if (type === "init") {
+        if (type === 'init') {
           slider.viewport = $('<div class="' + namespace + 'viewport"></div>').css({
-            "overflow": "hidden",
-            "position": "relative"
+            'overflow': 'hidden',
+            'position': 'relative'
           }).appendTo(slider).append(slider.container); // INFINITE LOOP:
 
           slider.cloneCount = 0;
@@ -12177,7 +12177,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
           slider.cloneCount = 2;
           slider.cloneOffset = 1; // clear out old clones
 
-          if (type !== "init") {
+          if (type !== 'init') {
             slider.container.find('.clone').remove();
           }
 
@@ -12188,34 +12188,34 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
         sliderOffset = reverse ? slider.count - 1 - slider.currentSlide + slider.cloneOffset : slider.currentSlide + slider.cloneOffset; // VERTICAL:
 
         if (vertical && !carousel) {
-          slider.container.height((slider.count + slider.cloneCount) * 200 + "%").css("position", "absolute").width("100%");
+          slider.container.height((slider.count + slider.cloneCount) * 200 + '%').css('position', 'absolute').width('100%');
           setTimeout(function () {
             slider.newSlides.css({
-              "display": "block"
+              'display': 'block'
             });
             slider.doMath();
             slider.viewport.height(slider.h);
-            slider.setProps(sliderOffset * slider.h, "init");
-          }, type === "init" ? 100 : 0);
+            slider.setProps(sliderOffset * slider.h, 'init');
+          }, type === 'init' ? 100 : 0);
         } else {
-          slider.container.width((slider.count + slider.cloneCount) * 200 + "%");
-          slider.setProps(sliderOffset * slider.computedW, "init");
+          slider.container.width((slider.count + slider.cloneCount) * 200 + '%');
+          slider.setProps(sliderOffset * slider.computedW, 'init');
           setTimeout(function () {
             slider.doMath();
 
             if (slider.vars.rtl) {
               slider.newSlides.css({
-                "width": slider.computedW,
-                "marginRight": slider.computedM,
-                "float": "left",
-                "display": "block"
+                'width': slider.computedW,
+                'marginRight': slider.computedM,
+                'float': 'left',
+                'display': 'block'
               });
             } else {
               slider.newSlides.css({
-                "width": slider.computedW,
-                "marginRight": slider.computedM,
-                "float": "left",
-                "display": "block"
+                'width': slider.computedW,
+                'marginRight': slider.computedM,
+                'float': 'left',
+                'display': 'block'
               });
             } // SMOOTH HEIGHT:
 
@@ -12223,59 +12223,59 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
             if (slider.vars.smoothHeight) {
               methods.smoothHeight();
             }
-          }, type === "init" ? 100 : 0);
+          }, type === 'init' ? 100 : 0);
         }
       } else {
         // FADE:
         if (slider.vars.rtl) {
           slider.slides.css({
-            "width": "100%",
-            "float": 'right',
-            "marginLeft": "-100%",
-            "position": "relative"
+            'width': '100%',
+            'float': 'right',
+            'marginLeft': '-100%',
+            'position': 'relative'
           });
         } else {
           slider.slides.css({
-            "width": "100%",
-            "float": 'left',
-            "marginRight": "-100%",
-            "position": "relative"
+            'width': '100%',
+            'float': 'left',
+            'marginRight': '-100%',
+            'position': 'relative'
           });
         }
 
-        if (type === "init") {
+        if (type === 'init') {
           if (!touch) {
             //slider.slides.eq(slider.currentSlide).fadeIn(slider.vars.animationSpeed, slider.vars.easing);
             if (slider.vars.fadeFirstSlide == false) {
               slider.slides.css({
-                "opacity": 0,
-                "display": "block",
-                "zIndex": 1
+                'opacity': 0,
+                'display': 'block',
+                'zIndex': 1
               }).eq(slider.currentSlide).css({
-                "zIndex": 2
+                'zIndex': 2
               }).css({
-                "opacity": 1
+                'opacity': 1
               });
             } else {
               slider.slides.css({
-                "opacity": 0,
-                "display": "block",
-                "zIndex": 1
+                'opacity': 0,
+                'display': 'block',
+                'zIndex': 1
               }).eq(slider.currentSlide).css({
-                "zIndex": 2
+                'zIndex': 2
               }).animate({
-                "opacity": 1
+                'opacity': 1
               }, slider.vars.animationSpeed, slider.vars.easing);
             }
           } else {
             slider.slides.css({
-              "opacity": 0,
-              "display": "block",
-              "webkitTransition": "opacity " + slider.vars.animationSpeed / 1000 + "s ease",
-              "zIndex": 1
+              'opacity': 0,
+              'display': 'block',
+              'webkitTransition': 'opacity ' + slider.vars.animationSpeed / 1000 + 's ease',
+              'zIndex': 1
             }).eq(slider.currentSlide).css({
-              "opacity": 1,
-              "zIndex": 2
+              'opacity': 1,
+              'zIndex': 2
             });
           }
         } // SMOOTH HEIGHT:
@@ -12289,7 +12289,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
 
       if (!carousel) {
-        slider.slides.removeClass(namespace + "active-slide").eq(slider.currentSlide).addClass(namespace + "active-slide");
+        slider.slides.removeClass(namespace + 'active-slide').eq(slider.currentSlide).addClass(namespace + 'active-slide');
       } //FlexSlider: init() Callback
 
 
@@ -12342,15 +12342,15 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
 
       if (slider.vars.controlNav && !slider.manualControls) {
-        if (action === "add" && !carousel || slider.pagingCount > slider.controlNav.length) {
-          methods.controlNav.update("add");
-        } else if (action === "remove" && !carousel || slider.pagingCount < slider.controlNav.length) {
+        if (action === 'add' && !carousel || slider.pagingCount > slider.controlNav.length) {
+          methods.controlNav.update('add');
+        } else if (action === 'remove' && !carousel || slider.pagingCount < slider.controlNav.length) {
           if (carousel && slider.currentSlide > slider.last) {
             slider.currentSlide -= 1;
             slider.animatingTo -= 1;
           }
 
-          methods.controlNav.update("remove", slider.last);
+          methods.controlNav.update('remove', slider.last);
         }
       } // update directionNav
 
@@ -12372,7 +12372,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
       } // update currentSlide, animatingTo, controlNav, and directionNav
 
 
-      slider.update(pos, "add"); // update slider.slides
+      slider.update(pos, 'add'); // update slider.slides
 
       slider.slides = $(slider.vars.selector + ':not(.clone)', slider); // re-setup the slider to accomdate new slide
 
@@ -12395,7 +12395,7 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
 
       slider.doMath();
-      slider.update(pos, "remove"); // update slider.slides
+      slider.update(pos, 'remove'); // update slider.slides
 
       slider.slides = $(slider.vars.selector + ':not(.clone)', slider); // re-setup the slider to accomdate new slide
 
@@ -12416,15 +12416,15 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
   }); //FlexSlider: Default Settings
 
   $.flexslider.defaults = {
-    namespace: "flex-",
+    namespace: 'flex-',
     //{NEW} String: Prefix string attached to the class of every element generated by the plugin
-    selector: ".slides > li",
+    selector: '.slides > li',
     //{NEW} Selector: Must match a simple pattern. '{container} > {slide}' -- Ignore pattern at your own peril
-    animation: "fade",
+    animation: 'fade',
     //String: Select your animation type, "fade" or "slide"
-    easing: "swing",
+    easing: 'swing',
     //{NEW} String: Determines the easing method used in jQuery transitions. jQuery easing plugin is supported!
-    direction: "horizontal",
+    direction: 'horizontal',
     //String: Select the sliding direction, "horizontal" or "vertical"
     reverse: false,
     //{NEW} Boolean: Reverse the animation direction
@@ -12466,9 +12466,9 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
     //Boolean: Create navigation for paging control of each slide? Note: Leave true for manualControls usage
     directionNav: true,
     //Boolean: Create navigation for previous/next navigation? (true/false)
-    prevText: "Previous",
+    prevText: 'Previous',
     //String: Set the text for the "previous" directionNav item
-    nextText: "Next",
+    nextText: 'Next',
     //String: Set the text for the "next" directionNav item
     // Secondary Navigation
     keyboard: true,
@@ -12479,20 +12479,20 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
     //{UPDATED} Boolean: Requires jquery.mousewheel.js (https://github.com/brandonaaron/jquery-mousewheel) - Allows slider navigating via mousewheel
     pausePlay: false,
     //Boolean: Create pause/play dynamic element
-    pauseText: "Pause",
+    pauseText: 'Pause',
     //String: Set the text for the "pause" pausePlay item
-    playText: "Play",
+    playText: 'Play',
     //String: Set the text for the "play" pausePlay item
     // Special properties
-    controlsContainer: "",
+    controlsContainer: '',
     //{UPDATED} jQuery Object/Selector: Declare which container the navigation elements should be appended too. Default container is the FlexSlider element. Example use would be $(".flexslider-container"). Property is ignored if given element is not found.
-    manualControls: "",
+    manualControls: '',
     //{UPDATED} jQuery Object/Selector: Declare custom control navigation. Examples would be $(".flex-control-nav li") or "#tabs-nav li img", etc. The number of elements in your controlNav should match the number of slides/tabs.
-    customDirectionNav: "",
+    customDirectionNav: '',
     //{NEW} jQuery Object/Selector: Custom prev / next button. Must be two jQuery elements. In order to make the events work they have to have the classes "prev" and "next" (plus namespace)
-    sync: "",
+    sync: '',
     //{NEW} Selector: Mirror the actions performed on this slider with another slider. Use with care.
-    asNavFor: "",
+    asNavFor: '',
     //{NEW} Selector: Internal property exposed for turning the slider into a thumbnail navigation for another slider
     // Carousel Options
     itemWidth: 0,
@@ -12531,10 +12531,10 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
       options = {};
     }
 
-    if ((0,esm_typeof/* default */.Z)(options) === "object") {
+    if ((0,esm_typeof/* default */.Z)(options) === 'object') {
       return this.each(function () {
         var $this = $(this),
-            selector = options.selector ? options.selector : ".slides > li",
+            selector = options.selector ? options.selector : '.slides > li',
             $slides = $this.find(selector);
 
         if ($slides.length === 1 && options.allowOneSlide === false || $slides.length === 0) {
@@ -12552,29 +12552,29 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
       var $slider = $(this).data('flexslider');
 
       switch (options) {
-        case "play":
+        case 'play':
           $slider.play();
           break;
 
-        case "pause":
+        case 'pause':
           $slider.pause();
           break;
 
-        case "stop":
+        case 'stop':
           $slider.stop();
           break;
 
-        case "next":
-          $slider.flexAnimate($slider.getTarget("next"), true);
+        case 'next':
+          $slider.flexAnimate($slider.getTarget('next'), true);
           break;
 
-        case "prev":
-        case "previous":
-          $slider.flexAnimate($slider.getTarget("prev"), true);
+        case 'prev':
+        case 'previous':
+          $slider.flexAnimate($slider.getTarget('prev'), true);
           break;
 
         default:
-          if (typeof options === "number") {
+          if (typeof options === 'number') {
             $slider.flexAnimate(options, true);
           }
 
@@ -12587,9 +12587,9 @@ var CASCADING_DD_LIST = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
- * <!-- Flexslider (Third-party plugin) -->
+ * <!-- 弹性滑块（第三方插件）Flexslider (Third-party plugin) -->
  *************************************
  */
 
@@ -12654,7 +12654,7 @@ var FLEXSLIDER = function (module, $, window, document) {
       if ((0,esm_typeof/* default */.Z)(dataCountTotal) === ( true ? "undefined" : 0)) dataCountTotal = false;
       if ((0,esm_typeof/* default */.Z)(dataCountCur) === ( true ? "undefined" : 0)) dataCountCur = false;
       if ((0,esm_typeof/* default */.Z)(dataParallax) === ( true ? "undefined" : 0)) dataParallax = false;
-      if ((0,esm_typeof/* default */.Z)(dataShowItemsMove) === ( true ? "undefined" : 0)) dataShowItemsMove = 1; //Add disabled class to custom navigation 
+      if ((0,esm_typeof/* default */.Z)(dataShowItemsMove) === ( true ? "undefined" : 0)) dataShowItemsMove = 1; //Add disabled class to custom navigation
 
       if ((0,esm_typeof/* default */.Z)(dataCustomConID) != ( true ? "undefined" : 0) && dataCustomConID != '' && dataCustomConID != false) {
         var myCustomDirectionNav = $('.uix-flexslider__mycontrols' + dataCustomConID + ' a');
@@ -12687,7 +12687,7 @@ var FLEXSLIDER = function (module, $, window, document) {
         //Remove the slider loading
         //-------------------------------------
         thisSlider.removeClass(pluginNamespace + '-flexslider-loading'); //With Timeline
-        //-------------------------------------	
+        //-------------------------------------
 
         if (dataTimeline && dataTimeline != '') {
           var curPerMinWidth = curIndex / count * 100 + '%',
@@ -12699,7 +12699,7 @@ var FLEXSLIDER = function (module, $, window, document) {
             'transition': 'all ' + parseFloat(thisSlider.vars.slideshowSpeed - thisSlider.vars.animationSpeed) + 'ms linear'
           });
         } //Display Next/Prev image thumbnail in navigation
-        //-------------------------------------		
+        //-------------------------------------
 
 
         if (dataPNThumbs && dataPNThumbs != '') {
@@ -12772,8 +12772,8 @@ var FLEXSLIDER = function (module, $, window, document) {
         //-------------------------------------
 
         if ($.isFunction($.fn.lightbox)) {
-          thisSlider.slides.find("a[rel^='theme-slider-prettyPhoto']").lightbox();
-        } //Return an event from callback function to each slider 
+          thisSlider.slides.find('a[rel^=\'theme-slider-prettyPhoto\']').lightbox();
+        } //Return an event from callback function to each slider
         //with dynamic min/max ranges.
         //-------------------------------------
 
@@ -12817,12 +12817,12 @@ var FLEXSLIDER = function (module, $, window, document) {
 
       if (fireState == 'before') {
         //Common images style
-        //-------------------------------------	
+        //-------------------------------------
         $next.find('img').addClass('is-active');
         $current.find('img').removeClass('is-active');
         $prev.find('img').removeClass('is-active');
         $first.find('img').removeClass('is-active'); //With Timeline
-        //-------------------------------------	
+        //-------------------------------------
 
         if (dataTimeline && dataTimeline != '') {
           //Fires animation effect of an element width.
@@ -12836,7 +12836,7 @@ var FLEXSLIDER = function (module, $, window, document) {
 
       if (fireState == 'end') {
         //Common images style
-        //-------------------------------------	
+        //-------------------------------------
         $first.find('img').addClass('is-active');
       } // Fires asynchronously with each slider animation.
       // Fires when the slider loads the first slide.
@@ -12916,7 +12916,7 @@ var FLEXSLIDER = function (module, $, window, document) {
             myPlayer.play();
             $('#' + coverPlayBtnID).hide();
           });
-        } //Add replay button to video 
+        } //Add replay button to video
 
 
         if ($replayBtn.length == 0) {
@@ -12944,7 +12944,7 @@ var FLEXSLIDER = function (module, $, window, document) {
                 curH = obj.videoHeight(),
                 newW = curW,
                 newH = curH;
-            newW = videoWrapperW; //Scaled/Proportional Content 
+            newW = videoWrapperW; //Scaled/Proportional Content
 
             newH = curH * (newW / curW);
 
@@ -12975,7 +12975,7 @@ var FLEXSLIDER = function (module, $, window, document) {
 
           if (dataAuto) {
             //Fix an error of Video auto play is not working in browser
-            //this.muted( true ); 
+            //this.muted( true );
             //Prevent autoplay error: Uncaught (in promise) DOMException
             var promise = this.play();
 
@@ -13057,7 +13057,7 @@ var FLEXSLIDER = function (module, $, window, document) {
       });
     }
     /*
-     * Make slider image draggable 
+     * Make slider image draggable
      *
      * @param  {Element} $obj             - The current FlexSlider setup using custom selector.
      * @return {Void}
@@ -13072,7 +13072,7 @@ var FLEXSLIDER = function (module, $, window, document) {
       function nextMove() {
         $obj.flexslider('next');
       } //Added touch method to mobile device and desktop
-      //-------------------------------------	
+      //-------------------------------------
 
 
       var $dragTrigger = $obj.find('.uix-flexslider__inner');
@@ -13205,7 +13205,7 @@ var FLEXSLIDER = function (module, $, window, document) {
     /*
     * Method that updates children slides
     * fortunately, since all the children are not animating,
-    * they will only update if the main flexslider updates. 
+    * they will only update if the main flexslider updates.
      *
      * @param  {Number} slideNumber          - The current slider index.
      * @param  {Element} childrenSlidesObj    - Target slider.
@@ -13217,10 +13217,10 @@ var FLEXSLIDER = function (module, $, window, document) {
 
 
     function updateChildrenSlides(slideNumber, childrenSlidesObj, loop, speed, timing) {
-      /** 
-      * Create the children flexsliders. Must be array of jquery objects with the
-      * flexslider data. Easiest way is to place selector group in a var.
-      */
+      /**
+       * Create the children flexsliders. Must be array of jquery objects with the
+       * flexslider data. Easiest way is to place selector group in a var.
+       */
       var childrenSlides = $(childrenSlidesObj).flexslider({
         slideshow: false,
         // Remove the animations
@@ -13236,9 +13236,9 @@ var FLEXSLIDER = function (module, $, window, document) {
         $(childrenSlides[i]).data('flexslider').flexAnimate(slideNumber);
       }
     }
-    /*! 
+    /*!
      ---------------------------
-           Initialize slideshow
+     Initialize slideshow
      ---------------------------
      */
 
@@ -13287,8 +13287,8 @@ var FLEXSLIDER = function (module, $, window, document) {
       if ((0,esm_typeof/* default */.Z)(dataSpeed) === ( true ? "undefined" : 0)) dataSpeed = 600;
       if ((0,esm_typeof/* default */.Z)(dataTiming) === ( true ? "undefined" : 0)) dataTiming = 10000;
       if ((0,esm_typeof/* default */.Z)(dataLoop) === ( true ? "undefined" : 0)) dataLoop = true;
-      if ((0,esm_typeof/* default */.Z)(dataPrev) === ( true ? "undefined" : 0)) dataPrev = "<i class='fa fa-chevron-left'></i>";
-      if ((0,esm_typeof/* default */.Z)(dataNext) === ( true ? "undefined" : 0)) dataNext = "<i class='fa fa-chevron-right'></i>";
+      if ((0,esm_typeof/* default */.Z)(dataPrev) === ( true ? "undefined" : 0)) dataPrev = '<i class=\'fa fa-chevron-left\'></i>';
+      if ((0,esm_typeof/* default */.Z)(dataNext) === ( true ? "undefined" : 0)) dataNext = '<i class=\'fa fa-chevron-right\'></i>';
       if ((0,esm_typeof/* default */.Z)(dataAnim) === ( true ? "undefined" : 0)) dataAnim = 'slide';
       if ((0,esm_typeof/* default */.Z)(dataPaging) === ( true ? "undefined" : 0)) dataPaging = true;
       if ((0,esm_typeof/* default */.Z)(dataArrows) === ( true ? "undefined" : 0)) dataArrows = true;
@@ -13301,7 +13301,7 @@ var FLEXSLIDER = function (module, $, window, document) {
       if ((0,esm_typeof/* default */.Z)(dataCountTotal) === ( true ? "undefined" : 0)) dataCountTotal = false;
       if ((0,esm_typeof/* default */.Z)(dataCountCur) === ( true ? "undefined" : 0)) dataCountCur = false;
       if ((0,esm_typeof/* default */.Z)(dataParallax) === ( true ? "undefined" : 0)) dataParallax = false;
-      if ((0,esm_typeof/* default */.Z)(dataShowItemsMove) === ( true ? "undefined" : 0)) dataShowItemsMove = 1; //Make slider image draggable 
+      if ((0,esm_typeof/* default */.Z)(dataShowItemsMove) === ( true ? "undefined" : 0)) dataShowItemsMove = 1; //Make slider image draggable
 
       if (dataDrag) slidesExDraggable($this, dataSpeed); //Scroll The Slider With Mousewheel
 
@@ -13375,7 +13375,7 @@ var FLEXSLIDER = function (module, $, window, document) {
         },
         //Fires asynchronously with each slider animation.
         before: function before(slider) {
-          initslides($this, slider, 'before'); // Call the updateChildrenSlides which itterates through all children slides 
+          initslides($this, slider, 'before'); // Call the updateChildrenSlides which itterates through all children slides
 
           if ((0,esm_typeof/* default */.Z)(dataSync) != ( true ? "undefined" : 0) && dataSync != '' && dataSync != 0) {
             updateChildrenSlides(slider.animatingTo, dataSync, dataLoop, dataSpeed, dataTiming);
@@ -13391,9 +13391,9 @@ var FLEXSLIDER = function (module, $, window, document) {
         }
       });
     });
-    /*! 
+    /*!
      ---------------------------
-           Check grid size on resize event
+     Check grid size on resize event
      ---------------------------
      */
 
