@@ -8,7 +8,7 @@
  * ## 项目网址           :  https://uix-kit.13aq.com/
  * ## 版本              :  4.7.0
  * ## 汉化              :  慧科云 (https://github.com/huikeyun/uix-kit)
- * ## 最后更新日期        :  November 23, 2022
+ * ## 最后更新日期        :  November 24, 2022
  * ## 基于 UIUX Lab (https://uiux.cc) (uiuxlab@gmail.com) 汉化
  * ## 在 MIT 许可下发布。
  *
@@ -105,7 +105,7 @@
     86.虚线 Dotted Line
     87.等宽列 Equal-width Columns
     88.特性 Features
-    89.Footer Templates
+    89.页脚模板 Footer Templates
     90.Gallery Grid Layout
     91.Heading
     92.Image Animation
@@ -20156,14 +20156,15 @@ ul.edd_purchase_receipt_files li {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Footer Templates -->
+   <!-- 页脚模板 Footer Templates -->
 /* ====================================================== */
 .uix-special-footer__container {
-  background: #212121;
-  padding: 3rem 0;
   margin: 3rem 0 0;
+  padding: 3rem 0;
   color: #aeaeae;
+  background: #212121;
 }
 
 .uix-special-footer__container.is-transparent {
@@ -20177,9 +20178,9 @@ ul.edd_purchase_receipt_files li {
 
 .uix-special-footer__container h3,
 .uix-special-footer__container .uix-typo--h3 {
-  margin-bottom: 1rem;
   font-size: 1.2em;
   font-weight: 500;
+  margin-bottom: 1rem;
   color: #aeaeae;
 }
 
@@ -20192,8 +20193,8 @@ ul.edd_purchase_receipt_files li {
 }
 
 .uix-special-footer__container .uix-special-footer__menus > .uix-special-footer__menus__list li {
-  margin: .5rem 0;
   display: block;
+  margin: .5rem 0;
 }
 
 @media all and (max-width: 768px) {
@@ -20204,9 +20205,9 @@ ul.edd_purchase_receipt_files li {
   .uix-special-footer__container .uix-f-r {
     position: relative !important;
     display: block !important;
+    float: none;
     width: 100% !important;
     text-align: left;
-    float: none;
   }
   .uix-special-footer__container .uix-t-l,
   .uix-special-footer__container .uix-t-r {
