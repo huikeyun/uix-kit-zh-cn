@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-    <meta charset="@@{website_charset}" />
-    <title>等高列 Equal-Height-Columns - @@{website_title}</title>
-    @@include('./src/components/_global/include-header.html')
+        <meta charset="@@{website_charset}" />
+        <title>等高列 Equal-Height-Columns - @@{website_title}</title>
+        @@include('./src/components/_global/include-header.html')
 </head>
 <body class="page">
 @@include('./src/components/_global/include-loader.html')
 @@include('./src/components/_global/include-toggle-trigger.html')
 <div class="uix-wrapper">
-    <!-- 页眉区 -->
-    <header class="uix-header__container">
-        <div class="uix-header">
-            <!-- 容器 开始 -->
-            <div class="container">
-                @@include('./src/components/_global/include-brand.html')
-                @@include('./src/components/_global/include-menu.html')
-            </div>
-            <!-- 容器 结束 -->
-            <div class="uix-clearfix"></div>
-        </div>
-    </header>
-    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-    <main id="uix-maincontent">
-        <!-- 内容 开始 -->
-        <section class="uix-spacing--s uix-spacing--no-bottom">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
-                        <h3>具有<span class="uix-typo--color-highlight">Bootstrap Grid</span>的等高列
-                        </h3>
-                        <p>将父 div 的高度设置为 100%。</p>
-                        <hr>
-                    </div>
+        <!-- 页眉区 -->
+        <header class="uix-header__container">
+                <div class="uix-header">
+                        <!-- 容器 开始 -->
+                        <div class="container">
+                                @@include('./src/components/_global/include-brand.html')
+                                @@include('./src/components/_global/include-menu.html')
+                        </div>
+                        <!-- 容器 结束 -->
+                        <div class="uix-clearfix"></div>
                 </div>
-                <!-- 行列 结束 -->
-            </div>
-            <!-- 容器 结束 -->
-        </section>
-        <!-- 内容 结束 -->
-        <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;row g-0 uix-typo--color-white&quot;&gt;
+        </header>
+        <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+        <main id="uix-maincontent">
+                <!-- 内容 开始 -->
+                <section class="uix-spacing--s uix-spacing--no-bottom">
+                        <!-- 容器 开始 -->
+                        <div class="container">
+                                <!-- 行列 开始 -->
+                                <div class="row">
+                                        <div class="col-12">
+                                                <h3>具有<span class="uix-typo--color-highlight">Bootstrap Grid</span>的等高列
+                                                </h3>
+                                                <p>将父 div 的高度设置为 100%。</p>
+                                                <hr>
+                                        </div>
+                                </div>
+                                <!-- 行列 结束 -->
+                        </div>
+                        <!-- 容器 结束 -->
+                </section>
+                <!-- 内容 结束 -->
+                <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;row g-0 uix-typo--color-white&quot;&gt;
     &lt;div class=&quot;col-lg-4 col-md-4 uix-relative&quot;&gt;
         &lt;div style=&quot;height: 100%; padding: 2rem; background-color: #4487ed; &quot;&gt;
             &lt;h3 class=&quot;uix-typo--style-uppercase&quot; style=&quot;font-weight: 600;&quot;&gt;为什么选择我们&lt;/h3&gt;
@@ -71,57 +71,58 @@ position: absolute; right: -2rem; bottom: -2rem; z-index: 0;&quot;&gt;&lt;/i&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-        <section class="uix-spacing--s">
-            <div class="row g-0 uix-typo--color-white">
-                <div class="col-lg-4 col-md-4 uix-relative">
-                    <div style="height: 100%; padding: 2rem; background-color: #4487ed; ">
-                        <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">为什么选择我们</h3>
-                        <p>变革、机构工薪家庭的思想家，他们让社区发生改变。</p>
-                        <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
-                    </div>
-                    <i class="fa fa-bullhorn" aria-hidden="true" style="font-size: 10rem; opacity: .2;
+                <section class="uix-spacing--s">
+                        <div class="row g-0 uix-typo--color-white">
+                                <div class="col-lg-4 col-md-4 uix-relative">
+                                        <div style="height: 100%; padding: 2rem; background-color: #4487ed; ">
+                                                <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">为什么选择我们</h3>
+                                                <p>变革、机构工薪家庭的思想家，他们让社区发生改变。</p>
+                                                <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
+                                        </div>
+                                        <i class="fa fa-bullhorn" aria-hidden="true" style="font-size: 10rem; opacity: .2;
 position: absolute; right: -2rem; bottom: -2rem; z-index: 0;"></i>
-                </div>
-                <div class="col-lg-4 col-md-4 uix-relative">
-                    <div style="height: 100%; padding: 2rem; background-color: #ed3d3a;">
-                        <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">我们的使命</h3>
-                        <p>一线响应，富有远见的协作城市进步克服不公正，难民署公私伙伴关系事业。 给予、国家教育基于权利的方法； 利用破坏解决方案。</p>
-                        <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
-                    </div>
-                    <i class="fa fa-cogs" aria-hidden="true" style="font-size: 10rem; opacity: .2;
+                                </div>
+                                <div class="col-lg-4 col-md-4 uix-relative">
+                                        <div style="height: 100%; padding: 2rem; background-color: #ed3d3a;">
+                                                <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">我们的使命</h3>
+                                                <p>一线响应，富有远见的协作城市进步克服不公正，难民署公私伙伴关系事业。 给予、国家教育基于权利的方法； 利用破坏解决方案。</p>
+                                                <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
+                                        </div>
+                                        <i class="fa fa-cogs" aria-hidden="true" style="font-size: 10rem; opacity: .2;
 position: absolute; right: -2rem; bottom: -2rem; z-index: 0;"></i>
-                </div>
-                <div class="col-lg-4 col-md-4 uix-relative">
-                    <div style="height: 100%; padding: 2rem; background-color: #fcba3c;">
-                        <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">你会得到什么</h3>
-                        <p>可持续性参与筹款活动将碳权利联系起来，协作城市召集真相。</p>
-                        <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
-                    </div>
-                    <i class="fa fa-flask" aria-hidden="true" style="font-size: 10rem; opacity: .2;
+                                </div>
+                                <div class="col-lg-4 col-md-4 uix-relative">
+                                        <div style="height: 100%; padding: 2rem; background-color: #fcba3c;">
+                                                <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">你会得到什么</h3>
+                                                <p>可持续性参与筹款活动将碳权利联系起来，协作城市召集真相。</p>
+                                                <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
+                                        </div>
+                                        <i class="fa fa-flask" aria-hidden="true" style="font-size: 10rem; opacity: .2;
 position: absolute; right: -2rem; bottom: -2rem; z-index: 0;"></i>
-                </div>
-            </div>
-            <!-- 行列 结束 -->
-        </section>
-        <!-- 内容 开始 -->
-        <section class="uix-spacing--s uix-spacing--no-bottom">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
-                        <h3>等高列
-                            <span class="uix-typo--color-highlight">Bootstrap Grid</span>通过JS</h3>
-                        <p>将这个类 <code>js-uix-common-height</code> 添加到
-                            <code>row</code> 的 Bootstrap Grid 系统创建相同的列高。</p>
-                    </div>
-                </div>
-                <!-- 行列 结束 -->
-            </div>
-            <!-- 容器 结束 -->
-        </section>
-        <!-- 内容 结束 -->
-        <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;row js-uix-common-height uix-typo--color-white&quot;&gt;
+                                </div>
+                        </div>
+                        <!-- 行列 结束 -->
+                </section>
+                <!-- 内容 开始 -->
+                <section class="uix-spacing--s uix-spacing--no-bottom">
+                        <!-- 容器 开始 -->
+                        <div class="container">
+                                <!-- 行列 开始 -->
+                                <div class="row">
+                                        <div class="col-12">
+                                                <h3>等高列
+                                                        <span class="uix-typo--color-highlight">Bootstrap Grid</span>通过JS
+                                                </h3>
+                                                <p>将这个类 <code>js-uix-common-height</code> 添加到
+                                                        <code>row</code> 的 Bootstrap Grid 系统创建相同的列高。</p>
+                                        </div>
+                                </div>
+                                <!-- 行列 结束 -->
+                        </div>
+                        <!-- 容器 结束 -->
+                </section>
+                <!-- 内容 结束 -->
+                <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;row js-uix-common-height uix-typo--color-white&quot;&gt;
     &lt;div class=&quot;col-lg-4 col-md-4 uix-relative&quot; style=&quot;background-color: #4487ed;&quot;&gt;
         &lt;div style=&quot;padding: 2rem;&quot;&gt;
             &lt;h3 class=&quot;uix-typo--style-uppercase&quot; style=&quot;font-weight: 600;&quot;&gt;为什么选择我们&lt;/h3&gt;
@@ -151,60 +152,61 @@ position: absolute; right: -2rem; bottom: -2rem; z-index: 0;"></i>
     &lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-        <section class="uix-spacing--s">
-            <div class="container-fluid">
-                <div class="row js-uix-common-height uix-typo--color-white">
-                    <div class="col-lg-4 col-md-4 uix-relative" style="background-color: #4487ed;">
-                        <div style="padding: 2rem;">
-                            <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">为什么选择我们</h3>
-                            <p>变革、机构工薪家庭的思想家，他们让社区发生改变。</p>
-                            <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
-                        </div>
-                        <i class="fa fa-bullhorn" aria-hidden="true" style="font-size: 10rem; opacity: .2;
+                <section class="uix-spacing--s">
+                        <div class="container-fluid">
+                                <div class="row js-uix-common-height uix-typo--color-white">
+                                        <div class="col-lg-4 col-md-4 uix-relative" style="background-color: #4487ed;">
+                                                <div style="padding: 2rem;">
+                                                        <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">为什么选择我们</h3>
+                                                        <p>变革、机构工薪家庭的思想家，他们让社区发生改变。</p>
+                                                        <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
+                                                </div>
+                                                <i class="fa fa-bullhorn" aria-hidden="true" style="font-size: 10rem; opacity: .2;
 	position: absolute; right: -2rem; bottom: -2rem; z-index: 0;"></i>
-                    </div>
-                    <div class="col-lg-4 col-md-4 uix-relative" style="background-color: #ed3d3a;">
-                        <div style="padding: 2rem;">
-                            <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">我们的使命</h3>
-                            <p>一线响应，富有远见的协作城市进步克服不公正，难民署公私伙伴关系事业。 给予、国家教育基于权利的方法； 利用破坏解决方案。</p>
-                            <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
-                        </div>
-                        <i class="fa fa-cogs" aria-hidden="true" style="font-size: 10rem; opacity: .2;
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 uix-relative" style="background-color: #ed3d3a;">
+                                                <div style="padding: 2rem;">
+                                                        <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">我们的使命</h3>
+                                                        <p>一线响应，富有远见的协作城市进步克服不公正，难民署公私伙伴关系事业。 给予、国家教育基于权利的方法； 利用破坏解决方案。</p>
+                                                        <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
+                                                </div>
+                                                <i class="fa fa-cogs" aria-hidden="true" style="font-size: 10rem; opacity: .2;
 	position: absolute; right: -2rem; bottom: -2rem; z-index: 0;"></i>
-                    </div>
-                    <div class="col-lg-4 col-md-4 uix-relative" style="background-color: #fcba3c;">
-                        <div style="padding: 2rem;">
-                            <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">你会得到什么</h3>
-                            <p>可持续性参与筹款活动将碳权利联系起来，协作城市召集真相。</p>
-                            <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
-                        </div>
-                        <i class="fa fa-flask" aria-hidden="true" style="font-size: 10rem; opacity: .2;
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 uix-relative" style="background-color: #fcba3c;">
+                                                <div style="padding: 2rem;">
+                                                        <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">你会得到什么</h3>
+                                                        <p>可持续性参与筹款活动将碳权利联系起来，协作城市召集真相。</p>
+                                                        <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
+                                                </div>
+                                                <i class="fa fa-flask" aria-hidden="true" style="font-size: 10rem; opacity: .2;
 	position: absolute; right: -2rem; bottom: -2rem; z-index: 0;"></i>
-                    </div>
-                </div>
-                <!-- 行列 结束 -->
-            </div>
-            <!-- container-fluid end -->
-        </section>
-        <!-- 内容 开始 -->
-        <section>
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
-                        <h3>等高列
-                            <span class="uix-typo--color-highlight">UIx Grid（核心网格）</span>通过JS</h3>
-                        <p>将这个类 <code>js-uix-common-height</code> 添加到
-                            <code>uix-core-grid__row</code>的UIx Grid系统创建相同的列高。</p>
-                    </div>
-                </div>
-                <!-- 行列 结束 -->
-            </div>
-            <!-- 容器 结束 -->
-        </section>
-        <!-- 内容 结束 -->
-        <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-core-grid&quot;&gt;
+                                        </div>
+                                </div>
+                                <!-- 行列 结束 -->
+                        </div>
+                        <!-- container-fluid end -->
+                </section>
+                <!-- 内容 开始 -->
+                <section>
+                        <!-- 容器 开始 -->
+                        <div class="container">
+                                <!-- 行列 开始 -->
+                                <div class="row">
+                                        <div class="col-12">
+                                                <h3>等高列
+                                                        <span class="uix-typo--color-highlight">UIx Grid（核心网格）</span>通过JS
+                                                </h3>
+                                                <p>将这个类 <code>js-uix-common-height</code> 添加到
+                                                        <code>uix-core-grid__row</code>的UIx Grid系统创建相同的列高。</p>
+                                        </div>
+                                </div>
+                                <!-- 行列 结束 -->
+                        </div>
+                        <!-- 容器 结束 -->
+                </section>
+                <!-- 内容 结束 -->
+                <pre class="uix-precode uix-precode uix-precode--nolebel"><code>&lt;div class=&quot;uix-core-grid&quot;&gt;
     &lt;div class=&quot;uix-core-grid__row uix-core-grid__row--loop js-uix-common-height uix-typo--color-white&quot;&gt;
         &lt;div class=&quot;uix-core-grid__col-4 uix-relative&quot; style=&quot;background-color: #4487ed;&quot;&gt;
             &lt;div style=&quot;padding: 2rem;&quot;&gt;
@@ -237,43 +239,43 @@ position: absolute; right: -2rem; bottom: -2rem; z-index: 0;"></i>
     &lt;!-- uix-core-grid__row  end --&gt;
 &lt;/div&gt;</code>
 </pre>
-        <section class="uix-spacing--s">
-            <div class="uix-core-grid">
-                <div class="uix-core-grid__row uix-core-grid__row--loop js-uix-common-height uix-typo--color-white">
-                    <div class="uix-core-grid__col-4 uix-relative" style="background-color: #4487ed;">
-                        <div style="padding: 2rem;">
-                            <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">为什么选择我们</h3>
-                            <p>变革、机构工薪家庭的思想家，他们让社区发生改变。</p>
-                            <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
-                        </div>
-                        <i class="fa fa-bullhorn" aria-hidden="true" style="font-size: 10rem; opacity: .2;
+                <section class="uix-spacing--s">
+                        <div class="uix-core-grid">
+                                <div class="uix-core-grid__row uix-core-grid__row--loop js-uix-common-height uix-typo--color-white">
+                                        <div class="uix-core-grid__col-4 uix-relative" style="background-color: #4487ed;">
+                                                <div style="padding: 2rem;">
+                                                        <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">为什么选择我们</h3>
+                                                        <p>变革、机构工薪家庭的思想家，他们让社区发生改变。</p>
+                                                        <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
+                                                </div>
+                                                <i class="fa fa-bullhorn" aria-hidden="true" style="font-size: 10rem; opacity: .2;
 	position: absolute; right: -2rem; bottom: -2rem; z-index: 0;"></i>
-                    </div>
-                    <div class="uix-core-grid__col-4 uix-relative" style="background-color: #ed3d3a;">
-                        <div style="padding: 2rem;">
-                            <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">我们的使命</h3>
-                            <p>一线响应，富有远见的协作城市进步克服不公正，难民署公私伙伴关系事业。 给予、国家教育基于权利的方法； 利用破坏解决方案。</p>
-                            <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
-                        </div>
-                        <i class="fa fa-cogs" aria-hidden="true" style="font-size: 10rem; opacity: .2;
+                                        </div>
+                                        <div class="uix-core-grid__col-4 uix-relative" style="background-color: #ed3d3a;">
+                                                <div style="padding: 2rem;">
+                                                        <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">我们的使命</h3>
+                                                        <p>一线响应，富有远见的协作城市进步克服不公正，难民署公私伙伴关系事业。 给予、国家教育基于权利的方法； 利用破坏解决方案。</p>
+                                                        <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
+                                                </div>
+                                                <i class="fa fa-cogs" aria-hidden="true" style="font-size: 10rem; opacity: .2;
 	position: absolute; right: -2rem; bottom: -2rem; z-index: 0;"></i>
-                    </div>
-                    <div class="uix-core-grid__col-4 uix-relative" style="background-color: #fcba3c;">
-                        <div style="padding: 2rem;">
-                            <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">你会得到什么</h3>
-                            <p>可持续性参与筹款活动将碳权利联系起来，协作城市召集真相。</p>
-                            <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
-                        </div>
-                        <i class="fa fa-flask" aria-hidden="true" style="font-size: 10rem; opacity: .2;
+                                        </div>
+                                        <div class="uix-core-grid__col-4 uix-relative" style="background-color: #fcba3c;">
+                                                <div style="padding: 2rem;">
+                                                        <h3 class="uix-typo--style-uppercase" style="font-weight: 600;">你会得到什么</h3>
+                                                        <p>可持续性参与筹款活动将碳权利联系起来，协作城市召集真相。</p>
+                                                        <a href="#" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--secondary">阅读全文</a>
+                                                </div>
+                                                <i class="fa fa-flask" aria-hidden="true" style="font-size: 10rem; opacity: .2;
 	position: absolute; right: -2rem; bottom: -2rem; z-index: 0;"></i>
-                    </div>
-                </div>
-                <!-- uix-core-grid__row  end -->
-            </div>
-            <!-- /uix-core-grid -->
-        </section>
-    </main>
-    @@include('./src/components/_global/include-copyright.html')
+                                        </div>
+                                </div>
+                                <!-- uix-core-grid__row  end -->
+                        </div>
+                        <!-- /uix-core-grid -->
+                </section>
+        </main>
+        @@include('./src/components/_global/include-copyright.html')
 </div>
 <!-- uix-wrapper end -->
 @@include('./src/components/_global/include-footer.html')

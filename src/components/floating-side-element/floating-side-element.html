@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-    <meta charset="@@{website_charset}" />
-    <title>浮动侧元素 Floating Side Element - @@{website_title}</title>
-    @@include('./src/components/_global/include-header.html')
+        <meta charset="@@{website_charset}" />
+        <title>浮动侧元素 Floating Side Element - @@{website_title}</title>
+        @@include('./src/components/_global/include-header.html')
 </head>
 <body class="page">
 @@include('./src/components/_global/include-loader.html')
 @@include('./src/components/_global/include-toggle-trigger.html')
 <div class="uix-wrapper">
-    <!-- 页眉区 -->
-    <header class="uix-header__container">
-        <div class="uix-header">
-            <!-- 容器 开始 -->
-            <div class="container">
-                @@include('./src/components/_global/include-brand.html')
-                @@include('./src/components/_global/include-menu.html')
-            </div>
-            <!-- 容器 结束 -->
-            <div class="uix-clearfix"></div>
-        </div>
-    </header>
-    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-    <main id="uix-maincontent">
+        <!-- 页眉区 -->
+        <header class="uix-header__container">
+                <div class="uix-header">
+                        <!-- 容器 开始 -->
+                        <div class="container">
+                                @@include('./src/components/_global/include-brand.html')
+                                @@include('./src/components/_global/include-menu.html')
+                        </div>
+                        <!-- 容器 结束 -->
+                        <div class="uix-clearfix"></div>
+                </div>
+        </header>
+        <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+        <main id="uix-maincontent">
         <pre class="uix-precode uix-t-l"><label>HTML</label><code>&lt;div class=&quot;uix-floating-side-el&quot;&gt;
     &lt;a id=&quot;app-quick-appointment&quot; href=&quot;javascript:&quot;&gt;&lt;span&gt;&lt;i class=&quot;fa fa-envelope-open&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/span&gt;订购&lt;/a&gt;
     &lt;a id=&quot;app-quick-service&quot; href=&quot;javascript:&quot;&gt;&lt;span&gt;&lt;i class=&quot;fa fa-headphones&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/span&gt;在线服务&lt;/a&gt;
     &lt;a id=&quot;app-quick-appointment&quot; href=&quot;javascript:&quot;&gt;&lt;span&gt;&lt;i class=&quot;fa fa-calculator&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/span&gt;预估&lt;/a&gt;
     &lt;a href=&quot;常问问题.html&quot;&gt;&lt;span&gt;&lt;i class=&quot;fa fa-question-circle-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/span&gt;常问问题&lt;/a&gt;
 &lt;/div&gt;</code></pre>
-        <!--  浮动侧元素 开始  -->
-        <div class="uix-floating-side-el">
-            <a id="app-quick-appointment" href="javascript:"><span><i class="fa fa-envelope-open" aria-hidden="true"></i></span>订购</a>
-            <a id="app-quick-service" href="javascript:"><span><i class="fa fa-headphones" aria-hidden="true"></i></span>在线服务</a>
-            <a id="app-quick-appointment" href="javascript:"><span><i class="fa fa-calculator" aria-hidden="true"></i></span>预估</a>
-            <a href="常问问题.html"><span><i class="fa fa-question-circle-o" aria-hidden="true"></i></span>常问问题</a>
-        </div>
-        <!--  浮动侧元素 结束  -->
-        <div style="height: 2500px;"></div>
-    </main>
-    @@include('./src/components/_global/include-copyright.html')
+                <!--  浮动侧元素 开始  -->
+                <div class="uix-floating-side-el">
+                        <a id="app-quick-appointment" href="javascript:"><span><i class="fa fa-envelope-open" aria-hidden="true"></i></span>订购</a>
+                        <a id="app-quick-service" href="javascript:"><span><i class="fa fa-headphones" aria-hidden="true"></i></span>在线服务</a>
+                        <a id="app-quick-appointment" href="javascript:"><span><i class="fa fa-calculator" aria-hidden="true"></i></span>预估</a>
+                        <a href="常问问题.html"><span><i class="fa fa-question-circle-o" aria-hidden="true"></i></span>常问问题</a>
+                </div>
+                <!--  浮动侧元素 结束  -->
+                <div style="height: 2500px;"></div>
+        </main>
+        @@include('./src/components/_global/include-copyright.html')
 </div>
 <!-- uix-wrapper end -->
 @@include('./src/components/_global/include-footer.html')
