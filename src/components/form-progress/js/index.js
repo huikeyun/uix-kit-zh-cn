@@ -1,15 +1,14 @@
 
 /* 
  *************************************
- * <!-- Form Progress -->
+ * <!-- 表单进度 Form Progress -->
  *************************************
  */
 
 /*
-    Note:
+    笔记：
 	
-	If you want to initialize the indicator to a location when the page is first run,
-	you need to call the following function:
+	如果要在第一次运行页面时将指示器初始化为位置，您需要调用以下功能：
 	
 	$( 'body' ).waitForImages().done(function() {
 		$( document ).UixFormProgressToNext({ 

@@ -51,7 +51,7 @@
     32.层叠的下拉列表 Cascading DropDown List
     33.弹性滑块（第三方插件）Flexslider (Third-party plugin)
     34.浮动侧边栏 Floating Side Element
-    35.Form Progress
+    35.表单进度 Form Progress
     36.表格 Form
     37.表格（布局）Form ( Layout )-
     38.Form  ( Material Design Theme )
@@ -6672,26 +6672,27 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
   color: #ffffff;
 }
 
+@charset "UTF-8";
 /* ======================================================
-   <!-- Form Progress -->
+   <!-- 表单进度 Form Progress -->
 /* ====================================================== */
 .uix-form-progress {
   position: relative;
   display: block;
-  margin: 3rem 0;
   width: calc(100% - 60px);
+  margin: 3rem 0;
 }
 
 .uix-form-progress .uix-form-progress__line {
-  display: block;
   position: relative;
   top: 5px;
   left: 5px;
-  -webkit-appearance: none;
-  appearance: none;
+  display: block;
   width: 100%;
   height: 5px;
-  background-color: #ddd;
+  background-color: #dddddd;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .uix-form-progress .uix-form-progress__line > span {
@@ -6704,28 +6705,28 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
 
 .uix-form-progress .uix-form-progress__indicator {
   position: absolute;
+  z-index: 1;
   top: -2px;
   left: 0;
-  z-index: 1;
   display: inline-block;
   width: 20px;
   height: 20px;
-  background: #fff;
-  border: 3px solid #ddd;
+  border: 3px solid #dddddd;
   border-radius: 50%;
+  background: #ffffff;
   transition: all 0.3s ease;
 }
 
 .uix-form-progress .uix-form-progress__indicator > span {
   font-size: 0.75rem;
-  color: #aeaeae;
-  display: inline-block;
   position: absolute;
-  background: #fff;
+  display: inline-block;
+  min-width: 60px;
   margin-top: -3px;
   margin-left: 17px;
   padding: 0 .5rem;
-  min-width: 60px;
+  color: #aeaeae;
+  background: #ffffff;
 }
 
 .uix-form-progress .uix-form-progress__indicator.is-active {
@@ -6737,14 +6738,14 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
   background: #ce3a3e;
 }
 
-/* Form animations */
+/* 表单动画 */
 .uix-form-progress__target {
   transition: all 0.3s ease;
   position: relative;
+  overflow: hidden;
   width: 100%;
   height: 0;
   transition: .3s;
-  overflow: hidden;
   opacity: 0;
 }
 
@@ -6757,8 +6758,8 @@ ol.uix-flexslider__control-paging li a:hover, ol.uix-flexslider__control-paging 
 }
 
 .uix-form-progress__target .uix-form-progress__target__step {
-  width: 100%;
   position: absolute;
+  width: 100%;
   transition: all 0.3s ease;
 }
 
