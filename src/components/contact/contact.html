@@ -1,111 +1,112 @@
 <!DOCTYPE html>
 <html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-        <meta charset="@@{website_charset}" />
-        <title>带地图的联系表格 Contact Form With Google Map - @@{website_title}</title>
-        @@include('./src/components/_global/include-header.html')
+    <meta charset="@@{website_charset}" />
+    <title>带地图的联系表格 Contact Form With Google Map - @@{website_title}</title>
+    @@include('./src/components/_global/include-header.html')
 </head>
 <body class="page">
 @@include('./src/components/_global/include-loader.html')
 @@include('./src/components/_global/include-toggle-trigger.html')
 <div class="uix-wrapper">
-        <!-- 页眉区 -->
-        <header class="uix-header__container">
-                <div class="uix-header">
-                        <!-- 容器 开始 -->
-                        <div class="container">
-                                @@include('./src/components/_global/include-brand.html')
-                                @@include('./src/components/_global/include-menu.html')
-                        </div>
-                        <!-- 容器 结束 -->
-                        <div class="uix-clearfix"></div>
+    <!-- 页眉区 -->
+    <header class="uix-header__container">
+        <div class="uix-header">
+            <!-- 容器 开始 -->
+            <div class="container">
+                @@include('./src/components/_global/include-brand.html')
+                @@include('./src/components/_global/include-menu.html')
+            </div>
+            <!-- 容器 结束 -->
+            <div class="uix-clearfix"></div>
+        </div>
+    </header>
+    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+    <main id="uix-maincontent">
+        <!-- 内容 开始 -->
+        <section>
+            <section class="uix-spacing--s uix-spacing--no-top">
+                <style>
+                    #map {
+                        width: 100%;
+                        height: 400px;
+                    }
+                </style>
+                <div id="map"></div>
+            </section>
+            <!-- 容器 开始 -->
+            <div class="container">
+                <!-- 行列 开始 -->
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 uix-trans">
+                        <h4>取得联系</h4>
+                        <p> 在 vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, </p>
+                        <hr />
+                        <p> 438 马林百列<br /> 埃尔伍德，维多利亚<br /> 邮政信箱 3184 </p>
+                        <hr />
+                        <p><strong>电子邮箱：</strong> hello@foundry.net
+                            <br /><strong>电话：</strong> +614 3948 2726</p>
+                    </div>
+                    <!-- col-lg-6.col-md-6 end -->
+                    <div class="col-lg-6 col-md-6 uix-trans">
+                        <form method="post" action="#">
+                            <div class="uix-controls is-fullwidth">
+                                <input type="text" class="js-uix-float-label" name="姓名">
+                                <label>Author</label>
+                            </div>
+                            <div class="uix-controls is-fullwidth">
+                                <input type="email" class="js-uix-float-label" name="邮箱">
+                                <label>Email</label>
+                            </div>
+                            <div class="uix-controls uix-controls__textarea is-fullwidth">
+                                <textarea name="comments" rows="5" class="js-uix-float-label"></textarea>
+                                <label>内容</label>
+                            </div>
+                            <div class="uix-controls">
+                                <button type="submit" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--primary">提交</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- col-lg-6.col-md-6 end -->
                 </div>
-        </header>
-        <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-        <main id="uix-maincontent">
-                <!-- 内容 开始 -->
-                <section>
-                        <section class="uix-spacing--s uix-spacing--no-top">
-                                <style>
-                                        #map {
-                                                width: 100%;
-                                                height: 400px;
-                                        }
-                                </style>
-                                <div id="map"></div>
-                        </section>
-                        <!-- 容器 开始 -->
-                        <div class="container">
-                                <!-- 行列 开始 -->
-                                <div class="row">
-                                        <div class="col-lg-6 col-md-6 uix-trans">
-                                                <h4>取得联系</h4>
-                                                <p> 在 vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, </p>
-                                                <hr />
-                                                <p> 438 马林百列<br /> 埃尔伍德，维多利亚<br /> 邮政信箱 3184 </p>
-                                                <hr />
-                                                <p><strong>电子邮箱：</strong> hello@foundry.net
-                                                        <br /><strong>电话：</strong> +614 3948 2726</p>
-                                        </div>
-                                        <!-- col-lg-6.col-md-6 end -->
-                                        <div class="col-lg-6 col-md-6 uix-trans">
-                                                <form method="post" action="#">
-                                                        <div class="uix-controls is-fullwidth">
-                                                                <input type="text" class="js-uix-float-label" name="姓名">
-                                                                <label>Author</label>
-                                                        </div>
-                                                        <div class="uix-controls is-fullwidth">
-                                                                <input type="email" class="js-uix-float-label" name="邮箱">
-                                                                <label>Email</label>
-                                                        </div>
-                                                        <div class="uix-controls uix-controls__textarea is-fullwidth">
-                                                                <textarea name="comments" rows="5" class="js-uix-float-label"></textarea>
-                                                                <label>内容</label>
-                                                        </div>
-                                                        <div class="uix-controls">
-                                                                <button type="submit" class="uix-btn uix-btn__border--thin uix-btn__size--s uix-btn__bg--primary">提交</button>
-                                                        </div>
-                                                </form>
-                                        </div>
-                                        <!-- col-lg-6.col-md-6 end -->
-                                </div>
-                                <!-- 行列 结束 -->
-                        </div>
-                        <!-- 容器 结束 -->
-                </section>
-        </main>
-        @@include('./src/components/_global/include-copyright.html')
+                <!-- 行列 结束 -->
+            </div>
+            <!-- 容器 结束 -->
+        </section>
+    </main>
+    @@include('./src/components/_global/include-copyright.html')
 </div>
 <!-- uix-wrapper end -->
 <!-- Google Map API
 ============================================= -->
 <script>
-        function loadJScript() {
-                const script = document.createElement('script');
-                script.type = 'text/javascript';
-                script.src = '//api.map.baidu.com/api?type=webgl&v=1.0&ak=DmvaTbVhDI5FzcLmG8zcZQdPllicdMXQ&callback=init';
-                document.body.appendChild(script);
-        }
-        function init() {
-                const map = new BMapGL.Map('map'); // 创建Map实例
-                const point = new BMapGL.Point(116.526129, 39.786941); // 创建点坐标
-                map.centerAndZoom(point, 15);
-                map.enableScrollWheelZoom(); // 启用滚轮放大缩小
-                const marker = new BMapGL.Marker(point);  // 创建标注
-                map.addOverlay(marker);              // 将标注添加到地图中
-                // 向地图中添加信息窗口
-                const opts = {
-                        width: 200,     // 信息窗口宽度
-                        height: 100,     // 信息窗口高度
-                        title: 'apollo' // 信息窗口标题
-                };
-                const infoWindow = new BMapGL.InfoWindow('北京市高级别自动驾驶示范区（亦庄）', opts);  // 创建信息窗口对象
-                map.openInfoWindow(infoWindow, point); //开启信息窗口
-                marker.addEventListener('click', function() {
-                        map.openInfoWindow(infoWindow, point); //开启信息窗口
-                });
-        }
-        window.onload = loadJScript; // 异步加载地图
+    function loadJScript() {
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = '//api.map.baidu.com/api?type=webgl&v=1.0&ak=DmvaTbVhDI5FzcLmG8zcZQdPllicdMXQ&callback=init';
+        document.body.appendChild(script);
+    }
+    function init() {
+        const map = new BMapGL.Map('map'); // 创建Map实例
+        const point = new BMapGL.Point(116.526129,39.786941); // 创建点坐标
+        map.centerAndZoom(point, 15);
+        map.enableScrollWheelZoom(); // 启用滚轮放大缩小
+        const marker = new BMapGL.Marker(point);  // 创建标注
+        map.addOverlay(marker);              // 将标注添加到地图中
+
+        // 向地图中添加信息窗口
+        const opts = {
+            width: 200,     // 信息窗口宽度
+            height: 100,     // 信息窗口高度
+            title: 'apollo', // 信息窗口标题
+        };
+        const infoWindow = new BMapGL.InfoWindow('北京市高级别自动驾驶示范区（亦庄）', opts);  // 创建信息窗口对象
+        map.openInfoWindow(infoWindow, point); //开启信息窗口
+        marker.addEventListener("click", function(){
+            map.openInfoWindow(infoWindow, point); //开启信息窗口
+        });
+    }
+    window.onload = loadJScript; // 异步加载地图
 </script>
 <!-- Google Map API  end -->
 @@include('./src/components/_global/include-footer.html')
