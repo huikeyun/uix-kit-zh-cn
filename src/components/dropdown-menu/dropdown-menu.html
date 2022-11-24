@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
-    <meta charset="@@{website_charset}" />
-    <title>下拉菜单 Dropdown Menu - @@{website_title}</title>
-    @@include('./src/components/_global/include-header.html')
+        <meta charset="@@{website_charset}" />
+        <title>下拉菜单 Dropdown Menu - @@{website_title}</title>
+        @@include('./src/components/_global/include-header.html')
 </head>
 <body class="page">
 @@include('./src/components/_global/include-loader.html')
 @@include('./src/components/_global/include-toggle-trigger.html')
 <div class="uix-wrapper">
-    <!-- 页眉区 -->
-    <header class="uix-header__container">
-        <div class="uix-header">
-            <!-- 容器 开始 -->
-            <div class="container">
-                @@include('./src/components/_global/include-brand.html')
-                @@include('./src/components/_global/include-menu.html')
-            </div>
-            <!-- 容器 结束 -->
-            <div class="uix-clearfix"></div>
-        </div>
-    </header>
-    <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
-    <main id="uix-maincontent">
-        <!-- 内容 开始 -->
-        <section class="uix-spacing--s uix-spacing--no-bottom">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
-                        <h3>下拉菜单</h3>
-                        <p>单击超链接显示下拉菜单</p>
-                        <hr>
-                    </div>
+        <!-- 页眉区 -->
+        <header class="uix-header__container">
+                <div class="uix-header">
+                        <!-- 容器 开始 -->
+                        <div class="container">
+                                @@include('./src/components/_global/include-brand.html')
+                                @@include('./src/components/_global/include-menu.html')
+                        </div>
+                        <!-- 容器 结束 -->
+                        <div class="uix-clearfix"></div>
                 </div>
-                <!-- 行列 结束 -->
-            </div>
-            <!-- 容器 结束 -->
-        </section>
-        <!-- 内容 结束 -->
-        <section class="uix-spacing--s">
-            <!-- 容器 开始 -->
-            <div class="container">
-                <!-- 行列 开始 -->
-                <div class="row">
-                    <div class="col-12">
+        </header>
+        <div class="uix-header__placeholder js-uix-header__placeholder-autoheight"></div>
+        <main id="uix-maincontent">
+                <!-- 内容 开始 -->
+                <section class="uix-spacing--s uix-spacing--no-bottom">
+                        <!-- 容器 开始 -->
+                        <div class="container">
+                                <!-- 行列 开始 -->
+                                <div class="row">
+                                        <div class="col-12">
+                                                <h3>下拉菜单</h3>
+                                                <p>单击超链接显示下拉菜单</p>
+                                                <hr>
+                                        </div>
+                                </div>
+                                <!-- 行列 结束 -->
+                        </div>
+                        <!-- 容器 结束 -->
+                </section>
+                <!-- 内容 结束 -->
+                <section class="uix-spacing--s">
+                        <!-- 容器 开始 -->
+                        <div class="container">
+                                <!-- 行列 开始 -->
+                                <div class="row">
+                                        <div class="col-12">
                         <pre class="uix-precode uix-t-l"><label>HTML</label><code>&lt;details class=&quot;uix-details-reset uix-dropdown-menu&quot;&gt;
     &lt;summary&gt;&lt;i class=&quot;fa fa-cog&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; &lt;span&gt;单击我&lt;/span&gt;&lt;/summary&gt;
     &lt;input type=&quot;hidden&quot; value=&quot;男孩&quot;&gt;
@@ -55,25 +55,32 @@
         &lt;li&gt;&lt;a data-value=&quot;&quot; data-display-text=&quot;&quot; href=&quot;#3&quot; 不改变文字&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/details&gt;</code></pre>
-                        <!-- uix-dropdown-menu 开始 -->
-                        <details class="uix-details-reset uix-dropdown-menu">
-                            <summary><i class="fa fa-cog" aria-hidden="true"></i> <span>单击我</span></summary>
-                            <input type="hidden" value="男孩">
-                            <ul>
-                                <li><a data-value="男孩" data-display-text="男孩(选中)" href="#1">男孩</a></li>
-                                <li><a data-value="女孩" data-display-text="女孩(选中)" href="#2">女孩</a></li>
-                                <li><a data-value="" data-display-text="" href="#3" 不改变文字</a></li>
-                            </ul>
-                        </details>
-                        <!-- uix-dropdown-menu 结束 -->
-                    </div>
-                </div>
-                <!-- 行列 结束 -->
-            </div>
-            <!-- 容器 结束 -->
-        </section>
-    </main>
-    @@include('./src/components/_global/include-copyright.html')
+                                                <!-- uix-dropdown-menu 开始 -->
+                                                <details class="uix-details-reset uix-dropdown-menu">
+                                                        <summary><i class="fa fa-cog" aria-hidden="true"></i>
+                                                                <span>单击我</span></summary>
+                                                        <input type="hidden" value="男孩">
+                                                        <ul>
+                                                                <li>
+                                                                        <a data-value="男孩" data-display-text="男孩(选中)" href="#1">男孩</a>
+                                                                </li>
+                                                                <li>
+                                                                        <a data-value="女孩" data-display-text="女孩(选中)" href="#2">女孩</a>
+                                                                </li>
+                                                                <li>
+                                                                        <a data-value="" data-display-text="" href="#3" 不改变文字</a>
+                                                                </li>
+                                                        </ul>
+                                                </details>
+                                                <!-- uix-dropdown-menu 结束 -->
+                                        </div>
+                                </div>
+                                <!-- 行列 结束 -->
+                        </div>
+                        <!-- 容器 结束 -->
+                </section>
+        </main>
+        @@include('./src/components/_global/include-copyright.html')
 </div>
 <!-- uix-wrapper end -->
 @@include('./src/components/_global/include-footer.html')
