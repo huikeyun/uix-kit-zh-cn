@@ -8,7 +8,7 @@
  * ## 项目网址           :  https://uix-kit.13aq.com/
  * ## 版本              :  4.7.0
  * ## 汉化              :  慧科云 (https://github.com/huikeyun/uix-kit)
- * ## 最后更新日期        :  November 24, 2022
+ * ## 最后更新日期        :  November 25, 2022
  * ## 基于 UIUX Lab (https://uiux.cc) (uiuxlab@gmail.com) 汉化
  * ## 在 MIT 许可下发布。
  *
