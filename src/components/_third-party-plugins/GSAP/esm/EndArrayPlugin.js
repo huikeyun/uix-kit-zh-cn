@@ -11,7 +11,7 @@
  */
 /* eslint-disable */
 import { _gsScope } from './TweenLite.js';
-export var EndArrayPlugin = _gsScope._gsDefine.plugin({
+export var 结束ArrayPlugin = _gsScope._gsDefine.plugin({
     propName: 'endArray',
     API: 2,
     version: '0.1.3',
@@ -19,7 +19,7 @@ export var EndArrayPlugin = _gsScope._gsDefine.plugin({
     init: function(target, value, tween) {
         var i = value.length,
             a = this.a = [],
-            start, end;
+            start, 结束;
         this.target = target;
         this._mod = 0;
         if (!i) {
@@ -27,9 +27,9 @@ export var EndArrayPlugin = _gsScope._gsDefine.plugin({
         }
         while (--i > -1) {
             start = target[i];
-            end = value[i];
-            if (start !== end) {
-                a.push({ i: i, s: start, c: end - start });
+           结束 = value[i];
+            if (start !== 结束) {
+                a.push({ i: i, s: start, c: 结束 - start });
             }
         }
         return true;
@@ -60,4 +60,4 @@ export var EndArrayPlugin = _gsScope._gsDefine.plugin({
         }
     }
 });
-export { EndArrayPlugin as default };
+export { 结束ArrayPlugin as default };

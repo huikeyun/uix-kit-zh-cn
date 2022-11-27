@@ -16,7 +16,7 @@
  ---------------------------
  */
 .uix-multi-carousel {
-	/* Required */
+	/* 必需的 */
 	overflow: hidden;
     width: 100%;
 
@@ -25,7 +25,7 @@
 		position: relative;
 
 		> .uix-multi-carousel__item {
-			position: absolute; /* required */
+			position: absolute; /* 必需的 */
 			height: 100%;
 
             img {
@@ -62,7 +62,7 @@
 
     /*----- Vertical Carousel -----*/
     &.is-vertical {
-        /* Required */
+        /* 必需的 */
         overflow: hidden;
         width: 500px;
         height: 450px;
@@ -70,7 +70,7 @@
         .uix-multi-carousel__items {
 
             width: 100%;
-            /* Required */
+            /* 必需的 */
             height: 100%;
 
             > .uix-multi-carousel__item {

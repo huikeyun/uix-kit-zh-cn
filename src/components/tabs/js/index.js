@@ -154,16 +154,16 @@ export const TABS = ( ( module, $, window, document ) => {
 
 					// rotation animation
 					const increase     = Math.PI * 2 / rotationDisplay,
-						  endAngle     = currentIndex % rotationDisplay * increase; 
+						 结束Angle     = currentIndex % rotationDisplay * increase; 
 
 
 					( function turn() {
 						if (Math.abs(endAngle - angle) > 1 / 8) {
-							const sign = endAngle > angle ? 1 : -1;
+							const sign = 结束Angle > angle ? 1 : -1;
 							angle = angle + sign / 8;
 							setTimeout(turn, 20);
 						} else {
-							angle = endAngle;
+							angle = 结束Angle;
 						}
 						
 					

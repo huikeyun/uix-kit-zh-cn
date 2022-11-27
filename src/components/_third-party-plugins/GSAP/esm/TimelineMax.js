@@ -88,7 +88,7 @@ _gsScope._gsDefine('TimelineMax', ['TimelineLite', 'TweenLite', 'easing.Ease'], 
         vars.startAt = { onComplete: this.seek, onCompleteParams: [fromPosition], callbackScope: this };
         vars.immediateRender = (vars.immediateRender !== false);
         var t = this.tweenTo(toPosition, vars);
-        t.isFromTo = 1; //to ensure we don't mess with the duration in the onStart (we've got the start and end values here, so lock it in)
+        t.isFromTo = 1; //to ensure we don't mess with the duration in the onStart (we've got the start and 结束 values here, so lock it in)
         return t.duration((Math.abs(t.vars.time - fromPosition) / this._timeScale) || 0.001);
     };
     p.render = function(time, suppressEvents, force) {
@@ -145,13 +145,13 @@ _gsScope._gsDefine('TimelineMax', ['TimelineLite', 'TweenLite', 'easing.Ease'], 
                 if (this._timeline.autoRemoveChildren && this._reversed) {
                     internalForce = isComplete = true;
                     callback = 'onReverseComplete';
-                } else if (prevRawPrevTime >= 0 && this._first) { //when going back beyond the start, force a render so that zero-duration tweens that sit at the very beginning render their start values properly. Otherwise, if the parent timeline's playhead lands exactly at this timeline's startTime, and then moves backwards, the zero-duration tweens at the beginning would still be at their end state.
+                } else if (prevRawPrevTime >= 0 && this._first) { //when going back beyond the start, force a render so that zero-duration tweens that sit at the very beginning render their start values properly. Otherwise, if the parent timeline's playhead lands exactly at this timeline's startTime, and then moves backwards, the zero-duration tweens at the beginning would still be at their 结束 state.
                     internalForce = true;
                 }
                 this._rawPrevTime = time;
             } else {
                 this._rawPrevTime = (dur || !suppressEvents || time || this._rawPrevTime === time) ? time : _tinyNum; //when the playhead arrives at EXACTLY time 0 (right on top) of a zero-duration timeline or tween, we need to discern if events are suppressed so that when the playhead moves again (next time), it'll trigger the callback. If events are NOT suppressed, obviously the callback would be triggered in this render. Basically, the callback should fire either when the playhead ARRIVES or LEAVES this exact spot, not both. Imagine doing a timeline.seek(0) and there's a callback that sits at 0. Since events are suppressed on that seek() by default, nothing will fire, but when the playhead moves off of that position, the callback should fire. This behavior is what people intuitively expect. We set the _rawPrevTime to be a precise tiny number to indicate this scenario rather than using another property/variable which would increase memory usage. This technique is less readable, but more efficient.
-                if (time === 0 && isComplete) { //if there's a zero-duration tween at the very beginning of a timeline and the playhead lands EXACTLY at time 0, that tween will correctly render its end values, but we need to keep the timeline alive for one more render so that the beginning values render properly as the parent's playhead keeps moving beyond the begining. Imagine obj.x starts at 0 and then we do tl.set(obj, {x:100}).to(obj, 1, {x:200}) and then later we tl.reverse()...the goal is to have obj.x revert to 0. If the playhead happens to land on exactly 0, without this chunk of code, it'd complete the timeline and remove it from the rendering queue (not good).
+                if (time === 0 && isComplete) { //if there's a zero-duration tween at the very beginning of a timeline and the playhead lands EXACTLY at time 0, that tween will correctly render its 结束 values, but we need to keep the timeline alive for one more render so that the beginning values render properly as the parent's playhead keeps moving beyond the begining. Imagine obj.x starts at 0 and then we do tl.set(obj, {x:100}).to(obj, 1, {x:200}) and then later we tl.reverse()...the goal is to have obj.x revert to 0. If the playhead happens to land on exactly 0, without this chunk of code, it'd complete the timeline and remove it from the rendering queue (not good).
                     tween = this._first;
                     while (tween && tween._startTime === 0) {
                         if (!tween._duration) {
@@ -176,7 +176,7 @@ _gsScope._gsDefine('TimelineMax', ['TimelineLite', 'TweenLite', 'easing.Ease'], 
                     cycleDuration = dur + this._repeatDelay;
                     this._cycle = (this._totalTime / cycleDuration) >> 0; //originally _totalTime % cycleDuration but floating point errors caused problems, so I normalized it. (4 % 0.8 should be 0 but it gets reported as 0.79999999!)
                     if (this._cycle !== 0) if (this._cycle === this._totalTime / cycleDuration && prevTotalTime <= time) {
-                        this._cycle--; //otherwise when rendered exactly at the end time, it will act as though it is repeating (at the beginning)
+                        this._cycle--; //otherwise when rendered exactly at the 结束 time, it will act as though it is repeating (at the beginning)
                     }
                     this._time = this._totalTime - (this._cycle * cycleDuration);
                     if (this._yoyo) if ((this._cycle & 1) !== 0) {
@@ -219,12 +219,12 @@ _gsScope._gsDefine('TimelineMax', ['TimelineLite', 'TweenLite', 'easing.Ease'], 
         }
         if (this._cycle !== prevCycle) if (!this._locked) {
             /*
-            make sure children at the end/beginning of the timeline are rendered properly. If, for example,
+            make sure children at the 结束/beginning of the timeline are rendered properly. If, for example,
             a 3-second long timeline rendered at 2.9 seconds previously, and now renders at 3.2 seconds (which
             would get transated to 2.8 seconds if the timeline yoyos or 0.2 seconds if it just repeats), there
             could be a callback or a short tween that's at 2.95 or 3 seconds in which wouldn't render. So
-            we need to push the timeline to the end (and/or beginning depending on its yoyo value). Also we must
-            ensure that zero-duration tweens at the very beginning or end of the TimelineMax work.
+            we need to push the timeline to the 结束 (and/or beginning depending on its yoyo value). Also we must
+            ensure that zero-duration tweens at the very beginning or 结束 of the TimelineMax work.
             */
             var backwards = (this._yoyo && (prevCycle & 1) !== 0),
                 wrap = (backwards === (this._yoyo && (this._cycle & 1) !== 0)),
@@ -310,7 +310,7 @@ _gsScope._gsDefine('TimelineMax', ['TimelineLite', 'TweenLite', 'easing.Ease'], 
                     break;
                 } else if (tween._active || (tween._startTime <= prevTime && !tween._paused && !tween._gc)) {
                     if (pauseTween === tween) {
-                        pauseTween = tween._prev; //the linked list is organized by _startTime, thus it's possible that a tween could start BEFORE the pause and end after it, in which case it would be positioned before the pause tween in the linked list, but we should render it before we pause() the timeline and cease rendering. This is only a concern when going in reverse.
+                        pauseTween = tween._prev; //the linked list is organized by _startTime, thus it's possible that a tween could start BEFORE the pause and 结束 after it, in which case it would be positioned before the pause tween in the linked list, but we should render it before we pause() the timeline and cease rendering. This is only a concern when going in reverse.
                         while (pauseTween && pauseTween.endTime() > this._time) {
                             pauseTween.render((pauseTween._reversed ? pauseTween.totalDuration() - ((time - pauseTween._startTime) * pauseTween._timeScale) : (time - pauseTween._startTime) * pauseTween._timeScale), suppressEvents, force);
                             pauseTween = pauseTween._prev;

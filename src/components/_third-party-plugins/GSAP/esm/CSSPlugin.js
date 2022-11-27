@@ -291,14 +291,14 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
             }
             return s;
         },
-        // @private analyzes two style objects (as returned by _getAllStyles()) and only looks for differences between them that contain tweenable values (like a number or color). It returns an object with a "difs" property which refers to an object containing only those isolated properties and values for tweening, and a "firstMPT" property which refers to the first MiniPropTween instance in a linked list that recorded all the starting values of the different properties so that we can revert to them at the end or beginning of the tween - we don't want the cascading to get messed up. The forceLookup parameter is an optional generic object with properties that should be forced into the results - this is necessary for className tweens that are overwriting others because imagine a scenario where a rollover/rollout adds/removes a class and the user swipes the mouse over the target SUPER fast, thus nothing actually changed yet and the subsequent comparison of the properties would indicate they match (especially when px rounding is taken into consideration), thus no tweening is necessary even though it SHOULD tween and remove those properties after the tween (otherwise the inline styles will contaminate things). See the className SpecialProp code for details.
+        // @private analyzes two style objects (as returned by _getAllStyles()) and only looks for differences between them that contain tweenable values (like a number or color). It returns an object with a "difs" property which refers to an object containing only those isolated properties and values for tweening, and a "firstMPT" property which refers to the first MiniPropTween instance in a linked list that recorded all the starting values of the different properties so that we can revert to them at the 结束 or beginning of the tween - we don't want the cascading to get messed up. The forceLookup parameter is an optional generic object with properties that should be forced into the results - this is necessary for className tweens that are overwriting others because imagine a scenario where a rollover/rollout adds/removes a class and the user swipes the mouse over the target SUPER fast, thus nothing actually changed yet and the subsequent comparison of the properties would indicate they match (especially when px rounding is taken into consideration), thus no tweening is necessary even though it SHOULD tween and remove those properties after the tween (otherwise the inline styles will contaminate things). See the className SpecialProp code for details.
         _cssDif = function(t, s1, s2, vars, forceLookup) {
             var difs = {},
                 style = t.style,
                 val, p, mpt;
             for (p in s2) {
                 if (p !== 'cssText') if (p !== 'length') if (isNaN(p)) if (s1[p] !== (val = s2[p]) || (forceLookup && forceLookup[p])) if (p.indexOf('Origin') === -1) if (typeof (val) === 'number' || typeof (val) === 'string') {
-                    difs[p] = (val === 'auto' && (p === 'left' || p === 'top')) ? _calculateOffset(t, p) : ((val === '' || val === 'auto' || val === 'none') && typeof (s1[p]) === 'string' && s1[p].replace(_NaNExp, '') !== '') ? 0 : val; //if the ending value is defaulting ("" or "auto"), we check the starting value and if it can be parsed into a number (a string which could have a suffix too, like 700px), then we swap in 0 for "" or "auto" so that things actually tween.
+                    difs[p] = (val === 'auto' && (p === 'left' || p === 'top')) ? _calculateOffset(t, p) : ((val === '' || val === 'auto' || val === 'none') && typeof (s1[p]) === 'string' && s1[p].replace(_NaNExp, '') !== '') ? 0 : val; //if the 结束ing value is defaulting ("" or "auto"), we check the starting value and if it can be parsed into a number (a string which could have a suffix too, like 700px), then we swap in 0 for "" or "auto" so that things actually tween.
                     if (style[p] !== undefined) { //for className tweens, we must remember which properties already existed inline - the ones that didn't should be removed when the tween isn't in progress because they were only introduced to facilitate the transition between classes.
                         mpt = new MiniPropTween(style, p, style[p], mpt);
                     }
@@ -379,10 +379,10 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
             return recObj || v;
         },
         /**
-         * @private Takes an ending value (typically a string, but can be a number) and a starting value and returns the change between the two, looking for relative value indicators like += and -= and it also ignores suffixes (but make sure the ending value starts with a number or +=/-= and that the starting value is a NUMBER!)
-         * @param {(number|string)} e End value which is typically a string, but could be a number
+         * @private Takes an 结束ing value (typically a string, but can be a number) and a starting value and returns the change between the two, looking for relative value indicators like += and -= and it also ignores suffixes (but make sure the 结束ing value starts with a number or +=/-= and that the starting value is a NUMBER!)
+         * @param {(number|string)} e 结束 value which is typically a string, but could be a number
          * @param {(number|string)} b Beginning value which is typically a string but could be a number
-         * @return {number} Amount of change between the beginning and ending values (relative values that have a "+=" or "-=" are recognized)
+         * @return {number} Amount of change between the beginning and 结束ing values (relative values that have a "+=" or "-=" are recognized)
          */
         _parseChange = function(e, b) {
             if (typeof (e) === 'function') {
@@ -410,8 +410,8 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
          * @private Translates strings like "40deg" or "40" or 40rad" or "+=40deg" or "270_short" or "-90_cw" or "+=45_ccw" to a numeric radian angle. Of course a starting/default value must be fed in too so that relative values can be calculated properly.
          * @param {Object} v Value to be parsed
          * @param {!number} d Default value (which is also used for relative calculations if "+=" or "-=" is found in the first parameter)
-         * @param {string=} p property name for directionalEnd (optional - only used when the parsed value is directional ("_short", "_cw", or "_ccw" suffix). We need a way to store the uncompensated value so that at the end of the tween, we set it to exactly what was requested with no directional compensation). Property name would be "rotation", "rotationX", or "rotationY"
-         * @param {Object=} directionalEnd An object that will store the raw end values for directional angles ("_short", "_cw", or "_ccw" suffix). We need a way to store the uncompensated value so that at the end of the tween, we set it to exactly what was requested with no directional compensation.
+         * @param {string=} p property name for directionalEnd (optional - only used when the parsed value is directional ("_short", "_cw", or "_ccw" suffix). We need a way to store the uncompensated value so that at the 结束 of the tween, we set it to exactly what was requested with no directional compensation). Property name would be "rotation", "rotationX", or "rotationY"
+         * @param {Object=} directionalEnd An object that will store the raw 结束 values for directional angles ("_short", "_cw", or "_ccw" suffix). We need a way to store the uncompensated value so that at the 结束 of the tween, we set it to exactly what was requested with no directional compensation.
          * @return {number} parsed angle in radians
          */
         _parseAngle = function(v, d, p, directionalEnd) {
@@ -491,7 +491,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
             } else if (typeof (v) === 'number') {
                 a = [v >> 16, (v >> 8) & 255, v & 255];
             } else {
-                if (v.charAt(v.length - 1) === ',') { //sometimes a trailing comma is included and we should chop it off (typically from a comma-delimited list of values like a textShadow:"2px 2px 2px blue, 5px 5px 5px rgb(255,0,0)" - in this example "blue," has a trailing comma. We could strip it out inside parseComplex() but we'd need to do it to the beginning and ending values plus it wouldn't provide protection from other potential scenarios like if the user passes in a similar value.
+                if (v.charAt(v.length - 1) === ',') { //sometimes a trailing comma is included and we should chop it off (typically from a comma-delimited list of values like a textShadow:"2px 2px 2px blue, 5px 5px 5px rgb(255,0,0)" - in this example "blue," has a trailing comma. We could strip it out inside parseComplex() but we'd need to do it to the beginning and 结束ing values plus it wouldn't provide protection from other potential scenarios like if the user passes in a similar value.
                     v = v.substr(0, v.length - 1);
                 }
                 if (_colorLookup[v]) {
@@ -701,7 +701,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
             if (d.autoRotate) {
                 d.autoRotate.rotation = d.mod ? d.mod.call(this._tween, proxy.rotation, this.t, this._tween) : proxy.rotation; //special case for ModifyPlugin to hook into an auto-rotating bezier
             }
-            //at the end, we must set the CSSPropTween's "e" (end) value dynamically here because that's what is used in the final setRatio() method. Same for "b" at the beginning.
+            //at the 结束, we must set the CSSPropTween's "e" (end) value dynamically here because that's what is used in the final setRatio() method. Same for "b" at the beginning.
             if (v === 1 || v === 0) {
                 mpt = d.firstMPT;
                 p = (v === 1) ? 'e' : 'b';
@@ -742,21 +742,21 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
          * @private Most other plugins (like BezierPlugin and ThrowPropsPlugin and others) can only tween numeric values, but CSSPlugin must accommodate special values that have a bunch of extra data (like a suffix or strings between numeric values, etc.). For example, boxShadow has values like "10px 10px 20px 30px rgb(255,0,0)" which would utterly confuse other plugins. This method allows us to split that data apart and grab only the numeric data and attach it to uniquely-named properties of a generic proxy object ({}) so that we can feed that to virtually any plugin to have the numbers tweened. However, we must also keep track of which properties from the proxy go with which CSSPropTween values and instances. So we create a linked list of MiniPropTweens. Each one records a target (the original CSSPropTween), property (like "s" or "xn1" or "xn2") that we're tweening and the unique property name that was used for the proxy (like "boxShadow_xn1" and "boxShadow_xn2") and whether or not they need to be rounded. That way, in the _setPluginRatio() method we can simply copy the values over from the proxy to the CSSPropTween instance(s). Then, when the main CSSPlugin setRatio() method runs and applies the CSSPropTween values accordingly, they're updated nicely. So the external plugin tweens the numbers, _setPluginRatio() copies them over, and setRatio() acts normally, applying css-specific values to the element.
          * This method returns an object that has the following properties:
          *  - proxy: a generic object containing the starting values for all the properties that will be tweened by the external plugin.  This is what we feed to the external _onInitTween() as the target
-         *  - end: a generic object containing the ending values for all the properties that will be tweened by the external plugin. This is what we feed to the external plugin's _onInitTween() as the destination values
+         *  - 结束: a generic object containing the 结束ing values for all the properties that will be tweened by the external plugin. This is what we feed to the external plugin's _onInitTween() as the destination values
          *  - firstMPT: the first MiniPropTween in the linked list
          *  - pt: the first CSSPropTween in the linked list that was created when parsing. If shallow is true, this linked list will NOT attach to the one passed into the _parseToProxy() as the "pt" (4th) parameter.
          * @param {!Object} t target object to be tweened
-         * @param {!(Object|string)} vars the object containing the information about the tweening values (typically the end/destination values) that should be parsed
+         * @param {!(Object|string)} vars the object containing the information about the tweening values (typically the 结束/destination values) that should be parsed
          * @param {!CSSPlugin} cssp The CSSPlugin instance
          * @param {CSSPropTween=} pt the next CSSPropTween in the linked list
          * @param {TweenPlugin=} plugin the external TweenPlugin instance that will be handling tweening the numeric values
          * @param {boolean=} shallow if true, the resulting linked list from the parse will NOT be attached to the CSSPropTween that was passed in as the "pt" (4th) parameter.
-         * @return An object containing the following properties: proxy, end, firstMPT, and pt (see above for descriptions)
+         * @return An object containing the following properties: proxy, 结束, firstMPT, and pt (see above for descriptions)
          */
         _parseToProxy = _internals._parseToProxy = function(t, vars, cssp, pt, plugin, shallow) {
             var bpt = pt,
                 start = {},
-                end = {},
+               结束 = {},
                 transform = cssp._transform,
                 oldForce = _forcePT,
                 i, p, xp, mpt, firstPT;
@@ -777,7 +777,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
             while (pt && pt !== bpt) {
                 if (pt.type <= 1) {
                     p = pt.p;
-                    end[p] = pt.s + pt.c;
+                   结束[p] = pt.s + pt.c;
                     start[p] = pt.s;
                     if (!shallow) {
                         mpt = new MiniPropTween(pt, 's', p, mpt, pt.r);
@@ -788,7 +788,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
                         while (--i > 0) {
                             xp = 'xn' + i;
                             p = pt.p + '_' + xp;
-                            end[p] = pt.data[xp];
+                           结束[p] = pt.data[xp];
                             start[p] = pt[xp];
                             if (!shallow) {
                                 mpt = new MiniPropTween(pt, xp, p, mpt, pt.rxp[xp]);
@@ -798,27 +798,27 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
                 }
                 pt = pt._next;
             }
-            return { proxy: start, end: end, firstMPT: mpt, pt: firstPT };
+            return { proxy: start, 结束: 结束, firstMPT: mpt, pt: firstPT };
         },
         /**
          * @constructor Each property that is tweened has at least one CSSPropTween associated with it. These instances store important information like the target, property, starting value, amount of change, etc. They can also optionally have a number of "extra" strings and numeric values named xs1, xn1, xs2, xn2, xs3, xn3, etc. where "s" indicates string and "n" indicates number. These can be pieced together in a complex-value tween (type:1) that has alternating types of data like a string, number, string, number, etc. For example, boxShadow could be "5px 5px 8px rgb(102, 102, 51)". In that value, there are 6 numbers that may need to tween and then pieced back together into a string again with spaces, suffixes, etc. xs0 is special in that it stores the suffix for standard (type:0) tweens, -OR- the first string (prefix) in a complex-value (type:1) CSSPropTween -OR- it can be the non-tweening value in a type:-1 CSSPropTween. We do this to conserve memory.
          * CSSPropTweens have the following optional properties as well (not defined through the constructor):
          *  - l: Length in terms of the number of extra properties that the CSSPropTween has (default: 0). For example, for a boxShadow we may need to tween 5 numbers in which case l would be 5; Keep in mind that the start/end values for the first number that's tweened are always stored in the s and c properties to conserve memory. All additional values thereafter are stored in xn1, xn2, etc.
-         *  - xfirst: The first instance of any sub-CSSPropTweens that are tweening properties of this instance. For example, we may split up a boxShadow tween so that there's a main CSSPropTween of type:1 that has various xs* and xn* values associated with the h-shadow, v-shadow, blur, color, etc. Then we spawn a CSSPropTween for each of those that has a higher priority and runs BEFORE the main CSSPropTween so that the values are all set by the time it needs to re-assemble them. The xfirst gives us an easy way to identify the first one in that chain which typically ends at the main one (because they're all prepende to the linked list)
+         *  - xfirst: The first instance of any sub-CSSPropTweens that are tweening properties of this instance. For example, we may split up a boxShadow tween so that there's a main CSSPropTween of type:1 that has various xs* and xn* values associated with the h-shadow, v-shadow, blur, color, etc. Then we spawn a CSSPropTween for each of those that has a higher priority and runs BEFORE the main CSSPropTween so that the values are all set by the time it needs to re-assemble them. The xfirst gives us an easy way to identify the first one in that chain which typically 结束s at the main one (because they're all prepende to the linked list)
          *  - plugin: The TweenPlugin instance that will handle the tweening of any complex values. For example, sometimes we don't want to use normal subtweens (like xfirst refers to) to tween the values - we might want ThrowPropsPlugin or BezierPlugin some other plugin to do the actual tweening, so we create a plugin instance and store a reference here. We need this reference so that if we get a request to round values or disable a tween, we can pass along that request.
-         *  - data: Arbitrary data that needs to be stored with the CSSPropTween. Typically if we're going to have a plugin handle the tweening of a complex-value tween, we create a generic object that stores the END values that we're tweening to and the CSSPropTween's xs1, xs2, etc. have the starting values. We store that object as data. That way, we can simply pass that object to the plugin and use the CSSPropTween as the target.
+         *  - data: Arbitrary data that needs to be stored with the CSSPropTween. Typically if we're going to have a plugin handle the tweening of a complex-value tween, we create a generic object that stores the 结束 values that we're tweening to and the CSSPropTween's xs1, xs2, etc. have the starting values. We store that object as data. That way, we can simply pass that object to the plugin and use the CSSPropTween as the target.
          *  - setRatio: Only used for type:2 tweens that require custom functionality. In this case, we call the CSSPropTween's setRatio() method and pass the ratio each time the tween updates. This isn't quite as efficient as doing things directly in the CSSPlugin's setRatio() method, but it's very convenient and flexible.
          * @param {!Object} t Target object whose property will be tweened. Often a DOM element, but not always. It could be anything.
          * @param {string} p Property to tween (name). For example, to tween element.width, p would be "width".
          * @param {number} s Starting numeric value
-         * @param {number} c Change in numeric value over the course of the entire tween. For example, if element.width starts at 5 and should end at 100, c would be 95.
+         * @param {number} c Change in numeric value over the course of the entire tween. For example, if element.width starts at 5 and should 结束 at 100, c would be 95.
          * @param {CSSPropTween=} next The next CSSPropTween in the linked list. If one is defined, we will define its _prev as the new instance, and the new instance's _next will be pointed at it.
          * @param {number=} type The type of CSSPropTween where -1 = a non-tweening value, 0 = a standard simple tween, 1 = a complex value (like one that has multiple numbers in a comma- or space-delimited string like border:"1px solid red"), and 2 = one that uses a custom setRatio function that does all of the work of applying the values on each update.
          * @param {string=} n Name of the property that should be used for overwriting purposes which is typically the same as p but not always. For example, we may need to create a subtween for the 2nd part of a "clip:rect(...)" tween in which case "p" might be xs1 but "n" is still "clip"
          * @param {boolean=} r If true, the value(s) should be rounded
          * @param {number=} pr Priority in the linked list order. Higher priority CSSPropTweens will be updated before lower priority ones. The default priority is 0.
          * @param {string=} b Beginning value. We store this to ensure that it is EXACTLY what it was when the tween began without any risk of interpretation issues.
-         * @param {string=} e Ending value. We store this to ensure that it is EXACTLY what the user defined at the end of the tween without any risk of interpretation issues.
+         * @param {string=} e 结束ing value. We store this to ensure that it is EXACTLY what the user defined at the 结束 of the tween without any risk of interpretation issues.
          */
         CSSPropTween = _internals.CSSPropTween = function(t, p, s, c, next, type, n, r, pr, b, e) {
             this.t = t; //target
@@ -842,27 +842,27 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
                 next._prev = this;
             }
         },
-        _addNonTweeningNumericPT = function(target, prop, start, end, next, overwriteProp) { //cleans up some code redundancies and helps minification. Just a fast way to add a NUMERIC non-tweening CSSPropTween
-            var pt = new CSSPropTween(target, prop, start, end - start, next, -1, overwriteProp);
+        _addNonTweeningNumericPT = function(target, prop, start, 结束, next, overwriteProp) { //cleans up some code redundancies and helps minification. Just a fast way to add a NUMERIC non-tweening CSSPropTween
+            var pt = new CSSPropTween(target, prop, start, 结束 - start, next, -1, overwriteProp);
             pt.b = start;
-            pt.e = pt.xs0 = end;
+            pt.e = pt.xs0 = 结束;
             return pt;
         },
         /**
-         * Takes a target, the beginning value and ending value (as strings) and parses them into a CSSPropTween (possibly with child CSSPropTweens) that accommodates multiple numbers, colors, comma-delimited values, etc. For example:
+         * Takes a target, the beginning value and 结束ing value (as strings) and parses them into a CSSPropTween (possibly with child CSSPropTweens) that accommodates multiple numbers, colors, comma-delimited values, etc. For example:
          * sp.parseComplex(element, "boxShadow", "5px 10px 20px rgb(255,102,51)", "0px 0px 0px red", true, "0px 0px 0px rgb(0,0,0,0)", pt);
-         * It will walk through the beginning and ending values (which should be in the same format with the same number and type of values) and figure out which parts are numbers, what strings separate the numeric/tweenable values, and then create the CSSPropTweens accordingly. If a plugin is defined, no child CSSPropTweens will be created. Instead, the ending values will be stored in the "data" property of the returned CSSPropTween like: {s:-5, xn1:-10, xn2:-20, xn3:255, xn4:0, xn5:0} so that it can be fed to any other plugin and it'll be plain numeric tweens but the recomposition of the complex value will be handled inside CSSPlugin's setRatio().
+         * It will walk through the beginning and 结束ing values (which should be in the same format with the same number and type of values) and figure out which parts are numbers, what strings separate the numeric/tweenable values, and then create the CSSPropTweens accordingly. If a plugin is defined, no child CSSPropTweens will be created. Instead, the 结束ing values will be stored in the "data" property of the returned CSSPropTween like: {s:-5, xn1:-10, xn2:-20, xn3:255, xn4:0, xn5:0} so that it can be fed to any other plugin and it'll be plain numeric tweens but the recomposition of the complex value will be handled inside CSSPlugin's setRatio().
          * If a setRatio is defined, the type of the CSSPropTween will be set to 2 and recomposition of the values will be the responsibility of that method.
          *
          * @param {!Object} t Target whose property will be tweened
          * @param {!string} p Property that will be tweened (its name, like "left" or "backgroundColor" or "boxShadow")
          * @param {string} b Beginning value
-         * @param {string} e Ending value
+         * @param {string} e 结束ing value
          * @param {boolean} clrs If true, the value could contain a color value like "rgb(255,0,0)" or "#F00" or "red". The default is false, so no colors will be recognized (a performance optimization)
-         * @param {(string|number|Object)} dflt The default beginning value that should be used if no valid beginning value is defined or if the number of values inside the complex beginning and ending values don't match
+         * @param {(string|number|Object)} dflt The default beginning value that should be used if no valid beginning value is defined or if the number of values inside the complex beginning and 结束ing values don't match
          * @param {?CSSPropTween} pt CSSPropTween instance that is the current head of the linked list (we'll prepend to this).
          * @param {number=} pr Priority in the linked list order. Higher priority properties will be updated before lower priority ones. The default priority is 0.
-         * @param {TweenPlugin=} plugin If a plugin should handle the tweening of extra properties, pass the plugin instance here. If one is defined, then NO subtweens will be created for any extra properties (the properties will be created - just not additional CSSPropTween instances to tween them) because the plugin is expected to do so. However, the end values WILL be populated in the "data" property, like {s:100, xn1:50, xn2:300}
+         * @param {TweenPlugin=} plugin If a plugin should handle the tweening of extra properties, pass the plugin instance here. If one is defined, then NO subtweens will be created for any extra properties (the properties will be created - just not additional CSSPropTween instances to tween them) because the plugin is expected to do so. However, the 结束 values WILL be populated in the "data" property, like {s:100, xn1:50, xn2:300}
          * @param {function(number)=} setRatio If values should be set in a custom function instead of being pieced together in a type:1 (complex-value) CSSPropTween, define that custom function here.
          * @return {CSSPropTween} The first CSSPropTween in the linked list which includes the new one(s) added by the parseComplex() call.
          */
@@ -913,13 +913,13 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
                     //if the value is a color
                 } else if (clrs && _colorExp.test(bv)) {
                     str = ev.indexOf(')') + 1;
-                    str = ')' + (str ? ev.substr(str) : ''); //if there's a comma or ) at the end, retain it.
+                    str = ')' + (str ? ev.substr(str) : ''); //if there's a comma or ) at the 结束, retain it.
                     useHSL = (ev.indexOf('hsl') !== -1 && _supportsOpacity);
                     temp = ev; //original string value so we can look for any prefix later.
                     bv = _parseColor(bv, useHSL);
                     ev = _parseColor(ev, useHSL);
                     hasAlpha = (bv.length + ev.length > 6);
-                    if (hasAlpha && !_supportsOpacity && ev[3] === 0) { //older versions of IE don't support rgba(), so if the destination alpha is 0, just use "transparent" for the end color
+                    if (hasAlpha && !_supportsOpacity && ev[3] === 0) { //older versions of IE don't support rgba(), so if the destination alpha is 0, just use "transparent" for the 结束 color
                         pt['xs' + pt.l] += pt.l ? ' transparent' : 'transparent';
                         pt.e = pt.e.split(ea[i]).join('transparent');
                     } else {
@@ -948,7 +948,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
                         pt['xs' + pt.l] += (pt.l || pt['xs' + pt.l]) ? ' ' + ev : ev;
                         //loop through all the numbers that are found and construct the extra values on the pt.
                     } else {
-                        enums = ev.match(_relNumExp); //get each group of numbers in the end value string and drop them into an array. We allow relative values too, like +=50 or -=.5
+                        enums = ev.match(_relNumExp); //get each group of numbers in the 结束 value string and drop them into an array. We allow relative values too, like +=50 or -=.5
                         if (!enums || enums.length !== bnums.length) {
                             //DEBUG: _log("mismatched formatting detected on " + p + " (" + b + " vs " + e + ")");
                             return pt;
@@ -964,7 +964,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
                     }
                 }
             }
-            //if there are relative values ("+=" or "-=" prefix), we need to adjust the ending value to eliminate the prefixes and combine the values properly.
+            //if there are relative values ("+=" or "-=" prefix), we need to adjust the 结束ing value to eliminate the prefixes and combine the values properly.
             if (e.indexOf('=') !== -1) if (pt.data) {
                 str = pt.xs0 + pt.data.s;
                 for (i = 1; i < pt.l; i++) {
@@ -993,7 +993,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
      * And they'd all get joined together when the CSSPlugin renders (in the setRatio() method).
      * @param {string=} pfx Prefix (if any)
      * @param {!number} s Starting value
-     * @param {!number} c Change in numeric value over the course of the entire tween. For example, if the start is 5 and the end is 100, the change would be 95.
+     * @param {!number} c Change in numeric value over the course of the entire tween. For example, if the start is 5 and the 结束 is 100, the change would be 95.
      * @param {string=} sfx Suffix (if any)
      * @param {boolean=} r Round (if true).
      * @param {boolean=} pad If true, this extra value should be separated by the previous one by a space. If there is no previous extra and pad is true, it will automatically drop the space.
@@ -1016,7 +1016,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
             pt['xn' + l] = s;
             if (!pt.plugin) {
                 pt.xfirst = new CSSPropTween(pt, 'xn' + l, s, c, pt.xfirst || pt, 0, pt.n, r, pt.pr);
-                pt.xfirst.xs0 = 0; //just to ensure that the property stays numeric which helps modern browsers speed up processing. Remember, in the setRatio() method, we do pt.t[pt.p] = val + pt.xs0 so if pt.xs0 is "" (the default), it'll cast the end value as a string. When a property is a number sometimes and a string sometimes, it prevents the compiler from locking in the data type, slowing things down slightly.
+                pt.xfirst.xs0 = 0; //just to ensure that the property stays numeric which helps modern browsers speed up processing. Remember, in the setRatio() method, we do pt.t[pt.p] = val + pt.xs0 so if pt.xs0 is "" (the default), it'll cast the 结束 value as a string. When a property is a number sometimes and a string sometimes, it prevents the compiler from locking in the data type, slowing things down slightly.
             }
             return pt;
         }
@@ -1033,7 +1033,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
      * @param {Object=} options An object containing any of the following configuration options:
      *                      - defaultValue: the default value
      *                      - parser: A function that should be called when the associated property name is found in the vars. This function should return a CSSPropTween instance and it should ensure that it is properly inserted into the linked list. It will receive 4 paramters: 1) The target, 2) The value defined in the vars, 3) The CSSPlugin instance (whose _firstPT should be used for the linked list), and 4) A computed style object if one was calculated (this is a speed optimization that allows retrieval of starting values quicker)
-     *                      - formatter: a function that formats any value received for this special property (for example, boxShadow could take "5px 5px red" and format it to "5px 5px 0px 0px red" so that both the beginning and ending values have a common order and quantity of values.)
+     *                      - formatter: a function that formats any value received for this special property (for example, boxShadow could take "5px 5px red" and format it to "5px 5px 0px 0px red" so that both the beginning and 结束ing values have a common order and quantity of values.)
      *                      - prefix: if true, we'll determine whether or not this property requires a vendor prefix (like Webkit or Moz or ms or O)
      *                      - color: set this to true if the value for this SpecialProp may contain color-related values like rgb(), rgba(), etc.
      *                      - priority: priority in the linked list order. Higher priority SpecialProps will be updated before lower priority ones. The default priority is 0.
@@ -1090,10 +1090,10 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
         };
     p = SpecialProp.prototype;
     /**
-     * Alias for _parseComplex() that automatically plugs in certain values for this SpecialProp, like its property name, whether or not colors should be sensed, the default value, and priority. It also looks for any keyword that the SpecialProp defines (like "inset" for boxShadow) and ensures that the beginning and ending values have the same number of values for SpecialProps where multi is true (like boxShadow and textShadow can have a comma-delimited list)
+     * Alias for _parseComplex() that automatically plugs in certain values for this SpecialProp, like its property name, whether or not colors should be sensed, the default value, and priority. It also looks for any keyword that the SpecialProp defines (like "inset" for boxShadow) and ensures that the beginning and 结束ing values have the same number of values for SpecialProps where multi is true (like boxShadow and textShadow can have a comma-delimited list)
      * @param {!Object} t target element
      * @param {(string|number|object)} b beginning value
-     * @param {(string|number|object)} e ending (destination) value
+     * @param {(string|number|object)} e 结束ing (destination) value
      * @param {CSSPropTween=} pt next CSSPropTween in the linked list
      * @param {TweenPlugin=} plugin If another plugin will be tweening the complex value, that TweenPlugin instance goes here.
      * @param {function=} setRatio If a custom setRatio() method should be used to handle this complex value, that goes here.
@@ -1102,7 +1102,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
     p.parseComplex = function(t, b, e, pt, plugin, setRatio) {
         var kwd = this.keyword,
             i, ba, ea, l, bi, ei;
-        //if this SpecialProp's value can contain a comma-delimited list of values (like boxShadow or textShadow), we must parse them in a special way, and look for a keyword (like "inset" for boxShadow) and ensure that the beginning and ending BOTH have it if the end defines it as such. We also must ensure that there are an equal number of values specified (we can't tween 1 boxShadow to 3 for example)
+        //if this SpecialProp's value can contain a comma-delimited list of values (like boxShadow or textShadow), we must parse them in a special way, and look for a keyword (like "inset" for boxShadow) and ensure that the beginning and 结束ing BOTH have it if the 结束 defines it as such. We also must ensure that there are an equal number of values specified (we can't tween 1 boxShadow to 3 for example)
         if (this.multi) if (_commasOutsideParenExp.test(e) || _commasOutsideParenExp.test(b)) {
             ba = b.replace(_commasOutsideParenExp, '|').split('|');
             ea = e.replace(_commasOutsideParenExp, '|').split('|');
@@ -1119,7 +1119,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
                     bi = b.indexOf(kwd);
                     ei = e.indexOf(kwd);
                     if (bi !== ei) {
-                        if (ei === -1) { //if the keyword isn't in the end value, remove it from the beginning one.
+                        if (ei === -1) { //if the keyword isn't in the 结束 value, remove it from the beginning one.
                             ba[i] = ba[i].split(kwd).join('');
                         } else if (bi === -1) { //if the keyword isn't in the beginning, add it.
                             ba[i] += ' ' + kwd;
@@ -1133,11 +1133,11 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
         return _parseComplex(t, this.p, b, e, this.clrs, this.dflt, pt, this.pr, plugin, setRatio);
     };
     /**
-     * Accepts a target and end value and spits back a CSSPropTween that has been inserted into the CSSPlugin's linked list and conforms with all the conventions we use internally, like type:-1, 0, 1, or 2, setting up any extra property tweens, priority, etc. For example, if we have a boxShadow SpecialProp and call:
+     * Accepts a target and 结束 value and spits back a CSSPropTween that has been inserted into the CSSPlugin's linked list and conforms with all the conventions we use internally, like type:-1, 0, 1, or 2, setting up any extra property tweens, priority, etc. For example, if we have a boxShadow SpecialProp and call:
      * this._firstPT = sp.parse(element, "5px 10px 20px rgb(2550,102,51)", "boxShadow", this);
-     * It should figure out the starting value of the element's boxShadow, compare it to the provided end value and create all the necessary CSSPropTweens of the appropriate types to tween the boxShadow. The CSSPropTween that gets spit back should already be inserted into the linked list (the 4th parameter is the current head, so prepend to that).
+     * It should figure out the starting value of the element's boxShadow, compare it to the provided 结束 value and create all the necessary CSSPropTweens of the appropriate types to tween the boxShadow. The CSSPropTween that gets spit back should already be inserted into the linked list (the 4th parameter is the current head, so prepend to that).
      * @param {!Object} t Target object whose property is being tweened
-     * @param {Object} e End value as provided in the vars object (typically a string, but not always - like a throwProps would be an object).
+     * @param {Object} e 结束 value as provided in the vars object (typically a string, but not always - like a throwProps would be an object).
      * @param {!string} p Property name
      * @param {!CSSPlugin} cssp The CSSPlugin instance that should be associated with this tween.
      * @param {?CSSPropTween} pt The CSSPropTween that is the current head of the linked list (we'll prepend to it)
@@ -1151,7 +1151,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
     /**
      * Registers a special property that should be intercepted from any "css" objects defined in tweens. This allows you to handle them however you want without CSSPlugin doing it for you. The 2nd parameter should be a function that accepts 3 parameters:
      *  1) Target object whose property should be tweened (typically a DOM element)
-     *  2) The end/destination value (could be a string, number, object, or whatever you want)
+     *  2) The 结束/destination value (could be a string, number, object, or whatever you want)
      *  3) The tween instance (you probably don't need to worry about this, but it can be useful for looking up information like the duration)
      *
      * Then, your function should return a function which will be called each time the tween gets rendered, passing a numeric "ratio" parameter to your function that indicates the change factor (usually between 0 and 1). For example:
@@ -1564,7 +1564,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
                     }
                 }
                 tm.zOrigin = zOrigin;
-                //some browsers have a hard time with very small values like 2.4492935982947064e-16 (notice the "e-" towards the end) and would render the object slightly off. So we round to 0 in these cases. The conditional logic here is faster than calling Math.abs(). Also, browsers tend to render a SLIGHTLY rotated object in a fuzzy way, so we need to snap to exactly 0 when appropriate.
+                //some browsers have a hard time with very small values like 2.4492935982947064e-16 (notice the "e-" towards the 结束) and would render the object slightly off. So we round to 0 in these cases. The conditional logic here is faster than calling Math.abs(). Also, browsers tend to render a SLIGHTLY rotated object in a fuzzy way, so we need to snap to exactly 0 when appropriate.
                 for (i in tm) {
                     if (tm[i] < min) if (tm[i] > -min) {
                         tm[i] = 0;
@@ -1636,7 +1636,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
             } else {
                 style.filter = m + ' ' + filters; //we must always put the transform/matrix FIRST (before alpha(opacity=xx)) to avoid an IE bug that slices part of the object when rotation is applied with alpha.
             }
-            //at the end or beginning of the tween, if the matrix is normal (1, 0, 0, 1) and opacity is 100 (or doesn't exist), remove the filter to improve browser performance.
+            //at the 结束 or beginning of the tween, if the matrix is normal (1, 0, 0, 1) and opacity is 100 (or doesn't exist), remove the filter to improve browser performance.
             if (v === 0 || v === 1) if (a === 1) if (b === 0) if (c === 0) if (d === 1) if (!clip || m.indexOf('Dx=0, Dy=0') !== -1) if (!_opacityExp.test(filters) || parseFloat(RegExp.$1) === 100) if (filters.indexOf('gradient(' && filters.indexOf('Alpha')) === -1) {
                 style.removeAttribute('filter');
             }
@@ -1736,7 +1736,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
                     if (isSVG && _useSVGTransformAttr) {
                         this.t.setAttribute('transform', 'matrix(' + transform);
                     } else {
-                        //some browsers have a hard time with very small values like 2.4492935982947064e-16 (notice the "e-" towards the end) and would render the object slightly off. So we round to 5 decimal places.
+                        //some browsers have a hard time with very small values like 2.4492935982947064e-16 (notice the "e-" towards the 结束) and would render the object slightly off. So we round to 5 decimal places.
                         style[_transformProp] = ((t.xPercent || t.yPercent) ? 'translate(' + t.xPercent + '%,' + t.yPercent + '%) matrix(' : 'matrix(') + transform;
                     }
                 } else {
@@ -1910,7 +1910,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
                 min = 0.000001,
                 i = _transformProps.length,
                 v = vars,
-                endRotations = {},
+               结束Rotations = {},
                 transformOriginString = 'transformOrigin',
                 m1 = _getTransform(t, _cs, true, v.parseTransform),
                 orig = v.transform && ((typeof (v.transform) === 'function') ? v.transform(_index, _target) : v.transform),
@@ -1993,10 +1993,10 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
                     m2.y = 0;
                     m2.yPercent = _parseVal(v.y, m1.yPercent);
                 }
-                m2.rotation = _parseAngle(('rotation' in v) ? v.rotation : ('shortRotation' in v) ? v.shortRotation + '_short' : m1.rotation, m1.rotation, 'rotation', endRotations);
+                m2.rotation = _parseAngle(('rotation' in v) ? v.rotation : ('shortRotation' in v) ? v.shortRotation + '_short' : m1.rotation, m1.rotation, 'rotation', 结束Rotations);
                 if (_supports3D) {
-                    m2.rotationX = _parseAngle(('rotationX' in v) ? v.rotationX : ('shortRotationX' in v) ? v.shortRotationX + '_short' : m1.rotationX || 0, m1.rotationX, 'rotationX', endRotations);
-                    m2.rotationY = _parseAngle(('rotationY' in v) ? v.rotationY : ('shortRotationY' in v) ? v.shortRotationY + '_short' : m1.rotationY || 0, m1.rotationY, 'rotationY', endRotations);
+                    m2.rotationX = _parseAngle(('rotationX' in v) ? v.rotationX : ('shortRotationX' in v) ? v.shortRotationX + '_short' : m1.rotationX || 0, m1.rotationX, 'rotationX', 结束Rotations);
+                    m2.rotationY = _parseAngle(('rotationY' in v) ? v.rotationY : ('shortRotationY' in v) ? v.shortRotationY + '_short' : m1.rotationY || 0, m1.rotationY, 'rotationY', 结束Rotations);
                 }
                 m2.skewX = _parseAngle(v.skewX, m1.skewX);
                 m2.skewY = _parseAngle(v.skewY, m1.skewY);
@@ -2015,8 +2015,8 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
                 if (orig > min || orig < -min || v[p] != null || _forcePT[p] != null) {
                     hasChange = true;
                     pt = new CSSPropTween(m1, p, m1[p], orig, pt);
-                    if (p in endRotations) {
-                        pt.e = endRotations[p]; //directional rotations typically have compensated values during the tween, but we need to make sure they end at exactly what the user requested
+                    if (p in 结束Rotations) {
+                        pt.e = 结束Rotations[p]; //directional rotations typically have compensated values during the tween, but we need to make sure they 结束 at exactly what the user requested
                     }
                     pt.xs0 = 0; //ensures the value stays numeric in setRatio()
                     pt.plugin = plugin;
@@ -2215,12 +2215,12 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
     _registerComplexSpecialProp('border', {
         defaultValue: '0px solid #000', parser: function(t, e, p, cssp, pt, plugin) {
             var bw = _getStyle(t, 'borderTopWidth', _cs, false, '0px'),
-                end = this.format(e).split(' '),
-                esfx = end[0].replace(_suffixExp, '');
+               结束 = this.format(e).split(' '),
+                esfx = 结束[0].replace(_suffixExp, '');
             if (esfx !== 'px') { //if we're animating to a non-px value, we need to convert the beginning width to that unit.
                 bw = (parseFloat(bw) / _convertToPixels(t, 'borderTopWidth', 1, esfx)) + esfx;
             }
-            return this.parseComplex(t.style, this.format(bw + ' ' + _getStyle(t, 'borderTopStyle', _cs, false, 'solid') + ' ' + _getStyle(t, 'borderTopColor', _cs, false, '#000000')), end.join(' '), pt, plugin);
+            return this.parseComplex(t.style, this.format(bw + ' ' + _getStyle(t, 'borderTopStyle', _cs, false, 'solid') + ' ' + _getStyle(t, 'borderTopColor', _cs, false, '#000000')), 结束.join(' '), pt, plugin);
         }, color: true, formatter: function(v) {
             var a = v.split(' ');
             return a[0] + ' ' + (a[1] || 'solid') + ' ' + (v.match(_colorExp) || ['#000'])[0];
@@ -2339,7 +2339,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
             _hasPriority = true;
             pt.b = b;
             bs = _getAllStyles(t, _cs);
-            //if there's a className tween already operating on the target, force it to its end so that the necessary inline styles are removed and the class name is applied before we determine the end state (we don't want inline styles interfering that were there just for class-specific values)
+            //if there's a className tween already operating on the target, force it to its 结束 so that the necessary inline styles are removed and the class name is applied before we determine the 结束 state (we don't want inline styles interfering that were there just for class-specific values)
             cnpt = t._gsClassPT;
             if (cnpt) {
                 cnptLookup = {};
@@ -2364,7 +2364,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
         }
     });
     var _setClearPropsRatio = function(v) {
-        if (v === 1 || v === 0) if (this.data._totalTime === this.data._totalDuration && this.data.data !== 'isFromStart') { //this.data refers to the tween. Only clear at the END of the tween (remember, from() tweens make the ratio go from 1 to 0, so we can't just check that and if the tween is the zero-duration one that's created internally to render the starting values in a from() tween, ignore that because otherwise, for example, from(...{height:100, clearProps:"height", delay:1}) would wipe the height at the beginning of the tween and after 1 second, it'd kick back in).
+        if (v === 1 || v === 0) if (this.data._totalTime === this.data._totalDuration && this.data.data !== 'isFromStart') { //this.data refers to the tween. Only clear at the 结束 of the tween (remember, from() tweens make the ratio go from 1 to 0, so we can't just check that and if the tween is the zero-duration one that's created internally to render the starting values in a from() tween, ignore that because otherwise, for example, from(...{height:100, clearProps:"height", delay:1}) would wipe the height at the beginning of the tween and after 1 second, it'd kick back in).
             var s = this.t.style,
                 transformParse = _specialProps.transform.parse,
                 a, p, i, clearTransform, transform;
@@ -2565,9 +2565,9 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
                         esfx = isStr ? es.replace(_suffixExp, '') : '';
                     }
                     if (esfx === '') {
-                        esfx = (p in _suffixMap) ? _suffixMap[p] : bsfx; //populate the end suffix, prioritizing the map, then if none is found, use the beginning suffix.
+                        esfx = (p in _suffixMap) ? _suffixMap[p] : bsfx; //populate the 结束 suffix, prioritizing the map, then if none is found, use the beginning suffix.
                     }
-                    es = (en || en === 0) ? (rel ? en + bn : en) + esfx : vars[p]; //ensures that any += or -= prefixes are taken care of. Record the end value before normalizing the suffix because we always want to end the tween on exactly what they intended even if it doesn't match the beginning value's suffix.
+                    es = (en || en === 0) ? (rel ? en + bn : en) + esfx : vars[p]; //ensures that any += or -= prefixes are taken care of. Record the 结束 value before normalizing the suffix because we always want to 结束 the tween on exactly what they intended even if it doesn't match the beginning value's suffix.
                     //if the beginning/ending suffixes don't match, normalize them...
                     if (bsfx !== esfx) if (esfx !== '' || p === 'lineHeight') if (en || en === 0) if (bn) { //note: if the beginning value (bn) is 0, we don't need to convert units!
                         bn = _convertToPixels(target, p, bn, bsfx);
@@ -2584,13 +2584,13 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
                             esfx = 'px'; //we don't use bsfx after this, so we don't need to set it to px too.
                         }
                         if (rel) if (en || en === 0) {
-                            es = (en + bn) + esfx; //the changes we made affect relative calculations, so adjust the end value here.
+                            es = (en + bn) + esfx; //the changes we made affect relative calculations, so adjust the 结束 value here.
                         }
                     }
                     if (rel) {
                         en += bn;
                     }
-                    if ((bn || bn === 0) && (en || en === 0)) { //faster than isNaN(). Also, previously we required en !== bn but that doesn't really gain much performance and it prevents _parseToProxy() from working properly if beginning and ending values match but need to get tweened by an external plugin anyway. For example, a bezier tween where the target starts at left:0 and has these points: [{left:50},{left:0}] wouldn't work properly because when parsing the last point, it'd match the first (current) one and a non-tweening CSSPropTween would be recorded when we actually need a normal tween (type:0) so that things get updated during the tween properly.
+                    if ((bn || bn === 0) && (en || en === 0)) { //faster than isNaN(). Also, previously we required en !== bn but that doesn't really gain much performance and it prevents _parseToProxy() from working properly if beginning and 结束ing values match but need to get tweened by an external plugin anyway. For example, a bezier tween where the target starts at left:0 and has these points: [{left:50},{left:0}] wouldn't work properly because when parsing the last point, it'd match the first (current) one and a non-tweening CSSPropTween would be recorded when we actually need a normal tween (type:0) so that things get updated during the tween properly.
                         pt = new CSSPropTween(style, p, bn, en - bn, pt, 0, p, (_autoRound !== false && (esfx === 'px' || p === 'zIndex')), 0, bs, es);
                         pt.xs0 = esfx;
                         //DEBUG: _log("tween "+p+" from "+pt.b+" ("+bn+esfx+") to "+pt.e+" with suffix: "+pt.xs0);
@@ -2609,12 +2609,12 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
         }
         return pt;
     };
-    //gets called every time the tween updates, passing the new ratio (typically a value between 0 and 1, but not always (for example, if an Elastic.easeOut is used, the value can jump above 1 mid-tween). It will always start and 0 and end at 1.
+    //gets called every time the tween updates, passing the new ratio (typically a value between 0 and 1, but not always (for example, if an Elastic.easeOut is used, the value can jump above 1 mid-tween). It will always start and 0 and 结束 at 1.
     p.setRatio = function(v) {
         var pt = this._firstPT,
             min = 0.000001,
             val, str, i;
-        //at the end of the tween, we set the values to exactly what we received in order to make sure non-tweening values (like "position" or "float" or whatever) are set and so that if the beginning/ending suffixes (units) didn't match and we normalized to px, the value that the user passed in is used here. We check to see if the tween is at its beginning in case it's a from() tween in which case the ratio will actually go from 1 to 0 over the course of the tween (backwards).
+        //at the 结束 of the tween, we set the values to exactly what we received in order to make sure non-tweening values (like "position" or "float" or whatever) are set and so that if the beginning/ending suffixes (units) didn't match and we normalized to px, the value that the user passed in is used here. We check to see if the tween is at its beginning in case it's a from() tween in which case the ratio will actually go from 1 to 0 over the course of the tween (backwards).
         if (v === 1 && (this._tween._time === this._tween._duration || this._tween._time === 0)) {
             while (pt) {
                 if (pt.type !== 2) {
@@ -2808,7 +2808,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
     };
     /**
      * Typically only useful for className tweens that may affect child elements, this method creates a TweenLite
-     * and then compares the style properties of all the target's child elements at the tween's start and end, and
+     * and then compares the style properties of all the target's child elements at the tween's start and 结束, and
      * if any are different, it also creates tweens for those and returns an array containing ALL of the resulting
      * tweens (so that you can easily add() them to a TimelineLite, for example). The reason this functionality is
      * wrapped into a separate static method of CSSPlugin instead of being integrated into all regular className tweens
@@ -2821,7 +2821,7 @@ _gsScope._gsDefine('plugins.CSSPlugin', ['plugins.TweenPlugin', 'TweenLite'], fu
      *
      * @param {Object} target object to be tweened
      * @param {number} Duration in seconds (or frames for frames-based tweens)
-     * @param {Object} Object containing the end values, like {className:"newClass", ease:Linear.easeNone}
+     * @param {Object} Object containing the 结束 values, like {className:"newClass", ease:Linear.easeNone}
      * @return {Array} An array of TweenLite instances
      */
     CSSPlugin.cascadeTo = function(target, duration, vars) {

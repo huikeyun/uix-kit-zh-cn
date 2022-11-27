@@ -215,7 +215,7 @@ function d3threeD(exports) {
                     u.x = (-x1 - x2) / rx;
                     u.y = (-y1 - y2) / ry;
                     var deltaAng = Math.acos(v.dot(u) / v.length() / u.length());
-                    // This normalization ends up making our curves fail to triangulate...
+                    // This normalization 结束s up making our curves fail to triangulate...
                     if (((v.x * u.y) - (v.y * u.x)) < 0) deltaAng = -deltaAng;
                     if (!sf && deltaAng > 0) deltaAng -= Math.PI * 2;
                     if (sf && deltaAng < 0) deltaAng += Math.PI * 2;

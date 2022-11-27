@@ -36,12 +36,12 @@ export var YourPlugin = _gsScope._gsDefine.plugin({
     init: function(target, value, tween, index) {
         this._target = target; //we record the target so that we can refer to it in the set method when doing updates.
         /* Next, we create a property tween for "scaleX" and "scaleY" properties of our target
-         * (we're just using them as a examples of how to set up a property tween with a name, start, and end value).
+         * (we're just using them as a examples of how to set up a property tween with a name, start, and 结束 value).
          * the _addTween() method accepts the following parameters:
          *   1) target [object] - target object whose property this tween will control.
          *   2) property [string] - the name of the property, like "scaleX" or "scaleY"
          *   3) start [number] - The starting value of the property. For example, if you're tweening from 0 to 100, start would be 0.
-         *   4) end [number] - the ending value of the property. For example, if you're tweening from 0 to 100, end would be 100.
+         *   4) 结束 [number] - the 结束ing value of the property. For example, if you're tweening from 0 to 100, 结束 would be 100.
          *   5) overwriteProperty [string] - the name that gets registered as the overwrite property so that if another concurrent tween of the same target gets created and it is tweening a property with this name, this one will be overwritten. Typically this is the same as "property".
          *   6) round [boolean] - if true, the updated value on each update will be rounded to the nearest integer. [false by default]
          * You do NOT need to use _addTween() at all. It is merely a convenience. You can record your own values internally or whatever you want.

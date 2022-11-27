@@ -147,7 +147,7 @@ https://highlightjs.org/
             node: child
           });
           offset = _nodeStream(child, offset);
-          // Prevent void elements from having an end tag that would actually
+          // Prevent void elements from having an 结束 tag that would actually
           // double them in the output. There are more void elements in HTML
           // but we list only those realistically expected in code display.
           if (!tag(child).match(/br|hr|img|input/)) {
@@ -438,7 +438,7 @@ https://highlightjs.org/
           }
         }
 
-        // illegal or end match
+        // illegal or 结束 match
         if (typeof rule === "string") {
           match.type = rule;
           match.extra = [mode.illegal, mode.terminator_end];
@@ -536,7 +536,7 @@ https://highlightjs.org/
       return new RegExp(value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'm');
     }
 
-    function endOfMode(mode, lexeme) {
+    function 结束OfMode(mode, lexeme) {
       if (testRe(mode.endRe, lexeme)) {
         while (mode.endsParent && mode.parent) {
           mode = mode.parent;
@@ -544,7 +544,7 @@ https://highlightjs.org/
         return mode;
       }
       if (mode.endsWithParent) {
-        return endOfMode(mode.parent, lexeme);
+        return 结束OfMode(mode.parent, lexeme);
       }
     }
 
@@ -652,7 +652,7 @@ https://highlightjs.org/
     function doEndMatch(match) {
       var lexeme = match[0];
       var matchPlusRemainder = codeToHighlight.substr(match.index);
-      var end_mode = endOfMode(top, matchPlusRemainder);
+      var 结束_mode = 结束OfMode(top, matchPlusRemainder);
       if (!end_mode) { return; }
 
       var origin = top;
@@ -675,10 +675,10 @@ https://highlightjs.org/
           relevance += top.relevance;
         }
         top = top.parent;
-      } while (top !== end_mode.parent);
+      } while (top !== 结束_mode.parent);
       if (end_mode.starts) {
         if (end_mode.endSameAsBegin) {
-          end_mode.starts.endRe = end_mode.endRe;
+         结束_mode.starts.endRe = 结束_mode.endRe;
         }
         startNewMode(end_mode.starts);
       }
@@ -700,7 +700,7 @@ https://highlightjs.org/
 
       // we've found a 0 width match and we're stuck, so we need to advance
       // this happens when we have badly behaved rules that have optional matchers to the degree that
-      // sometimes they can end up matching nothing at all
+      // sometimes they can 结束 up matching nothing at all
       // Ref: https://github.com/highlightjs/highlight.js/issues/2140
       if (lastMatch.type=="begin" && match.type=="end" && lastMatch.index == match.index && lexeme === "") {
         // spit the "skipped" character that our regex choked on back into the output sequence
@@ -721,13 +721,13 @@ https://highlightjs.org/
       }
 
       /*
-      Why might be find ourselves here?  Only one occasion now.  An end match that was
+      Why might be find ourselves here?  Only one occasion now.  An 结束 match that was
       triggered but could not be completed.  When might this happen?  When an `endSameasBegin`
-      rule sets the end rule to a specific match.  Since the overall mode termination rule that's
+      rule sets the 结束 rule to a specific match.  Since the overall mode termination rule that's
       being used to scan the text isn't recompiled that means that any match that LOOKS like
-      the end (but is not, because it is not an exact match to the beginning) will
-      end up here.  A definite end match, but when `doEndMatch` tries to "reapply"
-      the end rule and fails to match, we wind up here, and just silently ignore the end.
+      the 结束 (but is not, because it is not an exact match to the beginning) will
+     结束 up here.  A definite 结束 match, but when `doEndMatch` tries to "reapply"
+      the 结束 rule and fails to match, we wind up here, and just silently ignore the 结束.
 
       This causes no real harm other than stopping a few times too many.
       */
@@ -1021,24 +1021,24 @@ https://highlightjs.org/
   };
   hljs.APOS_STRING_MODE = {
     className: 'string',
-    begin: '\'', end: '\'',
+    begin: '\'', 结束: '\'',
     illegal: '\\n',
     contains: [hljs.BACKSLASH_ESCAPE]
   };
   hljs.QUOTE_STRING_MODE = {
     className: 'string',
-    begin: '"', end: '"',
+    begin: '"', 结束: '"',
     illegal: '\\n',
     contains: [hljs.BACKSLASH_ESCAPE]
   };
   hljs.PHRASAL_WORDS_MODE = {
     begin: /\b(a|an|the|are|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|they|like|more)\b/
   };
-  hljs.COMMENT = function (begin, end, inherits) {
+  hljs.COMMENT = function (begin, 结束, inherits) {
     var mode = hljs.inherit(
       {
         className: 'comment',
-        begin: begin, end: end,
+        begin: begin, 结束: 结束,
         contains: []
       },
       inherits || {}
@@ -1084,12 +1084,12 @@ https://highlightjs.org/
   };
   hljs.REGEXP_MODE = {
     className: 'regexp',
-    begin: /\//, end: /\/[gimuy]*/,
+    begin: /\//, 结束: /\/[gimuy]*/,
     illegal: /\n/,
     contains: [
       hljs.BACKSLASH_ESCAPE,
       {
-        begin: /\[/, end: /\]/,
+        begin: /\[/, 结束: /\]/,
         relevance: 0,
         contains: [hljs.BACKSLASH_ESCAPE]
       }

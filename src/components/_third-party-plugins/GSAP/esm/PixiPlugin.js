@@ -53,7 +53,7 @@ var _numExp = /(\d|\.)+/g,
         } else if (typeof (v) === 'number') {
             a = [v >> 16, (v >> 8) & 255, v & 255];
         } else {
-            if (v.charAt(v.length - 1) === ',') { //sometimes a trailing comma is included and we should chop it off (typically from a comma-delimited list of values like a textShadow:"2px 2px 2px blue, 5px 5px 5px rgb(255,0,0)" - in this example "blue," has a trailing comma. We could strip it out inside parseComplex() but we'd need to do it to the beginning and ending values plus it wouldn't provide protection from other potential scenarios like if the user passes in a similar value.
+            if (v.charAt(v.length - 1) === ',') { //sometimes a trailing comma is included and we should chop it off (typically from a comma-delimited list of values like a textShadow:"2px 2px 2px blue, 5px 5px 5px rgb(255,0,0)" - in this example "blue," has a trailing comma. We could strip it out inside parseComplex() but we'd need to do it to the beginning and 结束ing values plus it wouldn't provide protection from other potential scenarios like if the user passes in a similar value.
                 v = v.substr(0, v.length - 1);
             }
             if (_colorLookup[v]) {

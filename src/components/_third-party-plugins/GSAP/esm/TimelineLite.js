@@ -227,17 +227,17 @@ _gsScope._gsDefine('TimelineLite', ['core.Animation', 'core.SimpleTimeline', 'Tw
             }
         }
         SimpleTimeline.prototype.add.call(this, value, position);
-        if (value._time) { //in case, for example, the _startTime is moved on a tween that has already rendered. Imagine it's at its end state, then the startTime is moved WAY later (after the end of this timeline), it should render at its beginning.
+        if (value._time) { //in case, for example, the _startTime is moved on a tween that has already rendered. Imagine it's at its 结束 state, then the startTime is moved WAY later (after the 结束 of this timeline), it should render at its beginning.
             curTime = Math.max(0, Math.min(value.totalDuration(), (this.rawTime() - value._startTime) * value._timeScale));
-            if (Math.abs(curTime - value._totalTime) > 0.00001) { //if an onComplete restarts the tween in a nested timeline, for example, there could be an endless loop without this logic (v2.0.2), like var masterTL = new TimelineMax({autoRemoveChildren: true}), tl = new TimelineMax(); tl.eventCallback("onComplete", function() { tl.restart() } );tl.fromTo('div', 1.1, { rotation: 0 }, { rotation: 360 }, 0);masterTL.add(tl);
+            if (Math.abs(curTime - value._totalTime) > 0.00001) { //if an onComplete restarts the tween in a nested timeline, for example, there could be an 结束less loop without this logic (v2.0.2), like var masterTL = new TimelineMax({autoRemoveChildren: true}), tl = new TimelineMax(); tl.eventCallback("onComplete", function() { tl.restart() } );tl.fromTo('div', 1.1, { rotation: 0 }, { rotation: 360 }, 0);masterTL.add(tl);
                 value.render(curTime, false, false);
             }
         }
-        //if the timeline has already ended but the inserted tween/timeline extends the duration, we should enable this timeline again so that it renders properly. We should also align the playhead with the parent timeline's when appropriate.
+        //if the timeline has already 结束ed but the inserted tween/timeline extends the duration, we should enable this timeline again so that it renders properly. We should also align the playhead with the parent timeline's when appropriate.
         if (this._gc || this._time === this._duration) if (!this._paused) if (this._duration < this.duration()) {
             //in case any of the ancestors had completed but should now be enabled...
             tl = this;
-            beforeRawTime = (tl.rawTime() > value._startTime); //if the tween is placed on the timeline so that it starts BEFORE the current rawTime, we should align the playhead (move the timeline). This is because sometimes users will create a timeline, let it finish, and much later append a tween and expect it to run instead of jumping to its end state. While technically one could argue that it should jump to its end state, that's not what users intuitively expect.
+            beforeRawTime = (tl.rawTime() > value._startTime); //if the tween is placed on the timeline so that it starts BEFORE the current rawTime, we should align the playhead (move the timeline). This is because sometimes users will create a timeline, let it finish, and much later append a tween and expect it to run instead of jumping to its 结束 state. While technically one could argue that it should jump to its 结束 state, that's not what users intuitively expect.
             while (tl._timeline) {
                 if (beforeRawTime && tl._timeline.smoothChildTiming) {
                     tl.totalTime(tl._totalTime, true); //moves the timeline (shifts its startTime) if necessary, and also enables it.
@@ -317,7 +317,7 @@ _gsScope._gsDefine('TimelineLite', ['core.Animation', 'core.SimpleTimeline', 'Tw
                 }
             }
         }
-        clippedDuration = (typeof (timeOrLabel) === 'number' && !offsetOrLabel) ? 0 : (this.duration() > 99999999999) ? this.recent().endTime(false) : this._duration; //in case there's a child that infinitely repeats, users almost never intend for the insertion point of a new child to be based on a SUPER long value like that so we clip it and assume the most recently-added child's endTime should be used instead.
+        clippedDuration = (typeof (timeOrLabel) === 'number' && !offsetOrLabel) ? 0 : (this.duration() > 99999999999) ? this.recent().endTime(false) : this._duration; //in case there's a child that infinitely repeats, users almost never intend for the insertion point of a new child to be based on a SUPER long value like that so we clip it and assume the most recently-added child's 结束Time should be used instead.
         if (typeof (offsetOrLabel) === 'string') {
             return this._parseTimeOrLabel(offsetOrLabel, (appendIfAbsent && typeof (timeOrLabel) === 'number' && this._labels[offsetOrLabel] == null) ? timeOrLabel - clippedDuration : 0, appendIfAbsent);
         }
@@ -388,13 +388,13 @@ _gsScope._gsDefine('TimelineLite', ['core.Animation', 'core.SimpleTimeline', 'Tw
                 if (this._timeline.autoRemoveChildren && this._reversed) { //ensures proper GC if a timeline is resumed after it's finished reversing.
                     internalForce = isComplete = true;
                     callback = 'onReverseComplete';
-                } else if (this._rawPrevTime >= 0 && this._first) { //when going back beyond the start, force a render so that zero-duration tweens that sit at the very beginning render their start values properly. Otherwise, if the parent timeline's playhead lands exactly at this timeline's startTime, and then moves backwards, the zero-duration tweens at the beginning would still be at their end state.
+                } else if (this._rawPrevTime >= 0 && this._first) { //when going back beyond the start, force a render so that zero-duration tweens that sit at the very beginning render their start values properly. Otherwise, if the parent timeline's playhead lands exactly at this timeline's startTime, and then moves backwards, the zero-duration tweens at the beginning would still be at their 结束 state.
                     internalForce = true;
                 }
                 this._rawPrevTime = time;
             } else {
                 this._rawPrevTime = (this._duration || !suppressEvents || time || this._rawPrevTime === time) ? time : _tinyNum; //when the playhead arrives at EXACTLY time 0 (right on top) of a zero-duration timeline or tween, we need to discern if events are suppressed so that when the playhead moves again (next time), it'll trigger the callback. If events are NOT suppressed, obviously the callback would be triggered in this render. Basically, the callback should fire either when the playhead ARRIVES or LEAVES this exact spot, not both. Imagine doing a timeline.seek(0) and there's a callback that sits at 0. Since events are suppressed on that seek() by default, nothing will fire, but when the playhead moves off of that position, the callback should fire. This behavior is what people intuitively expect. We set the _rawPrevTime to be a precise tiny number to indicate this scenario rather than using another property/variable which would increase memory usage. This technique is less readable, but more efficient.
-                if (time === 0 && isComplete) { //if there's a zero-duration tween at the very beginning of a timeline and the playhead lands EXACTLY at time 0, that tween will correctly render its end values, but we need to keep the timeline alive for one more render so that the beginning values render properly as the parent's playhead keeps moving beyond the begining. Imagine obj.x starts at 0 and then we do tl.set(obj, {x:100}).to(obj, 1, {x:200}) and then later we tl.reverse()...the goal is to have obj.x revert to 0. If the playhead happens to land on exactly 0, without this chunk of code, it'd complete the timeline and remove it from the rendering queue (not good).
+                if (time === 0 && isComplete) { //if there's a zero-duration tween at the very beginning of a timeline and the playhead lands EXACTLY at time 0, that tween will correctly render its 结束 values, but we need to keep the timeline alive for one more render so that the beginning values render properly as the parent's playhead keeps moving beyond the begining. Imagine obj.x starts at 0 and then we do tl.set(obj, {x:100}).to(obj, 1, {x:200}) and then later we tl.reverse()...the goal is to have obj.x revert to 0. If the playhead happens to land on exactly 0, without this chunk of code, it'd complete the timeline and remove it from the rendering queue (not good).
                     tween = this._first;
                     while (tween && tween._startTime === 0) {
                         if (!tween._duration) {
@@ -472,7 +472,7 @@ _gsScope._gsDefine('TimelineLite', ['core.Animation', 'core.SimpleTimeline', 'Tw
                     break;
                 } else if (tween._active || (tween._startTime <= prevTime && !tween._paused && !tween._gc)) {
                     if (pauseTween === tween) {
-                        pauseTween = tween._prev; //the linked list is organized by _startTime, thus it's possible that a tween could start BEFORE the pause and end after it, in which case it would be positioned before the pause tween in the linked list, but we should render it before we pause() the timeline and cease rendering. This is only a concern when going in reverse.
+                        pauseTween = tween._prev; //the linked list is organized by _startTime, thus it's possible that a tween could start BEFORE the pause and 结束 after it, in which case it would be positioned before the pause tween in the linked list, but we should render it before we pause() the timeline and cease rendering. This is only a concern when going in reverse.
                         while (pauseTween && pauseTween.endTime() > this._time) {
                             pauseTween.render((pauseTween._reversed ? pauseTween.totalDuration() - ((time - pauseTween._startTime) * pauseTween._timeScale) : (time - pauseTween._startTime) * pauseTween._timeScale), suppressEvents, force);
                             pauseTween = pauseTween._prev;
@@ -667,14 +667,14 @@ _gsScope._gsDefine('TimelineLite', ['core.Animation', 'core.SimpleTimeline', 'Tw
                 var max = 0,
                     tween = this._last,
                     prevStart = 999999999999,
-                    prev, end;
+                    prev, 结束;
                 while (tween) {
                     prev = tween._prev; //record it here in case the tween changes position in the sequence...
                     if (tween._dirty) {
                         tween.totalDuration(); //could change the tween._startTime, so make sure the tween's cache is clean before analyzing it.
                     }
                     if (tween._startTime > prevStart && this._sortChildren && !tween._paused && !this._calculatingDuration) { //in case one of the tweens shifted out of order, it needs to be re-inserted into the correct position in the sequence
-                        this._calculatingDuration = 1; //prevent endless recursive calls - there are methods that get triggered that check duration/totalDuration when we add(), like _parseTimeOrLabel().
+                        this._calculatingDuration = 1; //prevent 结束less recursive calls - there are methods that get triggered that check duration/totalDuration when we add(), like _parseTimeOrLabel().
                         this.add(tween, tween._startTime - tween._delay);
                         this._calculatingDuration = 0;
                     } else {
@@ -691,9 +691,9 @@ _gsScope._gsDefine('TimelineLite', ['core.Animation', 'core.SimpleTimeline', 'Tw
                         this.shiftChildren(-tween._startTime, false, -9999999999);
                         prevStart = 0;
                     }
-                    end = tween._startTime + (tween._totalDuration / tween._timeScale);
+                   结束 = tween._startTime + (tween._totalDuration / tween._timeScale);
                     if (end > max) {
-                        max = end;
+                        max = 结束;
                     }
                     tween = prev;
                 }

@@ -1,136 +1,105 @@
 /* ======================================================
-        <!-- Gallery -->
+        <!-- 画廊 Gallery -->
 /* ====================================================== */
 @import '@uixkit/core/_global/scss/_variable-and-mixin.scss';
-
-
 .uix-gallery {
-
-	> .uix-gallery__tiles {
-
-		overflow: auto; /* Fix a bug for floating divs have 0 height */
-
-
-		.uix-gallery__item {
-			transition: none;
-			position: relative;
-			text-align: left;
-			margin-bottom: 0; /* Cover the bottom spacing of the grid system */
-
-			.uix-gallery__image {
-				width: 100%;
-				display: block;
-				overflow: hidden;
-				position: relative;
-				outline: 0;
-				background: #ddd;
-				border: 1px solid #E7E7E7;
-
-				.uix-gallery__image-cover {
-					position: relative;
-
-					img {
-						width: 100%;
-					}
-
-					&::before {
-						@include transition-default();
-						background: rgba(255, 255, 255, 0);
-						display: block;
-						content: '';
-						top: 0;
-						left: 0;
-						position: absolute;
-						z-index: 2;
-						width: 100%;
-						height: 100%;
-					}
-				}
-
-			}
-
-
-			h3 {
-				position: relative;
-				font-size: 1.125rem;
-				padding-top: 0.546875rem;
-			}
-			.uix-gallery__title {
-				opacity: 0.7;
-				margin-left: 0.875rem;
-				font-size: 0.625rem;
-				line-height: 1.625;
-				display: inline-block;
-
-				&::before {
-					content: '|';
-					padding-right: 0.875rem;
-				}
-
-			}
-			.uix-gallery__cat {
-				font-size: 0.625rem;
-				line-height: 1.625;
-				display: inline-block;
-				position: absolute;
-				bottom: 0.8125rem;
-				right: 0;
-				background: $highlight-color1;
-				border-radius: 25px;
-				padding: 0.0875rem 1.1375rem;
-				color: #fff;
-
-				a {
-					color: #fff;
-				}
-
-				&:hover {
-					background: #C56263;
-				}
-			}
-
-			&:hover {
-
-				.uix-gallery__image-cover {
-					&::before {
-						background: rgba(255, 255, 255, 0.95);
-					}
-				}
-
-			}
-
-
-		}
-
-	}
-
-
+    > .uix-gallery__tiles {
+        overflow: auto; /* 修复浮动 div 高度为 0 的错误 */
+        .uix-gallery__item {
+            transition: none;
+            position: relative;
+            text-align: left;
+            margin-bottom: 0; /* 覆盖网格系统底部间距 */
+            .uix-gallery__image {
+                width: 100%;
+                display: block;
+                overflow: hidden;
+                position: relative;
+                outline: 0;
+                background: #ddd;
+                border: 1px solid #E7E7E7;
+                .uix-gallery__image-cover {
+                    position: relative;
+                    img {
+                        width: 100%;
+                    }
+                    &::before {
+                        @include transition-default();
+                        background: rgba(255, 255, 255, 0);
+                        display: block;
+                        content: '';
+                        top: 0;
+                        left: 0;
+                        position: absolute;
+                        z-index: 2;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            h3 {
+                position: relative;
+                font-size: 1.125rem;
+                padding-top: 0.546875rem;
+            }
+            .uix-gallery__title {
+                opacity: 0.7;
+                margin-left: 0.875rem;
+                font-size: 0.625rem;
+                line-height: 1.625;
+                display: inline-block;
+                &::before {
+                    content: '|';
+                    padding-right: 0.875rem;
+                }
+            }
+            .uix-gallery__cat {
+                font-size: 0.625rem;
+                line-height: 1.625;
+                display: inline-block;
+                position: absolute;
+                bottom: 0.8125rem;
+                right: 0;
+                background: $highlight-color1;
+                border-radius: 25px;
+                padding: 0.0875rem 1.1375rem;
+                color: #fff;
+                a {
+                    color: #fff;
+                }
+                &:hover {
+                    background: #C56263;
+                }
+            }
+            &:hover {
+                .uix-gallery__image-cover {
+                    &::before {
+                        background: rgba(255, 255, 255, 0.95);
+                    }
+                }
+            }
+        }
+    }
 }
-
-
-/* Filter or Masonry */
-/* You can directly use uix-core-grid__col-* to control the width of the item */
+/* 过滤器或砌体 */
+/* 可以直接使用uix-core-grid__col-*来控制项目的宽度*/
 $gallery-masonry-item-gap: 15px;
 .uix-gallery[data-show-type*="filter"],
 .uix-gallery[data-show-type*="masonry"] {
-	> .uix-gallery__tiles {
-		position: relative;/* required */
+    > .uix-gallery__tiles {
+        position: relative; /* 必需的 */
         overflow: inherit;
         width: calc(100% + #{$gallery-masonry-item-gap});
-
         .uix-gallery__item {
-            
-            /* required */
+            /* 必需的 */
             display: block;
             position: absolute;
             z-index: 1;
-
             > div {
                 position: relative;
                 width: calc(100% - #{$gallery-masonry-item-gap});
                 height: 100%;
             }
-
             &.muuri-item-dragging {
                 z-index: 3;
             }
@@ -140,10 +109,6 @@ $gallery-masonry-item-gap: 15px;
             &.muuri-item-hidden {
                 z-index: 0;
             }
-
         }
-
-	}
-
-
+    }
 }

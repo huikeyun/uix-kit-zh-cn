@@ -80,7 +80,7 @@ _gsScope._gsDefine('plugins.CSSRulePlugin', ['plugins.TweenPlugin', 'TweenLite',
         CSSPlugin.prototype._onInitTween.call(this, div, value, tween); //we just offload all the work to the regular CSSPlugin and then copy the cssText back over to the rule in the setRatio() method. This allows us to have all of the updates to CSSPlugin automatically flow through to CSSRulePlugin instead of having to maintain both
         return true;
     };
-    // @private gets called every time the tween updates, passing the new ratio (typically a value between 0 and 1, but not always (for example, if an Elastic.easeOut is used, the value can jump above 1 mid-tween). It will always start and 0 and end at 1.
+    // @private gets called every time the tween updates, passing the new ratio (typically a value between 0 and 1, but not always (for example, if an Elastic.easeOut is used, the value can jump above 1 mid-tween). It will always start and 0 and 结束 at 1.
     p.setRatio = function(v) {
         _superSetRatio.call(this, v);
         var proxy = this._proxy,

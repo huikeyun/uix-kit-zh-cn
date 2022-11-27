@@ -546,7 +546,7 @@ export const LIGHTBOX = ( ( module, $, window, document ) => {
 			return false;
 			
 
-		}); /* end click event for triggerEl */
+		}); /* 结束 click event for triggerEl */
 		
 		
 

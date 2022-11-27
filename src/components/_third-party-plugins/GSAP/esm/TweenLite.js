@@ -854,7 +854,7 @@ export var TweenLite = (function(window) {
                     } else if (typeof (targ) === 'string') {
                         targ = targets[i--] = TweenLite.selector(targ); //in case it's an array of strings
                         if (typeof (targ) === 'string') {
-                            targets.splice(i + 1, 1); //to avoid an endless loop (can't imagine why the selector would return a string, but just in case)
+                            targets.splice(i + 1, 1); //to avoid an 结束less loop (can't imagine why the selector would return a string, but just in case)
                         }
                         continue;
                     } else if (targ.length && targ !== window && targ[0] && (targ[0] === window || (targ[0].nodeType && targ[0].style && !targ.nodeType))) { //in case the user is passing in an array of selector objects (like jQuery objects), we need to check one more level and pull things out if necessary. Also note that <select> elements pass all the criteria regarding length and the first child having style, so we must also check to ensure the target isn't an HTML node itself.
@@ -948,34 +948,34 @@ export var TweenLite = (function(window) {
         _blobRound = function(v) {
             return (((v * 1000) | 0) / 1000) + '';
         },
-        //compares two strings (start/end), finds the numbers that are different and spits back an array representing the whole value but with the changing values isolated as elements. For example, "rgb(0,0,0)" and "rgb(100,50,0)" would become ["rgb(", 0, ",", 50, ",0)"]. Notice it merges the parts that are identical (performance optimization). The array also has a linked list of PropTweens attached starting with _firstPT that contain the tweening data (t, p, s, c, f, etc.). It also stores the starting value as a "start" property so that we can revert to it if/when necessary, like when a tween rewinds fully. If the quantity of numbers differs between the start and end, it will always prioritize the end value(s). The pt parameter is optional - it's for a PropTween that will be appended to the end of the linked list and is typically for actually setting the value after all of the elements have been updated (with array.join("")).
-        _blobDif = function(start, end, filter, pt) {
+        //compares two strings (start/end), finds the numbers that are different and spits back an array representing the whole value but with the changing values isolated as elements. For example, "rgb(0,0,0)" and "rgb(100,50,0)" would become ["rgb(", 0, ",", 50, ",0)"]. Notice it merges the parts that are identical (performance optimization). The array also has a linked list of PropTweens attached starting with _firstPT that contain the tweening data (t, p, s, c, f, etc.). It also stores the starting value as a "start" property so that we can revert to it if/when necessary, like when a tween rewinds fully. If the quantity of numbers differs between the start and 结束, it will always prioritize the 结束 value(s). The pt parameter is optional - it's for a PropTween that will be appended to the 结束 of the linked list and is typically for actually setting the value after all of the elements have been updated (with array.join("")).
+        _blobDif = function(start, 结束, filter, pt) {
             var a = [],
                 charIndex = 0,
                 s = '',
                 color = 0,
-                startNums, endNums, num, i, l, nonNumbers, currentNum;
+                startNums, 结束Nums, num, i, l, nonNumbers, currentNum;
             a.start = start;
-            a.end = end;
+            a.end = 结束;
             start = a[0] = start + ''; //ensure values are strings
-            end = a[1] = end + '';
+           结束 = a[1] = 结束 + '';
             if (filter) {
-                filter(a); //pass an array with the starting and ending values and let the filter do whatever it needs to the values.
+                filter(a); //pass an array with the starting and 结束ing values and let the filter do whatever it needs to the values.
                 start = a[0];
-                end = a[1];
+               结束 = a[1];
             }
             a.length = 0;
             startNums = start.match(_numbersExp) || [];
-            endNums = end.match(_numbersExp) || [];
+           结束Nums = 结束.match(_numbersExp) || [];
             if (pt) {
                 pt._next = null;
                 pt.blob = 1;
                 a._firstPT = a._applyPT = pt; //apply last in the linked list (which means inserting it first)
             }
-            l = endNums.length;
+            l = 结束Nums.length;
             for (i = 0; i < l; i++) {
-                currentNum = endNums[i];
-                nonNumbers = end.substr(charIndex, end.indexOf(currentNum, charIndex) - charIndex);
+                currentNum = 结束Nums[i];
+                nonNumbers = 结束.substr(charIndex, 结束.indexOf(currentNum, charIndex) - charIndex);
                 s += (nonNumbers || !i) ? nonNumbers : ','; //note: SVG spec allows omission of comma/space when a negative sign is wedged between two numbers, like 2.5-5.3 instead of 2.5,-5.3 but when tweening, the negative value may switch to positive, so we insert the comma just in case.
                 charIndex += nonNumbers.length;
                 if (color) { //sense rgba() values and round them.
@@ -1005,25 +1005,25 @@ export var TweenLite = (function(window) {
                 }
                 charIndex += currentNum.length;
             }
-            s += end.substr(charIndex);
+            s += 结束.substr(charIndex);
             if (s) {
                 a.push(s);
             }
             a.setRatio = _setRatio;
-            if (_relExp.test(end)) { //if the end string contains relative values, delete it so that on the final render (in _setRatio()), we don't actually set it to the string with += or -= characters (forces it to use the calculated value).
+            if (_relExp.test(end)) { //if the 结束 string contains relative values, delete it so that on the final render (in _setRatio()), we don't actually set it to the string with += or -= characters (forces it to use the calculated value).
                 a.end = null;
             }
             return a;
         },
         //note: "funcParam" is only necessary for function-based getters/setters that require an extra parameter like getAttribute("width") and setAttribute("width", value). In this example, funcParam would be "width". Used by AttrPlugin for example.
-        _addPropTween = function(target, prop, start, end, overwriteProp, mod, funcParam, stringFilter, index) {
+        _addPropTween = function(target, prop, start, 结束, overwriteProp, mod, funcParam, stringFilter, index) {
             if (typeof (end) === 'function') {
-                end = end(index || 0, target);
+               结束 = 结束(index || 0, target);
             }
             var type = typeof (target[prop]),
                 getterName = (type !== 'function') ? '' : ((prop.indexOf('set') || typeof (target['get' + prop.substr(3)]) !== 'function') ? prop : 'get' + prop.substr(3)),
                 s = (start !== 'get') ? start : !getterName ? target[prop] : funcParam ? target[getterName](funcParam) : target[getterName](),
-                isRelative = (typeof (end) === 'string' && end.charAt(1) === '='),
+                isRelative = (typeof (end) === 'string' && 结束.charAt(1) === '='),
                 pt = {
                     t: target,
                     p: prop,
@@ -1040,7 +1040,7 @@ export var TweenLite = (function(window) {
                 if (funcParam || isNaN(s) || (!isRelative && isNaN(end)) || typeof (s) === 'boolean' || typeof (end) === 'boolean') {
                     //a blob (string that has multiple numbers in it)
                     pt.fp = funcParam;
-                    blob = _blobDif(s, (isRelative ? (parseFloat(pt.s) + pt.c) + (pt.s + '').replace(/[0-9\-\.]/g, '') : end), stringFilter || TweenLite.defaultStringFilter, pt);
+                    blob = _blobDif(s, (isRelative ? (parseFloat(pt.s) + pt.c) + (pt.s + '').replace(/[0-9\-\.]/g, '') : 结束), stringFilter || TweenLite.defaultStringFilter, pt);
                     pt = { t: blob, p: 'setRatio', s: 0, c: 1, f: 2, pg: 0, n: overwriteProp || prop, pr: 0, m: 0 }; //"2" indicates it's a Blob property tween. Needed for RoundPropsPlugin for example.
                 } else {
                     pt.s = parseFloat(s);
@@ -1305,7 +1305,7 @@ export var TweenLite = (function(window) {
                 }
             }
         } else if (v.runBackwards && dur !== 0) {
-            //from() tweens must be handled uniquely: their beginning values must be rendered but we don't want overwriting to occur yet (when time is still 0). Wait until the tween actually begins before doing all the routines like overwriting. At that time, we should render at the END of the tween to ensure that things initialize correctly (remember, from() tweens go backwards)
+            //from() tweens must be handled uniquely: their beginning values must be rendered but we don't want overwriting to occur yet (when time is still 0). Wait until the tween actually begins before doing all the routines like overwriting. At that time, we should render at the 结束 of the tween to ensure that things initialize correctly (remember, from() tweens go backwards)
             if (startAt) {
                 startAt.render(-1, true);
                 startAt.kill();
@@ -1321,7 +1321,7 @@ export var TweenLite = (function(window) {
                     }
                 }
                 pt.overwrite = 0;
-                pt.data = 'isFromStart'; //we tag the tween with as "isFromStart" so that if [inside a plugin] we need to only do something at the very END of a tween, we have a way of identifying this tween as merely the one that's setting the beginning values for a "from()" tween. For example, clearProps in CSSPlugin should only get applied at the very END of a tween and without this tag, from(...{height:100, clearProps:"height", delay:1}) would wipe the height at the beginning of the tween and after 1 second, it'd kick back in.
+                pt.data = 'isFromStart'; //we tag the tween with as "isFromStart" so that if [inside a plugin] we need to only do something at the very 结束 of a tween, we have a way of identifying this tween as merely the one that's setting the beginning values for a "from()" tween. For example, clearProps in CSSPlugin should only get applied at the very 结束 of a tween and without this tag, from(...{height:100, clearProps:"height", delay:1}) would wipe the height at the beginning of the tween and after 1 second, it'd kick back in.
                 pt.lazy = (immediate && v.lazy !== false);
                 pt.immediateRender = immediate; //zero-duration tweens render immediately by default, but if we're not specifically instructed to render this tween immediately, we should skip this and merely _init() to record the starting values (rendering them immediately would push them to completion which is wasteful in that case - we'd have to render(-1) immediately after)
                 this._startAt = TweenLite.to(this.target, 0, pt);
@@ -1376,7 +1376,7 @@ export var TweenLite = (function(window) {
             return false;
         }
         if (_lazyLookup[target._gsTweenID]) {
-            _lazyRender(); //if other tweens of the same target have recently initted but haven't rendered yet, we've got to force the render so that the starting values are correct (imagine populating a timeline with a bunch of sequential tweens and then jumping to the end)
+            _lazyRender(); //if other tweens of the same target have recently initted but haven't rendered yet, we've got to force the render so that the starting values are correct (imagine populating a timeline with a bunch of sequential tweens and then jumping to the 结束)
         }
         if (!this.vars.css) if (target.style) if (target !== window && target.nodeType) if (_plugins.css) if (this.vars.autoCSS !== false) { //it's so common to use TweenLite/Max to animate the css of DOM elements, we assume that if the target is a DOM element, that's what is intended (a convenience so that users don't have to wrap things in css:{}, although we still recommend it for a slight performance boost and better specificity). Note: we cannot check "nodeType" on the window inside an iframe.
             _autoCSS(this.vars, target);
@@ -1452,8 +1452,8 @@ export var TweenLite = (function(window) {
                 callback = 'onComplete';
                 force = (force || self._timeline.autoRemoveChildren); //otherwise, if the animation is unpaused/activated after it's already finished, it doesn't get removed from the parent timeline.
             }
-            if (duration === 0) if (self._initted || !self.vars.lazy || force) { //zero-duration tweens are tricky because we must discern the momentum/direction of time in order to determine whether the starting values should be rendered or the ending values. If the "playhead" of its timeline goes past the zero-duration tween in the forward direction or lands directly on it, the end values should be rendered, but if the timeline's "playhead" moves past it in the backward direction (from a postitive time to a negative time), the starting values must be rendered.
-                if (self._startTime === self._timeline._duration) { //if a zero-duration tween is at the VERY end of a timeline and that timeline renders at its end, it will typically add a tiny bit of cushion to the render time to prevent rounding errors from getting in the way of tweens rendering their VERY end. If we then reverse() that timeline, the zero-duration tween will trigger its onReverseComplete even though technically the playhead didn't pass over it again. It's a very specific edge case we must accommodate.
+            if (duration === 0) if (self._initted || !self.vars.lazy || force) { //zero-duration tweens are tricky because we must discern the momentum/direction of time in order to determine whether the starting values should be rendered or the 结束ing values. If the "playhead" of its timeline goes past the zero-duration tween in the forward direction or lands directly on it, the 结束 values should be rendered, but if the timeline's "playhead" moves past it in the backward direction (from a postitive time to a negative time), the starting values must be rendered.
+                if (self._startTime === self._timeline._duration) { //if a zero-duration tween is at the VERY 结束 of a timeline and that timeline renders at its 结束, it will typically add a tiny bit of cushion to the render time to prevent rounding errors from getting in the way of tweens rendering their VERY 结束. If we then reverse() that timeline, the zero-duration tween will trigger its onReverseComplete even though technically the playhead didn't pass over it again. It's a very specific edge case we must accommodate.
                     time = 0;
                 }
                 if (prevRawPrevTime < 0 || (time <= 0 && time >= -_tinyNum) || (prevRawPrevTime === _tinyNum && self.data !== 'isPause')) if (prevRawPrevTime !== time) { //note: when this.data is "isPause", it's a callback added by addPause() on a timeline that we should not be triggered when LEAVING its exact start time. In other words, tl.addPause(1).play(1) shouldn't pause.
@@ -1475,14 +1475,14 @@ export var TweenLite = (function(window) {
                 time = 0;
             } else if (time < 0) {
                 self._active = false;
-                if (duration === 0) if (self._initted || !self.vars.lazy || force) { //zero-duration tweens are tricky because we must discern the momentum/direction of time in order to determine whether the starting values should be rendered or the ending values. If the "playhead" of its timeline goes past the zero-duration tween in the forward direction or lands directly on it, the end values should be rendered, but if the timeline's "playhead" moves past it in the backward direction (from a postitive time to a negative time), the starting values must be rendered.
+                if (duration === 0) if (self._initted || !self.vars.lazy || force) { //zero-duration tweens are tricky because we must discern the momentum/direction of time in order to determine whether the starting values should be rendered or the 结束ing values. If the "playhead" of its timeline goes past the zero-duration tween in the forward direction or lands directly on it, the 结束 values should be rendered, but if the timeline's "playhead" moves past it in the backward direction (from a postitive time to a negative time), the starting values must be rendered.
                     if (prevRawPrevTime >= 0 && !(prevRawPrevTime === _tinyNum && self.data === 'isPause')) {
                         force = true;
                     }
                     self._rawPrevTime = rawPrevTime = (!suppressEvents || time || prevRawPrevTime === time) ? time : _tinyNum; //when the playhead arrives at EXACTLY time 0 (right on top) of a zero-duration tween, we need to discern if events are suppressed so that when the playhead moves again (next time), it'll trigger the callback. If events are NOT suppressed, obviously the callback would be triggered in this render. Basically, the callback should fire either when the playhead ARRIVES or LEAVES this exact spot, not both. Imagine doing a timeline.seek(0) and there's a callback that sits at 0. Since events are suppressed on that seek() by default, nothing will fire, but when the playhead moves off of that position, the callback should fire. This behavior is what people intuitively expect. We set the _rawPrevTime to be a precise tiny number to indicate this scenario rather than using another property/variable which would increase memory usage. This technique is less readable, but more efficient.
                 }
             }
-            if (!self._initted || (self._startAt && self._startAt.progress())) { //if we render the very beginning (time == 0) of a fromTo(), we must force the render (normal tweens wouldn't need to render at a time of 0 when the prevTime was also 0). This is also mandatory to make sure overwriting kicks in immediately. Also, we check progress() because if startAt has already rendered at its end, we should force a render at its beginning. Otherwise, if you put the playhead directly on top of where a fromTo({immediateRender:false}) starts, and then move it backwards, the from() won't revert its values.
+            if (!self._initted || (self._startAt && self._startAt.progress())) { //if we render the very beginning (time == 0) of a fromTo(), we must force the render (normal tweens wouldn't need to render at a time of 0 when the prevTime was also 0). This is also mandatory to make sure overwriting kicks in immediately. Also, we check progress() because if startAt has already rendered at its 结束, we should force a render at its beginning. Otherwise, if you put the playhead directly on top of where a fromTo({immediateRender:false}) starts, and then move it backwards, the from() won't revert its values.
                 force = true;
             }
         } else {
@@ -1529,7 +1529,7 @@ export var TweenLite = (function(window) {
                 self.ratio = self._ease.getRatio((self._time === 0) ? 0 : 1);
             }
         }
-        if (self._lazy !== false) { //in case a lazy render is pending, we should flush it because the new render is occurring now (imagine a lazy tween instantiating and then immediately the user calls tween.seek(tween.duration()), skipping to the end - the end render would be forced, and then if we didn't flush the lazy render, it'd fire AFTER the seek(), rendering it at the wrong time.
+        if (self._lazy !== false) { //in case a lazy render is pending, we should flush it because the new render is occurring now (imagine a lazy tween instantiating and then immediately the user calls tween.seek(tween.duration()), skipping to the 结束 - the 结束 render would be forced, and then if we didn't flush the lazy render, it'd fire AFTER the seek(), rendering it at the wrong time.
             self._lazy = false;
         }
         if (!self._active) if (!self._paused && self._time !== prevTime && time >= 0) {
@@ -1540,7 +1540,7 @@ export var TweenLite = (function(window) {
                 if (time >= 0) {
                     self._startAt.render(time, true, force);
                 } else if (!callback) {
-                    callback = '_dummyGS'; //if no callback is defined, use a dummy value just so that the condition at the end evaluates as true because _startAt should render AFTER the normal render loop when the time is negative. We could handle this in a more intuitive way, of course, but the render loop is the MOST important thing to optimize, so this technique allows us to avoid adding extra conditional logic in a high-frequency area.
+                    callback = '_dummyGS'; //if no callback is defined, use a dummy value just so that the condition at the 结束 evaluates as true because _startAt should render AFTER the normal render loop when the time is negative. We could handle this in a more intuitive way, of course, but the render loop is the MOST important thing to optimize, so this technique allows us to avoid adding extra conditional logic in a high-frequency area.
                 }
             }
             if (self.vars.onStart) if (self._time !== 0 || duration === 0) if (!suppressEvents) {
@@ -1558,7 +1558,7 @@ export var TweenLite = (function(window) {
         }
         if (self._onUpdate) {
             if (time < 0) if (self._startAt && time !== -0.0001) { //if the tween is positioned at the VERY beginning (_startTime 0) of its parent timeline, it's illegal for the playhead to go back further, so we should not render the recorded startAt values.
-                self._startAt.render(time, true, force); //note: for performance reasons, we tuck this conditional logic inside less traveled areas (most tweens don't have an onUpdate). We'd just have it at the end before the onComplete, but the values should be updated before any onUpdate is called, so we ALSO put it here and then if it's not called, we do so later near the onComplete.
+                self._startAt.render(time, true, force); //note: for performance reasons, we tuck this conditional logic inside less traveled areas (most tweens don't have an onUpdate). We'd just have it at the 结束 before the onComplete, but the values should be updated before any onUpdate is called, so we ALSO put it here and then if it's not called, we do so later near the onComplete.
             }
             if (!suppressEvents) if (self._time !== prevTime || isComplete || force) {
                 self._callback('onUpdate');

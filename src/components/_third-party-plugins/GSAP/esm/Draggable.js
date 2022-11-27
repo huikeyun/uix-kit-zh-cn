@@ -150,7 +150,7 @@ _gsScope._gsDefine('utils.Draggable', ['events.EventDispatcher', 'TweenLite', 'p
                 body = _doc.body;
             return Math.max(0, _isRoot(element) ? Math.max(_docElement[scroll], body[scroll]) - (window['inner' + dim] || _docElement[client] || body[client]) : element[scroll] - element[client]);
         },
-        _recordMaxScrolls = function(e) { //records _gsMaxScrollX and _gsMaxScrollY properties for the element and all ancestors up the chain so that we can cap it, otherwise dragging beyond the edges with autoScroll on can endlessly scroll.
+        _recordMaxScrolls = function(e) { //records _gsMaxScrollX and _gsMaxScrollY properties for the element and all ancestors up the chain so that we can cap it, otherwise dragging beyond the edges with autoScroll on can 结束lessly scroll.
             var isRoot = _isRoot(e),
                 x = _getMaxScroll(e, 'x'),
                 y = _getMaxScroll(e, 'y');
@@ -361,7 +361,7 @@ _gsScope._gsDefine('utils.Draggable', ['events.EventDispatcher', 'TweenLite', 'p
             style.boxSizing = 'border-box';
             style.border = '0px solid red';
             style.transform = 'none';
-            // in some browsers (like certain flavors of Android), the getScreenCTM() matrix is contaminated by the scroll position. We can run some logic here to detect that condition, but we ended up not needing this because we found another workaround using getBoundingClientRect().
+            // in some browsers (like certain flavors of Android), the getScreenCTM() matrix is contaminated by the scroll position. We can run some logic here to detect that condition, but we 结束ed up not needing this because we found another workaround using getBoundingClientRect().
             div.style.cssText = 'width:100px;height:100px;overflow:scroll;-ms-overflow-style:none;';
             parent.appendChild(div);
             div.appendChild(svg);
@@ -373,7 +373,7 @@ _gsScope._gsDefine('utils.Draggable', ['events.EventDispatcher', 'TweenLite', 'p
             _svgScrollOffset = (e1 - point.y < 100.1) ? 0 : e1 - point.y - 150;
             div.removeChild(svg);
             parent.removeChild(div);
-            // -- end _svgScrollOffset calculation.
+            // -- 结束 _svgScrollOffset calculation.
             parent.appendChild(svg);
             if (isFlex) {
                 parent.style.display = 'block'; //Firefox bug causes getScreenCTM() to return null when parent is display:flex and the element isn't rendered inside the window (like if it's below the scroll position)
@@ -788,7 +788,7 @@ _gsScope._gsDefine('utils.Draggable', ['events.EventDispatcher', 'TweenLite', 'p
                 height: Math.max(p1.y, p2.y, p3.y, p4.y) - top
             };
         },
-        // end matrix and point conversion methods
+        // 结束 matrix and point conversion methods
         _isArrayLike = function(e) {
             return (e && e.length && e[0] && ((e[0].nodeType && e[0].style && !e.nodeType) || (e[0].length && e[0][0]))) ? true : false; //could be an array of jQuery objects too, so accommodate that.
         },
@@ -1299,7 +1299,7 @@ _gsScope._gsDefine('utils.Draggable', ['events.EventDispatcher', 'TweenLite', 'p
                             }
                         }
                         if (hasDragCallback && !suppressEvents && !isDispatching) {
-                            isDispatching = true; //in case onDrag has an update() call (avoid endless loop)
+                            isDispatching = true; //in case onDrag has an update() call (avoid 结束less loop)
                             _dispatchEvent(self, 'drag', 'onDrag');
                             isDispatching = false;
                         }
@@ -1472,9 +1472,9 @@ _gsScope._gsDefine('utils.Draggable', ['events.EventDispatcher', 'TweenLite', 'p
                             onUpdateParams: (vars.fastMode ? [self, 'onthrowupdate', 'onThrowUpdate'] : (snap && snap.radius) ? [false, true] : _emptyArray)
                         }, Math.max(vars.minDuration || 0, vars.maxDuration || 0) || 2, (!isNaN(vars.minDuration) ? vars.minDuration : (overshootTolerance === 0 || (typeof (throwProps) === 'object' && throwProps.resistance > 1000)) ? 0 : 0.5), overshootTolerance);
                         if (!vars.fastMode) {
-                            //to populate the end values, we just scrub the tween to the end, record the values, and then jump back to the beginning.
+                            //to populate the 结束 values, we just scrub the tween to the 结束, record the values, and then jump back to the beginning.
                             if (scrollProxy) {
-                                scrollProxy._suspendTransforms = true; //Microsoft browsers have a bug that causes them to briefly render the position incorrectly (it flashes to the end state when we seek() the tween even though we jump right back to the current position, and this only seems to happen when we're affecting both top and left), so we set a _suspendTransforms flag to prevent it from actually applying the values in the ScrollProxy.
+                                scrollProxy._suspendTransforms = true; //Microsoft browsers have a bug that causes them to briefly render the position incorrectly (it flashes to the 结束 state when we seek() the tween even though we jump right back to the current position, and this only seems to happen when we're affecting both top and left), so we set a _suspendTransforms flag to prevent it from actually applying the values in the ScrollProxy.
                             }
                             tween.render(tween.duration(), true, true);
                             syncXY(true, true);

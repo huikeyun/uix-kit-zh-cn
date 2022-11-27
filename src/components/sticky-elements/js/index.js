@@ -178,7 +178,7 @@ export const STICKY_EL = ( ( module, $, window, document ) => {
 				$( '.js-uix-sticky-el' ).removeClass( 'is-active' );
 				$( '[data-sticky-id].is-placeholder' ).css( 'display', 'none' );
 				
-			}// endif w > 768
+			}// 结束if w > 768
 			
 			
 		}

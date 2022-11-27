@@ -17,16 +17,16 @@ export var AttrPlugin = _gsScope._gsDefine.plugin({
     version: '0.6.1',
     //called when the tween renders for the first time. This is where initial values should be recorded and any setup routines should run.
     init: function(target, value, tween, index) {
-        var p, end;
+        var p, 结束;
         if (typeof (target.setAttribute) !== 'function') {
             return false;
         }
         for (p in value) {
-            end = value[p];
+           结束 = value[p];
             if (typeof (end) === 'function') {
-                end = end(index, target);
+               结束 = 结束(index, target);
             }
-            this._addTween(target, 'setAttribute', target.getAttribute(p) + '', end + '', p, false, p);
+            this._addTween(target, 'setAttribute', target.getAttribute(p) + '', 结束 + '', p, false, p);
             this._overwriteProps.push(p);
         }
         return true;

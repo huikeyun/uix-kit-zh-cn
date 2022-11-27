@@ -122,9 +122,9 @@ _gsScope._gsDefine('easing.Back', ['easing.Ease'], function() {
         return new SteppedEase(steps, immediateStart);
     };
     //ExpoScaleEase
-    ExpoScaleEase = _class('easing.ExpoScaleEase', function(start, end, ease) {
+    ExpoScaleEase = _class('easing.ExpoScaleEase', function(start, 结束, ease) {
         this._p1 = Math.log(end / start);
-        this._p2 = end - start;
+        this._p2 = 结束 - start;
         this._p3 = start;
         this._ease = ease;
     }, true);
@@ -136,8 +136,8 @@ _gsScope._gsDefine('easing.Back', ['easing.Ease'], function() {
         }
         return (this._p3 * Math.exp(this._p1 * p) - this._p3) / this._p2;
     };
-    p.config = ExpoScaleEase.config = function(start, end, ease) {
-        return new ExpoScaleEase(start, end, ease);
+    p.config = ExpoScaleEase.config = function(start, 结束, ease) {
+        return new ExpoScaleEase(start, 结束, ease);
     };
     //RoughEase
     RoughEase = _class('easing.RoughEase', function(vars) {

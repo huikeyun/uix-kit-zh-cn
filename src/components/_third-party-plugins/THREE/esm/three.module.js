@@ -4613,10 +4613,10 @@ class Plane {
         return target.copy(direction).multiplyScalar(t).add(line.start);
     }
     intersectsLine(line) {
-        // Note: this tests if a line intersects the plane, not whether it (or its end-points) are coplanar with it.
+        // Note: this tests if a line intersects the plane, not whether it (or its 结束-points) are coplanar with it.
         const startSign = this.distanceToPoint(line.start);
-        const endSign = this.distanceToPoint(line.end);
-        return (startSign < 0 && endSign > 0) || (endSign < 0 && startSign > 0);
+        const 结束Sign = this.distanceToPoint(line.end);
+        return (startSign < 0 && 结束Sign > 0) || (endSign < 0 && startSign > 0);
     }
     intersectsBox(box) {
         return box.intersectsPlane(this);
@@ -6746,8 +6746,8 @@ Mesh.prototype = Object.assign(Object.create(Object3D.prototype), {
                         const group = groups[i];
                         const groupMaterial = material[group.materialIndex];
                         const start = Math.max(group.start, drawRange.start);
-                        const end = Math.min((group.start + group.count), (drawRange.start + drawRange.count));
-                        for (let j = start, jl = end; j < jl; j += 3) {
+                        const 结束 = Math.min((group.start + group.count), (drawRange.start + drawRange.count));
+                        for (let j = start, jl = 结束; j < jl; j += 3) {
                             const a = index.getX(j);
                             const b = index.getX(j + 1);
                             const c = index.getX(j + 2);
@@ -6761,8 +6761,8 @@ Mesh.prototype = Object.assign(Object.create(Object3D.prototype), {
                     }
                 } else {
                     const start = Math.max(0, drawRange.start);
-                    const end = Math.min(index.count, (drawRange.start + drawRange.count));
-                    for (let i = start, il = end; i < il; i += 3) {
+                    const 结束 = Math.min(index.count, (drawRange.start + drawRange.count));
+                    for (let i = start, il = 结束; i < il; i += 3) {
                         const a = index.getX(i);
                         const b = index.getX(i + 1);
                         const c = index.getX(i + 2);
@@ -6780,8 +6780,8 @@ Mesh.prototype = Object.assign(Object.create(Object3D.prototype), {
                         const group = groups[i];
                         const groupMaterial = material[group.materialIndex];
                         const start = Math.max(group.start, drawRange.start);
-                        const end = Math.min((group.start + group.count), (drawRange.start + drawRange.count));
-                        for (let j = start, jl = end; j < jl; j += 3) {
+                        const 结束 = Math.min((group.start + group.count), (drawRange.start + drawRange.count));
+                        for (let j = start, jl = 结束; j < jl; j += 3) {
                             const a = j;
                             const b = j + 1;
                             const c = j + 2;
@@ -6795,8 +6795,8 @@ Mesh.prototype = Object.assign(Object.create(Object3D.prototype), {
                     }
                 } else {
                     const start = Math.max(0, drawRange.start);
-                    const end = Math.min(position.count, (drawRange.start + drawRange.count));
-                    for (let i = start, il = end; i < il; i += 3) {
+                    const 结束 = Math.min(position.count, (drawRange.start + drawRange.count));
+                    for (let i = start, il = 结束; i < il; i += 3) {
                         const a = i;
                         const b = i + 1;
                         const c = i + 2;
@@ -10278,11 +10278,11 @@ function unrollLoops(string) {
         .replace(unrollLoopPattern, loopReplacer)
         .replace(deprecatedUnrollLoopPattern, deprecatedLoopReplacer);
 }
-function deprecatedLoopReplacer(match, start, end, snippet) {
+function deprecatedLoopReplacer(match, start, 结束, snippet) {
     console.warn('WebGLProgram: #pragma unroll_loop shader syntax is deprecated. Please use #pragma unroll_loop_start syntax instead.');
-    return loopReplacer(match, start, end, snippet);
+    return loopReplacer(match, start, 结束, snippet);
 }
-function loopReplacer(match, start, end, snippet) {
+function loopReplacer(match, start, 结束, snippet) {
     let string = '';
     for (let i = parseInt(start); i < parseInt(end); i++) {
         string += snippet
@@ -17078,12 +17078,12 @@ const Earcut = {
     }
 };
 // create a circular doubly linked list from polygon points in the specified winding order
-function linkedList(data, start, end, dim, clockwise) {
+function linkedList(data, start, 结束, dim, clockwise) {
     let i, last;
-    if (clockwise === (signedArea(data, start, end, dim) > 0)) {
-        for (i = start; i < end; i += dim) last = insertNode(i, data[i], data[i + 1], last);
+    if (clockwise === (signedArea(data, start, 结束, dim) > 0)) {
+        for (i = start; i < 结束; i += dim) last = insertNode(i, data[i], data[i + 1], last);
     } else {
-        for (i = end - dim; i >= start; i -= dim) last = insertNode(i, data[i], data[i + 1], last);
+        for (i = 结束 - dim; i >= start; i -= dim) last = insertNode(i, data[i], data[i + 1], last);
     }
     if (last && equals(last, last.next)) {
         removeNode(last);
@@ -17092,23 +17092,23 @@ function linkedList(data, start, end, dim, clockwise) {
     return last;
 }
 // eliminate colinear or duplicate points
-function filterPoints(start, end) {
+function filterPoints(start, 结束) {
     if (!start) return start;
-    if (!end) end = start;
+    if (!end) 结束 = start;
     let p = start,
         again;
     do {
         again = false;
         if (!p.steiner && (equals(p, p.next) || area(p.prev, p, p.next) === 0)) {
             removeNode(p);
-            p = end = p.prev;
+            p = 结束 = p.prev;
             if (p === p.next) break;
             again = true;
         } else {
             p = p.next;
         }
-    } while (again || p !== end);
-    return end;
+    } while (again || p !== 结束);
+    return 结束;
 }
 // main ear slicing loop which triangulates a polygon (given as a linked list)
 function earcutLinked(ear, triangles, dim, minX, minY, invSize, pass) {
@@ -17252,11 +17252,11 @@ function splitEarcut(start, triangles, dim, minX, minY, invSize) {
 // link every hole into the outer loop, producing a single-ring polygon without holes
 function eliminateHoles(data, holeIndices, outerNode, dim) {
     const queue = [];
-    let i, len, start, end, list;
+    let i, len, start, 结束, list;
     for (i = 0, len = holeIndices.length; i < len; i++) {
         start = holeIndices[i] * dim;
-        end = i < len - 1 ? holeIndices[i + 1] * dim : data.length;
-        list = linkedList(data, start, end, dim, false);
+       结束 = i < len - 1 ? holeIndices[i + 1] * dim : data.length;
+        list = linkedList(data, start, 结束, dim, false);
         if (list === list.next) list.steiner = true;
         queue.push(getLeftmost(list));
     }
@@ -17288,7 +17288,7 @@ function findHoleBridge(hole, outerNode) {
     const hy = hole.y;
     let qx = -Infinity, m;
     // find a segment intersected by a ray from the hole's leftmost point to the left;
-    // segment's endpoint with lesser x will be potential connection point
+    // segment's 结束point with lesser x will be potential connection point
     do {
         if (hy <= p.y && hy >= p.next.y && p.next.y !== p.y) {
             const x = p.x + (hy - p.y) * (p.next.x - p.x) / (p.next.y - p.y);
@@ -17304,8 +17304,8 @@ function findHoleBridge(hole, outerNode) {
         p = p.next;
     } while (p !== outerNode);
     if (!m) return null;
-    if (hx === qx) return m; // hole touches outer segment; pick leftmost endpoint
-    // look for points inside the triangle of hole point, segment intersection and endpoint;
+    if (hx === qx) return m; // hole touches outer segment; pick leftmost 结束point
+    // look for points inside the triangle of hole point, segment intersection and 结束point;
     // if there are no points found, we have a valid connection;
     // otherwise choose the point of the minimum angle with the ray as connection point
     const stop = m,
@@ -17535,9 +17535,9 @@ function Node(i, x, y) {
     // indicates whether this is a steiner point
     this.steiner = false;
 }
-function signedArea(data, start, end, dim) {
+function signedArea(data, start, 结束, dim) {
     let sum = 0;
-    for (let i = start, j = end - dim; i < end; i += dim) {
+    for (let i = start, j = 结束 - dim; i < 结束; i += dim) {
         sum += (data[j] - data[i]) * (data[i + 1] + data[j + 1]);
         j = i;
     }
@@ -19724,7 +19724,7 @@ const AnimationUtils = {
             } while (key !== undefined);
         }
     },
-    subclip: function(sourceClip, name, startFrame, endFrame, fps = 30) {
+    subclip: function(sourceClip, name, startFrame, 结束Frame, fps = 30) {
         const clip = sourceClip.clone();
         clip.name = name;
         const tracks = [];
@@ -19735,7 +19735,7 @@ const AnimationUtils = {
             const values = [];
             for (let j = 0; j < track.times.length; ++j) {
                 const frame = track.times[j] * fps;
-                if (frame < startFrame || frame >= endFrame) continue;
+                if (frame < startFrame || frame >= 结束Frame) continue;
                 times.push(track.times[j]);
                 for (let k = 0; k < valueSize; ++k) {
                     values.push(track.values[j * valueSize + k]);
@@ -19793,20 +19793,20 @@ const AnimationUtils = {
             if (referenceTime <= referenceTrack.times[0]) {
                 // Reference frame is earlier than the first keyframe, so just use the first keyframe
                 const startIndex = referenceOffset;
-                const endIndex = referenceValueSize - referenceOffset;
-                referenceValue = AnimationUtils.arraySlice(referenceTrack.values, startIndex, endIndex);
+                const 结束Index = referenceValueSize - referenceOffset;
+                referenceValue = AnimationUtils.arraySlice(referenceTrack.values, startIndex, 结束Index);
             } else if (referenceTime >= referenceTrack.times[lastIndex]) {
                 // Reference frame is after the last keyframe, so just use the last keyframe
                 const startIndex = lastIndex * referenceValueSize + referenceOffset;
-                const endIndex = startIndex + referenceValueSize - referenceOffset;
-                referenceValue = AnimationUtils.arraySlice(referenceTrack.values, startIndex, endIndex);
+                const 结束Index = startIndex + referenceValueSize - referenceOffset;
+                referenceValue = AnimationUtils.arraySlice(referenceTrack.values, startIndex, 结束Index);
             } else {
                 // Interpolate to the reference value
                 const interpolant = referenceTrack.createInterpolant();
                 const startIndex = referenceOffset;
-                const endIndex = referenceValueSize - referenceOffset;
+                const 结束Index = referenceValueSize - referenceOffset;
                 interpolant.evaluate(referenceTime);
-                referenceValue = AnimationUtils.arraySlice(interpolant.resultBuffer, startIndex, endIndex);
+                referenceValue = AnimationUtils.arraySlice(interpolant.resultBuffer, startIndex, 结束Index);
             }
             // Conjugate the quaternion
             if (referenceTrackType === 'quaternion') {
@@ -19887,7 +19887,7 @@ Object.assign(Interpolant.prototype, {
                         for (let giveUpAt = i1 + 2; ;) {
                             if (t1 === undefined) {
                                 if (t < t0) break forward_scan;
-                                // after end
+                                // after 结束
                                 i1 = pp.length;
                                 this._cachedIndex = i1;
                                 return this.afterEnd_(i1 - 1, t, t0);
@@ -20015,8 +20015,8 @@ function CubicInterpolant(parameterPositions, sampleValues, sampleSize, resultBu
 CubicInterpolant.prototype = Object.assign(Object.create(Interpolant.prototype), {
     constructor: CubicInterpolant,
     DefaultSettings_: {
-        endingStart: ZeroCurvatureEnding,
-        endingEnd: ZeroCurvatureEnding
+       结束ingStart: ZeroCurvatureEnding,
+       结束ingEnd: ZeroCurvatureEnding
     },
     intervalChanged_: function(i1, t0, t1) {
         const pp = this.parameterPositions;
@@ -20032,7 +20032,7 @@ CubicInterpolant.prototype = Object.assign(Object.create(Interpolant.prototype),
                     tPrev = 2 * t0 - t1;
                     break;
                 case WrapAroundEnding:
-                    // use the other end of the curve
+                    // use the other 结束 of the curve
                     iPrev = pp.length - 2;
                     tPrev = t0 + pp[iPrev] - pp[iPrev + 1];
                     break;
@@ -20050,7 +20050,7 @@ CubicInterpolant.prototype = Object.assign(Object.create(Interpolant.prototype),
                     tNext = 2 * t1 - t0;
                     break;
                 case WrapAroundEnding:
-                    // use the other end of the curve
+                    // use the other 结束 of the curve
                     iNext = 1;
                     tNext = t1 + pp[1] - pp[0];
                     break;
@@ -20233,9 +20233,9 @@ class KeyframeTrack {
         }
         return this;
     }
-    // removes keyframes before and after animation without changing any values within the range [startTime, endTime].
+    // removes keyframes before and after animation without changing any values within the range [startTime, 结束Time].
     // IMPORTANT: We do not shift around keys to the start of the track time, because for interpolated keys this will change their values
-    trim(startTime, endTime) {
+    trim(startTime, 结束Time) {
         const times = this.times,
             nKeys = times.length;
         let from = 0,
@@ -20243,7 +20243,7 @@ class KeyframeTrack {
         while (from !== nKeys && times[from] < startTime) {
             ++from;
         }
-        while (to !== -1 && times[to] > endTime) {
+        while (to !== -1 && times[to] > 结束Time) {
             --to;
         }
         ++to; // inclusive -> exclusive bound
@@ -20416,7 +20416,7 @@ QuaternionLinearInterpolant.prototype = Object.assign(Object.create(Interpolant.
             stride = this.valueSize,
             alpha = (t - t0) / (t1 - t0);
         let offset = i1 * stride;
-        for (let end = offset + stride; offset !== end; offset += 4) {
+        for (let 结束 = offset + stride; offset !== 结束; offset += 4) {
             Quaternion.slerpFlat(result, 0, values, offset - stride, values, offset, alpha);
         }
         return result;
@@ -22149,9 +22149,9 @@ class CurvePath extends Curve {
         this.curves.push(curve);
     }
     closePath() {
-        // Add a line curve if start and end of lines are not connected
+        // Add a line curve if start and 结束 of lines are not connected
         const startPoint = this.curves[0].getPoint(0);
-        const endPoint = this.curves[this.curves.length - 1].getPoint(1);
+        const 结束Point = this.curves[this.curves.length - 1].getPoint(1);
         if (!startPoint.equals(endPoint)) {
             this.curves.push(new LineCurve(endPoint, startPoint));
         }
@@ -24098,7 +24098,7 @@ class ShapePath {
             // inPt on polygon contour => immediate success    or
             // toggling of inside/outside at every single! intersection point of an edge
             //  with the horizontal line through inPt, left of inPt
-            //  not counting lowerY endpoints of edges and whole edges on that line
+            //  not counting lowerY 结束points of edges and whole edges on that line
             let inside = false;
             for (let p = polyLen - 1, q = 0; q < polyLen; p = q++) {
                 let edgeLowPt = inPolygon[p];
@@ -24556,16 +24556,16 @@ class AudioListener extends Object3D {
         _orientation.set(0, 0, -1).applyQuaternion(_quaternion$3);
         if (listener.positionX) {
             // code path for Chrome (see #14393)
-            const endTime = this.context.currentTime + this.timeDelta;
-            listener.positionX.linearRampToValueAtTime(_position$2.x, endTime);
-            listener.positionY.linearRampToValueAtTime(_position$2.y, endTime);
-            listener.positionZ.linearRampToValueAtTime(_position$2.z, endTime);
-            listener.forwardX.linearRampToValueAtTime(_orientation.x, endTime);
-            listener.forwardY.linearRampToValueAtTime(_orientation.y, endTime);
-            listener.forwardZ.linearRampToValueAtTime(_orientation.z, endTime);
-            listener.upX.linearRampToValueAtTime(up.x, endTime);
-            listener.upY.linearRampToValueAtTime(up.y, endTime);
-            listener.upZ.linearRampToValueAtTime(up.z, endTime);
+            const 结束Time = this.context.currentTime + this.timeDelta;
+            listener.positionX.linearRampToValueAtTime(_position$2.x, 结束Time);
+            listener.positionY.linearRampToValueAtTime(_position$2.y, 结束Time);
+            listener.positionZ.linearRampToValueAtTime(_position$2.z, 结束Time);
+            listener.forwardX.linearRampToValueAtTime(_orientation.x, 结束Time);
+            listener.forwardY.linearRampToValueAtTime(_orientation.y, 结束Time);
+            listener.forwardZ.linearRampToValueAtTime(_orientation.z, 结束Time);
+            listener.upX.linearRampToValueAtTime(up.x, 结束Time);
+            listener.upY.linearRampToValueAtTime(up.y, 结束Time);
+            listener.upZ.linearRampToValueAtTime(up.z, 结束Time);
         } else {
             listener.setPosition(_position$2.x, _position$2.y, _position$2.z);
             listener.setOrientation(_orientation.x, _orientation.y, _orientation.z, up.x, up.y, up.z);
@@ -24844,13 +24844,13 @@ class PositionalAudio extends Audio {
         const panner = this.panner;
         if (panner.positionX) {
             // code path for Chrome and Firefox (see #14393)
-            const endTime = this.context.currentTime + this.listener.timeDelta;
-            panner.positionX.linearRampToValueAtTime(_position$3.x, endTime);
-            panner.positionY.linearRampToValueAtTime(_position$3.y, endTime);
-            panner.positionZ.linearRampToValueAtTime(_position$3.z, endTime);
-            panner.orientationX.linearRampToValueAtTime(_orientation$1.x, endTime);
-            panner.orientationY.linearRampToValueAtTime(_orientation$1.y, endTime);
-            panner.orientationZ.linearRampToValueAtTime(_orientation$1.z, endTime);
+            const 结束Time = this.context.currentTime + this.listener.timeDelta;
+            panner.positionX.linearRampToValueAtTime(_position$3.x, 结束Time);
+            panner.positionY.linearRampToValueAtTime(_position$3.y, 结束Time);
+            panner.positionZ.linearRampToValueAtTime(_position$3.z, 结束Time);
+            panner.orientationX.linearRampToValueAtTime(_orientation$1.x, 结束Time);
+            panner.orientationY.linearRampToValueAtTime(_orientation$1.y, 结束Time);
+            panner.orientationZ.linearRampToValueAtTime(_orientation$1.z, 结束Time);
         } else {
             panner.setPosition(_position$3.x, _position$3.y, _position$3.z);
             panner.setOrientation(_orientation$1.x, _orientation$1.y, _orientation$1.z);
@@ -25018,8 +25018,8 @@ class PropertyMixer {
     }
     _setAdditiveIdentityNumeric() {
         const startIndex = this._addIndex * this.valueSize;
-        const endIndex = startIndex + this.valueSize;
-        for (let i = startIndex; i < endIndex; i++) {
+        const 结束Index = startIndex + this.valueSize;
+        for (let i = startIndex; i < 结束Index; i++) {
             this.buffer[i] = 0;
         }
     }
@@ -25716,8 +25716,8 @@ class AnimationAction {
             nTracks = tracks.length,
             interpolants = new Array(nTracks);
         const interpolantSettings = {
-            endingStart: ZeroCurvatureEnding,
-            endingEnd: ZeroCurvatureEnding
+           结束ingStart: ZeroCurvatureEnding,
+           结束ingEnd: ZeroCurvatureEnding
         };
         for (let i = 0; i !== nTracks; ++i) {
             const interpolant = tracks[i].createInterpolant(null);
@@ -25749,7 +25749,7 @@ class AnimationAction {
         this.enabled = true; // false -> zero effective weight
         this.clampWhenFinished = false;// keep feeding the last frame?
         this.zeroSlopeAtStart = true;// for smooth interpolation w/o separate
-        this.zeroSlopeAtEnd = true;// clips for start, loop and end
+        this.zeroSlopeAtEnd = true;// clips for start, loop and 结束
     }
     // State & Scheduling
     play() {
@@ -25812,7 +25812,7 @@ class AnimationAction {
             const fadeInDuration = this._clip.duration,
                 fadeOutDuration = fadeOutAction._clip.duration,
                 startEndRatio = fadeOutDuration / fadeInDuration,
-                endStartRatio = fadeInDuration / fadeOutDuration;
+               结束StartRatio = fadeInDuration / fadeOutDuration;
             fadeOutAction.warp(1.0, startEndRatio, duration);
             this.warp(endStartRatio, 1.0, duration);
         }
@@ -25854,7 +25854,7 @@ class AnimationAction {
     halt(duration) {
         return this.warp(this._effectiveTimeScale, 0, duration);
     }
-    warp(startTimeScale, endTimeScale, duration) {
+    warp(startTimeScale, 结束TimeScale, duration) {
         const mixer = this._mixer,
             now = mixer.time,
             timeScale = this.timeScale;
@@ -25868,7 +25868,7 @@ class AnimationAction {
         times[0] = now;
         times[1] = now + duration;
         values[0] = startTimeScale / timeScale;
-        values[1] = endTimeScale / timeScale;
+        values[1] = 结束TimeScale / timeScale;
         return this;
     }
     stopWarping() {
@@ -26894,11 +26894,11 @@ Box2.prototype.isBox2 = true;
 const _startP = /*@__PURE__*/ new Vector3();
 const _startEnd = /*@__PURE__*/ new Vector3();
 class Line3 {
-    constructor(start = new Vector3(), end = new Vector3()) {
+    constructor(start = new Vector3(), 结束 = new Vector3()) {
         this.start = start;
-        this.end = end;
+        this.end = 结束;
     }
-    set(start, end) {
+    set(start, 结束) {
         this.start.copy(start);
         this.end.copy(end);
         return this;

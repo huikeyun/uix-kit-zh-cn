@@ -383,21 +383,21 @@ THREE.SVGLoader.prototype = Object.assign(Object.create(THREE.Loader.prototype),
         }
         /**
          * https://www.w3.org/TR/SVG/implnote.html#ArcImplementationNotes
-         * https://mortoray.com/2017/02/16/rendering-an-svg-elliptical-arc-as-bezier-curves/ Appendix: Endpoint to center arc conversion
+         * https://mortoray.com/2017/02/16/rendering-an-svg-elliptical-arc-as-bezier-curves/ Appendix: 结束point to center arc conversion
          * From
          * rx ry x-axis-rotation large-arc-flag sweep-flag x y
          * To
          * aX, aY, xRadius, yRadius, aStartAngle, aEndAngle, aClockwise, aRotation
          */
 
-        function parseArcCommand(path, rx, ry, x_axis_rotation, large_arc_flag, sweep_flag, start, end) {
+        function parseArcCommand(path, rx, ry, x_axis_rotation, large_arc_flag, sweep_flag, start, 结束) {
             x_axis_rotation = x_axis_rotation * Math.PI / 180;
             // Ensure radii are positive
             rx = Math.abs(rx);
             ry = Math.abs(ry);
             // Compute (x1′, y1′)
-            var dx2 = (start.x - end.x) / 2.0;
-            var dy2 = (start.y - end.y) / 2.0;
+            var dx2 = (start.x - 结束.x) / 2.0;
+            var dy2 = (start.y - 结束.y) / 2.0;
             var x1p = Math.cos(x_axis_rotation) * dx2 + Math.sin(x_axis_rotation) * dy2;
             var y1p = -Math.sin(x_axis_rotation) * dx2 + Math.cos(x_axis_rotation) * dy2;
             // Compute (cx′, cy′)
@@ -422,8 +422,8 @@ THREE.SVGLoader.prototype = Object.assign(Object.create(THREE.Loader.prototype),
             var cxp = q * rx * y1p / ry;
             var cyp = -q * ry * x1p / rx;
             // Step 3: Compute (cx, cy) from (cx′, cy′)
-            var cx = Math.cos(x_axis_rotation) * cxp - Math.sin(x_axis_rotation) * cyp + (start.x + end.x) / 2;
-            var cy = Math.sin(x_axis_rotation) * cxp + Math.cos(x_axis_rotation) * cyp + (start.y + end.y) / 2;
+            var cx = Math.cos(x_axis_rotation) * cxp - Math.sin(x_axis_rotation) * cyp + (start.x + 结束.x) / 2;
+            var cy = Math.sin(x_axis_rotation) * cxp + Math.cos(x_axis_rotation) * cyp + (start.y + 结束.y) / 2;
             // Step 4: Compute θ1 and Δθ
             var theta = svgAngle(1, 0, (x1p - cxp) / rx, (y1p - cyp) / ry);
             var delta = svgAngle((x1p - cxp) / rx, (y1p - cyp) / ry, (-x1p - cxp) / rx, (-y1p - cyp) / ry) % (Math.PI * 2);
@@ -849,7 +849,7 @@ THREE.SVGLoader.pointsToStroke = function(points, style, arcDivisions, minDistan
     // The path can be open or closed (last point equals to first point)
     // Param points: Array of Vector2D (the path). Minimum 2 points.
     // Param style: Object with SVG properties as returned by SVGLoader.getStrokeStyle(), or SVGLoader.parse() in the path.userData.style object
-    // Params arcDivisions: Arc divisions for round joins and endcaps. (Optional)
+    // Params arcDivisions: Arc divisions for round joins and 结束caps. (Optional)
     // Param minDistance: Points closer to this distance will be merged. (Optional)
     // Returns BufferGeometry with stroke triangles (In plane z = 0). UV coordinates are generated ('u' along path. 'v' across it, from left to right)
     var vertices = [];
@@ -1087,11 +1087,11 @@ THREE.SVGLoader.pointsToStrokeWithBuffers = function() {
                     makeSegmentTriangles();
                 }
             } else {
-                // The segment triangles are generated here if it is the ending segment
+                // The segment triangles are generated here if it is the 结束ing segment
                 makeSegmentTriangles();
             }
             if (!isClosed && iPoint === numPoints - 1) {
-                // Start line endcap
+                // Start line 结束cap
                 addCapGeometry(points[0], point0L, point0R, joinIsOnLeftSide, true, u0);
             }
             // Increment loop variables
@@ -1101,7 +1101,7 @@ THREE.SVGLoader.pointsToStrokeWithBuffers = function() {
             lastPointR.copy(nextPointR);
         }
         if (!isClosed) {
-            // Ending line endcap
+            // 结束ing line 结束cap
             addCapGeometry(currentPoint, currentPointL, currentPointR, joinIsOnLeftSide, false, u1);
         } else if (innerSideModified && vertices) {
             // Modify path first segment vertices to adjust to the segments inner and outer intersections
@@ -1130,7 +1130,7 @@ THREE.SVGLoader.pointsToStrokeWithBuffers = function() {
             }
         }
         return numVertices;
-        // -- End of algorithm
+        // -- 结束 of algorithm
         // -- Functions
         function getNormal(p1, p2, result) {
             result.subVectors(p2, p1);
@@ -1257,7 +1257,7 @@ THREE.SVGLoader.pointsToStrokeWithBuffers = function() {
             }
         }
         function addCapGeometry(center, p1, p2, joinIsOnLeftSide, start, u) {
-            // param center: End point of the path
+            // param center: 结束 point of the path
             // param p1, p2: Left and right cap points
             switch (style.strokeLineCap) {
                 case 'round':
@@ -1309,7 +1309,7 @@ THREE.SVGLoader.pointsToStrokeWithBuffers = function() {
         }
         function removeDuplicatedPoints(points) {
             // Creates a new array if necessary with duplicated points removed.
-            // This does not remove duplicated initial and ending points of a closed path.
+            // This does not remove duplicated initial and 结束ing points of a closed path.
             var dupPoints = false;
             for (var i = 1, n = points.length - 1; i < n; i++) {
                 if (points[i].distanceTo(points[i + 1]) < minDistance) {

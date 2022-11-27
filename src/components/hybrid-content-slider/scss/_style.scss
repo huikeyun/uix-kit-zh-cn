@@ -18,7 +18,7 @@
  */
 
 .uix-hybrid-content-slider {
-	/* Required */
+	/* 必需的 */
 	overflow: hidden;
     width: 100%;
     height: auto;
@@ -35,7 +35,7 @@
             }
             
             &.js-is-ready { 
-                position: absolute; /* required */
+                position: absolute; /* 必需的 */
             }
 
 			&.is-active { }

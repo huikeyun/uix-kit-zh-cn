@@ -165,7 +165,7 @@
 			$indicator.removeClass( 'current' );
 			$indicator.eq( currentFormIndex ).addClass( 'current' );
 
-			// Reset if we've reached the end
+			// Reset if we've reached the 结束
 			if (value >= 100) {
 				$formTarget.find( '.uix-form-progress__target__step' )
 											   .addClass( 'leaving' )

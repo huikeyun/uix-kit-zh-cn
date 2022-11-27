@@ -52,7 +52,7 @@ _gsScope._gsDefine('TweenMax', ['core.Animation', 'core.SimpleTimeline', 'TweenL
                 cache = {},
                 isFromKeyword = isNaN(from),
                 axis = vars.axis,
-                ratio = { center: 0.5, end: 1 }[from] || 0;
+                ratio = { center: 0.5, 结束: 1 }[from] || 0;
             return function(i, target, a) {
                 var l = (a || vars).length,
                     distances = cache[l],
@@ -154,7 +154,7 @@ _gsScope._gsDefine('TweenMax', ['core.Animation', 'core.SimpleTimeline', 'TweenL
                 if (self._notifyPluginsOfEnabled && self._firstPT) {
                     TweenLite._onPluginEvent('_onDisable', self); //in case a plugin like MotionBlur must perform some cleanup tasks
                 }
-                if (self._time / self._duration > 0.998) { //if the tween has finished (or come extremely close to finishing), we just need to rewind it to 0 and then render it again at the end which forces it to re-initialize (parsing the new vars). We allow tweens that are close to finishing (but haven't quite finished) to work this way too because otherwise, the values are so small when determining where to project the starting values that binary math issues creep in and can make the tween appear to render incorrectly when run backwards.
+                if (self._time / self._duration > 0.998) { //if the tween has finished (or come extremely close to finishing), we just need to rewind it to 0 and then render it again at the 结束 which forces it to re-initialize (parsing the new vars). We allow tweens that are close to finishing (but haven't quite finished) to work this way too because otherwise, the values are so small when determining where to project the starting values that binary math issues creep in and can make the tween appear to render incorrectly when run backwards.
                     var prevTime = self._totalTime;
                     self.render(0, true, false);
                     self._initted = false;
@@ -164,11 +164,11 @@ _gsScope._gsDefine('TweenMax', ['core.Animation', 'core.SimpleTimeline', 'TweenL
                     self._init();
                     if (self._time > 0 || immediate) {
                         var inv = 1 / (1 - curRatio),
-                            pt = self._firstPT, endValue;
+                            pt = self._firstPT, 结束Value;
                         while (pt) {
-                            endValue = pt.s + pt.c;
+                           结束Value = pt.s + pt.c;
                             pt.c *= inv;
-                            pt.s = endValue - pt.c;
+                            pt.s = 结束Value - pt.c;
                             pt = pt._next;
                         }
                     }
@@ -204,8 +204,8 @@ _gsScope._gsDefine('TweenMax', ['core.Animation', 'core.SimpleTimeline', 'TweenL
                 callback = 'onComplete';
                 force = (force || self._timeline.autoRemoveChildren); //otherwise, if the animation is unpaused/activated after it's already finished, it doesn't get removed from the parent timeline.
             }
-            if (duration === 0) if (self._initted || !self.vars.lazy || force) { //zero-duration tweens are tricky because we must discern the momentum/direction of time in order to determine whether the starting values should be rendered or the ending values. If the "playhead" of its timeline goes past the zero-duration tween in the forward direction or lands directly on it, the end values should be rendered, but if the timeline's "playhead" moves past it in the backward direction (from a postitive time to a negative time), the starting values must be rendered.
-                if (self._startTime === self._timeline._duration) { //if a zero-duration tween is at the VERY end of a timeline and that timeline renders at its end, it will typically add a tiny bit of cushion to the render time to prevent rounding errors from getting in the way of tweens rendering their VERY end. If we then reverse() that timeline, the zero-duration tween will trigger its onReverseComplete even though technically the playhead didn't pass over it again. It's a very specific edge case we must accommodate.
+            if (duration === 0) if (self._initted || !self.vars.lazy || force) { //zero-duration tweens are tricky because we must discern the momentum/direction of time in order to determine whether the starting values should be rendered or the 结束ing values. If the "playhead" of its timeline goes past the zero-duration tween in the forward direction or lands directly on it, the 结束 values should be rendered, but if the timeline's "playhead" moves past it in the backward direction (from a postitive time to a negative time), the starting values must be rendered.
+                if (self._startTime === self._timeline._duration) { //if a zero-duration tween is at the VERY 结束 of a timeline and that timeline renders at its 结束, it will typically add a tiny bit of cushion to the render time to prevent rounding errors from getting in the way of tweens rendering their VERY 结束. If we then reverse() that timeline, the zero-duration tween will trigger its onReverseComplete even though technically the playhead didn't pass over it again. It's a very specific edge case we must accommodate.
                     time = 0;
                 }
                 if (prevRawPrevTime < 0 || (time <= 0 && time >= -_tinyNum) || (prevRawPrevTime === _tinyNum && self.data !== 'isPause')) if (prevRawPrevTime !== time) { //note: when this.data is "isPause", it's a callback added by addPause() on a timeline that we should not be triggered when LEAVING its exact start time. In other words, tl.addPause(1).play(1) shouldn't pause.
@@ -227,7 +227,7 @@ _gsScope._gsDefine('TweenMax', ['core.Animation', 'core.SimpleTimeline', 'TweenL
                 time = 0;
             } else if (time < 0) {
                 self._active = false;
-                if (duration === 0) if (self._initted || !self.vars.lazy || force) { //zero-duration tweens are tricky because we must discern the momentum/direction of time in order to determine whether the starting values should be rendered or the ending values. If the "playhead" of its timeline goes past the zero-duration tween in the forward direction or lands directly on it, the end values should be rendered, but if the timeline's "playhead" moves past it in the backward direction (from a postitive time to a negative time), the starting values must be rendered.
+                if (duration === 0) if (self._initted || !self.vars.lazy || force) { //zero-duration tweens are tricky because we must discern the momentum/direction of time in order to determine whether the starting values should be rendered or the 结束ing values. If the "playhead" of its timeline goes past the zero-duration tween in the forward direction or lands directly on it, the 结束 values should be rendered, but if the timeline's "playhead" moves past it in the backward direction (from a postitive time to a negative time), the starting values must be rendered.
                     if (prevRawPrevTime >= 0) {
                         force = true;
                     }
@@ -243,7 +243,7 @@ _gsScope._gsDefine('TweenMax', ['core.Animation', 'core.SimpleTimeline', 'TweenL
                 cycleDuration = duration + self._repeatDelay;
                 self._cycle = (self._totalTime / cycleDuration) >> 0; //originally _totalTime % cycleDuration but floating point errors caused problems, so I normalized it. (4 % 0.8 should be 0 but some browsers report it as 0.79999999!)
                 if (self._cycle !== 0) if (self._cycle === self._totalTime / cycleDuration && prevTotalTime <= time) {
-                    self._cycle--; //otherwise when rendered exactly at the end time, it will act as though it is repeating (at the beginning)
+                    self._cycle--; //otherwise when rendered exactly at the 结束 time, it will act as though it is repeating (at the beginning)
                 }
                 self._time = self._totalTime - (self._cycle * cycleDuration);
                 if (self._yoyo) if ((self._cycle & 1) !== 0) {
@@ -300,7 +300,7 @@ _gsScope._gsDefine('TweenMax', ['core.Animation', 'core.SimpleTimeline', 'TweenL
             self._init();
             if (!self._initted || self._gc) { //immediateRender tweens typically won't initialize until the playhead advances (_time is greater than 0) in order to ensure that overwriting occurs properly. Also, if all of the tweening properties have been overwritten (which would cause _gc to be true, as set in _init()), we shouldn't continue otherwise an onStart callback could be called for example.
                 return;
-            } else if (!force && self._firstPT && ((self.vars.lazy !== false && self._duration) || (self.vars.lazy && !self._duration))) { //we stick it in the queue for rendering at the very end of the tick - this is a performance optimization because browsers invalidate styles and force a recalculation if you read, write, and then read style data (so it's better to read/read/read/write/write/write than read/write/read/write/read/write). The down side, of course, is that usually you WANT things to render immediately because you may have code running right after that which depends on the change. Like imagine running TweenLite.set(...) and then immediately after that, creating a nother tween that animates the same property to another value; the starting values of that 2nd tween wouldn't be accurate if lazy is true.
+            } else if (!force && self._firstPT && ((self.vars.lazy !== false && self._duration) || (self.vars.lazy && !self._duration))) { //we stick it in the queue for rendering at the very 结束 of the tick - this is a performance optimization because browsers invalidate styles and force a recalculation if you read, write, and then read style data (so it's better to read/read/read/write/write/write than read/write/read/write/read/write). The down side, of course, is that usually you WANT things to render immediately because you may have code running right after that which depends on the change. Like imagine running TweenLite.set(...) and then immediately after that, creating a nother tween that animates the same property to another value; the starting values of that 2nd tween wouldn't be accurate if lazy is true.
                 self._time = prevTime;
                 self._totalTime = prevTotalTime;
                 self._rawPrevTime = prevRawPrevTime;
@@ -330,7 +330,7 @@ _gsScope._gsDefine('TweenMax', ['core.Animation', 'core.SimpleTimeline', 'TweenL
                 if (time >= 0) {
                     self._startAt.render(time, true, force);
                 } else if (!callback) {
-                    callback = '_dummyGS'; //if no callback is defined, use a dummy value just so that the condition at the end evaluates as true because _startAt should render AFTER the normal render loop when the time is negative. We could handle this in a more intuitive way, of course, but the render loop is the MOST important thing to optimize, so this technique allows us to avoid adding extra conditional logic in a high-frequency area.
+                    callback = '_dummyGS'; //if no callback is defined, use a dummy value just so that the condition at the 结束 evaluates as true because _startAt should render AFTER the normal render loop when the time is negative. We could handle this in a more intuitive way, of course, but the render loop is the MOST important thing to optimize, so this technique allows us to avoid adding extra conditional logic in a high-frequency area.
                 }
             }
             if (self.vars.onStart) if (self._totalTime !== 0 || duration === 0) if (!suppressEvents) {
@@ -348,7 +348,7 @@ _gsScope._gsDefine('TweenMax', ['core.Animation', 'core.SimpleTimeline', 'TweenL
         }
         if (self._onUpdate) {
             if (time < 0) if (self._startAt && self._startTime) { //if the tween is positioned at the VERY beginning (_startTime 0) of its parent timeline, it's illegal for the playhead to go back further, so we should not render the recorded startAt values.
-                self._startAt.render(time, true, force); //note: for performance reasons, we tuck this conditional logic inside less traveled areas (most tweens don't have an onUpdate). We'd just have it at the end before the onComplete, but the values should be updated before any onUpdate is called, so we ALSO put it here and then if it's not called, we do so later near the onComplete.
+                self._startAt.render(time, true, force); //note: for performance reasons, we tuck this conditional logic inside less traveled areas (most tweens don't have an onUpdate). We'd just have it at the 结束 before the onComplete, but the values should be updated before any onUpdate is called, so we ALSO put it here and then if it's not called, we do so later near the onComplete.
             }
             if (!suppressEvents) if (self._totalTime !== prevTotalTime || callback) {
                 self._callback('onUpdate');

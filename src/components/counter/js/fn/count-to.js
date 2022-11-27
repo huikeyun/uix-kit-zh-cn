@@ -4,7 +4,7 @@
  *
  * @param  {Number} fixed                - formats a number using fixed-point notation.
  * @param  {Number} from                 - the number the element should start at
- * @param  {Number} to                   - the number the element should end at
+ * @param  {Number} to                   - the number the element should 结束 at
  * @param  {Number} speed                - how long it should take to count between the target numbers
  * @param  {Number} refreshInterval      - how often the element should be updated
  * @param  {Boolean} dilimiter           - the number of decimal places to show

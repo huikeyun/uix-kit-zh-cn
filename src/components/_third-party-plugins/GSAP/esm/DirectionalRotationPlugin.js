@@ -23,18 +23,18 @@ export var DirectionalRotationPlugin = _gsScope._gsDefine.plugin({
         this.finals = {};
         var cap = (value.useRadians === true) ? Math.PI * 2 : 360,
             min = 0.000001,
-            p, v, start, end, dif, split;
+            p, v, start, 结束, dif, split;
         for (p in value) {
             if (p !== 'useRadians') {
-                end = value[p];
+               结束 = value[p];
                 if (typeof (end) === 'function') {
-                    end = end(index, target);
+                   结束 = 结束(index, target);
                 }
                 split = (end + '').split('_');
                 v = split[0];
                 start = parseFloat((typeof (target[p]) !== 'function') ? target[p] : target[((p.indexOf('set') || typeof (target['get' + p.substr(3)]) !== 'function') ? p : 'get' + p.substr(3))]());
-                end = this.finals[p] = (typeof (v) === 'string' && v.charAt(1) === '=') ? start + parseInt(v.charAt(0) + '1', 10) * Number(v.substr(2)) : Number(v) || 0;
-                dif = end - start;
+               结束 = this.finals[p] = (typeof (v) === 'string' && v.charAt(1) === '=') ? start + parseInt(v.charAt(0) + '1', 10) * Number(v.substr(2)) : Number(v) || 0;
+                dif = 结束 - start;
                 if (split.length) {
                     v = split.join('_');
                     if (v.indexOf('short') !== -1) {

@@ -309,7 +309,7 @@ export const MULTI_ITEMS_CAROUSEL = ( ( module, $, window, document ) => {
 
                     
                     //Use the direction in here
-                    //You know the pan has ended
+                    //You know the pan has 结束ed
                     //and you know which action they were taking
                     switch ( direction ) {
                         case 'panleft':

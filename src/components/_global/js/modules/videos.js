@@ -486,7 +486,7 @@ export const VIDEOS = ( ( module, $, window, document ) => {
 						//console.log( progressAmount );
 					});
 
-					/* ---------  Callback for when a video has ended */
+					/* ---------  Callback for when a video has 结束ed */
 					this.on( 'ended', function() {
 						//console.log( 'video is done!' );
 					});

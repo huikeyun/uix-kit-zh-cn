@@ -417,7 +417,7 @@ export const FLEXSLIDER = ((module, $, window, document) => {
                                 }
                                 //Hidden replay button
                                 $replayBtn.hide();
-                                //Should the video go to the beginning when it ends
+                                //Should the video go to the beginning when it 结束s
                                 this.on('ended', function() {
                                     if (dataLoop) {
                                         this.currentTime(0);
@@ -733,7 +733,7 @@ export const FLEXSLIDER = ((module, $, window, document) => {
                     initslides($this, slider, 'after');
                 },
                 //Fires when the slider reaches the last slide (asynchronous).
-                end: function(slider) {
+               结束: function(slider) {
                     initslides($this, slider, 'end');
                 }
             });

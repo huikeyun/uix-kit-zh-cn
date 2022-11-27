@@ -709,7 +709,7 @@
                     methods.directionNav.update();
                 }
                 if (target === slider.last) {
-                    // API: end() of cycle Callback
+                    // API: 结束() of cycle Callback
                     slider.vars.end(slider);
                     // SLIDESHOW && !INFINITE LOOP:
                     if (!slider.vars.animationLoop) {
@@ -1122,7 +1122,7 @@
         easing: 'swing',                //{NEW} String: Determines the easing method used in jQuery transitions. jQuery easing plugin is supported!
         direction: 'horizontal',        //String: Select the sliding direction, "horizontal" or "vertical"
         reverse: false,                 //{NEW} Boolean: Reverse the animation direction
-        animationLoop: true,            //Boolean: Should the animation loop? If false, directionNav will received "disable" classes at either end
+        animationLoop: true,            //Boolean: Should the animation loop? If false, directionNav will received "disable" classes at either 结束
         smoothHeight: false,            //{NEW} Boolean: Allow height of the slider to animate smoothly in horizontal mode
         startAt: 0,                     //Integer: The slide that the slider should start on. Array notation (0 = first slide)
         slideshow: true,                //Boolean: Animate slider automatically
@@ -1171,7 +1171,7 @@
         },           //Callback: function(slider) - Fires asynchronously with each slider animation
         after: function() {
         },            //Callback: function(slider) - Fires after each slider animation completes
-        end: function() {
+       结束: function() {
         },              //Callback: function(slider) - Fires when the slider reaches the last slide (asynchronous)
         added: function() {
         },            //{NEW} Callback: function(slider) - Fires after a slide is added

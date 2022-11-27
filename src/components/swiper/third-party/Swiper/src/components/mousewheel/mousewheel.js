@@ -223,7 +223,7 @@ const Mousewheel = {
       // If we recently snapped after a momentum scroll, then ignore wheel events
       // to give time for the deceleration to finish. Stop ignoring after 500 msecs
       // or if it's a new scroll (larger delta or inverse sign as last event before
-      // an end-of-momentum snap).
+      // an 结束-of-momentum snap).
       const newEvent = {
         time: now(),
         delta: Math.abs(delta),
@@ -260,13 +260,13 @@ const Mousewheel = {
 
         if (swiper.params.freeModeSticky) {
           // When wheel scrolling starts with sticky (aka snap) enabled, then detect
-          // the end of a momentum scroll by storing recent (N=15?) wheel events.
+          // the 结束 of a momentum scroll by storing recent (N=15?) wheel events.
           // 1. do all N events have decreasing or same (absolute value) delta?
           // 2. did all N events arrive in the last M (M=500?) msecs?
           // 3. does the earliest event have an (absolute value) delta that's
           //    at least P (P=1?) larger than the most recent event's delta?
           // 4. does the latest event have a delta that's smaller than Q (Q=6?) pixels?
-          // If 1-4 are "yes" then we're near the end of a momentum scroll deceleration.
+          // If 1-4 are "yes" then we're near the 结束 of a momentum scroll deceleration.
           // Snap immediately and ignore remaining wheel events in this scroll.
           // See comment above for "remaining wheel events in this scroll" determination.
           // If 1-4 aren't satisfied, then wait to snap until 500ms after the last event.
@@ -293,7 +293,7 @@ const Mousewheel = {
             firstEvent.delta - newEvent.delta >= 1 &&
             newEvent.delta <= 6
           ) {
-            // We're at the end of the deceleration of a momentum scroll, so there's no need
+            // We're at the 结束 of the deceleration of a momentum scroll, so there's no need
             // to wait for more events. Snap ASAP on the next tick.
             // Also, because there's some remaining momentum we'll bias the snap in the
             // direction of the ongoing scroll because it's better UX for the scroll to snap
@@ -307,7 +307,7 @@ const Mousewheel = {
             }, 0); // no delay; move on next tick
           }
           if (!swiper.mousewheel.timeout) {
-            // if we get here, then we haven't detected the end of a momentum scroll, so
+            // if we get here, then we haven't detected the 结束 of a momentum scroll, so
             // we'll consider a scroll "complete" when there haven't been any wheel events
             // for 500ms.
             swiper.mousewheel.timeout = nextTick(() => {
@@ -361,7 +361,7 @@ const Mousewheel = {
       // Return false as a default
       return true;
     }
-    // If user is scrolling towards the end:
+    // If user is scrolling towards the 结束:
     //   If the slider hasn't hit the latest slide or
     //   if the slider is a loop and
     //   if the slider isn't moving right now:

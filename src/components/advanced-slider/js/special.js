@@ -372,7 +372,7 @@ export const ADVANCED_SLIDER_FILTER = ((module, $, window, document) => {
                     setTimeout(function() {
                         canvasDefaultInit($this, $first);
                     }, animSpeed);
-                }// end effect
+                }// 结束 effect
                 //----------------------------------------------------------------------------------
                 //--------------------------------- Liquid Distortion Effect -----------------------
                 //----------------------------------------------------------------------------------
@@ -459,7 +459,7 @@ export const ADVANCED_SLIDER_FILTER = ((module, $, window, document) => {
                     setTimeout(function() {
                         canvasDefaultInit($this, $first);
                     }, animSpeed);
-                }// end effect
+                }// 结束 effect
                 //----------------------------------------------------------------------------------
                 //--------------------------------- Liquid Distortion Effect 2 -----------------------
                 //----------------------------------------------------------------------------------
@@ -548,7 +548,7 @@ export const ADVANCED_SLIDER_FILTER = ((module, $, window, document) => {
                     setTimeout(function() {
                         canvasDefaultInit($this, $first);
                     }, animSpeed);
-                }// end effect
+                }// 结束 effect
                 //----------------------------------------------------------------------------------
                 //--------------------------------- Liquid Distortion Effect 3 -----------------------
                 //----------------------------------------------------------------------------------
@@ -640,7 +640,7 @@ export const ADVANCED_SLIDER_FILTER = ((module, $, window, document) => {
                     setTimeout(function() {
                         canvasDefaultInit($this, $first);
                     }, animSpeed);
-                }// end effect
+                }// 结束 effect
                 //----------------------------------------------------------------------------------
                 //--------------------------------- Parallax Effect -------------------------------
                 //----------------------------------------------------------------------------------
@@ -731,7 +731,7 @@ export const ADVANCED_SLIDER_FILTER = ((module, $, window, document) => {
                     setTimeout(function() {
                         canvasDefaultInit($this, $first);
                     }, animSpeed);
-                }// end effect
+                }// 结束 effect
                 //Canvas Interactions
                 //-------------------------------------
                 transitionInteractions(0, itemsTotal - 1, $this, 'in', 'next');
@@ -1169,7 +1169,7 @@ export const ADVANCED_SLIDER_FILTER = ((module, $, window, document) => {
                             }
                         });
                     }
-                } // end effect
+                } // 结束 effect
                 //----------------------------------------------------------------------------------
                 //--------------------------------- Liquid Distortion Effect -----------------------
                 //----------------------------------------------------------------------------------
@@ -1272,7 +1272,7 @@ export const ADVANCED_SLIDER_FILTER = ((module, $, window, document) => {
                             displacementFilter.rotation += 0.001;
                         };
                     }
-                } // end effect
+                } // 结束 effect
                 //----------------------------------------------------------------------------------
                 //--------------------------------- Liquid Distortion Effect 2 -----------------------
                 //----------------------------------------------------------------------------------
@@ -1368,7 +1368,7 @@ export const ADVANCED_SLIDER_FILTER = ((module, $, window, document) => {
                             TweenMax.to(displacementFilter.scale, 1, { x: e.pageX / 2 + '' });
                         });
                     }
-                } // end effect
+                } // 结束 effect
                 //----------------------------------------------------------------------------------
                 //--------------------------------- Liquid Distortion Effect 3 -----------------------
                 //----------------------------------------------------------------------------------
@@ -1456,7 +1456,7 @@ export const ADVANCED_SLIDER_FILTER = ((module, $, window, document) => {
                             }
                         });
                     }
-                } // end effect
+                } // 结束 effect
                 //----------------------------------------------------------------------------------
                 //--------------------------------- Parallax Effect -----------------------------
                 //----------------------------------------------------------------------------------
@@ -1600,7 +1600,7 @@ export const ADVANCED_SLIDER_FILTER = ((module, $, window, document) => {
                         }
                         goNextItem();
                     }
-                } // end effect
+                } // 结束 effect
             } else {
                 slider.find('.uix-advanced-slider-sp__item canvas').hide();
             }
@@ -1758,7 +1758,7 @@ export const ADVANCED_SLIDER_FILTER = ((module, $, window, document) => {
                                 }
                                 //Hidden replay button
                                 $replayBtn.hide();
-                                //Should the video go to the beginning when it ends
+                                //Should the video go to the beginning when it 结束s
                                 this.on('ended', function() {
                                     if (dataLoop) {
                                         this.currentTime(0);

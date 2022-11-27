@@ -393,7 +393,7 @@ export const THREE_EXP_PARTICLE_SLIDER = ( ( module, $, window, document ) => {
                     }//endif activated
                         
                         
-				});// end each				
+				});// 结束 each				
 			}
 
 
@@ -923,7 +923,7 @@ export const THREE_EXP_PARTICLE_SLIDER = ( ( module, $, window, document ) => {
 					isAnimating = false;			
 					
 					
-				}// end isAnimating
+				}// 结束 isAnimating
 				
 				
 

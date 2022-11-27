@@ -56,7 +56,7 @@
     37.表格（布局）Form ( Layout )-
     38.Form  ( Material Design Theme )
     39.表单（第三方插件） Form ( 3rd Party Plugin )
-    40.Gallery
+    40.画廊 Gallery
     41.Hybrid Content Slider
     42.Image Shapes
     43.Infinite Scrolling Element
@@ -9182,7 +9182,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   /* IE10+ */
   background: linear-gradient(to bottom, #ffffff 0%, #f4f8fa 73%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#f4f8fa', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', 结束Colorstr='#f4f8fa', GradientType=0);
   /* IE6-9 */
 }
 
@@ -9200,16 +9200,17 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   /* IE10+ */
   background: linear-gradient(to bottom, #f4f8fa 0%, #ffffff 73%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f8fa', endColorstr='#FFF', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f8fa', 结束Colorstr='#FFF', GradientType=0);
   /* IE6-9 */
 }
 
+@charset "UTF-8";
 /* ======================================================
-        <!-- Gallery -->
+        <!-- 画廊 Gallery -->
 /* ====================================================== */
 .uix-gallery > .uix-gallery__tiles {
   overflow: auto;
-  /* Fix a bug for floating divs have 0 height */
+  /* 修复浮动 div 高度为 0 的错误 */
 }
 
 .uix-gallery > .uix-gallery__tiles .uix-gallery__item {
@@ -9217,7 +9218,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   position: relative;
   text-align: left;
   margin-bottom: 0;
-  /* Cover the bottom spacing of the grid system */
+  /* 覆盖网格系统底部间距 */
 }
 
 .uix-gallery > .uix-gallery__tiles .uix-gallery__item .uix-gallery__image {
@@ -9295,19 +9296,19 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   background: rgba(255, 255, 255, 0.95);
 }
 
-/* Filter or Masonry */
-/* You can directly use uix-core-grid__col-* to control the width of the item */
+/* 过滤器或砌体 */
+/* 可以直接使用uix-core-grid__col-*来控制项目的宽度*/
 .uix-gallery[data-show-type*="filter"] > .uix-gallery__tiles,
 .uix-gallery[data-show-type*="masonry"] > .uix-gallery__tiles {
   position: relative;
-  /* required */
+  /* 必需的 */
   overflow: inherit;
   width: calc(100% + 15px);
 }
 
 .uix-gallery[data-show-type*="filter"] > .uix-gallery__tiles .uix-gallery__item,
 .uix-gallery[data-show-type*="masonry"] > .uix-gallery__tiles .uix-gallery__item {
-  /* required */
+  /* 必需的 */
   display: block;
   position: absolute;
   z-index: 1;
@@ -9335,6 +9336,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
   z-index: 0;
 }
 
+@charset "UTF-8";
 /* ======================================================
     <!-- Hybrid Content Slider -->
 /* ====================================================== */
@@ -9350,7 +9352,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
  ---------------------------
  */
 .uix-hybrid-content-slider {
-  /* Required */
+  /* 必需的 */
   overflow: hidden;
   width: 100%;
   height: auto;
@@ -9371,7 +9373,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 .uix-hybrid-content-slider .uix-hybrid-content-slider__items > .uix-hybrid-content-slider__item.js-is-ready {
   position: absolute;
-  /* required */
+  /* 必需的 */
 }
 
 /*
@@ -10702,6 +10704,7 @@ a.uix-lightbox__original__link {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
    <!-- Multiple Items Carousel -->
 /* ====================================================== */
@@ -10715,7 +10718,7 @@ a.uix-lightbox__original__link {
  ---------------------------
  */
 .uix-multi-carousel {
-  /* Required */
+  /* 必需的 */
   overflow: hidden;
   width: 100%;
   /*----- Vertical Carousel -----*/
@@ -10728,7 +10731,7 @@ a.uix-lightbox__original__link {
 
 .uix-multi-carousel .uix-multi-carousel__items > .uix-multi-carousel__item {
   position: absolute;
-  /* required */
+  /* 必需的 */
   height: 100%;
   /* Demo Style */
   box-shadow: inset -1px 0px 0px 0px rgba(255, 255, 255, 0.5);
@@ -10757,7 +10760,7 @@ a.uix-lightbox__original__link {
 }
 
 .uix-multi-carousel.is-vertical {
-  /* Required */
+  /* 必需的 */
   overflow: hidden;
   width: 500px;
   height: 450px;
@@ -10765,7 +10768,7 @@ a.uix-lightbox__original__link {
 
 .uix-multi-carousel.is-vertical .uix-multi-carousel__items {
   width: 100%;
-  /* Required */
+  /* 必需的 */
   height: 100%;
 }
 
@@ -10843,6 +10846,7 @@ a.uix-lightbox__original__link {
   visibility: hidden;
 }
 
+@charset "UTF-8";
 /* ======================================================
        <!-- Periodical Scroll -->
 /* ====================================================== */
@@ -10858,7 +10862,7 @@ a.uix-lightbox__original__link {
   display: block;
   opacity: 0;
   position: absolute;
-  /* required */
+  /* 必需的 */
 }
 
 .uix-periodical-scroll ul li span {
@@ -10994,6 +10998,7 @@ a.uix-lightbox__original__link {
   opacity: 0.65;
 }
 
+@charset "UTF-8";
 /* ======================================================
    <!-- Progress Bar -->
 /* ====================================================== */
@@ -11012,7 +11017,7 @@ a.uix-lightbox__original__link {
   display: inline-block;
   margin: 1rem;
   position: relative;
-  /* End For */
+  /* 结束 For */
 }
 
 .uix-progressbar--circle .uix-progressbar__title {
@@ -14278,6 +14283,7 @@ button.swiper-pagination-bullet {
   z-index: -1000;
 }
 
+@charset "UTF-8";
 /* ======================================================
     <!-- Swiper -->
 /* ====================================================== */
@@ -14372,7 +14378,7 @@ button.swiper-pagination-bullet {
 #app-slider3 .swiper-slide,
 #app-slider4 .swiper-slide {
   overflow: hidden;
-  /* required */
+  /* 必需的 */
 }
 
 #app-slider3 .swiper-slide > .slide-inner,
@@ -14633,6 +14639,7 @@ button.swiper-pagination-bullet {
   }
 }
 
+@charset "UTF-8";
 /* ======================================================
    <!-- 3D Shatter Slider -->
 /* ====================================================== */
@@ -14689,7 +14696,7 @@ button.swiper-pagination-bullet {
   top: 0;
   z-index: 3;
   height: 100%;
-  /* Required */
+  /* 必需的 */
   display: none;
 }
 
@@ -14803,6 +14810,7 @@ button.swiper-pagination-bullet {
   visibility: hidden;
 }
 
+@charset "UTF-8";
 /* ======================================================
    <!-- 3D Explosive Particle Slider -->
 /* ====================================================== */
@@ -14859,7 +14867,7 @@ button.swiper-pagination-bullet {
   top: 0;
   z-index: 3;
   height: 100%;
-  /* Required */
+  /* 必需的 */
   display: none;
 }
 
@@ -14973,6 +14981,7 @@ button.swiper-pagination-bullet {
   visibility: hidden;
 }
 
+@charset "UTF-8";
 /* ======================================================
    <!-- 3D Liquid Scrollspy Slider -->
 /* ====================================================== */
@@ -15029,7 +15038,7 @@ button.swiper-pagination-bullet {
   top: 0;
   z-index: 3;
   height: 100%;
-  /* Required */
+  /* 必需的 */
   display: none;
 }
 
@@ -15143,6 +15152,7 @@ button.swiper-pagination-bullet {
   visibility: hidden;
 }
 
+@charset "UTF-8";
 /* ======================================================
    <!-- Table -->
 /* ====================================================== */
@@ -15195,7 +15205,7 @@ table.uix-table thead,
 table.uix-table thead th,
 .uix-table table thead th {
   text-align: inherit;
-  /* Required */
+  /* 必需的 */
   /* The breakpoint is the same as bootstrap 5 */
   /*
 			--breakpoint-xs:0;
@@ -16014,6 +16024,7 @@ table.is-horizontal th,
   padding: .5rem 1rem;
 }
 
+@charset "UTF-8";
 /* ======================================================
     <!-- Tabs -->
 /* ====================================================== */
@@ -16163,7 +16174,7 @@ table.is-horizontal th,
   top: 0;
   left: 50%;
   min-width: inherit;
-  /* Required */
+  /* 必需的 */
 }
 
 .uix-tabs.uix-tabs--rotation .uix-tabs__nav > ul > li > a {
@@ -16285,6 +16296,7 @@ table.is-horizontal th,
   line-height: 1;
 }
 
+@charset "UTF-8";
 /* ======================================================
    <!-- Timeline -->
 /* ====================================================== */
@@ -16685,7 +16697,7 @@ table.is-horizontal th,
   .uix-timeline__container-wrapper.is-horizontal.is-reversed .uix-timeline__container .uix-timeline .uix-timeline__item:nth-child(even) .uix-timeline__item__info {
     position: absolute;
     transform: translate(-50%, -100%);
-    /* Required */
+    /* 必需的 */
     margin-top: -50px;
   }
   .uix-timeline__container-wrapper.is-horizontal.is-reversed .uix-timeline__container .uix-timeline .uix-timeline__item:nth-child(even) .uix-timeline__item__info .uix-timeline__item__date {
@@ -21640,6 +21652,7 @@ dl.uix-list-abreast.uix-list-abreast--icon dd {
   opacity: 1;
 }
 
+@charset "UTF-8";
 /* ======================================================
    <!-- Testimonials Carousel -->
 /* ====================================================== */
@@ -21650,7 +21663,7 @@ dl.uix-list-abreast.uix-list-abreast--icon dd {
 }
 
 .uix-testimonials {
-  /* Required */
+  /* 必需的 */
   overflow: hidden;
 }
 

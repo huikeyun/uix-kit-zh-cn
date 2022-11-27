@@ -635,7 +635,7 @@ export const ADVANCED_SLIDER = ((module, $, window, document) => {
                                 }
                                 //Hidden replay button
                                 $replayBtn.hide();
-                                //Should the video go to the beginning when it ends
+                                //Should the video go to the beginning when it 结束s
                                 this.on('ended', function() {
                                     if (dataLoop) {
                                         this.currentTime(0);

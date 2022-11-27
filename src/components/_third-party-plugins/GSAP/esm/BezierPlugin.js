@@ -97,7 +97,7 @@ var _RAD2DEG = 180 / Math.PI,
         }
         seg = a[ii];
         seg.b = cp1;
-        seg.c = cp1 + (seg.d - cp1) * 0.4; //instead of placing c on d exactly, we move it inline with b so that if the user specifies an ease like Back.easeOut or Elastic.easeOut which goes BEYOND the end, it will do so smoothly.
+        seg.c = cp1 + (seg.d - cp1) * 0.4; //instead of placing c on d exactly, we move it inline with b so that if the user specifies an ease like Back.easeOut or Elastic.easeOut which goes BEYOND the 结束, it will do so smoothly.
         seg.da = seg.d - seg.a;
         seg.ca = seg.c - seg.a;
         seg.ba = cp1 - seg.a;
@@ -148,7 +148,7 @@ var _RAD2DEG = 180 / Math.PI,
         for (p in values[0]) {
             props.push(p);
         }
-        //check to see if the last and first values are identical (well, within 0.05). If so, make seamless by appending the second element to the very end of the values array and the 2nd-to-last element to the very beginning (we'll remove those segments later)
+        //check to see if the last and first values are identical (well, within 0.05). If so, make seamless by appending the second element to the very 结束 of the values array and the 2nd-to-last element to the very beginning (we'll remove those segments later)
         if (values.length > 1) {
             last = values[values.length - 1];
             seamless = true;

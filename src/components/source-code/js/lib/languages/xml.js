@@ -14,11 +14,11 @@ module.exports = function(hljs) {
       }
 	  ]
   };
-  var XML_META_PAR_KEYWORDS = hljs.inherit(XML_META_KEYWORDS, {begin: '\\(', end: '\\)'});
+  var XML_META_PAR_KEYWORDS = hljs.inherit(XML_META_KEYWORDS, {begin: '\\(', 结束: '\\)'});
   var APOS_META_STRING_MODE = hljs.inherit(hljs.APOS_STRING_MODE, {className: 'meta-string'});
   var QUOTE_META_STRING_MODE = hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'meta-string'});
   var TAG_INTERNALS = {
-    endsWithParent: true,
+   结束sWithParent: true,
     illegal: /</,
     relevance: 0,
     contains: [
@@ -33,10 +33,10 @@ module.exports = function(hljs) {
         contains: [
           {
             className: 'string',
-            endsParent: true,
+           结束sParent: true,
             variants: [
-              {begin: /"/, end: /"/, contains: [XML_ENTITIES]},
-              {begin: /'/, end: /'/, contains: [XML_ENTITIES]},
+              {begin: /"/, 结束: /"/, contains: [XML_ENTITIES]},
+              {begin: /'/, 结束: /'/, contains: [XML_ENTITIES]},
               {begin: /[^\s"'=<>`]+/}
             ]
           }
@@ -50,7 +50,7 @@ module.exports = function(hljs) {
     contains: [
       {
         className: 'meta',
-        begin: '<![a-z]', end: '>',
+        begin: '<![a-z]', 结束: '>',
         relevance: 10,
         contains: [
 				  XML_META_KEYWORDS,
@@ -58,11 +58,11 @@ module.exports = function(hljs) {
 				  APOS_META_STRING_MODE,
 					XML_META_PAR_KEYWORDS,
 					{
-					  begin: '\\[', end: '\\]',
+					  begin: '\\[', 结束: '\\]',
 					  contains:[
 						  {
 					      className: 'meta',
-					      begin: '<![a-z]', end: '>',
+					      begin: '<![a-z]', 结束: '>',
 					      contains: [
 					        XML_META_KEYWORDS,
 					        XML_META_PAR_KEYWORDS,
@@ -82,23 +82,23 @@ module.exports = function(hljs) {
         }
       ),
       {
-        begin: '<\\!\\[CDATA\\[', end: '\\]\\]>',
+        begin: '<\\!\\[CDATA\\[', 结束: '\\]\\]>',
         relevance: 10
       },
       XML_ENTITIES,
       {
         className: 'meta',
-        begin: /<\?xml/, end: /\?>/, relevance: 10
+        begin: /<\?xml/, 结束: /\?>/, relevance: 10
       },
       {
-        begin: /<\?(php)?/, end: /\?>/,
+        begin: /<\?(php)?/, 结束: /\?>/,
         subLanguage: 'php',
         contains: [
           // We don't want the php closing tag ?> to close the PHP block when
           // inside any of the following blocks:
-          {begin: '/\\*', end: '\\*/', skip: true},
-          {begin: 'b"', end: '"', skip: true},
-          {begin: 'b\'', end: '\'', skip: true},
+          {begin: '/\\*', 结束: '\\*/', skip: true},
+          {begin: 'b"', 结束: '"', skip: true},
+          {begin: 'b\'', 结束: '\'', skip: true},
           hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null, className: null, contains: null, skip: true}),
           hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null, className: null, contains: null, skip: true})
         ]
@@ -108,31 +108,31 @@ module.exports = function(hljs) {
         /*
         The lookahead pattern (?=...) ensures that 'begin' only matches
         '<style' as a single word, followed by a whitespace or an
-        ending braket. The '$' is needed for the lexeme to be recognized
+       结束ing braket. The '$' is needed for the lexeme to be recognized
         by hljs.subMode() that tests lexemes outside the stream.
         */
-        begin: '<style(?=\\s|>)', end: '>',
+        begin: '<style(?=\\s|>)', 结束: '>',
         keywords: {name: 'style'},
         contains: [TAG_INTERNALS],
         starts: {
-          end: '</style>', returnEnd: true,
+         结束: '</style>', returnEnd: true,
           subLanguage: ['css', 'xml']
         }
       },
       {
         className: 'tag',
         // See the comment in the <style tag about the lookahead pattern
-        begin: '<script(?=\\s|>)', end: '>',
+        begin: '<script(?=\\s|>)', 结束: '>',
         keywords: {name: 'script'},
         contains: [TAG_INTERNALS],
         starts: {
-          end: '\<\/script\>', returnEnd: true,
+         结束: '\<\/script\>', returnEnd: true,
           subLanguage: ['actionscript', 'javascript', 'handlebars', 'xml']
         }
       },
       {
         className: 'tag',
-        begin: '</?', end: '/?>',
+        begin: '</?', 结束: '/?>',
         contains: [
           {
             className: 'name', begin: /[^\/><\s]+/, relevance: 0

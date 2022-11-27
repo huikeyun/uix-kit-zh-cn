@@ -221,11 +221,11 @@ var EaselPlugin = _gsScope._gsDefine.plugin({
     //called when the tween renders for the first time. This is where initial values should be recorded and any setup routines should run.
     init: function(target, value, tween, index) {
         this._target = target;
-        var p, pt, tint, colorMatrix, end, labels, i;
+        var p, pt, tint, colorMatrix, 结束, labels, i;
         for (p in value) {
-            end = value[p];
+           结束 = value[p];
             if (typeof (end) === 'function') {
-                end = end(index, target);
+               结束 = 结束(index, target);
             }
             if (p === 'colorFilter' || p === 'tint' || p === 'tintAmount' || p === 'exposure' || p === 'brightness') {
                 if (!tint) {
@@ -249,14 +249,14 @@ var EaselPlugin = _gsScope._gsDefine.plugin({
                     type: 0,
                     m: Math.round
                 };
-                if (typeof (end) === 'string' && end.charAt(1) !== '=' && (labels = target.labels)) {
+                if (typeof (end) === 'string' && 结束.charAt(1) !== '=' && (labels = target.labels)) {
                     for (i = 0; i < labels.length; i++) {
-                        if (labels[i].label === end) {
-                            end = labels[i].position;
+                        if (labels[i].label === 结束) {
+                           结束 = labels[i].position;
                         }
                     }
                 }
-                pt.c = (typeof (end) === 'number') ? end - pt.s : parseFloat((end + '').split('=').join(''));
+                pt.c = (typeof (end) === 'number') ? 结束 - pt.s : parseFloat((end + '').split('=').join(''));
                 if (pt._next) {
                     pt._next._prev = pt;
                 }
@@ -271,7 +271,7 @@ var EaselPlugin = _gsScope._gsDefine.plugin({
                     type: 0
                 };
                 pt.s = (!pt.f) ? parseFloat(target[p]) : target[((p.indexOf('set') || typeof (target['get' + p.substr(3)]) !== 'function') ? p : 'get' + p.substr(3))]();
-                pt.c = (typeof (end) === 'number') ? end - pt.s : (typeof (end) === 'string') ? parseFloat(end.split('=').join('')) : 0;
+                pt.c = (typeof (end) === 'number') ? 结束 - pt.s : (typeof (end) === 'string') ? parseFloat(end.split('=').join('')) : 0;
                 if (pt._next) {
                     pt._next._prev = pt;
                 }

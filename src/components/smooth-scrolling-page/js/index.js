@@ -43,7 +43,7 @@ export const SMOOTH_SCROLLING_PAGE = ( ( module, $, window, document ) => {
                   ease          : 0.05,
 
                   // <= scroll speed
-                  endY          : 0,
+                 结束Y          : 0,
                   y             : 0,
                   resizeRequest : 1,
                   scrollRequest : 0

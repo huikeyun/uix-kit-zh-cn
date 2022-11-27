@@ -429,7 +429,7 @@ export const THREE_LIQUID_SCROLLSPY_SLIDER = ( ( module, $, window, document ) =
                     }//endif activated
                         
 
-				});// end each				
+				});// 结束 each				
 			}
 
 
@@ -1085,7 +1085,7 @@ export const THREE_LIQUID_SCROLLSPY_SLIDER = ( ( module, $, window, document ) =
 	
 					
 					
-				}// end isAnimating
+				}// 结束 isAnimating
 				
 				
 

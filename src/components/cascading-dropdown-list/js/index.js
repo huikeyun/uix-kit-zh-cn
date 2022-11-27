@@ -183,7 +183,7 @@ export const CASCADING_DD_LIST = ((module, $, window, document) => {
                     //
                     const newData = $control.data('data');  // such as: [Array(6), Array(3)]
                     //console.log( 'newData: ', newData );
-                    // All the elements from start(array.length - start) to the end of the array will be deleted.
+                    // All the elements from start(array.length - start) to the 结束 of the array will be deleted.
                     newData.splice(level + 1);
                     if (resValue.children) {
                         const childList = resValue.children;

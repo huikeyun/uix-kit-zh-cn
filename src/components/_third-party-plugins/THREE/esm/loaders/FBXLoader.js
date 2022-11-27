@@ -1042,17 +1042,17 @@ THREE.FBXLoader = (function() {
             var faceWeightIndices = [];
             var self = this;
             geoInfo.vertexIndices.forEach(function(vertexIndex, polygonVertexIndex) {
-                var endOfFace = false;
+                var 结束OfFace = false;
                 // Face index and vertex index arrays are combined in a single array
                 // A cube with quad faces looks like this:
                 // PolygonVertexIndex: *24 {
                 //  a: 0, 1, 3, -3, 2, 3, 5, -5, 4, 5, 7, -7, 6, 7, 1, -1, 1, 7, 5, -4, 6, 0, 2, -5
                 //  }
-                // Negative numbers mark the end of a face - first face here is 0, 1, 3, -3
+                // Negative numbers mark the 结束 of a face - first face here is 0, 1, 3, -3
                 // to find index of last vertex bit shift the index: ^ - 1
                 if (vertexIndex < 0) {
                     vertexIndex = vertexIndex ^ -1; // equivalent to ( x * -1 ) - 1
-                    endOfFace = true;
+                   结束OfFace = true;
                 }
                 var weightIndices = [];
                 var weights = [];
@@ -1356,17 +1356,17 @@ THREE.FBXLoader = (function() {
             for (var i = 0, l = pointsValues.length; i < l; i += 4) {
                 controlPoints.push(new THREE.Vector4().fromArray(pointsValues, i));
             }
-            var startKnot, endKnot;
+            var startKnot, 结束Knot;
             if (geoNode.Form === 'Closed') {
                 controlPoints.push(controlPoints[0]);
             } else if (geoNode.Form === 'Periodic') {
                 startKnot = degree;
-                endKnot = knots.length - 1 - startKnot;
+               结束Knot = knots.length - 1 - startKnot;
                 for (var i = 0; i < degree; ++i) {
                     controlPoints.push(controlPoints[i]);
                 }
             }
-            var curve = new THREE.NURBSCurve(degree, knots, controlPoints, startKnot, endKnot);
+            var curve = new THREE.NURBSCurve(degree, knots, controlPoints, startKnot, 结束Knot);
             var vertices = curve.getPoints(controlPoints.length * 7);
             var positions = new Float32Array(vertices.length * 3);
             vertices.forEach(function(vertex, i) {
@@ -1863,7 +1863,7 @@ THREE.FBXLoader = (function() {
                 else currentNode.a = propValue;
             }
             this.setCurrentProp(currentNode, propName);
-            // convert string to array, unless it ends in ',' in which case more will be added to it
+            // convert string to array, unless it 结束s in ',' in which case more will be added to it
             if (propName === 'a' && propValue.slice(-1) !== ',') {
                 currentNode.a = parseNumberArray(propValue);
             }
@@ -1871,7 +1871,7 @@ THREE.FBXLoader = (function() {
         parseNodePropertyContinued: function(line) {
             var currentNode = this.getCurrentNode();
             currentNode.a += line;
-            // if the line doesn't end in ',' we have reached the end of the property value
+            // if the line doesn't 结束 in ',' we have reached the 结束 of the property value
             // so convert the string to an array
             if (line.slice(-1) !== ',') {
                 currentNode.a = parseNumberArray(currentNode.a);
@@ -1938,8 +1938,8 @@ THREE.FBXLoader = (function() {
             }
             return allNodes;
         },
-        // Check if reader has reached the end of content.
-        endOfContent: function(reader) {
+        // Check if reader has reached the 结束 of content.
+       结束OfContent: function(reader) {
             // footer size: 160bytes + 16-byte alignment padding
             // - 16bytes: magic
             // - padding til 16-byte alignment (at least 1byte?)
@@ -1954,17 +1954,17 @@ THREE.FBXLoader = (function() {
                 return reader.getOffset() + 160 + 16 >= reader.size();
             }
         },
-        // recursively parse nodes until the end of the file is reached
+        // recursively parse nodes until the 结束 of the file is reached
         parseNode: function(reader, version) {
             var node = {};
             // The first three data sizes depends on version.
-            var endOffset = (version >= 7500) ? reader.getUint64() : reader.getUint32();
+            var 结束Offset = (version >= 7500) ? reader.getUint64() : reader.getUint32();
             var numProperties = (version >= 7500) ? reader.getUint64() : reader.getUint32();
             // note: do not remove this even if you get a linter warning as it moves the buffer forward
             var propertyListLen = (version >= 7500) ? reader.getUint64() : reader.getUint32();
             var nameLen = reader.getUint8();
             var name = reader.getString(nameLen);
-            // Regards this node as NULL-record if endOffset is zero
+            // Regards this node as NULL-record if 结束Offset is zero
             if (endOffset === 0) return null;
             var propertyList = [];
             for (var i = 0; i < numProperties; i++) {
@@ -1976,7 +1976,7 @@ THREE.FBXLoader = (function() {
             var attrType = propertyList.length > 2 ? propertyList[2] : '';
             // check if this node represents just a single property
             // like (name, 0) set or (name2, [0, 1, 2]) set of {name: 0, name2: [0, 1, 2]}
-            node.singleProperty = (numProperties === 1 && reader.getOffset() === endOffset) ? true : false;
+            node.singleProperty = (numProperties === 1 && reader.getOffset() === 结束Offset) ? true : false;
             while (endOffset > reader.getOffset()) {
                 var subNode = this.parseNode(reader, version);
                 if (subNode !== null) this.parseSubNode(name, node, subNode);

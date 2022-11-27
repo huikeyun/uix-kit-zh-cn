@@ -177,13 +177,13 @@ class Swiper {
         swiper.touchEventsTouch = {
           start: touch[0],
           move: touch[1],
-          end: touch[2],
+         结束: touch[2],
           cancel: touch[3],
         };
         swiper.touchEventsDesktop = {
           start: desktop[0],
           move: desktop[1],
-          end: desktop[2],
+         结束: desktop[2],
         };
         return swiper.support.touch || !swiper.params.simulateTouch
           ? swiper.touchEventsTouch

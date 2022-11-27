@@ -178,7 +178,7 @@ export default function onTouchEnd(event) {
           momentumDuration = Math.abs((newPosition - swiper.translate) / swiper.velocity);
         }
         if (params.freeModeSticky) {
-          // If freeModeSticky is active and the user ends a swipe with a slow-velocity
+          // If freeModeSticky is active and the user 结束s a swipe with a slow-velocity
           // event, then durations can be 20+ seconds to slide one (or zero!) slides.
           // It's easy to see this when simulating touch with mouse events. To fix this,
           // limit single-slide swipes to the default slide duration. This also has the
