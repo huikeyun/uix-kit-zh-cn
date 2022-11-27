@@ -3447,7 +3447,7 @@ var esm_typeof = __webpack_require__(2);
     34.Custom Lightbox
     35.Bulleted List
     36.Posts List With Ajax
-    37.Full Width Column to Edge
+    37.全宽列到边缘 Full Width Column to Edge
     38.Login Templates
     39.Modal Dialog
     40.Mousewheel Interaction
@@ -20022,9 +20022,9 @@ var POST_LIST_AJAX = function (module, $, window, document) {
 
 
 
-/* 
+/*
  *************************************
- * <!-- Full Width Column to Edge -->
+ * <!-- 全宽列到边缘 Full Width Column to Edge -->
  *************************************
  */
 
