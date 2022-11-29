@@ -1,6 +1,6 @@
 /*
  *************************************
- * <!-- 画廊 Gallery -->
+ * <!-- 图库 Gallery -->
  *************************************
  */
 import {UixModuleInstance} from '@uixkit/core/_global/js';

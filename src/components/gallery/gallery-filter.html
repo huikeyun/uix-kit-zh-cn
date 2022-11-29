@@ -2,7 +2,7 @@
 <html lang="@@{website_lang}" dir="@@{website_dirLTR}">
 <head>
     <meta charset="@@{website_charset}"/>
-    <title>Gallery Filterable - @@{website_title}</title>
+    <title>可筛选的图库 Gallery Filterable - @@{website_title}</title>
     @@include('./src/components/_global/include-header.html')
 </head>
 <body class="page">
@@ -43,6 +43,18 @@
         <!-- 内容 开始 -->
         <section>
             <div class="container uix-t-c">
+                <pre class="uix-precode uix-t-l"><label>HTML</label><code>&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-12&quot;&gt;
+        &lt;div class=&quot;uix-nav uix-nav--separation&quot; id=&quot;js-uix-navfilter-1&quot;&gt;
+            &lt;ul&gt;
+                &lt;li class=&quot;current-cat&quot;&gt;&lt;a data-group=&quot;all&quot; href=&quot;#&quot;&gt;全部&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a data-group=&quot;web-design&quot; href=&quot;#&quot;&gt;网页设计&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a data-group=&quot;ui&quot; href=&quot;#&quot;&gt;用户界面&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a data-group=&quot;seo&quot; href=&quot;#&quot;&gt;SEO&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
                 <!-- 行列 开始 -->
                 <div class="row">
                     <div class="col-12">
@@ -51,7 +63,7 @@
                                 <li class="current-cat"><a data-group="all" href="#">全部</a></li>
                                 <li><a data-group="web-design" href="#">网页设计</a></li>
                                 <li><a data-group="ui" href="#">用户界面</a></li>
-                                <li><a data-group="seo" href="#">SEO</a></li>
+                                <li><a data-group="seo" href="#">搜索引擎优化</a></li>
                             </ul>
                         </div>
                     </div>
@@ -62,7 +74,94 @@
         </section>
         <!-- 内容 开始 -->
         <div class="uix-spacing--s">
+            <!-- 容器 开始 -->
             <div class="container uix-t-c">
+                <pre class="uix-precode uix-t-l"><label>HTML</label><code>&lt;div class=&quot;uix-gallery&quot; data-show-type=&quot;filter&quot; data-filter-id=&quot;#js-uix-navfilter-1&quot;&gt;
+    &lt;div class=&quot;uix-gallery__tiles&quot;&gt;
+        &lt;!-- 项目 开始 --&gt;
+        &lt;article class=&quot;uix-core-grid__col-4 uix-gallery__item&quot; data-groups=&#x27;[&quot;web-design&quot;,&quot;seo&quot;]&#x27;&gt;
+            &lt;div&gt;
+                &lt;a href=&quot;#&quot; class=&quot;uix-gallery__image&quot;&gt;
+                    &lt;div class=&quot;uix-gallery__image-cover&quot;&gt;
+                        &lt;img src=&quot;assets/images/demo/test-img-big-1.jpg&quot; alt=&quot;&quot;/&gt;
+                    &lt;/div&gt;
+                &lt;/a&gt;
+                &lt;h3&gt;
+                    &lt;a href=&quot;#&quot;&gt;项目名称在这里&lt;/a&gt;
+                    &lt;span class=&quot;uix-gallery__title&quot;&gt;美丽的 WordPress 主题&lt;/span&gt;
+                    &lt;span class=&quot;uix-gallery__cat&quot;&gt;&lt;a href=&quot;#&quot;&gt;免费&lt;/a&gt;&lt;/span&gt;
+                &lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;!-- uix-gallery__item 结束 --&gt;
+        &lt;!-- 项目 开始 --&gt;
+        &lt;article class=&quot;uix-core-grid__col-4 uix-gallery__item&quot; data-groups=&#x27;[&quot;web-design&quot;]&#x27;&gt;
+            &lt;div&gt;
+                &lt;a href=&quot;#&quot; class=&quot;uix-gallery__image&quot;&gt;
+                    &lt;div class=&quot;uix-gallery__image-cover&quot;&gt;
+                        &lt;img src=&quot;assets/images/demo/test-img-big-2.jpg&quot; alt=&quot;&quot;/&gt;
+                    &lt;/div&gt;
+                &lt;/a&gt;
+                &lt;h3&gt;
+                    &lt;a href=&quot;#&quot;&gt;项目名称在这里&lt;/a&gt;
+                    &lt;span class=&quot;uix-gallery__title&quot;&gt;美丽的 WordPress 主题&lt;/span&gt;
+                    &lt;span class=&quot;uix-gallery__cat&quot;&gt;&lt;a href=&quot;#&quot;&gt;免费&lt;/a&gt;&lt;/span&gt;
+                &lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;!-- uix-gallery__item 结束 --&gt;
+        &lt;!-- 项目 开始 --&gt;
+        &lt;article class=&quot;uix-core-grid__col-4 uix-gallery__item&quot; data-groups=&#x27;[&quot;web-design&quot;]&#x27;&gt;
+            &lt;div&gt;
+                &lt;a href=&quot;#&quot; class=&quot;uix-gallery__image&quot;&gt;
+                    &lt;div class=&quot;uix-gallery__image-cover&quot;&gt;
+                        &lt;img src=&quot;assets/images/demo/test-img-big-3.jpg&quot; alt=&quot;&quot;/&gt;
+                    &lt;/div&gt;
+                &lt;/a&gt;
+                &lt;h3&gt;
+                    &lt;a href=&quot;#&quot;&gt;项目名称在这里&lt;/a&gt;
+                    &lt;span class=&quot;uix-gallery__title&quot;&gt;美丽的 WordPress 主题&lt;/span&gt;
+                    &lt;span class=&quot;uix-gallery__cat&quot;&gt;&lt;a href=&quot;#&quot;&gt;免费&lt;/a&gt;&lt;/span&gt;
+                &lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;!-- uix-gallery__item 结束 --&gt;
+        &lt;!-- 项目 开始 --&gt;
+        &lt;article class=&quot;uix-core-grid__col-4 uix-gallery__item&quot; data-groups=&#x27;[&quot;seo&quot;]&#x27;&gt;
+            &lt;div&gt;
+                &lt;a href=&quot;#&quot; class=&quot;uix-gallery__image&quot;&gt;
+                    &lt;div class=&quot;uix-gallery__image-cover&quot;&gt;
+                        &lt;img src=&quot;assets/images/demo/test-img-big-4.jpg&quot; alt=&quot;&quot;/&gt;
+                    &lt;/div&gt;
+                &lt;/a&gt;
+                &lt;h3&gt;
+                    &lt;a href=&quot;#&quot;&gt;项目名称在这里&lt;/a&gt;
+                    &lt;span class=&quot;uix-gallery__title&quot;&gt;商业主题&lt;/span&gt;
+                    &lt;span class=&quot;uix-gallery__cat&quot;&gt;&lt;a href=&quot;#&quot;&gt;免费&lt;/a&gt;&lt;/span&gt;
+                &lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;!-- uix-gallery__item 结束 --&gt;
+        &lt;!-- 项目 开始 --&gt;
+        &lt;article class=&quot;uix-core-grid__col-4 uix-gallery__item&quot; data-groups=&#x27;[&quot;ui&quot;]&#x27;&gt;
+            &lt;div&gt;
+                &lt;a href=&quot;#&quot; class=&quot;uix-gallery__image&quot;&gt;
+                    &lt;div class=&quot;uix-gallery__image-cover&quot;&gt;
+                        &lt;img src=&quot;assets/images/demo/test-img-big-5.jpg&quot; alt=&quot;&quot;/&gt;
+                    &lt;/div&gt;
+                &lt;/a&gt;
+                &lt;h3&gt;
+                    &lt;a href=&quot;#&quot;&gt;项目名称在这里&lt;/a&gt;
+                    &lt;span class=&quot;uix-gallery__title&quot;&gt;简单的 WordPress 主题&lt;/span&gt;
+                    &lt;span class=&quot;uix-gallery__cat&quot;&gt;&lt;a href=&quot;#&quot;&gt;免费&lt;/a&gt;&lt;/span&gt;
+                &lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;!-- uix-gallery__item 结束 --&gt;
+    &lt;/div&gt;
+    &lt;!-- uix-gallery__tiles 结束 --&gt;
+&lt;/div&gt;</code></pre>
+                <!-- uix-gallery 开始 -->
                 <div class="uix-gallery" data-show-type="filter" data-filter-id="#js-uix-navfilter-1">
                     <div class="uix-gallery__tiles">
                         <!-- 项目 开始 -->
@@ -149,6 +248,18 @@
                     <!-- uix-gallery__tiles 结束 -->
                 </div>
                 <!-- uix-gallery 结束 -->
+                <pre class="uix-precode uix-t-l"><label>HTML</label><code>&lt;div class=&quot;uix-pagination__container uix-t-c uix-trans&quot;&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;previous&quot;&gt;&lt;a class=&quot;prev page-numbers&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;&lt;a class=&#x27;page-numbers&#x27; href=&#x27;#&#x27;&gt;1&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;is-active&quot;&gt;&lt;span class=&#x27;page-numbers current&#x27;&gt;2&lt;/span&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class=&#x27;page-numbers&#x27; href=&#x27;#&#x27;&gt;3&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;next&quot;&gt;&lt;a class=&quot;next page-numbers&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+                <!-- uix-pagination__container 开始 -->
                 <div class="uix-pagination__container uix-t-c uix-trans">
                     <ul>
                         <li class="previous"><a class="prev page-numbers" href="#"><i class="fa fa-angle-left"></i></a>

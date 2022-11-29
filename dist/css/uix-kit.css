@@ -8,7 +8,7 @@
  * ## 项目网址           :  https://uix-kit.13aq.com/
  * ## 版本              :  4.7.0
  * ## 汉化              :  慧科云 (https://github.com/huikeyun/uix-kit)
- * ## 最后更新日期        :  November 28, 2022
+ * ## 最后更新日期        :  November 29, 2022
  * ## 基于 UIUX Lab (https://uiux.cc) (uiuxlab@gmail.com) 汉化
  * ## 在 MIT 许可下发布。
  *
@@ -56,7 +56,7 @@
     37.表格（布局）Form ( Layout )-
     38.Form  ( Material Design Theme )
     39.表单（第三方插件） Form ( 3rd Party Plugin )
-    40.画廊 Gallery
+    40.图库 Gallery
     41.Hybrid Content Slider
     42.Image Shapes
     43.Infinite Scrolling Element
@@ -125,7 +125,6 @@
     106.Team Gird
     107.Testimonials Carousel
     108.ToolTip
-    109.Wave Background
 
 */
 /******/
@@ -9206,7 +9205,7 @@ input[type="datetime-local"].is-active::-webkit-datetime-edit {
 
 @charset "UTF-8";
 /* ======================================================
-        <!-- 画廊 Gallery -->
+        <!-- 图库 Gallery -->
 /* ====================================================== */
 .uix-gallery > .uix-gallery__tiles {
   overflow: auto;
@@ -21895,209 +21894,4 @@ dl.uix-list-abreast.uix-list-abreast--icon dd {
 
 .uix-tooltip [role~="tooltip"][data-microtip-position|="bottom"]::before {
   background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2236px%22%20height%3D%2212px%22%3E%3Cpath%20fill%3D%22rgba%2817,%2017,%2017,%200.9%29%22%20transform%3D%22rotate%28180%2018%206%29%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E") no-repeat;
-  height: 6px;
-  width: 18px;
-  margin-top: 5px;
-  margin-bottom: 0;
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-position|="bottom"] ~ div {
-  margin-top: 6px;
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-position|="bottom"]::before {
-  transform: translate3d(-50%, -10px, 0);
-  bottom: auto;
-  left: 50%;
-  top: 100%;
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-position|="bottom"]:hover::before {
-  transform: translate3d(-50%, 0, 0);
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-position|="bottom"] ~ div {
-  transform: translate3d(-50%, -10px, 0);
-  top: 100%;
-  left: 50%;
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-position="bottom"]:hover ~ div {
-  transform: translate3d(-50%, 0, 0);
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-position="bottom-left"] ~ div {
-  transform: translate3d(calc(-100% + 16px), -10px, 0);
-  top: 100%;
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-position="bottom-left"]:hover ~ div {
-  transform: translate3d(calc(-100% + 16px), 0, 0);
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-position="bottom-right"] ~ div {
-  transform: translate3d(calc(0% + -16px), -10px, 0);
-  top: 100%;
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-position="bottom-right"]:hover ~ div {
-  transform: translate3d(calc(0% + -16px), 0, 0);
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-position="left"]::before,
-.uix-tooltip [role~="tooltip"][data-microtip-position="left"] ~ div {
-  bottom: auto;
-  left: auto;
-  right: 100%;
-  top: 50%;
-  transform: translate3d(10px, -50%, 0);
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-position="left"]::before {
-  background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212px%22%20height%3D%2236px%22%3E%3Cpath%20fill%3D%22rgba%2817,%2017,%2017,%200.9%29%22%20transform%3D%22rotate%28-90%2018%2018%29%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E") no-repeat;
-  height: 18px;
-  width: 6px;
-  margin-right: 5px;
-  margin-bottom: 0;
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-position="left"] ~ div {
-  margin-right: 10px;
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-position="left"]:hover::before,
-.uix-tooltip [role~="tooltip"][data-microtip-position="left"]:hover ~ div {
-  transform: translate3d(0, -50%, 0);
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-position="right"]::before,
-.uix-tooltip [role~="tooltip"][data-microtip-position="right"] ~ div {
-  bottom: auto;
-  left: 100%;
-  top: 50%;
-  transform: translate3d(-10px, -50%, 0);
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-position="right"]::before {
-  background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212px%22%20height%3D%2236px%22%3E%3Cpath%20fill%3D%22rgba%2817,%2017,%2017,%200.9%29%22%20transform%3D%22rotate%2890%206%206%29%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E") no-repeat;
-  height: 18px;
-  width: 6px;
-  margin-bottom: 0;
-  margin-left: 5px;
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-position="right"] ~ div {
-  margin-left: 10px;
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-position="right"]:hover::before,
-.uix-tooltip [role~="tooltip"][data-microtip-position="right"]:hover ~ div {
-  transform: translate3d(0, -50%, 0);
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-size="auto"] ~ div {
-  white-space: nowrap;
-  width: auto;
-  max-width: 530px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-size="small"] ~ div {
-  white-space: initial;
-  width: 80px;
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-size="medium"] ~ div {
-  white-space: initial;
-  width: 150px;
-}
-
-.uix-tooltip [role~="tooltip"][data-microtip-size="large"] ~ div {
-  white-space: initial;
-  width: 260px;
-}
-
-/* ======================================================
-   <!-- Wave Background -->
-/* ====================================================== */
-/*
- * 1. Wave Mask
- * 2. Pure Svg
-
-*/
-/*
- ---------------------------
- 1. Wave Mask
- ---------------------------
- */
-.uix-wave-bg__container {
-  position: relative;
-  height: 50px;
-  z-index: 1;
-}
-
-.uix-wave-bg__svgmask {
-  overflow: hidden;
-  position: absolute;
-  width: 140%;
-  transform: translateY(-50%);
-  color: #fff;
-  margin-left: -20%;
-  animation: 5s ease-in-out infinite alternate uix-cssAnim--wave;
-}
-
-.uix-wave-bg__svgmask svg {
-  fill: currentColor;
-  width: 102%;
-  margin-left: -1%;
-  height: auto;
-}
-
-@keyframes uix-cssAnim--wave {
-  0% {
-    transform: translate(-80px, -52%);
-  }
-  100% {
-    transform: translate(80px, -50%);
-  }
-}
-
-/*
- ---------------------------
- 2. Pure Svg
- ---------------------------
- */
-.uix-wave-bg__pureSvg {
-  width: 100%;
-  height: 300px;
-  position: relative;
-}
-
-.uix-wave-bg__pureSvg .uix-wave-bg__parallax > use {
-  animation: uix-cssAnim--wave2 14s linear infinite;
-}
-
-.uix-wave-bg__pureSvg .uix-wave-bg__parallax > use:nth-child(1) {
-  animation-delay: -2s;
-  animation-duration: 7s;
-  fill-opacity: .2;
-}
-
-.uix-wave-bg__pureSvg .uix-wave-bg__parallax > use:nth-child(2) {
-  animation-delay: -3s;
-  animation-duration: 12s;
-  fill-opacity: 1;
-}
-
-@keyframes uix-cssAnim--wave2 {
-  0% {
-    transform: translate3d(-90px, 0, 0);
-  }
-  100% {
-    transform: translate3d(85px, 0, 0);
-  }
-}
-
-
-/*# sourceMappingURL=uix-kit.css.map*/
+  
