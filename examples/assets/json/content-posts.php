@@ -1,26 +1,25 @@
 <?php
 
 
-$total = $_POST[ 'total' ]; //The total pages.
-$page  = $_POST[ 'page' ]; //The current page to load.
-$per   = $_POST[ 'per' ];  //The amount to load each time.
+$total = $_POST['total']; //The total pages.
+$page = $_POST['page']; //The current page to load.
+$per = $_POST['per'];  //The amount to load each time.
 
 //Custom field
 $title = 'Default Title';
-if ( isset( $_POST[ 'name1' ] ) && $_POST[ 'name1' ] != '' ) {
-	$title = $_POST[ 'name1' ];
+if (isset($_POST['name1']) && $_POST['name1'] != '') {
+    $title = $_POST['name1'];
 }
 
 
+if ($page == 5) {
 
-if ( $page == 5 ) {
-	
-	echo 'not';
+    echo 'not';
 }
 
-if ( $page == 4 ) {
-	
-	echo '
+if ($page == 4) {
+
+    echo '
 	{
 		"items": [
 			{
@@ -64,9 +63,9 @@ if ( $page == 4 ) {
 
 }
 
-if ( $page == 3 ) {
-	
-	echo '
+if ($page == 3) {
+
+    echo '
 	{
 		"items": [
 			{
@@ -109,14 +108,14 @@ if ( $page == 3 ) {
 	';
 
 }
-if ( $page == 2 ) {
-	echo '
+if ($page == 2) {
+    echo '
 	{
 		"items": [
 		
 			{
 			  "img"     : "assets/images/demo/test-img-big-3.jpg",
-			  "title"   : "'.$title.'  - PAGE 2",
+			  "title"   : "' . $title . '  - PAGE 2",
 			  "time"    : "December 10, 2017",
 			  "author"  : "David",
 			  "cat"     : "Art, Design",
@@ -128,7 +127,7 @@ if ( $page == 2 ) {
 			},
 			{
 			  "img"     : "assets/images/demo/test-img-big-5.jpg",
-			  "title"   : "'.$title.'  - PAGE 2",
+			  "title"   : "' . $title . '  - PAGE 2",
 			  "time"    : "December 9, 2017",
 			  "author"  : "David",
 			  "cat"     : "Art, Design",
@@ -139,7 +138,7 @@ if ( $page == 2 ) {
 			},
 			{
 			  "img"     : "assets/images/demo/test-img-big-2.jpg",
-			  "title"   : "'.$title.'  - PAGE 2",
+			  "title"   : "' . $title . '  - PAGE 2",
 			  "time"    : "December 8, 2017",
 			  "author"  : "David",
 			  "cat"     : "Art, Design",
@@ -152,11 +151,11 @@ if ( $page == 2 ) {
 
 		]
 	}
-	';		
+	';
 }
 
-if ( $page == 1 ) {
-	echo '
+if ($page == 1) {
+    echo '
 	{
 		"items": [
 		
@@ -198,6 +197,6 @@ if ( $page == 1 ) {
 
 		]
 	}
-	';		
+	';
 }
 
