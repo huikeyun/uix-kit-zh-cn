@@ -77,7 +77,7 @@
     "tar": "^4.4.19",
     "terser-webpack-plugin": "^5.1.4",
     "webpack": "^5.49.0",
-    "webpack-cli": "^3.3.12",
+    "webpack-cli": "^5.0.1",
     "webpack-concat-files-plugin": "^0.5.2",
     "webpack-dev-middleware": "^3.4.0",
     "webpack-dev-server": "^3.11.2"
