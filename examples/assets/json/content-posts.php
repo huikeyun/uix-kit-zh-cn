@@ -1,30 +1,22 @@
 <?php
-
-
-$total = $_POST['total']; //The total pages.
-$page = $_POST['page']; //The current page to load.
-$per = $_POST['per'];  //The amount to load each time.
-
+    $total = $_POST['total']; //The total pages.
+    $page = $_POST['page']; //The current page to load.
+    $per = $_POST['per'];  //The amount to load each time.
 //Custom field
-$title = 'Default Title';
-if (isset($_POST['name1']) && $_POST['name1'] != '') {
-    $title = $_POST['name1'];
-}
-
-
-if ($page == 5) {
-
-    echo 'not';
-}
-
-if ($page == 4) {
-
-    echo '
+    $title = 'Default Title';
+    if (isset($_POST['name1']) && $_POST['name1'] != '') {
+        $title = $_POST['name1'];
+    }
+    if ($page == 5) {
+        echo 'not';
+    }
+    if ($page == 4) {
+        echo '
 	{
 		"items": [
 			{
 			  "img"     : "assets/images/demo/test-img-big-1.jpg",
-			  "title"   : "Project Title - PAGE 4",
+			  "title"   : "项目标题 - 页面 4-1",
 			  "time"    : "December 10, 2017",
 			  "author"  : "David",
 			  "cat"     : "Art, Design",
@@ -36,7 +28,7 @@ if ($page == 4) {
 			},
 			{
 			  "img"     : "assets/images/demo/test-img-big-3.jpg",
-			  "title"   : "Project Title Here - PAGE 4",
+			  "title"   : "项目标题 - 页面 4-2",
 			  "time"    : "December 9, 2017",
 			  "author"  : "David",
 			  "cat"     : "Art, Design",
@@ -47,7 +39,7 @@ if ($page == 4) {
 			},
 			{
 			  "img"     : "assets/images/demo/test-img-big-2.jpg",
-			  "title"   : "Project Title Here - PAGE 4",
+			  "title"   : "项目标题 - 页面 4-3",
 			  "time"    : "December 8, 2017",
 			  "author"  : "David",
 			  "cat"     : "Art, Design",
@@ -60,17 +52,14 @@ if ($page == 4) {
 		]
 	}
 	';
-
-}
-
-if ($page == 3) {
-
-    echo '
+    }
+    if ($page == 3) {
+        echo '
 	{
 		"items": [
 			{
 			  "img"     : "assets/images/demo/test-img-big-2.jpg",
-			  "title"   : "Project Title - PAGE 3",
+			  "title"   : "项目标题 - 页面 3-1",
 			  "time"    : "December 10, 2017",
 			  "author"  : "David",
 			  "cat"     : "Art, Design",
@@ -82,7 +71,7 @@ if ($page == 3) {
 			},
 			{
 			  "img"     : "assets/images/demo/test-img-big-5.jpg",
-			  "title"   : "Project Title Here - PAGE 3",
+			  "title"   : "项目标题 - 页面 3-2",
 			  "time"    : "December 9, 2017",
 			  "author"  : "David",
 			  "cat"     : "Art, Design",
@@ -93,7 +82,7 @@ if ($page == 3) {
 			},
 			{
 			  "img"     : "assets/images/demo/test-img-big-4.jpg",
-			  "title"   : "Project Title Here - PAGE 3",
+			  "title"   : "项目标题 - 页面 3-3",
 			  "time"    : "December 8, 2017",
 			  "author"  : "David",
 			  "cat"     : "Art, Design",
@@ -106,10 +95,9 @@ if ($page == 3) {
 		]
 	}
 	';
-
-}
-if ($page == 2) {
-    echo '
+    }
+    if ($page == 2) {
+        echo '
 	{
 		"items": [
 		
@@ -152,10 +140,9 @@ if ($page == 2) {
 		]
 	}
 	';
-}
-
-if ($page == 1) {
-    echo '
+    }
+    if ($page == 1) {
+        echo '
 	{
 		"items": [
 		
@@ -198,5 +185,5 @@ if ($page == 1) {
 		]
 	}
 	';
-}
+    }
 
